@@ -486,14 +486,8 @@ define void @_ZN5Yosys8DriveBitC2ERKNS_5RTLIL6SigBitE(ptr noundef nonnull align 
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys8DriveBit5mergeERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys8DriveBit5mergeERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::DriveBit", align 8
   %4 = alloca %"struct.std::pair", align 8
   %5 = alloca %"struct.Yosys::DriveBitMultiple", align 8
@@ -513,10 +507,10 @@ define void @_ZN5Yosys8DriveBit5mergeERKS0_(ptr noundef nonnull align 8 derefere
   br label %54
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #28
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #28, !noalias !19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !19
   store i8 0, ptr %3, align 8, !tbaa !6, !noalias !19
   %13 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN5Yosys8DriveBitaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %.noexc.i unwind label %16
@@ -529,7 +523,7 @@ define void @_ZN5Yosys8DriveBit5mergeERKS0_(ptr noundef nonnull align 8 derefere
   %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #28, !noalias !19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !19
   br label %.body.i
 
 16:                                               ; preds = %12
@@ -543,14 +537,14 @@ common.resume:                                    ; preds = %.body, %.body.i
 
 .body.i:                                          ; preds = %16, %14
   %eh.lpad-body.i = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #28
   br label %common.resume
 
 _ZN5Yosys16DriveBitMultipleC2ERKNS_8DriveBitE.exit: ; preds = %.noexc.i
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #28, !noalias !19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !22
@@ -634,12 +628,12 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_8DriveBitENS1_8hash_opsIS3_EEE7entr
   br label %_ZN5Yosys16DriveBitMultipleD2Ev.exit
 
 _ZN5Yosys16DriveBitMultipleD2Ev.exit:             ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_8DriveBitENS1_8hash_opsIS3_EEE7entry_tESaIS7_EED2Ev.exit.i.i, %46
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %52
 
 .body:                                            ; preds = %28, %31
   call void @_ZN5Yosys16DriveBitMultipleD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #28
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 52:                                               ; preds = %8, %_ZN5Yosys16DriveBitMultipleD2Ev.exit
@@ -652,7 +646,7 @@ _ZN5Yosys16DriveBitMultipleD2Ev.exit:             ; preds = %_ZNSt12_Vector_base
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(64) ptr @_ZN5Yosys8DriveBitaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(64) ptr @_ZN5Yosys8DriveBitaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i8, ptr %1, align 8, !tbaa !6
   switch i8 %3, label %_ZN5Yosys8DriveBitaSERKNS_16DriveBitMultipleE.exit [
     i8 0, label %4
@@ -774,7 +768,7 @@ _ZN5Yosys8DriveBitaSERKNS_16DriveBitMultipleE.exit: ; preds = %_ZN5Yosys16DriveB
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5Yosys16DriveBitMultipleD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys16DriveBitMultipleD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -826,7 +820,7 @@ _ZN5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEED2Ev.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys16DriveBitMultiple5mergeERKNS_8DriveBitE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys16DriveBitMultiple5mergeERKNS_8DriveBitE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::DriveBit", align 8
   %4 = alloca %"struct.std::pair", align 8
   %5 = load i8, ptr %1, align 8, !tbaa !6
@@ -863,8 +857,8 @@ define void @_ZN5Yosys16DriveBitMultiple5mergeERKNS_8DriveBitE(ptr noundef nonnu
   br i1 %.not, label %_ZN5Yosys16DriveBitMultiple5mergeERKS0_.exit, label %.lr.ph
 
 19:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #28
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #28, !noalias !41
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !41
   store i8 0, ptr %3, align 8, !tbaa !6, !noalias !41
   %20 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN5Yosys8DriveBitaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %1), !noalias !41
   invoke void @_ZN5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE6insertEOS2_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %4, ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(64) %3)
@@ -874,13 +868,13 @@ define void @_ZN5Yosys16DriveBitMultiple5mergeERKNS_8DriveBitE(ptr noundef nonnu
   %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #28, !noalias !41
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !41
   resume { ptr, i32 } %22
 
 _ZN5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE7emplaceIJRKS2_EEESt4pairINS5_8iteratorEbEDpOT_.exit: ; preds = %19
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #28, !noalias !41
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !41
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5Yosys16DriveBitMultiple5mergeERKS0_.exit
 
 _ZN5Yosys16DriveBitMultiple5mergeERKS0_.exit:     ; preds = %.lr.ph, %6, %2, %_ZN5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE7emplaceIJRKS2_EEESt4pairINS5_8iteratorEbEDpOT_.exit
@@ -888,7 +882,7 @@ _ZN5Yosys16DriveBitMultiple5mergeERKS0_.exit:     ; preds = %.lr.ph, %6, %2, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys16DriveBitMultiple5mergeEONS_8DriveBitE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys16DriveBitMultiple5mergeEONS_8DriveBitE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::DriveBit", align 8
   %4 = alloca %"struct.std::pair", align 8
   %5 = load i8, ptr %1, align 8, !tbaa !6
@@ -925,8 +919,8 @@ define void @_ZN5Yosys16DriveBitMultiple5mergeEONS_8DriveBitE(ptr noundef nonnul
   br i1 %.not, label %_ZN5Yosys16DriveBitMultiple5mergeEOS0_.exit, label %.lr.ph
 
 19:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #28
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #28, !noalias !44
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !44
   store i8 0, ptr %3, align 8, !tbaa !6, !noalias !44
   %20 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN5Yosys8DriveBitaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %1), !noalias !44
   invoke void @_ZN5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE6insertEOS2_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %4, ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(64) %3)
@@ -936,13 +930,13 @@ define void @_ZN5Yosys16DriveBitMultiple5mergeEONS_8DriveBitE(ptr noundef nonnul
   %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #28, !noalias !44
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !44
   resume { ptr, i32 } %22
 
 _ZN5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE7emplaceIJS2_EEESt4pairINS5_8iteratorEbEDpOT_.exit: ; preds = %19
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #28, !noalias !44
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !44
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5Yosys16DriveBitMultiple5mergeEOS0_.exit
 
 _ZN5Yosys16DriveBitMultiple5mergeEOS0_.exit:      ; preds = %.lr.ph, %6, %2, %_ZN5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE7emplaceIJS2_EEESt4pairINS5_8iteratorEbEDpOT_.exit
@@ -950,7 +944,7 @@ _ZN5Yosys16DriveBitMultiple5mergeEOS0_.exit:      ; preds = %.lr.ph, %6, %2, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Yosys18DriveChunkMultipleixEi(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::DriveBitMultiple") align 8 initializes((0, 48)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %1, i32 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Yosys18DriveChunkMultipleixEi(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::DriveBitMultiple") align 8 initializes((0, 48)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Yosys::DriveBit", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 48, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -978,7 +972,7 @@ define void @_ZNK5Yosys18DriveChunkMultipleixEi(ptr dead_on_unwind noalias writa
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %15 = load ptr, ptr %5, align 8, !tbaa !50
   %16 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<Yosys::DriveChunk>::entry_t", ptr %15, i64 %indvars.iv.next
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZNK5Yosys10DriveChunkixEi(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::DriveBit") align 8 %4, ptr noundef nonnull align 8 dereferenceable(72) %16, i32 noundef %2)
           to label %17 unwind label %19
 
@@ -988,7 +982,7 @@ define void @_ZNK5Yosys18DriveChunkMultipleixEi(ptr dead_on_unwind noalias writa
 
 18:                                               ; preds = %17
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1005,16 +999,16 @@ define void @_ZNK5Yosys18DriveChunkMultipleixEi(ptr dead_on_unwind noalias writa
 
 23:                                               ; preds = %21, %19
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5Yosys16DriveBitMultipleD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #28
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK5Yosys10DriveChunkixEi(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::DriveBit") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNK5Yosys10DriveChunkixEi(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::DriveBit") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Yosys::RTLIL::Const::const_iterator", align 8
   %5 = alloca %"struct.Yosys::DriveBitMultiple", align 8
   %6 = load i8, ptr %1, align 8, !tbaa !51
@@ -1034,12 +1028,12 @@ define linkonce_odr void @_ZNK5Yosys10DriveChunkixEi(ptr dead_on_unwind noalias 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = sext i32 %2 to i64
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %9, ptr %4, align 8, !tbaa !53
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %10, ptr %11, align 8, !tbaa !55
   %12 = call noundef zeroext i8 @_ZNK5Yosys5RTLIL5Const14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 0, ptr %0, align 8, !tbaa !6
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1180,7 +1174,7 @@ _ZNK5Yosys14DriveChunkPortixEi.exit:              ; preds = %21
   br label %_ZN5Yosys12DriveBitPortD2Ev.exit
 
 82:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @_ZNK5Yosys18DriveChunkMultipleixEi(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::DriveBitMultiple") align 8 %5, ptr noundef nonnull align 8 dereferenceable(60) %83, i32 noundef %2)
   store i8 0, ptr %0, align 8, !tbaa !6
@@ -1267,12 +1261,12 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_8DriveBitENS1_8hash_opsIS3_EEE7entr
   br label %_ZN5Yosys16DriveBitMultipleD2Ev.exit
 
 _ZN5Yosys16DriveBitMultipleD2Ev.exit:             ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_8DriveBitENS1_8hash_opsIS3_EEE7entry_tESaIS7_EED2Ev.exit.i.i, %112
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5Yosys12DriveBitPortD2Ev.exit
 
 .body:                                            ; preds = %94, %97
   call void @_ZN5Yosys16DriveBitMultipleD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #28
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %95
 
 118:                                              ; preds = %3
@@ -1284,7 +1278,7 @@ _ZN5Yosys12DriveBitPortD2Ev.exit:                 ; preds = %71, %64, %58, %_ZN5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5Yosys14DriveChunkWire10can_appendERKNS_12DriveBitWireE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %1) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK5Yosys14DriveChunkWire10can_appendERKNS_12DriveBitWireE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %1) local_unnamed_addr #7 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !74
   %4 = load ptr, ptr %0, align 8, !tbaa !58
   %5 = icmp eq ptr %3, %4
@@ -1307,7 +1301,7 @@ define noundef zeroext i1 @_ZNK5Yosys14DriveChunkWire10can_appendERKNS_12DriveBi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN5Yosys14DriveChunkWire10try_appendERKNS_12DriveBitWireE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %1) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN5Yosys14DriveChunkWire10try_appendERKNS_12DriveBitWireE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %1) local_unnamed_addr #8 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !74
   %4 = load ptr, ptr %0, align 8, !tbaa !58
   %5 = icmp eq ptr %3, %4
@@ -1335,7 +1329,7 @@ _ZNK5Yosys14DriveChunkWire10can_appendERKNS_12DriveBitWireE.exit.thread: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN5Yosys14DriveChunkWire10try_appendERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN5Yosys14DriveChunkWire10try_appendERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #8 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !58
   %4 = load ptr, ptr %0, align 8, !tbaa !58
   %.not = icmp eq ptr %3, %4
@@ -1365,7 +1359,7 @@ define noundef zeroext i1 @_ZN5Yosys14DriveChunkWire10try_appendERKS0_(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5Yosys14DriveChunkPort10can_appendERKNS_12DriveBitPortE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK5Yosys14DriveChunkPort10can_appendERKNS_12DriveBitPortE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #7 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !35
   %4 = load ptr, ptr %0, align 8, !tbaa !61
   %5 = icmp eq ptr %3, %4
@@ -1396,7 +1390,7 @@ define noundef zeroext i1 @_ZNK5Yosys14DriveChunkPort10can_appendERKNS_12DriveBi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN5Yosys14DriveChunkPort10try_appendERKNS_12DriveBitPortE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN5Yosys14DriveChunkPort10try_appendERKNS_12DriveBitPortE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #8 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !35
   %4 = load ptr, ptr %0, align 8, !tbaa !61
   %5 = icmp eq ptr %3, %4
@@ -1432,7 +1426,7 @@ _ZNK5Yosys14DriveChunkPort10can_appendERKNS_12DriveBitPortE.exit.thread: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN5Yosys14DriveChunkPort10try_appendERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %1) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN5Yosys14DriveChunkPort10try_appendERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %1) local_unnamed_addr #8 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !61
   %4 = load ptr, ptr %0, align 8, !tbaa !61
   %.not = icmp eq ptr %3, %4
@@ -1470,7 +1464,7 @@ define noundef zeroext i1 @_ZN5Yosys14DriveChunkPort10try_appendERKS0_(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5Yosys16DriveChunkMarker10can_appendERKNS_14DriveBitMarkerE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK5Yosys16DriveChunkMarker10can_appendERKNS_14DriveBitMarkerE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #7 align 2 {
   %3 = load i32, ptr %1, align 4, !tbaa !79
   %4 = load i32, ptr %0, align 4, !tbaa !71
   %5 = icmp eq i32 %3, %4
@@ -1493,7 +1487,7 @@ define noundef zeroext i1 @_ZNK5Yosys16DriveChunkMarker10can_appendERKNS_14Drive
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN5Yosys16DriveChunkMarker10try_appendERKNS_14DriveBitMarkerE(ptr noundef nonnull align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN5Yosys16DriveChunkMarker10try_appendERKNS_14DriveBitMarkerE(ptr noundef nonnull align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #8 align 2 {
   %3 = load i32, ptr %1, align 4, !tbaa !79
   %4 = load i32, ptr %0, align 4, !tbaa !71
   %5 = icmp eq i32 %3, %4
@@ -1521,7 +1515,7 @@ _ZNK5Yosys16DriveChunkMarker10can_appendERKNS_14DriveBitMarkerE.exit.thread: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN5Yosys16DriveChunkMarker10try_appendERKS0_(ptr noundef nonnull align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN5Yosys16DriveChunkMarker10try_appendERKS0_(ptr noundef nonnull align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1) local_unnamed_addr #8 align 2 {
   %3 = load i32, ptr %1, align 4, !tbaa !71
   %4 = load i32, ptr %0, align 4, !tbaa !71
   %.not = icmp eq i32 %3, %4
@@ -1551,7 +1545,7 @@ define noundef zeroext i1 @_ZN5Yosys16DriveChunkMarker10try_appendERKS0_(ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5Yosys18DriveChunkMultiple10can_appendERKNS_16DriveBitMultipleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK5Yosys18DriveChunkMultiple10can_appendERKNS_16DriveBitMultipleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::DriveBit", align 8
   %4 = alloca %"struct.Yosys::DriveBit", align 8
   %5 = alloca %"struct.Yosys::DriveBit", align 8
@@ -1645,7 +1639,7 @@ define noundef zeroext i1 @_ZNK5Yosys18DriveChunkMultiple10can_appendERKNS_16Dri
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = load ptr, ptr %48, align 8, !tbaa !58
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %51 = load i32, ptr %50, align 8, !tbaa !60
@@ -1663,19 +1657,19 @@ define noundef zeroext i1 @_ZNK5Yosys18DriveChunkMultiple10can_appendERKNS_16Dri
 56:                                               ; preds = %47
   %.not91.not = icmp eq i32 %55, 0
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not91.not, label %.loopexit, label %.critedge
 
 57:                                               ; preds = %47
   %58 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %130
 
 59:                                               ; preds = %43
   %60 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %61 = load ptr, ptr %60, align 8, !tbaa !61
   %62 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %63 = load i32, ptr %62, align 4, !tbaa !39
@@ -1786,19 +1780,19 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys12DriveBit
 114:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %.not88.not = icmp eq i32 %113, 0
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not88.not, label %.loopexit, label %.critedge
 
 115:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %116 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %130
 
 117:                                              ; preds = %43
   %118 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %119 = load i32, ptr %118, align 4, !tbaa !71
   %120 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %121 = load i32, ptr %120, align 4, !tbaa !73
@@ -1819,14 +1813,14 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys12DriveBit
 126:                                              ; preds = %117
   %.not84.not = icmp eq i32 %125, 0
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not84.not, label %.loopexit, label %.critedge
 
 127:                                              ; preds = %117
   %128 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %130
 
 .critedge:                                        ; preds = %126, %114, %56, %43
@@ -1844,7 +1838,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys12DriveBit
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE5countERKS2_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE5countERKS2_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !83
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !83
@@ -1940,7 +1934,7 @@ _ZNK5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj.exit
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5Yosys12DriveBitPortD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys12DriveBitPortD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !39
   %4 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !67, !range !69, !noundef !70
@@ -1975,7 +1969,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %1, %7, %14
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i32, ptr %0, align 4, !tbaa !39
   %3 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !67, !range !69, !noundef !70
   %4 = trunc nuw i8 %3 to i1
@@ -2009,7 +2003,7 @@ _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit:   ; preds = %6, %1, %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5Yosys18DriveChunkMultiple10can_appendERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(60) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK5Yosys18DriveChunkMultiple10can_appendERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(60) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::DriveChunk", align 8
   %4 = alloca %"struct.Yosys::DriveChunk", align 8
   %5 = alloca %"struct.Yosys::DriveChunk", align 8
@@ -2106,7 +2100,7 @@ define noundef zeroext i1 @_ZNK5Yosys18DriveChunkMultiple10can_appendERKS0_(ptr 
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = load ptr, ptr %48, align 8, !tbaa !58
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %51 = load i32, ptr %50, align 8, !tbaa !60
@@ -2126,19 +2120,19 @@ define noundef zeroext i1 @_ZNK5Yosys18DriveChunkMultiple10can_appendERKS0_(ptr 
 57:                                               ; preds = %47
   %.not94.not = icmp eq i32 %56, 0
   call void @_ZN5Yosys10DriveChunk8set_noneEi(ptr noundef nonnull align 8 dereferenceable(72) %3, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not94.not, label %.loopexit, label %.critedge
 
 58:                                               ; preds = %47
   %59 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys10DriveChunk8set_noneEi(ptr noundef nonnull align 8 dereferenceable(72) %3, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %137
 
 60:                                               ; preds = %43
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %62 = load ptr, ptr %61, align 8, !tbaa !61
   %63 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %64 = load i32, ptr %63, align 4, !tbaa !39
@@ -2261,19 +2255,19 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys14DriveChu
 120:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %.not91.not = icmp eq i32 %119, 0
   call void @_ZN5Yosys10DriveChunk8set_noneEi(ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not91.not, label %.loopexit, label %.critedge
 
 121:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %122 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys10DriveChunk8set_noneEi(ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %137
 
 123:                                              ; preds = %43
   %124 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %125 = load i32, ptr %124, align 4, !tbaa !71
   %126 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %127 = load i32, ptr %126, align 4, !tbaa !73
@@ -2293,14 +2287,14 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys14DriveChu
 133:                                              ; preds = %123
   %.not87.not = icmp eq i32 %132, 0
   call void @_ZN5Yosys10DriveChunk8set_noneEi(ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not87.not, label %.loopexit, label %.critedge
 
 134:                                              ; preds = %123
   %135 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys10DriveChunk8set_noneEi(ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %137
 
 .critedge:                                        ; preds = %133, %120, %57, %43
@@ -2318,7 +2312,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys14DriveChu
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE5countERKS2_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE5countERKS2_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !83
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !83
@@ -2414,7 +2408,7 @@ _ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj.e
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5Yosys14DriveChunkPortD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys14DriveChunkPortD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !39
   %4 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !67, !range !69, !noundef !70
@@ -2449,7 +2443,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %1, %7, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5Yosys18DriveChunkMultiple10try_appendERKNS_16DriveBitMultipleE(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN5Yosys18DriveChunkMultiple10try_appendERKNS_16DriveBitMultipleE(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #4 align 2 {
   %3 = tail call noundef zeroext i1 @_ZNK5Yosys18DriveChunkMultiple10can_appendERKNS_16DriveBitMultipleE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(56) %1)
   br i1 %3, label %4, label %.loopexit
 
@@ -2630,10 +2624,10 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN5Yosys5RTLIL5Const4bitsEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZN5Yosys9log_errorEPKcz(ptr noundef, ...) local_unnamed_addr #10
+declare void @_ZN5Yosys9log_errorEPKcz(ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5Yosys18DriveChunkMultiple10try_appendERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(60) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5Yosys18DriveChunkMultiple10try_appendERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(60) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::Const", align 8
   %4 = tail call noundef zeroext i1 @_ZNK5Yosys18DriveChunkMultiple10can_appendERKS0_(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(60) %1)
   br i1 %4, label %5, label %86
@@ -2645,7 +2639,7 @@ define noundef zeroext i1 @_ZN5Yosys18DriveChunkMultiple10try_appendERKS0_(ptr n
   %9 = load i32, ptr %8, align 8, !tbaa !88
   %10 = add nsw i32 %9, %7
   store i32 %10, ptr %8, align 8, !tbaa !88
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 0, ptr %3, align 8, !tbaa !107
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 0, ptr %11, align 2, !tbaa !111
@@ -2711,7 +2705,7 @@ define noundef zeroext i1 @_ZN5Yosys18DriveChunkMultiple10try_appendERKS0_(ptr n
 
 ._crit_edge88:                                    ; preds = %84, %._crit_edge
   call void @_ZN5Yosys5RTLIL5ConstD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #28
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %86
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %84
@@ -2804,7 +2798,7 @@ define noundef zeroext i1 @_ZN5Yosys18DriveChunkMultiple10try_appendERKS0_(ptr n
 85:                                               ; preds = %46, %68, %66, %30
   %.pn54.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %47, %46 ], [ %69, %68 ], [ %67, %66 ]
   call void @_ZN5Yosys5RTLIL5ConstD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #28
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn54.pn.pn
 
 86:                                               ; preds = %2, %._crit_edge88
@@ -2817,7 +2811,7 @@ declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN5Yosys5RTLIL5ConstaS
 declare void @_ZN5Yosys5RTLIL5ConstD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5Yosys10DriveChunk10can_appendERKNS_8DriveBitE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK5Yosys10DriveChunk10can_appendERKNS_8DriveBitE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 align 2 {
   %3 = load i8, ptr %0, align 8, !tbaa !51
   switch i8 %3, label %22 [
     i8 0, label %4
@@ -2944,7 +2938,7 @@ _ZNK5Yosys14DriveChunkWire10can_appendERKNS_12DriveBitWireE.exit: ; preds = %55,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5Yosys10DriveChunk10try_appendERKNS_8DriveBitE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN5Yosys10DriveChunk10try_appendERKNS_8DriveBitE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 align 2 {
   %3 = load i8, ptr %0, align 8, !tbaa !51
   switch i8 %3, label %22 [
     i8 0, label %4
@@ -3163,7 +3157,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit: ; preds = %102, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Yosys10DriveChunkaSERKNS_8DriveBitE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Yosys10DriveChunkaSERKNS_8DriveBitE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::DriveChunk", align 8
   %4 = alloca %"struct.std::pair.258", align 8
   %5 = alloca %"struct.Yosys::RTLIL::Const", align 8
@@ -3183,7 +3177,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Yosys10
   br label %_ZN5Yosys14DriveChunkPortD2Ev.exit
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i8, ptr %10, align 8, !tbaa !101
   call void @_ZN5Yosys5RTLIL5ConstC1ENS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 noundef zeroext %11, i32 noundef 1)
@@ -3195,14 +3189,14 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Yosys10
 13:                                               ; preds = %9
   store i8 1, ptr %0, align 8, !tbaa !51
   call void @_ZN5Yosys5RTLIL5ConstD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #28
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5Yosys14DriveChunkPortD2Ev.exit
 
 14:                                               ; preds = %9
   %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL5ConstD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #28
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 16:                                               ; preds = %2
@@ -3305,7 +3299,7 @@ _ZN5Yosys14DriveChunkPortC2ERKNS_12DriveBitPortE.exit: ; preds = %22, %27
   br label %_ZN5Yosys14DriveChunkPortD2Ev.exit
 
 62:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %6, i8 0, i64 48, i1 false)
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i32 1, ptr %63, align 8, !tbaa !88
@@ -3331,8 +3325,8 @@ _ZN5Yosys14DriveChunkPortC2ERKNS_12DriveBitPortE.exit: ; preds = %22, %27
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %74 = load ptr, ptr %64, align 8, !tbaa !28
   %75 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<Yosys::DriveBit>::entry_t", ptr %74, i64 %indvars.iv.next.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #28
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #28, !noalias !113
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !113
   store i8 0, ptr %3, align 8, !tbaa !51
   %76 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Yosys10DriveChunkaSERKNS_8DriveBitE(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(64) %75)
           to label %.noexc.i unwind label %80
@@ -3345,13 +3339,13 @@ _ZN5Yosys14DriveChunkPortC2ERKNS_12DriveBitPortE.exit: ; preds = %22, %27
   %78 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys10DriveChunk8set_noneEi(ptr noundef nonnull align 8 dereferenceable(72) %3, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #28, !noalias !113
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !113
   br label %.body.i
 
 79:                                               ; preds = %.noexc.i
   call void @_ZN5Yosys10DriveChunk8set_noneEi(ptr noundef nonnull align 8 dereferenceable(72) %3, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #28, !noalias !113
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !113
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i = icmp eq i64 %indvars.iv.next.i, 0
   br i1 %.not.i, label %_ZN5Yosys18DriveChunkMultipleC2ERKNS_16DriveBitMultipleE.exit.loopexit, label %.lr.ph.i
 
@@ -3366,7 +3360,7 @@ common.resume:                                    ; preds = %14, %.body, %.body.
 
 .body.i:                                          ; preds = %80, %77
   %eh.lpad-body.i = phi { ptr, i32 } [ %81, %80 ], [ %78, %77 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %6) #28
   br label %common.resume
 
@@ -3462,12 +3456,12 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_10DriveChunkENS1_8hash_opsIS3_EEE7e
   br label %_ZN5Yosys18DriveChunkMultipleD2Ev.exit
 
 _ZN5Yosys18DriveChunkMultipleD2Ev.exit:           ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_10DriveChunkENS1_8hash_opsIS3_EEE7entry_tESaIS7_EED2Ev.exit.i.i, %113
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN5Yosys14DriveChunkPortD2Ev.exit
 
 .body:                                            ; preds = %93, %96
   call void @_ZN5Yosys18DriveChunkMultipleD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %6) #28
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN5Yosys14DriveChunkPortD2Ev.exit:               ; preds = %52, %48, %38, %.thread, %_ZN5Yosys18DriveChunkMultipleD2Ev.exit, %56, %16, %13, %8, %2
@@ -3475,7 +3469,7 @@ _ZN5Yosys14DriveChunkPortD2Ev.exit:               ; preds = %52, %48, %38, %.thr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5Yosys10DriveChunk10try_appendERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN5Yosys10DriveChunk10try_appendERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 {
   %3 = load i8, ptr %0, align 8, !tbaa !51
   switch i8 %3, label %22 [
     i8 0, label %4
@@ -3673,7 +3667,7 @@ _ZN5Yosys14DriveChunkWire10try_appendERKS0_.exit: ; preds = %102, %94, %89, %85,
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Yosys10DriveChunkaSERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Yosys10DriveChunkaSERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i8, ptr %1, align 8, !tbaa !51
   switch i8 %3, label %_ZN5Yosys10DriveChunkaSERKNS_18DriveChunkMultipleE.exit [
     i8 0, label %4
@@ -3798,7 +3792,7 @@ _ZN5Yosys10DriveChunkaSERKNS_18DriveChunkMultipleE.exit: ; preds = %_ZN5Yosys18D
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys9DriveSpec6appendERKNS_8DriveBitE(ptr noundef nonnull align 8 dereferenceable(60) initializes((56, 60)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN5Yosys9DriveSpec6appendERKNS_8DriveBitE(ptr noundef nonnull align 8 dereferenceable(60) initializes((56, 60)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %3, align 8, !tbaa !121
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3870,7 +3864,7 @@ _ZNSt6vectorIN5Yosys8DriveBitESaIS1_EE9push_backERKS1_.exit: ; preds = %34, %30,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys9DriveSpec6appendERKNS_10DriveChunkE(ptr noundef nonnull align 8 dereferenceable(60) initializes((56, 60)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN5Yosys9DriveSpec6appendERKNS_10DriveChunkE(ptr noundef nonnull align 8 dereferenceable(60) initializes((56, 60)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %3, align 8, !tbaa !121
   tail call void @_ZNK5Yosys9DriveSpec4packEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
@@ -3963,7 +3957,7 @@ _ZNK5Yosys10DriveChunk4sizeEv.exit:               ; preds = %22, %25, %28, %31, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Yosys9DriveSpec4packEv(ptr noundef nonnull align 8 dereferenceable(60) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Yosys9DriveSpec4packEv(ptr noundef nonnull align 8 dereferenceable(60) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.30", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !133
@@ -3973,7 +3967,7 @@ define void @_ZNK5Yosys9DriveSpec4packEv(ptr noundef nonnull align 8 dereference
   br i1 %7, label %40, label %8
 
 8:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %4, ptr %2, align 8, !tbaa !140
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %6, ptr %9, align 8, !tbaa !135
@@ -4006,7 +4000,7 @@ _ZSt8_DestroyIPN5Yosys8DriveBitES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %.lr.ph.i.i
   br label %_ZNSt6vectorIN5Yosys8DriveBitESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5Yosys8DriveBitESaIS1_EED2Ev.exit:  ; preds = %_ZSt8_DestroyIPN5Yosys8DriveBitES1_EvT_S3_RSaIT0_E.exit.i, %17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %40
 
 21:                                               ; preds = %8, %_ZNSt6vectorIN5Yosys10DriveChunkESaIS1_EE12emplace_backIJNS0_8DriveBitEEEERS1_DpOT_.exit
@@ -4053,7 +4047,7 @@ _ZNSt6vectorIN5Yosys8DriveBitESaIS1_EED2Ev.exit:  ; preds = %_ZSt8_DestroyIPN5Yo
   %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN5Yosys8DriveBitESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %38
 
 _ZNSt6vectorIN5Yosys10DriveChunkESaIS1_EE12emplace_backIJNS0_8DriveBitEEEERS1_DpOT_.exit: ; preds = %36, %.noexc, %28
@@ -4103,7 +4097,7 @@ _ZNSt12_Vector_baseIN5Yosys8DriveBitESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Yosys9DriveSpec6unpackEv(ptr noundef nonnull align 8 dereferenceable(60) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Yosys9DriveSpec6unpackEv(ptr noundef nonnull align 8 dereferenceable(60) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.Yosys::DriveBit", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !136
@@ -4193,7 +4187,7 @@ _ZNK5Yosys10DriveChunk4sizeEv.exit:               ; preds = %17, %20, %23, %26, 
 
 .lr.ph:                                           ; preds = %_ZNK5Yosys10DriveChunk4sizeEv.exit, %_ZNSt6vectorIN5Yosys8DriveBitESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit
   %.016 = phi i32 [ %44, %_ZNSt6vectorIN5Yosys8DriveBitESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit ], [ 0, %_ZNK5Yosys10DriveChunk4sizeEv.exit ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZNK5Yosys10DriveChunkixEi(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::DriveBit") align 8 %2, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.011.017, i32 noundef %.016)
   %37 = load ptr, ptr %8, align 8, !tbaa !135
   %38 = load ptr, ptr %9, align 8, !tbaa !134
@@ -4217,7 +4211,7 @@ _ZNK5Yosys10DriveChunk4sizeEv.exit:               ; preds = %17, %20, %23, %26, 
 
 _ZNSt6vectorIN5Yosys8DriveBitESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit: ; preds = %43, %.noexc
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %2)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %44 = add nuw nsw i32 %.016, 1
   %.not = icmp eq i32 %44, %.0.i
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !144
@@ -4226,7 +4220,7 @@ _ZNSt6vectorIN5Yosys8DriveBitESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit: ; pr
   %46 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %2)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %46
 
 _ZNSt6vectorIN5Yosys10DriveChunkESaIS1_EE5clearEv.exit: ; preds = %_ZSt8_DestroyIPN5Yosys10DriveChunkES1_EvT_S3_RSaIT0_E.exit.i.i, %11, %1
@@ -4234,7 +4228,7 @@ _ZNSt6vectorIN5Yosys10DriveChunkESaIS1_EE5clearEv.exit: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys9DriveSpec13compute_widthEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((0, 4)) %0) local_unnamed_addr #5 align 2 {
+define void @_ZN5Yosys9DriveSpec13compute_widthEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((0, 4)) %0) local_unnamed_addr #4 align 2 {
   store i32 0, ptr %0, align 8, !tbaa !139
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !136
@@ -4305,7 +4299,7 @@ _ZNK5Yosys10DriveChunk4sizeEv.exit:               ; preds = %8, %11, %14, %17, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys9DriverMap13DriveBitGraph8add_edgeENS0_10DriveBitIdES2_(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 %1, i32 %2) local_unnamed_addr #5 align 2 {
+define void @_ZN5Yosys9DriverMap13DriveBitGraph8add_edgeENS0_10DriveBitIdES2_(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 %1, i32 %2) local_unnamed_addr #4 align 2 {
   %4 = alloca %"struct.Yosys::DriverMap::DriveBitId", align 4
   %5 = alloca %"struct.Yosys::DriverMap::DriveBitId", align 4
   %6 = alloca %"struct.Yosys::DriverMap::DriveBitId", align 4
@@ -4314,7 +4308,7 @@ define void @_ZN5Yosys9DriverMap13DriveBitGraph8add_edgeENS0_10DriveBitIdES2_(pt
   %9 = alloca %"struct.std::pair.61", align 8
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7emplaceERKS3_S8_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.37") align 8 %7, ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %10 = load ptr, ptr %7, align 8, !tbaa !145
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -4326,11 +4320,11 @@ define void @_ZN5Yosys9DriverMap13DriveBitGraph8add_edgeENS0_10DriveBitIdES2_(pt
   %17 = load i32, ptr %16, align 4, !tbaa !152
   %18 = load i32, ptr %6, align 4, !tbaa !152
   %19 = icmp eq i32 %17, %18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %19, label %36, label %20
 
 20:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7emplaceERKS3_S8_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.37") align 8 %8, ptr noundef nonnull align 8 dereferenceable(49) %21, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %22 = load ptr, ptr %8, align 8, !tbaa !145
@@ -4343,19 +4337,19 @@ define void @_ZN5Yosys9DriverMap13DriveBitGraph8add_edgeENS0_10DriveBitIdES2_(pt
   %29 = load i32, ptr %28, align 4, !tbaa !152
   %30 = load i32, ptr %6, align 4, !tbaa !152
   %31 = icmp eq i32 %29, %30
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %31, label %36, label %32
 
 32:                                               ; preds = %20
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %34 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_EixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %33, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #28
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #28, !noalias !154
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !154
   %35 = load i32, ptr %6, align 4, !tbaa !17, !noalias !154
   store i32 %35, ptr %4, align 4, !tbaa !17, !noalias !154
   call void @_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE6insertEOS3_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.61") align 8 %9, ptr noundef nonnull align 8 dereferenceable(49) %34, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #28, !noalias !154
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !154
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %36
 
 36:                                               ; preds = %20, %3, %32
@@ -4363,10 +4357,10 @@ define void @_ZN5Yosys9DriverMap13DriveBitGraph8add_edgeENS0_10DriveBitIdES2_(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7emplaceERKS3_S8_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.37") align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7emplaceERKS3_S8_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.37") align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #4 comdat align 2 {
   %5 = alloca i32, align 4
   %6 = alloca %"struct.std::pair.52", align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load ptr, ptr %1, align 8, !tbaa !83
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !83
@@ -4472,7 +4466,7 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_has
 
 .loopexit:                                        ; preds = %73, %._crit_edge.i, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread
   %77 = phi i32 [ %.pre15, %._crit_edge.i ], [ %.pre, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread ], [ %.pre15, %73 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %78 = load i32, ptr %3, align 4, !tbaa !17
   %.sroa.2.0.insert.ext.i = zext i32 %78 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
@@ -4480,7 +4474,7 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_has
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   store i64 %.sroa.0.0.insert.insert.i, ptr %6, align 8
   %79 = call noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE9do_insertEOSt4pairIS3_S3_ERj(ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit
 
 _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit: ; preds = %68, %.loopexit
@@ -4491,16 +4485,16 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE9do_loo
   store i32 %.sink19, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !17
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %80, align 8, !tbaa !163
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(49) ptr @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_EixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(49) ptr @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_EixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca %"struct.std::pair.64", align 8
   %5 = alloca %"class.Yosys::hashlib::pool.54", align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load ptr, ptr %0, align 8, !tbaa !83
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !83
@@ -4606,8 +4600,8 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_
 
 .loopexit:                                        ; preds = %72, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E7do_hashERKS3_.exit.thread, %._crit_edge.i
   %76 = phi i32 [ %.pre, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E7do_hashERKS3_.exit.thread ], [ %.pre15, %._crit_edge.i ], [ %.pre15, %72 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #28
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %76, ptr %4, align 8, !tbaa !17
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -4650,8 +4644,8 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINS0_9DriverMap10DriveBitIdENS1_8hash_opsIS4_EE
 _ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEED2Ev.exit: ; preds = %91, %_ZNSt6vectorIN5Yosys7hashlib4poolINS0_9DriverMap10DriveBitIdENS1_8hash_opsIS4_EEE7entry_tESaIS8_EED2Ev.exit.i.i
   %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre16.pre = load ptr, ptr %.phi.trans.insert.phi.trans.insert, align 8, !tbaa !168
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E9do_lookupERKS3_Rj.exit
 
 96:                                               ; preds = %.loopexit
@@ -4659,9 +4653,9 @@ _ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEED2Ev.exit: 
           cleanup
   call void @_ZNSt4pairIN5Yosys9DriverMap10DriveBitIdENS0_7hashlib4poolIS2_NS3_8hash_opsIS2_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #28
   call void @_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %5) #28
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %97
 
 _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E9do_lookupERKS3_Rj.exit: ; preds = %67, %_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEED2Ev.exit
@@ -4669,12 +4663,12 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_
   %.08 = phi i32 [ %82, %_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEED2Ev.exit ], [ %.013.i, %67 ]
   %99 = sext i32 %.08 to i64
   %100 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::DriverMap::DriveBitId, Yosys::hashlib::pool<Yosys::DriverMap::DriveBitId>>::entry_t", ptr %98, i64 %99, i32 0, i32 2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %100
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @_ZN5Yosys9DriverMap13DriveBitGraph8pop_edgeENS0_10DriveBitIdE(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 %1) local_unnamed_addr #5 align 2 {
+define i32 @_ZN5Yosys9DriverMap13DriveBitGraph8pop_edgeENS0_10DriveBitIdE(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 %1) local_unnamed_addr #4 align 2 {
   %3 = alloca %"struct.Yosys::DriverMap::DriveBitId", align 4
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -4868,7 +4862,7 @@ _ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE5eraseEN
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr { ptr, i32 } @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E4findERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr { ptr, i32 } @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E4findERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #4 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !83
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !83
@@ -4970,7 +4964,7 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr { ptr, i32 } @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE4findERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr { ptr, i32 } @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE4findERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #4 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !83
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !83
@@ -5072,7 +5066,7 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE9do_loo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys9DriverMap13DriveBitGraph5clearENS0_10DriveBitIdE(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 %1) local_unnamed_addr #5 align 2 {
+define void @_ZN5Yosys9DriverMap13DriveBitGraph5clearENS0_10DriveBitIdE(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 %1) local_unnamed_addr #4 align 2 {
   %3 = alloca %"struct.Yosys::DriverMap::DriveBitId", align 4
   store i32 %1, ptr %3, align 4
   %4 = call noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -5084,7 +5078,7 @@ define void @_ZN5Yosys9DriverMap13DriveBitGraph5clearENS0_10DriveBitIdE(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #4 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !83
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !83
@@ -5185,7 +5179,7 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE9do_loo
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #4 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !83
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !83
@@ -5286,7 +5280,7 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5Yosys9DriverMap13DriveBitGraph8containsENS0_10DriveBitIdE(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN5Yosys9DriverMap13DriveBitGraph8containsENS0_10DriveBitIdE(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 %1) local_unnamed_addr #4 align 2 {
   %3 = alloca %"struct.Yosys::DriverMap::DriveBitId", align 4
   store i32 %1, ptr %3, align 4
   %4 = call noundef i32 @_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE5countERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -5295,7 +5289,7 @@ define noundef zeroext i1 @_ZN5Yosys9DriverMap13DriveBitGraph8containsENS0_10Dri
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE5countERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE5countERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #4 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !83
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !83
@@ -5400,7 +5394,7 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE9do_loo
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -2147483646, -2147483648) i32 @_ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 %1) local_unnamed_addr #5 align 2 {
+define noundef range(i32 -2147483646, -2147483648) i32 @_ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 %1) local_unnamed_addr #4 align 2 {
   %3 = alloca %"struct.Yosys::DriverMap::DriveBitId", align 4
   store i32 %1, ptr %3, align 4
   %4 = call noundef i32 @_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE5countERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -5444,7 +5438,7 @@ define noundef range(i32 -2147483646, -2147483648) i32 @_ZN5Yosys9DriverMap13Dri
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @_ZN5Yosys9DriverMap13DriveBitGraph2atENS0_10DriveBitIdEi(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
+define i32 @_ZN5Yosys9DriverMap13DriveBitGraph2atENS0_10DriveBitIdEi(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = alloca %"struct.Yosys::DriverMap::DriveBitId", align 4
   store i32 %1, ptr %4, align 4
   switch i32 %2, label %10 [
@@ -5486,7 +5480,7 @@ define i32 @_ZN5Yosys9DriverMap13DriveBitGraph2atENS0_10DriveBitIdEi(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE2atERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE2atERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !83
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !83
@@ -5600,7 +5594,7 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE9do_loo
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(49) ptr @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E2atERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(49) ptr @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E2atERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !83
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !83
@@ -5714,7 +5708,7 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 6) i32 @_ZN5Yosys9DriverMap8bit_modeERKNS_8DriveBitE(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 6) i32 @_ZN5Yosys9DriverMap8bit_modeERKNS_8DriveBitE(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %4 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %5 = alloca %"struct.Yosys::RTLIL::IdString", align 4
@@ -6002,9 +5996,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit57:              ; preds = %_ZN5Yosys5RTLIL8IdS
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef zeroext i1 @_ZN5Yosys9DriverMap9keep_wireEPNS_5RTLIL4WireE(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef zeroext i1 @_ZN5Yosys9DriverMap9keep_wireEPNS_5RTLIL4WireE(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::IdString", align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !196)
   %4 = load atomic i8, ptr @_ZGVZZN5Yosys9DriverMap9keep_wireEPNS_5RTLIL4WireEENKUlvE_clEvE2id acquire, align 8, !noalias !196
   %5 = icmp eq i8 %4, 0
@@ -6084,22 +6078,22 @@ _ZZN5Yosys9DriverMap9keep_wireEPNS_5RTLIL4WireEENKUlvE_clEv.exit: ; preds = %12,
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %23, %28, %35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %22
 
 39:                                               ; preds = %_ZZN5Yosys9DriverMap9keep_wireEPNS_5RTLIL4WireEENKUlvE_clEv.exit
   %40 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK5Yosys9CellTypes11cell_outputENS_5RTLIL8IdStringES2_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef zeroext i1 @_ZNK5Yosys9CellTypes11cell_outputENS_5RTLIL8IdStringES2_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !83
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !83
@@ -6149,7 +6143,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4fin
   store i32 %.0.i.i, ptr %5, align 4, !tbaa !17
   %32 = call noundef i32 @_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %33 = icmp slt i32 %32, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %33, label %67, label %34
 
 34:                                               ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit
@@ -6157,7 +6151,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4fin
   %36 = zext nneg i32 %32 to i64
   %37 = load ptr, ptr %35, align 8, !tbaa !200
   %38 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::CellType>::entry_t", ptr %37, i64 %36, i32 0, i32 2, i32 3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = load ptr, ptr %38, align 8, !tbaa !83
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !83
@@ -6207,7 +6201,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit
   store i32 %.0.i.i6, ptr %4, align 4, !tbaa !17
   %65 = call noundef i32 @_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj(ptr noundef nonnull align 8 dereferenceable(49) %38, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %66 = icmp sgt i32 %65, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %67
 
 67:                                               ; preds = %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit
@@ -6216,10 +6210,10 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK5Yosys9CellTypes10cell_inputENS_5RTLIL8IdStringES2_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef zeroext i1 @_ZNK5Yosys9CellTypes10cell_inputENS_5RTLIL8IdStringES2_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !83
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !83
@@ -6269,7 +6263,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4fin
   store i32 %.0.i.i, ptr %5, align 4, !tbaa !17
   %32 = call noundef i32 @_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %33 = icmp slt i32 %32, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %33, label %67, label %34
 
 34:                                               ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit
@@ -6277,7 +6271,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4fin
   %36 = zext nneg i32 %32 to i64
   %37 = load ptr, ptr %35, align 8, !tbaa !200
   %38 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::CellType>::entry_t", ptr %37, i64 %36, i32 0, i32 2, i32 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = load ptr, ptr %38, align 8, !tbaa !83
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !83
@@ -6327,7 +6321,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit
   store i32 %.0.i.i6, ptr %4, align 4, !tbaa !17
   %65 = call noundef i32 @_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj(ptr noundef nonnull align 8 dereferenceable(49) %38, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %66 = icmp sgt i32 %65, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %67
 
 67:                                               ; preds = %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit
@@ -6336,7 +6330,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @_ZN5Yosys9DriverMap17id_from_drive_bitERKNS_8DriveBitE(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define i32 @_ZN5Yosys9DriverMap17id_from_drive_bitERKNS_8DriveBitE(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca %"struct.std::pair.118", align 8
   %5 = alloca %"struct.Yosys::DriverMap::DriveBitId", align 4
@@ -6367,16 +6361,16 @@ define i32 @_ZN5Yosys9DriverMap17id_from_drive_bitERKNS_8DriveBitE(ptr noundef n
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %25 = load i32, ptr %24, align 8, !tbaa !203
   store i32 %25, ptr %3, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %25, ptr %5, align 4, !tbaa !152
   call void @_ZN5Yosys7hashlib4dictIPNS_5RTLIL4WireENS_9DriverMap10DriveBitIdENS0_8hash_opsIS4_EEE7emplaceERKS4_OS6_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.118") align 8 %4, ptr noundef nonnull align 8 dereferenceable(49) %26, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %28 = load i8, ptr %27, align 8, !tbaa !256, !range !69, !noundef !70
   %29 = trunc nuw i8 %28 to i1
@@ -6391,22 +6385,22 @@ define i32 @_ZN5Yosys9DriverMap17id_from_drive_bitERKNS_8DriveBitE(ptr noundef n
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %25, ptr %6, align 4, !tbaa !152
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_EEE7emplaceEOS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.121") align 8 %7, ptr noundef nonnull align 8 dereferenceable(49) %36, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(64) %1)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %31, ptr %8, align 8, !tbaa !74
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %39, align 8, !tbaa !76
   %40 = call { ptr, i8 } @_ZNSt8_Rb_treeIN5Yosys9DriverMap10DriveBitIdESt4pairIKS2_NS0_8DriveBitEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE17_M_emplace_uniqueIJRiNS0_12DriveBitWireEEEES3_ISt17_Rb_tree_iteratorIS6_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(12) %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %41
 
 41:                                               ; preds = %37, %35
@@ -6430,13 +6424,13 @@ define i32 @_ZN5Yosys9DriverMap17id_from_drive_bitERKNS_8DriveBitE(ptr noundef n
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %57 = load i32, ptr %56, align 8, !tbaa !76
   %58 = add nsw i32 %57, %55
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %173
 
 59:                                               ; preds = %2
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !266)
   %62 = load ptr, ptr %60, align 8, !tbaa !269, !noalias !266
@@ -6457,19 +6451,19 @@ define i32 @_ZN5Yosys9DriverMap17id_from_drive_bitERKNS_8DriveBitE(ptr noundef n
 _ZSt9make_pairIRKPN5Yosys5RTLIL4CellERKNS1_8IdStringEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit: ; preds = %59, %64
   %70 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %63, ptr %70, align 8, !tbaa !39, !alias.scope !266
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %72 = load i32, ptr %71, align 8, !tbaa !203
   store i32 %72, ptr %10, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %72, ptr %12, align 4, !tbaa !152
   invoke void @_ZN5Yosys7hashlib4dictISt4pairIPNS_5RTLIL4CellENS3_8IdStringEENS_9DriverMap10DriveBitIdENS0_8hash_opsIS7_EEE7emplaceERKS7_OS9_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.133") align 8 %11, ptr noundef nonnull align 8 dereferenceable(49) %73, ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(4) %12)
           to label %74 unwind label %90
 
 74:                                               ; preds = %_ZSt9make_pairIRKPN5Yosys5RTLIL4CellERKNS1_8IdStringEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %75 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %76 = load i8, ptr %75, align 8, !tbaa !272, !range !69, !noundef !70
   %77 = trunc nuw i8 %76 to i1
@@ -6493,21 +6487,21 @@ _ZSt9make_pairIRKPN5Yosys5RTLIL4CellERKNS1_8IdStringEESt4pairINSt25__strip_refer
 
 87:                                               ; preds = %83
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !152
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   invoke void @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_EEE7emplaceEOS3_RKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.121") align 8 %14, ptr noundef nonnull align 8 dereferenceable(49) %88, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(64) %1)
           to label %89 unwind label %94
 
 89:                                               ; preds = %87
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %141
 
 90:                                               ; preds = %_ZSt9make_pairIRKPN5Yosys5RTLIL4CellERKNS1_8IdStringEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit
   %91 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %171
 
 92:                                               ; preds = %81, %78
@@ -6518,13 +6512,13 @@ _ZSt9make_pairIRKPN5Yosys5RTLIL4CellERKNS1_8IdStringEESt4pairINSt25__strip_refer
 94:                                               ; preds = %87
   %95 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %171
 
 96:                                               ; preds = %83
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %98 = load ptr, ptr %60, align 8, !tbaa !35
   %99 = load i32, ptr %61, align 8, !tbaa !39
   %.not.i.i = icmp eq i32 %99, 0
@@ -6615,7 +6609,7 @@ _ZN5Yosys12DriveBitPortD2Ev.exit:                 ; preds = %._ZN5Yosys12DriveBi
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys12DriveBitPortD2Ev.exit, %128, %135
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %141
 
 139:                                              ; preds = %106
@@ -6623,7 +6617,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys12DriveBit
           cleanup
   call void @_ZN5Yosys12DriveBitPortD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #28
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %16) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %171
 
 141:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit, %89
@@ -6644,8 +6638,8 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys12DriveBit
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %154 = load i32, ptr %153, align 4, !tbaa !40
   %155 = add nsw i32 %154, %152
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %156 = load i32, ptr %70, align 8, !tbaa !39
   %157 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !67, !range !69, !noundef !70
   %158 = trunc nuw i8 %157 to i1
@@ -6675,15 +6669,15 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys12DriveBit
   unreachable
 
 _ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev.exit: ; preds = %144, %160, %167
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %173
 
 171:                                              ; preds = %92, %94, %139, %90
   %.pn31.pn = phi { ptr, i32 } [ %91, %90 ], [ %95, %94 ], [ %140, %139 ], [ %93, %92 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %9) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn31.pn
 
 172:                                              ; preds = %2
@@ -6696,10 +6690,10 @@ _ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev.exit: ; preds = %144, %160, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4dictIPNS_5RTLIL4WireENS_9DriverMap10DriveBitIdENS0_8hash_opsIS4_EEE7emplaceERKS4_OS6_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.118") align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZN5Yosys7hashlib4dictIPNS_5RTLIL4WireENS_9DriverMap10DriveBitIdENS0_8hash_opsIS4_EEE7emplaceERKS4_OS6_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.118") align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #4 comdat align 2 {
   %5 = alloca i32, align 4
   %6 = alloca %"struct.std::pair.127", align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load ptr, ptr %1, align 8, !tbaa !83
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !83
@@ -6833,13 +6827,13 @@ _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS_9DriverMap10DriveBitIdENS0_8hash_opsI
 
 .loopexit:                                        ; preds = %84, %._crit_edge.i, %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS_9DriverMap10DriveBitIdENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.thread
   %88 = phi ptr [ %.pre15, %._crit_edge.i ], [ %.pre, %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS_9DriverMap10DriveBitIdENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.thread ], [ %.pre15, %84 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %89 = load i32, ptr %3, align 4, !tbaa !17
   store ptr %88, ptr %6, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %89, ptr %.sroa.2.0..sroa_idx, align 8
   %90 = call noundef i32 @_ZN5Yosys7hashlib4dictIPNS_5RTLIL4WireENS_9DriverMap10DriveBitIdENS0_8hash_opsIS4_EEE9do_insertEOSt4pairIS4_S6_ERj(ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS_9DriverMap10DriveBitIdENS0_8hash_opsIS4_EEE9do_lookupERKS4_Rj.exit
 
 _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS_9DriverMap10DriveBitIdENS0_8hash_opsIS4_EEE9do_lookupERKS4_Rj.exit: ; preds = %79, %.loopexit
@@ -6850,15 +6844,15 @@ _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS_9DriverMap10DriveBitIdENS0_8hash_opsI
   store i32 %.sink19, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !17
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %91, align 8, !tbaa !256
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_EEE7emplaceEOS3_RKS4_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.121") align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(64) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_EEE7emplaceEOS3_RKS4_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.121") align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(64) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca %"struct.std::pair.149", align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load ptr, ptr %1, align 8, !tbaa !83
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !83
@@ -6964,7 +6958,7 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_
 
 .loopexit:                                        ; preds = %73, %._crit_edge.i, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread
   %77 = phi i32 [ %.pre17, %._crit_edge.i ], [ %.pre, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread ], [ %.pre17, %73 ]
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !299)
   store i32 %77, ptr %6, align 8, !tbaa !17, !alias.scope !299
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -6975,15 +6969,15 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_
 
 81:                                               ; preds = %.loopexit
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %78)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit
 
 82:                                               ; preds = %.loopexit
   %83 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %78)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %83
 
 _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit: ; preds = %68, %81
@@ -6994,15 +6988,15 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_
   store i32 %.sink21, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !17
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %84, align 8, !tbaa !310
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4dictISt4pairIPNS_5RTLIL4CellENS3_8IdStringEENS_9DriverMap10DriveBitIdENS0_8hash_opsIS7_EEE7emplaceERKS7_OS9_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.133") align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys7hashlib4dictISt4pairIPNS_5RTLIL4CellENS3_8IdStringEENS_9DriverMap10DriveBitIdENS0_8hash_opsIS7_EEE7emplaceERKS7_OS9_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.133") align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca %"struct.std::pair.146", align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = tail call noundef i32 @_ZNK5Yosys7hashlib4dictISt4pairIPNS_5RTLIL4CellENS3_8IdStringEENS_9DriverMap10DriveBitIdENS0_8hash_opsIS7_EEE7do_hashERKS7_(ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 8 dereferenceable(12) %2)
   store i32 %7, ptr %5, align 4, !tbaa !17
   %8 = call noundef i32 @_ZNK5Yosys7hashlib4dictISt4pairIPNS_5RTLIL4CellENS3_8IdStringEENS_9DriverMap10DriveBitIdENS0_8hash_opsIS7_EEE9do_lookupERKS7_Rj(ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(4) %5)
@@ -7010,7 +7004,7 @@ define linkonce_odr void @_ZN5Yosys7hashlib4dictISt4pairIPNS_5RTLIL4CellENS3_8Id
   br i1 %9, label %42, label %10
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !313)
   %11 = load ptr, ptr %2, align 8, !tbaa !270, !noalias !313
   store ptr %11, ptr %6, align 8, !tbaa !270, !alias.scope !313
@@ -7067,15 +7061,15 @@ _ZSt9make_pairIRKSt4pairIPN5Yosys5RTLIL4CellENS2_8IdStringEENS1_9DriverMap10Driv
   unreachable
 
 _ZNSt4pairIS_IPN5Yosys5RTLIL4CellENS1_8IdStringEENS0_9DriverMap10DriveBitIdEED2Ev.exit: ; preds = %24, %29, %36
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %42
 
 40:                                               ; preds = %_ZSt9make_pairIRKSt4pairIPN5Yosys5RTLIL4CellENS2_8IdStringEENS1_9DriverMap10DriveBitIdEES0_INSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSB_INSC_IT0_E4typeEE6__typeEEOSD_OSI_.exit
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt4pairIS_IPN5Yosys5RTLIL4CellENS1_8IdStringEENS0_9DriverMap10DriveBitIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %6) #28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %41
 
 42:                                               ; preds = %4, %_ZNSt4pairIS_IPN5Yosys5RTLIL4CellENS1_8IdStringEENS0_9DriverMap10DriveBitIdEED2Ev.exit
@@ -7086,16 +7080,16 @@ _ZNSt4pairIS_IPN5Yosys5RTLIL4CellENS1_8IdStringEENS0_9DriverMap10DriveBitIdEED2E
   store i32 %.sink14, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !17
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %43, align 8, !tbaa !272
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 declare noundef nonnull align 8 dereferenceable(49) ptr @_ZNK5Yosys5RTLIL4Cell11connectionsEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(56) ptr @_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_7SigSpecENS0_8hash_opsIS3_EEE2atERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(56) ptr @_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_7SigSpecENS0_8hash_opsIS3_EEE2atERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !83
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !83
@@ -7160,7 +7154,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_7SigSpecENS0_8hash_opsIS3_EEE7do_
   %36 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr nonnull %33) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %36
 
 37:                                               ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_7SigSpecENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
@@ -7168,12 +7162,12 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_7SigSpecENS0_8hash_opsIS3_EEE7do_
   %39 = zext nneg i32 %30 to i64
   %40 = load ptr, ptr %38, align 8, !tbaa !317
   %41 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::SigSpec>::entry_t", ptr %40, i64 %39, i32 0, i32 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %41
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !39
   %4 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !67, !range !69, !noundef !70
@@ -7208,7 +7202,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %1, %7, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys9DriverMap17drive_bit_from_idENS0_10DriveBitIdE(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::DriveBit") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1088) %1, i32 %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys9DriverMap17drive_bit_from_idENS0_10DriveBitIdE(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::DriveBit") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1088) %1, i32 %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Yosys::DriverMap::DriveBitId", align 4
   store i32 %2, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -7308,7 +7302,7 @@ _ZNSt3mapIN5Yosys9DriverMap10DriveBitIdENS0_8DriveBitESt4lessIS2_ESaISt4pairIKS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr { ptr, i32 } @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_EEE4findERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr { ptr, i32 } @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_EEE4findERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #4 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !83
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !83
@@ -7410,7 +7404,7 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys9DriverMap22connect_directed_mergeENS0_10DriveBitIdES1_(ptr noundef nonnull align 8 dereferenceable(1088) %0, i32 %1, i32 %2) local_unnamed_addr #5 align 2 {
+define void @_ZN5Yosys9DriverMap22connect_directed_mergeENS0_10DriveBitIdES1_(ptr noundef nonnull align 8 dereferenceable(1088) %0, i32 %1, i32 %2) local_unnamed_addr #4 align 2 {
   %4 = alloca %"struct.Yosys::DriverMap::DriveBitId", align 4
   %5 = alloca %"struct.Yosys::DriverMap::DriveBitId", align 4
   %6 = alloca %"struct.Yosys::DriverMap::DriveBitId", align 4
@@ -7429,14 +7423,14 @@ define void @_ZN5Yosys9DriverMap22connect_directed_mergeENS0_10DriveBitIdES1_(pt
   call void @_ZN5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE5mergeERKS3_S8_(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %.sroa.012.0.copyload = load i32, ptr %10, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %.sroa.012.0.copyload, ptr %9, align 4
   %16 = call noundef i32 @_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE5countERKS3_(ptr noundef nonnull align 8 dereferenceable(168) %15, ptr noundef nonnull align 4 dereferenceable(4) %9)
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %_ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit.thread39, label %17
 
 _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit.thread39: ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %._crit_edge
 
 17:                                               ; preds = %13
@@ -7454,7 +7448,7 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit.thread39: ; pred
 
 _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit.thread: ; preds = %17, %20
   %.0.i.ph = phi i32 [ 2, %20 ], [ 1, %17 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.lr.ph
 
 _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit: ; preds = %20
@@ -7473,7 +7467,7 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit: ; preds = %20
   %35 = lshr exact i64 %34, 3
   %36 = trunc i64 %35 to i32
   %37 = add nsw i32 %36, 2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not29 = icmp eq i32 %37, 0
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
@@ -7485,24 +7479,24 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit: ; preds = %20
 
 ._crit_edge:                                      ; preds = %_ZN5Yosys9DriverMap13DriveBitGraph2atENS0_10DriveBitIdEi.exit, %_ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit.thread39, %_ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit
   %.sroa.08.0.copyload = load i32, ptr %10, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %.sroa.08.0.copyload, ptr %8, align 4
   %40 = call noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(168) %15, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %42 = call noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %41, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %44 = call noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %43, ptr noundef nonnull align 4 dereferenceable(4) %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %.sroa.04.0.copyload = load i32, ptr %10, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %.sroa.04.0.copyload, ptr %7, align 4
   %46 = call noundef i32 @_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE5countERKS3_(ptr noundef nonnull align 8 dereferenceable(168) %45, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %.not.i19 = icmp eq i32 %46, 0
   br i1 %.not.i19, label %_ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit24.thread45, label %47
 
 _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit24.thread45: ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %._crit_edge34
 
 47:                                               ; preds = %._crit_edge
@@ -7520,7 +7514,7 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit24.thread45: ; pr
 
 _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit24.thread: ; preds = %47, %50
   %.0.i23.ph = phi i32 [ 2, %50 ], [ 1, %47 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.lr.ph33
 
 _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit24: ; preds = %50
@@ -7539,7 +7533,7 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit24: ; preds = %50
   %65 = lshr exact i64 %64, 3
   %66 = trunc i64 %65 to i32
   %67 = add nsw i32 %66, 2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not1831 = icmp eq i32 %67, 0
   br i1 %.not1831, label %._crit_edge34, label %.lr.ph33
 
@@ -7553,7 +7547,7 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit24: ; preds = %50
   %.030 = phi i32 [ 0, %.lr.ph ], [ %89, %_ZN5Yosys9DriverMap13DriveBitGraph2atENS0_10DriveBitIdEi.exit ]
   %.sroa.011.0.copyload = load i32, ptr %11, align 4, !tbaa !17
   %.sroa.09.0.copyload = load i32, ptr %10, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %.sroa.09.0.copyload, ptr %6, align 4
   switch i32 %.030, label %75 [
     i32 0, label %71
@@ -7588,7 +7582,7 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit24: ; preds = %50
 _ZN5Yosys9DriverMap13DriveBitGraph2atENS0_10DriveBitIdEi.exit: ; preds = %71, %73, %75
   %.sroa.03.0.in.i = phi ptr [ %72, %71 ], [ %74, %73 ], [ %88, %75 ]
   %.sroa.03.0.i = load i32, ptr %.sroa.03.0.in.i, align 4, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5Yosys9DriverMap13DriveBitGraph8add_edgeENS0_10DriveBitIdES2_(ptr noundef nonnull align 8 dereferenceable(168) %15, i32 %.sroa.011.0.copyload, i32 %.sroa.03.0.i)
   %89 = add nuw nsw i32 %.030, 1
   %.not = icmp eq i32 %89, %.0.i38
@@ -7596,21 +7590,21 @@ _ZN5Yosys9DriverMap13DriveBitGraph2atENS0_10DriveBitIdEi.exit: ; preds = %71, %7
 
 ._crit_edge34:                                    ; preds = %_ZN5Yosys9DriverMap13DriveBitGraph2atENS0_10DriveBitIdEi.exit28, %_ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit24.thread45, %_ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit24
   %.sroa.0.0.copyload = load i32, ptr %10, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %.sroa.0.0.copyload, ptr %5, align 4
   %90 = call noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(168) %45, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %92 = call noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %91, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %94 = call noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %93, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %115
 
 95:                                               ; preds = %.lr.ph33, %_ZN5Yosys9DriverMap13DriveBitGraph2atENS0_10DriveBitIdEi.exit28
   %.01732 = phi i32 [ 0, %.lr.ph33 ], [ %114, %_ZN5Yosys9DriverMap13DriveBitGraph2atENS0_10DriveBitIdEi.exit28 ]
   %.sroa.03.0.copyload = load i32, ptr %11, align 4, !tbaa !17
   %.sroa.01.0.copyload = load i32, ptr %10, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %.sroa.01.0.copyload, ptr %4, align 4
   switch i32 %.01732, label %100 [
     i32 0, label %96
@@ -7645,7 +7639,7 @@ _ZN5Yosys9DriverMap13DriveBitGraph2atENS0_10DriveBitIdEi.exit: ; preds = %71, %7
 _ZN5Yosys9DriverMap13DriveBitGraph2atENS0_10DriveBitIdEi.exit28: ; preds = %96, %98, %100
   %.sroa.03.0.in.i25 = phi ptr [ %97, %96 ], [ %99, %98 ], [ %113, %100 ]
   %.sroa.03.0.i26 = load i32, ptr %.sroa.03.0.in.i25, align 4, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5Yosys9DriverMap13DriveBitGraph8add_edgeENS0_10DriveBitIdES2_(ptr noundef nonnull align 8 dereferenceable(168) %45, i32 %.sroa.03.0.copyload, i32 %.sroa.03.0.i26)
   %114 = add nuw nsw i32 %.01732, 1
   %.not18 = icmp eq i32 %114, %.0.i2344
@@ -7656,7 +7650,7 @@ _ZN5Yosys9DriverMap13DriveBitGraph2atENS0_10DriveBitIdEi.exit28: ; preds = %96, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE5mergeERKS3_S8_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE5mergeERKS3_S8_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = tail call noundef i32 @_ZN5Yosys7hashlib5idictINS_9DriverMap10DriveBitIdELi0ENS0_8hash_opsIS3_EEEclERKS3_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
@@ -7669,7 +7663,7 @@ define linkonce_odr void @_ZN5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8h
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = ashr exact i64 %14, 3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 -1, ptr %5, align 4, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load ptr, ptr %16, align 8, !tbaa !84
@@ -7700,7 +7694,7 @@ define linkonce_odr void @_ZN5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8h
   br label %_ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEEclERKS3_.exit
 
 _ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEEclERKS3_.exit: ; preds = %24, %26, %28, %30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %31 = call noundef i32 @_ZN5Yosys7hashlib5idictINS_9DriverMap10DriveBitIdELi0ENS0_8hash_opsIS3_EEEclERKS3_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %32 = load ptr, ptr %9, align 8, !tbaa !182
   %33 = load ptr, ptr %8, align 8, !tbaa !180
@@ -7708,7 +7702,7 @@ _ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEEclERKS3_.ex
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35
   %37 = ashr exact i64 %36, 3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4, !tbaa !17
   %38 = load ptr, ptr %16, align 8, !tbaa !84
   %39 = load ptr, ptr %7, align 8, !tbaa !24
@@ -7740,7 +7734,7 @@ _ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEEclERKS3_.ex
 
 _ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEEclERKS3_.exit4: ; preds = %45, %47, %49, %51
   %52 = phi ptr [ %.pre, %45 ], [ %39, %47 ], [ %39, %49 ], [ %39, %51 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %53
 
 53:                                               ; preds = %53, %_ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEEclERKS3_.exit4
@@ -7802,14 +7796,14 @@ _ZN5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE6imergeEii.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys9DriverMap23connect_directed_bufferENS0_10DriveBitIdES1_(ptr noundef nonnull align 8 dereferenceable(1088) %0, i32 %1, i32 %2) local_unnamed_addr #5 align 2 {
+define void @_ZN5Yosys9DriverMap23connect_directed_bufferENS0_10DriveBitIdES1_(ptr noundef nonnull align 8 dereferenceable(1088) %0, i32 %1, i32 %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 360
   tail call void @_ZN5Yosys9DriverMap13DriveBitGraph8add_edgeENS0_10DriveBitIdES2_(ptr noundef nonnull align 8 dereferenceable(168) %4, i32 %1, i32 %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys9DriverMap18connect_undirectedENS0_10DriveBitIdES1_(ptr noundef nonnull align 8 dereferenceable(1088) %0, i32 %1, i32 %2) local_unnamed_addr #5 align 2 {
+define void @_ZN5Yosys9DriverMap18connect_undirectedENS0_10DriveBitIdES1_(ptr noundef nonnull align 8 dereferenceable(1088) %0, i32 %1, i32 %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 528
   tail call void @_ZN5Yosys9DriverMap13DriveBitGraph8add_edgeENS0_10DriveBitIdES2_(ptr noundef nonnull align 8 dereferenceable(168) %4, i32 %1, i32 %2)
   tail call void @_ZN5Yosys9DriverMap13DriveBitGraph8add_edgeENS0_10DriveBitIdES2_(ptr noundef nonnull align 8 dereferenceable(168) %4, i32 %2, i32 %1)
@@ -7817,7 +7811,7 @@ define void @_ZN5Yosys9DriverMap18connect_undirectedENS0_10DriveBitIdES1_(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys9DriverMap3addEPNS_5RTLIL6ModuleE(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys9DriverMap3addEPNS_5RTLIL6ModuleE(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::DriveChunkPort", align 8
   %4 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %5 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Yosys5RTLIL6Module11connectionsEv(ptr noundef nonnull align 8 dereferenceable(616) %1)
@@ -7911,7 +7905,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit: ; preds = %._crit_edge82, %.
   %48 = load ptr, ptr %35, align 8, !tbaa !317
   %49 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::SigSpec>::entry_t", ptr %48, i64 %indvars.iv.next
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZNK5Yosys5RTLIL7SigSpec4packEv(ptr noundef nonnull align 8 dereferenceable(56) %50)
           to label %.noexc unwind label %105
 
@@ -7926,7 +7920,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit: ; preds = %._crit_edge82, %.
 .lr.ph.i:                                         ; preds = %.noexc, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i
   %.01320.i = phi i32 [ %101, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i ], [ 0, %.noexc ]
   %.sroa.015.019.i = phi ptr [ %102, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i ], [ %52, %.noexc ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %55 = load i32, ptr %49, align 4, !tbaa !39
   %.not.i.i.i = icmp eq i32 %55, 0
   br i1 %.not.i.i.i, label %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.thread.i, label %58
@@ -8023,7 +8017,7 @@ _ZN5Yosys14DriveChunkPortD2Ev.exit.i:             ; preds = %._ZN5Yosys14DriveCh
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %96, %89, %_ZN5Yosys14DriveChunkPortD2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %100 = load i32, ptr %69, align 8, !tbaa !343
   %101 = add nsw i32 %100, %.01320.i
   %102 = getelementptr inbounds nuw i8, ptr %.sroa.015.019.i, i64 40
@@ -8035,11 +8029,11 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %96, %89, %_ZN5Yosys
           cleanup
   call void @_ZN5Yosys14DriveChunkPortD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %3) #28
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit41
 
 .loopexit:                                        ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i, %.noexc
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not68 = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not68, label %._crit_edge82, label %.lr.ph81
 
@@ -8059,7 +8053,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit41: ; preds = %46, %103, %105
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Yosys5RTLIL6Module11connectionsEv(ptr noundef nonnull align 8 dereferenceable(616)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys9DriverMap3addERKNS_5RTLIL7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys9DriverMap3addERKNS_5RTLIL7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Yosys::RTLIL::SigChunk", align 8
   %5 = alloca %"struct.Yosys::RTLIL::SigChunk", align 8
   tail call void @_ZNK5Yosys5RTLIL7SigSpec4packEv(ptr noundef nonnull align 8 dereferenceable(56) %1)
@@ -8112,7 +8106,7 @@ define void @_ZN5Yosys9DriverMap3addERKNS_5RTLIL7SigSpecES4_(ptr noundef nonnull
 
 34:                                               ; preds = %27
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %30, i32 %23)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %35 = icmp eq i32 %.087, 0
   %36 = icmp sle i32 %23, %30
   %or.cond = select i1 %35, i1 %36, i1 false
@@ -8174,7 +8168,7 @@ _ZN5Yosys5RTLIL8SigChunkC2ERKS1_.exit:            ; preds = %.noexc35, %56
   br label %60
 
 60:                                               ; preds = %59, %_ZN5Yosys5RTLIL8SigChunkC2ERKS1_.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %61 = icmp eq i32 %.02386, 0
   %62 = icmp sle i32 %30, %23
   %or.cond34 = select i1 %61, i1 %62, i1 false
@@ -8258,7 +8252,7 @@ _ZN5Yosys5RTLIL8SigChunkC2ERKS1_.exit42:          ; preds = %.noexc41, %82
   br label %_ZN5Yosys5RTLIL8SigChunkD2Ev.exit
 
 _ZN5Yosys5RTLIL8SigChunkD2Ev.exit:                ; preds = %87, %91
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %96 = load ptr, ptr %12, align 8, !tbaa !106
   %.not.i.i.i.i43 = icmp eq ptr %96, null
   br i1 %.not.i.i.i.i43, label %_ZN5Yosys5RTLIL8SigChunkD2Ev.exit44, label %97
@@ -8272,7 +8266,7 @@ _ZN5Yosys5RTLIL8SigChunkD2Ev.exit:                ; preds = %87, %91
   br label %_ZN5Yosys5RTLIL8SigChunkD2Ev.exit44
 
 _ZN5Yosys5RTLIL8SigChunkD2Ev.exit44:              ; preds = %_ZN5Yosys5RTLIL8SigChunkD2Ev.exit, %97
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %102
 
 102:                                              ; preds = %32, %_ZN5Yosys5RTLIL8SigChunkD2Ev.exit44, %25
@@ -8309,7 +8303,7 @@ _ZN5Yosys5RTLIL8SigChunkD2Ev.exit44:              ; preds = %_ZN5Yosys5RTLIL8Sig
   br label %_ZN5Yosys5RTLIL8SigChunkD2Ev.exit46
 
 _ZN5Yosys5RTLIL8SigChunkD2Ev.exit46:              ; preds = %103, %106
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %111
 
 111:                                              ; preds = %.loopexit, %.loopexit.split-lp, %_ZN5Yosys5RTLIL8SigChunkD2Ev.exit46
@@ -8327,7 +8321,7 @@ _ZN5Yosys5RTLIL8SigChunkD2Ev.exit46:              ; preds = %103, %106
   br label %_ZN5Yosys5RTLIL8SigChunkD2Ev.exit48
 
 _ZN5Yosys5RTLIL8SigChunkD2Ev.exit48:              ; preds = %111, %113
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 
 _ZN5Yosys5RTLIL8SigChunkD2Ev.exit56:              ; preds = %102, %3
@@ -8335,7 +8329,7 @@ _ZN5Yosys5RTLIL8SigChunkD2Ev.exit56:              ; preds = %102, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys9DriverMap8add_portEPNS_5RTLIL4CellERKNS1_8IdStringERKNS1_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys9DriverMap8add_portEPNS_5RTLIL4CellERKNS1_8IdStringERKNS1_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.Yosys::DriveChunkPort", align 8
   %6 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   tail call void @_ZNK5Yosys5RTLIL7SigSpec4packEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
@@ -8358,7 +8352,7 @@ define void @_ZN5Yosys9DriverMap8add_portEPNS_5RTLIL4CellERKNS1_8IdStringERKNS1_
 14:                                               ; preds = %.lr.ph, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %.01320 = phi i32 [ 0, %.lr.ph ], [ %61, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
   %.sroa.015.019 = phi ptr [ %8, %.lr.ph ], [ %62, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = load i32, ptr %2, align 4, !tbaa !39
   %.not.i.i = icmp eq i32 %15, 0
   br i1 %.not.i.i, label %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.thread, label %18
@@ -8455,7 +8449,7 @@ _ZN5Yosys14DriveChunkPortD2Ev.exit:               ; preds = %._ZN5Yosys14DriveCh
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys14DriveChunkPortD2Ev.exit, %49, %56
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %60 = load i32, ptr %29, align 8, !tbaa !343
   %61 = add nsw i32 %60, %.01320
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.015.019, i64 40
@@ -8467,12 +8461,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys14DriveChu
           cleanup
   call void @_ZN5Yosys14DriveChunkPortD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %5) #28
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %6) #28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %64
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys9DriverMap3addERKNS_8DriveBitES3_(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys9DriverMap3addERKNS_8DriveBitES3_(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Yosys::DriveBit", align 8
   %5 = alloca %"struct.Yosys::DriveBit", align 8
   %6 = tail call i32 @_ZN5Yosys9DriverMap17id_from_drive_bitERKNS_8DriveBitE(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -8743,7 +8737,7 @@ _ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE4findERKS3_
   br i1 %169, label %216, label %170
 
 170:                                              ; preds = %_ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE4findERKS3_.exit63
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %171 = icmp eq i32 %6, %.0.i.sroa.speculated115
   br i1 %171, label %172, label %174
 
@@ -8762,8 +8756,8 @@ _ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE4findERKS3_
 
 177:                                              ; preds = %175
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #28
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %178 = icmp eq i32 %7, %.0.i62.sroa.speculated
   br i1 %178, label %179, label %181
 
@@ -8782,7 +8776,7 @@ _ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE4findERKS3_
 
 184:                                              ; preds = %182
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %185 = icmp ne i32 %176, 0
   %186 = add nsw i32 %183, -1
   %187 = icmp ult i32 %186, 2
@@ -8797,14 +8791,14 @@ _ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE4findERKS3_
   %190 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %215
 
 191:                                              ; preds = %182
   %192 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %215
 
 193:                                              ; preds = %184
@@ -8871,7 +8865,7 @@ _ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE4findERKS3_
 declare void @_ZNK5Yosys5RTLIL8SigChunk7extractEii(ptr dead_on_unwind writable sret(%"struct.Yosys::RTLIL::SigChunk") align 8, ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys9DriverMap3addINS_5RTLIL8SigChunkES3_EENSt9enable_ifIXaacl11is_sig_typeIT_EEcl11is_sig_typeIT0_EEEvE4typeERKS5_RKS6_(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys9DriverMap3addINS_5RTLIL8SigChunkES3_EENSt9enable_ifIXaacl11is_sig_typeIT_EEcl11is_sig_typeIT0_EEEvE4typeERKS5_RKS6_(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Yosys::DriveBit", align 8
   %5 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %6 = alloca %"struct.Yosys::DriveBit", align 8
@@ -8891,16 +8885,16 @@ define linkonce_odr void @_ZN5Yosys9DriverMap3addINS_5RTLIL8SigChunkES3_EENSt9en
 
 10:                                               ; preds = %.lr.ph, %15
   %.017 = phi i32 [ 0, %.lr.ph ], [ %16, %15 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = call { ptr, i32 } @_ZNK5Yosys5RTLIL8SigChunkixEi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %.017)
   %.fca.0.extract1 = extractvalue { ptr, i32 } %11, 0
   %.fca.1.extract2 = extractvalue { ptr, i32 } %11, 1
   store ptr %.fca.0.extract1, ptr %5, align 8
   store i32 %.fca.1.extract2, ptr %.sroa.24.0..sroa_idx, align 8
   call void @_ZN5Yosys8DriveBitC1ERKNS_5RTLIL6SigBitE(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(12) %5)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = invoke { ptr, i32 } @_ZNK5Yosys5RTLIL8SigChunkixEi(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %.017)
           to label %13 unwind label %18
 
@@ -8918,11 +8912,11 @@ define linkonce_odr void @_ZN5Yosys9DriverMap3addINS_5RTLIL8SigChunkES3_EENSt9en
 
 15:                                               ; preds = %14
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %16 = add nuw nsw i32 %.017, 1
   %17 = load i32, ptr %8, align 8, !tbaa !343
   %.not = icmp eq i32 %16, %17
@@ -8941,16 +8935,16 @@ define linkonce_odr void @_ZN5Yosys9DriverMap3addINS_5RTLIL8SigChunkES3_EENSt9en
 
 22:                                               ; preds = %20, %18
   %.pn = phi { ptr, i32 } [ %21, %20 ], [ %19, %18 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys9DriverMap3addINS_5RTLIL8SigChunkENS_14DriveChunkPortEEENSt9enable_ifIXaacl11is_sig_typeIT_EEcl11is_sig_typeIT0_EEEvE4typeERKS6_RKS7_(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(20) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys9DriverMap3addINS_5RTLIL8SigChunkENS_14DriveChunkPortEEENSt9enable_ifIXaacl11is_sig_typeIT_EEcl11is_sig_typeIT0_EEEvE4typeERKS6_RKS7_(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(20) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Yosys::DriveBit", align 8
   %5 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %6 = alloca %"struct.Yosys::DriveBit", align 8
@@ -8976,16 +8970,16 @@ define linkonce_odr void @_ZN5Yosys9DriverMap3addINS_5RTLIL8SigChunkENS_14DriveC
 
 17:                                               ; preds = %.lr.ph, %_ZN5Yosys12DriveBitPortD2Ev.exit
   %.01116 = phi i32 [ 0, %.lr.ph ], [ %67, %_ZN5Yosys12DriveBitPortD2Ev.exit ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = call { ptr, i32 } @_ZNK5Yosys5RTLIL8SigChunkixEi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %.01116)
   %.fca.0.extract = extractvalue { ptr, i32 } %18, 0
   %.fca.1.extract = extractvalue { ptr, i32 } %18, 1
   store ptr %.fca.0.extract, ptr %5, align 8
   store i32 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
   call void @_ZN5Yosys8DriveBitC1ERKNS_5RTLIL6SigBitE(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(12) %5)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !355)
   %19 = load ptr, ptr %2, align 8, !tbaa !61, !noalias !355
   %20 = load i32, ptr %10, align 8, !tbaa !39, !noalias !355
@@ -9098,11 +9092,11 @@ _ZNK5Yosys14DriveChunkPortixEi.exit:              ; preds = %30
   unreachable
 
 _ZN5Yosys12DriveBitPortD2Ev.exit:                 ; preds = %53, %56, %63
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %67 = add nuw nsw i32 %.01116, 1
   %68 = load i32, ptr %8, align 8, !tbaa !343
   %.not = icmp eq i32 %67, %68
@@ -9113,16 +9107,16 @@ _ZN5Yosys12DriveBitPortD2Ev.exit:                 ; preds = %53, %56, %63
           cleanup
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %6)
   call void @_ZN5Yosys12DriveBitPortD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %70
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys9DriverMap17orient_undirectedENS0_10DriveBitIdE(ptr noundef nonnull align 8 dereferenceable(1088) %0, i32 %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys9DriverMap17orient_undirectedENS0_10DriveBitIdE(ptr noundef nonnull align 8 dereferenceable(1088) %0, i32 %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %"struct.std::pair.52", align 8
@@ -9201,12 +9195,12 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i101:           ; preds = %46, %_ZN5Yosys7hash
   br label %_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE5clearEv.exit103
 
 _ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE5clearEv.exit103: ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit.i101, %51
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #28
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #28, !noalias !359
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !359
   store i32 %1, ptr %21, align 4, !tbaa !17, !noalias !359
   call void @_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE6insertEOS3_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.61") align 8 %22, ptr noundef nonnull align 8 dereferenceable(49) %31, ptr noundef nonnull align 4 dereferenceable(4) %21)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #28, !noalias !359
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !359
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %52 = load ptr, ptr %40, align 8, !tbaa !182
   %53 = load ptr, ptr %38, align 8, !tbaa !180
   %54 = ptrtoint ptr %52 to i64
@@ -9273,7 +9267,7 @@ _ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE5clearEv.ex
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<Yosys::DriverMap::DriveBitId>::entry_t", ptr %95, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @_ZN5Yosys9DriverMap17drive_bit_from_idENS0_10DriveBitIdE(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::DriveBit") align 8 %23, ptr noundef nonnull align 8 dereferenceable(1088) %0, i32 %102)
   %103 = invoke noundef i32 @_ZN5Yosys9DriverMap8bit_modeERKNS_8DriveBitE(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull align 8 dereferenceable(64) %23)
           to label %104 unwind label %108
@@ -9284,15 +9278,15 @@ _ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE5clearEv.ex
   br i1 %or.cond, label %106, label %112
 
 106:                                              ; preds = %104
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24) #28
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #28, !noalias !362
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !362
   store i32 %102, ptr %20, align 4, !tbaa !17, !noalias !362
   invoke void @_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE6insertEOS3_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.61") align 8 %24, ptr noundef nonnull align 8 dereferenceable(49) %32, ptr noundef nonnull align 4 dereferenceable(4) %20)
           to label %107 unwind label %110
 
 107:                                              ; preds = %106
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #28, !noalias !362
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !362
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %112
 
 108:                                              ; preds = %112, %92
@@ -9303,40 +9297,40 @@ _ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE5clearEv.ex
 110:                                              ; preds = %106
   %111 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %988
 
 112:                                              ; preds = %104, %107
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %102, ptr %19, align 4
   %113 = invoke noundef i32 @_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE5countERKS3_(ptr noundef nonnull align 8 dereferenceable(168) %60, ptr noundef nonnull align 4 dereferenceable(4) %19)
           to label %114 unwind label %108
 
 114:                                              ; preds = %112
   %.not1377 = icmp eq i32 %113, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br i1 %.not1377, label %119, label %115
 
 115:                                              ; preds = %114
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #28
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #28, !noalias !365
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !365
   store i32 %102, ptr %18, align 4, !tbaa !17, !noalias !365
   invoke void @_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE6insertEOS3_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.61") align 8 %25, ptr noundef nonnull align 8 dereferenceable(49) %32, ptr noundef nonnull align 4 dereferenceable(4) %18)
           to label %116 unwind label %117
 
 116:                                              ; preds = %115
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #28, !noalias !365
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !365
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %119
 
 117:                                              ; preds = %115
   %118 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %988
 
 119:                                              ; preds = %116, %114
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %102, ptr %17, align 4
   %120 = invoke noundef i32 @_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE5countERKS3_(ptr noundef nonnull align 8 dereferenceable(168) %61, ptr noundef nonnull align 4 dereferenceable(4) %17)
           to label %.noexc unwind label %150
@@ -9346,7 +9340,7 @@ _ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE5clearEv.ex
   br i1 %.not.i, label %_ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit.thread1676, label %121
 
 _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit.thread1676: ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %._crit_edge
 
 121:                                              ; preds = %.noexc
@@ -9368,7 +9362,7 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit.thread1676: ; pr
 
 _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit.thread: ; preds = %.noexc105, %.noexc106
   %.0.i.ph = phi i32 [ 2, %.noexc106 ], [ 1, %.noexc105 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.lr.ph
 
 _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit: ; preds = %.noexc106
@@ -9387,7 +9381,7 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit: ; preds = %.noe
   %137 = lshr exact i64 %136, 3
   %138 = trunc i64 %137 to i32
   %139 = add nsw i32 %138, 2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.not961507 = icmp eq i32 %139, 0
   br i1 %.not961507, label %._crit_edge, label %.lr.ph
 
@@ -9404,7 +9398,7 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit: ; preds = %.noe
 
 ._crit_edge:                                      ; preds = %.loopexit1405, %_ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit.thread1676, %_ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %23)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %23) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %141 = add nuw nsw i32 %.01509, 1
   %142 = load ptr, ptr %40, align 8, !tbaa !182
   %143 = load ptr, ptr %38, align 8, !tbaa !180
@@ -9423,7 +9417,7 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit: ; preds = %.noe
 
 152:                                              ; preds = %.lr.ph, %.loopexit1405
   %.0931508 = phi i32 [ 0, %.lr.ph ], [ %987, %.loopexit1405 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.01271)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.01271)
   switch i32 %.0931508, label %473 [
     i32 0, label %153
     i32 1, label %313
@@ -10709,10 +10703,10 @@ _ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEEixEi.exit.i
 
 _ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE4findERKS3_.exit: ; preds = %805, %648, %._crit_edge.i.i177, %_ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEEixEi.exit.i
   %.0.i110 = phi ptr [ %822, %_ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEEixEi.exit.i ], [ %.sroa.01271, %._crit_edge.i.i177 ], [ %.sroa.01271, %648 ], [ %.sroa.01271, %805 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #28, !noalias !382
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !382
   %823 = load i32, ptr %.0.i110, align 4, !tbaa !17, !noalias !382
   store i32 %823, ptr %16, align 4, !tbaa !17, !noalias !382
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #28, !noalias !385
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !385
   %824 = load ptr, ptr %31, align 8, !tbaa !83, !noalias !385
   %825 = load ptr, ptr %35, align 8, !tbaa !83, !noalias !385
   %826 = icmp eq ptr %824, %825
@@ -11029,9 +11023,9 @@ _ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE7do_hashER
           to label %.loopexit1405 unwind label %.loopexit1420
 
 .loopexit1405:                                    ; preds = %977, %.loopexit.i182
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #28, !noalias !385
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #28, !noalias !382
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.01271)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !385
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !382
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.01271)
   %987 = add nuw nsw i32 %.0931508, 1
   %.not96 = icmp eq i32 %987, %.0.i1675
   br i1 %.not96, label %._crit_edge, label %152, !llvm.loop !388
@@ -11058,7 +11052,7 @@ _ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE7do_hashER
 
 .body:                                            ; preds = %.loopexit1420, %.loopexit.split-lp1421, %.loopexit1413, %.loopexit.split-lp, %875, %870, %633, %310, %364, %360, %699, %695, %200, %204, %520, %524, %470
   %.pn = phi { ptr, i32 } [ %634, %633 ], [ %471, %470 ], [ %311, %310 ], [ %525, %524 ], [ %521, %520 ], [ %365, %364 ], [ %361, %360 ], [ %205, %204 ], [ %201, %200 ], [ %700, %699 ], [ %696, %695 ], [ %876, %875 ], [ %871, %870 ], [ %lpad.loopexit, %.loopexit1413 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit1422, %.loopexit1420 ], [ %lpad.loopexit.split-lp1423, %.loopexit.split-lp1421 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.01271)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.01271)
   br label %988
 
 common.resume:                                    ; preds = %2790, %2795, %2621, %2626, %2450, %2455, %2278, %2283, %2099, %2104, %1926, %1931, %1764, %1769, %1602, %1607, %1441, %1446, %1280, %1285, %1119, %1124, %2038, %1876, %1714, %988
@@ -11068,7 +11062,7 @@ common.resume:                                    ; preds = %2790, %2795, %2621,
 988:                                              ; preds = %150, %.body, %117, %110, %108
   %.pn.pn.pn = phi { ptr, i32 } [ %118, %117 ], [ %109, %108 ], [ %111, %110 ], [ %.pn, %.body ], [ %151, %150 ]
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %23)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %23) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %common.resume
 
 .lr.ph1514:                                       ; preds = %.lr.ph1514.preheader, %.lr.ph1514
@@ -11077,12 +11071,12 @@ common.resume:                                    ; preds = %2790, %2795, %2621,
   %989 = load ptr, ptr %38, align 8, !tbaa !180
   %990 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<Yosys::DriverMap::DriveBitId>::entry_t", ptr %989, i64 %indvars.iv.next
   %991 = load i32, ptr %990, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26) #28
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #28, !noalias !389
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !389
   store i32 %991, ptr %15, align 4, !tbaa !17, !noalias !389
   call void @_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE6insertEOS3_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.61") align 8 %26, ptr noundef nonnull align 8 dereferenceable(49) %32, ptr noundef nonnull align 4 dereferenceable(4) %15)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #28, !noalias !389
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !389
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %.not1374 = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not1374, label %.loopexit.loopexit, label %.lr.ph1514
 
@@ -11168,7 +11162,7 @@ common.resume:                                    ; preds = %2790, %2795, %2621,
 1050:                                             ; preds = %.lr.ph1526, %._crit_edge1521
   %indvars.iv1633 = phi i64 [ %1041, %.lr.ph1526 ], [ %indvars.iv.next1634, %._crit_edge1521 ]
   %indvars.iv.next1634 = add nsw i64 %indvars.iv1633, -1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %1051 = load ptr, ptr %47, align 8, !tbaa !180
   %1052 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<Yosys::DriverMap::DriveBitId>::entry_t", ptr %1051, i64 %indvars.iv.next1634
   %1053 = load i32, ptr %1052, align 4, !tbaa !17
@@ -11193,12 +11187,12 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i123:           ; preds = %1056, %1050
   br label %_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE5clearEv.exit
 
 _ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE5clearEv.exit: ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit.i123, %1059
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i32 0, ptr %28, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE7emplaceERKS3_Oi(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.224") align 8 %29, ptr noundef nonnull align 8 dereferenceable(49) %33, ptr noundef nonnull align 4 dereferenceable(4) %27, ptr noundef nonnull align 4 dereferenceable(4) %28)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %1060 = load ptr, ptr %1000, align 8, !tbaa !393
   %1061 = load ptr, ptr %999, align 8, !tbaa !392
   %1062 = ptrtoint ptr %1060 to i64
@@ -11210,7 +11204,7 @@ _ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE5clearEv.e
   br i1 %1067, label %.lr.ph1520, label %._crit_edge1521
 
 ._crit_edge1521:                                  ; preds = %._crit_edge1518, %_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE5clearEv.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %.not1375 = icmp eq i64 %indvars.iv.next1634, 0
   br i1 %.not1375, label %._crit_edge1527, label %1050
 
@@ -11908,7 +11902,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i356:           ; preds = %1396
 
 _ZN5Yosys7hashlib14hashtable_sizeEj.exit801:      ; preds = %.lr.ph.i794
   %1448 = zext i32 %1443 to i64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -1, ptr %3, align 4, !tbaa !17
   %1449 = load ptr, ptr %1014, align 8, !tbaa !84
   %1450 = load ptr, ptr %1013, align 8, !tbaa !24
@@ -11938,7 +11932,7 @@ _ZN5Yosys7hashlib14hashtable_sizeEj.exit801:      ; preds = %.lr.ph.i794
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i357
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i357:       ; preds = %1462, %1460, %1458, %1456
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %1463 = load ptr, ptr %1016, align 8, !tbaa !165
   %1464 = load ptr, ptr %1015, align 8, !tbaa !168
   %1465 = ptrtoint ptr %1463 to i64
@@ -13380,7 +13374,7 @@ _ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE4findERKS3_
   %2227 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::DriverMap::DriveBitId, int>::entry_t", ptr %2226, i64 %indvars.iv1630, i32 0, i32 1
   %2228 = load i32, ptr %2227, align 4, !tbaa !395
   %2229 = add nsw i32 %2228, 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #28, !noalias !397
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !397
   %2230 = load ptr, ptr %33, align 8, !tbaa !83, !noalias !397
   %2231 = load ptr, ptr %998, align 8, !tbaa !83, !noalias !397
   %2232 = icmp eq ptr %2230, %2231
@@ -13686,21 +13680,21 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE7do_hashE
   br i1 %2390, label %2382, label %.loopexit.i, !llvm.loop !405
 
 .loopexit.i:                                      ; preds = %2387, %._crit_edge.i.i, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #28, !noalias !397
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !397
   %.sroa.2.0.insert.ext.i.i = zext i32 %2229 to i64
   %.sroa.2.0.insert.shift.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i, 32
   %.sroa.0.0.insert.ext.i.i = zext i32 %.0.i150.sroa.speculated to i64
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, %.sroa.0.0.insert.ext.i.i
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %14, align 8, !noalias !397
   %2391 = call noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE9do_insertEOSt4pairIS3_iERj(ptr noundef nonnull align 8 dereferenceable(49) %33, ptr noundef nonnull align 4 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(4) %13), !noalias !397
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #28, !noalias !397
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !397
   %.pre1640 = load ptr, ptr %999, align 8, !tbaa !392
   br label %_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE7emplaceERKS3_Oi.exit
 
 _ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE7emplaceERKS3_Oi.exit: ; preds = %2382, %.loopexit.i
   %2392 = phi ptr [ %.pre1640, %.loopexit.i ], [ %2381, %2382 ]
   %.sink19.i = phi i32 [ %2391, %.loopexit.i ], [ %.013.i.i, %2382 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #28, !noalias !397
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !397
   %2393 = sext i32 %.sink19.i to i64
   %2394 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::DriverMap::DriveBitId, int>::entry_t", ptr %2392, i64 %2393, i32 0, i32 1
   %2395 = load i32, ptr %2394, align 4, !tbaa !395
@@ -13711,9 +13705,9 @@ _ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE7emplaceER
   br i1 %2399, label %2400, label %2908
 
 2400:                                             ; preds = %_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE7emplaceERKS3_Oi.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %.0.i150.sroa.speculated, ptr %12, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #28, !noalias !406
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !406
   %2401 = load ptr, ptr %1028, align 8, !tbaa !83, !noalias !406
   %2402 = load ptr, ptr %1029, align 8, !tbaa !83, !noalias !406
   %2403 = icmp eq ptr %2401, %2402
@@ -14021,17 +14015,17 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_has
 
 .loopexit.i256:                                   ; preds = %2559, %._crit_edge.i.i254, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i269
   %2563 = phi i32 [ %.pre15.i255, %._crit_edge.i.i254 ], [ %.0.i150.sroa.speculated, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i269 ], [ %.pre15.i255, %2559 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28, !noalias !406
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !406
   %.sroa.0.0.insert.ext.i.i259 = zext i32 %2563 to i64
   %.sroa.0.0.insert.insert.i.i260 = or disjoint i64 %.sroa.2.0.insert.shift.i.i258, %.sroa.0.0.insert.ext.i.i259
   store i64 %.sroa.0.0.insert.insert.i.i260, ptr %5, align 8, !noalias !406
   %2564 = call noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE9do_insertEOSt4pairIS3_S3_ERj(ptr noundef nonnull align 8 dereferenceable(168) %1028, ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !406
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28, !noalias !406
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !406
   br label %_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7emplaceERKS3_S8_.exit271
 
 _ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7emplaceERKS3_S8_.exit271: ; preds = %.lr.ph.i.i264, %.loopexit.i256
   %.sink19.i261 = phi i32 [ %2564, %.loopexit.i256 ], [ %.013.i.i265, %.lr.ph.i.i264 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #28, !noalias !406
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !406
   %2565 = sext i32 %.sink19.i261 to i64
   %2566 = load ptr, ptr %1030, align 8, !tbaa !149
   %2567 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::DriverMap::DriveBitId, Yosys::DriverMap::DriveBitId>::entry_t", ptr %2566, i64 %2565, i32 0, i32 1
@@ -14040,7 +14034,7 @@ _ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7emplace
   br i1 %2569, label %_ZN5Yosys9DriverMap13DriveBitGraph8add_edgeENS0_10DriveBitIdES2_.exit, label %2570
 
 2570:                                             ; preds = %_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7emplaceERKS3_S8_.exit271
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #28, !noalias !409
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !409
   %2571 = load ptr, ptr %1034, align 8, !tbaa !83, !noalias !409
   %2572 = load ptr, ptr %1035, align 8, !tbaa !83, !noalias !409
   %2573 = icmp eq ptr %2571, %2572
@@ -14350,17 +14344,17 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_has
 
 .loopexit.i240:                                   ; preds = %2730, %._crit_edge.i.i238, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i252
   %2734 = phi i32 [ %.pre15.i239, %._crit_edge.i.i238 ], [ %.pre.i253, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i252 ], [ %.pre15.i239, %2730 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #28, !noalias !409
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !409
   %.sroa.0.0.insert.ext.i.i243 = zext i32 %2734 to i64
   %.sroa.0.0.insert.insert.i.i244 = or disjoint i64 %.sroa.2.0.insert.shift.i.i258, %.sroa.0.0.insert.ext.i.i243
   store i64 %.sroa.0.0.insert.insert.i.i244, ptr %7, align 8, !noalias !409
   %2735 = call noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE9do_insertEOSt4pairIS3_S3_ERj(ptr noundef nonnull align 8 dereferenceable(49) %1034, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %6), !noalias !409
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28, !noalias !409
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !409
   br label %_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7emplaceERKS3_S8_.exit
 
 _ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7emplaceERKS3_S8_.exit: ; preds = %.lr.ph.i.i248, %.loopexit.i240
   %.sink19.i245 = phi i32 [ %2735, %.loopexit.i240 ], [ %.013.i.i249, %.lr.ph.i.i248 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #28, !noalias !409
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !409
   %2736 = sext i32 %.sink19.i245 to i64
   %2737 = load ptr, ptr %1036, align 8, !tbaa !149
   %2738 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::DriverMap::DriveBitId, Yosys::DriverMap::DriveBitId>::entry_t", ptr %2737, i64 %2736, i32 0, i32 1
@@ -14370,9 +14364,9 @@ _ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7emplace
 
 2741:                                             ; preds = %_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7emplaceERKS3_S8_.exit
   %2742 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_EixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %1040, ptr noundef nonnull align 4 dereferenceable(4) %12)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #28, !noalias !412
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !412
   store i32 %.sroa.017.0.copyload, ptr %11, align 4, !tbaa !17, !noalias !412
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #28, !noalias !415
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !415
   %2743 = load ptr, ptr %2742, align 8, !tbaa !83, !noalias !415
   %2744 = getelementptr inbounds nuw i8, ptr %2742, i64 8
   %2745 = load ptr, ptr %2744, align 8, !tbaa !83, !noalias !415
@@ -14686,12 +14680,12 @@ _ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE7do_hashER
   br label %_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE6insertEOS3_.exit237
 
 _ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE6insertEOS3_.exit237: ; preds = %2898, %.loopexit.i228
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #28, !noalias !415
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #28, !noalias !412
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !415
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !412
   br label %_ZN5Yosys9DriverMap13DriveBitGraph8add_edgeENS0_10DriveBitIdES2_.exit
 
 _ZN5Yosys9DriverMap13DriveBitGraph8add_edgeENS0_10DriveBitIdES2_.exit: ; preds = %_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7emplaceERKS3_S8_.exit271, %_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7emplaceERKS3_S8_.exit, %_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE6insertEOS3_.exit237
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %2908
 
 2908:                                             ; preds = %_ZN5Yosys9DriverMap13DriveBitGraph8add_edgeENS0_10DriveBitIdES2_.exit, %_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE7emplaceERKS3_Oi.exit
@@ -14708,21 +14702,21 @@ _ZN5Yosys9DriverMap13DriveBitGraph8add_edgeENS0_10DriveBitIdES2_.exit: ; preds =
   %2911 = load ptr, ptr %38, align 8, !tbaa !180
   %2912 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<Yosys::DriverMap::DriveBitId>::entry_t", ptr %2911, i64 %indvars.iv.next1637
   %2913 = load i32, ptr %2912, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30) #28
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #28, !noalias !419
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !419
   store i32 %2913, ptr %10, align 4, !tbaa !17, !noalias !419
   call void @_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE6insertEOS3_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.61") align 8 %30, ptr noundef nonnull align 8 dereferenceable(49) %1048, ptr noundef nonnull align 4 dereferenceable(4) %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #28, !noalias !419
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !419
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %.not1376 = icmp eq i64 %indvars.iv.next1637, 0
   br i1 %.not1376, label %._crit_edge1532, label %2910
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE7emplaceERKS3_Oi(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.224") align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE7emplaceERKS3_Oi(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.224") align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #4 comdat align 2 {
   %5 = alloca i32, align 4
   %6 = alloca %"struct.std::pair.227", align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load ptr, ptr %1, align 8, !tbaa !83
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !83
@@ -14828,7 +14822,7 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE7do_hashE
 
 .loopexit:                                        ; preds = %73, %._crit_edge.i, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread
   %77 = phi i32 [ %.pre15, %._crit_edge.i ], [ %.pre, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread ], [ %.pre15, %73 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %78 = load i32, ptr %3, align 4, !tbaa !17
   %.sroa.2.0.insert.ext.i = zext i32 %78 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
@@ -14836,7 +14830,7 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE7do_hashE
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   store i64 %.sroa.0.0.insert.insert.i, ptr %6, align 8
   %79 = call noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE9do_insertEOSt4pairIS3_iERj(ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit
 
 _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit: ; preds = %68, %.loopexit
@@ -14847,12 +14841,12 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE9do_looku
   store i32 %.sink19, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !17
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %80, align 8, !tbaa !424
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys9DriverMapclERKNS_8DriveBitE(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::DriveBit") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1088) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys9DriverMapclERKNS_8DriveBitE(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::DriveBit") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1088) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Yosys::DriverMap::DriveBitId", align 4
   %5 = alloca %"struct.Yosys::DriverMap::DriveBitId", align 4
   %6 = alloca %"struct.Yosys::DriverMap::DriveBitId", align 4
@@ -14899,7 +14893,7 @@ define void @_ZN5Yosys9DriverMapclERKNS_8DriveBitE(ptr dead_on_unwind noalias wr
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %28 = load ptr, ptr %18, align 8, !tbaa !28
   %29 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<Yosys::DriveBit>::entry_t", ptr %28, i64 %indvars.iv.next
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN5Yosys9DriverMapclERKNS_8DriveBitE(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::DriveBit") align 8 %9, ptr noundef nonnull align 8 dereferenceable(1088) %1, ptr noundef nonnull align 8 dereferenceable(64) %29)
           to label %30 unwind label %32
 
@@ -14909,7 +14903,7 @@ define void @_ZN5Yosys9DriverMapclERKNS_8DriveBitE(ptr dead_on_unwind noalias wr
 
 31:                                               ; preds = %30
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %9)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not106 = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not106, label %.loopexit, label %.lr.ph
 
@@ -14926,13 +14920,13 @@ define void @_ZN5Yosys9DriverMapclERKNS_8DriveBitE(ptr dead_on_unwind noalias wr
 
 36:                                               ; preds = %34, %32
   %.pn61 = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
   br label %258
 
 37:                                               ; preds = %3
   %38 = tail call i32 @_ZN5Yosys9DriverMap17id_from_drive_bitERKNS_8DriveBitE(ptr noundef nonnull align 8 dereferenceable(1088) %1, ptr noundef nonnull align 8 dereferenceable(64) %2)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %40 = load ptr, ptr %39, align 8, !tbaa !83
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 288
@@ -15066,7 +15060,7 @@ _ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEEixEi.exit.i
 _ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE4findERKS3_.exit: ; preds = %101, %37, %._crit_edge.i.i, %_ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEEixEi.exit.i
   %.0.i.sroa.speculated = phi i32 [ %.0.i.sroa.speculate.load._ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEEixEi.exit.i, %_ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEEixEi.exit.i ], [ %38, %._crit_edge.i.i ], [ %38, %37 ], [ %38, %101 ]
   store i32 %.0.i.sroa.speculated, ptr %10, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN5Yosys9DriverMap17drive_bit_from_idENS0_10DriveBitIdE(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::DriveBit") align 8 %11, ptr noundef nonnull align 8 dereferenceable(1088) %1, i32 %.0.i.sroa.speculated)
   %121 = invoke noundef i32 @_ZN5Yosys9DriverMap8bit_modeERKNS_8DriveBitE(ptr noundef nonnull align 8 dereferenceable(1088) %1, ptr noundef nonnull align 8 dereferenceable(64) %11)
           to label %122 unwind label %128
@@ -15090,7 +15084,7 @@ _ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE4findERKS3_
 
 130:                                              ; preds = %122
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %124, ptr %8, align 4
   %132 = invoke noundef i32 @_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE5countERKS3_(ptr noundef nonnull align 8 dereferenceable(168) %131, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %.noexc unwind label %164
@@ -15138,17 +15132,17 @@ _ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE4findERKS3_
 
 155:                                              ; preds = %140, %.noexc70, %.noexc69, %.noexc
   %.0.i68 = phi i32 [ 0, %.noexc ], [ 1, %.noexc69 ], [ %154, %140 ], [ 2, %.noexc70 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 528
   %.sroa.013.0.copyload = load i32, ptr %10, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %.sroa.013.0.copyload, ptr %7, align 4
   %157 = invoke noundef i32 @_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE5countERKS3_(ptr noundef nonnull align 8 dereferenceable(168) %156, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %158 unwind label %164
 
 158:                                              ; preds = %155
   %.not107 = icmp eq i32 %157, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not107, label %166, label %159
 
 159:                                              ; preds = %158
@@ -15197,7 +15191,7 @@ _ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE4findERKS3_
 ._crit_edge:                                      ; preds = %220, %172
   %175 = getelementptr inbounds nuw i8, ptr %1, i64 696
   %.sroa.05.0.copyload = load i32, ptr %10, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %.sroa.05.0.copyload, ptr %6, align 4
   %176 = invoke noundef i32 @_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE5countERKS3_(ptr noundef nonnull align 8 dereferenceable(168) %175, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %.noexc77 unwind label %227
@@ -15207,7 +15201,7 @@ _ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE4findERKS3_
   br i1 %.not.i72, label %_ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit80.thread124, label %177
 
 _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit80.thread124: ; preds = %.noexc77
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN5Yosys8DriveBitC2EOS0_.exit
 
 177:                                              ; preds = %.noexc77
@@ -15231,7 +15225,7 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit80.thread124: ; p
 
 _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit80.thread: ; preds = %.noexc78, %.noexc79
   %.0.i76.ph = phi i32 [ 2, %.noexc79 ], [ 1, %.noexc78 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.lr.ph117
 
 _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit80: ; preds = %.noexc79
@@ -15250,7 +15244,7 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit80: ; preds = %.n
   %195 = lshr exact i64 %194, 3
   %196 = trunc i64 %195 to i32
   %197 = add nsw i32 %196, 2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not52115 = icmp eq i32 %197, 0
   br i1 %.not52115, label %_ZN5Yosys8DriveBitC2EOS0_.exit, label %.lr.ph117
 
@@ -15262,9 +15256,9 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit80: ; preds = %.n
 
 200:                                              ; preds = %.lr.ph114, %220
   %.050113 = phi i32 [ 0, %.lr.ph114 ], [ %221, %220 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.sroa.07.0.copyload = load i32, ptr %10, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %.sroa.07.0.copyload, ptr %5, align 4
   switch i32 %.050113, label %204 [
     i32 0, label %.invoke
@@ -15302,7 +15296,7 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit80: ; preds = %.n
 218:                                              ; preds = %.invoke, %.noexc83
   %.sroa.03.0.in.i = phi ptr [ %217, %.noexc83 ], [ %203, %.invoke ]
   %.sroa.03.0.i = load i32, ptr %.sroa.03.0.in.i, align 4, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN5Yosys9DriverMap17drive_bit_from_idENS0_10DriveBitIdE(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::DriveBit") align 8 %12, ptr noundef nonnull align 8 dereferenceable(1088) %1, i32 %.sroa.03.0.i)
           to label %219 unwind label %222
 
@@ -15312,7 +15306,7 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit80: ; preds = %.n
 
 220:                                              ; preds = %219
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %221 = add nuw nsw i32 %.050113, 1
   %.not51 = icmp eq i32 %221, %.0.i68
   br i1 %.not51, label %._crit_edge, label %200, !llvm.loop !427
@@ -15330,7 +15324,7 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit80: ; preds = %.n
 
 226:                                              ; preds = %224, %222
   %.pn55 = phi { ptr, i32 } [ %225, %224 ], [ %223, %222 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %256
 
 227:                                              ; preds = %180, %177, %._crit_edge
@@ -15340,9 +15334,9 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit80: ; preds = %.n
 
 229:                                              ; preds = %.lr.ph117, %249
   %.039116 = phi i32 [ 0, %.lr.ph117 ], [ %250, %249 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.sroa.0.0.copyload = load i32, ptr %10, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %.sroa.0.0.copyload, ptr %4, align 4
   switch i32 %.039116, label %233 [
     i32 0, label %.invoke128
@@ -15380,7 +15374,7 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit80: ; preds = %.n
 247:                                              ; preds = %.invoke128, %.noexc89
   %.sroa.03.0.in.i84 = phi ptr [ %246, %.noexc89 ], [ %232, %.invoke128 ]
   %.sroa.03.0.i85 = load i32, ptr %.sroa.03.0.in.i84, align 4, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZN5Yosys9DriverMap17drive_bit_from_idENS0_10DriveBitIdE(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::DriveBit") align 8 %13, ptr noundef nonnull align 8 dereferenceable(1088) %1, i32 %.sroa.03.0.i85)
           to label %248 unwind label %251
 
@@ -15390,7 +15384,7 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit80: ; preds = %.n
 
 249:                                              ; preds = %248
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %13)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %250 = add nuw nsw i32 %.039116, 1
   %.not52 = icmp eq i32 %250, %.0.i76123
   br i1 %.not52, label %_ZN5Yosys8DriveBitC2EOS0_.exit, label %229, !llvm.loop !428
@@ -15408,7 +15402,7 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit80: ; preds = %.n
 
 255:                                              ; preds = %253, %251
   %.pn = phi { ptr, i32 } [ %254, %253 ], [ %252, %251 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %256
 
 256:                                              ; preds = %227, %255, %226, %170
@@ -15418,15 +15412,15 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit80: ; preds = %.n
 
 _ZN5Yosys8DriveBitC2EOS0_.exit:                   ; preds = %249, %_ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit80.thread124, %_ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit80, %126
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %11)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit
 
 257:                                              ; preds = %164, %256, %128
   %.pn59 = phi { ptr, i32 } [ %129, %128 ], [ %.pn55.pn, %256 ], [ %165, %164 ]
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %11)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %258
 
 .loopexit:                                        ; preds = %31, %17, %_ZN5Yosys8DriveBitC2EOS0_.exit, %15
@@ -15438,7 +15432,7 @@ _ZN5Yosys8DriveBitC2EOS0_.exit:                   ; preds = %249, %_ZN5Yosys9Dri
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE5countERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE5countERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #4 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !83
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !83
@@ -15540,7 +15534,7 @@ _ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE9do_lookup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys9DriverMapclENS_9DriveSpecE(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::DriveSpec") align 8 initializes((0, 4), (8, 60)) %0, ptr noundef nonnull align 8 dereferenceable(1088) %1, ptr noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys9DriverMapclENS_9DriveSpecE(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::DriveSpec") align 8 initializes((0, 4), (8, 60)) %0, ptr noundef nonnull align 8 dereferenceable(1088) %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Yosys::DriveBit", align 8
   store i32 0, ptr %0, align 8, !tbaa !139
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15556,7 +15550,7 @@ define void @_ZN5Yosys9DriverMapclENS_9DriveSpecE(ptr dead_on_unwind noalias wri
 
 9:                                                ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZNK5Yosys9DriveSpec6unpackEv(ptr noundef nonnull align 8 dereferenceable(60) %2)
           to label %10 unwind label %15
 
@@ -15572,7 +15566,7 @@ define void @_ZN5Yosys9DriverMapclENS_9DriveSpecE(ptr dead_on_unwind noalias wri
 
 14:                                               ; preds = %13
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %8
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !429
@@ -15590,7 +15584,7 @@ define void @_ZN5Yosys9DriverMapclENS_9DriveSpecE(ptr dead_on_unwind noalias wri
 
 19:                                               ; preds = %17, %15
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5Yosys9DriveSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #28
   resume { ptr, i32 } %.pn
 
@@ -15599,7 +15593,7 @@ define void @_ZN5Yosys9DriverMapclENS_9DriveSpecE(ptr dead_on_unwind noalias wri
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5Yosys9DriveSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys9DriveSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !140
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -15670,7 +15664,7 @@ _ZNSt6vectorIN5Yosys10DriveChunkESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5Yosys10log_signalERKNS_14DriveChunkWireE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN5Yosys10log_signalERKNS_14DriveChunkWireE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !58
@@ -15695,7 +15689,7 @@ _ZNK5Yosys14DriveChunkWire8is_wholeEv.exit.thread: ; preds = %1, %_ZNK5Yosys14Dr
   br i1 %16, label %17, label %38
 
 17:                                               ; preds = %_ZNK5Yosys14DriveChunkWire8is_wholeEv.exit.thread
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull @.str.2, ptr noundef %6, i32 noundef %8)
   %18 = invoke noundef ptr @_ZN5Yosys7log_strERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %19 unwind label %28
@@ -15720,7 +15714,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %61
 
 28:                                               ; preds = %17
@@ -15745,11 +15739,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %62
 
 38:                                               ; preds = %_ZNK5Yosys14DriveChunkWire8is_wholeEv.exit.thread
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %39 = add i32 %8, -1
   %40 = add i32 %39, %11
   call void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @.str.3, ptr noundef %6, i32 noundef %40, i32 noundef %8)
@@ -15776,7 +15770,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %61
 
 51:                                               ; preds = %38
@@ -15801,7 +15795,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %62
 
 61:                                               ; preds = %_ZNK5Yosys14DriveChunkWire8is_wholeEv.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -15818,7 +15812,7 @@ declare noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull 
 declare noundef ptr @_ZN5Yosys7log_strERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ...) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ...) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15826,9 +15820,9 @@ define linkonce_odr void @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind noali
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %6, align 8, !tbaa !434
   store i8 0, ptr %5, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN5Yosys8vstringfB5cxx11EPKcP13__va_list_tag(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef %1, ptr noundef nonnull %3)
           to label %7 unwind label %49
 
@@ -15938,16 +15932,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 49:                                               ; preds = %2
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %51 = load ptr, ptr %0, align 8, !tbaa !430
   %52 = icmp eq ptr %51, %5
   br i1 %52, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3
@@ -15969,7 +15963,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5Yosys10log_signalERKNS_14DriveChunkPortE(ptr noundef nonnull align 8 dereferenceable(20) %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN5Yosys10log_signalERKNS_14DriveChunkPortE(ptr noundef nonnull align 8 dereferenceable(20) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15994,7 +15988,7 @@ _ZNK5Yosys14DriveChunkPort8is_wholeEv.exit:       ; preds = %1
   br i1 %19, label %20, label %_ZNK5Yosys14DriveChunkPort8is_wholeEv.exit.thread
 
 20:                                               ; preds = %_ZNK5Yosys14DriveChunkPort8is_wholeEv.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull @.str.4, ptr noundef %7, ptr noundef %9)
   %21 = invoke noundef ptr @_ZN5Yosys7log_strERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %22 unwind label %31
@@ -16019,7 +16013,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %90
 
 31:                                               ; preds = %20
@@ -16044,7 +16038,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %91
 
 _ZNK5Yosys14DriveChunkPort8is_wholeEv.exit.thread: ; preds = %1, %_ZNK5Yosys14DriveChunkPort8is_wholeEv.exit
@@ -16054,7 +16048,7 @@ _ZNK5Yosys14DriveChunkPort8is_wholeEv.exit.thread: ; preds = %1, %_ZNK5Yosys14Dr
   br i1 %43, label %44, label %66
 
 44:                                               ; preds = %_ZNK5Yosys14DriveChunkPort8is_wholeEv.exit.thread
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %45 = load i32, ptr %10, align 4, !tbaa !66
   call void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @.str.5, ptr noundef %7, ptr noundef %9, i32 noundef %45)
   %46 = invoke noundef ptr @_ZN5Yosys7log_strERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -16080,7 +16074,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %90
 
 56:                                               ; preds = %44
@@ -16105,11 +16099,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %91
 
 66:                                               ; preds = %_ZNK5Yosys14DriveChunkPort8is_wholeEv.exit.thread
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %67 = load i32, ptr %10, align 4, !tbaa !66
   %68 = add i32 %42, -1
   %69 = add i32 %68, %67
@@ -16137,7 +16131,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i28
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %90
 
 80:                                               ; preds = %66
@@ -16162,7 +16156,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i31
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %91
 
 90:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -16175,7 +16169,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5Yosys10log_signalERKNS_16DriveChunkMarkerE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN5Yosys10log_signalERKNS_16DriveChunkMarkerE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16185,7 +16179,7 @@ define noundef ptr @_ZN5Yosys10log_signalERKNS_16DriveChunkMarkerE(ptr noundef n
   br i1 %6, label %8, label %31
 
 8:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = load i32, ptr %0, align 4, !tbaa !71
   %10 = load i32, ptr %7, align 4, !tbaa !73
   call void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull @.str.7, i32 noundef %9, i32 noundef %10)
@@ -16212,7 +16206,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %56
 
 21:                                               ; preds = %8
@@ -16237,11 +16231,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %57
 
 31:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %32 = load i32, ptr %0, align 4, !tbaa !71
   %33 = load i32, ptr %7, align 4, !tbaa !73
   %34 = add i32 %5, -1
@@ -16270,7 +16264,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %56
 
 46:                                               ; preds = %31
@@ -16295,7 +16289,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %57
 
 56:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -16308,7 +16302,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5Yosys10log_signalERKNS_10DriveChunkE(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN5Yosys10log_signalERKNS_10DriveChunkE(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load i8, ptr %0, align 8, !tbaa !51
@@ -16322,7 +16316,7 @@ define noundef ptr @_ZN5Yosys10log_signalERKNS_10DriveChunkE(ptr noundef nonnull
   ]
 
 _ZNK5Yosys10DriveChunk4sizeEv.exit:               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !15
   call void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull @.str.9, i32 noundef %6)
@@ -16349,7 +16343,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %90
 
 17:                                               ; preds = %_ZNK5Yosys10DriveChunk4sizeEv.exit
@@ -16374,7 +16368,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i31
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %91
 
 27:                                               ; preds = %1
@@ -16398,7 +16392,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %_ZN
   br label %90
 
 ._crit_edge.i.i:                                  ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %39, ptr %3, align 8, !tbaa !435
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %39, ptr noundef nonnull align 1 dereferenceable(9) @.str.10, i64 9, i1 false)
@@ -16508,7 +16502,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i46
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i47, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i46
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %90
 
 80:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i, %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
@@ -16535,7 +16529,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i49
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i50
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %91
 
 89:                                               ; preds = %1
@@ -16554,7 +16548,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %_ZN
 declare noundef ptr @_ZN5Yosys9log_constERKNS_5RTLIL5ConstEb(ptr noundef nonnull align 8 dereferenceable(40), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5Yosys10log_signalERKNS_9DriveSpecE(ptr noundef nonnull align 8 dereferenceable(60) %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN5Yosys10log_signalERKNS_9DriveSpecE(ptr noundef nonnull align 8 dereferenceable(60) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNK5Yosys9DriveSpec4packEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16576,7 +16570,7 @@ define noundef ptr @_ZN5Yosys10log_signalERKNS_9DriveSpecE(ptr noundef nonnull a
   br label %55
 
 15:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %16, ptr %2, align 8, !tbaa !435
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -16673,7 +16667,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %55
 
 46:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i, %22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
@@ -16700,7 +16694,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn
 
 55:                                               ; preds = %1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %13
@@ -16800,7 +16794,7 @@ _ZN5Yosys12DriveBitPortD2Ev.exit:                 ; preds = %35, %_ZNSt12_Vector
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys7hashlib4poolINS0_8DriveBitENS1_8hash_opsIS3_EEE7entry_tESaIS7_EEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys7hashlib4poolINS0_8DriveBitENS1_8hash_opsIS3_EEE7entry_tESaIS7_EEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, %0
   br i1 %.not, label %85, label %3
 
@@ -17019,7 +17013,7 @@ _ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_8DriveBit
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr %0, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17044,7 +17038,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   %16 = mul i32 %15, 3
   %17 = tail call noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEj(i32 noundef %16)
   %18 = zext i32 %17 to i64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 4, !tbaa !17
   %19 = load ptr, ptr %4, align 8, !tbaa !84
   %20 = load ptr, ptr %0, align 8, !tbaa !24
@@ -17074,7 +17068,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !30
   %35 = load ptr, ptr %7, align 8, !tbaa !28
@@ -17201,7 +17195,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_8DriveBitENS1_8hash_opsIS3_EEE7entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt6vectorIN5Yosys7hashlib4poolINS0_8DriveBitENS1_8hash_opsIS3_EEE7entry_tESaIS7_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEEPS7_mT_SH_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr %2, ptr %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZNSt6vectorIN5Yosys7hashlib4poolINS0_8DriveBitENS1_8hash_opsIS3_EEE7entry_tESaIS7_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEEPS7_mT_SH_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr %2, ptr %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_8DriveBitENS1_8hash_opsIS3_EEE7entry_tESaIS7_EE11_M_allocateEm.exit, label %5
 
@@ -17328,29 +17322,29 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #28
   tail call void @_ZSt9terminatev() #30
   unreachable
 }
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #13
+declare void @_ZSt9terminatev() local_unnamed_addr #12
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #10
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #9
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #10
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #9
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #15
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEj(i32 noundef %0) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEj(i32 noundef %0) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN5Yosys7hashlib14hashtable_sizeEjE20zero_and_some_primes acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %11, !prof !199
@@ -17422,7 +17416,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEj(i32 noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %5
 
@@ -17612,10 +17606,10 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i71, %.l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
@@ -17655,10 +17649,10 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt12length_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #16
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #15
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr i32 @_ZNK5Yosys8DriveBit9hash_intoENS_7hashlib11HasherDJB32E(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 %1) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr i32 @_ZNK5Yosys8DriveBit9hash_intoENS_7hashlib11HasherDJB32E(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i8, ptr %0, align 8, !tbaa !6
   switch i8 %3, label %126 [
     i8 0, label %4
@@ -17857,7 +17851,7 @@ _ZN5Yosys7hashlib11HasherDJB323eatINS0_4poolINS_8DriveBitENS0_8hash_opsIS4_EEEEE
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr i32 @_ZNK5Yosys12DriveBitPort9hash_intoENS_7hashlib11HasherDJB32E(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 %1) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr i32 @_ZNK5Yosys12DriveBitPort9hash_intoENS_7hashlib11HasherDJB32E(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !35
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load i32, ptr %4, align 4, !tbaa !39
@@ -17981,7 +17975,7 @@ _ZN5Yosys7hashlib11HasherDJB323eatINS_5RTLIL8IdStringEEEvRKT_.exit: ; preds = %.
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -18035,7 +18029,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt12_Vector_base
 declare noundef zeroext i8 @_ZNK5Yosys5RTLIL5Const14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %0) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %0) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = load i32, ptr @_ZN5Yosys12yosys_xtraceE, align 4, !tbaa !17
   %.not = icmp eq i32 %3, 0
@@ -18081,7 +18075,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit:                ; preds = %4
 
 _ZNSt6vectorIPcSaIS0_EE2atEm.exit2:               ; preds = %._crit_edge
   %23 = getelementptr inbounds nuw ptr, ptr %17, i64 %.pre
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %24 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString16global_id_index_E, align 8, !tbaa !83
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys5RTLIL8IdString16global_id_index_E, i64 8), align 8, !tbaa !83
   %26 = icmp eq ptr %24, %25
@@ -18132,7 +18126,7 @@ _ZN5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE5eraseERKS2_.exit: ; preds = %_ZNS
   %51 = call noundef i32 @_ZNK5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj(ptr noundef nonnull align 8 dereferenceable(49) @_ZN5Yosys5RTLIL8IdString16global_id_index_E, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %52 = load i32, ptr %2, align 4, !tbaa !17
   %53 = call noundef i32 @_ZN5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE8do_eraseEij(ptr noundef nonnull align 8 dereferenceable(49) @_ZN5Yosys5RTLIL8IdString16global_id_index_E, i32 noundef %51, i32 noundef %52)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !tbaa !447
   %55 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !tbaa !451
   %56 = ptrtoint ptr %54 to i64
@@ -18234,13 +18228,13 @@ declare void @_ZN5Yosys3logEPKcz(ptr noundef, ...) local_unnamed_addr #0
 declare void @_ZN5Yosys13log_backtraceEPKci(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #17
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #10
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !83
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !83
@@ -18354,7 +18348,7 @@ _ZNK5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE7do_hashERKS2_.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE8do_eraseEij(ptr noundef nonnull align 8 dereferenceable(49) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE8do_eraseEij(ptr noundef nonnull align 8 dereferenceable(49) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !454
@@ -18497,7 +18491,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %80
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr %0, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18522,7 +18516,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   %16 = mul i32 %15, 3
   %17 = tail call noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEj(i32 noundef %16)
   %18 = zext i32 %17 to i64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 4, !tbaa !17
   %19 = load ptr, ptr %4, align 8, !tbaa !84
   %20 = load ptr, ptr %0, align 8, !tbaa !24
@@ -18552,7 +18546,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !454
   %35 = load ptr, ptr %7, align 8, !tbaa !457
@@ -18641,7 +18635,7 @@ _ZN5Yosys7hashlib13hash_cstr_ops4hashEPKc.exit.i: ; preds = %58, %.lr.ph.split
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #18
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Yosys10DriveChunk8set_noneEi(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -18743,7 +18737,7 @@ _ZN5Yosys14DriveChunkPortD2Ev.exit:               ; preds = %38, %_ZNSt12_Vector
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5Yosys18DriveChunkMultipleD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys18DriveChunkMultipleD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !50
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -18795,7 +18789,7 @@ _ZN5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !50
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -18884,7 +18878,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_10DriveChunkENS1_8hash_opsIS3_EEE7e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 declare noundef i32 @_ZNK5Yosys5RTLIL5Const4sizeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
@@ -18893,9 +18887,9 @@ declare void @_ZN5Yosys5RTLIL5ConstC1ENS0_5StateEi(ptr noundef nonnull align 8 d
 declare void @_ZN5Yosys5RTLIL5ConstC1EOS1_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE6insertEOS2_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.258") align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZN5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE6insertEOS2_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.258") align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) local_unnamed_addr #4 comdat align 2 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %1, align 8, !tbaa !83
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !83
@@ -19002,12 +18996,12 @@ _ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj.e
   store i32 %.sink16, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !17
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %65, align 8, !tbaa !472
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE9do_insertEOS2_Rj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE9do_insertEOS2_Rj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %0, align 8, !tbaa !83
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19016,7 +19010,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4poolINS_10DriveChunkENS0_8has
   br i1 %8, label %9, label %34
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !47
@@ -19041,7 +19035,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4poolINS_10DriveChunkENS0_8has
   br label %_ZNSt6vectorIN5Yosys7hashlib4poolINS0_10DriveChunkENS1_8hash_opsIS3_EEE7entry_tESaIS7_EE12emplace_backIJS3_iEEERS7_DpOT_.exit
 
 _ZNSt6vectorIN5Yosys7hashlib4poolINS0_10DriveChunkENS1_8hash_opsIS3_EEE7entry_tESaIS7_EE12emplace_backIJS3_iEEERS7_DpOT_.exit: ; preds = %14, %19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
   %21 = load ptr, ptr %0, align 8, !tbaa !83
   %22 = load ptr, ptr %6, align 8, !tbaa !83
@@ -19124,7 +19118,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINS0_10DriveChunkENS1_8hash_opsIS3_EEE7entry_tE
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr i32 @_ZNK5Yosys10DriveChunk9hash_intoENS_7hashlib11HasherDJB32E(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 %1) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr i32 @_ZNK5Yosys10DriveChunk9hash_intoENS_7hashlib11HasherDJB32E(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 %1) local_unnamed_addr #10 comdat align 2 {
   %3 = alloca %"class.Yosys::RTLIL::Const::const_iterator", align 8
   %4 = alloca %"class.Yosys::hashlib::HasherDJB32", align 4
   store i32 %1, ptr %4, align 4
@@ -19162,7 +19156,7 @@ define linkonce_odr i32 @_ZNK5Yosys10DriveChunk9hash_intoENS_7hashlib11HasherDJB
   %25 = xor i32 %24, %23
   %26 = shl i32 %25, 5
   %27 = xor i32 %26, %25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %16, ptr %3, align 8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %28, align 8
@@ -19193,7 +19187,7 @@ define linkonce_odr i32 @_ZNK5Yosys10DriveChunk9hash_intoENS_7hashlib11HasherDJB
 
 _ZN5Yosys7hashlib11HasherDJB323eatINS_5RTLIL5ConstEEEvRKT_.exit: ; preds = %.lr.ph.i.i.i, %15
   %.sroa.07.0.lcssa.i.i.i = phi i32 [ %27, %15 ], [ %42, %.lr.ph.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %126
 
 45:                                               ; preds = %2
@@ -19322,7 +19316,7 @@ _ZN5Yosys7hashlib11HasherDJB323eatIRNS0_4poolINS_10DriveChunkENS0_8hash_opsIS4_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib11HasherDJB323eatINS_14DriveChunkWireEEEvRKT_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys7hashlib11HasherDJB323eatINS_14DriveChunkWireEEEvRKT_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.0.copyload = load i32, ptr %0, align 4, !tbaa !17
   %3 = load ptr, ptr %1, align 8, !tbaa !58
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
@@ -19401,7 +19395,7 @@ _ZN5Yosys7hashlib8hash_opsINS_14DriveChunkWireEE9hash_intoERKS2_NS0_11HasherDJB3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr i32 @_ZNK5Yosys14DriveChunkPort9hash_intoENS_7hashlib11HasherDJB32E(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 %1) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr i32 @_ZNK5Yosys14DriveChunkPort9hash_intoENS_7hashlib11HasherDJB32E(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !61
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load i32, ptr %4, align 4, !tbaa !39
@@ -19536,7 +19530,7 @@ _ZN5Yosys7hashlib11HasherDJB323eatINS_5RTLIL8IdStringEEEvRKT_.exit: ; preds = %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr %0, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19561,7 +19555,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   %16 = mul i32 %15, 3
   %17 = tail call noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEj(i32 noundef %16)
   %18 = zext i32 %17 to i64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 4, !tbaa !17
   %19 = load ptr, ptr %4, align 8, !tbaa !84
   %20 = load ptr, ptr %0, align 8, !tbaa !24
@@ -19591,7 +19585,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !47
   %35 = load ptr, ptr %7, align 8, !tbaa !50
@@ -19681,7 +19675,7 @@ _ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE7do_hashERKS2_.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK5Yosys10DriveChunkeqERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef zeroext i1 @_ZNK5Yosys10DriveChunkeqERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 comdat align 2 {
   %3 = load i8, ptr %0, align 8, !tbaa !51
   %4 = load i8, ptr %1, align 8, !tbaa !51
   %.not = icmp eq i8 %3, %4
@@ -19809,7 +19803,7 @@ _ZNK5Yosys14DriveChunkWireeqERKS0_.exit:          ; preds = %76, %70, %64, %58, 
 declare noundef zeroext i1 @_ZNK5Yosys5RTLIL5ConsteqERKS1_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEEeqERKS5_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(49) %1) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef zeroext i1 @_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEEeqERKS5_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(49) %1) local_unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !47
@@ -19928,7 +19922,7 @@ _ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE5countERKS2_.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN5Yosys7hashlib4poolINS0_10DriveChunkENS1_8hash_opsIS3_EEE7entry_tESaIS7_EE17_M_realloc_insertIJS3_iEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN5Yosys7hashlib4poolINS0_10DriveChunkENS1_8hash_opsIS3_EEE7entry_tESaIS7_EE17_M_realloc_insertIJS3_iEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !47
   %7 = load ptr, ptr %0, align 8, !tbaa !50
@@ -20165,7 +20159,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_10DriveChunkENS1_8hash_opsIS3_EEE7e
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN5Yosys7hashlib4poolINS0_10DriveChunkENS1_8hash_opsIS3_EEE7entry_tESaIS7_EE17_M_realloc_insertIJS3_RiEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN5Yosys7hashlib4poolINS0_10DriveChunkENS1_8hash_opsIS3_EEE7entry_tESaIS7_EE17_M_realloc_insertIJS3_RiEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !47
   %7 = load ptr, ptr %0, align 8, !tbaa !50
@@ -20402,7 +20396,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_10DriveChunkENS1_8hash_opsIS3_EEE7e
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys7hashlib4poolINS0_10DriveChunkENS1_8hash_opsIS3_EEE7entry_tESaIS7_EEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys7hashlib4poolINS0_10DriveChunkENS1_8hash_opsIS3_EEE7entry_tESaIS7_EEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, %0
   br i1 %.not, label %85, label %3
 
@@ -20621,7 +20615,7 @@ _ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_10DriveCh
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt6vectorIN5Yosys7hashlib4poolINS0_10DriveChunkENS1_8hash_opsIS3_EEE7entry_tESaIS7_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEEPS7_mT_SH_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr %2, ptr %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZNSt6vectorIN5Yosys7hashlib4poolINS0_10DriveChunkENS1_8hash_opsIS3_EEE7entry_tESaIS7_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEEPS7_mT_SH_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr %2, ptr %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_10DriveChunkENS1_8hash_opsIS3_EEE7entry_tESaIS7_EE11_M_allocateEm.exit, label %5
 
@@ -20746,7 +20740,7 @@ declare void @_ZN5Yosys5RTLIL5ConstC1ERKS1_(ptr noundef nonnull align 8 derefere
 declare noundef zeroext i1 @_ZNK5Yosys5RTLIL10AttrObject13has_attributeERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = alloca %"struct.std::pair.254", align 8
   %4 = alloca i32, align 4
@@ -20758,9 +20752,9 @@ define linkonce_odr noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr
   br i1 %.not, label %296, label %9
 
 9:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8, !tbaa !452
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString16global_id_index_E, align 8, !tbaa !83
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys5RTLIL8IdString16global_id_index_E, i64 8), align 8, !tbaa !83
   %12 = icmp eq ptr %10, %11
@@ -20803,8 +20797,8 @@ _ZN5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE4findERKS2_.exit: ; preds = %9, %_
   store i32 %.0.i.i, ptr %6, align 4, !tbaa !17
   %34 = call noundef i32 @_ZNK5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj(ptr noundef nonnull align 8 dereferenceable(49) @_ZN5Yosys5RTLIL8IdString16global_id_index_E, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %35 = icmp slt i32 %34, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %35, label %.preheader, label %37
 
 .preheader:                                       ; preds = %_ZN5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE4findERKS2_.exit
@@ -20992,7 +20986,7 @@ _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iterato
 
 _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %94, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
   %116 = phi ptr [ %92, %94 ], [ %110, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %117 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString16global_id_index_E, align 8, !tbaa !83
   %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys5RTLIL8IdString16global_id_index_E, i64 8), align 8, !tbaa !83
   %119 = icmp eq ptr %117, %118
@@ -21045,13 +21039,13 @@ _ZNK5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE7do_hashERKS2_.exit.i: ; preds = 
   br i1 %145, label %146, label %_ZN5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEEixERKS2_.exit
 
 146:                                              ; preds = %_ZNK5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE7do_hashERKS2_.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %147 = load ptr, ptr %116, align 8, !tbaa !452
   store ptr %147, ptr %5, align 8, !tbaa !465
   %148 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %148, align 8, !tbaa !466
   %149 = call noundef i32 @_ZN5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE9do_insertEOSt4pairIS2_iERj(ptr noundef nonnull align 8 dereferenceable(49) @_ZN5Yosys5RTLIL8IdString16global_id_index_E, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEEixERKS2_.exit
 
 _ZN5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEEixERKS2_.exit: ; preds = %_ZNK5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE7do_hashERKS2_.exit.i, %146
@@ -21059,7 +21053,7 @@ _ZN5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEEixERKS2_.exit: ; preds = %_ZNK5Yos
   %150 = sext i32 %.0.i to i64
   %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys5RTLIL8IdString16global_id_index_E, i64 24), align 8, !tbaa !457
   %152 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<char *, int>::entry_t", ptr %151, i64 %150, i32 0, i32 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i32 0, ptr %152, align 4, !tbaa !17
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8, !tbaa !447
   %.pre103 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8, !tbaa !451
@@ -21281,7 +21275,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit62:         ; preds = %_ZNSt6vectorIiSaIiE
 _ZNSt6vectorIPcSaIS0_EE2atEm.exit65:              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit62
   %246 = getelementptr inbounds nuw ptr, ptr %240, i64 %239
   store ptr %238, ptr %246, align 8, !tbaa !452
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %247 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString16global_id_index_E, align 8, !tbaa !83
   %248 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys5RTLIL8IdString16global_id_index_E, i64 8), align 8, !tbaa !83
   %249 = icmp eq ptr %247, %248
@@ -21333,13 +21327,13 @@ _ZNK5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE7do_hashERKS2_.exit.i73: ; preds 
   br i1 %274, label %275, label %_ZN5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEEixERKS2_.exit76
 
 275:                                              ; preds = %_ZNK5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE7do_hashERKS2_.exit.i73
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %276 = load ptr, ptr %246, align 8, !tbaa !452
   store ptr %276, ptr %3, align 8, !tbaa !465
   %277 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %277, align 8, !tbaa !466
   %278 = call noundef i32 @_ZN5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE9do_insertEOSt4pairIS2_iERj(ptr noundef nonnull align 8 dereferenceable(49) @_ZN5Yosys5RTLIL8IdString16global_id_index_E, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEEixERKS2_.exit76
 
 _ZN5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEEixERKS2_.exit76: ; preds = %_ZNK5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE7do_hashERKS2_.exit.i73, %275
@@ -21347,7 +21341,7 @@ _ZN5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEEixERKS2_.exit76: ; preds = %_ZNK5Y
   %279 = sext i32 %.0.i75 to i64
   %280 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys5RTLIL8IdString16global_id_index_E, i64 24), align 8, !tbaa !457
   %281 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<char *, int>::entry_t", ptr %280, i64 %279, i32 0, i32 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i32 %237, ptr %281, align 4, !tbaa !17
   %282 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, i64 8), align 8, !tbaa !84
   %283 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !tbaa !24
@@ -21384,10 +21378,10 @@ _ZNSt6vectorIiSaIiEE2atEm.exit78:                 ; preds = %_ZN5Yosys7hashlib4d
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #20
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE9do_insertEOSt4pairIS2_iERj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE9do_insertEOSt4pairIS2_iERj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !83
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !83
@@ -21629,7 +21623,7 @@ _ZNSt6vectorIN5Yosys7hashlib4dictIPciNS1_8hash_opsIS3_EEE7entry_tESaIS7_EE12empl
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !83
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !83
@@ -21746,7 +21740,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE7do_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr %0, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -21771,7 +21765,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   %16 = mul i32 %15, 3
   %17 = tail call noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEj(i32 noundef %16)
   %18 = zext i32 %17 to i64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 4, !tbaa !17
   %19 = load ptr, ptr %4, align 8, !tbaa !84
   %20 = load ptr, ptr %0, align 8, !tbaa !24
@@ -21801,7 +21795,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !495
   %35 = load ptr, ptr %7, align 8, !tbaa !200
@@ -21915,7 +21909,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE7do_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !83
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !83
@@ -22029,7 +22023,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr %0, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -22054,7 +22048,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   %16 = mul i32 %15, 3
   %17 = tail call noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEj(i32 noundef %16)
   %18 = zext i32 %17 to i64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 4, !tbaa !17
   %19 = load ptr, ptr %4, align 8, !tbaa !84
   %20 = load ptr, ptr %0, align 8, !tbaa !24
@@ -22084,7 +22078,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !510
   %35 = load ptr, ptr %7, align 8, !tbaa !511
@@ -22199,17 +22193,17 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
 declare void @_ZNK5Yosys5RTLIL7SigSpec4packEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #21
+declare void @llvm.va_start.p0(ptr) #20
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys8vstringfB5cxx11EPKcP13__va_list_tag(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys8vstringfB5cxx11EPKcP13__va_list_tag(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca [128 x i8], align 16
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 16, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.va_copy.p0(ptr nonnull %6, ptr %2)
   %8 = call i32 @vsnprintf(ptr noundef nonnull %5, i64 noundef 128, ptr noundef %1, ptr noundef nonnull %6) #28
   call void @llvm.va_end.p0(ptr nonnull %6)
@@ -22220,7 +22214,7 @@ define linkonce_odr void @_ZN5Yosys8vstringfB5cxx11EPKcP13__va_list_tag(ptr dead
 
 11:                                               ; preds = %3
   %12 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %12, ptr %4, align 8, !tbaa !518
   %13 = icmp ugt i64 %12, 15
   br i1 %13, label %.noexc.i, label %._crit_edge.i.i
@@ -22255,14 +22249,14 @@ define linkonce_odr void @_ZN5Yosys8vstringfB5cxx11EPKcP13__va_list_tag(ptr dead
   %23 = load ptr, ptr %0, align 8, !tbaa !430
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %21
   store i8 0, ptr %24, align 1, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %43
 
 25:                                               ; preds = %3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %26, align 8, !tbaa !434
   store i8 0, ptr %10, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !452
   %27 = call i32 @vasprintf(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2) #28
   %28 = icmp slt i32 %27, 0
@@ -22287,7 +22281,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %30
 35:                                               ; preds = %30
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %37 = load ptr, ptr %0, align 8, !tbaa !430
   %38 = icmp eq ptr %37, %10
   br i1 %38, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -22305,28 +22299,28 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 .thread:                                          ; preds = %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %43
 
 43:                                               ; preds = %.thread, %20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #21
+declare void @llvm.va_end.p0(ptr) #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy.p0(ptr, ptr) #21
+declare void @llvm.va_copy.p0(ptr, ptr) #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #22
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: nounwind
 declare i32 @vasprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -22334,12 +22328,12 @@ declare i32 @vasprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE15_M_range_insertINS1_5Const14const_iteratorEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EET_SC_St18input_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2, i64 %3, ptr %4, i64 %5) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE15_M_range_insertINS1_5Const14const_iteratorEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EET_SC_St18input_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2, i64 %3, ptr %4, i64 %5) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.Yosys::RTLIL::Const::const_iterator", align 8
   %8 = alloca i8, align 1
   %9 = alloca %"class.std::vector.15", align 8
@@ -22357,11 +22351,11 @@ define linkonce_odr void @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE15_M_range_in
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %14 = load ptr, ptr %11, align 8, !tbaa !112
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %15 = call noundef zeroext i8 @_ZNK5Yosys5RTLIL5Const14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
   store i8 %15, ptr %8, align 1, !tbaa !101
   %16 = call ptr @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %14, ptr noundef nonnull align 1 dereferenceable(1) %8)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %17 = load i64, ptr %10, align 8, !tbaa !55
   %18 = add i64 %17, 1
   store i64 %18, ptr %10, align 8, !tbaa !55
@@ -22372,7 +22366,7 @@ define linkonce_odr void @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE15_M_range_in
   br i1 %.not2324, label %.loopexit, label %20
 
 20:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE19_M_range_initializeINS1_5Const14const_iteratorEEEvT_S8_St18input_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %2, i64 %3, ptr %4, i64 %5)
           to label %30 unwind label %21
@@ -22424,7 +22418,7 @@ common.resume:                                    ; preds = %21, %24, %_ZNSt6vec
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit: ; preds = %39, %41
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
 47:                                               ; preds = %30
@@ -22444,7 +22438,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit: ; preds = %39, %41
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit14
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit14: ; preds = %47, %50
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %19, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit
@@ -22452,7 +22446,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit14: ; preds = %47, %50
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr ptr @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr ptr @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #4 comdat align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !112
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %4 to i64
@@ -22569,7 +22563,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE19_M_range_initializeINS1_5Const14const_iteratorEEEvT_S8_St18input_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr %3, i64 %4) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE19_M_range_initializeINS1_5Const14const_iteratorEEEvT_S8_St18input_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr %3, i64 %4) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.Yosys::RTLIL::Const::const_iterator", align 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -22711,7 +22705,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE5clearEv.exit: ; preds = %39, %43
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE15_M_range_insertISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEEEvSA_T_SC_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2, ptr %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE15_M_range_insertISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEEEvSA_T_SC_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2, ptr %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not73 = icmp eq ptr %2, %3
   br i1 %.not73, label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5Yosys5RTLIL5StateESt6vectorIS5_SaIS5_EEEEESA_ET0_T_SD_SC_.exit, label %5
 
@@ -22863,9 +22857,9 @@ _ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5Yosys5RTLIL5StateE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE6insertEOS2_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZN5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE6insertEOS2_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %1, align 8, !tbaa !83
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !83
@@ -22972,12 +22966,12 @@ _ZNK5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj.exit
   store i32 %.sink16, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !17
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %65, align 8, !tbaa !523
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE9do_insertEOS2_Rj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE9do_insertEOS2_Rj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %0, align 8, !tbaa !83
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -22986,7 +22980,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_o
   br i1 %8, label %9, label %34
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !30
@@ -23011,7 +23005,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_o
   br label %_ZNSt6vectorIN5Yosys7hashlib4poolINS0_8DriveBitENS1_8hash_opsIS3_EEE7entry_tESaIS7_EE12emplace_backIJS3_iEEERS7_DpOT_.exit
 
 _ZNSt6vectorIN5Yosys7hashlib4poolINS0_8DriveBitENS1_8hash_opsIS3_EEE7entry_tESaIS7_EE12emplace_backIJS3_iEEERS7_DpOT_.exit: ; preds = %14, %19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
   %21 = load ptr, ptr %0, align 8, !tbaa !83
   %22 = load ptr, ptr %6, align 8, !tbaa !83
@@ -23094,7 +23088,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINS0_8DriveBitENS1_8hash_opsIS3_EEE7entry_tESaI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK5Yosys8DriveBiteqERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef zeroext i1 @_ZNK5Yosys8DriveBiteqERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 comdat align 2 {
   %3 = load i8, ptr %0, align 8, !tbaa !6
   %4 = load i8, ptr %1, align 8, !tbaa !6
   %.not = icmp eq i8 %3, %4
@@ -23294,7 +23288,7 @@ _ZNK5Yosys12DriveBitPorteqERKS0_.exit:            ; preds = %73, %._crit_edge.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN5Yosys7hashlib4poolINS0_8DriveBitENS1_8hash_opsIS3_EEE7entry_tESaIS7_EE17_M_realloc_insertIJS3_iEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN5Yosys7hashlib4poolINS0_8DriveBitENS1_8hash_opsIS3_EEE7entry_tESaIS7_EE17_M_realloc_insertIJS3_iEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !30
   %7 = load ptr, ptr %0, align 8, !tbaa !28
@@ -23531,7 +23525,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_8DriveBitENS1_8hash_opsIS3_EEE7entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN5Yosys7hashlib4poolINS0_8DriveBitENS1_8hash_opsIS3_EEE7entry_tESaIS7_EE17_M_realloc_insertIJS3_RiEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN5Yosys7hashlib4poolINS0_8DriveBitENS1_8hash_opsIS3_EEE7entry_tESaIS7_EE17_M_realloc_insertIJS3_RiEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !30
   %7 = load ptr, ptr %0, align 8, !tbaa !28
@@ -23768,7 +23762,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_8DriveBitENS1_8hash_opsIS3_EEE7entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_7SigSpecENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_7SigSpecENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !83
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !83
@@ -23890,7 +23884,7 @@ declare void @_ZNSt12out_of_rangeC1EPKc(ptr noundef nonnull align 8 dereferencea
 declare void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_7SigSpecENS0_8hash_opsIS3_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_7SigSpecENS0_8hash_opsIS3_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr %0, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -23915,7 +23909,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   %16 = mul i32 %15, 3
   %17 = tail call noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEj(i32 noundef %16)
   %18 = zext i32 %17 to i64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 4, !tbaa !17
   %19 = load ptr, ptr %4, align 8, !tbaa !84
   %20 = load ptr, ptr %0, align 8, !tbaa !24
@@ -23945,7 +23939,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !341
   %35 = load ptr, ptr %7, align 8, !tbaa !317
@@ -24059,7 +24053,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_7SigSpecENS0_8hash_opsIS3_EEE7do_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEEvS9_T_SA_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2, ptr %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEEvS9_T_SA_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2, ptr %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not73 = icmp eq ptr %2, %3
   br i1 %.not73, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN5Yosys5RTLIL5StateESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, label %5
 
@@ -24211,7 +24205,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN5Yosys5RTLIL5StateESt6vectorIS4_SaIS4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN5Yosys8DriveBitESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN5Yosys8DriveBitESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !135
   %6 = load ptr, ptr %0, align 8, !tbaa !140
@@ -24437,7 +24431,7 @@ _ZNSt12_Vector_baseIN5Yosys8DriveBitESaIS1_EE13_M_deallocateEPS1_m.exit51: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN5Yosys10DriveChunkESaIS1_EE17_M_realloc_insertIJRKNS0_8DriveBitEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN5Yosys10DriveChunkESaIS1_EE17_M_realloc_insertIJRKNS0_8DriveBitEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !137
   %6 = load ptr, ptr %0, align 8, !tbaa !142
@@ -24663,7 +24657,7 @@ _ZNSt12_Vector_baseIN5Yosys10DriveChunkESaIS1_EE13_M_deallocateEPS1_m.exit51: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN5Yosys10DriveChunkESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(72) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN5Yosys10DriveChunkESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(72) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !137
   %6 = load ptr, ptr %0, align 8, !tbaa !142
@@ -24889,7 +24883,7 @@ _ZNSt12_Vector_baseIN5Yosys10DriveChunkESaIS1_EE13_M_deallocateEPS1_m.exit51: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN5Yosys10DriveChunkESaIS1_EE17_M_realloc_insertIJNS0_8DriveBitEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN5Yosys10DriveChunkESaIS1_EE17_M_realloc_insertIJNS0_8DriveBitEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !137
   %6 = load ptr, ptr %0, align 8, !tbaa !142
@@ -25115,7 +25109,7 @@ _ZNSt12_Vector_baseIN5Yosys10DriveChunkESaIS1_EE13_M_deallocateEPS1_m.exit51: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN5Yosys8DriveBitESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN5Yosys8DriveBitESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !135
   %6 = load ptr, ptr %0, align 8, !tbaa !140
@@ -25341,7 +25335,7 @@ _ZNSt12_Vector_baseIN5Yosys8DriveBitESaIS1_EE13_M_deallocateEPS1_m.exit51: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE9do_insertEOSt4pairIS3_S3_ERj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE9do_insertEOSt4pairIS3_S3_ERj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !83
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !83
@@ -25568,7 +25562,7 @@ _ZNSt6vectorIN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdES4_NS1_8hash_opsIS4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr %0, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -25593,7 +25587,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   %16 = mul i32 %15, 3
   %17 = tail call noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEj(i32 noundef %16)
   %18 = zext i32 %17 to i64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 4, !tbaa !17
   %19 = load ptr, ptr %4, align 8, !tbaa !84
   %20 = load ptr, ptr %0, align 8, !tbaa !24
@@ -25623,7 +25617,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !157
   %35 = load ptr, ptr %7, align 8, !tbaa !149
@@ -25693,7 +25687,7 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_has
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E9do_insertEOSt4pairIS3_S7_ERj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E9do_insertEOSt4pairIS3_S7_ERj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %0, align 8, !tbaa !83
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -25703,7 +25697,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitI
 
 9:                                                ; preds = %3
   %10 = load i32, ptr %1, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4, !tbaa !17
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !165
@@ -25754,7 +25748,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitI
   br label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS1_4poolIS4_NS1_8hash_opsIS4_EEEES7_E7entry_tESaISA_EE12emplace_backIJSt4pairIS4_S8_EiEEERSA_DpOT_.exit
 
 _ZNSt6vectorIN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS1_4poolIS4_NS1_8hash_opsIS4_EEEES7_E7entry_tESaISA_EE12emplace_backIJSt4pairIS4_S8_EiEEERSA_DpOT_.exit: ; preds = %15, %37
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
   %39 = load ptr, ptr %0, align 8, !tbaa !83
   %40 = load ptr, ptr %6, align 8, !tbaa !83
@@ -25871,7 +25865,7 @@ _ZNSt6vectorIN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS1_4poolIS4_NS1_8h
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt4pairIN5Yosys9DriverMap10DriveBitIdENS0_7hashlib4poolIS2_NS3_8hash_opsIS2_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt4pairIN5Yosys9DriverMap10DriveBitIdENS0_7hashlib4poolIS2_NS3_8hash_opsIS2_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !180
@@ -25906,7 +25900,7 @@ _ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEED2Ev.exit: 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !180
   %.not.i.i.i = icmp eq ptr %3, null
@@ -25940,7 +25934,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN5Yosy
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr %0, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -25965,7 +25959,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   %16 = mul i32 %15, 3
   %17 = tail call noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEj(i32 noundef %16)
   %18 = zext i32 %17 to i64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 4, !tbaa !17
   %19 = load ptr, ptr %4, align 8, !tbaa !84
   %20 = load ptr, ptr %0, align 8, !tbaa !24
@@ -25995,7 +25989,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !165
   %35 = load ptr, ptr %7, align 8, !tbaa !168
@@ -26065,7 +26059,7 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS1_4poolIS4_NS1_8hash_opsIS4_EEEES7_E7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S8_EiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS1_4poolIS4_NS1_8hash_opsIS4_EEEES7_E7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S8_EiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !165
   %7 = load ptr, ptr %0, align 8, !tbaa !168
@@ -26275,7 +26269,7 @@ _ZNSt15__new_allocatorIN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS1_4pool
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS1_4poolIS4_NS1_8hash_opsIS4_EEEES7_E7entry_tESA_EvT_SC_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS1_4poolIS4_NS1_8hash_opsIS4_EEEES7_E7entry_tESA_EvT_SC_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
   %.not4.i.i = icmp eq ptr %0, %1
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS1_4poolIS4_NS1_8hash_opsIS4_EEEES7_E7entry_tEEvT_SC_.exit, label %.lr.ph.i.i
 
@@ -26320,7 +26314,7 @@ _ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS1_4poolIS4_NS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS1_4poolIS4_NS1_8hash_opsIS4_EEEES7_E7entry_tEPSA_ET0_T_SF_SE_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS1_4poolIS4_NS1_8hash_opsIS4_EEEES7_E7entry_tEPSA_ET0_T_SF_SE_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %.not15 = icmp eq ptr %0, %1
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -26415,7 +26409,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINS0_9DriverMap10DriveBitIdENS1_8hash_opsIS4_EE
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS1_4poolIS4_NS1_8hash_opsIS4_EEEES7_E7entry_tEEvT_SC_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS1_4poolIS4_NS1_8hash_opsIS4_EEEES7_E7entry_tEEvT_SC_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN5Yosys7hashlib4dictINS2_9DriverMap10DriveBitIdENS3_4poolIS6_NS3_8hash_opsIS6_EEEES9_E7entry_tEEEvT_SE_.exit, label %.lr.ph.i
 
@@ -26460,7 +26454,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPN5Yosys7hashlib4dictINS2_9DriverMap10DriveB
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys7hashlib4poolINS0_9DriverMap10DriveBitIdENS1_8hash_opsIS4_EEE7entry_tESaIS8_EEaSERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys7hashlib4poolINS0_9DriverMap10DriveBitIdENS1_8hash_opsIS4_EEE7entry_tESaIS8_EEaSERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, %0
   br i1 %.not, label %46, label %3
 
@@ -26577,7 +26571,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Yosys7hashlib4poolINS2_9DriverMap10
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr %0, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -26602,7 +26596,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   %16 = mul i32 %15, 3
   %17 = tail call noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEj(i32 noundef %16)
   %18 = zext i32 %17 to i64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 4, !tbaa !17
   %19 = load ptr, ptr %4, align 8, !tbaa !84
   %20 = load ptr, ptr %0, align 8, !tbaa !24
@@ -26632,7 +26626,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !182
   %35 = load ptr, ptr %7, align 8, !tbaa !180
@@ -26702,7 +26696,7 @@ _ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE7do_hashER
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS1_4poolIS4_NS1_8hash_opsIS4_EEEES7_E7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S8_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS1_4poolIS4_NS1_8hash_opsIS4_EEEES7_E7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S8_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !165
   %7 = load ptr, ptr %0, align 8, !tbaa !168
@@ -26877,9 +26871,9 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS1_4poolIS4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE6insertEOS3_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.61") align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE6insertEOS3_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.61") align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %1, align 8, !tbaa !83
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !83
@@ -26991,12 +26985,12 @@ _ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE9do_lookup
   store i32 %.sink16, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !17
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %75, align 8, !tbaa !550
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE9do_insertEOS3_Rj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE9do_insertEOS3_Rj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !83
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !83
@@ -27228,7 +27222,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINS0_9DriverMap10DriveBitIdENS1_8hash_opsIS4_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE8do_eraseEij(ptr noundef nonnull align 8 dereferenceable(49) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE8do_eraseEij(ptr noundef nonnull align 8 dereferenceable(49) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !182
@@ -27357,7 +27351,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %78, %75, %70, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E8do_eraseEij(ptr noundef nonnull align 8 dereferenceable(49) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E8do_eraseEij(ptr noundef nonnull align 8 dereferenceable(49) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !165
@@ -27571,7 +27565,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %123, %120, %_ZNSt6v
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE8do_eraseEij(ptr noundef nonnull align 8 dereferenceable(49) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE8do_eraseEij(ptr noundef nonnull align 8 dereferenceable(49) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !157
@@ -27697,7 +27691,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %74
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictIPNS_5RTLIL4WireENS_9DriverMap10DriveBitIdENS0_8hash_opsIS4_EEE9do_insertEOSt4pairIS4_S6_ERj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictIPNS_5RTLIL4WireENS_9DriverMap10DriveBitIdENS0_8hash_opsIS4_EEE9do_insertEOSt4pairIS4_S6_ERj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !83
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !83
@@ -27934,7 +27928,7 @@ _ZNSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL4WireENS0_9DriverMap10DriveBitIdENS
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4dictIPNS_5RTLIL4WireENS_9DriverMap10DriveBitIdENS0_8hash_opsIS4_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys7hashlib4dictIPNS_5RTLIL4WireENS_9DriverMap10DriveBitIdENS0_8hash_opsIS4_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr %0, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -27959,7 +27953,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   %16 = mul i32 %15, 3
   %17 = tail call noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEj(i32 noundef %16)
   %18 = zext i32 %17 to i64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 4, !tbaa !17
   %19 = load ptr, ptr %4, align 8, !tbaa !84
   %20 = load ptr, ptr %0, align 8, !tbaa !24
@@ -27989,7 +27983,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !293
   %35 = load ptr, ptr %7, align 8, !tbaa !263
@@ -28073,7 +28067,7 @@ _ZN5Yosys7hashlib12hash_obj_ops4hashINS_5RTLIL4WireEEENS0_11HasherDJB32EPKT_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_EEE9do_insertEOSt4pairIS3_S4_ERj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_EEE9do_insertEOSt4pairIS3_S4_ERj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %0, align 8, !tbaa !83
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -28083,7 +28077,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitI
 
 9:                                                ; preds = %3
   %10 = load i32, ptr %1, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4, !tbaa !17
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !302
@@ -28111,7 +28105,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitI
   br label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS0_8DriveBitENS1_8hash_opsIS4_EEE7entry_tESaIS9_EE12emplace_backIJSt4pairIS4_S5_EiEEERS9_DpOT_.exit
 
 _ZNSt6vectorIN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS0_8DriveBitENS1_8hash_opsIS4_EEE7entry_tESaIS9_EE12emplace_backIJSt4pairIS4_S5_EiEEERS9_DpOT_.exit: ; preds = %15, %22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
   %24 = load ptr, ptr %0, align 8, !tbaa !83
   %25 = load ptr, ptr %6, align 8, !tbaa !83
@@ -28205,7 +28199,7 @@ _ZNSt6vectorIN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS0_8DriveBitENS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr %0, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -28230,7 +28224,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   %16 = mul i32 %15, 3
   %17 = tail call noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEj(i32 noundef %16)
   %18 = zext i32 %17 to i64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 4, !tbaa !17
   %19 = load ptr, ptr %4, align 8, !tbaa !84
   %20 = load ptr, ptr %0, align 8, !tbaa !24
@@ -28260,7 +28254,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !302
   %35 = load ptr, ptr %7, align 8, !tbaa !303
@@ -28330,7 +28324,7 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS0_8DriveBitENS1_8hash_opsIS4_EEE7entry_tESaIS9_EE17_M_realloc_insertIJSt4pairIS4_S5_EiEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS0_8DriveBitENS1_8hash_opsIS4_EEE7entry_tESaIS9_EE17_M_realloc_insertIJSt4pairIS4_S5_EiEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !302
   %7 = load ptr, ptr %0, align 8, !tbaa !303
@@ -28583,7 +28577,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS0_8DriveBi
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS0_8DriveBitENS1_8hash_opsIS4_EEE7entry_tESaIS9_EE17_M_realloc_insertIJSt4pairIS4_S5_ERiEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS0_8DriveBitENS1_8hash_opsIS4_EEE7entry_tESaIS9_EE17_M_realloc_insertIJSt4pairIS4_S5_ERiEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !302
   %7 = load ptr, ptr %0, align 8, !tbaa !303
@@ -28836,7 +28830,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdENS0_8DriveBi
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIN5Yosys9DriverMap10DriveBitIdESt4pairIKS2_NS0_8DriveBitEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE17_M_emplace_uniqueIJRiNS0_12DriveBitWireEEEES3_ISt17_Rb_tree_iteratorIS6_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(12) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIN5Yosys9DriverMap10DriveBitIdESt4pairIKS2_NS0_8DriveBitEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE17_M_emplace_uniqueIJRiNS0_12DriveBitWireEEEES3_ISt17_Rb_tree_iteratorIS6_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(12) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %1, align 4, !tbaa !17
@@ -28931,7 +28925,7 @@ _ZNSt8_Rb_treeIN5Yosys9DriverMap10DriveBitIdESt4pairIKS2_NS0_8DriveBitEESt10_Sel
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4dictISt4pairIPNS_5RTLIL4CellENS3_8IdStringEENS_9DriverMap10DriveBitIdENS0_8hash_opsIS7_EEE7do_hashERKS7_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4dictISt4pairIPNS_5RTLIL4CellENS3_8IdStringEENS_9DriverMap10DriveBitIdENS0_8hash_opsIS7_EEE7do_hashERKS7_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::pair.130", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !83
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29011,7 +29005,7 @@ _ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev.exit: ; preds = %40, %33, %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4dictISt4pairIPNS_5RTLIL4CellENS3_8IdStringEENS_9DriverMap10DriveBitIdENS0_8hash_opsIS7_EEE9do_lookupERKS7_Rj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4dictISt4pairIPNS_5RTLIL4CellENS3_8IdStringEENS_9DriverMap10DriveBitIdENS0_8hash_opsIS7_EEE9do_lookupERKS7_Rj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !83
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !83
@@ -29176,7 +29170,7 @@ _ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev.exit: ; preds = %.thread, %._
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictISt4pairIPNS_5RTLIL4CellENS3_8IdStringEENS_9DriverMap10DriveBitIdENS0_8hash_opsIS7_EEE9do_insertEOS2_IS7_S9_ERj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictISt4pairIPNS_5RTLIL4CellENS3_8IdStringEENS_9DriverMap10DriveBitIdENS0_8hash_opsIS7_EEE9do_insertEOS2_IS7_S9_ERj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::pair.130", align 8
   %5 = alloca i32, align 4
   %6 = load ptr, ptr %0, align 8, !tbaa !83
@@ -29186,7 +29180,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictISt4pairIPNS_5RTLIL4CellE
   br i1 %9, label %10, label %58
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = load ptr, ptr %1, align 8, !tbaa !270
   store ptr %11, ptr %4, align 8, !tbaa !270
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -29206,7 +29200,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictISt4pairIPNS_5RTLIL4CellE
 _ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEEC2ERKS5_.exit: ; preds = %10, %14
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %13, ptr %20, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 -1, ptr %5, align 4, !tbaa !17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !591
@@ -29237,7 +29231,7 @@ _ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEEC2ERKS5_.exit: ; preds = %10, %14
           to label %_ZNSt6vectorIN5Yosys7hashlib4dictISt4pairIPNS0_5RTLIL4CellENS4_8IdStringEENS0_9DriverMap10DriveBitIdENS1_8hash_opsIS8_EEE7entry_tESaISE_EE12emplace_backIJS3_IS8_SA_EiEEERSE_DpOT_.exit unwind label %53
 
 _ZNSt6vectorIN5Yosys7hashlib4dictISt4pairIPNS0_5RTLIL4CellENS4_8IdStringEENS0_9DriverMap10DriveBitIdENS1_8hash_opsIS8_EEE7entry_tESaISE_EE12emplace_backIJS3_IS8_SA_EiEEERSE_DpOT_.exit: ; preds = %33, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN5Yosys7hashlib4dictISt4pairIPNS_5RTLIL4CellENS3_8IdStringEENS_9DriverMap10DriveBitIdENS0_8hash_opsIS7_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
           to label %35 unwind label %55
 
@@ -29276,7 +29270,7 @@ _ZNSt6vectorIN5Yosys7hashlib4dictISt4pairIPNS0_5RTLIL4CellENS4_8IdStringEENS0_9D
   unreachable
 
 _ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev.exit: ; preds = %37, %42, %49
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre13 = load ptr, ptr %21, align 8, !tbaa !591
   %.phi.trans.insert14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre15 = load ptr, ptr %.phi.trans.insert14, align 8, !tbaa !290
@@ -29291,7 +29285,7 @@ _ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev.exit: ; preds = %37, %42, %49
 53:                                               ; preds = %33
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %57
 
 55:                                               ; preds = %35, %_ZNSt6vectorIN5Yosys7hashlib4dictISt4pairIPNS0_5RTLIL4CellENS4_8IdStringEENS0_9DriverMap10DriveBitIdENS1_8hash_opsIS8_EEE7entry_tESaISE_EE12emplace_backIJS3_IS8_SA_EiEEERSE_DpOT_.exit
@@ -29302,7 +29296,7 @@ _ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev.exit: ; preds = %37, %42, %49
 57:                                               ; preds = %55, %53
   %.pn = phi { ptr, i32 } [ %56, %55 ], [ %54, %53 ]
   call void @_ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 
 58:                                               ; preds = %3
@@ -29364,7 +29358,7 @@ _ZNSt6vectorIN5Yosys7hashlib4dictISt4pairIPNS0_5RTLIL4CellENS4_8IdStringEENS0_9D
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt4pairIS_IPN5Yosys5RTLIL4CellENS1_8IdStringEENS0_9DriverMap10DriveBitIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt4pairIS_IPN5Yosys5RTLIL4CellENS1_8IdStringEENS0_9DriverMap10DriveBitIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !39
   %4 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !67, !range !69, !noundef !70
@@ -29399,7 +29393,7 @@ _ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev.exit: ; preds = %1, %7, %14
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr i32 @_ZN5Yosys7hashlib8hash_opsISt4pairIPNS_5RTLIL4CellENS3_8IdStringEEE4hashES7_(ptr noundef %0) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr i32 @_ZN5Yosys7hashlib8hash_opsISt4pairIPNS_5RTLIL4CellENS3_8IdStringEEE4hashES7_(ptr noundef %0) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !270
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4, !tbaa !39
@@ -29512,7 +29506,7 @@ _ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev.exit: ; preds = %20, %_ZN5Yos
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4dictISt4pairIPNS_5RTLIL4CellENS3_8IdStringEENS_9DriverMap10DriveBitIdENS0_8hash_opsIS7_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys7hashlib4dictISt4pairIPNS_5RTLIL4CellENS3_8IdStringEENS_9DriverMap10DriveBitIdENS0_8hash_opsIS7_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr %0, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29537,7 +29531,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   %16 = mul i32 %15, 3
   %17 = tail call noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEj(i32 noundef %16)
   %18 = zext i32 %17 to i64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 4, !tbaa !17
   %19 = load ptr, ptr %4, align 8, !tbaa !84
   %20 = load ptr, ptr %0, align 8, !tbaa !24
@@ -29567,7 +29561,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !591
   %35 = load ptr, ptr %7, align 8, !tbaa !290
@@ -29608,7 +29602,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN5Yosys7hashlib4dictISt4pairIPNS0_5RTLIL4CellENS4_8IdStringEENS0_9DriverMap10DriveBitIdENS1_8hash_opsIS8_EEE7entry_tESaISE_EE17_M_realloc_insertIJS3_IS8_SA_EiEEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN5Yosys7hashlib4dictISt4pairIPNS0_5RTLIL4CellENS4_8IdStringEENS0_9DriverMap10DriveBitIdENS1_8hash_opsIS8_EEE7entry_tESaISE_EE17_M_realloc_insertIJS3_IS8_SA_EiEEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !591
   %7 = load ptr, ptr %0, align 8, !tbaa !290
@@ -29797,7 +29791,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4dictISt4pairIPNS0_5RTLIL4CellENS4_8IdStringE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN5Yosys7hashlib4dictISt4pairIPNS0_5RTLIL4CellENS4_8IdStringEENS0_9DriverMap10DriveBitIdENS1_8hash_opsIS8_EEE7entry_tESaISE_EE17_M_realloc_insertIJS3_IS8_SA_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN5Yosys7hashlib4dictISt4pairIPNS0_5RTLIL4CellENS4_8IdStringEENS0_9DriverMap10DriveBitIdENS1_8hash_opsIS8_EEE7entry_tESaISE_EE17_M_realloc_insertIJS3_IS8_SA_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !591
   %7 = load ptr, ptr %0, align 8, !tbaa !290
@@ -29986,7 +29980,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4dictISt4pairIPNS0_5RTLIL4CellENS4_8IdStringE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIN5Yosys9DriverMap10DriveBitIdESt4pairIKS2_NS0_8DriveBitEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE17_M_emplace_uniqueIJRiNS0_12DriveBitPortEEEES3_ISt17_Rb_tree_iteratorIS6_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIN5Yosys9DriverMap10DriveBitIdESt4pairIKS2_NS0_8DriveBitEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE17_M_emplace_uniqueIJRiNS0_12DriveBitPortEEEES3_ISt17_Rb_tree_iteratorIS6_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %1, align 4, !tbaa !17
@@ -30100,12 +30094,12 @@ _ZNSt8_Rb_treeIN5Yosys9DriverMap10DriveBitIdESt4pairIKS2_NS0_8DriveBitEESt10_Sel
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #23
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5Yosys7hashlib5idictINS_9DriverMap10DriveBitIdELi0ENS0_8hash_opsIS3_EEEclERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef i32 @_ZN5Yosys7hashlib5idictINS_9DriverMap10DriveBitIdELi0ENS0_8hash_opsIS3_EEEclERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #4 comdat align 2 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !83
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !83
@@ -30211,12 +30205,12 @@ _ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE7do_hashER
 
 _ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit: ; preds = %64, %.loopexit
   %.0 = phi i32 [ %73, %.loopexit ], [ %.013.i, %64 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE9do_insertERKS3_Rj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE9do_insertERKS3_Rj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !83
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !83
@@ -30450,7 +30444,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINS0_9DriverMap10DriveBitIdENS1_8hash_opsIS4_EE
 declare { ptr, i32 } @_ZNK5Yosys5RTLIL8SigChunkixEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE9do_insertEOSt4pairIS3_iERj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE9do_insertEOSt4pairIS3_iERj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !83
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !83
@@ -30677,7 +30671,7 @@ _ZNSt6vectorIN5Yosys7hashlib4dictINS0_9DriverMap10DriveBitIdEiNS1_8hash_opsIS4_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr %0, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -30702,7 +30696,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   %16 = mul i32 %15, 3
   %17 = tail call noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEj(i32 noundef %16)
   %18 = zext i32 %17 to i64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 4, !tbaa !17
   %19 = load ptr, ptr %4, align 8, !tbaa !84
   %20 = load ptr, ptr %0, align 8, !tbaa !24
@@ -30732,7 +30726,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !393
   %35 = load ptr, ptr %7, align 8, !tbaa !392
@@ -30804,11 +30798,17 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE7do_hashE
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_drivertools.cc() #24 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_drivertools.cc() #23 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #28
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #25
@@ -30829,27 +30829,27 @@ attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold nofree noreturn }
-attributes #14 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { cold noreturn }
-attributes #17 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #20 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #22 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold nofree noreturn }
+attributes #13 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { cold noreturn }
+attributes #16 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #21 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #27 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

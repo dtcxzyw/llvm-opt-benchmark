@@ -21,8 +21,8 @@ define weak_odr void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoul
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %11 = load ptr, ptr %10, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.03078)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.43079)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03078)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43079)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %13 = load ptr, ptr %12, align 8, !tbaa !10, !noalias !12
   %.val.i = load <8 x float>, ptr %13, align 32, !tbaa !15
@@ -41,8 +41,8 @@ define weak_odr void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoul
 _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERKNS_16nbnxn_atomdata_t9SimdMasksE.exit: ; preds = %14
   %.sroa.03078.0..sroa.03078.0..sroa.03078.0..sroa.03078.0.copyload425244524686 = load <8 x i32>, ptr %.sroa.03078, align 32
   %.sroa.43079.0..sroa.43079.0..sroa.43079.0..sroa.43079.0.copyload425344534687 = load <8 x i32>, ptr %.sroa.43079, align 32, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.03078)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.43079)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03078)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.43079)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %20 = load ptr, ptr %19, align 8, !tbaa !18
   %.sroa.04681.0.copyload = load <8 x i32>, ptr %20, align 32, !tbaa !15
@@ -302,10 +302,10 @@ _ZN3gmx17EnergyAccumulatorILb1ELb1EE12initIClusterILi4EEEvi.exit: ; preds = %105
 210:                                              ; preds = %196, %.loopexit4263
   %.sroa.03799.1 = phi <8 x float> [ %203, %196 ], [ %.sroa.03799.04378, %.loopexit4263 ]
   %.sroa.73803.1 = phi <8 x float> [ %209, %196 ], [ %.sroa.73803.04379, %.loopexit4263 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.04679)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.94680)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.04676)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.04679)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.94680)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.04676)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   %211 = sext i32 %128 to i64
   %212 = getelementptr float, ptr %11, i64 %211
   %213 = getelementptr i8, ptr %212, i64 16
@@ -2227,43 +2227,43 @@ _ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4EL
   %1707 = load float, ptr %1706, align 4, !tbaa !60
   %1708 = fadd float %1699, %1707
   store float %1708, ptr %1706, align 4, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.04676)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.04679)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.94680)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.04676)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.04679)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.94680)
   %1709 = getelementptr inbounds nuw i8, ptr %.sroa.01925.04380, i64 16
   %.not4254 = icmp eq ptr %1709, %58
   br i1 %.not4254, label %._crit_edge, label %75
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare <8 x float> @llvm.x86.avx.max.ps.256(<8 x float>, <8 x float>) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.max.ps.256(<8 x float>, <8 x float>) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float>) #2
+declare <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float>) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x float> @llvm.fma.v8f32(<8 x float>, <8 x float>, <8 x float>) #3
+declare <8 x float> @llvm.fma.v8f32(<8 x float>, <8 x float>, <8 x float>) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.rcp.ps.256(<8 x float>) #2
+declare <8 x float> @llvm.x86.avx.rcp.ps.256(<8 x float>) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.hadd.ps.256(<8 x float>, <8 x float>) #2
+declare <8 x float> @llvm.x86.avx.hadd.ps.256(<8 x float>, <8 x float>) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse3.hadd.ps(<4 x float>, <4 x float>) #2
+declare <4 x float> @llvm.x86.sse3.hadd.ps(<4 x float>, <4 x float>) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

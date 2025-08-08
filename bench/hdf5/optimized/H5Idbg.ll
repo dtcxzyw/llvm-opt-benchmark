@@ -86,7 +86,7 @@ define noundef i32 @H5I_dump_ids_for_type(i32 noundef %0) local_unnamed_addr #0 
   %.sink28 = phi ptr [ %44, %H5I__id_dump_cb.exit ], [ %42, %36 ]
   %43 = getelementptr inbounds nuw i8, ptr %.sink28, i64 72
   %44 = load ptr, ptr %43, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %45 = load i8, ptr @H5I_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %46 = trunc nuw i8 %45 to i1
   %47 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -177,7 +177,7 @@ define noundef i32 @H5I_dump_ids_for_type(i32 noundef %0) local_unnamed_addr #0 
   br label %H5I__id_dump_cb.exit
 
 H5I__id_dump_cb.exit:                             ; preds = %.lr.ph, %51, %68, %75, %86, %94, %96
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not20 = icmp eq ptr %44, null
   br i1 %.not20, label %.loopexit, label %.lr.ph, !llvm.loop !41
 
@@ -189,34 +189,34 @@ H5I__id_dump_cb.exit:                             ; preds = %.lr.ph, %51, %68, %
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
+
+declare i32 @H5VL_object_is_native(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @H5G_nameof(ptr noundef) local_unnamed_addr #2
+
+declare ptr @H5D_nameof(ptr noundef) local_unnamed_addr #2
+
+declare ptr @H5T_get_actual_type(ptr noundef) local_unnamed_addr #2
+
+declare ptr @H5T_nameof(ptr noundef) local_unnamed_addr #2
+
+declare ptr @H5RS_get_str(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
-declare i32 @H5VL_object_is_native(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare ptr @H5G_nameof(ptr noundef) local_unnamed_addr #3
-
-declare ptr @H5D_nameof(ptr noundef) local_unnamed_addr #3
-
-declare ptr @H5T_get_actual_type(ptr noundef) local_unnamed_addr #3
-
-declare ptr @H5T_nameof(ptr noundef) local_unnamed_addr #3
-
-declare ptr @H5RS_get_str(ptr noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nofree nounwind }
 attributes #5 = { cold nounwind }
 attributes #6 = { cold }

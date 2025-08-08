@@ -3780,7 +3780,7 @@ define internal ptr @gtk2_get_setting(ptr noundef %0, i32 noundef %1) #0 {
   ]
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %12 = load ptr, ptr @fp_g_object_get, align 8
   call void (ptr, ptr, ...) %12(ptr noundef %10, ptr noundef nonnull @.str.180, ptr noundef nonnull %8, ptr noundef null) #18
@@ -3792,11 +3792,11 @@ define internal ptr @gtk2_get_setting(ptr noundef %0, i32 noundef %1) #0 {
   %18 = load ptr, ptr @fp_g_free, align 8
   %19 = load ptr, ptr %8, align 8
   call void %18(ptr noundef %19) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %82
 
 20:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %21 = load ptr, ptr @fp_g_object_get, align 8
   call void (ptr, ptr, ...) %21(ptr noundef %10, ptr noundef nonnull @.str.181, ptr noundef nonnull %7, ptr noundef null) #18
@@ -3808,17 +3808,17 @@ define internal ptr @gtk2_get_setting(ptr noundef %0, i32 noundef %1) #0 {
   %27 = load ptr, ptr @fp_g_free, align 8
   %28 = load ptr, ptr %7, align 8
   call void %27(ptr noundef %28) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %82
 
 29:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %30 = load ptr, ptr @fp_g_object_get, align 8
   call void (ptr, ptr, ...) %30(ptr noundef %10, ptr noundef nonnull @.str.182, ptr noundef nonnull %6, ptr noundef null) #18
   %31 = load i32, ptr %6, align 4
   %32 = trunc i32 %31 to i8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 %32, ptr %5, align 8
   %33 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
@@ -3859,17 +3859,17 @@ define internal ptr @gtk2_get_setting(ptr noundef %0, i32 noundef %1) #0 {
 
 get_boolean_property.exit:                        ; preds = %29, %.sink.split.i.i.i
   %.0.i.i.i = phi ptr [ null, %29 ], [ %.0.ph.i.i.i, %.sink.split.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %82
 
 56:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %57 = load ptr, ptr @fp_g_object_get, align 8
   call void (ptr, ptr, ...) %57(ptr noundef %10, ptr noundef nonnull @.str.183, ptr noundef nonnull %4, ptr noundef null) #18
   %58 = load i32, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %58, ptr %3, align 8
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
@@ -3910,8 +3910,8 @@ get_boolean_property.exit:                        ; preds = %29, %.sink.split.i.
 
 get_integer_property.exit:                        ; preds = %56, %.sink.split.i.i.i9
   %.0.i.i.i11 = phi ptr [ null, %56 ], [ %.0.ph.i.i.i10, %.sink.split.i.i.i9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %82
 
 82:                                               ; preds = %2, %get_integer_property.exit, %get_boolean_property.exit, %20, %11
@@ -5001,7 +5001,7 @@ init_containers.exit:                             ; preds = %3, %11
   %37 = load ptr, ptr @fp_g_value_get_boolean, align 8
   %38 = call i32 %37(ptr noundef nonnull %8) #18
   %39 = trunc i32 %38 to i8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 %39, ptr %7, align 8
   %40 = load ptr, ptr %0, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
@@ -5042,7 +5042,7 @@ init_containers.exit:                             ; preds = %3, %11
 
 create_Boolean.exit:                              ; preds = %36, %.sink.split.i.i
   %.0.i.i = phi ptr [ null, %36 ], [ %.0.ph.i.i, %.sink.split.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %249
 
 63:                                               ; preds = %26
@@ -5056,7 +5056,7 @@ create_Boolean.exit:                              ; preds = %36, %.sink.split.i.
   %68 = load ptr, ptr @fp_g_value_get_char, align 8
   %69 = call signext i8 %68(ptr noundef nonnull %8) #18
   %70 = sext i8 %69 to i16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 %70, ptr %6, align 8
   %71 = load ptr, ptr %0, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 48
@@ -5097,7 +5097,7 @@ create_Boolean.exit:                              ; preds = %36, %.sink.split.i.
 
 create_Character.exit:                            ; preds = %67, %.sink.split.i.i70
   %.0.i.i72 = phi ptr [ null, %67 ], [ %.0.ph.i.i71, %.sink.split.i.i70 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %249
 
 94:                                               ; preds = %63
@@ -5111,7 +5111,7 @@ create_Character.exit:                            ; preds = %67, %.sink.split.i.
   %99 = load ptr, ptr @fp_g_value_get_uchar, align 8
   %100 = call zeroext i8 %99(ptr noundef nonnull %8) #18
   %101 = zext i8 %100 to i16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 %101, ptr %5, align 8
   %102 = load ptr, ptr %0, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 48
@@ -5152,7 +5152,7 @@ create_Character.exit:                            ; preds = %67, %.sink.split.i.
 
 create_Character.exit76:                          ; preds = %98, %.sink.split.i.i73
   %.0.i.i75 = phi ptr [ null, %98 ], [ %.0.ph.i.i74, %.sink.split.i.i73 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %249
 
 125:                                              ; preds = %94
@@ -5165,7 +5165,7 @@ create_Character.exit76:                          ; preds = %98, %.sink.split.i.
 129:                                              ; preds = %125
   %130 = load ptr, ptr @fp_g_value_get_int, align 8
   %131 = call i32 %130(ptr noundef nonnull %8) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %131, ptr %4, align 8
   %132 = load ptr, ptr %0, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 48
@@ -5206,7 +5206,7 @@ create_Character.exit76:                          ; preds = %98, %.sink.split.i.
 
 create_Integer.exit:                              ; preds = %129, %.sink.split.i.i77
   %.0.i.i79 = phi ptr [ null, %129 ], [ %.0.ph.i.i78, %.sink.split.i.i77 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %249
 
 155:                                              ; preds = %125
@@ -5920,10 +5920,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @llvm.smin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17

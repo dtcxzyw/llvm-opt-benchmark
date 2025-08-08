@@ -391,14 +391,8 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %6, %9
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6icu_7715MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #2 comdat align 2 {
@@ -491,10 +485,10 @@ define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErro
   ret void
 }
 
-declare void @uprv_free_77(ptr noundef) local_unnamed_addr #9
+declare void @uprv_free_77(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_778ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #10
+declare void @_ZN6icu_778ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7715SortKeyByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #0 align 2 {
@@ -503,13 +497,13 @@ define void @_ZN6icu_7715SortKeyByteSinkD2Ev(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7715SortKeyByteSinkD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
+define void @_ZN6icu_7715SortKeyByteSinkD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #10 align 2 {
   tail call void @llvm.trap() #17
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #12
+declare void @llvm.trap() #11
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7715SortKeyByteSink6AppendEPKci(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 2 {
@@ -640,7 +634,7 @@ define noundef ptr @_ZN6icu_7715SortKeyByteSink15GetAppendBufferEiiPciPi(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6icu_7713CollationKeys13LevelCallbackD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #13 align 2 {
+define void @_ZN6icu_7713CollationKeys13LevelCallbackD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #12 align 2 {
   ret void
 }
 
@@ -652,10 +646,10 @@ define void @_ZN6icu_7713CollationKeys13LevelCallbackD0Ev(ptr noundef nonnull al
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #10
+declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZN6icu_7713CollationKeys13LevelCallback11needToWriteENS_9Collation5LevelE(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #13 align 2 {
+define noundef signext i8 @_ZN6icu_7713CollationKeys13LevelCallback11needToWriteENS_9Collation5LevelE(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #12 align 2 {
   ret i8 1
 }
 
@@ -695,7 +689,7 @@ define void @_ZN6icu_7713CollationKeys26writeSortKeyUpToQuaternaryERNS_17Collati
   %33 = and i32 %18, 1536
   %.not.i.not = icmp eq i32 %33, 512
   %34 = select i1 %.not.i.not, i32 65343, i32 16191
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 13
   store ptr %35, ptr %9, align 8, !tbaa !31
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -706,7 +700,7 @@ define void @_ZN6icu_7713CollationKeys26writeSortKeyUpToQuaternaryERNS_17Collati
   store i32 0, ptr %38, align 8, !tbaa !35
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 60
   store i8 1, ptr %39, align 4, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 13
   store ptr %40, ptr %10, align 8, !tbaa !31
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -717,7 +711,7 @@ define void @_ZN6icu_7713CollationKeys26writeSortKeyUpToQuaternaryERNS_17Collati
   store i32 0, ptr %43, align 8, !tbaa !35
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 60
   store i8 1, ptr %44, align 4, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %45 = getelementptr inbounds nuw i8, ptr %11, i64 13
   store ptr %45, ptr %11, align 8, !tbaa !31
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -728,7 +722,7 @@ define void @_ZN6icu_7713CollationKeys26writeSortKeyUpToQuaternaryERNS_17Collati
   store i32 0, ptr %48, align 8, !tbaa !35
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 60
   store i8 1, ptr %49, align 4, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 13
   store ptr %50, ptr %12, align 8, !tbaa !31
   %51 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -1452,7 +1446,7 @@ _ZN6icu_7715SortKeyByteSink6AppendEj.exit534:     ; preds = %348, %331
 353:                                              ; preds = %351
   %354 = lshr i32 %.4349, 16
   %355 = trunc i32 %354 to i8
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i8 %355, ptr %13, align 1, !tbaa !47
   %356 = lshr i32 %.4349, 8
   %357 = trunc i32 %356 to i8
@@ -1472,13 +1466,13 @@ _ZN6icu_7715SortKeyByteSink6AppendEj.exit534:     ; preds = %348, %331
           to label %367 unwind label %368
 
 367:                                              ; preds = %353
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %370
 
 368:                                              ; preds = %353
   %369 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit.split-lp
 
 370:                                              ; preds = %367, %351
@@ -4102,7 +4096,7 @@ _ZNK6icu_7712_GLOBAL__N_112SortKeyLevel8appendToERNS_8ByteSinkE.exit893: ; preds
   unreachable
 
 _ZN6icu_7712_GLOBAL__N_112SortKeyLevelD2Ev.exit:  ; preds = %.critedge.thread, %1390
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.val461 = load i8, ptr %47, align 4, !tbaa !34
   %.not.i.i.i895 = icmp eq i8 %.val461, 0
   br i1 %.not.i.i.i895, label %_ZN6icu_7712_GLOBAL__N_112SortKeyLevelD2Ev.exit896, label %1394
@@ -4120,7 +4114,7 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevelD2Ev.exit:  ; preds = %.critedge.thread, %
   unreachable
 
 _ZN6icu_7712_GLOBAL__N_112SortKeyLevelD2Ev.exit896: ; preds = %_ZN6icu_7712_GLOBAL__N_112SortKeyLevelD2Ev.exit, %1394
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.val463 = load i8, ptr %42, align 4, !tbaa !34
   %.not.i.i.i897 = icmp eq i8 %.val463, 0
   br i1 %.not.i.i.i897, label %_ZN6icu_7712_GLOBAL__N_112SortKeyLevelD2Ev.exit898, label %1398
@@ -4138,7 +4132,7 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevelD2Ev.exit896: ; preds = %_ZN6icu_7712_GLOB
   unreachable
 
 _ZN6icu_7712_GLOBAL__N_112SortKeyLevelD2Ev.exit898: ; preds = %_ZN6icu_7712_GLOBAL__N_112SortKeyLevelD2Ev.exit896, %1398
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.val465 = load i8, ptr %37, align 4, !tbaa !34
   %.not.i.i.i899 = icmp eq i8 %.val465, 0
   br i1 %.not.i.i.i899, label %_ZN6icu_7712_GLOBAL__N_112SortKeyLevelD2Ev.exit900, label %1402
@@ -4156,7 +4150,7 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevelD2Ev.exit898: ; preds = %_ZN6icu_7712_GLOB
   unreachable
 
 _ZN6icu_7712_GLOBAL__N_112SortKeyLevelD2Ev.exit900: ; preds = %_ZN6icu_7712_GLOBAL__N_112SortKeyLevelD2Ev.exit898, %1402
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %1406
 
 1406:                                             ; preds = %_ZN6icu_7712_GLOBAL__N_112SortKeyLevelD2Ev.exit900, %16, %8
@@ -4167,19 +4161,19 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevelD2Ev.exit900: ; preds = %_ZN6icu_7712_GLOB
   %.val466 = load ptr, ptr %12, align 8
   %.val467 = load i8, ptr %52, align 4, !tbaa !34
   call fastcc void @_ZN6icu_7712_GLOBAL__N_112SortKeyLevelD2Ev(ptr %.val466, i8 %.val467) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.val468 = load ptr, ptr %11, align 8
   %.val469 = load i8, ptr %47, align 4, !tbaa !34
   call fastcc void @_ZN6icu_7712_GLOBAL__N_112SortKeyLevelD2Ev(ptr %.val468, i8 %.val469) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.val470 = load ptr, ptr %10, align 8
   %.val471 = load i8, ptr %42, align 4, !tbaa !34
   call fastcc void @_ZN6icu_7712_GLOBAL__N_112SortKeyLevelD2Ev(ptr %.val470, i8 %.val471) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.val472 = load ptr, ptr %9, align 8
   %.val473 = load i8, ptr %37, align 4, !tbaa !34
   call fastcc void @_ZN6icu_7712_GLOBAL__N_112SortKeyLevelD2Ev(ptr %.val472, i8 %.val473) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn428.pn.pn
 }
 
@@ -4220,7 +4214,7 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   %21 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %7, %16 ]
   %22 = add nsw i32 %21, 1
   store i32 %22, ptr %6, align 8, !tbaa !67
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = load ptr, ptr %0, align 8, !tbaa !21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %25 = load ptr, ptr %24, align 8
@@ -4411,7 +4405,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %67, %79, %92, %97, 
 
 160:                                              ; preds = %51, %124, %146, %157, %29
   %.1 = phi i64 [ %41, %29 ], [ 4311744768, %51 ], [ %136, %124 ], [ %152, %146 ], [ %159, %157 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN6icu_7717CollationIterator8CEBuffer9incLengthER10UErrorCode.exit.thread
 
 _ZN6icu_7717CollationIterator8CEBuffer9incLengthER10UErrorCode.exit.thread: ; preds = %18, %160, %9
@@ -4491,15 +4485,21 @@ _ZN6icu_7715MaybeStackArrayIhLi40EED2Ev.exit:     ; preds = %0, %1
   ret void
 }
 
-declare void @_ZN6icu_778ByteSink5FlushEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
+declare void @_ZN6icu_778ByteSink5FlushEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
-declare noundef i64 @_ZN6icu_7717CollationIterator14nextCEFromCE32EPKNS_13CollationDataEijR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389), ptr noundef, i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #9
+declare noundef i64 @_ZN6icu_7717CollationIterator14nextCEFromCE32EPKNS_13CollationDataEijR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389), ptr noundef, i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #8
 
-declare noundef signext i8 @_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(344), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #9
+declare noundef signext i8 @_ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(344), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #8
 
-declare noundef i32 @_ZNK6icu_7717CollationSettings9reorderExEj(ptr noundef nonnull align 8 dereferenceable(852), i32 noundef) local_unnamed_addr #9
+declare noundef i32 @_ZNK6icu_7717CollationSettings9reorderExEj(ptr noundef nonnull align 8 dereferenceable(852), i32 noundef) local_unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14
@@ -4514,13 +4514,13 @@ attributes #3 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "
 attributes #4 = { cold nofree noreturn }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nounwind }
 attributes #16 = { allocsize(0) }

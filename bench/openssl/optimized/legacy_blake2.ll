@@ -24,10 +24,10 @@ define noundef nonnull ptr @EVP_blake2s256() local_unnamed_addr #0 {
 define internal i32 @blake2b_int_init(ptr noundef %0) #1 {
   %2 = alloca %struct.blake2b_param_st, align 1
   %3 = tail call ptr @EVP_MD_CTX_get0_md_data(ptr noundef %0) #4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @ossl_blake2b_param_init(ptr noundef nonnull %2) #4
   %4 = call i32 @ossl_blake2b_init(ptr noundef %3, ptr noundef nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %4
 }
 
@@ -47,15 +47,9 @@ define internal i32 @blake2b_int_final(ptr noundef %0, ptr noundef %1) #1 {
 
 declare ptr @EVP_MD_CTX_get0_md_data(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare void @ossl_blake2b_param_init(ptr noundef) local_unnamed_addr #2
 
 declare i32 @ossl_blake2b_init(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @ossl_blake2b_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -65,10 +59,10 @@ declare i32 @ossl_blake2b_final(ptr noundef, ptr noundef) local_unnamed_addr #2
 define internal i32 @blake2s_int_init(ptr noundef %0) #1 {
   %2 = alloca %struct.blake2s_param_st, align 1
   %3 = tail call ptr @EVP_MD_CTX_get0_md_data(ptr noundef %0) #4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @ossl_blake2s_param_init(ptr noundef nonnull %2) #4
   %4 = call i32 @ossl_blake2s_init(ptr noundef %3, ptr noundef nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %4
 }
 
@@ -93,6 +87,12 @@ declare i32 @ossl_blake2s_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @ossl_blake2s_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 declare i32 @ossl_blake2s_final(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -876,9 +876,6 @@ dissect_dplay.exit:                               ; preds = %.preheader, %106, %
   ret i1 %.022
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
@@ -893,9 +890,6 @@ declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -928,12 +922,12 @@ define internal fastcc void @dissect_type01_message(ptr noundef %0, ptr noundef 
 8:                                                ; preds = %2
   %9 = add nuw nsw i32 %4, 4
   %10 = load i32, ptr @hf_dplay_type_01_game_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = tail call ptr @wmem_packet_scope()
   %12 = call ptr @tvb_get_stringz_enc(ptr noundef %11, ptr noundef %1, i32 noundef %9, ptr noundef nonnull %3, i32 noundef -2147483644)
   %13 = load i32, ptr %3, align 4
   %14 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef %9, i32 noundef %13, ptr noundef %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %15
 
 15:                                               ; preds = %8, %2
@@ -956,12 +950,12 @@ define internal fastcc void @dissect_type02_message(ptr noundef %0, ptr noundef 
 
 12:                                               ; preds = %2
   %13 = load i32, ptr @hf_dplay_type_02_password, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = tail call ptr @wmem_packet_scope()
   %15 = call ptr @tvb_get_stringz_enc(ptr noundef %14, ptr noundef %1, i32 noundef 52, ptr noundef nonnull %3, i32 noundef -2147483644)
   %16 = load i32, ptr %3, align 4
   %17 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %13, ptr noundef %1, i32 noundef 52, i32 noundef %16, ptr noundef %15)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %18
 
 18:                                               ; preds = %12, %2
@@ -999,14 +993,14 @@ define internal fastcc void @dissect_type07_message(ptr noundef %0, ptr noundef 
 
 27:                                               ; preds = %2
   %28 = load i32, ptr @hf_dplay_type_07_sspi, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %29 = tail call ptr @wmem_packet_scope()
   %30 = call ptr @tvb_get_stringz_enc(ptr noundef %29, ptr noundef %1, i32 noundef 68, ptr noundef nonnull %4, i32 noundef -2147483644)
   %31 = load i32, ptr %4, align 4
   %32 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %28, ptr noundef %1, i32 noundef 68, i32 noundef %31, ptr noundef %30)
   %33 = load i32, ptr %4, align 4
   %34 = add i32 %33, 68
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %35
 
 35:                                               ; preds = %27, %2
@@ -1016,12 +1010,12 @@ define internal fastcc void @dissect_type07_message(ptr noundef %0, ptr noundef 
 
 36:                                               ; preds = %35
   %37 = load i32, ptr @hf_dplay_type_07_capi, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %38 = call ptr @wmem_packet_scope()
   %39 = call ptr @tvb_get_stringz_enc(ptr noundef %38, ptr noundef %1, i32 noundef %.0, ptr noundef nonnull %3, i32 noundef -2147483644)
   %40 = load i32, ptr %3, align 4
   %41 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %37, ptr noundef %1, i32 noundef %.0, i32 noundef %40, ptr noundef %39)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %42
 
 42:                                               ; preds = %36, %35
@@ -1061,14 +1055,14 @@ define internal fastcc i32 @dissect_player_message(ptr noundef %0, ptr noundef %
 
 25:                                               ; preds = %23
   %26 = load i32, ptr @hf_dplay_multi_password, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %27 = tail call ptr @wmem_packet_scope()
   %28 = call ptr @tvb_get_stringz_enc(ptr noundef %27, ptr noundef %1, i32 noundef %.0, ptr noundef nonnull %4, i32 noundef -2147483644)
   %29 = load i32, ptr %4, align 4
   %30 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %26, ptr noundef %1, i32 noundef %.0, i32 noundef %29, ptr noundef %28)
   %31 = load i32, ptr %4, align 4
   %32 = add i32 %31, %.0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %33
 
 33:                                               ; preds = %25, %23
@@ -1126,14 +1120,14 @@ define internal fastcc noundef i32 @dissect_type13_message(ptr noundef %0, ptr n
 
 25:                                               ; preds = %24
   %26 = load i32, ptr @hf_dplay_type_13_password, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %27 = tail call ptr @wmem_packet_scope()
   %28 = call ptr @tvb_get_stringz_enc(ptr noundef %27, ptr noundef %1, i32 noundef %.0, ptr noundef nonnull %4, i32 noundef -2147483644)
   %29 = load i32, ptr %4, align 4
   %30 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %26, ptr noundef %1, i32 noundef %.0, i32 noundef %29, ptr noundef %28)
   %31 = load i32, ptr %4, align 4
   %32 = add i32 %31, %.0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %33
 
 33:                                               ; preds = %25, %24
@@ -1241,14 +1235,14 @@ define internal fastcc i32 @dissect_type1a_message(ptr noundef %0, ptr noundef %
 
 18:                                               ; preds = %3
   %19 = load i32, ptr @hf_dplay_type_1a_session_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = tail call ptr @wmem_packet_scope()
   %21 = call ptr @tvb_get_stringz_enc(ptr noundef %20, ptr noundef %1, i32 noundef %17, ptr noundef nonnull %5, i32 noundef -2147483644)
   %22 = load i32, ptr %5, align 4
   %23 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %19, ptr noundef %1, i32 noundef %17, i32 noundef %22, ptr noundef %21)
   %24 = load i32, ptr %5, align 4
   %25 = add i32 %24, %17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %26
 
 26:                                               ; preds = %18, %3
@@ -1258,14 +1252,14 @@ define internal fastcc i32 @dissect_type1a_message(ptr noundef %0, ptr noundef %
 
 27:                                               ; preds = %26
   %28 = load i32, ptr @hf_dplay_type_1a_password, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %29 = call ptr @wmem_packet_scope()
   %30 = call ptr @tvb_get_stringz_enc(ptr noundef %29, ptr noundef %1, i32 noundef %.0, ptr noundef nonnull %4, i32 noundef -2147483644)
   %31 = load i32, ptr %4, align 4
   %32 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %28, ptr noundef %1, i32 noundef %.0, i32 noundef %31, ptr noundef %30)
   %33 = load i32, ptr %4, align 4
   %34 = add i32 %33, %.0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %35
 
 35:                                               ; preds = %27, %26
@@ -1297,27 +1291,27 @@ define internal fastcc void @dissect_type29_message(ptr noundef %0, ptr noundef 
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %21, ptr noundef %1, i32 noundef 52, i32 noundef 4, i32 noundef -2147483648)
   %23 = tail call fastcc i32 @dissect_session_desc(ptr noundef %0, ptr noundef %1, i32 noundef 56)
   %24 = load i32, ptr @hf_dplay_type_29_game_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = tail call ptr @wmem_packet_scope()
   %26 = call ptr @tvb_get_stringz_enc(ptr noundef %25, ptr noundef %1, i32 noundef %23, ptr noundef nonnull %4, i32 noundef -2147483644)
   %27 = load i32, ptr %4, align 4
   %28 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %24, ptr noundef %1, i32 noundef %23, i32 noundef %27, ptr noundef %26)
   %29 = load i32, ptr %4, align 4
   %30 = add i32 %29, %23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %39, label %31
 
 31:                                               ; preds = %2
   %32 = load i32, ptr @hf_dplay_type_29_password, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %33 = call ptr @wmem_packet_scope()
   %34 = call ptr @tvb_get_stringz_enc(ptr noundef %33, ptr noundef %1, i32 noundef %30, ptr noundef nonnull %3, i32 noundef -2147483644)
   %35 = load i32, ptr %3, align 4
   %36 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %32, ptr noundef %1, i32 noundef %30, i32 noundef %35, ptr noundef %34)
   %37 = load i32, ptr %3, align 4
   %38 = add i32 %37, %30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %39
 
 39:                                               ; preds = %31, %2
@@ -1484,14 +1478,14 @@ define internal fastcc i32 @dissect_packed_player(ptr noundef %0, ptr noundef %1
 
 49:                                               ; preds = %3
   %50 = load i32, ptr @hf_dplay_pp_short_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %51 = tail call ptr @wmem_packet_scope()
   %52 = call ptr @tvb_get_stringz_enc(ptr noundef %51, ptr noundef %1, i32 noundef %48, ptr noundef nonnull %5, i32 noundef -2147483644)
   %53 = load i32, ptr %5, align 4
   %54 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %50, ptr noundef %1, i32 noundef %48, i32 noundef %53, ptr noundef %52)
   %55 = load i32, ptr %5, align 4
   %56 = add i32 %55, %48
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %57
 
 57:                                               ; preds = %49, %3
@@ -1501,14 +1495,14 @@ define internal fastcc i32 @dissect_packed_player(ptr noundef %0, ptr noundef %1
 
 58:                                               ; preds = %57
   %59 = load i32, ptr @hf_dplay_pp_long_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %60 = call ptr @wmem_packet_scope()
   %61 = call ptr @tvb_get_stringz_enc(ptr noundef %60, ptr noundef %1, i32 noundef %.0, ptr noundef nonnull %4, i32 noundef -2147483644)
   %62 = load i32, ptr %4, align 4
   %63 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %59, ptr noundef %1, i32 noundef %.0, i32 noundef %62, ptr noundef %61)
   %64 = load i32, ptr %4, align 4
   %65 = add i32 %64, %.0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %66
 
 66:                                               ; preds = %58, %57
@@ -1624,14 +1618,14 @@ define internal fastcc i32 @dissect_dplay_super_packed_player(ptr noundef %0, pt
 
 54:                                               ; preds = %3
   %55 = load i32, ptr @hf_dplay_spp_short_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %56 = tail call ptr @wmem_packet_scope()
   %57 = call ptr @tvb_get_stringz_enc(ptr noundef %56, ptr noundef %1, i32 noundef %53, ptr noundef nonnull %5, i32 noundef -2147483644)
   %58 = load i32, ptr %5, align 4
   %59 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %55, ptr noundef %1, i32 noundef %53, i32 noundef %58, ptr noundef %57)
   %60 = load i32, ptr %5, align 4
   %61 = add i32 %60, %53
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %62
 
 62:                                               ; preds = %54, %3
@@ -1641,14 +1635,14 @@ define internal fastcc i32 @dissect_dplay_super_packed_player(ptr noundef %0, pt
 
 63:                                               ; preds = %62
   %64 = load i32, ptr @hf_dplay_spp_long_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %65 = call ptr @wmem_packet_scope()
   %66 = call ptr @tvb_get_stringz_enc(ptr noundef %65, ptr noundef %1, i32 noundef %.0139, ptr noundef nonnull %4, i32 noundef -2147483644)
   %67 = load i32, ptr %4, align 4
   %68 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %64, ptr noundef %1, i32 noundef %.0139, i32 noundef %67, ptr noundef %66)
   %69 = load i32, ptr %4, align 4
   %70 = add i32 %69, %.0139
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %71
 
 71:                                               ; preds = %63, %62
@@ -1822,10 +1816,15 @@ spp_get_value.exit162:                            ; preds = %122, %125, %128
   ret i32 %.7
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

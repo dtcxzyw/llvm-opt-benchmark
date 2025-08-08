@@ -20,7 +20,7 @@ define hidden void @sync_pipe_write_string_msg(i32 noundef %0, i8 noundef signex
 
 9:                                                ; preds = %3, %5
   %.0 = phi i32 [ %8, %5 ], [ 0, %3 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %1, ptr %4, align 1
   %10 = lshr i32 %.0, 16
   %11 = trunc i32 %10 to i8
@@ -34,7 +34,7 @@ define hidden void @sync_pipe_write_string_msg(i32 noundef %0, i8 noundef signex
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %16, ptr %17, align 1
   %18 = call noundef i64 @write(i32 noundef %0, ptr noundef nonnull %4, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %19 = icmp eq i64 %18, -1
   %.not11 = icmp eq i32 %.0, 0
   %or.cond = or i1 %.not11, %19
@@ -49,28 +49,22 @@ define hidden void @sync_pipe_write_string_msg(i32 noundef %0, i8 noundef signex
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define hidden void @sync_pipe_write_uint_msg(i32 noundef %0, i8 noundef signext %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
   %5 = alloca [22 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %5, i64 noundef 22, i32 noundef 2, i64 noundef 22, ptr noundef nonnull @.str, i32 noundef %2)
   %7 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #4
   %8 = trunc i64 %7 to i32
   %9 = add i32 %8, 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %1, ptr %4, align 1
   %10 = lshr i32 %9, 16
   %11 = trunc i32 %10 to i8
@@ -84,7 +78,7 @@ define hidden void @sync_pipe_write_uint_msg(i32 noundef %0, i8 noundef signext 
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %16, ptr %17, align 1
   %18 = call noundef i64 @write(i32 noundef %0, ptr noundef nonnull %4, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %19 = icmp eq i64 %18, -1
   %.not11.i = icmp eq i32 %9, 0
   %or.cond.i = or i1 %.not11.i, %19
@@ -96,23 +90,23 @@ define hidden void @sync_pipe_write_uint_msg(i32 noundef %0, i8 noundef signext 
   br label %sync_pipe_write_string_msg.exit
 
 sync_pipe_write_string_msg.exit:                  ; preds = %3, %20
-  call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define hidden void @sync_pipe_write_int_msg(i32 noundef %0, i8 noundef signext %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
   %5 = alloca [22 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %5, i64 noundef 22, i32 noundef 2, i64 noundef 22, ptr noundef nonnull @.str.1, i32 noundef %2)
   %7 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #4
   %8 = trunc i64 %7 to i32
   %9 = add i32 %8, 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %1, ptr %4, align 1
   %10 = lshr i32 %9, 16
   %11 = trunc i32 %10 to i8
@@ -126,7 +120,7 @@ define hidden void @sync_pipe_write_int_msg(i32 noundef %0, i8 noundef signext %
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %16, ptr %17, align 1
   %18 = call noundef i64 @write(i32 noundef %0, ptr noundef nonnull %4, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %19 = icmp eq i64 %18, -1
   %.not11.i = icmp eq i32 %9, 0
   %or.cond.i = or i1 %.not11.i, %19
@@ -138,7 +132,7 @@ define hidden void @sync_pipe_write_int_msg(i32 noundef %0, i8 noundef signext %
   br label %sync_pipe_write_string_msg.exit
 
 sync_pipe_write_string_msg.exit:                  ; preds = %3, %20
-  call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -153,7 +147,7 @@ define hidden void @sync_pipe_write_errmsgs_to_parent(i32 noundef %0, ptr nounde
   %10 = add i64 %8, %9
   %11 = trunc i64 %10 to i32
   %12 = add i32 %11, 5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 69, ptr %6, align 1
   %13 = lshr i32 %12, 16
   %14 = trunc i32 %13 to i8
@@ -167,7 +161,7 @@ define hidden void @sync_pipe_write_errmsgs_to_parent(i32 noundef %0, ptr nounde
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 3
   store i8 %19, ptr %20, align 1
   %21 = call noundef i64 @write(i32 noundef %0, ptr noundef nonnull %6, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %26, label %22
 
@@ -179,7 +173,7 @@ define hidden void @sync_pipe_write_errmsgs_to_parent(i32 noundef %0, ptr nounde
 
 26:                                               ; preds = %22, %3
   %.0.i = phi i32 [ %25, %22 ], [ 0, %3 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 69, ptr %5, align 1
   %27 = lshr i32 %.0.i, 16
   %28 = trunc i32 %27 to i8
@@ -193,7 +187,7 @@ define hidden void @sync_pipe_write_errmsgs_to_parent(i32 noundef %0, ptr nounde
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store i8 %33, ptr %34, align 1
   %35 = call noundef i64 @write(i32 noundef %0, ptr noundef nonnull %5, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %36 = icmp eq i64 %35, -1
   %.not11.i = icmp eq i32 %.0.i, 0
   %or.cond.i = or i1 %.not11.i, %36
@@ -216,7 +210,7 @@ sync_pipe_write_string_msg.exit:                  ; preds = %26, %37
 
 44:                                               ; preds = %40, %sync_pipe_write_string_msg.exit
   %.0.i7 = phi i32 [ %43, %40 ], [ 0, %sync_pipe_write_string_msg.exit ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 69, ptr %4, align 1
   %45 = lshr i32 %.0.i7, 16
   %46 = trunc i32 %45 to i8
@@ -230,7 +224,7 @@ sync_pipe_write_string_msg.exit:                  ; preds = %26, %37
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %51, ptr %52, align 1
   %53 = call noundef i64 @write(i32 noundef %0, ptr noundef nonnull %4, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %54 = icmp eq i64 %53, -1
   %.not11.i8 = icmp eq i32 %.0.i7, 0
   %or.cond.i9 = or i1 %.not11.i8, %54
@@ -245,12 +239,17 @@ sync_pipe_write_string_msg.exit10:                ; preds = %44, %55
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nofree null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind willreturn memory(read) }
-attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -169,8 +169,8 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %config.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %sem.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %config.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sem.i)
   store i32 4, ptr @nthreads, align 4
   %call.i = tail call ptr @getenv(ptr noundef nonnull @.str) #9
   %cmp.not.i = icmp eq ptr %call.i, null
@@ -288,8 +288,8 @@ for.body38.i:                                     ; preds = %for.cond35.preheade
 
 init_threads.exit:                                ; preds = %for.body38.i, %if.end28.i, %for.cond35.preheader.i
   call void @uv_sem_destroy(ptr noundef nonnull %sem.i) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %config.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %sem.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %config.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sem.i)
   ret void
 }
 
@@ -749,10 +749,10 @@ declare void @uv_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @uv_async_send(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

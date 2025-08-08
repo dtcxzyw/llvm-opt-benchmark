@@ -34,17 +34,17 @@ define internal i32 @filter(ptr noundef %0, ptr noundef %1) #1 {
   %.sroa.0329 = alloca i32, align 4
   %.sroa.4 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0344)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4345)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0340)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4341)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0336)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4337)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0332)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4333)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0329)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0344)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4345)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0340)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4341)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0336)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4337)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0332)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4333)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0329)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @ff_bsf_get_packet(ptr noundef %0, ptr noundef nonnull %3) #8
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %383, label %6
@@ -749,46 +749,46 @@ bytestream2_put_be64.exit:                        ; preds = %.critedge, %298, %b
 
 383:                                              ; preds = %2, %382
   %.074 = phi i32 [ %.070474, %382 ], [ %4, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0329)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0332)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4333)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0336)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4337)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0340)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4341)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0344)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4345)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0329)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0332)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4333)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0336)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4337)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0340)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4341)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0344)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4345)
   ret i32 %.074
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @ff_bsf_get_packet(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ff_bsf_get_packet(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare i32 @av_new_packet(ptr noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @av_new_packet(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare i32 @av_packet_copy_props(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @av_packet_copy_props(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @av_packet_unref(ptr noundef) local_unnamed_addr #3
+declare void @av_packet_unref(ptr noundef) local_unnamed_addr #2
 
-declare void @av_packet_free(ptr noundef) local_unnamed_addr #3
+declare void @av_packet_free(ptr noundef) local_unnamed_addr #2
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #5
+declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #7
@@ -801,11 +801,11 @@ declare i64 @llvm.smin.i64(i64, i64) #7
 
 attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { noreturn nounwind }

@@ -20,9 +20,9 @@ define hidden void @_ZN4lean13mk_list_rangeEjj(ptr dead_on_unwind noalias writab
   %.pr = phi ptr [ %17, %16 ], [ null, %3 ]
   %.09 = phi i32 [ %6, %16 ], [ %2, %3 ]
   %6 = add i32 %.09, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !9)
-  %7 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #7
+  %7 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #6
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %.lr.ph
@@ -47,7 +47,7 @@ define hidden void @_ZN4lean13mk_list_rangeEjj(ptr dead_on_unwind noalias writab
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
-  call void @_ZN4lean4listIjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #6
+  call void @_ZN4lean4listIjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #7
   call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(16) %.pr, i64 noundef 16) #8
   br label %16
 
@@ -55,29 +55,26 @@ define hidden void @_ZN4lean13mk_list_rangeEjj(ptr dead_on_unwind noalias writab
   %17 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %17, ptr %0, align 8, !tbaa !3
   store ptr null, ptr %4, align 8, !tbaa !3
-  call void @_ZN4lean4listIjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @_ZN4lean4listIjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %18 = icmp ugt i32 %6, %1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 19:                                               ; preds = %.lr.ph
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  call void @_ZN4lean4listIjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @_ZN4lean4listIjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #7
   resume { ptr, i32 } %20
 
 ._crit_edge:                                      ; preds = %16, %3
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4lean4listIjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN4lean4listIjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.thread, label %3
@@ -96,7 +93,7 @@ define linkonce_odr hidden void @_ZN4lean4listIjED2Ev(ptr noundef nonnull align 
   %9 = getelementptr inbounds nuw i8, ptr %.06, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   store ptr null, ptr %9, align 8, !tbaa !3
-  tail call void @_ZN4lean4listIjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #6
+  tail call void @_ZN4lean4listIjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #7
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(16) %.06, i64 noundef 16) #8
   %.not9 = icmp eq ptr %10, null
   br i1 %.not9, label %.thread, label %11
@@ -110,26 +107,29 @@ define linkonce_odr hidden void @_ZN4lean4listIjED2Ev(ptr noundef nonnull align 
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #6 = { nounwind }
-attributes #7 = { builtin allocsize(0) }
+attributes #6 = { builtin allocsize(0) }
+attributes #7 = { nounwind }
 attributes #8 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

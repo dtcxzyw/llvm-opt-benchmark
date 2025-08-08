@@ -30,7 +30,7 @@ define hidden i32 @VP8EncLoop(ptr noundef %0) local_unnamed_addr #0 {
   %5 = alloca %struct.VP8ModeScore, align 8
   %6 = alloca %struct.VP8EncIterator, align 8
   %7 = alloca %struct.VP8ModeScore, align 8
-  call void @llvm.lifetime.start.p0(i64 3848, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 3584
   %9 = load i32, ptr %8, align 8, !tbaa !3
   %10 = ashr i32 %9, 4
@@ -199,7 +199,7 @@ InitPassStats.exit.i:                             ; preds = %76, %73
 
 124:                                              ; preds = %121, %115
   %125 = phi i1 [ true, %115 ], [ %123, %121 ]
-  call void @llvm.lifetime.start.p0(i64 3848, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @VP8IteratorInit(ptr noundef nonnull %0, ptr noundef nonnull %4) #8
   call fastcc void @SetLoopParams(ptr noundef nonnull %0, float noundef %.sroa.10.094.i)
   br label %126
@@ -209,7 +209,7 @@ InitPassStats.exit.i:                             ; preds = %76, %73
   %.031.i.i = phi i64 [ 0, %124 ], [ %180, %.critedge40.i.i ]
   %.030.i.i = phi i64 [ 0, %124 ], [ %181, %.critedge40.i.i ]
   %.029.i.i = phi i64 [ 0, %124 ], [ %183, %.critedge40.i.i ]
-  call void @llvm.lifetime.start.p0(i64 880, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @VP8IteratorImport(ptr noundef nonnull %4, ptr noundef null) #8
   %127 = call i32 @VP8Decimate(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef range(i32 0, 2) %54) #8
   %.not.i.i = icmp eq i32 %127, 0
@@ -222,7 +222,7 @@ InitPassStats.exit.i:                             ; preds = %76, %73
   br label %131
 
 131:                                              ; preds = %128, %126
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %132 = load ptr, ptr %97, align 8, !tbaa !45
   call void @VP8IteratorNzToBytes(ptr noundef nonnull %4) #8
   %133 = load ptr, ptr %98, align 8, !tbaa !49
@@ -324,7 +324,7 @@ InitPassStats.exit.i:                             ; preds = %76, %73
 
 RecordResiduals.exit.i.i:                         ; preds = %176
   call void @VP8IteratorBytesToNz(ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %177 = load i64, ptr %106, align 8, !tbaa !57
   %178 = load i64, ptr %107, align 8, !tbaa !59
   %179 = add i64 %177, %.031.i.i
@@ -341,7 +341,7 @@ RecordResiduals.exit.i.i:                         ; preds = %176
 
 .critedge40.i.i:                                  ; preds = %184, %RecordResiduals.exit.i.i
   call void @VP8IteratorSaveBoundary(ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 880, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %186 = call i32 @VP8IteratorNext(ptr noundef nonnull %4) #8
   %.not37.i.i = icmp ne i32 %186, 0
   %187 = add nsw i32 %.032.i.i, -1
@@ -350,8 +350,8 @@ RecordResiduals.exit.i.i:                         ; preds = %176
   br i1 %or.cond.i.i, label %126, label %.critedge.i.i, !llvm.loop !61
 
 OneStatPass.exit.thread.i:                        ; preds = %184
-  call void @llvm.lifetime.end.p0(i64 880, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 3848, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %StatLoop.exit
 
 .critedge.i.i:                                    ; preds = %.critedge40.i.i
@@ -431,7 +431,7 @@ FinalizeSkipProba.exit.i.i:                       ; preds = %206, %CalcSkipProba
 
 OneStatPass.exit.i:                               ; preds = %226, %224, %FinalizeSkipProba.exit.i.i
   %.sroa.22.1.i = phi double [ %223, %FinalizeSkipProba.exit.i.i ], [ %230, %226 ], [ 9.900000e+01, %224 ]
-  call void @llvm.lifetime.end.p0(i64 3848, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %231 = icmp eq i64 %191, 0
   br i1 %231, label %StatLoop.exit, label %232
 
@@ -569,7 +569,7 @@ StatLoop.exit:                                    ; preds = %OneStatPass.exit.i,
   br label %309
 
 309:                                              ; preds = %414, %StatLoop.exit
-  call void @llvm.lifetime.start.p0(i64 880, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %310 = load i32, ptr %293, align 4, !tbaa !69
   %.not14 = icmp eq i32 %310, 0
   %311 = load i32, ptr %294, align 4, !tbaa !70
@@ -581,7 +581,7 @@ StatLoop.exit:                                    ; preds = %OneStatPass.exit.i,
 
 314:                                              ; preds = %309
   %315 = load ptr, ptr %298, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %316 = load ptr, ptr %295, align 8, !tbaa !49
   %317 = load i8, ptr %316, align 4
   %318 = and i8 %317, 3
@@ -730,7 +730,7 @@ CodeResiduals.exit:                               ; preds = %369
   %398 = add i64 %397, %391
   store i64 %398, ptr %396, align 8, !tbaa !82
   call void @VP8IteratorBytesToNz(ptr noundef nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %399 = load ptr, ptr %298, align 8, !tbaa !71
   %400 = getelementptr inbounds nuw i8, ptr %399, i64 40
   %401 = load i32, ptr %400, align 8, !tbaa !83
@@ -738,7 +738,7 @@ CodeResiduals.exit:                               ; preds = %369
   br i1 %.not15, label %412, label %.thread
 
 .thread:                                          ; preds = %CodeResiduals.exit
-  call void @llvm.lifetime.end.p0(i64 880, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
 402:                                              ; preds = %309
@@ -766,7 +766,7 @@ CodeResiduals.exit:                               ; preds = %369
   call void @VP8IteratorExport(ptr noundef nonnull %6) #8
   %413 = call i32 @VP8IteratorProgress(ptr noundef nonnull %6, i32 noundef 20) #8
   call void @VP8IteratorSaveBoundary(ptr noundef nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 880, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not16 = icmp eq i32 %413, 0
   br i1 %.not16, label %.critedge, label %414
 
@@ -782,20 +782,17 @@ CodeResiduals.exit:                               ; preds = %369
 
 417:                                              ; preds = %PreLoopInitialize.exit, %.critedge
   %.0 = phi i32 [ %416, %.critedge ], [ 0, %PreLoopInitialize.exit ]
-  call void @llvm.lifetime.end.p0(i64 3848, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @VP8IteratorInit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @VP8IteratorInit(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @VP8InitFilter(ptr noundef) local_unnamed_addr #1
 
-declare void @VP8InitFilter(ptr noundef) local_unnamed_addr #2
+declare void @VP8IteratorImport(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @VP8IteratorImport(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @VP8Decimate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @VP8Decimate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @StoreSideInfo(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
@@ -966,18 +963,15 @@ define internal fastcc void @StoreSideInfo(ptr noundef nonnull readonly captures
   ret void
 }
 
-declare void @VP8StoreFilterStats(ptr noundef) local_unnamed_addr #2
+declare void @VP8StoreFilterStats(ptr noundef) local_unnamed_addr #1
 
-declare void @VP8IteratorExport(ptr noundef) local_unnamed_addr #2
+declare void @VP8IteratorExport(ptr noundef) local_unnamed_addr #1
 
-declare i32 @VP8IteratorProgress(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @VP8IteratorProgress(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @VP8IteratorSaveBoundary(ptr noundef) local_unnamed_addr #2
+declare void @VP8IteratorSaveBoundary(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @VP8IteratorNext(ptr noundef) local_unnamed_addr #2
+declare i32 @VP8IteratorNext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @PostLoopFinalize(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
@@ -1086,7 +1080,7 @@ define hidden i32 @VP8EncTokenLoop(ptr noundef %0) local_unnamed_addr #0 {
   %11 = load i32, ptr %10, align 4, !tbaa !34
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 23636
   %13 = load i32, ptr %12, align 4, !tbaa !32
-  call void @llvm.lifetime.start.p0(i64 3848, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 3616
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 23620
   %16 = load i32, ptr %15, align 4, !tbaa !70
@@ -1236,7 +1230,7 @@ PreLoopInitialize.exit.thread:                    ; preds = %59, %PreLoopInitial
   %.080 = phi i64 [ 0, %105 ], [ %164, %170 ]
   %.078 = phi i64 [ 0, %105 ], [ %166, %170 ]
   %.077 = phi i32 [ %spec.store.select, %105 ], [ %.1, %170 ]
-  call void @llvm.lifetime.start.p0(i64 880, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @VP8IteratorImport(ptr noundef nonnull %3, ptr noundef null) #8
   %107 = add nsw i32 %.077, -1
   %108 = icmp slt i32 %.077, 1
@@ -1250,7 +1244,7 @@ PreLoopInitialize.exit.thread:                    ; preds = %59, %PreLoopInitial
 111:                                              ; preds = %109, %106
   %.1 = phi i32 [ %spec.store.select, %109 ], [ %107, %106 ]
   %112 = call i32 @VP8Decimate(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %16) #8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %113 = load ptr, ptr %74, align 8, !tbaa !45
   call void @VP8IteratorNzToBytes(ptr noundef nonnull %3) #8
   %114 = load ptr, ptr %75, align 8, !tbaa !49
@@ -1354,14 +1348,14 @@ RecordTokens.exit:                                ; preds = %157
   call void @VP8IteratorBytesToNz(ptr noundef nonnull %3) #8
   %158 = load i32, ptr %83, align 8, !tbaa !110
   %.not.i113.not = icmp eq i32 %158, 0
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i113.not, label %162, label %.critedge.thread159
 
 .critedge.thread159:                              ; preds = %RecordTokens.exit
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %160 = load ptr, ptr %159, align 8, !tbaa !30
   %161 = call i32 @WebPEncodingSetError(ptr noundef %160, i32 noundef 1) #8
-  call void @llvm.lifetime.end.p0(i64 880, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge109
 
 162:                                              ; preds = %RecordTokens.exit
@@ -1373,7 +1367,7 @@ RecordTokens.exit:                                ; preds = %157
 
 .thread:                                          ; preds = %162
   call void @VP8IteratorSaveBoundary(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 880, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %170
 
 167:                                              ; preds = %162
@@ -1383,7 +1377,7 @@ RecordTokens.exit:                                ; preds = %157
   %168 = call i32 @VP8IteratorProgress(ptr noundef nonnull %3, i32 noundef %102) #8
   %169 = icmp eq i32 %168, 0
   call void @VP8IteratorSaveBoundary(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 880, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %169, label %.critedge109, label %170
 
 170:                                              ; preds = %.thread, %167
@@ -1541,7 +1535,7 @@ ComputeNextQ.exit:                                ; preds = %209, %213, %215
 
 252:                                              ; preds = %PreLoopInitialize.exit, %.critedge109
   %.0 = phi i32 [ %251, %.critedge109 ], [ 0, %PreLoopInitialize.exit ]
-  call void @llvm.lifetime.end.p0(i64 3848, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -1553,7 +1547,7 @@ define internal fastcc void @SetLoopParams(ptr noundef %0, float noundef %1) unn
   %6 = select i1 %5, float 1.000000e+02, float %1
   %7 = select i1 %4, float 0.000000e+00, float %6
   tail call void @VP8SetSegmentParams(ptr noundef %0, float noundef %7) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i32, ptr %8, align 8, !tbaa !25
@@ -1762,7 +1756,7 @@ SetSegmentProbas.exit:                            ; preds = %ResetSegments.exit.
   %.sink.i = phi i32 [ 0, %113 ], [ %112, %ResetSegments.exit.i ]
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.sink.i, ptr %115, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 3616
   tail call void @VP8CalculateLevelCosts(ptr noundef nonnull %116) #8
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 23504
@@ -1774,10 +1768,10 @@ SetSegmentProbas.exit:                            ; preds = %ResetSegments.exit.
   ret void
 }
 
-declare void @VP8TBufferClear(ptr noundef) local_unnamed_addr #2
+declare void @VP8TBufferClear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @FinalizeTokenProbas(ptr noundef captures(none) %0) unnamed_addr #3 {
+define internal fastcc i32 @FinalizeTokenProbas(ptr noundef captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1060
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %.preheader80
@@ -1927,27 +1921,27 @@ CalcTokenProba.exit:                              ; preds = %16, %26
   ret i32 %.461
 }
 
-declare void @VP8CalculateLevelCosts(ptr noundef) local_unnamed_addr #2
+declare void @VP8CalculateLevelCosts(ptr noundef) local_unnamed_addr #1
 
-declare i32 @WebPEncodingSetError(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @WebPEncodingSetError(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @VP8EstimateTokenSize(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @VP8EstimateTokenSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @VP8EmitTokens(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @VP8EmitTokens(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @WebPReportProgress(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @WebPReportProgress(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @VP8BitWriterInit(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @VP8BitWriterInit(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @VP8EncFreeBitWriters(ptr noundef) local_unnamed_addr #2
+declare void @VP8EncFreeBitWriters(ptr noundef) local_unnamed_addr #1
 
-declare void @VP8IteratorNzToBytes(ptr noundef) local_unnamed_addr #2
+declare void @VP8IteratorNzToBytes(ptr noundef) local_unnamed_addr #1
 
-declare void @VP8InitResidual(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @VP8InitResidual(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @VP8RecordCoeffs(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @VP8RecordCoeffs(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @VP8IteratorBytesToNz(ptr noundef) local_unnamed_addr #2
+declare void @VP8IteratorBytesToNz(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @PutCoeffs(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
@@ -2181,23 +2175,29 @@ define internal fastcc range(i32 0, 2) i32 @PutCoeffs(ptr noundef %0, i32 nounde
   ret i32 %.087
 }
 
-declare i32 @VP8PutBit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @VP8PutBit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @VP8PutBitUniform(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @VP8PutBitUniform(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @VP8BitWriterFinish(ptr noundef) local_unnamed_addr #2
+declare ptr @VP8BitWriterFinish(ptr noundef) local_unnamed_addr #1
 
-declare void @VP8AdjustFilterStrength(ptr noundef) local_unnamed_addr #2
+declare void @VP8AdjustFilterStrength(ptr noundef) local_unnamed_addr #1
 
-declare void @VP8SetSegmentParams(ptr noundef, float noundef) local_unnamed_addr #2
+declare void @VP8SetSegmentParams(ptr noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare i32 @VP8RecordCoeffTokens(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @VP8RecordCoeffTokens(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log10(double noundef) local_unnamed_addr #5
+declare double @log10(double noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
@@ -2215,11 +2215,11 @@ declare i16 @llvm.abs.i16(i16, i1 immarg) #6
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }

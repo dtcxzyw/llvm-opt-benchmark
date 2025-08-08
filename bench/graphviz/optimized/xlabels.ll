@@ -364,7 +364,7 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %167 = load double, ptr %166, align 8, !tbaa !42, !noalias !60
   %168 = tail call double @llvm.fmuladd.f64(double %165, double 2.000000e+00, double %167)
   %169 = fmul double %168, 5.000000e-01
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #18, !noalias !60
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %6, i8 0, i64 72, i1 false), !noalias !60
   %170 = load double, ptr %154, align 8, !tbaa !39, !noalias !60
   %171 = fsub double %170, %159
@@ -375,26 +375,26 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %175 = fadd double %167, %174
   %176 = getelementptr inbounds nuw i8, ptr %156, i64 24
   store double %175, ptr %176, align 8, !tbaa !65, !noalias !60
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #18, !noalias !60
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !60
   call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
   %.sroa.0249.0.copyload.i = load i32, ptr %7, align 8, !tbaa !3, !noalias !60
   %.sroa.28.0.copyload.i = load double, ptr %.sroa.28.0..sroa_idx.i, align 8, !tbaa !38, !noalias !60
   %.sroa.50.i.sroa.0.0.copyload = load double, ptr %.sroa.50.0..sroa_idx.i, align 8, !tbaa !38, !noalias !60
   %.sroa.50.i.sroa.19.0.copyload = load double, ptr %.sroa.50.i.sroa.19.0..sroa.50.0..sroa_idx.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #18, !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !60
   %177 = icmp eq i32 %.sroa.0249.0.copyload.i, 0
   br i1 %177, label %xladjust.exit.thread, label %178
 
 178:                                              ; preds = %158
   %179 = load double, ptr %173, align 8, !tbaa !40, !noalias !60
   store double %179, ptr %176, align 8, !tbaa !65, !noalias !60
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #18, !noalias !60
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !60
   call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
   %.sroa.0.0.copyload.i = load i32, ptr %8, align 8, !tbaa !3, !noalias !60
   %.sroa.46142.0.copyload.i = load double, ptr %.sroa.46142.0..sroa_idx.i, align 8, !tbaa !38, !noalias !60
   %.sroa.57.i.sroa.0.0.copyload = load double, ptr %.sroa.57.0..sroa_idx.i, align 8, !tbaa !38, !noalias !60
   %.sroa.57.i.sroa.35.0.copyload = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #18, !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !60
   %180 = icmp eq i32 %.sroa.0.0.copyload.i, 0
   br i1 %180, label %xladjust.exit.thread, label %181
 
@@ -414,13 +414,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %186 = load double, ptr %164, align 8, !tbaa !63, !noalias !60
   %187 = fsub double %185, %186
   store double %187, ptr %176, align 8, !tbaa !65, !noalias !60
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #18, !noalias !60
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !60
   call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
   %.sroa.0.0.copyload48.i = load i32, ptr %9, align 8, !tbaa !3, !noalias !60
   %.sroa.46142.0.copyload148.i = load double, ptr %.sroa.46142.0..sroa_idx147.i, align 8, !tbaa !38, !noalias !60
   %.sroa.57.i.sroa.0.0.copyload54 = load double, ptr %.sroa.57.0..sroa_idx219.i, align 8, !tbaa !38, !noalias !60
   %.sroa.57.i.sroa.35.0.copyload75 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx219.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #18, !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !60
   %188 = icmp eq i32 %.sroa.0.0.copyload48.i, 0
   br i1 %188, label %xladjust.exit.thread, label %189
 
@@ -442,13 +442,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %195 = load double, ptr %166, align 8, !tbaa !42, !noalias !60
   %196 = fadd double %194, %195
   store double %196, ptr %176, align 8, !tbaa !65, !noalias !60
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #18, !noalias !60
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !60
   call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
   %.sroa.0.0.copyload51.i = load i32, ptr %10, align 8, !tbaa !3, !noalias !60
   %.sroa.46142.0.copyload154.i = load double, ptr %.sroa.46142.0..sroa_idx153.i, align 8, !tbaa !38, !noalias !60
   %.sroa.57.i.sroa.0.0.copyload55 = load double, ptr %.sroa.57.0..sroa_idx222.i, align 8, !tbaa !38, !noalias !60
   %.sroa.57.i.sroa.35.0.copyload76 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx222.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #18, !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !60
   %197 = icmp eq i32 %.sroa.0.0.copyload51.i, 0
   br i1 %197, label %xladjust.exit.thread, label %198
 
@@ -468,13 +468,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %203 = load double, ptr %164, align 8, !tbaa !63, !noalias !60
   %204 = fsub double %202, %203
   store double %204, ptr %176, align 8, !tbaa !65, !noalias !60
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #18, !noalias !60
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !60
   call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
   %.sroa.0.0.copyload54.i = load i32, ptr %11, align 8, !tbaa !3, !noalias !60
   %.sroa.46142.0.copyload160.i = load double, ptr %.sroa.46142.0..sroa_idx159.i, align 8, !tbaa !38, !noalias !60
   %.sroa.57.i.sroa.0.0.copyload56 = load double, ptr %.sroa.57.0..sroa_idx225.i, align 8, !tbaa !38, !noalias !60
   %.sroa.57.i.sroa.35.0.copyload77 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx225.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #18, !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !60
   %205 = icmp eq i32 %.sroa.0.0.copyload54.i, 0
   br i1 %205, label %xladjust.exit.thread, label %206
 
@@ -498,13 +498,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %214 = load double, ptr %166, align 8, !tbaa !42, !noalias !60
   %215 = fadd double %213, %214
   store double %215, ptr %176, align 8, !tbaa !65, !noalias !60
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #18, !noalias !60
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !60
   call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
   %.sroa.0.0.copyload57.i = load i32, ptr %12, align 8, !tbaa !3, !noalias !60
   %.sroa.46142.0.copyload166.i = load double, ptr %.sroa.46142.0..sroa_idx165.i, align 8, !tbaa !38, !noalias !60
   %.sroa.57.i.sroa.0.0.copyload57 = load double, ptr %.sroa.57.0..sroa_idx228.i, align 8, !tbaa !38, !noalias !60
   %.sroa.57.i.sroa.35.0.copyload78 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx228.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #18, !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !60
   %216 = icmp eq i32 %.sroa.0.0.copyload57.i, 0
   br i1 %216, label %xladjust.exit.thread, label %217
 
@@ -522,13 +522,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.0249.4.i = phi i32 [ %.sroa.0.0.copyload57.i, %219 ], [ %.sroa.0249.3.i, %217 ]
   %221 = load double, ptr %173, align 8, !tbaa !40, !noalias !60
   store double %221, ptr %176, align 8, !tbaa !65, !noalias !60
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #18, !noalias !60
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !60
   call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
   %.sroa.0.0.copyload60.i = load i32, ptr %13, align 8, !tbaa !3, !noalias !60
   %.sroa.46142.0.copyload172.i = load double, ptr %.sroa.46142.0..sroa_idx171.i, align 8, !tbaa !38, !noalias !60
   %.sroa.57.i.sroa.0.0.copyload58 = load double, ptr %.sroa.57.0..sroa_idx231.i, align 8, !tbaa !38, !noalias !60
   %.sroa.57.i.sroa.35.0.copyload79 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx231.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #18, !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !60
   %222 = icmp eq i32 %.sroa.0.0.copyload60.i, 0
   br i1 %222, label %xladjust.exit.thread, label %223
 
@@ -548,13 +548,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %228 = load double, ptr %164, align 8, !tbaa !63, !noalias !60
   %229 = fsub double %227, %228
   store double %229, ptr %176, align 8, !tbaa !65, !noalias !60
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #18, !noalias !60
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !60
   call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
   %.sroa.0.0.copyload63.i = load i32, ptr %14, align 8, !tbaa !3, !noalias !60
   %.sroa.46142.0.copyload178.i = load double, ptr %.sroa.46142.0..sroa_idx177.i, align 8, !tbaa !38, !noalias !60
   %.sroa.57.i.sroa.0.0.copyload59 = load double, ptr %.sroa.57.0..sroa_idx234.i, align 8, !tbaa !38, !noalias !60
   %.sroa.57.i.sroa.35.0.copyload80 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx234.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #18, !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !60
   %230 = icmp eq i32 %.sroa.0.0.copyload63.i, 0
   br i1 %230, label %xladjust.exit.thread, label %231
 
@@ -614,13 +614,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.57.i.sroa.0.0.copyload64120 = phi double [ %.sroa.57.i.sroa.0.0.copyload64119, %259 ], [ %.sroa.50.i.sroa.0.6, %246 ]
   %.sroa.0249.9398.i = phi i32 [ %.sroa.0249.10.i, %259 ], [ %.sroa.0249.6.i, %246 ]
   %.sroa.28.9396.i = phi double [ %.sroa.28.10.i, %259 ], [ %.sroa.28.6.i, %246 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #18, !noalias !60
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !60
   call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
   %.sroa.0.0.copyload66.i = load i32, ptr %15, align 8, !tbaa !3, !noalias !60
   %.sroa.46142.0.copyload184.i = load double, ptr %.sroa.46142.0..sroa_idx183.i, align 8, !tbaa !38, !noalias !60
   %.sroa.57.i.sroa.0.0.copyload64 = load double, ptr %.sroa.57.0..sroa_idx237.i, align 8, !tbaa !38, !noalias !60
   %.sroa.57.i.sroa.35.0.copyload86 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx237.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #18, !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !60
   %255 = icmp eq i32 %.sroa.0.0.copyload66.i, 0
   br i1 %255, label %xladjust.exit.thread, label %256
 
@@ -682,13 +682,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.57.i.sroa.0.0.copyload65125 = phi double [ %.sroa.57.i.sroa.0.0.copyload65124, %282 ], [ %.sroa.50.i.sroa.0.9, %270 ]
   %.sroa.0249.11403.i = phi i32 [ %.sroa.0249.12.i, %282 ], [ %.sroa.0249.8.i, %270 ]
   %.sroa.28.11401.i = phi double [ %.sroa.28.12.i, %282 ], [ %.sroa.28.8.i, %270 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #18, !noalias !60
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !60
   call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
   %.sroa.0.0.copyload69.i = load i32, ptr %16, align 8, !tbaa !3, !noalias !60
   %.sroa.46142.0.copyload190.i = load double, ptr %.sroa.46142.0..sroa_idx189.i, align 8, !tbaa !38, !noalias !60
   %.sroa.57.i.sroa.0.0.copyload65 = load double, ptr %.sroa.57.0..sroa_idx240.i, align 8, !tbaa !38, !noalias !60
   %.sroa.57.i.sroa.35.0.copyload87 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx240.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #18, !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !60
   %278 = icmp eq i32 %.sroa.0.0.copyload69.i, 0
   br i1 %278, label %xladjust.exit.thread, label %279
 
@@ -761,13 +761,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.57.i.sroa.0.0.copyload60131 = phi double [ %.sroa.57.i.sroa.0.0.copyload60130, %314 ], [ %.sroa.50.i.sroa.0.7, %306 ]
   %.sroa.0249.15410.i = phi i32 [ %.sroa.0249.16.i, %314 ], [ %.sroa.0249.7.i, %306 ]
   %.sroa.28.15408.i = phi double [ %.sroa.28.16.i, %314 ], [ %.sroa.28.7.i, %306 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #18, !noalias !60
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !60
   call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
   %.sroa.0.0.copyload72.i = load i32, ptr %17, align 8, !tbaa !3, !noalias !60
   %.sroa.46142.0.copyload196.i = load double, ptr %.sroa.46142.0..sroa_idx195.i, align 8, !tbaa !38, !noalias !60
   %.sroa.57.i.sroa.0.0.copyload60 = load double, ptr %.sroa.57.0..sroa_idx243.i, align 8, !tbaa !38, !noalias !60
   %.sroa.57.i.sroa.35.0.copyload81 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx243.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #18, !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !60
   %310 = icmp eq i32 %.sroa.0.0.copyload72.i, 0
   br i1 %310, label %xladjust.exit.thread, label %311
 
@@ -828,13 +828,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.57.i.sroa.0.0.copyload61137 = phi double [ %.sroa.57.i.sroa.0.0.copyload61136, %339 ], [ %.sroa.50.i.sroa.0.8, %326 ]
   %.sroa.0249.17417.i = phi i32 [ %.sroa.0249.18.i, %339 ], [ %.sroa.0249.14.i, %326 ]
   %.sroa.28.17415.i = phi double [ %.sroa.28.18.i, %339 ], [ %.sroa.28.14.i, %326 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #18, !noalias !60
+  call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !60
   call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
   %.sroa.0.0.copyload75.i = load i32, ptr %18, align 8, !tbaa !3, !noalias !60
   %.sroa.46142.0.copyload202.i = load double, ptr %.sroa.46142.0..sroa_idx201.i, align 8, !tbaa !38, !noalias !60
   %.sroa.57.i.sroa.0.0.copyload61 = load double, ptr %.sroa.57.0..sroa_idx246.i, align 8, !tbaa !38, !noalias !60
   %.sroa.57.i.sroa.35.0.copyload82 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx246.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #18, !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !60
   %335 = icmp eq i32 %.sroa.0.0.copyload75.i, 0
   br i1 %335, label %xladjust.exit.thread, label %336
 
@@ -860,7 +860,7 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   br i1 %345, label %xladjust.exit, label %.lr.ph418.i, !llvm.loop !69
 
 xladjust.exit.thread:                             ; preds = %.lr.ph.i, %.lr.ph404.i, %.lr.ph411.i, %.lr.ph418.i, %158, %178, %184, %192, %201, %209, %220, %226
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #18, !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !60
   br label %347
 
 xladjust.exit:                                    ; preds = %339, %.loopexit382.i, %.loopexit381.i, %326
@@ -868,7 +868,7 @@ xladjust.exit:                                    ; preds = %339, %.loopexit382.
   %.sroa.50.i.sroa.19.10 = phi double [ %.sroa.50.i.sroa.19.8, %.loopexit381.i ], [ %.sroa.50.i.sroa.19.8, %326 ], [ %.sroa.50.i.sroa.19.7, %.loopexit382.i ], [ %.sroa.57.i.sroa.35.0.copyload82139, %339 ]
   %.sroa.0249.13.sink.i = phi i32 [ %.sroa.0249.14.i, %.loopexit381.i ], [ %.sroa.0249.14.i, %326 ], [ %.sroa.0249.7.i, %.loopexit382.i ], [ %.sroa.0249.18.i, %339 ]
   %.sroa.28.13.sink.i = phi double [ %.sroa.28.14.i, %.loopexit381.i ], [ %.sroa.28.14.i, %326 ], [ %.sroa.28.7.i, %.loopexit382.i ], [ %.sroa.28.18.i, %339 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #18, !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !60
   %346 = icmp eq i32 %.sroa.0249.13.sink.i, 0
   br i1 %346, label %347, label %349
 
@@ -918,63 +918,57 @@ xlinitialize.exit.thread:                         ; preds = %hd_hil_s_from_xy.ex
   ret i32 %.035
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-declare ptr @dtopen(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @dtopen(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: cold inlinehint nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #6 {
+define internal fastcc void @graphviz_exit() unnamed_addr #5 {
   tail call void @exit(i32 noundef 1) #20
   unreachable
 }
 
-declare ptr @RTreeOpen() local_unnamed_addr #4
+declare ptr @RTreeOpen() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #8
+declare void @exit(i32 noundef) local_unnamed_addr #7
 
-declare i32 @dtclose(ptr noundef) local_unnamed_addr #4
+declare i32 @dtclose(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log2(double noundef) local_unnamed_addr #9
+declare double @log2(double noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.maxnum.f64(double, double) #10
+declare double @llvm.maxnum.f64(double, double) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.round.f64(double) #10
+declare double @llvm.round.f64(double) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #10
+declare double @llvm.floor.f64(double) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.ceil.f64(double) #10
+declare double @llvm.ceil.f64(double) #9
 
-declare i32 @RTreeInsert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @RTreeInsert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @dtsize(ptr noundef) local_unnamed_addr #4
+declare i32 @dtsize(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #10
+declare double @llvm.fmuladd.f64(double, double, double) #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 4), (8, 32)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #1 {
@@ -1004,7 +998,7 @@ define internal fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull 
 
 ._crit_edge:                                      ; preds = %lblenclosing.exit.thread, %4
   %19 = phi i32 [ 0, %4 ], [ %78, %lblenclosing.exit.thread ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %20 = load double, ptr %13, align 8, !tbaa !64
   %21 = fptosi double %20 to i32
   %22 = getelementptr inbounds nuw i8, ptr %.fr, i64 24
@@ -1121,7 +1115,7 @@ lblenclosing.exit.thread:                         ; preds = %60, %64, %68, %lble
   br i1 %88, label %407, label %89
 
 89:                                               ; preds = %81
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %90 = load double, ptr %87, align 8, !tbaa !39
   %91 = fptosi double %90 to i32
   %92 = getelementptr inbounds nuw i8, ptr %87, i64 8
@@ -1245,7 +1239,7 @@ getintrsxi.exit.i:                                ; preds = %158, %157, %155, %1
   br i1 %.not.i64, label %241, label %162
 
 162:                                              ; preds = %getintrsxi.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %163 = load double, ptr %161, align 8, !tbaa !39
   %164 = fptosi double %163 to i32
   %165 = getelementptr inbounds nuw i8, ptr %161, i64 8
@@ -1373,7 +1367,7 @@ aabbaabb.exit49.i:                                ; preds = %215, %200
 
 240:                                              ; preds = %239, %237
   %.0.i65 = phi double [ %121, %239 ], [ %.131.i, %237 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %recordointrsx.exit
 
 241:                                              ; preds = %getintrsxi.exit.i
@@ -1525,7 +1519,7 @@ getintrsxi.exit.i81:                              ; preds = %319, %318, %316, %3
   br i1 %.not.i82, label %402, label %323
 
 323:                                              ; preds = %getintrsxi.exit.i81
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %324 = load double, ptr %322, align 8, !tbaa !39
   %325 = fptosi double %324 to i32
   %326 = getelementptr inbounds nuw i8, ptr %322, i64 8
@@ -1653,7 +1647,7 @@ aabbaabb.exit49.i103:                             ; preds = %376, %361
 
 401:                                              ; preds = %400, %398
   %.0.i106 = phi double [ %283, %400 ], [ %.131.i105, %398 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %recordlintrsx.exit
 
 402:                                              ; preds = %getintrsxi.exit.i81
@@ -1671,7 +1665,7 @@ recordlintrsx.exit:                               ; preds = %401, %402
 aabbaabb.exit78.thread:                           ; preds = %251, %aabbaabb.exit78, %recordlintrsx.exit, %aabbaabb.exit.thread, %248
   %405 = phi double [ %244, %251 ], [ %244, %aabbaabb.exit78 ], [ %404, %recordlintrsx.exit ], [ %244, %aabbaabb.exit.thread ], [ %244, %248 ]
   %406 = phi i32 [ %245, %251 ], [ %245, %aabbaabb.exit78 ], [ %403, %recordlintrsx.exit ], [ %245, %aabbaabb.exit.thread ], [ %245, %248 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %407
 
 407:                                              ; preds = %81, %aabbaabb.exit78.thread
@@ -1682,17 +1676,23 @@ aabbaabb.exit78.thread:                           ; preds = %251, %aabbaabb.exit
   br i1 %.not48, label %80, label %81, !llvm.loop !88
 
 411:                                              ; preds = %._crit_edge, %80
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
-declare ptr @RTreeSearch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @RTreeSearch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @RTreeLeafListFree(ptr noundef) local_unnamed_addr #4
+declare void @RTreeLeafListFree(ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @Overlap(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @Overlap(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @RTreeClose(ptr noundef) local_unnamed_addr #4
+declare i32 @RTreeClose(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
@@ -1708,17 +1708,17 @@ declare i32 @llvm.smin.i32(i32, i32) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nofree nounwind }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nounwind allocsize(0,1) }

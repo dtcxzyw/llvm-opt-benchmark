@@ -78,13 +78,13 @@ define dso_local range(i32 0, 2) i32 @genrsa_main(i32 noundef %0, ptr noundef %1
   %7 = alloca ptr, align 8
   %8 = tail call ptr @BN_GENCB_new() #3
   %9 = tail call ptr @BN_new() #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 2048, ptr %5, align 4, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !13
   %10 = icmp eq ptr %9, null
   %11 = icmp eq ptr %8, null
@@ -325,7 +325,7 @@ define dso_local range(i32 0, 2) i32 @genrsa_main(i32 noundef %0, ptr noundef %1
   br i1 %.b, label %111, label %128
 
 111:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !19
   %112 = call i32 @EVP_PKEY_get_bn_param(ptr noundef nonnull %108, ptr noundef nonnull @.str.53, ptr noundef nonnull %7) #3
   %113 = load ptr, ptr %7, align 8, !tbaa !19
@@ -351,13 +351,13 @@ define dso_local range(i32 0, 2) i32 @genrsa_main(i32 noundef %0, ptr noundef %1
   call void @CRYPTO_free(ptr noundef %118, ptr noundef nonnull @.str.56, i32 noundef 225) #3
   %124 = load ptr, ptr %7, align 8, !tbaa !19
   call void @BN_free(ptr noundef %124) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %128
 
 125:                                              ; preds = %111
   %126 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %127 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %126, ptr noundef nonnull @.str.54) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit90
 
 128:                                              ; preds = %.thread, %110
@@ -404,114 +404,114 @@ define dso_local range(i32 0, 2) i32 @genrsa_main(i32 noundef %0, ptr noundef %1
   br label %141
 
 141:                                              ; preds = %.loopexit90, %139
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.060
 }
 
+declare ptr @BN_GENCB_new() local_unnamed_addr #1
+
+declare ptr @BN_new() local_unnamed_addr #1
+
+declare void @opt_set_unknown_name(ptr noundef) local_unnamed_addr #1
+
+declare ptr @opt_init(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @opt_next() local_unnamed_addr #1
+
+declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare void @opt_help(ptr noundef) local_unnamed_addr #1
+
+declare ptr @opt_arg() local_unnamed_addr #1
+
+declare ptr @setup_engine_methods(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @opt_rand(i32 noundef) local_unnamed_addr #1
+
+declare i32 @opt_provider(i32 noundef) local_unnamed_addr #1
+
+declare ptr @opt_unknown() local_unnamed_addr #1
+
+declare i32 @opt_int_arg() local_unnamed_addr #1
+
+declare i32 @opt_num_rest() local_unnamed_addr #1
+
+declare ptr @opt_rest() local_unnamed_addr #1
+
+declare i32 @opt_int(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @opt_check_rest_arg(ptr noundef) local_unnamed_addr #1
+
+declare i32 @app_RAND_load() local_unnamed_addr #1
+
+declare i32 @opt_cipher(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @app_passwd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @bio_open_owner(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @init_gen_str(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @app_get0_libctx() local_unnamed_addr #1
+
+declare ptr @app_get0_propq() local_unnamed_addr #1
+
+declare void @EVP_PKEY_CTX_set_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @progress_cb(ptr noundef) #1
+
+declare void @EVP_PKEY_CTX_set_app_data(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @EVP_PKEY_CTX_set_rsa_keygen_bits(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @BN_set_word(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @EVP_PKEY_CTX_set1_rsa_keygen_pubexp(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @EVP_PKEY_CTX_set_rsa_keygen_primes(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @app_keygen(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @EVP_PKEY_get_bn_param(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @BN_bn2hex(ptr noundef) local_unnamed_addr #1
+
+declare ptr @BN_bn2dec(ptr noundef) local_unnamed_addr #1
+
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @BN_free(ptr noundef) local_unnamed_addr #1
+
+declare i32 @PEM_write_bio_PrivateKey_traditional(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @PEM_write_bio_PrivateKey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @BN_GENCB_free(ptr noundef) local_unnamed_addr #1
+
+declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #1
+
+declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
+
+declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #1
+
+declare void @BIO_free_all(ptr noundef) local_unnamed_addr #1
+
+declare void @release_engine(ptr noundef) local_unnamed_addr #1
+
+declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @BN_GENCB_new() local_unnamed_addr #2
-
-declare ptr @BN_new() local_unnamed_addr #2
-
-declare void @opt_set_unknown_name(ptr noundef) local_unnamed_addr #2
-
-declare ptr @opt_init(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @opt_next() local_unnamed_addr #2
-
-declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare void @opt_help(ptr noundef) local_unnamed_addr #2
-
-declare ptr @opt_arg() local_unnamed_addr #2
-
-declare ptr @setup_engine_methods(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @opt_rand(i32 noundef) local_unnamed_addr #2
-
-declare i32 @opt_provider(i32 noundef) local_unnamed_addr #2
-
-declare ptr @opt_unknown() local_unnamed_addr #2
-
-declare i32 @opt_int_arg() local_unnamed_addr #2
-
-declare i32 @opt_num_rest() local_unnamed_addr #2
-
-declare ptr @opt_rest() local_unnamed_addr #2
-
-declare i32 @opt_int(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @opt_check_rest_arg(ptr noundef) local_unnamed_addr #2
-
-declare i32 @app_RAND_load() local_unnamed_addr #2
-
-declare i32 @opt_cipher(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @app_passwd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @bio_open_owner(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @init_gen_str(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @app_get0_libctx() local_unnamed_addr #2
-
-declare ptr @app_get0_propq() local_unnamed_addr #2
-
-declare void @EVP_PKEY_CTX_set_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @progress_cb(ptr noundef) #2
-
-declare void @EVP_PKEY_CTX_set_app_data(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @EVP_PKEY_CTX_set_rsa_keygen_bits(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @BN_set_word(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare i32 @EVP_PKEY_CTX_set1_rsa_keygen_pubexp(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @EVP_PKEY_CTX_set_rsa_keygen_primes(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare ptr @app_keygen(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @EVP_PKEY_get_bn_param(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @BN_bn2hex(ptr noundef) local_unnamed_addr #2
-
-declare ptr @BN_bn2dec(ptr noundef) local_unnamed_addr #2
-
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @BN_free(ptr noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @PEM_write_bio_PrivateKey_traditional(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @PEM_write_bio_PrivateKey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @BN_GENCB_free(ptr noundef) local_unnamed_addr #2
-
-declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #2
-
-declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
-
-declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #2
-
-declare void @BIO_free_all(ptr noundef) local_unnamed_addr #2
-
-declare void @release_engine(ptr noundef) local_unnamed_addr #2
-
-declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

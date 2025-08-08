@@ -514,7 +514,7 @@ define hidden void @_ZN19pyo3_macros_backend6method5FnArg5parse17h59ad331598aa36
           to label %49 unwind label %73
 
 42:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h5fad195c7a4b2f02E(ptr nonnull sret([32 x i8]) align 8 %3, ptr nonnull align 8 %34)
           to label %.noexc unwind label %73
 
@@ -618,7 +618,7 @@ switch.lookup:                                    ; preds = %.noexc36
           to label %72 unwind label %66
 
 70:                                               ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   store i64 44, ptr %0, align 8
@@ -2757,58 +2757,58 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
 
 104:                                              ; preds = %99
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %44)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %45)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %46)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %48)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %49)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %50)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %52)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %53)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %54)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %57)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %58)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %59)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %60)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %61)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %64)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %65)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %66)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %67)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %68)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %69)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %70)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %71)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %72)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %73)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %74)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %75)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %76)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %77)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %78)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.3.i.sroa.6)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %81)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %82)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   store ptr %92, ptr %82, align 8, !noalias !6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %35), !noalias !6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36), !noalias !6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.24.i.i.sroa.7)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %37), !noalias !6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %38), !noalias !6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39), !noalias !6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40), !noalias !6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41), !noalias !6
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !6
+  call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !6
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.24.i.i.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !6
+  call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !6
+  call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !6
+  call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !6
+  call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !6
   store i64 0, ptr %41, align 8, !noalias !9
   %105 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %105, align 8, !noalias !9
@@ -2880,22 +2880,22 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
 
 119:                                              ; preds = %116
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %37, ptr noundef nonnull align 8 dereferenceable(256) %115, i64 256, i1 false), !noalias !9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18), !noalias !9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19), !noalias !9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20), !noalias !9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21), !noalias !9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22), !noalias !9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23), !noalias !9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24), !noalias !9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25), !noalias !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26), !noalias !9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27), !noalias !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28), !noalias !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29), !noalias !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30), !noalias !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31), !noalias !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32), !noalias !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33), !noalias !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !9
   %120 = load i64, ptr %37, align 8, !noalias !12
   %121 = add i64 %120, -39
   %switch.i.i.i = icmp ult i64 %121, 2
@@ -3123,43 +3123,43 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   %.sroa.24.i.i.sroa.0.0.copyload = load i64, ptr %.sink.i.i, align 8, !noalias !9
   %.sroa.24.i.i.sroa.7.0..sink.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.24.i.i.sroa.7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.24.i.i.sroa.7.0..sink.i.i.sroa_idx, i64 16, i1 false), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.i.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.24.i.i.sroa.7, i64 16, i1 false), !noalias !6
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h4e91fc2553556607E"(ptr nonnull align 8 %37)
           to label %184 unwind label %.loopexit.split-lp.i.i, !noalias !9
 
 181:                                              ; preds = %.noexc30.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %35, ptr noundef nonnull align 8 dereferenceable(256) %37, i64 256, i1 false), !noalias !9
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfd3085a2237b27e9E"(ptr nonnull align 8 %41, ptr nonnull align 8 %35)
           to label %.backedge.i.i unwind label %.body.i.i, !noalias !9
@@ -3177,22 +3177,22 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   %.sroa.24.i.i.sroa.0.2 = phi i64 [ %.sroa.24.i.i.sroa.0.0.ph, %.noexc39.i.i ], [ %.sroa.24.i.i.sroa.0.0.ph, %.noexc23.i.i ], [ %.sroa.24.i.i.sroa.0.0.ph, %.noexc37.i.i ], [ %.sroa.24.i.i.sroa.0.0.ph, %.noexc35.i.i ], [ %.sroa.24.i.i.sroa.0.0.ph, %.noexc33.i.i ], [ %.sroa.24.i.i.sroa.0.0.copyload197, %.sink.split.i.i ]
   %.sroa.16.1.ph.ph.i.i = phi i32 [ %176, %.noexc39.i.i ], [ %131, %.noexc23.i.i ], [ %174, %.noexc37.i.i ], [ %172, %.noexc35.i.i ], [ %170, %.noexc33.i.i ], [ %.sroa.16.1.ph.ph.ph.i.i, %.sink.split.i.i ]
   %.sroa.0.0.ph.ph.i.i = phi i32 [ 0, %.noexc39.i.i ], [ 0, %.noexc23.i.i ], [ 1, %.noexc37.i.i ], [ 2, %.noexc35.i.i ], [ 5, %.noexc33.i.i ], [ %.sroa.0.0.ph.ph.ph.i.i, %.sink.split.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !9
   store i32 %.sroa.0.0.ph.ph.i.i, ptr %36, align 8, !noalias !9
   store i32 %.sroa.16.1.ph.ph.i.i, ptr %.sroa.35.0..sroa_idx.i.i, align 4, !noalias !9
   store i64 %.sroa.24.i.i.sroa.0.2, ptr %.sroa.35.sroa.2.0..sroa.35.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !9
@@ -3240,15 +3240,15 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false), !noalias !9
   %.sroa.3.i.sroa.0.0.copyload187 = load i64, ptr %40, align 8, !noalias !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.i.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %107, i64 16, i1 false), !noalias !6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %35), !noalias !6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36), !noalias !6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.24.i.i.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %37), !noalias !6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %38), !noalias !6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %39), !noalias !6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40), !noalias !6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41), !noalias !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.24.i.i.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !6
   store i64 %.sroa.3.i.sroa.0.0.copyload187, ptr %81, align 8, !noalias !6
   %.sroa.3.i.sroa.6.0..sroa_idx189 = getelementptr inbounds nuw i8, ptr %81, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.i.sroa.6.0..sroa_idx189, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.i.sroa.6, i64 16, i1 false), !noalias !6
@@ -3270,15 +3270,15 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
           to label %.noexc unwind label %394
 
 .noexc:                                           ; preds = %196
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %35), !noalias !6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36), !noalias !6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.24.i.i.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %37), !noalias !6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %38), !noalias !6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %39), !noalias !6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40), !noalias !6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41), !noalias !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.24.i.i.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.i.sroa.6, i64 16, i1 false)
   br label %396
 
@@ -3321,48 +3321,48 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
           to label %.thread unwind label %394
 
 .thread:                                          ; preds = %206
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %46)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %48)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %50)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %52)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %58)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %59)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %60)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %61)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %64)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %65)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %67)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %69)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %70)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %71)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %72)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %73)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %74)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %75)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %76)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %77)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.3.i.sroa.6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %81)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   br label %._crit_edge
 
 207:                                              ; preds = %385, %334, %315, %300, %279, %264, %243, %229, %205
@@ -3913,48 +3913,48 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
 
 396:                                              ; preds = %.noexc, %207
   %.sroa.0127.1 = phi i64 [ %.sroa.24.i.i.sroa.0.0.copyload, %.noexc ], [ %.sroa.0127.0, %207 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %46)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %48)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %50)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %52)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %58)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %59)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %60)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %61)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %64)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %65)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %67)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %69)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %70)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %71)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %72)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %73)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %74)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %75)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %76)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %77)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.3.i.sroa.6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %81)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   %397 = icmp eq i64 %.sroa.0127.1, -9223372036854775808
   %.sroa.12.0..sroa.12.0..sroa.12.0..sroa.12.0..sroa.12.0..sroa.0166.0.copyload.pre = load i32, ptr %.sroa.12, align 8
   %.sroa.12.4.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.12, i64 4
@@ -3969,18 +3969,18 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   %400 = getelementptr inbounds nuw i8, ptr %94, i64 16
   %401 = load i8, ptr %400, align 8
   %402 = icmp eq i8 %401, 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   br i1 %399, label %404, label %403
 
 403:                                              ; preds = %._crit_edge
@@ -4092,18 +4092,18 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br label %.sink.split
 
 .thread200:                                       ; preds = %411, %404
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %421
 
 .noexc93:                                         ; preds = %.noexc107, %.noexc104, %.noexc101, %.noexc98, %.noexc95, %.noexc92
@@ -4111,18 +4111,18 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   %.sink215 = phi ptr [ %17, %.noexc92 ], [ %16, %.noexc95 ], [ %15, %.noexc98 ], [ %14, %.noexc101 ], [ %13, %.noexc104 ], [ %12, %.noexc107 ]
   %.sroa.0150.0.copyload154 = load i64, ptr %.sink215, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(16) %.sink215.sroa.phi, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %420 = icmp eq i64 %.sroa.0150.0.copyload154, -9223372036854775808
   br i1 %420, label %421, label %425
 
@@ -4405,7 +4405,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec27null_terminated_pyth
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 240
   call void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h9de2e5193e34c422E"(ptr nonnull sret([24 x i8]) align 8 %6, ptr nonnull align 8 %7)
   call void @"_ZN66_$LT$T$u20$as$u20$alloc..ffi..c_str..CString..new..SpecNewImpl$GT$13spec_new_impl17h09ec48652f3c2192E"(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load i64, ptr %5, align 8
   %9 = icmp eq i64 %8, -9223372036854775808
   br i1 %9, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7e49aadd86744485E.exit", label %10
@@ -4438,7 +4438,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec27null_terminated_pyth
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = load i64, ptr %19, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %22 = load i8, ptr %21, align 8
   %23 = icmp eq i8 %22, 2
@@ -6760,8 +6760,8 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec7get_doc17hd5a44ce2b66
   %9 = alloca [24 x i8], align 8
   %10 = alloca [24 x i8], align 8
   %.sroa.6 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %12 = load i32, ptr %11, align 8
   %.sink7.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -6810,8 +6810,8 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec7get_doc17hd5a44ce2b66
   br label %_ZN19pyo3_macros_backend6method6FnSpec29text_signature_call_signature17hc46bcdbfc0fc5baeE.exit
 
 _ZN19pyo3_macros_backend6method6FnSpec29text_signature_call_signature17hc46bcdbfc0fc5baeE.exit.thread: ; preds = %5, %5, %5, %17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %24
 
 _ZN19pyo3_macros_backend6method6FnSpec29text_signature_call_signature17hc46bcdbfc0fc5baeE.exit: ; preds = %20, %21
@@ -6819,8 +6819,8 @@ _ZN19pyo3_macros_backend6method6FnSpec29text_signature_call_signature17hc46bcdbf
   %.sink7 = phi ptr [ %6, %20 ], [ %7, %21 ]
   %.sroa.0.0.copyload2 = load i64, ptr %.sink7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sink7.sroa.phi, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %23 = icmp eq i64 %.sroa.0.0.copyload2, -9223372036854775808
   br i1 %23, label %24, label %25
 
@@ -7720,10 +7720,10 @@ declare void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h803bbda119f87f25
 declare i64 @llvm.umin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8

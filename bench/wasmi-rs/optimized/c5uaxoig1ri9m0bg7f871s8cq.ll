@@ -51,7 +51,7 @@ define void @_ZN10wasmi_core5table5Table3new17hcd9450d9ae3c6b5fE(ptr dead_on_unw
   %27 = extractvalue { ptr, ptr } %21, 1
   %28 = icmp ne ptr %27, null
   tail call void @llvm.assume(i1 %28)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %30 = load ptr, ptr %29, align 8, !invariant.load !3, !nonnull !3
   call void %30(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %10, ptr noundef nonnull align 1 %22, i64 noundef 0, i64 noundef %19, i64 noundef %.sroa.04.0, i64 %.sroa.55.0)
@@ -61,7 +61,7 @@ define void @_ZN10wasmi_core5table5Table3new17hcd9450d9ae3c6b5fE(ptr dead_on_unw
   br i1 %.not34, label %43, label %37
 
 33:                                               ; preds = %43, %18
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %34, align 8
@@ -72,7 +72,7 @@ define void @_ZN10wasmi_core5table5Table3new17hcd9450d9ae3c6b5fE(ptr dead_on_unw
 
 37:                                               ; preds = %23
   %38 = load i64, ptr %32, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %39 = tail call { i64, i64 } @"_ZN117_$LT$wasmi_core..table..error..TableError$u20$as$u20$core..convert..From$LT$wasmi_core..limiter..LimiterError$GT$$GT$4from17h1170990316660598E"(i64 noundef %31, i64 %38)
   %40 = extractvalue { i64, i64 } %39, 0
   %41 = extractvalue { i64, i64 } %39, 1
@@ -83,7 +83,7 @@ define void @_ZN10wasmi_core5table5Table3new17hcd9450d9ae3c6b5fE(ptr dead_on_unw
 43:                                               ; preds = %23
   %44 = load i8, ptr %32, align 8, !range !5, !noundef !3
   %45 = trunc nuw i8 %44 to i1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %45, label %33, label %46
 
 46:                                               ; preds = %43, %37
@@ -109,7 +109,7 @@ define void @_ZN10wasmi_core5table5Table3new17hcd9450d9ae3c6b5fE(ptr dead_on_unw
   br i1 %.not35, label %53, label %55
 
 53:                                               ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %54 = invoke { i64, i64 } @"_ZN10wasmi_core5typed116_$LT$impl$u20$core..convert..From$LT$wasmi_core..typed..TypedVal$GT$$u20$for$u20$wasmi_core..untyped..UntypedVal$GT$4from17h2cea427d5dea6085E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
           to label %57 unwind label %49
@@ -119,7 +119,7 @@ define void @_ZN10wasmi_core5table5Table3new17hcd9450d9ae3c6b5fE(ptr dead_on_unw
           to label %67 unwind label %49
 
 57:                                               ; preds = %53
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %58 = icmp eq i64 %19, 0
   br i1 %58, label %63, label %59
 
@@ -138,13 +138,13 @@ define void @_ZN10wasmi_core5table5Table3new17hcd9450d9ae3c6b5fE(ptr dead_on_unw
           to label %65 unwind label %49
 
 65:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %48
 
 67:                                               ; preds = %55
@@ -156,7 +156,7 @@ define void @_ZN10wasmi_core5table5Table3new17hcd9450d9ae3c6b5fE(ptr dead_on_unw
 70:                                               ; preds = %67
   %71 = icmp ne ptr %69, null
   call void @llvm.assume(i1 %71)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %72 = invoke { i64, i64 } @"_ZN117_$LT$wasmi_core..limiter..LimiterError$u20$as$u20$core..convert..From$LT$wasmi_core..table..error..TableError$GT$$GT$4from17h6f809e6f9aa760e4E"(i64 noundef 0, i64 undef)
           to label %75 unwind label %49
 
@@ -165,7 +165,7 @@ define void @_ZN10wasmi_core5table5Table3new17hcd9450d9ae3c6b5fE(ptr dead_on_unw
   store i64 0, ptr %74, align 8
   store i64 2, ptr %0, align 8
   call void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$wasmi_core..untyped..UntypedVal$GT$$GT$17hc4c413d999fe3920E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %48
 
 75:                                               ; preds = %70
@@ -180,7 +180,7 @@ define void @_ZN10wasmi_core5table5Table3new17hcd9450d9ae3c6b5fE(ptr dead_on_unw
           to label %81 unwind label %49
 
 81:                                               ; preds = %75
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %73
 
 82:                                               ; preds = %49
@@ -204,25 +204,25 @@ define void @_ZN10wasmi_core5table5Table10dynamic_ty17h4ea22b09df966f6cE(ptr dea
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 32, i1 false), !alias.scope !6
   %6 = call noundef i8 @_ZN10wasmi_core5table2ty9TableType7element17hdcdcc2a71b3464baE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 32, i1 false), !alias.scope !10
   %7 = call noundef zeroext i1 @_ZN10wasmi_core5table2ty9TableType8index_ty17h6d26922e999d2b64E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i64, ptr %8, align 8, !alias.scope !14, !noundef !3
   %10 = icmp ult i64 %9, 576460752303423488
   call void @llvm.assume(i1 %10)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 32, i1 false), !alias.scope !17
   %11 = call { i64, i64 } @_ZN10wasmi_core5table2ty9TableType7maximum17h9e63ffcdea955863E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3)
   %12 = extractvalue { i64, i64 } %11, 0
   %13 = extractvalue { i64, i64 } %11, 1
   call void @_ZN10wasmi_core5table2ty9TableType8new_impl17h3d89aa4268240193E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i8 noundef %6, i1 noundef zeroext %7, i64 noundef %9, i64 noundef %12, i64 %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -239,7 +239,7 @@ define noundef range(i64 0, 576460752303423488) i64 @_ZN10wasmi_core5table5Table
 define void @_ZN10wasmi_core5table5Table4grow17ha8ff623a308e2410E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(56) %1, i64 noundef %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 dereferenceable_or_null(32) %4, ptr noalias noundef align 8 dereferenceable(16) %5) unnamed_addr #0 {
   %7 = alloca [24 x i8], align 8
   %8 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 32, i1 false), !alias.scope !21
   %9 = tail call noundef i8 @_ZN10wasmi_core5typed8TypedVal2ty17h8659aa5a17318e9dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
   %10 = call { i64, i64 } @_ZN10wasmi_core5table2ty9TableType27ensure_element_type_matches17h71de66eea0855543E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i8 noundef %9)
@@ -252,15 +252,15 @@ define void @_ZN10wasmi_core5table5Table4grow17ha8ff623a308e2410E(ptr dead_on_un
   store i64 %11, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %13, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %19
 
 15:                                               ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %16 = call { i64, i64 } @"_ZN10wasmi_core5typed116_$LT$impl$u20$core..convert..From$LT$wasmi_core..typed..TypedVal$GT$$u20$for$u20$wasmi_core..untyped..UntypedVal$GT$4from17h2cea427d5dea6085E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %17 = extractvalue { i64, i64 } %16, 0
   %18 = extractvalue { i64, i64 } %16, 1
   call void @_ZN10wasmi_core5table5Table12grow_untyped17hb4a6106c316e03dcE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %2, i64 noundef %17, i64 noundef %18, ptr noalias noundef align 8 dereferenceable_or_null(32) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
@@ -290,13 +290,13 @@ define void @_ZN10wasmi_core5table5Table12grow_untyped17hb4a6106c316e03dcE(ptr d
 
 20:                                               ; preds = %7
   %21 = add nuw i64 %16, %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %22 = tail call noundef zeroext i1 @_ZN10wasmi_core5table2ty9TableType8index_ty17h6d26922e999d2b64E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
   %23 = zext i1 %22 to i8
   store i8 %23, ptr %13, align 1
   %24 = call noundef i128 @_ZN10wasmi_core8index_ty9IndexType8max_size17h82f9eb72397040feE(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %13)
   %25 = lshr i128 %24, 3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %26 = zext i64 %21 to i128
   %27 = icmp samesign ult i128 %25, %26
   br i1 %27, label %39, label %29
@@ -329,7 +329,7 @@ define void @_ZN10wasmi_core5table5Table12grow_untyped17hb4a6106c316e03dcE(ptr d
   %41 = extractvalue { ptr, ptr } %37, 1
   %42 = icmp ne ptr %41, null
   call void @llvm.assume(i1 %42)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %44 = load ptr, ptr %43, align 8, !invariant.load !3, !nonnull !3
   call void %44(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noundef nonnull align 1 %38, i64 noundef %31, i64 noundef %21, i64 noundef %.sroa.010.0, i64 %.sroa.5.0)
@@ -349,13 +349,13 @@ define void @_ZN10wasmi_core5table5Table12grow_untyped17hb4a6106c316e03dcE(ptr d
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %46
 
 53:                                               ; preds = %48, %40
   %storemerge = phi i64 [ 3, %40 ], [ 4, %48 ]
   store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %54
 
 54:                                               ; preds = %109, %93, %91, %68, %53, %39, %28
@@ -375,7 +375,7 @@ define void @_ZN10wasmi_core5table5Table12grow_untyped17hb4a6106c316e03dcE(ptr d
   %60 = extractvalue { ptr, ptr } %57, 1
   %61 = icmp ne ptr %60, null
   call void @llvm.assume(i1 %61)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %62 = call { i64, i64 } @"_ZN117_$LT$wasmi_core..limiter..LimiterError$u20$as$u20$core..convert..From$LT$wasmi_core..table..error..TableError$GT$$GT$4from17h6f809e6f9aa760e4E"(i64 noundef 4, i64 undef)
   %63 = extractvalue { i64, i64 } %62, 0
   %64 = extractvalue { i64, i64 } %62, 1
@@ -385,7 +385,7 @@ define void @_ZN10wasmi_core5table5Table12grow_untyped17hb4a6106c316e03dcE(ptr d
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %67 = load ptr, ptr %66, align 8, !invariant.load !3, !nonnull !3
   call void %67(ptr noundef nonnull align 1 %58, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %68
 
 68:                                               ; preds = %59, %56
@@ -393,7 +393,7 @@ define void @_ZN10wasmi_core5table5Table12grow_untyped17hb4a6106c316e03dcE(ptr d
   br label %54
 
 69:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN10wasmi_core4fuel4Fuel12consume_fuel17he3e7a335bfe12a85E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %14)
   %70 = load i64, ptr %11, align 8, !range !29, !noundef !3
   %71 = and i64 %70, 1
@@ -408,7 +408,7 @@ define void @_ZN10wasmi_core5table5Table12grow_untyped17hb4a6106c316e03dcE(ptr d
   br i1 %.not36, label %93, label %97
 
 76:                                               ; preds = %69
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %72
 
 77:                                               ; preds = %69
@@ -423,7 +423,7 @@ define void @_ZN10wasmi_core5table5Table12grow_untyped17hb4a6106c316e03dcE(ptr d
   %83 = extractvalue { ptr, ptr } %80, 1
   %84 = icmp ne ptr %83, null
   call void @llvm.assume(i1 %84)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %85 = call { i64, i64 } @"_ZN117_$LT$wasmi_core..limiter..LimiterError$u20$as$u20$core..convert..From$LT$wasmi_core..table..error..TableError$GT$$GT$4from17h6f809e6f9aa760e4E"(i64 noundef 10, i64 %79)
   %86 = extractvalue { i64, i64 } %85, 0
   %87 = extractvalue { i64, i64 } %85, 1
@@ -433,14 +433,14 @@ define void @_ZN10wasmi_core5table5Table12grow_untyped17hb4a6106c316e03dcE(ptr d
   %89 = getelementptr inbounds nuw i8, ptr %83, i64 48
   %90 = load ptr, ptr %89, align 8, !invariant.load !3, !nonnull !3
   call void %90(ptr noundef nonnull align 1 %81, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %91
 
 91:                                               ; preds = %82, %77
   store i64 10, ptr %0, align 8
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %79, ptr %92, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %54
 
 93:                                               ; preds = %72
@@ -463,7 +463,7 @@ define void @_ZN10wasmi_core5table5Table12grow_untyped17hb4a6106c316e03dcE(ptr d
   %101 = extractvalue { ptr, ptr } %98, 1
   %102 = icmp ne ptr %101, null
   call void @llvm.assume(i1 %102)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %103 = call { i64, i64 } @"_ZN117_$LT$wasmi_core..limiter..LimiterError$u20$as$u20$core..convert..From$LT$wasmi_core..table..error..TableError$GT$$GT$4from17h6f809e6f9aa760e4E"(i64 noundef 0, i64 undef)
   %104 = extractvalue { i64, i64 } %103, 0
   %105 = extractvalue { i64, i64 } %103, 1
@@ -473,7 +473,7 @@ define void @_ZN10wasmi_core5table5Table12grow_untyped17hb4a6106c316e03dcE(ptr d
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 48
   %108 = load ptr, ptr %107, align 8, !invariant.load !3, !nonnull !3
   call void %108(ptr noundef nonnull align 1 %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %109
 
 109:                                              ; preds = %100, %97
@@ -497,11 +497,11 @@ define void @_ZN10wasmi_core5table5Table3get17h245addeab3c4c758E(ptr dead_on_unw
   %12 = load i64, ptr %11, align 8, !noalias !38, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i64, ptr %13, align 8, !noalias !38, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 32, i1 false), !alias.scope !39
   %15 = call noundef i8 @_ZN10wasmi_core5table2ty9TableType7element17hdcdcc2a71b3464baE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4)
   call void @_ZN10wasmi_core5typed8TypedVal3new17h54e0e5f8447aad8fE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, i8 noundef %15, i64 noundef %12, i64 noundef %14)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %17
 
 _ZN10wasmi_core5table5Table11get_untyped17hcac74ebb078e8059E.exit: ; preds = %3
@@ -543,20 +543,20 @@ define void @_ZN10wasmi_core5table5Table11get_untyped17hcac74ebb078e8059E(ptr de
 define { i64, i64 } @_ZN10wasmi_core5table5Table3set17hd6d07a598c8b0bc2E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2) unnamed_addr #0 {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 32, i1 false), !alias.scope !43
   %6 = tail call noundef i8 @_ZN10wasmi_core5typed8TypedVal2ty17h8659aa5a17318e9dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %7 = call { i64, i64 } @_ZN10wasmi_core5table2ty9TableType27ensure_element_type_matches17h71de66eea0855543E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5, i8 noundef %6)
   %8 = extractvalue { i64, i64 } %7, 0
   %.not = icmp eq i64 %8, 11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not, label %9, label %23
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %10 = call { i64, i64 } @"_ZN10wasmi_core5typed116_$LT$impl$u20$core..convert..From$LT$wasmi_core..typed..TypedVal$GT$$u20$for$u20$wasmi_core..untyped..UntypedVal$GT$4from17h2cea427d5dea6085E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i64, ptr %11, align 8, !alias.scope !47, !noundef !3
@@ -617,17 +617,17 @@ define { i64, i64 } @_ZN10wasmi_core5table5Table4init17hfdedac7c19035517E(ptr no
   %11 = alloca [32 x i8], align 8
   %12 = alloca [4 x i8], align 4
   store i32 %4, ptr %12, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 32, i1 false), !alias.scope !50
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %13 = call noundef i8 @_ZN10wasmi_core5table2ty9TableType7element17hdcdcc2a71b3464baE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %11)
   store i8 %13, ptr %10, align 1
   %14 = call noundef zeroext i1 @_ZN10wasmi_core5value7ValType6is_ref17h5c62cf447d4fd01aE(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %14, label %20, label %15, !prof !54
 
 15:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @anon.1aabfa233b6f75c7907752b74109b64e.9, ptr %9, align 8
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 1, ptr %16, align 8
@@ -641,12 +641,12 @@ define { i64, i64 } @_ZN10wasmi_core5table5Table4init17hfdedac7c19035517E(ptr no
   unreachable
 
 20:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 32, i1 false), !alias.scope !55
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %21 = call noundef i8 @_ZN10wasmi_core5table7element17ElementSegmentRef2ty17h2858e700cf8bd54cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %22 = call { i64, i64 } @_ZN10wasmi_core5table2ty9TableType27ensure_element_type_matches17h71de66eea0855543E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i8 noundef %21)
   %23 = extractvalue { i64, i64 } %22, 0
   %.not = icmp eq i64 %23, 11
@@ -654,11 +654,11 @@ define { i64, i64 } @_ZN10wasmi_core5table5Table4init17hfdedac7c19035517E(ptr no
 
 24:                                               ; preds = %20
   %25 = extractvalue { i64, i64 } %22, 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %58
 
 26:                                               ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %27 = zext i32 %4 to i64
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = load i64, ptr %28, align 8, !noundef !3
@@ -714,7 +714,7 @@ define { i64, i64 } @_ZN10wasmi_core5table5Table4init17hfdedac7c19035517E(ptr no
 58:                                               ; preds = %24, %53, %26, %33, %45, %51
   %.sroa.7.1 = phi i64 [ undef, %51 ], [ %25, %24 ], [ %57, %53 ], [ %27, %26 ], [ %27, %33 ], [ undef, %45 ]
   %.sroa.03.1 = phi i64 [ 11, %51 ], [ %23, %24 ], [ %56, %53 ], [ 5, %26 ], [ 5, %33 ], [ 11, %45 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %59 = insertvalue { i64, i64 } poison, i64 %.sroa.03.1, 0
   %60 = insertvalue { i64, i64 } %59, i64 %.sroa.7.1, 1
   ret { i64, i64 } %60
@@ -726,9 +726,9 @@ define { i64, i64 } @_ZN10wasmi_core5table5Table4copy17h26e63aa95c484007E(ptr no
   %8 = alloca [32 x i8], align 8
   %9 = alloca [8 x i8], align 8
   store i64 %4, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 32, i1 false), !alias.scope !65
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %2, i64 32, i1 false), !alias.scope !69
   %10 = call noundef i8 @_ZN10wasmi_core5table2ty9TableType7element17hdcdcc2a71b3464baE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7)
   %11 = call { i64, i64 } @_ZN10wasmi_core5table2ty9TableType27ensure_element_type_matches17h71de66eea0855543E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i8 noundef %10)
@@ -738,13 +738,13 @@ define { i64, i64 } @_ZN10wasmi_core5table5Table4copy17h26e63aa95c484007E(ptr no
 
 13:                                               ; preds = %6
   %14 = extractvalue { i64, i64 } %11, 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %44
 
 15:                                               ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load i64, ptr %16, align 8, !noundef !3
   %.not65 = icmp ult i64 %17, %1
@@ -853,24 +853,24 @@ define { i64, i64 } @_ZN10wasmi_core5table5Table4fill17hf3514b69d449a7b3E(ptr no
   %6 = alloca [8 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 32, i1 false), !alias.scope !79
   %9 = tail call noundef i8 @_ZN10wasmi_core5typed8TypedVal2ty17h8659aa5a17318e9dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %10 = call { i64, i64 } @_ZN10wasmi_core5table2ty9TableType27ensure_element_type_matches17h71de66eea0855543E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i8 noundef %9)
   %11 = extractvalue { i64, i64 } %10, 0
   %.not = icmp eq i64 %11, 11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not, label %12, label %36
 
 12:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %13 = call { i64, i64 } @"_ZN10wasmi_core5typed116_$LT$impl$u20$core..convert..From$LT$wasmi_core..typed..TypedVal$GT$$u20$for$u20$wasmi_core..untyped..UntypedVal$GT$4from17h2cea427d5dea6085E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %14 = extractvalue { i64, i64 } %13, 0
   %15 = extractvalue { i64, i64 } %13, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !83)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %3, ptr %6, align 8, !noalias !86
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load i64, ptr %16, align 8, !alias.scope !83, !noalias !88, !noundef !3
@@ -909,7 +909,7 @@ define { i64, i64 } @_ZN10wasmi_core5table5Table4fill17hf3514b69d449a7b3E(ptr no
 _ZN10wasmi_core5table5Table12fill_untyped17hed78d2b2b6ffb045E.exit: ; preds = %12, %19, %28, %29
   %.sroa.4.0.i = phi i64 [ %33, %29 ], [ undef, %28 ], [ undef, %19 ], [ undef, %12 ]
   %.sroa.02.0.i = phi i64 [ %32, %29 ], [ 11, %28 ], [ 6, %19 ], [ 6, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %34 = insertvalue { i64, i64 } poison, i64 %.sroa.02.0.i, 0
   %35 = insertvalue { i64, i64 } %34, i64 %.sroa.4.0.i, 1
   br label %36
@@ -1068,10 +1068,10 @@ declare hidden { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17h9ab94a
 declare hidden void @"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17he562f4909fd0ba0eE"(ptr noalias noundef nonnull align 8, i64 noundef, i64 noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12

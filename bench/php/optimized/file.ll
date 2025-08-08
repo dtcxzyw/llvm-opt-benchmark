@@ -421,33 +421,27 @@ define dso_local void @php_flock_common(ptr noundef %0, i64 noundef %1, i32 noun
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
+declare void @llvm.assume(i1 noundef) #5
 
 declare i32 @zend_try_assign_typed_ref_long(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare void @zval_ptr_safe_dtor(ptr noundef) local_unnamed_addr #2
 
 declare i32 @_php_stream_set_option(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #7
+declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_flock(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !53
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !21
@@ -507,7 +501,7 @@ zend_parse_arg_resource.exit:                     ; preds = %8, %7, %zend_parse_
   br label %29
 
 29:                                               ; preds = %zend_parse_arg_resource.exit, %.critedge, %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -526,9 +520,9 @@ define hidden void @zif_get_meta_tags(ptr noundef %0, ptr noundef %1) local_unna
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   %5 = alloca %struct._php_meta_tags_data, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4, !tbaa !21
@@ -542,7 +536,7 @@ define hidden void @zif_get_meta_tags(ptr noundef %0, ptr noundef %1) local_unna
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8, !tbaa !21
   %14 = icmp eq i8 %13, 6
@@ -575,12 +569,12 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   br i1 %.not, label %24, label %zend_parse_arg_path.exit, !prof !52
 
 zend_parse_arg_path.exit:                         ; preds = %19, %zend_parse_arg_str_ex.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread208
 
 24:                                               ; preds = %17, %19
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %26 = icmp eq i32 %7, 1
   br i1 %26, label %.critedge185, label %27, !prof !56
 
@@ -920,13 +914,13 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %27
   br label %138
 
 138:                                              ; preds = %.thread208, %135, %36
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #18
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -935,7 +929,7 @@ declare ptr @_zend_new_array_0() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 9) i32 @php_next_meta_token(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca [8193 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8193, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8193) %2, i8 0, i64 8193, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1162,12 +1156,12 @@ define hidden range(i32 0, 9) i32 @php_next_meta_token(ptr noundef captures(none
 
 .critedge2:                                       ; preds = %10, %.critedge, %7, %19, %.critedge2.loopexit202, %.critedge2.loopexit192, %.critedge2.loopexit184, %.critedge2.loopexit176, %53, %.critedge5.thread, %44, %90
   %.0 = phi i32 [ 6, %90 ], [ 7, %44 ], [ 7, %.critedge5.thread ], [ 8, %53 ], [ 2, %.critedge2.loopexit176 ], [ 4, %.critedge2.loopexit184 ], [ 3, %.critedge2.loopexit192 ], [ 1, %19 ], [ 0, %10 ], [ 0, %.critedge ], [ 0, %7 ], [ 5, %.critedge2.loopexit202 ]
-  call void @llvm.lifetime.end.p0(i64 8193, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @_efree(ptr noundef) local_unnamed_addr #2
 
@@ -1176,7 +1170,7 @@ declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @zend_str_tolower(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1186,11 +1180,11 @@ define hidden void @zif_file_get_contents(ptr noundef %0, ptr noundef writeonly 
   %4 = alloca i8, align 1
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !21
   %9 = add i32 %8, -6
@@ -1203,7 +1197,7 @@ define hidden void @zif_file_get_contents(ptr noundef %0, ptr noundef writeonly 
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = load i8, ptr %13, align 8, !tbaa !21
   %15 = icmp eq i8 %14, 6
@@ -1236,12 +1230,12 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   br i1 %.not201, label %25, label %zend_parse_arg_path.exit, !prof !52
 
 zend_parse_arg_path.exit:                         ; preds = %20, %zend_parse_arg_str_ex.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %zend_parse_arg_resource.exit.thread172
 
 25:                                               ; preds = %18, %20
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %27 = icmp eq i32 %8, 1
   br i1 %27, label %.critedge.thread, label %28, !prof !56
 
@@ -1446,9 +1440,9 @@ zend_parse_arg_resource.exit.thread172:           ; preds = %zend_parse_arg_long
   br label %105
 
 105:                                              ; preds = %zend_parse_arg_resource.exit.thread172, %102, %88, %74, %57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1469,9 +1463,9 @@ define hidden void @zif_file_put_contents(ptr noundef %0, ptr noundef writeonly 
   %5 = alloca [3 x i8], align 1
   %6 = alloca i64, align 8
   %7 = alloca %struct._zval_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, ptr noundef nonnull align 1 dereferenceable(3) @.str.22, i64 3, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4, !tbaa !21
@@ -1485,7 +1479,7 @@ define hidden void @zif_file_put_contents(ptr noundef %0, ptr noundef writeonly 
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load i8, ptr %14, align 8, !tbaa !21
   %16 = icmp eq i8 %15, 6
@@ -1522,13 +1516,13 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   br i1 %.not268, label %26, label %zend_parse_arg_path.exit, !prof !52
 
 zend_parse_arg_path.exit:                         ; preds = %21, %zend_parse_arg_str_ex.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %43
 
 26:                                               ; preds = %._crit_edge, %21
   %27 = phi i64 [ %.pre, %._crit_edge ], [ %24, %21 ]
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %30 = icmp eq i32 %9, 2
   br i1 %30, label %.critedge, label %31, !prof !56
@@ -1743,7 +1737,7 @@ zend_memnstr.exit:                                ; preds = %84
   ]
 
 118:                                              ; preds = %116
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %119 = call i32 @_php_stream_copy_to_stream_ex(ptr noundef %.0119, ptr noundef nonnull %96, i64 noundef -1, ptr noundef nonnull %6) #18
   %.not165 = icmp eq i32 %119, 0
   br i1 %.not165, label %120, label %124
@@ -1759,7 +1753,7 @@ zend_memnstr.exit:                                ; preds = %84
 
 124:                                              ; preds = %120, %123, %118
   %.0 = phi i64 [ -1, %118 ], [ 9223372036854775807, %123 ], [ %121, %120 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %zend_tmp_string_release.exit
 
 125:                                              ; preds = %116, %116, %116, %116, %116
@@ -1915,7 +1909,7 @@ zend_tmp_string_release.exit.thread:              ; preds = %153, %178, %179, %1
   br i1 %.not154, label %zend_tmp_string_release.exit.thread262, label %196
 
 196:                                              ; preds = %192
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %197 = call i32 @zend_std_cast_object_tostring(ptr noundef nonnull %193, ptr noundef nonnull %7, i32 noundef 6) #18
   %198 = icmp eq i32 %197, 0
   br i1 %198, label %199, label %zval_ptr_dtor_str.exit
@@ -1963,11 +1957,11 @@ zend_tmp_string_release.exit.thread:              ; preds = %153, %178, %179, %1
   br label %zval_ptr_dtor_str.exit.thread
 
 zval_ptr_dtor_str.exit.thread:                    ; preds = %210, %213, %218
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %zend_tmp_string_release.exit
 
 zval_ptr_dtor_str.exit:                           ; preds = %196
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %zend_tmp_string_release.exit.thread262
 
 zend_tmp_string_release.exit.thread262:           ; preds = %137, %130, %177, %172, %168, %167, %zval_ptr_dtor_str.exit, %192, %116
@@ -1997,15 +1991,15 @@ zend_tmp_string_release.exit:                     ; preds = %zend_tmp_string_rel
   br label %228
 
 228:                                              ; preds = %43, %47, %226, %223, %108, %98, %89
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 declare ptr @zend_fetch_resource2_ex(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 declare i32 @_php_stream_truncate_set_size(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -2021,7 +2015,7 @@ declare i32 @zend_std_cast_object_tostring(ptr noundef, ptr noundef, i32 noundef
 define hidden void @zif_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !53
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !21
@@ -2035,7 +2029,7 @@ define hidden void @zif_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i8, ptr %11, align 8, !tbaa !21
   %13 = icmp eq i8 %12, 6
@@ -2068,12 +2062,12 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   br i1 %.not217, label %23, label %zend_parse_arg_path.exit, !prof !52
 
 zend_parse_arg_path.exit:                         ; preds = %18, %zend_parse_arg_str_ex.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %38
 
 23:                                               ; preds = %16, %18
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = icmp eq i32 %6, 1
   br i1 %25, label %.critedge, label %26, !prof !56
 
@@ -2363,7 +2357,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %26
   br label %139
 
 139:                                              ; preds = %38, %.critedge168, %61, %41
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2372,14 +2366,14 @@ declare ptr @php_stream_locate_eol(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @add_index_stringl(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #10
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_tempnam(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4, !tbaa !21
   %.not = icmp eq i32 %7, 2
@@ -2391,7 +2385,7 @@ define hidden void @zif_tempnam(ptr noundef %0, ptr noundef writeonly captures(n
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i8, ptr %11, align 8, !tbaa !21
   %13 = icmp eq i8 %12, 6
@@ -2424,14 +2418,14 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   br i1 %.not122, label %23, label %zend_parse_arg_path.exit66, !prof !52
 
 zend_parse_arg_path.exit66:                       ; preds = %18, %zend_parse_arg_str_ex.exit73
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %39
 
 23:                                               ; preds = %16, %18
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %27 = load i8, ptr %26, align 8, !tbaa !21
   %28 = icmp eq i8 %27, 6
@@ -2468,7 +2462,7 @@ thread-pre-split87:                               ; preds = %zend_parse_arg_str_
   br i1 %.not123, label %.critedge, label %38, !prof !52
 
 38:                                               ; preds = %zend_parse_arg_str_ex.exit, %33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %39
 
 39:                                               ; preds = %8, %zend_parse_arg_path.exit66, %38
@@ -2482,7 +2476,7 @@ thread-pre-split87:                               ; preds = %zend_parse_arg_str_
 .critedge:                                        ; preds = %..critedge_crit_edge, %33
   %40 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %36, %33 ]
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %42 = call ptr @php_basename(ptr noundef nonnull %41, i64 noundef %40, ptr noundef null, i64 noundef 0) #18
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i64, ptr %43, align 8, !tbaa !60
@@ -2535,7 +2529,7 @@ thread-pre-split87:                               ; preds = %zend_parse_arg_str_
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %69, %64, %60, %39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -2591,7 +2585,7 @@ define hidden void @zif_fopen(ptr noundef %0, ptr noundef writeonly captures(non
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !57
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4, !tbaa !21
@@ -2605,7 +2599,7 @@ define hidden void @zif_fopen(ptr noundef %0, ptr noundef writeonly captures(non
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8, !tbaa !21
   %14 = icmp eq i8 %13, 6
@@ -2638,14 +2632,14 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   br i1 %.not159, label %24, label %zend_parse_arg_path.exit, !prof !52
 
 zend_parse_arg_path.exit:                         ; preds = %19, %zend_parse_arg_str_ex.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %44
 
 24:                                               ; preds = %17, %19
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %28 = load i8, ptr %27, align 8, !tbaa !21
   %29 = icmp eq i8 %28, 6
@@ -2656,14 +2650,14 @@ zend_parse_arg_str_ex.exit101:                    ; preds = %24
   br i1 %30, label %zend_parse_arg_str_ex.exit101.thread, label %zend_parse_arg_string.exit
 
 zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_ex.exit101
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %44
 
 zend_parse_arg_str_ex.exit101.thread:             ; preds = %zend_parse_arg_str_ex.exit101, %24
   %.in = phi ptr [ %26, %24 ], [ %3, %zend_parse_arg_str_ex.exit101 ]
   %31 = load ptr, ptr %.in, align 8, !tbaa !21
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %33 = icmp eq i32 %7, 2
   br i1 %33, label %47, label %34, !prof !56
 
@@ -2751,7 +2745,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %34
   br label %67
 
 67:                                               ; preds = %44, %60, %58
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -2836,7 +2830,7 @@ define hidden void @zif_popen(ptr noundef %0, ptr noundef writeonly captures(non
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8, !tbaa !21
   %12 = icmp eq i8 %11, 6
@@ -2869,14 +2863,14 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   br i1 %.not138, label %22, label %zend_parse_arg_path.exit, !prof !52
 
 zend_parse_arg_path.exit:                         ; preds = %17, %zend_parse_arg_str_ex.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 22:                                               ; preds = %15, %17
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %26 = load i8, ptr %25, align 8, !tbaa !21
   %27 = icmp eq i8 %26, 6
@@ -2887,7 +2881,7 @@ zend_parse_arg_str_ex.exit92:                     ; preds = %22
   br i1 %28, label %.critedge, label %29
 
 29:                                               ; preds = %zend_parse_arg_str_ex.exit92
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
 .thread:                                          ; preds = %zend_parse_arg_path.exit, %7, %29
@@ -2904,7 +2898,7 @@ zend_parse_arg_str_ex.exit92:                     ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %33 = load i64, ptr %32, align 8, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %34 = call noalias ptr @_estrndup(ptr noundef nonnull %31, i64 noundef %33) #18
   %35 = call ptr @memchr(ptr noundef %34, i32 noundef 98, i64 noundef %33) #20
   %.not81 = icmp eq ptr %35, null
@@ -3006,15 +3000,15 @@ zend_parse_arg_str_ex.exit92:                     ; preds = %22
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #11
+declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 declare void @php_error_docref2(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #12
+declare ptr @strerror(i32 noundef) local_unnamed_addr #11
 
 declare ptr @_php_stream_fopen_from_pipe(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -3128,9 +3122,9 @@ declare zeroext i1 @_php_stream_eof(ptr noundef) local_unnamed_addr #2
 define dso_local void @zif_fgets(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 1024, ptr %3, align 8, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !53
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !21
@@ -3338,8 +3332,8 @@ zend_string_truncate.exit:                        ; preds = %94, %zend_string_al
   br label %100
 
 100:                                              ; preds = %zend_parse_arg_resource.exit.thread101, %.critedge, %zend_string_alloc.exit, %zend_string_truncate.exit, %60, %47, %32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -3409,7 +3403,7 @@ declare i32 @_php_stream_getc(ptr noundef) local_unnamed_addr #2
 define hidden void @zif_fscanf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !21
   %7 = icmp ult i32 %6, 2
@@ -3428,7 +3422,7 @@ define hidden void @zif_fscanf(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = load i8, ptr %16, align 8, !tbaa !21
   %18 = icmp eq i8 %17, 6
@@ -3439,14 +3433,14 @@ zend_parse_arg_str_ex.exit:                       ; preds = %14
   br i1 %19, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_string.exit
 
 zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_ex.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %27
 
 zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_ex.exit, %14
   %.in = phi ptr [ %15, %14 ], [ %3, %zend_parse_arg_str_ex.exit ]
   %20 = load ptr, ptr %.in, align 8, !tbaa !21
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %22 = add i32 %6, -2
   %.not = icmp eq i32 %22, 0
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -3501,7 +3495,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   br label %44
 
 44:                                               ; preds = %27, %40, %43, %38, %32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3513,7 +3507,7 @@ declare void @zend_wrong_param_count() local_unnamed_addr #2
 define dso_local void @zif_fwrite(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !53
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !21
@@ -3534,7 +3528,7 @@ define dso_local void @zif_fwrite(ptr noundef %0, ptr noundef writeonly captures
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = load i8, ptr %16, align 8, !tbaa !21
   %18 = icmp eq i8 %17, 6
@@ -3545,7 +3539,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %14
   br i1 %19, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_string.exit, !prof !103
 
 zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_ex.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %zend_parse_arg_resource.exit.thread124
 
 zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_ex.exit, %14
@@ -3554,7 +3548,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load i64, ptr %22, align 8, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %24 = icmp eq i32 %6, 2
   br i1 %24, label %.critedge.thread, label %25, !prof !56
 
@@ -3638,7 +3632,7 @@ zend_parse_arg_resource.exit.thread124:           ; preds = %zend_parse_arg_long
   br label %49
 
 49:                                               ; preds = %zend_parse_arg_resource.exit.thread124, %36, %47, %45, %.thread155
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3808,8 +3802,8 @@ declare i64 @_php_stream_tell(ptr noundef) local_unnamed_addr #2
 define dso_local void @zif_fseek(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !53
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !21
@@ -3892,8 +3886,8 @@ zend_parse_arg_resource.exit.thread80:            ; preds = %zend_parse_arg_long
   br label %42
 
 42:                                               ; preds = %zend_parse_arg_resource.exit.thread80, %.critedge, %35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -3902,9 +3896,9 @@ define hidden void @zif_mkdir(ptr noundef %0, ptr noundef writeonly captures(non
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 511, ptr %4, align 8, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !57
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4, !tbaa !21
@@ -3918,7 +3912,7 @@ define hidden void @zif_mkdir(ptr noundef %0, ptr noundef writeonly captures(non
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8, !tbaa !21
   %14 = icmp eq i8 %13, 6
@@ -3951,12 +3945,12 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   br i1 %.not139, label %24, label %zend_parse_arg_path.exit, !prof !52
 
 zend_parse_arg_path.exit:                         ; preds = %19, %zend_parse_arg_str_ex.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %46
 
 24:                                               ; preds = %17, %19
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %26 = icmp eq i32 %7, 1
   br i1 %26, label %49, label %27, !prof !56
 
@@ -4052,8 +4046,8 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %36
   br label %63
 
 63:                                               ; preds = %46, %53
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4074,7 +4068,7 @@ define hidden void @zif_rmdir(ptr noundef %0, ptr noundef writeonly captures(non
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8, !tbaa !21
   %12 = icmp eq i8 %11, 6
@@ -4107,12 +4101,12 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   br i1 %.not, label %22, label %zend_parse_arg_path.exit, !prof !52
 
 zend_parse_arg_path.exit:                         ; preds = %17, %zend_parse_arg_str_ex.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %29
 
 22:                                               ; preds = %15, %17
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %24 = icmp eq i32 %5, 1
   br i1 %24, label %32, label %25, !prof !56
 
@@ -4167,7 +4161,7 @@ declare i32 @_php_stream_rmdir(ptr noundef, i32 noundef, ptr noundef) local_unna
 define hidden void @zif_readfile(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !57
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !21
@@ -4181,7 +4175,7 @@ define hidden void @zif_readfile(ptr noundef %0, ptr noundef writeonly captures(
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i8, ptr %11, align 8, !tbaa !21
   %13 = icmp eq i8 %12, 6
@@ -4214,12 +4208,12 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   br i1 %.not130, label %23, label %zend_parse_arg_path.exit, !prof !52
 
 zend_parse_arg_path.exit:                         ; preds = %18, %zend_parse_arg_str_ex.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %36
 
 23:                                               ; preds = %16, %18
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = icmp eq i32 %6, 1
   br i1 %25, label %39, label %26, !prof !56
 
@@ -4303,7 +4297,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %26
   br label %55
 
 55:                                               ; preds = %36, %53, %49
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4312,7 +4306,7 @@ declare i64 @_php_stream_passthru(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_umask(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !53
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !21
@@ -4381,12 +4375,12 @@ zend_parse_arg_long_ex.exit:                      ; preds = %9
   br label %27
 
 27:                                               ; preds = %16, %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @umask(i32 noundef) local_unnamed_addr #12
+declare i32 @umask(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @zif_fpassthru(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
@@ -4449,7 +4443,7 @@ define hidden void @zif_rename(ptr noundef %0, ptr noundef writeonly captures(no
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i8, ptr %11, align 8, !tbaa !21
   %13 = icmp eq i8 %12, 6
@@ -4482,14 +4476,14 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   br i1 %.not, label %23, label %zend_parse_arg_path.exit92, !prof !52
 
 zend_parse_arg_path.exit92:                       ; preds = %18, %zend_parse_arg_str_ex.exit101
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %45
 
 23:                                               ; preds = %16, %18
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %27 = load i8, ptr %26, align 8, !tbaa !21
   %28 = icmp eq i8 %27, 6
@@ -4522,12 +4516,12 @@ thread-pre-split119:                              ; preds = %zend_parse_arg_str_
   br i1 %.not154, label %38, label %zend_parse_arg_path.exit, !prof !52
 
 zend_parse_arg_path.exit:                         ; preds = %33, %zend_parse_arg_str_ex.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %45
 
 38:                                               ; preds = %31, %33
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %40 = icmp eq i32 %6, 2
   br i1 %40, label %.critedge, label %41, !prof !56
 
@@ -4647,7 +4641,7 @@ define hidden void @zif_unlink(ptr noundef %0, ptr noundef writeonly captures(no
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8, !tbaa !21
   %12 = icmp eq i8 %11, 6
@@ -4680,12 +4674,12 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   br i1 %.not, label %22, label %zend_parse_arg_path.exit, !prof !52
 
 zend_parse_arg_path.exit:                         ; preds = %17, %zend_parse_arg_str_ex.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %29
 
 22:                                               ; preds = %15, %17
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %24 = icmp eq i32 %5, 1
   br i1 %24, label %32, label %25, !prof !56
 
@@ -4885,7 +4879,7 @@ define hidden void @zif_fdatasync(ptr noundef %0, ptr noundef writeonly captures
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_ftruncate(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !21
   %.not = icmp eq i32 %5, 2
@@ -4971,7 +4965,7 @@ zend_parse_arg_resource.exit.thread62:            ; preds = %zend_parse_arg_long
   br label %41
 
 41:                                               ; preds = %zend_parse_arg_resource.exit.thread62, %24, %35, %33, %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -4991,20 +4985,20 @@ define dso_local void @php_fstat(ptr noundef %0, ptr noundef captures(none) init
   %14 = alloca %struct._zval_struct, align 8
   %15 = alloca %struct._zval_struct, align 8
   %16 = alloca %struct._zval_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %17 = call i32 @_php_stream_stat(ptr noundef %0, ptr noundef nonnull %3) #18
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %20, label %18
@@ -5140,20 +5134,20 @@ define dso_local void @php_fstat(ptr noundef %0, ptr noundef captures(none) init
   br label %115
 
 115:                                              ; preds = %20, %18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -5221,7 +5215,7 @@ define hidden void @zif_copy(ptr noundef %0, ptr noundef writeonly captures(none
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i8, ptr %11, align 8, !tbaa !21
   %13 = icmp eq i8 %12, 6
@@ -5254,14 +5248,14 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   br i1 %.not, label %23, label %zend_parse_arg_path.exit74, !prof !52
 
 zend_parse_arg_path.exit74:                       ; preds = %18, %zend_parse_arg_str_ex.exit83
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %45
 
 23:                                               ; preds = %16, %18
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %27 = load i8, ptr %26, align 8, !tbaa !21
   %28 = icmp eq i8 %27, 6
@@ -5294,12 +5288,12 @@ thread-pre-split101:                              ; preds = %zend_parse_arg_str_
   br i1 %.not136, label %38, label %zend_parse_arg_path.exit, !prof !52
 
 zend_parse_arg_path.exit:                         ; preds = %33, %zend_parse_arg_str_ex.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %45
 
 38:                                               ; preds = %31, %33
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %40 = icmp eq i32 %6, 2
   br i1 %40, label %.critedge, label %41, !prof !56
 
@@ -5377,8 +5371,8 @@ declare i32 @php_check_open_basedir(ptr noundef) local_unnamed_addr #2
 define dso_local i32 @php_copy_file_ctx(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct._php_stream_statbuf, align 8
   %6 = alloca %struct._php_stream_statbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #18
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = lshr i32 %2, 8
   %8 = and i32 %7, 4
   %9 = call i32 @_php_stream_stat_path(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %5, ptr noundef %3) #18
@@ -5480,8 +5474,8 @@ define dso_local i32 @php_copy_file_ctx(ptr noundef %0, ptr noundef %1, i32 noun
 
 .thread:                                          ; preds = %44, %37, %.thread48, %52, %46, %33, %16, %4, %23, %15
   %.0 = phi i32 [ -1, %15 ], [ -1, %23 ], [ -1, %4 ], [ -1, %16 ], [ -1, %33 ], [ -1, %46 ], [ %53, %52 ], [ -1, %.thread48 ], [ -1, %37 ], [ -1, %44 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -5502,12 +5496,12 @@ declare i32 @_php_stream_stat_path(ptr noundef, i32 noundef, ptr noundef, ptr no
 declare ptr @expand_filepath(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @zif_fread(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !21
   %.not = icmp eq i32 %5, 2
@@ -5611,7 +5605,7 @@ zval_ptr_dtor_str.exit:                           ; preds = %32, %35, %40
   br label %49
 
 49:                                               ; preds = %zend_parse_arg_resource.exit.thread73, %.critedge, %43, %zval_ptr_dtor_str.exit, %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -5660,9 +5654,9 @@ define hidden void @zif_fputcsv(ptr noundef %0, ptr noundef writeonly captures(n
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !59
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !21
@@ -5694,7 +5688,7 @@ define hidden void @zif_fputcsv(ptr noundef %0, ptr noundef writeonly captures(n
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %26 = load i8, ptr %25, align 8, !tbaa !21
   %27 = icmp eq i8 %26, 6
@@ -5705,7 +5699,7 @@ zend_parse_arg_str_ex.exit140:                    ; preds = %23
   br i1 %28, label %zend_parse_arg_str_ex.exit140.thread, label %zend_parse_arg_string.exit130, !prof !103
 
 zend_parse_arg_string.exit130:                    ; preds = %zend_parse_arg_str_ex.exit140
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %zend_parse_arg_resource.exit.thread194
 
 zend_parse_arg_str_ex.exit140.thread:             ; preds = %zend_parse_arg_str_ex.exit140, %23
@@ -5714,13 +5708,13 @@ zend_parse_arg_str_ex.exit140.thread:             ; preds = %zend_parse_arg_str_
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %33 = icmp samesign ult i32 %8, 4
   br i1 %33, label %.thread237, label %34, !prof !56
 
 34:                                               ; preds = %zend_parse_arg_str_ex.exit140.thread
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %37 = load i8, ptr %36, align 8, !tbaa !21
   %38 = icmp eq i8 %37, 6
@@ -5731,7 +5725,7 @@ zend_parse_arg_str_ex.exit137:                    ; preds = %34
   br i1 %39, label %zend_parse_arg_str_ex.exit137.thread, label %zend_parse_arg_string.exit, !prof !103
 
 zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_ex.exit137
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %zend_parse_arg_resource.exit.thread194
 
 zend_parse_arg_str_ex.exit137.thread:             ; preds = %zend_parse_arg_str_ex.exit137, %34
@@ -5740,7 +5734,7 @@ zend_parse_arg_str_ex.exit137.thread:             ; preds = %zend_parse_arg_str_
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %43 = load i64, ptr %42, align 8, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %44 = icmp eq i32 %8, 4
   br i1 %44, label %60, label %45, !prof !56
 
@@ -5896,15 +5890,15 @@ select.unfold:                                    ; preds = %.critedge.thread227
   br label %98
 
 98:                                               ; preds = %zend_parse_arg_resource.exit.thread194, %php_csv_handle_escape_argument.exit, %94, %96, %select.unfold, %66, %62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @php_fputcsv(ptr noundef %0, ptr noundef readonly captures(none) %1, i8 noundef signext %2, i8 noundef signext %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #1 {
   %7 = alloca %struct.smart_str, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = icmp eq i32 %4, -1
   %9 = add i32 %4, 1
@@ -6371,7 +6365,7 @@ smart_str_0.exit:                                 ; preds = %smart_str_alloc.exi
   br label %smart_str_free_ex.exit
 
 smart_str_free_ex.exit:                           ; preds = %206, %210, %215, %smart_str_0.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %204
 }
 
@@ -6383,10 +6377,10 @@ define hidden void @zif_fgetcsv(ptr noundef %0, ptr noundef writeonly captures(n
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %10 = load i32, ptr %9, align 4, !tbaa !21
@@ -6439,7 +6433,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %20
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %32 = load i8, ptr %31, align 8, !tbaa !21
   %33 = icmp eq i8 %32, 6
@@ -6450,7 +6444,7 @@ zend_parse_arg_str_ex.exit143:                    ; preds = %29
   br i1 %34, label %zend_parse_arg_str_ex.exit143.thread, label %zend_parse_arg_string.exit134, !prof !103
 
 zend_parse_arg_string.exit134:                    ; preds = %zend_parse_arg_str_ex.exit143
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %zend_parse_arg_resource.exit.thread195
 
 zend_parse_arg_str_ex.exit143.thread:             ; preds = %zend_parse_arg_str_ex.exit143, %29
@@ -6459,13 +6453,13 @@ zend_parse_arg_str_ex.exit143.thread:             ; preds = %zend_parse_arg_str_
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %39 = icmp eq i32 %10, 3
   br i1 %39, label %.thread239, label %40, !prof !56
 
 40:                                               ; preds = %zend_parse_arg_str_ex.exit143.thread
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %43 = load i8, ptr %42, align 8, !tbaa !21
   %44 = icmp eq i8 %43, 6
@@ -6476,7 +6470,7 @@ zend_parse_arg_str_ex.exit140:                    ; preds = %40
   br i1 %45, label %zend_parse_arg_str_ex.exit140.thread, label %zend_parse_arg_string.exit, !prof !103
 
 zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_ex.exit140
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %zend_parse_arg_resource.exit.thread195
 
 zend_parse_arg_str_ex.exit140.thread:             ; preds = %zend_parse_arg_str_ex.exit140, %40
@@ -6485,7 +6479,7 @@ zend_parse_arg_str_ex.exit140.thread:             ; preds = %zend_parse_arg_str_
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %49 = load i64, ptr %48, align 8, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i32 %10, 5
   br i1 %.not, label %50, label %57, !prof !52
 
@@ -6659,11 +6653,11 @@ select.unfold:                                    ; preds = %82, %78, %76
 
 119:                                              ; preds = %115
   %120 = call ptr @_zend_new_array_0() #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %121 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %121, align 8, !tbaa !21
   %122 = call ptr @zend_hash_next_index_insert(ptr noundef %120, ptr noundef nonnull %3) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %123
 
 123:                                              ; preds = %119, %115
@@ -6674,14 +6668,14 @@ select.unfold:                                    ; preds = %82, %78, %76
   br label %125
 
 125:                                              ; preds = %zend_parse_arg_resource.exit.thread195, %php_csv_handle_escape_argument.exit, %89, %104, %113, %123, %92, %63, %59
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #13
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @php_fgetcsv(ptr noundef %0, i8 noundef signext %1, i8 noundef signext %2, i32 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #1 {
@@ -6930,7 +6924,7 @@ php_fgetcsv_lookup_trailing_spaces.exit:          ; preds = %6, %._crit_edge.i, 
   br label %178
 
 96:                                               ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %97 = call ptr @_php_stream_get_line(ptr noundef nonnull %0, ptr noundef null, i64 noundef 0, ptr noundef nonnull %7) #18
   %.not350 = icmp eq ptr %97, null
   br i1 %.not350, label %125, label %98
@@ -7010,7 +7004,7 @@ php_fgetcsv_lookup_trailing_spaces.exit:          ; preds = %6, %._crit_edge.i, 
   %123 = ptrtoint ptr %97 to i64
   %.neg351 = add i64 %106, %123
   %124 = sub i64 %.neg351, %122
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %168
 
 125:                                              ; preds = %96
@@ -7021,7 +7015,7 @@ php_fgetcsv_lookup_trailing_spaces.exit:          ; preds = %6, %._crit_edge.i, 
   %.5309 = getelementptr inbounds i8, ptr %.3307, i64 %.5309.idx
   %.6269.idx = sext i1 %126 to i64
   %.6269 = getelementptr inbounds i8, ptr %.4267, i64 %.6269.idx
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %178
 
 128:                                              ; preds = %70, %70
@@ -7365,30 +7359,30 @@ php_fgetcsv_lookup_trailing_spaces.exit400:       ; preds = %223, %._crit_edge.i
 define dso_local noundef ptr @php_bc_fgetcsv_empty_line() local_unnamed_addr #1 {
   %1 = alloca %struct._zval_struct, align 8
   %2 = tail call ptr @_zend_new_array_0() #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %3, align 8, !tbaa !21
   %4 = call ptr @zend_hash_next_index_insert(ptr noundef %2, ptr noundef nonnull %1) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
 ; Function Attrs: nounwind
-declare i32 @mblen(ptr noundef, i64 noundef) local_unnamed_addr #12
+declare i32 @mblen(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #7
+declare ptr @__ctype_b_loc() local_unnamed_addr #6
 
 declare void @zend_array_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(1)
-declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #14
+declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_realpath(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca [4096 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !21
   %cond = icmp eq i32 %6, 1
@@ -7400,7 +7394,7 @@ define hidden void @zif_realpath(ptr noundef %0, ptr noundef writeonly captures(
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8, !tbaa !21
   %12 = icmp eq i8 %11, 6
@@ -7433,7 +7427,7 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   br i1 %.not, label %.critedge, label %22, !prof !52
 
 22:                                               ; preds = %zend_parse_arg_str_ex.exit, %17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %23
 
 23:                                               ; preds = %7, %22
@@ -7446,7 +7440,7 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
 
 .critedge:                                        ; preds = %17, %15
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = call ptr @tsrm_realpath(ptr noundef nonnull %24, ptr noundef nonnull %4) #18
   %.not45 = icmp eq ptr %25, null
   br i1 %.not45, label %40, label %26
@@ -7488,7 +7482,7 @@ zend_string_alloc.exit:                           ; preds = %26
   br label %42
 
 42:                                               ; preds = %23, %40, %zend_string_alloc.exit, %28
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -7499,7 +7493,7 @@ define hidden void @zif_fnmatch(ptr noundef %0, ptr noundef writeonly captures(n
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !53
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4, !tbaa !21
@@ -7513,7 +7507,7 @@ define hidden void @zif_fnmatch(ptr noundef %0, ptr noundef writeonly captures(n
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8, !tbaa !21
   %14 = icmp eq i8 %13, 6
@@ -7550,15 +7544,15 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   br i1 %.not, label %24, label %zend_parse_arg_path.exit70, !prof !52
 
 zend_parse_arg_path.exit70:                       ; preds = %19, %zend_parse_arg_str_ex.exit77
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
 24:                                               ; preds = %._crit_edge, %19
   %25 = phi i64 [ %.pre, %._crit_edge ], [ %22, %19 ]
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %29 = load i8, ptr %28, align 8, !tbaa !21
   %30 = icmp eq i8 %29, 6
@@ -7595,13 +7589,13 @@ thread-pre-split98:                               ; preds = %zend_parse_arg_str_
   br i1 %.not134, label %40, label %zend_parse_arg_path.exit, !prof !52
 
 zend_parse_arg_path.exit:                         ; preds = %35, %zend_parse_arg_str_ex.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 40:                                               ; preds = %._crit_edge135, %35
   %41 = phi i64 [ %.pre137, %._crit_edge135 ], [ %38, %35 ]
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %43 = icmp eq i32 %7, 2
   br i1 %43, label %.critedge, label %44, !prof !56
 
@@ -7660,7 +7654,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %44
   br label %64
 
 64:                                               ; preds = %.thread, %58, %56, %52
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -7738,7 +7732,7 @@ declare i32 @OnUpdateBool(ptr noundef, ptr noundef, ptr noundef, ptr noundef, pt
 declare void @zend_register_long_constant(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 
 declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -7752,6 +7746,12 @@ declare zeroext i1 @zend_parse_arg_str_slow(ptr noundef, ptr noundef, i32 nounde
 
 declare void @smart_str_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
@@ -7762,18 +7762,18 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nounwind }

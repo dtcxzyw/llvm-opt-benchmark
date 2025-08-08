@@ -565,7 +565,7 @@ init_decoder.exit:                                ; preds = %164, %170, %175
 218:                                              ; preds = %210, %217
   %219 = phi i64 [ %207, %217 ], [ %213, %210 ]
   %.2 = phi ptr [ %.188105, %217 ], [ %212, %210 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %220 = call ptr @aom_get_worker_interface() #12
   %221 = load i32, ptr %193, align 4
   %.not.i79 = icmp eq i32 %221, 0
@@ -669,11 +669,11 @@ init_decoder.exit:                                ; preds = %164, %170, %175
 
 decode_one.exit.thread:                           ; preds = %222, %225
   %.0.i81.ph = phi i32 [ 1, %225 ], [ %224, %222 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %init_decoder.exit.thread
 
 decode_one.exit.thread118:                        ; preds = %266, %269, %272, %276, %279
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader
 
 decode_one.exit:                                  ; preds = %266
@@ -684,7 +684,7 @@ decode_one.exit:                                  ; preds = %266
   %283 = select i1 %.not5.i.i, ptr null, ptr %282
   store ptr %283, ptr %0, align 8
   %.pre.i.i = load i32, ptr %267, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not76 = icmp eq i32 %.pre.i.i, 0
   br i1 %.not76, label %.preheader, label %init_decoder.exit.thread
 
@@ -1005,7 +1005,7 @@ move_decoder_metadata_to_img.exit:                ; preds = %52, %59
 163:                                              ; preds = %161, %.thread162
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 27128
   %165 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %166 = load i32, ptr %165, align 4
   %.not.i137 = icmp eq i32 %166, 0
   br i1 %.not.i137, label %add_grain_if_needed.exit, label %167
@@ -1062,11 +1062,11 @@ move_decoder_metadata_to_img.exit:                ; preds = %52, %59
 
 add_grain_if_needed.exit:                         ; preds = %163, %199
   %.0.i = phi ptr [ %164, %199 ], [ %53, %163 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %204
 
 202:                                              ; preds = %193, %167
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %203 = getelementptr inbounds nuw i8, ptr %18, i64 48008
   call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %203, i32 noundef 7, ptr noundef nonnull @.str.6) #12
   br label %204
@@ -4421,10 +4421,10 @@ declare i32 @llvm.ctpop.i32(i32) #10
 declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10

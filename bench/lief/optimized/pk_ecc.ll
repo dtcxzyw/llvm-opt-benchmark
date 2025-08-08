@@ -13,7 +13,7 @@ define hidden i32 @mbedtls_pk_ecc_set_group(ptr noundef readonly captures(none) 
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8
@@ -22,16 +22,16 @@ define hidden i32 @mbedtls_pk_ecc_set_group(ptr noundef readonly captures(none) 
   %switch.i = icmp ult i32 %.off.i, 3
   %11 = load ptr, ptr %9, align 8
   %.0.i = select i1 %switch.i, ptr %11, ptr null
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %12 = load ptr, ptr %0, align 8
   %13 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %12, ptr %4, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %13, ptr %14, align 8
   %15 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %4) #3
   %16 = load ptr, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %17 = load i32, ptr %16, align 8, !tbaa !3
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %25, label %18
@@ -39,13 +39,13 @@ define hidden i32 @mbedtls_pk_ecc_set_group(ptr noundef readonly captures(none) 
 18:                                               ; preds = %2
   %19 = load ptr, ptr %0, align 8
   %20 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %19, ptr %3, align 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %20, ptr %21, align 8
   %22 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %3) #3
   %23 = load ptr, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %24 = load i32, ptr %23, align 8, !tbaa !3
   %.not6 = icmp eq i32 %24, %1
   br i1 %.not6, label %25, label %27
@@ -67,13 +67,13 @@ define hidden range(i32 -2147483648, 2147468032) i32 @mbedtls_pk_ecc_set_key(ptr
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %8, align 8
   %9 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %4) #3
   %10 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %11 = load i32, ptr %10, align 8, !tbaa !3
   %12 = call i32 @mbedtls_ecp_read_key(i32 noundef %11, ptr noundef nonnull %10, ptr noundef %1, i64 noundef %2) #3
   %.not = icmp eq i32 %12, 0
@@ -122,10 +122,10 @@ declare i32 @mbedtls_ecp_check_pubkey(ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @mbedtls_pk_get_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

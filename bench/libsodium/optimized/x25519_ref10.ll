@@ -24,19 +24,19 @@ define internal range(i32 -1, 1) i32 @crypto_scalarmult_curve25519_ref10(ptr nou
   %14 = alloca [5 x i64], align 16
   %15 = alloca [5 x i64], align 16
   %16 = alloca [5 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #6
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %4, i8 0, i64 7, i1 false)
   br label %.preheader23.i
 
@@ -97,7 +97,7 @@ define internal range(i32 -1, 1) i32 @crypto_scalarmult_curve25519_ref10(ptr nou
   br i1 %exitcond34.not.i, label %has_small_order.exit, label %.preheader.i, !llvm.loop !8
 
 has_small_order.exit:                             ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %44 = and i32 %42, 256
   %.not = icmp eq i32 %44, 0
   br i1 %.not, label %.preheader.preheader, label %625
@@ -800,18 +800,18 @@ has_small_order.exit:                             ; preds = %.preheader.i
 
 625:                                              ; preds = %has_small_order.exit, %575
   %.0 = phi i32 [ 0, %575 ], [ -1, %has_small_order.exit ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -821,8 +821,8 @@ define internal noundef i32 @crypto_scalarmult_curve25519_ref10_base(ptr noundef
   %4 = alloca [5 x i64], align 16
   %5 = alloca %struct.ge25519_p3, align 8
   %6 = alloca [5 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %7
 
 7:                                                ; preds = %2, %7
@@ -847,8 +847,8 @@ define internal noundef i32 @crypto_scalarmult_curve25519_ref10_base(ptr noundef
   call void @_sodium_ge25519_scalarmult_base(ptr noundef nonnull %5, ptr noundef nonnull %0) #6
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = load i64, ptr %19, align 8
   %21 = load i64, ptr %18, align 8
   %22 = add i64 %21, %20
@@ -918,21 +918,18 @@ define internal noundef i32 @crypto_scalarmult_curve25519_ref10_base(ptr noundef
   store i64 %67, ptr %71, align 16
   call void @_sodium_fe25519_invert(ptr noundef nonnull %4, ptr noundef nonnull %4) #6
   call fastcc void @fe25519_mul(ptr noundef nonnull %6, ptr noundef %3, ptr noundef %4)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_sodium_fe25519_tobytes(ptr noundef nonnull %0, ptr noundef nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_sodium_fe25519_frombytes(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_sodium_fe25519_frombytes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @fe25519_mul(ptr noundef nonnull writeonly captures(none) initializes((0, 40)) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #3 {
+define internal fastcc void @fe25519_mul(ptr noundef nonnull writeonly captures(none) initializes((0, 40)) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #2 {
   %4 = load i64, ptr %1, align 8
   %5 = zext i64 %4 to i128
   %6 = getelementptr i8, ptr %1, i64 8
@@ -1054,28 +1051,31 @@ define internal fastcc void @fe25519_mul(ptr noundef nonnull writeonly captures(
   ret void
 }
 
-declare void @_sodium_fe25519_invert(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_sodium_fe25519_invert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @_sodium_fe25519_tobytes(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_sodium_fe25519_tobytes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare void @_sodium_ge25519_scalarmult_base(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_sodium_ge25519_scalarmult_base(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 attributes #0 = { nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 

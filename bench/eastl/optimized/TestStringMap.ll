@@ -2091,13 +2091,13 @@ for.inc163:                                       ; preds = %if.else.invoke
   br i1 %exitcond.not, label %for.end165, label %for.body132, !llvm.loop !90
 
 for.end165:                                       ; preds = %for.inc163
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store i32 0, ptr %ref.tmp.i, align 4, !noalias !91
   invoke void @_ZN5eastl10string_mapIiNS_8str_lessIPKcEENS_9allocatorEE6insertES3_RKi(ptr nonnull sret(%"struct.eastl::pair") align 8 %result, ptr noundef nonnull align 8 dereferenceable(41) %stringMap76, ptr noundef nonnull @.str.15, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i)
           to label %invoke.cont166 unwind label %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont166:                                   ; preds = %for.end165
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %second167 = getelementptr inbounds nuw i8, ptr %result, i64 8
   %85 = load i8, ptr %second167, align 8
   %tobool = trunc i8 %85 to i1
@@ -2105,13 +2105,13 @@ invoke.cont166:                                   ; preds = %for.end165
           to label %invoke.cont169 unwind label %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont169:                                   ; preds = %invoke.cont166
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i137)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i137)
   store i32 0, ptr %ref.tmp.i137, align 4, !noalias !94
   invoke void @_ZN5eastl10string_mapIiNS_8str_lessIPKcEENS_9allocatorEE6insertES3_RKi(ptr nonnull sret(%"struct.eastl::pair") align 8 %ref.tmp171, ptr noundef nonnull align 8 dereferenceable(41) %stringMap76, ptr noundef nonnull @.str.15, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i137)
           to label %invoke.cont173 unwind label %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont173:                                   ; preds = %invoke.cont169
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i137)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i137)
   %86 = load ptr, ptr %ref.tmp171, align 8
   store ptr %86, ptr %result, align 8
   %second.i = getelementptr inbounds nuw i8, ptr %ref.tmp171, i64 8
@@ -2483,13 +2483,13 @@ lpad260.loopexit.split-lp:                        ; preds = %invoke.cont265, %fo
   br label %ehcleanup313
 
 for.end264:                                       ; preds = %for.inc262
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %allocator.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %allocator.i)
   call void @_ZN5eastl10string_mapIiNS_8str_lessIPKcEENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(41) %stringMap2248) #11
   invoke void @_ZN5eastl10string_mapIiNS_8str_lessIPKcEENS_9allocatorEEC1ERKS6_RKS5_(ptr noundef nonnull align 8 dereferenceable(41) %stringMap2248, ptr noundef nonnull align 8 dereferenceable(41) %stringMap1, ptr noundef nonnull align 1 dereferenceable(1) %allocator.i)
           to label %invoke.cont265 unwind label %lpad260.loopexit.split-lp
 
 invoke.cont265:                                   ; preds = %for.end264
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %allocator.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %allocator.i)
   invoke void @_ZN5eastl10string_mapIiNS_8str_lessIPKcEENS_9allocatorEEC1ERKS6_RKS5_(ptr noundef nonnull align 8 dereferenceable(41) %stringMap3, ptr noundef nonnull align 8 dereferenceable(41) %stringMap1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp267)
           to label %invoke.cont269 unwind label %lpad260.loopexit.split-lp
 
@@ -3661,10 +3661,10 @@ declare noundef i64 @_ZN5eastl19RBTreeGetBlackCountEPKNS_16rbtree_node_baseES2_(
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

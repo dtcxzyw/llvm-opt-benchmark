@@ -247,8 +247,8 @@ define hidden noundef ptr @_ZN19CDSProtectionDomain18init_security_infoE6HandleP
   br i1 %.not45, label %44, label %_ZN12PackageEntry32set_defined_by_cds_in_class_pathEi.exit
 
 44:                                               ; preds = %39, %37
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %45 = tail call ptr @_ZN19CDSProtectionDomain16get_package_nameEP6SymbolP10JavaThread(ptr noundef %18, ptr noundef nonnull %3)
   %46 = load ptr, ptr %27, align 8
   %47 = icmp eq ptr %46, null
@@ -298,8 +298,8 @@ define hidden noundef ptr @_ZN19CDSProtectionDomain18init_security_infoE6HandleP
 
 _ZN19CDSProtectionDomain21define_shared_packageEP6Symbol6HandleS2_S2_P10JavaThread.exit: ; preds = %44, %49
   %70 = phi ptr [ %46, %44 ], [ %.pr, %49 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not46 = icmp eq ptr %70, null
   br i1 %.not46, label %71, label %107
 
@@ -320,8 +320,8 @@ _ZN19CDSProtectionDomain21define_shared_packageEP6Symbol6HandleS2_S2_P10JavaThre
   br i1 %.not.i.i.i.i, label %_ZN12PackageEntry32set_defined_by_cds_in_class_pathEi.exit, label %76, !llvm.loop !7
 
 79:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %80 = tail call ptr @_ZN19CDSProtectionDomain16get_package_nameEP6SymbolP10JavaThread(ptr noundef %18, ptr noundef nonnull %3)
   %81 = load ptr, ptr %27, align 8
   %82 = icmp eq ptr %81, null
@@ -371,8 +371,8 @@ _ZN19CDSProtectionDomain21define_shared_packageEP6Symbol6HandleS2_S2_P10JavaThre
 
 _ZN19CDSProtectionDomain21define_shared_packageEP6Symbol6HandleS2_S2_P10JavaThread.exit41: ; preds = %79, %84
   %105 = phi ptr [ %81, %79 ], [ %.pr42, %84 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not44 = icmp eq ptr %105, null
   br i1 %.not44, label %_ZN12PackageEntry32set_defined_by_cds_in_class_pathEi.exit, label %107
 
@@ -473,7 +473,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %48, %46
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i, %32, %23
   %.sroa.033.0 = phi ptr [ %26, %23 ], [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %32 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 720), align 8
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4072), align 8
   %52 = call ptr @_ZN9JavaCalls22construct_new_instanceEP13InstanceKlassP6Symbol6HandleS4_P10JavaThread(ptr noundef %50, ptr noundef %51, ptr %.sroa.033.0, ptr null, ptr noundef nonnull %2) #7
@@ -498,7 +498,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZN10HandleArea15al
   br i1 %62, label %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit.thread42, label %63
 
 _ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit.thread42: ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %78
 
 63:                                               ; preds = %59
@@ -524,7 +524,7 @@ _ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10Ja
   br label %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit
 
 _ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit.thread: ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %54
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit32
 
 _ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit: ; preds = %73, %75
@@ -532,7 +532,7 @@ _ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10Ja
   store ptr %61, ptr %.0.i.i.i.i.i, align 8
   %.pr.pre = load ptr, ptr %15, align 8
   %77 = icmp eq ptr %.pr.pre, null
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %77, label %78, label %_ZN6HandleC2EP6ThreadP7oopDesc.exit32
 
 78:                                               ; preds = %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit.thread42, %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit
@@ -866,7 +866,7 @@ define hidden noundef ptr @_ZN19CDSProtectionDomain28get_shared_protection_domai
   br i1 %19, label %20, label %56
 
 20:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 720), align 8
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4072), align 8
   %23 = tail call ptr @_ZN9JavaCalls22construct_new_instanceEP13InstanceKlassP6Symbol6HandleS4_P10JavaThread(ptr noundef %21, ptr noundef %22, ptr %2, ptr null, ptr noundef %3) #7
@@ -914,19 +914,19 @@ define hidden noundef ptr @_ZN19CDSProtectionDomain28get_shared_protection_domai
   br label %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit
 
 _ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit.thread: ; preds = %20, %26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit: ; preds = %45, %47
   %.0.i.i.i.i.i = phi ptr [ %41, %45 ], [ %48, %47 ]
   store ptr %33, ptr %.0.i.i.i.i.i, align 8
   %.pr = load ptr, ptr %24, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq ptr %.pr, null
   br i1 %.not, label %49, label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit.thread14: ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6HandleclEv.exit
 
 49:                                               ; preds = %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit
@@ -2980,10 +2980,10 @@ declare void @_ZN14AccessInternal18arraycopy_conjointIaEEvPT_S2_m(ptr noundef, p
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

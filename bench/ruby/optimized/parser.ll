@@ -237,9 +237,6 @@ declare i64 @rb_require(ptr noundef) local_unnamed_addr #1
 
 declare i64 @rb_define_module(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i64 @rb_define_module_under(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 declare i64 @rb_define_class_under(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -384,12 +381,12 @@ convert_encoding.exit:                            ; preds = %RB_ENCODING_GET.exi
   %.0.i = phi i64 [ %23, %20 ], [ %27, %24 ], [ %6, %RB_ENCODING_GET.exit.i ]
   store i64 %.0.i, ptr %4, align 8, !tbaa !6
   %28 = call i64 @rb_string_value(ptr noundef nonnull %4) #20
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call fastcc void @parser_config_init(ptr noundef nonnull %5, i64 noundef %2)
   %29 = load i64, ptr %4, align 8, !tbaa !6
   %30 = call fastcc i64 @cParser_parse(ptr noundef nonnull %5, i64 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %30
 }
 
@@ -402,15 +399,12 @@ declare void @rb_global_variable(ptr noundef) local_unnamed_addr #1
 declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @rb_ascii8bit_encindex() local_unnamed_addr #3
+declare i32 @rb_ascii8bit_encindex() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @rb_utf8_encindex() local_unnamed_addr #3
+declare i32 @rb_utf8_encindex() local_unnamed_addr #2
 
 declare nonnull ptr @rb_utf8_encoding() local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -440,7 +434,7 @@ define internal void @JSON_ParserConfig_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @JSON_ParserConfig_memsize(ptr readnone captures(none) %0) #4 {
+define internal noundef i64 @JSON_ParserConfig_memsize(ptr readnone captures(none) %0) #3 {
   ret i64 64
 }
 
@@ -780,19 +774,19 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %93, %107, %125, %18
 }
 
 ; Function Attrs: noreturn
-declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn
-declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #6
+declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #5
 
 declare i32 @rb_respond_to(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 declare i64 @rb_class_name(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 declare i64 @rb_str_substr(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -805,7 +799,7 @@ declare i64 @rb_str_intern(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @rb_gc_writebarrier(i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -856,8 +850,8 @@ convert_encoding.exit:                            ; preds = %RB_ENCODING_GET.exi
   %.0.i = phi i64 [ %24, %21 ], [ %28, %25 ], [ %7, %RB_ENCODING_GET.exit.i ]
   store i64 %.0.i, ptr %3, align 8, !tbaa !6
   %29 = call i64 @rb_string_value(ptr noundef nonnull %3) #20
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1, ptr %5, align 8, !tbaa !42
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %30, align 4
@@ -867,7 +861,7 @@ convert_encoding.exit:                            ; preds = %RB_ENCODING_GET.exi
   store i64 0, ptr %32, align 8, !tbaa !46
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %4, ptr %33, align 8, !tbaa !47
-  call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %6, i8 0, i64 552, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %35 = load i64, ptr %3, align 8, !tbaa !6
@@ -960,16 +954,16 @@ json_eat_whitespace.exit.i:                       ; preds = %67, %.lr.ph.i.i, %r
   unreachable
 
 json_ensure_eof.exit:                             ; preds = %json_eat_whitespace.exit.i
-  call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %6) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #20
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %44
 }
 
 declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @json_parse_any(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
@@ -1576,14 +1570,14 @@ rvalue_stack_push.exit326:                        ; preds = %json_decode_integer
   br i1 %.not.i327, label %289, label %283, !prof !24
 
 283:                                              ; preds = %.critedge4.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %284 = tail call i64 @rb_str_new(ptr noundef nonnull %26, i64 noundef %280) #20
   store i64 %284, ptr %3, align 8, !tbaa !6
   %285 = load i64, ptr %281, align 8, !tbaa !20
   %286 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %287 = load i64, ptr %286, align 8, !tbaa !35
   %288 = call i64 @rb_funcallv(i64 noundef %285, i64 noundef %287, i32 noundef 1, ptr noundef nonnull %3) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %json_decode_float.exit
 
 289:                                              ; preds = %.critedge4.thread
@@ -1591,7 +1585,7 @@ rvalue_stack_push.exit326:                        ; preds = %json_decode_integer
   br i1 %290, label %rbimpl_size_mul_or_raise.exit.i, label %296, !prof !24
 
 rbimpl_size_mul_or_raise.exit.i:                  ; preds = %289
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i.i = icmp eq ptr %276, %26
   br i1 %.not.i.i, label %ruby_nonempty_memcpy.exit.i, label %291
 
@@ -1604,7 +1598,7 @@ ruby_nonempty_memcpy.exit.i:                      ; preds = %291, %rbimpl_size_m
   store i8 0, ptr %293, align 1, !tbaa !62
   %294 = call double @rb_cstr_to_dbl(ptr noundef nonnull %4, i32 noundef 1) #20
   %295 = call i64 @rb_float_new(double noundef %294) #20
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %json_decode_float.exit
 
 296:                                              ; preds = %289
@@ -2338,9 +2332,9 @@ declare i64 @rb_str_dup(i64 noundef) local_unnamed_addr #1
 declare i32 @rb_enc_get_index(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @raise_parse_error(ptr noundef %0, ptr noundef %1) unnamed_addr #10 {
+define internal fastcc void @raise_parse_error(ptr noundef %0, ptr noundef %1) unnamed_addr #9 {
   %3 = alloca [33 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %4
 
@@ -2364,7 +2358,7 @@ define internal fastcc void @raise_parse_error(ptr noundef %0, ptr noundef %1) u
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef i64 @rvalue_stack_push(ptr noundef captures(none) %0, i64 noundef returned %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
@@ -2396,7 +2390,7 @@ define internal fastcc noundef i64 @rvalue_stack_push(ptr noundef captures(none)
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal fastcc i64 @json_parse_string(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #11 {
+define internal fastcc i64 @json_parse_string(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #10 {
   %4 = alloca [4 x i8], align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !51
@@ -2442,11 +2436,11 @@ define internal fastcc i64 @json_parse_string(ptr noundef nonnull %0, ptr nounde
   br i1 %.038, label %.thread30.i, label %237
 
 .thread30.i:                                      ; preds = %.thread29.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %38
 
 28:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %30 = load i32, ptr %29, align 8, !tbaa !71
   %.not.i.i = icmp eq i32 %30, 0
@@ -2811,7 +2805,7 @@ rbimpl_size_mul_or_raise.exit101.i.i:             ; preds = %._crit_edge.i.i
 
 json_string_unescape.exit.i:                      ; preds = %223, %222, %220, %37
   %.1.i.i = phi i64 [ %.078.i.i, %37 ], [ %221, %220 ], [ %226, %223 ], [ %41, %222 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %json_string_fastpath.exit.i
 
 227:                                              ; preds = %21
@@ -2950,7 +2944,7 @@ rvalue_stack_push.exit:                           ; preds = %json_decode_string.
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal fastcc i64 @json_decode_array(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #11 {
+define internal fastcc i64 @json_decode_array(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !19
   %.not = icmp eq i64 %5, 0
@@ -3013,7 +3007,7 @@ define internal fastcc i64 @json_decode_array(ptr noundef nonnull readonly captu
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal fastcc i64 @json_decode_object(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #11 {
+define internal fastcc i64 @json_decode_object(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %.not = icmp eq i64 %5, 0
@@ -3211,19 +3205,19 @@ define internal fastcc void @json_eat_comments(ptr noundef nonnull captures(none
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
+declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: noreturn
-declare void @rb_enc_raise(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare void @rb_enc_raise(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind memory(argmem: readwrite)
-declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #12
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: noreturn
-declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef ptr @rvalue_stack_grow(ptr noundef captures(ret: address, provenance) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
@@ -3296,10 +3290,10 @@ rvalue_stack_spill.exit:                          ; preds = %28, %rbimpl_size_mu
 }
 
 ; Function Attrs: allocsize(1,2)
-declare nonnull ptr @ruby_xrealloc2(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #13
+declare nonnull ptr @ruby_xrealloc2(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: allocsize(0,1)
-declare noalias nonnull ptr @ruby_xmalloc2(i64 noundef, i64 noundef) local_unnamed_addr #14
+declare noalias nonnull ptr @ruby_xmalloc2(i64 noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @rvalue_stack_mark(ptr noundef readonly captures(none) %0) #0 {
@@ -3344,7 +3338,7 @@ define internal void @rvalue_stack_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 32, 25) i64 @rvalue_stack_memsize(ptr noundef readonly captures(none) %0) #15 {
+define internal range(i64 32, 25) i64 @rvalue_stack_memsize(ptr noundef readonly captures(none) %0) #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !45
   %4 = shl i64 %3, 3
@@ -3355,7 +3349,7 @@ define internal range(i64 32, 25) i64 @rvalue_stack_memsize(ptr noundef readonly
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @json_decode_large_integer(ptr noundef readonly captures(none) %0, i64 noundef range(i64 18, -9223372036854775808) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = add nuw nsw i64 %1, 1
   %5 = icmp samesign ult i64 %1, 1023
   br i1 %5, label %6, label %8
@@ -3378,7 +3372,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %6, %8
   store i8 0, ptr %13, align 1, !tbaa !62
   %14 = call i64 @rb_cstr2inum(ptr noundef nonnull %12, i32 noundef 10) #20
   call void @rb_free_tmp_buffer(ptr noundef nonnull %3) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %14
 }
 
@@ -3389,7 +3383,7 @@ declare i64 @rb_cstr2inum(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @rb_free_tmp_buffer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(1,2)
-declare noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #13
+declare noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #12
 
 declare i64 @rb_str_new(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -3402,7 +3396,7 @@ declare double @rb_cstr_to_dbl(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @json_decode_large_float(ptr noundef readonly captures(none) %0, i64 noundef range(i64 64, -9223372036854775808) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = add nuw nsw i64 %1, 1
   %5 = icmp samesign ult i64 %1, 1023
   br i1 %5, label %6, label %8
@@ -3426,7 +3420,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %6, %8
   %14 = call double @rb_cstr_to_dbl(ptr noundef nonnull %12, i32 noundef 1) #20
   %15 = call i64 @rb_float_new(double noundef %14) #20
   call void @rb_free_tmp_buffer(ptr noundef nonnull %3) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %15
 }
 
@@ -3464,7 +3458,7 @@ define internal range(i32 0, 2) i32 @match_i(i64 noundef %0, i64 noundef %1, i64
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @rb_ary_entry(i64 noundef, i64 noundef) local_unnamed_addr #16
+declare i64 @rb_ary_entry(i64 noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @rsymbol_cache_fetch(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
@@ -3725,7 +3719,7 @@ declare void @rb_str_set_len(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @rb_str_freeze(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #3
+declare ptr @__ctype_b_loc() local_unnamed_addr #2
 
 declare i64 @rb_sym2str(i64 noundef) local_unnamed_addr #1
 
@@ -3746,7 +3740,13 @@ declare void @rb_hash_bulk_insert(i64 noundef, ptr noundef, i64 noundef) local_u
 declare i64 @rb_hash_aref(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare void @rb_category_warn(i32 noundef, ptr noundef, ...) local_unnamed_addr #17
+declare void @rb_category_warn(i32 noundef, ptr noundef, ...) local_unnamed_addr #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
@@ -3756,22 +3756,22 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { noreturn nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nounwind memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { allocsize(1,2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { noreturn nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nounwind memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { allocsize(1,2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nounwind }

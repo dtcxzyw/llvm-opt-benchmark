@@ -545,9 +545,6 @@ _ZL34ImGui_ImplGlfw_ShouldChainCallbackP10GLFWwindow.exit.thread: ; preds = %_ZL
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL33ImGui_ImplGlfw_UpdateKeyModifiersP10GLFWwindow(ptr noundef %0) unnamed_addr #1 {
   %2 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
@@ -602,12 +599,9 @@ define internal fastcc void @_ZL33ImGui_ImplGlfw_UpdateKeyModifiersP10GLFWwindow
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv() local_unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv() local_unnamed_addr #2
 
-declare void @_ZN7ImGuiIO19AddMouseButtonEventEib(ptr noundef nonnull align 8 dereferenceable(2944), i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @_ZN7ImGuiIO19AddMouseButtonEventEib(ptr noundef nonnull align 8 dereferenceable(2944), i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z29ImGui_ImplGlfw_ScrollCallbackP10GLFWwindowdd(ptr noundef %0, double noundef %1, double noundef %2) #1 {
@@ -659,7 +653,7 @@ _ZL34ImGui_ImplGlfw_ShouldChainCallbackP10GLFWwindow.exit.thread: ; preds = %_ZL
   ret void
 }
 
-declare void @_ZN7ImGuiIO18AddMouseWheelEventEff(ptr noundef nonnull align 8 dereferenceable(2944), float noundef, float noundef) local_unnamed_addr #3
+declare void @_ZN7ImGuiIO18AddMouseWheelEventEff(ptr noundef nonnull align 8 dereferenceable(2944), float noundef, float noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z26ImGui_ImplGlfw_KeyCallbackP10GLFWwindowiiii(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #1 {
@@ -734,7 +728,7 @@ _ZL34ImGui_ImplGlfw_ShouldChainCallbackP10GLFWwindow.exit.thread: ; preds = %_ZL
   br i1 %38, label %39, label %_ZL39ImGui_ImplGlfw_TranslateUntranslatedKeyii.exit
 
 39:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %5, ptr noundef nonnull align 1 dereferenceable(12) @__const._ZL39ImGui_ImplGlfw_TranslateUntranslatedKeyii.char_names, i64 12, i1 false)
   %40 = sext i8 %34 to i32
   %41 = add i8 %34, -48
@@ -755,7 +749,7 @@ _ZL34ImGui_ImplGlfw_ShouldChainCallbackP10GLFWwindow.exit.thread: ; preds = %_ZL
   br label %56
 
 48:                                               ; preds = %43
-  %49 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef %40) #10
+  %49 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef %40) #9
   %.not31.i = icmp eq ptr %49, null
   br i1 %.not31.i, label %56, label %50
 
@@ -769,7 +763,7 @@ _ZL34ImGui_ImplGlfw_ShouldChainCallbackP10GLFWwindow.exit.thread: ; preds = %_ZL
 
 56:                                               ; preds = %50, %48, %45, %39
   %.1.i = phi i32 [ %47, %45 ], [ %40, %39 ], [ %55, %50 ], [ %1, %48 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZL39ImGui_ImplGlfw_TranslateUntranslatedKeyii.exit
 
 _ZL39ImGui_ImplGlfw_TranslateUntranslatedKeyii.exit: ; preds = %26, %28, %33, %35, %56
@@ -785,9 +779,9 @@ _ZL39ImGui_ImplGlfw_TranslateUntranslatedKeyii.exit: ; preds = %26, %28, %33, %3
   ret void
 }
 
-declare void @_ZN7ImGuiIO11AddKeyEventE8ImGuiKeyb(ptr noundef nonnull align 8 dereferenceable(2944), i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @_ZN7ImGuiIO11AddKeyEventE8ImGuiKeyb(ptr noundef nonnull align 8 dereferenceable(2944), i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @_ZN7ImGuiIO21SetKeyEventNativeDataE8ImGuiKeyiii(ptr noundef nonnull align 8 dereferenceable(2944), i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @_ZN7ImGuiIO21SetKeyEventNativeDataE8ImGuiKeyiii(ptr noundef nonnull align 8 dereferenceable(2944), i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z34ImGui_ImplGlfw_WindowFocusCallbackP10GLFWwindowi(ptr noundef %0, i32 noundef %1) #1 {
@@ -838,7 +832,7 @@ _ZL34ImGui_ImplGlfw_ShouldChainCallbackP10GLFWwindow.exit.thread: ; preds = %_ZL
   ret void
 }
 
-declare void @_ZN7ImGuiIO13AddFocusEventEb(ptr noundef nonnull align 8 dereferenceable(2944), i1 noundef zeroext) local_unnamed_addr #3
+declare void @_ZN7ImGuiIO13AddFocusEventEb(ptr noundef nonnull align 8 dereferenceable(2944), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z32ImGui_ImplGlfw_CursorPosCallbackP10GLFWwindowdd(ptr noundef %0, double noundef %1, double noundef %2) #1 {
@@ -894,10 +888,10 @@ _ZL34ImGui_ImplGlfw_ShouldChainCallbackP10GLFWwindow.exit.thread: ; preds = %_ZL
   ret void
 }
 
-declare void @_ZN7ImGuiIO16AddMousePosEventEff(ptr noundef nonnull align 8 dereferenceable(2944), float noundef, float noundef) local_unnamed_addr #3
+declare void @_ZN7ImGuiIO16AddMousePosEventEff(ptr noundef nonnull align 8 dereferenceable(2944), float noundef, float noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z34ImGui_ImplGlfw_CursorEnterCallbackP10GLFWwindowi(ptr noundef %0, i32 noundef %1) #1 {
@@ -1022,7 +1016,7 @@ _ZL34ImGui_ImplGlfw_ShouldChainCallbackP10GLFWwindow.exit.thread: ; preds = %_ZL
   ret void
 }
 
-declare void @_ZN7ImGuiIO17AddInputCharacterEj(ptr noundef nonnull align 8 dereferenceable(2944), i32 noundef) local_unnamed_addr #3
+declare void @_ZN7ImGuiIO17AddInputCharacterEj(ptr noundef nonnull align 8 dereferenceable(2944), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local void @_Z30ImGui_ImplGlfw_MonitorCallbackP11GLFWmonitori(ptr readnone captures(none) %0, i32 %1) #0 {
@@ -1072,21 +1066,21 @@ _ZL29ImGui_ImplGlfw_GetBackendDatav.exit:         ; preds = %1, %3
   ret void
 }
 
-declare ptr @glfwSetWindowFocusCallback(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @glfwSetWindowFocusCallback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @glfwSetCursorEnterCallback(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @glfwSetCursorEnterCallback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @glfwSetCursorPosCallback(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @glfwSetCursorPosCallback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @glfwSetMouseButtonCallback(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @glfwSetMouseButtonCallback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @glfwSetScrollCallback(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @glfwSetScrollCallback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @glfwSetKeyCallback(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @glfwSetKeyCallback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @glfwSetCharCallback(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @glfwSetCharCallback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @glfwSetMonitorCallback(ptr noundef) local_unnamed_addr #3
+declare ptr @glfwSetMonitorCallback(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z31ImGui_ImplGlfw_RestoreCallbacksP10GLFWwindow(ptr noundef %0) local_unnamed_addr #1 {
@@ -1276,7 +1270,7 @@ _Z9IM_DELETEI19ImGui_ImplGlfw_DataEvPT_.exit:     ; preds = %20
   br i1 %exitcond.not, label %_Z9IM_DELETEI19ImGui_ImplGlfw_DataEvPT_.exit, label %20, !llvm.loop !53
 }
 
-declare void @glfwDestroyCursor(ptr noundef) local_unnamed_addr #3
+declare void @glfwDestroyCursor(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z23ImGui_ImplGlfw_NewFramev() local_unnamed_addr #1 {
@@ -1295,10 +1289,10 @@ _ZL29ImGui_ImplGlfw_GetBackendDatav.exit:
   %9 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %11 = load ptr, ptr %10, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = load ptr, ptr %11, align 8, !tbaa !29
   call void @glfwGetWindowSize(ptr noundef %12, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %13 = load ptr, ptr %11, align 8, !tbaa !29
@@ -1384,8 +1378,8 @@ _ZL29ImGui_ImplGlfw_GetBackendDatav.exit.i:       ; preds = %41, %29
   br i1 %63, label %64, label %_ZL30ImGui_ImplGlfw_UpdateMouseDatav.exit
 
 64:                                               ; preds = %60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @glfwGetCursorPos(ptr noundef %47, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %65 = load double, ptr %1, align 8, !tbaa !60
   %66 = fptrunc double %65 to float
@@ -1396,8 +1390,8 @@ _ZL29ImGui_ImplGlfw_GetBackendDatav.exit.i:       ; preds = %41, %29
   %.sroa_idx10.i = getelementptr inbounds nuw i8, ptr %45, i64 108
   store float %68, ptr %.sroa_idx10.i, align 4
   call void @_ZN7ImGuiIO16AddMousePosEventEff(ptr noundef nonnull align 8 dereferenceable(2944) %46, float noundef %66, float noundef %68)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %_ZL30ImGui_ImplGlfw_UpdateMouseDatav.exit
 
 _ZL30ImGui_ImplGlfw_UpdateMouseDatav.exit:        ; preds = %_ZL29ImGui_ImplGlfw_GetBackendDatav.exit.i, %60, %64
@@ -1471,7 +1465,7 @@ _ZL32ImGui_ImplGlfw_UpdateMouseCursorv.exit:      ; preds = %_ZL29ImGui_ImplGlfw
   %106 = load i32, ptr %105, align 4, !tbaa !44
   %107 = and i32 %106, -2
   store i32 %107, ptr %105, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %0) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %0)
   %108 = call i32 @glfwGetGamepadState(i32 noundef 0, ptr noundef nonnull %0)
   %.not.i21 = icmp eq i32 %108, 0
   br i1 %.not.i21, label %239, label %109
@@ -1634,22 +1628,22 @@ _ZL32ImGui_ImplGlfw_UpdateMouseCursorv.exit:      ; preds = %_ZL29ImGui_ImplGlfw
   br label %239
 
 239:                                              ; preds = %109, %104
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %0) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %0)
   br label %_ZL29ImGui_ImplGlfw_UpdateGamepadsv.exit
 
 _ZL29ImGui_ImplGlfw_UpdateGamepadsv.exit:         ; preds = %_ZL32ImGui_ImplGlfw_UpdateMouseCursorv.exit, %239
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @glfwGetWindowSize(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @glfwGetWindowSize(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @glfwGetFramebufferSize(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @glfwGetFramebufferSize(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare double @glfwGetTime() local_unnamed_addr #3
+declare double @glfwGetTime() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z20ImGui_ImplGlfw_Sleepi(i32 noundef %0) local_unnamed_addr #1 {
@@ -1658,86 +1652,91 @@ define dso_local void @_Z20ImGui_ImplGlfw_Sleepi(i32 noundef %0) local_unnamed_a
   ret void
 }
 
-declare i32 @usleep(i32 noundef) local_unnamed_addr #3
+declare i32 @usleep(i32 noundef) local_unnamed_addr #2
 
-declare noundef ptr @_ZN5ImGui17GetCurrentContextEv() local_unnamed_addr #3
+declare noundef ptr @_ZN5ImGui17GetCurrentContextEv() local_unnamed_addr #2
 
-declare i32 @glfwGetKey(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @glfwGetKey(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @glfwSetErrorCallback(ptr noundef) local_unnamed_addr #3
+declare ptr @glfwSetErrorCallback(ptr noundef) local_unnamed_addr #2
 
-declare ptr @glfwGetKeyName(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @glfwGetKeyName(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @glfwGetError(ptr noundef) local_unnamed_addr #3
+declare i32 @glfwGetError(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare noundef zeroext i1 @_ZN5ImGui30DebugCheckVersionAndDataLayoutEPKcmmmmmm(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZN5ImGui30DebugCheckVersionAndDataLayoutEPKcmmmmmm(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef) local_unnamed_addr #3
+declare noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef) local_unnamed_addr #2
 
 declare i32 @__gxx_personality_v0(...)
 
-declare noundef nonnull align 8 dereferenceable(58) ptr @_ZN5ImGui13GetPlatformIOEv() local_unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(58) ptr @_ZN5ImGui13GetPlatformIOEv() local_unnamed_addr #2
 
-declare ptr @glfwCreateStandardCursor(i32 noundef) local_unnamed_addr #3
+declare ptr @glfwCreateStandardCursor(i32 noundef) local_unnamed_addr #2
 
-declare noundef ptr @_ZN5ImGui15GetMainViewportEv() local_unnamed_addr #3
+declare noundef ptr @_ZN5ImGui15GetMainViewportEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal void @"_ZZL19ImGui_ImplGlfw_InitP10GLFWwindowb13GlfwClientApiEN3$_08__invokeEP12ImGuiContextPKc"(ptr readnone captures(none) %0, ptr noundef %1) #7 align 2 {
+define internal void @"_ZZL19ImGui_ImplGlfw_InitP10GLFWwindowb13GlfwClientApiEN3$_08__invokeEP12ImGuiContextPKc"(ptr readnone captures(none) %0, ptr noundef %1) #6 align 2 {
   tail call void @glfwSetClipboardString(ptr noundef null, ptr noundef %1)
   ret void
 }
 
-declare void @glfwSetClipboardString(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @glfwSetClipboardString(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZL19ImGui_ImplGlfw_InitP10GLFWwindowb13GlfwClientApiEN3$_18__invokeEP12ImGuiContext"(ptr readnone captures(none) %0) #7 align 2 {
+define internal noundef ptr @"_ZZL19ImGui_ImplGlfw_InitP10GLFWwindowb13GlfwClientApiEN3$_18__invokeEP12ImGuiContext"(ptr readnone captures(none) %0) #6 align 2 {
   %2 = tail call noundef ptr @glfwGetClipboardString(ptr noundef null)
   ret ptr %2
 }
 
-declare ptr @glfwGetClipboardString(ptr noundef) local_unnamed_addr #3
+declare ptr @glfwGetClipboardString(ptr noundef) local_unnamed_addr #2
 
-declare i32 @glfwGetWindowAttrib(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @glfwGetWindowAttrib(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @glfwSetCursorPos(ptr noundef, double noundef, double noundef) local_unnamed_addr #3
+declare void @glfwSetCursorPos(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
 
-declare void @glfwGetCursorPos(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @glfwGetCursorPos(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @glfwGetInputMode(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @glfwGetInputMode(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare noundef i32 @_ZN5ImGui14GetMouseCursorEv() local_unnamed_addr #3
+declare noundef i32 @_ZN5ImGui14GetMouseCursorEv() local_unnamed_addr #2
 
-declare void @glfwSetInputMode(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @glfwSetInputMode(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @glfwSetCursor(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @glfwSetCursor(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @glfwGetGamepadState(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @glfwGetGamepadState(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @_ZN7ImGuiIO17AddKeyAnalogEventE8ImGuiKeybf(ptr noundef nonnull align 8 dereferenceable(2944), i32 noundef, i1 noundef zeroext, float noundef) local_unnamed_addr #3
+declare void @_ZN7ImGuiIO17AddKeyAnalogEventE8ImGuiKeybf(ptr noundef nonnull align 8 dereferenceable(2944), i32 noundef, i1 noundef zeroext, float noundef) local_unnamed_addr #2
 
-declare void @_ZN5ImGui7MemFreeEPv(ptr noundef) local_unnamed_addr #3
+declare void @_ZN5ImGui7MemFreeEPv(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #9 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

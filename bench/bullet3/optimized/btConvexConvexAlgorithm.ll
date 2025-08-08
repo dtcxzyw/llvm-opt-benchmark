@@ -400,8 +400,8 @@ define dso_local void @_ZN23btConvexConvexAlgorithm16processCollisionEPK24btColl
   %49 = load ptr, ptr %48, align 8, !tbaa !49
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !49
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !50
   switch i32 %53, label %.thread521 [
@@ -616,15 +616,15 @@ define dso_local void @_ZN23btConvexConvexAlgorithm16processCollisionEPK24btColl
   br label %_ZN16btManifoldResult20refreshContactPointsEv.exit
 
 .thread521:                                       ; preds = %54, %45, %155
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %205 = getelementptr inbounds nuw i8, ptr %8, i64 128
   store float 0x43ABC16D60000000, ptr %205, align 4, !tbaa !66
-  call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %206 = getelementptr inbounds nuw i8, ptr %9, i64 308
   store float 0x3F1A36E2E0000000, ptr %206, align 4, !tbaa !70
   %207 = getelementptr inbounds nuw i8, ptr %9, i64 332
   store i8 0, ptr %207, align 4
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %209 = load ptr, ptr %208, align 8, !tbaa !18
   call void @_ZN17btGjkPairDetectorC1EPK13btConvexShapeS2_P22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolver(ptr noundef nonnull align 8 dereferenceable(100) %10, ptr noundef nonnull %49, ptr noundef %51, ptr noundef nonnull %9, ptr noundef %209)
@@ -711,7 +711,7 @@ thread-pre-split:                                 ; preds = %251
 
 266:                                              ; preds = %261, %257
   %267 = phi float [ 0.000000e+00, %257 ], [ %265, %261 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVZN23btConvexConvexAlgorithm16processCollisionEPK24btCollisionObjectWrapperS2_RK16btDispatcherInfoP16btManifoldResultE21btWithoutMarginResult, i64 16), ptr %11, align 8, !tbaa !9
   %268 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %4, ptr %268, align 8, !tbaa !83
@@ -737,7 +737,7 @@ thread-pre-split:                                 ; preds = %251
   %279 = call noundef float @_ZNK20btPersistentManifold27getContactBreakingThresholdEv(ptr noundef nonnull align 8 dereferenceable(880) %278)
   %280 = load float, ptr %224, align 8, !tbaa !52
   %281 = fadd float %279, %280
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %282 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %283 = load i8, ptr %282, align 8, !tbaa !92, !range !36, !noundef !37
   %284 = trunc nuw i8 %283 to i1
@@ -859,12 +859,12 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i: ; preds = %319, %_
           to label %_ZN16btManifoldResult20refreshContactPointsEv.exit295 unwind label %291
 
 _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.split.i290, %328
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.critedge
 
 347:                                              ; preds = %326, %291
   %.pn253 = phi { ptr, i32 } [ %292, %291 ], [ %327, %326 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %595
 
 .thread523:                                       ; preds = %274
@@ -879,7 +879,7 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
   br i1 %353, label %354, label %594
 
 354:                                              ; preds = %351
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %355 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i8 1, ptr %355, align 8, !tbaa !27
   %356 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -888,7 +888,7 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
   store i32 0, ptr %357, align 4, !tbaa !29
   %358 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 0, ptr %358, align 8, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %359 = load ptr, ptr %236, align 8, !tbaa !59
   %360 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %361 = invoke { <2 x float>, <2 x float> } @_ZNK11btTransformmlERK9btVector3(ptr noundef nonnull align 4 dereferenceable(64) %359, ptr noundef nonnull align 4 dereferenceable(16) %360)
@@ -904,8 +904,8 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
           to label %366 unwind label %478
 
 366:                                              ; preds = %362
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %367 = load ptr, ptr %236, align 8, !tbaa !59
   %368 = getelementptr inbounds nuw i8, ptr %51, i64 96
   %369 = invoke { <2 x float>, <2 x float> } @_ZNK11btTransformmlERK9btVector3(ptr noundef nonnull align 4 dereferenceable(64) %367, ptr noundef nonnull align 4 dereferenceable(16) %368)
@@ -921,8 +921,8 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
           to label %374 unwind label %480
 
 374:                                              ; preds = %370
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %375 = load ptr, ptr %236, align 8, !tbaa !59
   %376 = getelementptr inbounds nuw i8, ptr %51, i64 112
   %377 = invoke { <2 x float>, <2 x float> } @_ZNK11btTransformmlERK9btVector3(ptr noundef nonnull align 4 dereferenceable(64) %375, ptr noundef nonnull align 4 dereferenceable(16) %376)
@@ -938,7 +938,7 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
           to label %382 unwind label %482
 
 382:                                              ; preds = %378
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %383 = load ptr, ptr %31, align 8, !tbaa !32
   %384 = invoke noundef float @_ZNK20btPersistentManifold27getContactBreakingThresholdEv(ptr noundef nonnull align 8 dereferenceable(880) %383)
           to label %385 unwind label %484
@@ -946,8 +946,8 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
 385:                                              ; preds = %382
   %386 = load float, ptr %224, align 8, !tbaa !52
   %387 = fadd float %384, %386
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #22
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %388 = load float, ptr %368, align 4, !tbaa !58
   %389 = load float, ptr %360, align 4, !tbaa !58
   %390 = fsub float %388, %389
@@ -1019,7 +1019,7 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
   store float %439, ptr %433, align 4, !tbaa !58
   %440 = fmul float %415, %437
   store float %440, ptr %416, align 8, !tbaa !58
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %19) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   invoke void @_ZN18btConvexPolyhedronC1Ev(ptr noundef nonnull align 8 dereferenceable(172) %19)
           to label %441 unwind label %486
 
@@ -1037,7 +1037,7 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
           to label %445 unwind label %488
 
 445:                                              ; preds = %444
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %20) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %446 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i8 1, ptr %446, align 8, !tbaa !97
   %447 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -1046,27 +1046,27 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
   store i32 0, ptr %448, align 4, !tbaa !102
   %449 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 0, ptr %449, align 8, !tbaa !103
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i32 0, ptr %21, align 4, !tbaa !104
   invoke void @_ZN20btAlignedObjectArrayIiE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(25) %20, ptr noundef nonnull align 4 dereferenceable(4) %21)
           to label %450 unwind label %490
 
 450:                                              ; preds = %445
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #22
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i32 1, ptr %22, align 4, !tbaa !104
   invoke void @_ZN20btAlignedObjectArrayIiE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(25) %20, ptr noundef nonnull align 4 dereferenceable(4) %22)
           to label %451 unwind label %492
 
 451:                                              ; preds = %450
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #22
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 2, ptr %23, align 4, !tbaa !104
   invoke void @_ZN20btAlignedObjectArrayIiE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(25) %20, ptr noundef nonnull align 4 dereferenceable(4) %23)
           to label %452 unwind label %494
 
 452:                                              ; preds = %451
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %453 = fneg float %431
   %454 = fmul float %424, %453
   %455 = call float @llvm.fmuladd.f32(float %423, float %432, float %454)
@@ -1111,19 +1111,19 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
 478:                                              ; preds = %362, %354
   %479 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %593
 
 480:                                              ; preds = %370, %366
   %481 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %593
 
 482:                                              ; preds = %378, %374
   %483 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %593
 
 484:                                              ; preds = %382
@@ -1144,19 +1144,19 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
 490:                                              ; preds = %445
   %491 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %534
 
 492:                                              ; preds = %450
   %493 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %534
 
 494:                                              ; preds = %451
   %495 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %534
 
 496:                                              ; preds = %.lr.ph, %496
@@ -1182,8 +1182,8 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
 
 510:                                              ; preds = %._crit_edge
   call void @_ZN6btFaceD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20) #22
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %511 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i8 1, ptr %511, align 8, !tbaa !97
   %512 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -1192,27 +1192,27 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
   store i32 0, ptr %513, align 4, !tbaa !102
   %514 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 0, ptr %514, align 8, !tbaa !103
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !104
   invoke void @_ZN20btAlignedObjectArrayIiE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(25) %24, ptr noundef nonnull align 4 dereferenceable(4) %25)
           to label %515 unwind label %535
 
 515:                                              ; preds = %510
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #22
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i32 2, ptr %26, align 4, !tbaa !104
   invoke void @_ZN20btAlignedObjectArrayIiE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(25) %24, ptr noundef nonnull align 4 dereferenceable(4) %26)
           to label %516 unwind label %537
 
 516:                                              ; preds = %515
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #22
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i32 1, ptr %27, align 4, !tbaa !104
   invoke void @_ZN20btAlignedObjectArrayIiE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(25) %24, ptr noundef nonnull align 4 dereferenceable(4) %27)
           to label %517 unwind label %539
 
 517:                                              ; preds = %516
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %518 = fneg float %455
   %519 = fneg float %458
   %520 = fneg float %461
@@ -1250,25 +1250,25 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
 534:                                              ; preds = %532, %494, %492, %490
   %.pn.pn = phi { ptr, i32 } [ %495, %494 ], [ %493, %492 ], [ %491, %490 ], [ %533, %532 ]
   call void @_ZN6btFaceD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %573
 
 535:                                              ; preds = %510
   %536 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %572
 
 537:                                              ; preds = %515
   %538 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %572
 
 539:                                              ; preds = %516
   %540 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %572
 
 541:                                              ; preds = %.lr.ph530, %541
@@ -1294,7 +1294,7 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
 
 555:                                              ; preds = %._crit_edge531
   call void @_ZN6btFaceD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %24) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %24) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %556 = getelementptr inbounds nuw i8, ptr %19, i64 72
   invoke void @_ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %556, ptr noundef nonnull align 4 dereferenceable(16) %18)
           to label %557 unwind label %488
@@ -1320,8 +1320,8 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
 
 564:                                              ; preds = %560
   call void @_ZN18btConvexPolyhedronD1Ev(ptr noundef nonnull align 8 dereferenceable(172) %19) #22
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %19) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %565 = load ptr, ptr %272, align 8, !tbaa !89
   %566 = load ptr, ptr %275, align 8, !tbaa !89
   %567 = load ptr, ptr %228, align 8, !tbaa !59
@@ -1337,7 +1337,7 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
 572:                                              ; preds = %570, %539, %537, %535
   %.pn240.pn = phi { ptr, i32 } [ %540, %539 ], [ %538, %537 ], [ %536, %535 ], [ %571, %570 ]
   call void @_ZN6btFaceD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %24) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %24) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %573
 
 573:                                              ; preds = %572, %534, %488
@@ -1347,8 +1347,8 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
 
 574:                                              ; preds = %573, %486
   %.pn244.pn = phi { ptr, i32 } [ %.pn244, %573 ], [ %487, %486 ]
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %19) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %592
 
 575:                                              ; preds = %590, %580, %564
@@ -1361,12 +1361,12 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
 
 578:                                              ; preds = %577
   %579 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   invoke void @_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(25) %579, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(16) %28)
           to label %580 unwind label %584
 
 580:                                              ; preds = %578
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %581 = load ptr, ptr %272, align 8, !tbaa !89
   %582 = load ptr, ptr %228, align 8, !tbaa !59
   %583 = fsub float 0xC6293E5940000000, %387
@@ -1376,7 +1376,7 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
 584:                                              ; preds = %578
   %585 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %592
 
 586:                                              ; preds = %580, %577
@@ -1390,34 +1390,34 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
           to label %591 unwind label %575
 
 591:                                              ; preds = %590, %586
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %13) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.critedge
 
 592:                                              ; preds = %584, %575, %574
   %.pn248 = phi { ptr, i32 } [ %576, %575 ], [ %585, %584 ], [ %.pn244.pn, %574 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %593
 
 593:                                              ; preds = %484, %592, %482, %480, %478
   %.pn248.pn.pn = phi { ptr, i32 } [ %483, %482 ], [ %481, %480 ], [ %479, %478 ], [ %.pn248, %592 ], [ %485, %484 ]
   call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %13) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %595
 
 594:                                              ; preds = %266, %.thread523, %351
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %596
 
 595:                                              ; preds = %593, %347
   %.pn253.pn.pn.pn = phi { ptr, i32 } [ %.pn248.pn.pn, %593 ], [ %.pn253, %347 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn253.pn.pn.pn
 
 596:                                              ; preds = %594, %247, %.thread521
@@ -1494,7 +1494,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %633, %626
   %647 = call noundef float %646(ptr noundef nonnull align 8 dereferenceable(32) %51)
   %648 = fcmp olt float %643, %647
   %649 = load float, ptr @gContactBreakingThreshold, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %650 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %651 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %652 = getelementptr inbounds nuw i8, ptr %29, i64 48
@@ -1858,7 +1858,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %633, %626
   br label %936
 
 936:                                              ; preds = %819, %702
-  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %30) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %937 = load ptr, ptr %597, align 8, !tbaa !95
   store float 0.000000e+00, ptr %664, align 8, !tbaa !52
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV24btPerturbedContactResult, i64 16), ptr %30, align 8, !tbaa !9
@@ -1878,27 +1878,27 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %633, %626
   store i8 %681, ptr %682, align 8, !tbaa !117
   store ptr %937, ptr %683, align 8, !tbaa !118
   call void @_ZN17btGjkPairDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDrawb(ptr noundef nonnull align 8 dereferenceable(100) %10, ptr noundef nonnull align 4 dereferenceable(132) %8, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %937, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %30) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %938 = add nuw nsw i32 %.0219533.us, 1
   %939 = load i32, ptr %599, align 4, !tbaa !34
   %940 = icmp slt i32 %938, %939
   br i1 %940, label %.lr.ph535.split.us, label %._crit_edge536, !llvm.loop !119
 
 ._crit_edge536:                                   ; preds = %936, %.lr.ph535, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %941
 
 .critedge:                                        ; preds = %591, %_ZN16btManifoldResult20refreshContactPointsEv.exit295
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN16btManifoldResult20refreshContactPointsEv.exit
 
 941:                                              ; preds = %608, %._crit_edge536, %596, %601
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %942 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %943 = load i8, ptr %942, align 8, !tbaa !31, !range !36, !noundef !37
   %944 = trunc nuw i8 %943 to i1
@@ -1931,18 +1931,15 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %633, %626
   br label %_ZN16btManifoldResult20refreshContactPointsEv.exit
 
 _ZN16btManifoldResult20refreshContactPointsEv.exit: ; preds = %.sink.split.i369, %945, %.sink.split.i283, %190, %.sink.split.i276, %140, %.sink.split.i, %94, %941, %.critedge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 declare noundef float @_ZNK20btPersistentManifold27getContactBreakingThresholdEv(ptr noundef nonnull align 8 dereferenceable(880)) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef float @_ZL22capsuleCapsuleDistanceR9btVector3S0_ffffiiRK11btTransformS3_f(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %8, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %9, float noundef %10) unnamed_addr #11 {
+define internal fastcc noundef float @_ZL22capsuleCapsuleDistanceR9btVector3S0_ffffiiRK11btTransformS3_f(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %8, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %9, float noundef %10) unnamed_addr #10 {
   %12 = sext i32 %6 to i64
   %13 = getelementptr inbounds float, ptr %8, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -2146,7 +2143,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %108, %100, %116
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN16btManifoldResult20refreshContactPointsEv(ptr noundef nonnull align 8 dereferenceable(52) %0) local_unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local void @_ZN16btManifoldResult20refreshContactPointsEv(ptr noundef nonnull align 8 dereferenceable(52) %0) local_unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !45
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 856
@@ -2177,9 +2174,6 @@ define linkonce_odr dso_local void @_ZN16btManifoldResult20refreshContactPointsE
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
-
 declare void @_ZN17btGjkPairDetectorC1EPK13btConvexShapeS2_P22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolver(ptr noundef nonnull align 8 dereferenceable(100), ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #5
 
 declare noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSeparatingAxisERK18btConvexPolyhedronS2_RK11btTransformS5_R9btVector3RN36btDiscreteCollisionDetectorInterface6ResultE(ptr noundef nonnull align 8 dereferenceable(172), ptr noundef nonnull align 8 dereferenceable(172), ptr noundef nonnull align 4 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
@@ -2187,10 +2181,10 @@ declare noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSeparatingAxis
 declare void @_ZN17btGjkPairDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDrawb(ptr noundef nonnull align 8 dereferenceable(100), ptr noundef nonnull align 4 dereferenceable(132), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i1 noundef zeroext) unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2) local_unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2) local_unnamed_addr #11 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !29
   %6 = icmp sgt i32 %1, %5
@@ -2277,7 +2271,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i: ; preds = %28, %_ZNK
 declare void @_ZN27btPolyhedralContactClipping19clipHullAgainstHullERK9btVector3RK18btConvexPolyhedronS5_RK11btTransformS8_ffR20btAlignedObjectArrayIS0_ESB_RN36btDiscreteCollisionDetectorInterface6ResultE(ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(172), ptr noundef nonnull align 8 dereferenceable(172), ptr noundef nonnull align 4 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(64), float noundef, float noundef, ptr noundef nonnull align 8 dereferenceable(25), ptr noundef nonnull align 8 dereferenceable(25), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) local_unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) local_unnamed_addr #11 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2359,7 +2353,7 @@ _ZN20btAlignedObjectArrayI9btVector3E7reserveEi.exit: ; preds = %_ZN20btAlignedO
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK11btTransformmlERK9btVector3(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) local_unnamed_addr #14 comdat align 2 {
+define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK11btTransformmlERK9btVector3(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) local_unnamed_addr #13 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load float, ptr %1, align 4, !tbaa !58
@@ -2411,7 +2405,7 @@ define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK11btTransformmlE
 declare void @_ZN18btConvexPolyhedronC1Ev(ptr noundef nonnull align 8 dereferenceable(172)) unnamed_addr #5
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIiE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIiE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #11 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !102
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2500,7 +2494,7 @@ _ZN20btAlignedObjectArrayIiE7reserveEi.exit:      ; preds = %_ZN20btAlignedObjec
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI6btFaceE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #12 comdat align 2 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI6btFaceE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #11 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !124
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2609,7 +2603,7 @@ _ZN6btFaceC2ERKS_.exit:                           ; preds = %38, %_ZN20btAligned
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN6btFaceD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN6btFaceD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !101
   %.not.i.i.i = icmp ne ptr %3, null
@@ -2726,7 +2720,7 @@ define dso_local noundef float @_ZN23btConvexConvexAlgorithm21calculateTimeOfImp
 66:                                               ; preds = %40, %65
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %68 = load ptr, ptr %67, align 8, !tbaa !137
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 304
   %70 = load float, ptr %69, align 8, !tbaa !138
   call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6)
@@ -2747,7 +2741,7 @@ define dso_local noundef float @_ZN23btConvexConvexAlgorithm21calculateTimeOfImp
   store float %70, ptr %77, align 8, !tbaa !139
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 68
   store float 0.000000e+00, ptr %78, align 4, !tbaa !140
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12btConvexCast10CastResultE, i64 16), ptr %7, align 8, !tbaa !9
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 168
   store float 0x43ABC16D60000000, ptr %79, align 8, !tbaa !141
@@ -2759,12 +2753,12 @@ define dso_local noundef float @_ZN23btConvexConvexAlgorithm21calculateTimeOfImp
   store i32 32, ptr %82, align 4, !tbaa !145
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 192
   store float 0x3F1A36E2E0000000, ptr %83, align 8, !tbaa !146
-  call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %84 = getelementptr inbounds nuw i8, ptr %8, i64 308
   store float 0x3F1A36E2E0000000, ptr %84, align 4, !tbaa !70
   %85 = getelementptr inbounds nuw i8, ptr %8, i64 332
   store i8 0, ptr %85, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN15btGjkConvexCastC1EPK13btConvexShapeS2_P22btVoronoiSimplexSolver(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %68, ptr noundef nonnull %6, ptr noundef nonnull %8)
           to label %86 unwind label %95
 
@@ -2817,14 +2811,14 @@ define dso_local noundef float @_ZN23btConvexConvexAlgorithm21calculateTimeOfImp
 107:                                              ; preds = %104, %106, %88
   %.044 = phi float [ %92, %106 ], [ 1.000000e+00, %104 ], [ 1.000000e+00, %88 ]
   call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #22
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %109 = load ptr, ptr %108, align 8, !tbaa !137
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %111 = load float, ptr %110, align 8, !tbaa !138
   call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %10)
@@ -2845,7 +2839,7 @@ define dso_local noundef float @_ZN23btConvexConvexAlgorithm21calculateTimeOfImp
   store float %111, ptr %118, align 8, !tbaa !139
   %119 = getelementptr inbounds nuw i8, ptr %10, i64 68
   store float 0.000000e+00, ptr %119, align 4, !tbaa !140
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12btConvexCast10CastResultE, i64 16), ptr %11, align 8, !tbaa !9
   %120 = getelementptr inbounds nuw i8, ptr %11, i64 168
   store float 0x43ABC16D60000000, ptr %120, align 8, !tbaa !141
@@ -2857,12 +2851,12 @@ define dso_local noundef float @_ZN23btConvexConvexAlgorithm21calculateTimeOfImp
   store i32 32, ptr %123, align 4, !tbaa !145
   %124 = getelementptr inbounds nuw i8, ptr %11, i64 192
   store float 0x3F1A36E2E0000000, ptr %124, align 8, !tbaa !146
-  call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %125 = getelementptr inbounds nuw i8, ptr %12, i64 308
   store float 0x3F1A36E2E0000000, ptr %125, align 4, !tbaa !70
   %126 = getelementptr inbounds nuw i8, ptr %12, i64 332
   store i8 0, ptr %126, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZN15btGjkConvexCastC1EPK13btConvexShapeS2_P22btVoronoiSimplexSolver(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull %10, ptr noundef %109, ptr noundef nonnull %12)
           to label %127 unwind label %137
 
@@ -2886,11 +2880,11 @@ define dso_local noundef float @_ZN23btConvexConvexAlgorithm21calculateTimeOfImp
 
 136:                                              ; preds = %97, %95
   %.pn = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #22
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %152
 
 137:                                              ; preds = %107
@@ -2924,20 +2918,20 @@ define dso_local noundef float @_ZN23btConvexConvexAlgorithm21calculateTimeOfImp
 149:                                              ; preds = %146, %148, %129
   %.145 = phi float [ %133, %148 ], [ %.044, %146 ], [ %.044, %129 ]
   call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #22
-  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %12) #22
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %10) #22
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %151
 
 150:                                              ; preds = %139, %137
   %.pn55 = phi { ptr, i32 } [ %140, %139 ], [ %138, %137 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #22
-  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %12) #22
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %10) #22
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %152
 
 151:                                              ; preds = %65, %40, %149
@@ -3116,12 +3110,12 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #16
+declare float @llvm.fmuladd.f32(float, float, float) #15
 
 declare void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880), ptr noundef nonnull align 4 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(64)) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZZN23btConvexConvexAlgorithm16processCollisionEPK24btCollisionObjectWrapperS2_RK16btDispatcherInfoP16btManifoldResultEN21btWithoutMarginResultD0Ev(ptr noundef nonnull align 8 dereferenceable(45) %0) unnamed_addr #15 align 2 {
+define internal void @_ZZN23btConvexConvexAlgorithm16processCollisionEPK24btCollisionObjectWrapperS2_RK16btDispatcherInfoP16btManifoldResultEN21btWithoutMarginResultD0Ev(ptr noundef nonnull align 8 dereferenceable(45) %0) unnamed_addr #14 align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #20
   ret void
 }
@@ -3143,7 +3137,7 @@ define internal void @_ZZN23btConvexConvexAlgorithm16processCollisionEPK24btColl
   store float %3, ptr %6, align 8, !tbaa !96
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !81
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %9 = load float, ptr %1, align 4, !tbaa !58
   %10 = load float, ptr %8, align 4, !tbaa !58
@@ -3188,17 +3182,17 @@ define internal void @_ZZN23btConvexConvexAlgorithm16processCollisionEPK24btColl
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
   call void %39(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %5, float noundef %30)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sinf(float noundef) local_unnamed_addr #17
+declare float @sinf(float noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @cosf(float noundef) local_unnamed_addr #17
+declare float @cosf(float noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN24btPerturbedContactResultD0Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #2 comdat align 2 {
@@ -3227,7 +3221,7 @@ define linkonce_odr dso_local void @_ZN16btManifoldResult20setShapeIdentifiersBE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN24btPerturbedContactResult15addContactPointERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, float noundef %3) unnamed_addr #9 comdat align 2 {
   %5 = alloca %class.btVector3, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %7 = load i8, ptr %6, align 8, !tbaa !117, !range !36, !noundef !37
   %8 = trunc nuw i8 %7 to i1
@@ -3514,7 +3508,7 @@ define linkonce_odr dso_local void @_ZN24btPerturbedContactResult15addContactPoi
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 32
   %271 = load ptr, ptr %270, align 8
   call void %271(ptr noundef nonnull align 8 dereferenceable(52) %268, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %5, float noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -3544,10 +3538,10 @@ define linkonce_odr dso_local void @_ZN12btConvexCast10CastResultD0Ev(ptr nounde
 declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #16
+declare float @llvm.fabs.f32(float) #15
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI6btFaceE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI6btFaceE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !128
   %5 = icmp slt i32 %4, %1
@@ -3734,6 +3728,12 @@ _ZN20btAlignedObjectArrayI6btFaceE10deallocateEv.exit: ; preds = %69, %_ZN20btAl
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
@@ -3750,14 +3750,14 @@ attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { cold nofree noreturn }
 attributes #9 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { inlinehint mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { inlinehint mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { builtin nounwind }

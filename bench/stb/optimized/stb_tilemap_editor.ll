@@ -106,14 +106,8 @@ define void @stbte__init_gui() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: none) uwtable
-define noundef ptr @stbte_create_map(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define noundef ptr @stbte_create_map(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = or i32 %1, %0
   %8 = or i32 %7, %2
   %or.cond3 = icmp slt i32 %8, 0
@@ -308,10 +302,10 @@ stbte_clear_map.exit:                             ; preds = %.lr.ph.us.i, %.crit
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbte_clear_map(ptr noundef captures(none) %0) local_unnamed_addr #4 {
+define void @stbte_clear_map(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 801056
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 800008
   %4 = load i32, ptr %3, align 8, !tbaa !28
@@ -359,7 +353,7 @@ define void @stbte_clear_map(ptr noundef captures(none) %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbte_set_background_tile(ptr noundef captures(none) %0, i16 noundef signext %1) local_unnamed_addr #4 {
+define void @stbte_set_background_tile(ptr noundef captures(none) %0, i16 noundef signext %1) local_unnamed_addr #3 {
   %3 = icmp slt i16 %1, -1
   br i1 %3, label %11, label %.preheader
 
@@ -389,7 +383,7 @@ define void @stbte_set_background_tile(ptr noundef captures(none) %0, i16 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbte_set_spacing(ptr noundef writeonly captures(none) initializes((800012, 800028)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define void @stbte_set_spacing(ptr noundef writeonly captures(none) initializes((800012, 800028)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 800012
   store i32 %1, ptr %6, align 4, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 800016
@@ -402,14 +396,14 @@ define void @stbte_set_spacing(ptr noundef writeonly captures(none) initializes(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @stbte_set_sidewidths(i32 noundef %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @stbte_set_sidewidths(i32 noundef %0, i32 noundef %1) local_unnamed_addr #5 {
   store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5340), align 4, !tbaa !19
   store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5344), align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @stbte_set_display(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
+define void @stbte_set_display(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5324), align 4, !tbaa !56
   store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5328), align 8, !tbaa !57
   store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5332), align 4, !tbaa !58
@@ -418,7 +412,7 @@ define void @stbte_set_display(i32 noundef %0, i32 noundef %1, i32 noundef %2, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte_define_tile(ptr noundef captures(none) %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #7 {
+define void @stbte_define_tile(ptr noundef captures(none) %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #6 {
   %5 = zext i16 %1 to i32
   %6 = icmp slt i16 %1, 0
   br i1 %6, label %35, label %7
@@ -471,7 +465,7 @@ define void @stbte_define_tile(ptr noundef captures(none) %0, i16 noundef zeroex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte_set_layername(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #8 {
+define void @stbte_set_layername(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = icmp sgt i32 %1, -1
   br i1 %4, label %5, label %27
 
@@ -521,7 +515,7 @@ stbte__text_width.exit:                           ; preds = %.lr.ph.i, %9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @stbte__text_width(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
+define i32 @stbte__text_width(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = load i8, ptr %0, align 1, !tbaa !47
   %.not7 = icmp eq i8 %2, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
@@ -548,7 +542,7 @@ define i32 @stbte__text_width(ptr noundef readonly captures(none) %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbte_get_dimensions(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #10 {
+define void @stbte_get_dimensions(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 800000
   %5 = load i32, ptr %4, align 8, !tbaa !29
   store i32 %5, ptr %1, align 4, !tbaa !69
@@ -559,7 +553,7 @@ define void @stbte_get_dimensions(ptr noundef readonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @stbte_get_tile(ptr noundef readnone captures(ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 {
+define ptr @stbte_get_tile(ptr noundef readnone captures(ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 {
   %or.cond = icmp ugt i32 %1, 199
   %4 = icmp ugt i32 %2, 199
   %or.cond5 = or i1 %or.cond, %4
@@ -572,7 +566,7 @@ define ptr @stbte_get_tile(ptr noundef readnone captures(ret: address, provenanc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @stbte_get_properties(ptr noundef readnone captures(ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 {
+define ptr @stbte_get_properties(ptr noundef readnone captures(ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 {
   %or.cond = icmp ugt i32 %1, 199
   %4 = icmp ugt i32 %2, 199
   %or.cond5 = or i1 %or.cond, %4
@@ -586,14 +580,14 @@ define ptr @stbte_get_properties(ptr noundef readnone captures(ret: address, pro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbte_get_link(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) local_unnamed_addr #5 {
+define void @stbte_get_link(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) local_unnamed_addr #4 {
   store i32 -1, ptr %3, align 4, !tbaa !69
   store i32 -1, ptr %4, align 4, !tbaa !69
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbte_set_property(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #5 {
+define void @stbte_set_property(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 640000
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds [200 x [200 x [1 x float]]], ptr %6, i64 0, i64 %7
@@ -606,12 +600,12 @@ define void @stbte_set_property(ptr noundef writeonly captures(none) %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @stbte_set_link(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #11 {
+define void @stbte_set_link(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #10 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbte_set_dimensions(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define void @stbte_set_dimensions(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = or i32 %2, %1
   %or.cond = icmp slt i32 %4, 0
   %5 = icmp sgt i32 %1, 200
@@ -632,7 +626,7 @@ define void @stbte_set_dimensions(ptr noundef writeonly captures(none) %0, i32 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbte_set_tile(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i16 noundef signext %4) local_unnamed_addr #10 {
+define void @stbte_set_tile(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i16 noundef signext %4) local_unnamed_addr #9 {
   %or.cond = icmp ugt i32 %1, 199
   %6 = icmp ugt i32 %2, 199
   %or.cond5 = or i1 %or.cond, %6
@@ -663,7 +657,7 @@ define void @stbte_set_tile(ptr noundef captures(none) %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte__choose_category(ptr noundef captures(none) initializes((800036, 800040)) %0, i32 noundef %1) local_unnamed_addr #8 {
+define void @stbte__choose_category(ptr noundef captures(none) initializes((800036, 800040)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 800036
   store i32 %1, ptr %3, align 4, !tbaa !38
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 800864
@@ -702,7 +696,7 @@ define void @stbte__choose_category(ptr noundef captures(none) initializes((8000
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @stbte__strequal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @stbte__strequal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   br label %3
 
 3:                                                ; preds = %5, %2
@@ -731,7 +725,7 @@ define range(i32 0, 2) i32 @stbte__strequal(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__compute_tileinfo(ptr noundef captures(none) initializes((800848, 800852)) %0) local_unnamed_addr #13 {
+define void @stbte__compute_tileinfo(ptr noundef captures(none) initializes((800848, 800852)) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 800848
   store i32 0, ptr %2, align 8, !tbaa !74
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 800864
@@ -860,7 +854,7 @@ stbte__choose_category.exit:                      ; preds = %42, %37
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__prepare_tileinfo(ptr noundef captures(none) %0) local_unnamed_addr #13 {
+define void @stbte__prepare_tileinfo(ptr noundef captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 800888
   %3 = load i32, ptr %2, align 8, !tbaa !54
   %.not = icmp eq i32 %3, 0
@@ -997,7 +991,7 @@ stbte__compute_tileinfo.exit:                     ; preds = %45, %40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte__write_undo(ptr noundef captures(none) initializes((800876, 800877)) %0, i16 noundef signext %1) local_unnamed_addr #14 {
+define void @stbte__write_undo(ptr noundef captures(none) initializes((800876, 800877)) %0, i16 noundef signext %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 801044
   %4 = load i32, ptr %3, align 4, !tbaa !43
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 805160
@@ -1026,7 +1020,7 @@ define void @stbte__write_undo(ptr noundef captures(none) initializes((800876, 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte__write_redo(ptr noundef captures(none) initializes((800876, 800877)) %0, i16 noundef signext %1) local_unnamed_addr #14 {
+define void @stbte__write_redo(ptr noundef captures(none) initializes((800876, 800877)) %0, i16 noundef signext %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 801044
   %4 = load i32, ptr %3, align 4, !tbaa !43
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 805160
@@ -1055,7 +1049,7 @@ define void @stbte__write_redo(ptr noundef captures(none) initializes((800876, 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte__begin_undo(ptr noundef captures(none) initializes((800876, 800877), (801052, 801056)) %0) local_unnamed_addr #14 {
+define void @stbte__begin_undo(ptr noundef captures(none) initializes((800876, 800877), (801052, 801056)) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 801052
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 801044
   %4 = load i32, ptr %3, align 4, !tbaa !43
@@ -1082,7 +1076,7 @@ define void @stbte__begin_undo(ptr noundef captures(none) initializes((800876, 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__end_undo(ptr noundef captures(none) %0) local_unnamed_addr #7 {
+define void @stbte__end_undo(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5292), align 4, !tbaa !78
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %22, label %3
@@ -1121,7 +1115,7 @@ define void @stbte__end_undo(ptr noundef captures(none) %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__undo_record(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
+define void @stbte__undo_record(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #6 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5292), align 4, !tbaa !78
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %57, label %7
@@ -1195,7 +1189,7 @@ define void @stbte__undo_record(ptr noundef captures(none) %0, i32 noundef %1, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte__redo_record(ptr noundef captures(none) initializes((800876, 800877)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #14 {
+define void @stbte__redo_record(ptr noundef captures(none) initializes((800876, 800877)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #13 {
   %6 = trunc i32 %4 to i16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 801044
   %8 = load i32, ptr %7, align 4, !tbaa !43
@@ -1261,7 +1255,7 @@ define void @stbte__redo_record(ptr noundef captures(none) initializes((800876, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define float @stbte__extract_float(i16 noundef signext %0, i16 noundef signext %1) local_unnamed_addr #11 {
+define float @stbte__extract_float(i16 noundef signext %0, i16 noundef signext %1) local_unnamed_addr #10 {
   %.sroa.0.0.insert.ext = zext i16 %0 to i32
   %.sroa.0.2.insert.ext = zext i16 %1 to i32
   %.sroa.0.2.insert.shift = shl nuw i32 %.sroa.0.2.insert.ext, 16
@@ -1271,19 +1265,19 @@ define float @stbte__extract_float(i16 noundef signext %0, i16 noundef signext %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i16 @stbte__extract_short(float noundef %0, i32 noundef %1) local_unnamed_addr #11 {
+define signext i16 @stbte__extract_short(float noundef %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = alloca %union.anon.0, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store float %0, ptr %3, align 4, !tbaa !47
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds [2 x i16], ptr %3, i64 0, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !47
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i16 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__undo_record_prop(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i16 noundef signext %4, i16 noundef signext %5) local_unnamed_addr #7 {
+define void @stbte__undo_record_prop(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i16 noundef signext %4, i16 noundef signext %5) local_unnamed_addr #6 {
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5292), align 4, !tbaa !78
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %67, label %8
@@ -1368,7 +1362,7 @@ define void @stbte__undo_record_prop(ptr noundef captures(none) %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__undo_record_prop_float(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #7 {
+define void @stbte__undo_record_prop_float(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #6 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5292), align 4, !tbaa !78
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %stbte__undo_record_prop.exit, label %7
@@ -1457,7 +1451,7 @@ stbte__undo_record_prop.exit:                     ; preds = %5, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte__redo_record_prop(ptr noundef captures(none) initializes((800876, 800877)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i16 noundef signext %4, i16 noundef signext %5) local_unnamed_addr #14 {
+define void @stbte__redo_record_prop(ptr noundef captures(none) initializes((800876, 800877)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i16 noundef signext %4, i16 noundef signext %5) local_unnamed_addr #13 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 801044
   %8 = load i32, ptr %7, align 4, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 805160
@@ -1534,7 +1528,7 @@ define void @stbte__redo_record_prop(ptr noundef captures(none) initializes((800
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 8388608) i32 @stbte__undo_find_end(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
+define range(i32 -1, 8388608) i32 @stbte__undo_find_end(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 801048
   %3 = load i32, ptr %2, align 8, !tbaa !41
   %4 = icmp sgt i32 %3, 0
@@ -1573,7 +1567,7 @@ define range(i32 -1, 8388608) i32 @stbte__undo_find_end(ptr noundef readonly cap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__undo(ptr noundef captures(none) %0) local_unnamed_addr #13 {
+define void @stbte__undo(ptr noundef captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 801048
   %3 = load i32, ptr %2, align 8, !tbaa !41
   %4 = icmp sgt i32 %3, 0
@@ -1830,7 +1824,7 @@ stbte__undo_find_end.exit.thread:                 ; preds = %15, %1, %._crit_edg
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 8388608) i32 @stbte__redo_find_end(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
+define range(i32 -1, 8388608) i32 @stbte__redo_find_end(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 801052
   %3 = load i32, ptr %2, align 4, !tbaa !42
   %4 = icmp sgt i32 %3, 0
@@ -1868,7 +1862,7 @@ define range(i32 -1, 8388608) i32 @stbte__redo_find_end(ptr noundef readonly cap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__redo(ptr noundef captures(none) %0) local_unnamed_addr #13 {
+define void @stbte__redo(ptr noundef captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 801052
   %3 = load i32, ptr %2, align 4, !tbaa !42
   %4 = icmp sgt i32 %3, 0
@@ -2124,7 +2118,7 @@ stbte__redo_find_end.exit.thread:                 ; preds = %15, %1, %._crit_edg
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte__recompute_undo_available(ptr noundef captures(none) %0) local_unnamed_addr #8 {
+define void @stbte__recompute_undo_available(ptr noundef captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 801048
   %3 = load i32, ptr %2, align 8, !tbaa !41
   %4 = icmp sgt i32 %3, 0
@@ -2200,7 +2194,7 @@ stbte__redo_find_end.exit:                        ; preds = %27, %32, %stbte__un
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 256) i32 @stbte__undo_available(ptr noundef captures(none) %0) local_unnamed_addr #8 {
+define range(i32 0, 256) i32 @stbte__undo_available(ptr noundef captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 800876
   %3 = load i8, ptr %2, align 4, !tbaa !45
   %.not = icmp eq i8 %3, 0
@@ -2292,7 +2286,7 @@ stbte__recompute_undo_available.exit:             ; preds = %30, %35, %stbte__un
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 256) i32 @stbte__redo_available(ptr noundef captures(none) %0) local_unnamed_addr #8 {
+define range(i32 0, 256) i32 @stbte__redo_available(ptr noundef captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 800876
   %3 = load i8, ptr %2, align 4, !tbaa !45
   %.not = icmp eq i8 %3, 0
@@ -2384,15 +2378,15 @@ stbte__recompute_undo_available.exit:             ; preds = %30, %35, %stbte__un
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__draw_rect(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #15 {
+define void @stbte__draw_rect(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #14 {
   tail call void @STBTE_DRAW_RECT(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #26
   ret void
 }
 
-declare void @STBTE_DRAW_RECT(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #16
+declare void @STBTE_DRAW_RECT(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__draw_frame(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #15 {
+define void @stbte__draw_frame(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #14 {
   %6 = add nsw i32 %2, -1
   %7 = add nsw i32 %1, 1
   tail call void @STBTE_DRAW_RECT(i32 noundef %0, i32 noundef %1, i32 noundef %6, i32 noundef %7, i32 noundef %4) #26
@@ -2405,7 +2399,7 @@ define void @stbte__draw_frame(i32 noundef %0, i32 noundef %1, i32 noundef %2, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define range(i32 -32768, 32768) i32 @stbte__get_char_width(i32 noundef %0) local_unnamed_addr #17 {
+define range(i32 -32768, 32768) i32 @stbte__get_char_width(i32 noundef %0) local_unnamed_addr #16 {
   %2 = add nsw i32 %0, -16
   %3 = sext i32 %2 to i64
   %4 = getelementptr inbounds [769 x i16], ptr @stbte__fontdata, i64 0, i64 %3
@@ -2415,7 +2409,7 @@ define range(i32 -32768, 32768) i32 @stbte__get_char_width(i32 noundef %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define nonnull ptr @stbte__get_char_bitmap(i32 noundef %0) local_unnamed_addr #17 {
+define nonnull ptr @stbte__get_char_bitmap(i32 noundef %0) local_unnamed_addr #16 {
   %2 = add nsw i32 %0, -16
   %3 = sext i32 %2 to i64
   %4 = getelementptr inbounds [111 x i16], ptr @stbte__font_offset, i64 0, i64 %3
@@ -2426,7 +2420,7 @@ define nonnull ptr @stbte__get_char_bitmap(i32 noundef %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__draw_bitmask_as_columns(i32 noundef %0, i32 noundef %1, i16 noundef signext %2, i32 noundef %3) local_unnamed_addr #15 {
+define void @stbte__draw_bitmask_as_columns(i32 noundef %0, i32 noundef %1, i16 noundef signext %2, i32 noundef %3) local_unnamed_addr #14 {
   %.not20 = icmp eq i16 %2, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
@@ -2474,7 +2468,7 @@ define void @stbte__draw_bitmask_as_columns(i32 noundef %0, i32 noundef %1, i16 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__draw_bitmap(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #15 {
+define void @stbte__draw_bitmap(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #14 {
   %invariant.op = add i32 %0, 1
   %6 = icmp sgt i32 %2, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -2537,7 +2531,7 @@ stbte__draw_bitmask_as_columns.exit:              ; preds = %24, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__draw_text_core(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #15 {
+define void @stbte__draw_text_core(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #14 {
   %7 = add nsw i32 %3, %0
   %8 = load i8, ptr %2, align 1, !tbaa !47
   %.not25 = icmp eq i8 %8, 0
@@ -2642,7 +2636,7 @@ stbte__draw_bitmap.exit:                          ; preds = %stbte__draw_bitmask
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__draw_text(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #15 {
+define void @stbte__draw_text(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #14 {
   %6 = add nsw i32 %3, %0
   %7 = load i8, ptr %2, align 1, !tbaa !47
   %.not25.i = icmp eq i8 %7, 0
@@ -2738,7 +2732,7 @@ stbte__draw_text_core.exit:                       ; preds = %.lr.ph.i, %stbte__d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define void @stbte__draw_frame_delayed(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #18 {
+define void @stbte__draw_frame_delayed(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #17 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5184), align 8, !tbaa !88
   %7 = icmp slt i32 %6, 256
   br i1 %7, label %8, label %12
@@ -2764,10 +2758,10 @@ define void @stbte__draw_frame_delayed(i32 noundef %0, i32 noundef %1, i32 nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #19
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #18
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__flush_delay() local_unnamed_addr #15 {
+define void @stbte__flush_delay() local_unnamed_addr #14 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5184), align 8, !tbaa !88
   %2 = icmp sgt i32 %1, 0
   br i1 %2, label %.lr.ph, label %._crit_edge
@@ -2804,7 +2798,7 @@ define void @stbte__flush_delay() local_unnamed_addr #15 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define void @stbte__activate(i32 noundef %0) local_unnamed_addr #18 {
+define void @stbte__activate(i32 noundef %0) local_unnamed_addr #17 {
   store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 8), align 8, !tbaa !96
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 20), align 4, !tbaa !97
   store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 4), align 4, !tbaa !98
@@ -2814,7 +2808,7 @@ define void @stbte__activate(i32 noundef %0) local_unnamed_addr #18 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbte__hittest(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @stbte__hittest(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #17 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 24), align 8, !tbaa !101
   %.not = icmp slt i32 %6, %0
   br i1 %.not, label %.thread, label %7
@@ -2842,7 +2836,7 @@ define range(i32 0, 2) i32 @stbte__hittest(i32 noundef %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define range(i32 -1, 2) i32 @stbte__button_core(i32 noundef %0) local_unnamed_addr #18 {
+define range(i32 -1, 2) i32 @stbte__button_core(i32 noundef %0) local_unnamed_addr #17 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 20), align 4, !tbaa !97
   switch i32 %2, label %23 [
     i32 4, label %3
@@ -2898,7 +2892,7 @@ define range(i32 -1, 2) i32 @stbte__button_core(i32 noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__draw_box(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #15 {
+define void @stbte__draw_box(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #14 {
   %7 = sext i32 %4 to i64
   %8 = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 %7
   %9 = sext i32 %5 to i64
@@ -2920,7 +2914,7 @@ define void @stbte__draw_box(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__draw_textbox(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #15 {
+define void @stbte__draw_textbox(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #14 {
   %10 = sext i32 %7 to i64
   %11 = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 %10
   %12 = sext i32 %8 to i64
@@ -3040,7 +3034,7 @@ stbte__draw_text.exit:                            ; preds = %.lr.ph.i.i, %stbte_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbte__button(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #15 {
+define range(i32 0, 2) i32 @stbte__button(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #14 {
   %10 = add nsw i32 %5, %2
   %11 = add nsw i32 %3, 13
   %.not = icmp eq i32 %8, 0
@@ -3158,7 +3152,7 @@ stbte__button_core.exit:                          ; preds = %.sink.split.i, %56,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbte__button_icon(i32 noundef %0, i8 noundef signext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #15 {
+define range(i32 0, 2) i32 @stbte__button_icon(i32 noundef %0, i8 noundef signext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #14 {
   %9 = alloca [2 x i8], align 1
   %10 = add nsw i32 %4, %2
   %11 = add nsw i32 %3, 13
@@ -3192,7 +3186,7 @@ stbte__hittest.exit:                              ; preds = %stbte__hittest.exit
   br i1 %20, label %21, label %45
 
 21:                                               ; preds = %stbte__hittest.exit
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 %1, ptr %9, align 1, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 0, ptr %22, align 1, !tbaa !47
@@ -3219,7 +3213,7 @@ stbte__hittest.exit:                              ; preds = %stbte__hittest.exit
   %43 = load i8, ptr %42, align 1, !tbaa !47
   %44 = zext i8 %43 to i32
   call void @stbte__draw_textbox(i32 noundef %2, i32 noundef %3, i32 noundef %10, i32 noundef %11, ptr noundef nonnull %9, i32 noundef %30, i32 noundef 2, i32 noundef %0, i32 noundef %44)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %45
 
 45:                                               ; preds = %stbte__hittest.exit.thread, %21, %stbte__hittest.exit
@@ -3282,7 +3276,7 @@ stbte__button_core.exit:                          ; preds = %.sink.split.i, %63,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @stbte__minibutton(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #15 {
+define range(i32 -1, 2) i32 @stbte__minibutton(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #14 {
   %6 = alloca [2 x i8], align 1
   %7 = add nsw i32 %1, 8
   %8 = add nsw i32 %2, 7
@@ -3316,7 +3310,7 @@ stbte__hittest.exit:                              ; preds = %stbte__hittest.exit
   br i1 %17, label %18, label %thread-pre-split
 
 18:                                               ; preds = %stbte__hittest.exit
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = trunc i32 %3 to i8
   store i8 %19, ptr %6, align 1, !tbaa !47
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -3332,7 +3326,7 @@ stbte__hittest.exit:                              ; preds = %stbte__hittest.exit
   %29 = load i8, ptr %28, align 1, !tbaa !47
   %30 = zext i8 %29 to i32
   call void @stbte__draw_textbox(i32 noundef %1, i32 noundef %2, i32 noundef %7, i32 noundef %8, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 0, i32 noundef %0, i32 noundef %30)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pr19.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 20), align 4, !tbaa !97
   br label %thread-pre-split
 
@@ -3392,7 +3386,7 @@ stbte__button_core.exit:                          ; preds = %thread-pre-split, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @stbte__layerbutton(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #15 {
+define range(i32 -1, 2) i32 @stbte__layerbutton(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #14 {
   %8 = alloca [2 x i8], align 1
   %9 = add nsw i32 %0, 10
   %10 = add nsw i32 %1, 11
@@ -3430,7 +3424,7 @@ stbte__hittest.exit:                              ; preds = %stbte__hittest.exit
   br i1 %20, label %21, label %46
 
 21:                                               ; preds = %stbte__hittest.exit
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %22 = trunc i32 %2 to i8
   store i8 %22, ptr %8, align 1, !tbaa !47
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -3458,7 +3452,7 @@ stbte__hittest.exit:                              ; preds = %stbte__hittest.exit
   %44 = load i8, ptr %43, align 1, !tbaa !47
   %45 = zext i8 %44 to i32
   call void @stbte__draw_textbox(i32 noundef %0, i32 noundef %1, i32 noundef %9, i32 noundef %10, ptr noundef nonnull %8, i32 noundef %31, i32 noundef 2, i32 noundef %6, i32 noundef %45)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %46
 
 46:                                               ; preds = %21, %stbte__hittest.exit
@@ -3524,7 +3518,7 @@ stbte__button_core.exit:                          ; preds = %.sink.split.i, %64,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @stbte__microbutton(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #15 {
+define range(i32 -1, 2) i32 @stbte__microbutton(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #14 {
   %6 = add nsw i32 %2, %0
   %7 = add nsw i32 %2, %1
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 24), align 8, !tbaa !101
@@ -3642,7 +3636,7 @@ stbte__button_core.exit:                          ; preds = %thread-pre-split, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @stbte__microbutton_dragger(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #15 {
+define range(i32 -1, 1) i32 @stbte__microbutton_dragger(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #14 {
   %6 = add nsw i32 %2, %0
   %7 = add nsw i32 %2, %1
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 24), align 8, !tbaa !101
@@ -3781,7 +3775,7 @@ stbte__button_core.exit:                          ; preds = %stbte__hittest.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbte__category_button(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #15 {
+define range(i32 0, 2) i32 @stbte__category_button(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #14 {
   %7 = add nsw i32 %3, %1
   %8 = add nsw i32 %2, 13
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 24), align 8, !tbaa !101
@@ -3886,7 +3880,7 @@ stbte__button_core.exit:                          ; preds = %thread-pre-split, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @stbte__slider(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, i32 noundef %5) local_unnamed_addr #15 {
+define range(i32 0, 4) i32 @stbte__slider(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, i32 noundef %5) local_unnamed_addr #14 {
   %7 = add nsw i32 %1, %0
   %8 = load i32, ptr %4, align 4, !tbaa !69
   %9 = add nsw i32 %3, 1
@@ -3991,7 +3985,7 @@ stbte__hittest.exit._crit_edge:                   ; preds = %stbte__hittest.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @stbte__float_control(i32 noundef %0, i32 noundef %1, i32 noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #15 {
+define range(i32 0, 4) i32 @stbte__float_control(i32 noundef %0, i32 noundef %1, i32 noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #14 {
   %11 = alloca [32 x i8], align 16
   %12 = add nsw i32 %2, %0
   %13 = add nsw i32 %1, 11
@@ -4031,7 +4025,7 @@ stbte__hittest.exit:                              ; preds = %stbte__hittest.exit
   ]
 
 23:                                               ; preds = %stbte__hittest.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.not51 = icmp eq ptr %6, null
   %24 = select i1 %.not51, ptr @.str.1, ptr %6
   %25 = load float, ptr %7, align 4, !tbaa !48
@@ -4048,7 +4042,7 @@ stbte__hittest.exit:                              ; preds = %stbte__hittest.exit
   %36 = load i8, ptr %35, align 1, !tbaa !47
   %37 = zext i8 %36 to i32
   call void @stbte__draw_textbox(i32 noundef %0, i32 noundef %1, i32 noundef %12, i32 noundef %13, ptr noundef nonnull %11, i32 noundef 1, i32 noundef 2, i32 noundef %8, i32 noundef %37)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %85
 
 38:                                               ; preds = %stbte__hittest.exit, %stbte__hittest.exit
@@ -4146,13 +4140,13 @@ stbte__hittest.exit:                              ; preds = %stbte__hittest.exit
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #20
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #21
+declare float @llvm.fmuladd.f32(float, float, float) #20
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__scrollbar(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #15 {
+define void @stbte__scrollbar(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #14 {
   %9 = sub nsw i32 %5, %4
   %.not = icmp sgt i32 %9, %6
   br i1 %.not, label %10, label %85
@@ -4308,7 +4302,7 @@ condstore.split:                                  ; preds = %76, %79, %63, %66, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbte__compute_digits(ptr noundef captures(none) initializes((800872, 800876)) %0) local_unnamed_addr #10 {
+define void @stbte__compute_digits(ptr noundef captures(none) initializes((800872, 800876)) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 800000
   %3 = load i32, ptr %2, align 8, !tbaa !29
   %4 = icmp sgt i32 %3, 999
@@ -4345,7 +4339,7 @@ define void @stbte__compute_digits(ptr noundef captures(none) initializes((80087
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbte__is_single_selection() local_unnamed_addr #17 {
+define range(i32 0, 2) i32 @stbte__is_single_selection() local_unnamed_addr #16 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5296), align 8, !tbaa !108
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %11, label %2
@@ -4369,7 +4363,7 @@ define range(i32 0, 2) i32 @stbte__is_single_selection() local_unnamed_addr #17 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__compute_panel_locations(ptr noundef captures(none) %0) local_unnamed_addr #13 {
+define void @stbte__compute_panel_locations(ptr noundef captures(none) %0) local_unnamed_addr #12 {
   %2 = alloca [7 x i32], align 16
   %3 = alloca [7 x i32], align 16
   %4 = alloca [7 x i32], align 16
@@ -4378,13 +4372,13 @@ define void @stbte__compute_panel_locations(ptr noundef captures(none) %0) local
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5324), align 4, !tbaa !56
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5336), align 8, !tbaa !59
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5328), align 8, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %2) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %2, i8 0, i64 28, i1 false)
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %3, i8 0, i64 28, i1 false)
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %4, ptr noundef nonnull align 16 dereferenceable(28) @__const.stbte__compute_panel_locations.panel_active, i64 28, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   br label %10
 
@@ -4688,18 +4682,18 @@ stbte__compute_digits.exit:                       ; preds = %24, %30, %31
   br i1 %exitcond135.not, label %183, label %151, !llvm.loop !129
 
 183:                                              ; preds = %182
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %3) #26
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define void @stbte__activate_map(i32 noundef %0, i32 noundef %1) local_unnamed_addr #18 {
+define void @stbte__activate_map(i32 noundef %0, i32 noundef %1) local_unnamed_addr #17 {
   %3 = shl i32 %0, 19
   %4 = shl i32 %1, 7
   %5 = add i32 %4, %3
@@ -4713,14 +4707,14 @@ define void @stbte__activate_map(i32 noundef %0, i32 noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @stbte__alert(ptr noundef %0) local_unnamed_addr #6 {
+define void @stbte__alert(ptr noundef %0) local_unnamed_addr #5 {
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5352), align 8, !tbaa !79
   store float 3.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5348), align 4, !tbaa !131
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte__brush_predict(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #8 {
+define void @stbte__brush_predict(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 800040
   %4 = load i32, ptr %3, align 8, !tbaa !39
   %5 = icmp slt i32 %4, 0
@@ -4817,7 +4811,7 @@ define void @stbte__brush_predict(ptr noundef readonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__brush(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
+define void @stbte__brush(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 800040
   %5 = load i32, ptr %4, align 8, !tbaa !39
   %6 = icmp slt i32 %5, 0
@@ -4987,7 +4981,7 @@ stbte__undo_record.exit:                          ; preds = %53, %57
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 3) i32 @stbte__erase_predict(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #8 {
+define range(i32 -1, 3) i32 @stbte__erase_predict(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 800040
   %5 = load i32, ptr %4, align 8, !tbaa !39
   %6 = icmp sgt i32 %5, -1
@@ -5247,7 +5241,7 @@ define range(i32 -1, 3) i32 @stbte__erase_predict(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 3) i32 @stbte__erase(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #13 {
+define range(i32 -1, 3) i32 @stbte__erase(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #12 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 800040
   %6 = load i32, ptr %5, align 8, !tbaa !39
   %7 = icmp sgt i32 %6, -1
@@ -5758,7 +5752,7 @@ stbte__undo_record.exit167:                       ; preds = %.split136, %279, %.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define range(i32 -2147483648, 2147483647) i32 @stbte__find_tile(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #23 {
+define range(i32 -2147483648, 2147483647) i32 @stbte__find_tile(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #22 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 800864
   %4 = load i32, ptr %3, align 8, !tbaa !53
   %5 = icmp sgt i32 %4, 0
@@ -5798,7 +5792,7 @@ define range(i32 -2147483648, 2147483647) i32 @stbte__find_tile(ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__eyedrop(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
+define void @stbte__eyedrop(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5200), align 8, !tbaa !143
   %.not = icmp eq i32 %4, %1
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5204), align 4
@@ -5952,7 +5946,7 @@ define void @stbte__eyedrop(ptr noundef captures(none) %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @stbte__should_copy_properties(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @stbte__should_copy_properties(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 801036
   %3 = load i32, ptr %2, align 4, !tbaa !147
   switch i32 %3, label %5 [
@@ -6011,7 +6005,7 @@ define range(i32 0, 2) i32 @stbte__should_copy_properties(ptr noundef readonly c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbte__paste_stack(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #4 {
+define void @stbte__paste_stack(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 800044
   %7 = load i32, ptr %6, align 4, !tbaa !132
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 801040
@@ -6189,7 +6183,7 @@ define void @stbte__paste_stack(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbte__clear_stack(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
+define void @stbte__clear_stack(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 800044
   %4 = load i32, ptr %3, align 4, !tbaa !132
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 801040
@@ -6265,7 +6259,7 @@ define void @stbte__clear_stack(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__fillrect(ptr noundef initializes((800876, 800877), (801052, 801056)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #13 {
+define void @stbte__fillrect(ptr noundef initializes((800876, 800877), (801052, 801056)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #12 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 801052
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 801044
   %9 = load i32, ptr %8, align 4, !tbaa !43
@@ -6521,7 +6515,7 @@ stbte__end_undo.exit:                             ; preds = %.split51.us, %134
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @stbte__select_rect(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #6 {
+define void @stbte__select_rect(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5296), align 8, !tbaa !108
   %6 = tail call i32 @llvm.smin.i32(i32 %1, i32 %3)
   store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5300), align 4, !tbaa !109
@@ -6535,7 +6529,7 @@ define void @stbte__select_rect(ptr noundef readnone captures(none) %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbte__copy_properties(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
+define void @stbte__copy_properties(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
 .critedge:
   %2 = load float, ptr %1, align 4, !tbaa !48
   store float %2, ptr %0, align 4, !tbaa !48
@@ -6543,7 +6537,7 @@ define void @stbte__copy_properties(ptr noundef writeonly captures(none) initial
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__copy_cut(ptr noundef %0, i32 noundef %1) local_unnamed_addr #13 {
+define void @stbte__copy_cut(ptr noundef %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 801036
   %4 = load i32, ptr %3, align 4, !tbaa !147
   switch i32 %4, label %6 [
@@ -6991,7 +6985,7 @@ stbte__end_undo.exit:                             ; preds = %203, %._crit_edge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 2) i32 @stbte__in_rect(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @stbte__in_rect(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #10 {
   %.not = icmp sge i32 %0, %2
   %7 = add nsw i32 %4, %2
   %8 = icmp slt i32 %0, %7
@@ -7006,7 +7000,7 @@ define range(i32 0, 2) i32 @stbte__in_rect(i32 noundef %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__paste(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
+define void @stbte__paste(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = alloca [8 x i16], align 16
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 1316328), align 8, !tbaa !164
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 1316332), align 4, !tbaa !165
@@ -7168,7 +7162,7 @@ stbte__should_copy_properties.exit:               ; preds = %26, %.lr.ph.i, %30,
   br i1 %96, label %97, label %170
 
 97:                                               ; preds = %93
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %98 = load i32, ptr %59, align 8, !tbaa !28
   %99 = icmp sgt i32 %98, 0
   br i1 %99, label %._crit_edge.us, label %._crit_edge.us.thread
@@ -7314,7 +7308,7 @@ stbte__paste_stack.exit.us:                       ; preds = %132, %167, %165, %1
 ._crit_edge108.us:                                ; preds = %258, %._crit_edge.us.thread, %stbte__paste_stack.exit.us
   %168 = phi i32 [ %80, %stbte__paste_stack.exit.us ], [ %80, %._crit_edge.us.thread ], [ %259, %258 ]
   %169 = phi i32 [ %81, %stbte__paste_stack.exit.us ], [ %81, %._crit_edge.us.thread ], [ %260, %258 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %170
 
 170:                                              ; preds = %._crit_edge108.us, %93, %90, %86, %79
@@ -7497,11 +7491,11 @@ stbte__end_undo.exit:                             ; preds = %._crit_edge115, %27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__drag_update(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #13 {
+define void @stbte__drag_update(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #12 {
   %5 = alloca [8 x i16], align 16
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5268), align 4, !tbaa !174
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5272), align 8, !tbaa !175
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 44), align 4, !tbaa !106
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %stbte__clear_stack.exit
@@ -7901,12 +7895,12 @@ stbte__undo_record.exit:                          ; preds = %.lr.ph128.split
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph128.split, !llvm.loop !181
 
 .loopexit:                                        ; preds = %248, %201, %.preheader, %.critedge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__drag_place(ptr noundef captures(none) %0, i32 %1, i32 %2) local_unnamed_addr #13 {
+define void @stbte__drag_place(ptr noundef captures(none) %0, i32 %1, i32 %2) local_unnamed_addr #12 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 801036
   %5 = load i32, ptr %4, align 4, !tbaa !147
   switch i32 %5, label %7 [
@@ -8120,7 +8114,7 @@ stbte__end_undo.exit:                             ; preds = %.loopexit34, %87
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__tile_paint(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #15 {
+define void @stbte__tile_paint(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #14 {
   %7 = alloca [8 x i16], align 16
   %8 = shl i32 %3, 19
   %9 = shl i32 %4, 7
@@ -8157,7 +8151,7 @@ stbte__hittest.exit:                              ; preds = %6, %13, %25
   %27 = getelementptr [200 x [200 x [8 x i16]]], ptr %0, i64 0, i64 %26
   %28 = sext i32 %3 to i64
   %29 = getelementptr [200 x [8 x i16]], ptr %27, i64 0, i64 %28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 12), align 4, !tbaa !104
   %31 = and i32 %30, 127
   %32 = icmp eq i32 %31, 1
@@ -8678,14 +8672,14 @@ stbte__brush_predict.exit._crit_edge:             ; preds = %stbte__brush_predic
   br label %302
 
 302:                                              ; preds = %stbte__brush_predict.exit._crit_edge, %298, %290
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
-declare void @STBTE_DRAW_TILE(i32 noundef, i32 noundef, i16 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #16
+declare void @STBTE_DRAW_TILE(i32 noundef, i32 noundef, i16 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__tile(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #15 {
+define void @stbte__tile(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #14 {
   %6 = load i32, ptr @stbte__ui, align 8, !tbaa !190
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 800012
   %8 = load i32, ptr %7, align 4, !tbaa !31
@@ -9326,7 +9320,7 @@ stbte__hittest.exit:                              ; preds = %stbte__hittest.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define void @stbte__start_paste(ptr noundef readnone captures(none) %0) local_unnamed_addr #18 {
+define void @stbte__start_paste(ptr noundef readnone captures(none) %0) local_unnamed_addr #17 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 1316336), align 8, !tbaa !166
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
@@ -9345,7 +9339,7 @@ define void @stbte__start_paste(ptr noundef readnone captures(none) %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__toolbar(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4) local_unnamed_addr #15 {
+define void @stbte__toolbar(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4) local_unnamed_addr #14 {
   %6 = sdiv i32 %3, 2
   %7 = add i32 %1, -126
   %8 = add i32 %7, %6
@@ -9679,7 +9673,7 @@ stbte__start_paste.exit:                          ; preds = %135, %128
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbte__info_value(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #15 {
+define i32 @stbte__info_value(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #14 {
   %7 = alloca [16 x i8], align 16
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 20), align 4, !tbaa !97
   %9 = icmp eq i32 %8, 0
@@ -9692,7 +9686,7 @@ define i32 @stbte__info_value(ptr noundef readonly captures(none) %0, i32 nounde
   %14 = getelementptr inbounds [769 x i16], ptr @stbte__fontdata, i64 0, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !21
   %16 = sext i16 %15 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0, i32 noundef %4, i32 noundef %3) #26
   %reass.sub = sub i32 %1, %16
   %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__color_table, i64 308), align 4, !tbaa !69
@@ -9795,7 +9789,7 @@ stbte__draw_bitmap.exit.i:                        ; preds = %stbte__draw_bitmask
   br i1 %.not.i, label %stbte__draw_text_core.exit, label %.lr.ph.i
 
 stbte__draw_text_core.exit:                       ; preds = %.lr.ph.i, %stbte__draw_bitmap.exit.i, %10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %62
 
 62:                                               ; preds = %stbte__draw_text_core.exit, %6
@@ -9836,7 +9830,7 @@ stbte__draw_text_core.exit:                       ; preds = %.lr.ph.i, %stbte__d
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__info(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 %3, i32 %4) local_unnamed_addr #15 {
+define void @stbte__info(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 %3, i32 %4) local_unnamed_addr #14 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5432), align 8, !tbaa !128
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 800872
   %8 = load i32, ptr %7, align 8, !tbaa !107
@@ -9988,7 +9982,7 @@ stbte__draw_text.exit:                            ; preds = %.lr.ph.i.i, %stbte_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__layers(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #15 {
+define void @stbte__layers(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #14 {
   %6 = alloca [3 x i8], align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 801024
   %8 = load i32, ptr %7, align 8, !tbaa !66
@@ -10135,7 +10129,7 @@ stbte__draw_text.exit:                            ; preds = %.lr.ph.i.i, %stbte_
   %81 = phi i32 [ %70, %.lr.ph ], [ %152, %151 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %151 ]
   %.0103145 = phi i32 [ %65, %.lr.ph ], [ %.1, %151 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %82 = getelementptr inbounds nuw [8 x %struct.stbte__layer], ptr %72, i64 0, i64 %indvars.iv
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i32, ptr %83, align 8, !tbaa !134
@@ -10246,7 +10240,7 @@ stbte__draw_text.exit:                            ; preds = %.lr.ph.i.i, %stbte_
 151:                                              ; preds = %149, %80
   %152 = phi i32 [ %.pre, %149 ], [ %81, %80 ]
   %.1 = phi i32 [ %150, %149 ], [ %.0103145, %80 ]
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %153 = sext i32 %152 to i64
   %154 = icmp slt i64 %indvars.iv.next, %153
@@ -10398,7 +10392,7 @@ stbte__draw_text.exit140:                         ; preds = %.lr.ph.i.i117, %stb
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__categories(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #15 {
+define void @stbte__categories(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #14 {
   %6 = sdiv i32 %4, 11
   %7 = add nsw i32 %3, -4
   %8 = add nsw i32 %1, 2
@@ -10536,7 +10530,7 @@ stbte__choose_category.exit55:                    ; preds = %61, %57
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__tile_in_palette(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #15 {
+define void @stbte__tile_in_palette(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #14 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 800020
   %6 = load i32, ptr %5, align 4, !tbaa !36
   %7 = add i32 %1, -1
@@ -10676,7 +10670,7 @@ stbte__draw_frame_delayed.exit:                   ; preds = %43, %45, %50, %55, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__palette_of_tiles(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #15 {
+define void @stbte__palette_of_tiles(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #14 {
   %6 = add nsw i32 %4, -6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 800024
   %8 = load i32, ptr %7, align 8, !tbaa !37
@@ -10783,13 +10777,13 @@ define void @stbte__palette_of_tiles(ptr noundef captures(none) %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @stbte__props_panel(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #11 {
+define void @stbte__props_panel(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #10 {
 .critedge:
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__editor_traverse(ptr noundef %0) local_unnamed_addr #15 {
+define void @stbte__editor_traverse(ptr noundef %0) local_unnamed_addr #14 {
   %2 = alloca i32, align 4
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
@@ -11515,7 +11509,7 @@ stbte__hittest.exit:                              ; preds = %310, %323, %329
 402:                                              ; preds = %397
   %403 = getelementptr inbounds nuw i8, ptr %399, i64 8
   %404 = load i32, ptr %403, align 8, !tbaa !126
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br i1 %398, label %405, label %409
 
 405:                                              ; preds = %402
@@ -11590,7 +11584,7 @@ stbte__hittest.exit:                              ; preds = %310, %323, %329
   br label %440
 
 440:                                              ; preds = %430, %439, %435, %427
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %441
 
 441:                                              ; preds = %397, %440
@@ -11796,7 +11790,7 @@ stbte__draw_text.exit:                            ; preds = %stbte__draw_text.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__do_event(ptr noundef %0) local_unnamed_addr #15 {
+define void @stbte__do_event(ptr noundef %0) local_unnamed_addr #14 {
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 16), align 8, !tbaa !103
   tail call void @stbte__editor_traverse(ptr noundef %0)
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 16), align 8, !tbaa !103
@@ -11907,7 +11901,7 @@ thread-pre-split:                                 ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define void @stbte__set_event(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #18 {
+define void @stbte__set_event(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #17 {
   store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 20), align 4, !tbaa !97
   store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 24), align 8, !tbaa !101
   store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 28), align 4, !tbaa !102
@@ -11929,14 +11923,14 @@ define void @stbte__set_event(i32 noundef %0, i32 noundef %1, i32 noundef %2) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte_draw(ptr noundef %0) local_unnamed_addr #15 {
+define void @stbte_draw(ptr noundef %0) local_unnamed_addr #14 {
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 20), align 4, !tbaa !97
   tail call void @stbte__editor_traverse(ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte_mouse_move(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #15 {
+define void @stbte_mouse_move(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #14 {
   store i32 2, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 20), align 4, !tbaa !97
   store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 24), align 8, !tbaa !101
   store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 28), align 4, !tbaa !102
@@ -11961,7 +11955,7 @@ define void @stbte_mouse_move(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte_mouse_button(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #15 {
+define void @stbte_mouse_button(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #14 {
   %8 = sext i32 %3 to i64
   %9 = getelementptr inbounds [2 x [2 x i32]], ptr @__const.stbte_mouse_button.events, i64 0, i64 %8
   %10 = sext i32 %4 to i64
@@ -11991,12 +11985,12 @@ define void @stbte_mouse_button(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @stbte_mouse_wheel(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #11 {
+define void @stbte_mouse_wheel(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #10 {
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte_action(ptr noundef %0, i32 noundef %1) local_unnamed_addr #13 {
+define void @stbte_action(ptr noundef %0, i32 noundef %1) local_unnamed_addr #12 {
   switch i32 %1, label %stbte__start_paste.exit [
     i32 0, label %3
     i32 1, label %4
@@ -12125,7 +12119,7 @@ stbte__start_paste.exit:                          ; preds = %22, %20, %42, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte_tick(ptr noundef %0, float noundef %1) local_unnamed_addr #15 {
+define void @stbte_tick(ptr noundef %0, float noundef %1) local_unnamed_addr #14 {
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 20), align 4, !tbaa !97
   store float %1, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5360), align 8, !tbaa !216
   tail call void @stbte__do_event(ptr noundef %0)
@@ -12139,9 +12133,15 @@ define void @stbte_tick(ptr noundef %0, float noundef %1) local_unnamed_addr #15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @stbte_mouse_sdl(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, float noundef %2, float noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #11 {
+define void @stbte_mouse_sdl(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, float noundef %2, float noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #10 {
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #24
@@ -12156,29 +12156,29 @@ declare i32 @llvm.smax.i32(i32, i32) #24
 declare i32 @llvm.umin.i32(i32, i32) #24
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #23 = { nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #22 = { nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #25 = { nounwind allocsize(0) }
 attributes #26 = { nounwind }

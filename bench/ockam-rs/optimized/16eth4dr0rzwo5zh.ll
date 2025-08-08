@@ -569,7 +569,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %16 = alloca { ptr, ptr }, align 8
   %17 = alloca { { { ptr, i64 }, { { ptr, i64 }, { ptr, ptr } }, { ptr, i64 } } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %4, ptr %16, align 8, !noalias !31
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %5, ptr %18, align 8, !noalias !31
@@ -580,7 +580,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !31
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !31
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i64, ptr %24, align 8, !alias.scope !28, !noalias !35, !noundef !11
   invoke void @_ZN5alloc11collections5btree4node10splitpoint17hdc75a66b6ec1183cE(ptr noalias noundef nonnull sret({ i64, { i64, i64 } }) align 8 captures(none) dereferenceable(24) %15, i64 noundef %25)
@@ -619,7 +619,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %42 = load i64, ptr %41, align 8, !range !52, !noalias !31, !noundef !11
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %44 = load i64, ptr %43, align 8, !noalias !31, !noundef !11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !31
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !31
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load i64, ptr %45, align 8, !alias.scope !28, !noalias !35, !noundef !11
   %47 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h9be4c746e584b2f6E.llvm.7516643179012378928"()
@@ -652,7 +652,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %58 = load ptr, ptr %57, align 8, !noalias !60, !nonnull !11, !align !63, !noundef !11
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %60 = load i64, ptr %59, align 8, !noalias !60, !noundef !11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !64
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !64
   %61 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %62 = getelementptr inbounds { ptr, ptr }, ptr %61, i64 %40
   %63 = load ptr, ptr %62, align 8, !noalias !60, !nonnull !11, !noundef !11
@@ -697,7 +697,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %78, ptr nonnull readonly align 8 %77, i64 %76, i1 false), !alias.scope !70, !noalias !62
   %79 = trunc i64 %40 to i16
   store i16 %79, ptr %20, align 2, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !64
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !64
   %trunc.i = trunc nuw i64 %42 to i1
   %.sroa.57.0.i = select i1 %trunc.i, i64 0, i64 %46
   %.sroa.06.0.i = select i1 %trunc.i, ptr %47, ptr %19
@@ -742,7 +742,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store ptr %5, ptr %100, align 8, !alias.scope !47, !noalias !91
   store i16 %98, ptr %20, align 2, !noalias !92
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %334
 
 101:                                              ; preds = %85, %73
@@ -756,7 +756,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store ptr %5, ptr %106, align 8, !alias.scope !85, !noalias !94
   store i16 %104, ptr %80, align 2, !noalias !95
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %107 = getelementptr inbounds nuw i8, ptr %19, i64 352
   %108 = load ptr, ptr %107, align 8, !noalias !96, !noundef !11
   %109 = icmp eq ptr %108, null
@@ -782,7 +782,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %.lcssa193 = phi ptr [ %47, %101 ], [ %221, %.loopexit84 ]
   %.lcssa185 = phi i64 [ %46, %101 ], [ %168, %.loopexit84 ]
   %.lcssa = phi ptr [ %19, %101 ], [ %162, %.loopexit84 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %.lcssa, ptr %17, align 8
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %.lcssa185, ptr %.sroa.44.0..sroa_idx, align 8
@@ -809,7 +809,6 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 125:                                              ; preds = %._crit_edge
   tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %8), !noalias !99
   %126 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %127 = load i64, ptr %126, align 8, !alias.scope !102, !noalias !99, !noundef !11
   %128 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17hfe1fb5318632b4edE.llvm.7516643179012378928"()
@@ -860,8 +859,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store i16 0, ptr %144, align 8, !noalias !113
   store ptr %128, ptr %.val, align 8, !alias.scope !102, !noalias !99
   store i64 %142, ptr %126, align 8, !alias.scope !102, !noalias !99
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %8), !noalias !99
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !99
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !99
   store ptr %119, ptr %13, align 8, !noalias !114
   %145 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %118, ptr %145, align 8, !noalias !114
@@ -921,7 +919,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %.val7.val.i = load i16, ptr %167, align 8, !noalias !96
   %168 = add i64 %164, 1
   %169 = zext i16 %.val7.val.i to i64
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %.sroa.28.1, ptr %12, align 8, !noalias !119
   store ptr %.sroa.30.1, ptr %110, align 8, !noalias !119
   br i1 %166, label %171, label %170
@@ -950,7 +948,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   unreachable
 
 176:                                              ; preds = %171
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !119
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !119
   invoke void @_ZN5alloc11collections5btree4node10splitpoint17hdc75a66b6ec1183cE(ptr noalias noundef nonnull sret({ i64, { i64, i64 } }) align 8 captures(none) dereferenceable(24) %11, i64 noundef %169)
           to label %215 unwind label %.loopexit85, !noalias !125
 
@@ -1029,7 +1027,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %216 = load i64, ptr %11, align 8, !noalias !119, !noundef !11
   %217 = load i64, ptr %111, align 8, !range !52, !noalias !119, !noundef !11
   %218 = load i64, ptr %112, align 8, !noalias !119, !noundef !11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !119
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !119
   %219 = load i16, ptr %172, align 2, !noalias !152, !noundef !11
   %220 = zext i16 %219 to i64
   %221 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17hfe1fb5318632b4edE.llvm.7516643179012378928"()
@@ -1051,7 +1049,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %224, align 8, !noalias !152
   %225 = getelementptr inbounds nuw i8, ptr %221, i64 362
   store i16 0, ptr %225, align 2, !noalias !152
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !156
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !156
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !160)
   %226 = load i16, ptr %172, align 2, !noalias !162, !noundef !11
@@ -1064,7 +1062,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %232 = load ptr, ptr %231, align 8, !noalias !162, !nonnull !11, !align !63, !noundef !11
   %233 = getelementptr inbounds nuw i8, ptr %231, i64 8
   %234 = load i64, ptr %233, align 8, !noalias !162, !noundef !11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !164
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !164
   %235 = getelementptr inbounds nuw i8, ptr %162, i64 176
   %236 = getelementptr inbounds { ptr, ptr }, ptr %235, i64 %216
   %237 = load ptr, ptr %236, align 8, !noalias !162, !nonnull !11, !noundef !11
@@ -1114,7 +1112,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store i64 %234, ptr %114, align 8, !alias.scope !157, !noalias !173
   store ptr %237, ptr %115, align 8, !alias.scope !157, !noalias !173
   store ptr %239, ptr %116, align 8, !alias.scope !157, !noalias !173
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !164
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !164
   %255 = load i16, ptr %225, align 2, !noalias !152, !noundef !11
   %256 = getelementptr inbounds nuw i8, ptr %162, i64 368
   %257 = sub i64 %220, %216
@@ -1178,7 +1176,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br label %317
 
 279:                                              ; preds = %269
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !156
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !156
   %trunc.i37 = trunc nuw i64 %217 to i1
   %spec.select.i = select i1 %trunc.i37, ptr %221, ptr %162
   %280 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 362
@@ -1256,11 +1254,11 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
           to label %.body unwind label %315, !noalias !125
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %203
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %334
 
 .loopexit84:                                      ; preds = %.lr.ph.i.i10.i, %306
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %318 = getelementptr inbounds nuw i8, ptr %162, i64 352
   %319 = load ptr, ptr %318, align 8, !noalias !96, !noundef !11
   %320 = icmp eq ptr %319, null
@@ -1287,8 +1285,8 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %332 = trunc nuw nsw i64 %329 to i16
   %333 = getelementptr inbounds nuw i8, ptr %.lcssa193, i64 360
   store i16 %332, ptr %333, align 8, !noalias !217
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !99
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !99
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %334
 
 334:                                              ; preds = %.loopexit, %321, %95
@@ -1320,7 +1318,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %15 = alloca { ptr, ptr }, align 8
   %16 = alloca { { { ptr, i64 }, { ptr, i64 }, { i32, [1 x i32], { ptr, ptr } } } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %3, ptr %15, align 8, !noalias !223
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %4, ptr %17, align 8, !noalias !223
@@ -1331,7 +1329,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !223
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !223
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load i64, ptr %23, align 8, !alias.scope !220, !noalias !226, !noundef !11
   invoke void @_ZN5alloc11collections5btree4node10splitpoint17hdc75a66b6ec1183cE(ptr noalias noundef nonnull sret({ i64, { i64, i64 } }) align 8 captures(none) dereferenceable(24) %14, i64 noundef %24)
@@ -1376,7 +1374,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %43 = load i64, ptr %42, align 8, !range !52, !noalias !223, !noundef !11
   %44 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %45 = load i64, ptr %44, align 8, !noalias !223, !noundef !11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !223
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !223
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load i64, ptr %46, align 8, !alias.scope !220, !noalias !226, !noundef !11
   %48 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h3e73ea78269a6ef8E.llvm.7516643179012378928"()
@@ -1408,7 +1406,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %58 = getelementptr inbounds nuw i8, ptr %18, i64 184
   %59 = getelementptr inbounds i32, ptr %58, i64 %41
   %60 = load i32, ptr %59, align 4, !noalias !248, !noundef !11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !251
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !251
   %61 = getelementptr inbounds { ptr, ptr }, ptr %18, i64 %41
   %62 = load ptr, ptr %61, align 8, !noalias !248, !nonnull !11, !noundef !11
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -1453,7 +1451,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(232) %48, ptr nonnull readonly align 8 %77, i64 %78, i1 false), !alias.scope !256, !noalias !250
   %79 = trunc i64 %41 to i16
   store i16 %79, ptr %19, align 2, !noalias !248
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !251
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !251
   %trunc.i = trunc nuw i64 %43 to i1
   %.sroa.57.0.i = select i1 %trunc.i, i64 0, i64 %47
   %.sroa.06.0.i = select i1 %trunc.i, ptr %48, ptr %18
@@ -1500,7 +1498,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store ptr %4, ptr %100, align 8, !alias.scope !236, !noalias !239
   store i16 %98, ptr %19, align 2, !noalias !273
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %327
 
 101:                                              ; preds = %87, %86
@@ -1510,7 +1508,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store ptr %4, ptr %104, align 8, !alias.scope !268, !noalias !271
   store i16 %102, ptr %80, align 2, !noalias !274
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %105 = getelementptr inbounds nuw i8, ptr %18, i64 176
   %106 = load ptr, ptr %105, align 8, !noalias !275, !noundef !11
   %107 = icmp eq ptr %106, null
@@ -1536,7 +1534,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %.lcssa184 = phi ptr [ %48, %101 ], [ %215, %.loopexit82 ]
   %.lcssa176 = phi i64 [ %47, %101 ], [ %164, %.loopexit82 ]
   %.lcssa = phi ptr [ %18, %101 ], [ %158, %.loopexit82 ]
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %.lcssa, ptr %16, align 8
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %.lcssa176, ptr %.sroa.44.0..sroa_idx, align 8
@@ -1563,7 +1561,6 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 121:                                              ; preds = %._crit_edge
   tail call void @llvm.experimental.noalias.scope.decl(metadata !281)
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %7), !noalias !278
   %122 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %123 = load i64, ptr %122, align 8, !alias.scope !281, !noalias !278, !noundef !11
   %124 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17hab66fb535276705aE.llvm.7516643179012378928"()
@@ -1614,8 +1611,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store i16 0, ptr %140, align 4, !noalias !292
   store ptr %124, ptr %.val, align 8, !alias.scope !281, !noalias !278
   store i64 %138, ptr %122, align 8, !alias.scope !281, !noalias !278
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %7), !noalias !278
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !278
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !278
   store ptr %116, ptr %12, align 8, !noalias !293
   %141 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %115, ptr %141, align 8, !noalias !293
@@ -1674,7 +1670,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %.val7.val.i = load i16, ptr %163, align 4, !noalias !275
   %164 = add i64 %160, 1
   %165 = zext i16 %.val7.val.i to i64
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %.sroa.46320.1, ptr %11, align 8, !noalias !296
   store ptr %.sroa.48.1, ptr %108, align 8, !noalias !296
   br i1 %162, label %167, label %166
@@ -1703,7 +1699,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   unreachable
 
 172:                                              ; preds = %167
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !296
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !296
   invoke void @_ZN5alloc11collections5btree4node10splitpoint17hdc75a66b6ec1183cE(ptr noalias noundef nonnull sret({ i64, { i64, i64 } }) align 8 captures(none) dereferenceable(24) %10, i64 noundef %165)
           to label %209 unwind label %.loopexit83, !noalias !301
 
@@ -1777,7 +1773,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %210 = load i64, ptr %10, align 8, !noalias !296, !noundef !11
   %211 = load i64, ptr %109, align 8, !range !52, !noalias !296, !noundef !11
   %212 = load i64, ptr %110, align 8, !noalias !296, !noundef !11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !296
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !296
   %213 = load i16, ptr %168, align 2, !noalias !324, !noundef !11
   %214 = zext i16 %213 to i64
   %215 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17hab66fb535276705aE.llvm.7516643179012378928"()
@@ -1799,7 +1795,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr null, ptr %218, align 8, !noalias !324
   %219 = getelementptr inbounds nuw i8, ptr %215, i64 230
   store i16 0, ptr %219, align 2, !noalias !324
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !328
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !328
   tail call void @llvm.experimental.noalias.scope.decl(metadata !329)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !332)
   %220 = load i16, ptr %168, align 2, !noalias !334, !noundef !11
@@ -1811,7 +1807,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %225 = getelementptr inbounds nuw i8, ptr %158, i64 184
   %226 = getelementptr inbounds i32, ptr %225, i64 %210
   %227 = load i32, ptr %226, align 4, !noalias !334, !noundef !11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !336
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !336
   %228 = getelementptr inbounds { ptr, ptr }, ptr %158, i64 %210
   %229 = load ptr, ptr %228, align 8, !noalias !334, !nonnull !11, !noundef !11
   %230 = getelementptr inbounds nuw i8, ptr %228, i64 8
@@ -1860,7 +1856,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store i32 %227, ptr %9, align 8, !alias.scope !329, !noalias !345
   store ptr %229, ptr %112, align 8, !alias.scope !329, !noalias !345
   store ptr %231, ptr %113, align 8, !alias.scope !329, !noalias !345
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !336
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !336
   %248 = load i16, ptr %219, align 2, !noalias !324, !noundef !11
   %249 = getelementptr inbounds nuw i8, ptr %158, i64 232
   %250 = sub i64 %214, %210
@@ -1925,7 +1921,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 272:                                              ; preds = %262
   %.sroa.7.i.sroa.5.0.copyload = load i32, ptr %.sroa.7.i.sroa.5.0..sroa_idx, align 4, !noalias !296
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !328
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !328
   %trunc.i37 = trunc nuw i64 %211 to i1
   %spec.select.i = select i1 %trunc.i37, ptr %215, ptr %158
   %273 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 230
@@ -2005,11 +2001,11 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
           to label %.body unwind label %309, !noalias !301
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %197
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %327
 
 .loopexit82:                                      ; preds = %.lr.ph.i.i10.i, %300
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %312 = getelementptr inbounds nuw i8, ptr %158, i64 176
   %313 = load ptr, ptr %312, align 8, !noalias !275, !noundef !11
   %314 = icmp eq ptr %313, null
@@ -2034,8 +2030,8 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %325 = trunc nuw nsw i64 %322 to i16
   %326 = getelementptr inbounds nuw i8, ptr %.lcssa184, i64 228
   store i16 %325, ptr %326, align 4, !noalias !384
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !278
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !278
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %327
 
 327:                                              ; preds = %.loopexit, %315, %97
@@ -3234,12 +3230,6 @@ declare void @__rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unn
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf26e4832381bfd89E"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
-
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..mem..replace..PanicGuard$GT$17h55fae7d936035a39E"(ptr noalias noundef nonnull align 1) unnamed_addr #0
 
@@ -3257,6 +3247,12 @@ declare hidden noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17hfe1fb5318632b4edE.llvm.7516643179012378928"() unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22

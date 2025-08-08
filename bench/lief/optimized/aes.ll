@@ -122,8 +122,8 @@ define hidden i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.b, label %123, label %9
 
 9:                                                ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %10
 
 10:                                               ; preds = %10, %9
@@ -296,8 +296,8 @@ define hidden i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %exitcond109.not.i, label %aes_gen_tables.exit, label %58, !llvm.loop !15
 
 aes_gen_tables.exit:                              ; preds = %.thread84.i
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i1 true, ptr @aes_init_done, align 4
   br label %123
 
@@ -588,20 +588,14 @@ aes_gen_tables.exit:                              ; preds = %.thread84.i
   ret i32 %.0101
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare i32 @mbedtls_aesni_has_support(i32 noundef) local_unnamed_addr #3
 
 declare i32 @mbedtls_aesni_setkey_enc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_aes_setkey_dec(ptr noundef initializes((8, 16)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.mbedtls_aes_context, align 8
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %4, i8 0, i64 288, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -729,7 +723,7 @@ define hidden i32 @mbedtls_aes_setkey_dec(ptr noundef initializes((8, 16)) %0, p
 
 87:                                               ; preds = %3, %._crit_edge, %15
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 288) #11
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
@@ -794,7 +788,7 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr noundef readonly cap
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i32, ptr %5, i64 %7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.0.copyload.i35 = load i32, ptr %1, align 1
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %8, align 4, !tbaa !12
@@ -1281,7 +1275,7 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr noundef readonly cap
   %456 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %453, ptr %456, align 1
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 32) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
 
@@ -1292,7 +1286,7 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr noundef readonly cap
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i32, ptr %5, i64 %7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.0.copyload.i35 = load i32, ptr %1, align 1
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %8, align 4, !tbaa !12
@@ -1779,7 +1773,7 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr noundef readonly cap
   %456 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %453, ptr %456, align 1
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 32) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
 
@@ -1819,7 +1813,7 @@ declare i32 @mbedtls_aesni_crypt_ecb(ptr noundef, i32 noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_aes_crypt_cbc(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 {
   %7 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %or.cond = icmp ugt i32 %1, 1
   br i1 %or.cond, label %.loopexit, label %8
 
@@ -1917,12 +1911,12 @@ mbedtls_aes_crypt_ecb.exit61:                     ; preds = %.preheader68
 
 .loopexit:                                        ; preds = %mbedtls_aes_crypt_ecb.exit61, %mbedtls_aes_crypt_ecb.exit, %mbedtls_aes_crypt_ecb.exit.thread, %37, %10, %8, %6
   %.041 = phi i32 [ -33, %6 ], [ 0, %8 ], [ -34, %10 ], [ 0, %37 ], [ 0, %mbedtls_aes_crypt_ecb.exit.thread ], [ %18, %mbedtls_aes_crypt_ecb.exit ], [ %32, %mbedtls_aes_crypt_ecb.exit61 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.041
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_aes_crypt_xts(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) local_unnamed_addr #2 {
@@ -1931,9 +1925,9 @@ define hidden i32 @mbedtls_aes_crypt_xts(ptr noundef %0, i32 noundef %1, i64 nou
   %9 = alloca [16 x i8], align 16
   %10 = lshr i64 %2, 4
   %11 = and i64 %2, 15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %or.cond = icmp ugt i32 %1, 1
   br i1 %or.cond, label %.critedge, label %12
 
@@ -2173,9 +2167,9 @@ mbedtls_aes_crypt_ecb.exit101.thread:             ; preds = %mbedtls_aes_crypt_e
 
 .critedge:                                        ; preds = %mbedtls_aes_crypt_ecb.exit97, %mbedtls_aes_crypt_ecb.exit101.thread, %._crit_edge, %mbedtls_aes_crypt_ecb.exit101, %mbedtls_aes_crypt_ecb.exit, %12, %6
   %.0 = phi i32 [ -33, %6 ], [ -34, %12 ], [ %18, %mbedtls_aes_crypt_ecb.exit ], [ %103, %mbedtls_aes_crypt_ecb.exit101 ], [ 0, %._crit_edge ], [ 0, %mbedtls_aes_crypt_ecb.exit101.thread ], [ %48, %mbedtls_aes_crypt_ecb.exit97 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -2287,7 +2281,7 @@ mbedtls_aes_crypt_ecb.exit53:                     ; preds = %30
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_aes_crypt_cfb8(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #2 {
   %.sroa.0 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %or.cond = icmp ugt i32 %1, 1
   br i1 %or.cond, label %.loopexit, label %.preheader
 
@@ -2368,7 +2362,7 @@ mbedtls_aes_crypt_ecb.exit.thread.us38:           ; preds = %.lr.ph.split.split.
 
 .loopexit:                                        ; preds = %25, %mbedtls_aes_crypt_ecb.exit.us36, %14, %mbedtls_aes_crypt_ecb.exit.us, %.preheader, %6
   %.0 = phi i32 [ -33, %6 ], [ 0, %.preheader ], [ 0, %14 ], [ %12, %mbedtls_aes_crypt_ecb.exit.us ], [ 0, %25 ], [ %23, %mbedtls_aes_crypt_ecb.exit.us36 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   ret i32 %.0
 }
 
@@ -2556,14 +2550,14 @@ define hidden i32 @mbedtls_aes_self_test(i32 noundef %0) local_unnamed_addr #2 {
   %10 = alloca %struct.mbedtls_aes_context, align 8
   %11 = alloca [16 x i8], align 16
   %12 = alloca %struct.mbedtls_aes_xts_context, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #11
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %10, i8 0, i64 288, i1 false)
   %13 = icmp ne i32 %0, 0
@@ -2754,7 +2748,7 @@ mbedtls_aes_crypt_ecb.exit.thread:                ; preds = %41, %mbedtls_aes_cr
 
 .split.us:                                        ; preds = %.preheader, %mbedtls_aes_crypt_ecb.exit.thread.i.us
   %.1156325.us = phi i32 [ %79, %mbedtls_aes_crypt_ecb.exit.thread.i.us ], [ 0, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %4, i64 16, i1 false)
   %73 = call i32 @mbedtls_aesni_has_support(i32 noundef 33554432) #11
   %.not.i.i.us = icmp eq i32 %73, 0
@@ -2779,18 +2773,18 @@ mbedtls_aes_crypt_ecb.exit.thread.i.us:           ; preds = %75, %mbedtls_aes_cr
   %78 = xor i64 %.0.copyload.i55.i.c.us, %.0.copyload.i56.i.c.us
   store i64 %78, ptr %52, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %79 = add nuw nsw i32 %.1156325.us, 1
   %exitcond364.not = icmp eq i32 %79, 10000
   br i1 %exitcond364.not, label %.split328.us, label %.split.us, !llvm.loop !43
 
 .split170:                                        ; preds = %.preheader, %mbedtls_aes_crypt_cbc.exit244.thread
   %.1156325 = phi i32 [ %85, %mbedtls_aes_crypt_cbc.exit244.thread ], [ 0, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %4, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %11, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.0.copyload.i54.i = load i64, ptr %4, align 16
   %.0.copyload.i.i = load i64, ptr %5, align 16
   %80 = xor i64 %.0.copyload.i.i, %.0.copyload.i54.i
@@ -2819,7 +2813,7 @@ mbedtls_aes_crypt_cbc.exit244.thread:             ; preds = %mbedtls_aes_crypt_e
   br i1 %exitcond363.not, label %.split328.us, label %.split170, !llvm.loop !44
 
 mbedtls_aes_crypt_cbc.exit244:                    ; preds = %mbedtls_aes_crypt_ecb.exit.i.us
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %mbedtls_aes_crypt_cfb128.exit
 
 .split328.us:                                     ; preds = %mbedtls_aes_crypt_cbc.exit244.thread, %mbedtls_aes_crypt_ecb.exit.thread.i.us
@@ -3213,7 +3207,7 @@ mbedtls_aes_crypt_ecb.exit.i260:                  ; preds = %175
   br label %.thread405
 
 .thread405:                                       ; preds = %.thread403, %218
-  call void @llvm.lifetime.start.p0(i64 576, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(576) %12, i8 0, i64 576, i1 false)
   br label %219
 
@@ -3270,7 +3264,7 @@ mbedtls_aes_crypt_ecb.exit.i260:                  ; preds = %175
 
 .thread290:                                       ; preds = %.split177, %233, %231
   %.15.ph = phi i32 [ %236, %.split177 ], [ %234, %233 ], [ %232, %231 ]
-  call void @llvm.lifetime.end.p0(i64 576, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %mbedtls_aes_crypt_cfb128.exit
 
 239:                                              ; preds = %237
@@ -3290,11 +3284,11 @@ mbedtls_aes_crypt_ecb.exit.i260:                  ; preds = %175
 
 .thread287:                                       ; preds = %242, %243
   call void @mbedtls_aes_xts_free(ptr noundef nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 576, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %mbedtls_aes_crypt_cfb128.exit.thread293
 
 244:                                              ; preds = %239
-  call void @llvm.lifetime.end.p0(i64 576, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %mbedtls_aes_crypt_cfb128.exit
 
 mbedtls_aes_crypt_cfb128.exit:                    ; preds = %.split323.us, %34, %mbedtls_aes_crypt_ecb.exit, %mbedtls_aes_crypt_ecb.exit.us, %.split328.us, %72, %mbedtls_aes_crypt_ecb.exit61.i, %.loopexit.i, %108, %mbedtls_aes_crypt_ecb.exit53.i, %mbedtls_aes_crypt_ecb.exit.i247, %187, %166, %mbedtls_aes_crypt_ecb.exit.i260, %212, %205, %200, %244, %.thread290, %mbedtls_aes_crypt_cbc.exit244
@@ -3308,22 +3302,28 @@ mbedtls_aes_crypt_cfb128.exit:                    ; preds = %.split323.us, %34, 
 mbedtls_aes_crypt_cfb128.exit.thread293:          ; preds = %.thread287, %245, %mbedtls_aes_crypt_cfb128.exit
   %.3166296 = phi i32 [ %.3166, %245 ], [ %.3166, %mbedtls_aes_crypt_cfb128.exit ], [ 0, %.thread287 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 288) #11
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %10) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.3166296
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #7
+declare i32 @llvm.bswap.i32(i32) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #8
@@ -3350,10 +3350,10 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nofree nounwind }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: read) }

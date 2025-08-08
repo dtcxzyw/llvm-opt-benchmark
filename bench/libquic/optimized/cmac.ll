@@ -29,14 +29,14 @@ define hidden range(i32 0, 2) i32 @AES_CMAC(ptr noundef %0, ptr noundef %1, i64 
 
 12:                                               ; preds = %10, %8
   %.08 = phi ptr [ %9, %8 ], [ %11, %10 ]
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @EVP_CIPHER_CTX_init(ptr noundef nonnull %7) #8
   %13 = call i32 @CMAC_Init(ptr noundef nonnull %7, ptr noundef %1, i64 noundef %2, ptr noundef %.08, ptr poison)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %CMAC_Final.exit, label %14
 
 14:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 200
   %16 = load i32, ptr %15, align 8, !tbaa !6
   %.not.i = icmp eq i32 %16, 0
@@ -93,12 +93,12 @@ define hidden range(i32 0, 2) i32 @AES_CMAC(ptr noundef %0, ptr noundef %1, i64 
   br label %40
 
 CMAC_Update.exit.thread:                          ; preds = %.lr.ph.i, %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %CMAC_Final.exit
 
 40:                                               ; preds = %._crit_edge.i, %17
   %41 = phi i32 [ %39, %._crit_edge.i ], [ %26, %17 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %42 = icmp eq ptr %0, null
   br i1 %42, label %CMAC_Final.exit, label %43
 
@@ -152,7 +152,7 @@ CMAC_Final.exit:                                  ; preds = %65, %40, %CMAC_Upda
   call void @OPENSSL_cleanse(ptr noundef nonnull %.sroa.gep, i64 noundef 16) #8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 184
   call void @OPENSSL_cleanse(ptr noundef nonnull %71, i64 noundef 16) #8
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %72
 
 72:                                               ; preds = %5, %CMAC_Final.exit
@@ -160,17 +160,14 @@ CMAC_Final.exit:                                  ; preds = %65, %40, %CMAC_Upda
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @EVP_aes_128_cbc() local_unnamed_addr #1
 
-declare ptr @EVP_aes_128_cbc() local_unnamed_addr #2
-
-declare ptr @EVP_aes_256_cbc() local_unnamed_addr #2
+declare ptr @EVP_aes_256_cbc() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @CMAC_Init(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @EVP_CIPHER_block_size(ptr noundef %3) #8
   %.not = icmp eq i32 %7, 16
   br i1 %.not, label %8, label %43
@@ -251,14 +248,14 @@ binary_field_mul_x.exit20:                        ; preds = %32
 
 43:                                               ; preds = %5, %8, %11, %13, %15, %binary_field_mul_x.exit20
   %.0 = phi i32 [ 1, %binary_field_mul_x.exit20 ], [ 0, %15 ], [ 0, %13 ], [ 0, %11 ], [ 0, %8 ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @CMAC_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load i32, ptr %5, align 8, !tbaa !6
   %.not = icmp eq i32 %6, 0
@@ -316,7 +313,7 @@ define hidden range(i32 0, 2) i32 @CMAC_Update(ptr noundef %0, ptr noundef %1, i
 
 .thread:                                          ; preds = %.lr.ph, %7, %18, %._crit_edge
   %.134 = phi i32 [ 1, %._crit_edge ], [ 0, %18 ], [ 1, %7 ], [ 0, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.134
 }
 
@@ -374,9 +371,6 @@ define hidden i32 @CMAC_Final(ptr noundef %0, ptr noundef %1, ptr noundef writeo
   ret i32 %.022
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @CMAC_CTX_new() local_unnamed_addr #0 {
   %1 = tail call noalias dereferenceable_or_null(208) ptr @malloc(i64 noundef 208) #9
@@ -392,7 +386,7 @@ define hidden noundef ptr @CMAC_CTX_new() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @CMAC_CTX_free(ptr noundef %0) local_unnamed_addr #0 {
@@ -415,15 +409,15 @@ define hidden void @CMAC_CTX_free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
-declare i32 @EVP_CIPHER_block_size(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_CIPHER_block_size(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_CIPHER_key_length(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_CIPHER_key_length(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_EncryptInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_EncryptInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_Cipher(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @EVP_Cipher(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @CMAC_Reset(ptr noundef initializes((200, 204)) %0) local_unnamed_addr #0 {
@@ -434,16 +428,22 @@ define hidden i32 @CMAC_Reset(ptr noundef initializes((200, 204)) %0) local_unna
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare void @EVP_CIPHER_CTX_init(ptr noundef) local_unnamed_addr #2
+declare void @EVP_CIPHER_CTX_init(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_CIPHER_CTX_cleanup(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_CIPHER_CTX_cleanup(ptr noundef) local_unnamed_addr #1
 
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.fshl.i8(i8, i8, i8) #7
@@ -452,12 +452,12 @@ declare i8 @llvm.fshl.i8(i8, i8, i8) #7
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind allocsize(0) }

@@ -168,7 +168,7 @@ define dso_local void @v9fs_uint8_read(ptr noundef captures(none) %0, ptr nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @v9fs_uint16_write(ptr noundef captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #1 {
   %3 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 %1, ptr %3, align 2
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -180,15 +180,9 @@ define dso_local void @v9fs_uint16_write(ptr noundef captures(none) %0, i16 noun
   %10 = load i64, ptr %7, align 8
   %11 = add i64 %10, 2
   store i64 %11, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @v9fs_uint16_read(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -208,7 +202,7 @@ define dso_local void @v9fs_uint16_read(ptr noundef captures(none) %0, ptr nound
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @v9fs_uint32_write(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %1, ptr %3, align 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -220,14 +214,14 @@ define dso_local void @v9fs_uint32_write(ptr noundef captures(none) %0, i32 noun
   %10 = load i64, ptr %7, align 8
   %11 = add i64 %10, 4
   store i64 %11, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @v9fs_uint64_write(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %1, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -239,7 +233,7 @@ define dso_local void @v9fs_uint64_write(ptr noundef captures(none) %0, i64 noun
   %10 = load i64, ptr %7, align 8
   %11 = add i64 %10, 8
   store i64 %11, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -291,7 +285,7 @@ define dso_local zeroext i16 @v9fs_string_size(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @g_assertion_message_cmpnum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, x86_fp80 noundef, ptr noundef, x86_fp80 noundef, i8 noundef signext) local_unnamed_addr #2
 
@@ -311,7 +305,7 @@ define dso_local void @v9fs_string_write(ptr noundef captures(none) %0, ptr noun
 
 9:                                                ; preds = %2, %7
   %10 = trunc i64 %4 to i16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 %10, ptr %3, align 2
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -323,7 +317,7 @@ define dso_local void @v9fs_string_write(ptr noundef captures(none) %0, ptr noun
   %17 = load i64, ptr %14, align 8
   %18 = add i64 %17, 2
   store i64 %18, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %0, align 8
   %20 = load i64, ptr %12, align 8
   %21 = add i64 %20, %18
@@ -337,7 +331,7 @@ define dso_local void @v9fs_string_write(ptr noundef captures(none) %0, ptr noun
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @v9fs_string_read(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2, !annotation !4
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -391,18 +385,18 @@ define dso_local void @v9fs_string_read(ptr noundef captures(none) %0, ptr nound
   br label %36
 
 36:                                               ; preds = %33, %18
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #6
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef ptr @v9fs_req_init(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i16 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = alloca %struct.P9Hdr, align 4
   %6 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0(i64 noundef 72) #16
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %5, align 4
   store i8 %2, ptr %7, align 4
@@ -451,18 +445,18 @@ define dso_local noalias noundef ptr @v9fs_req_init(ptr noundef %0, i32 noundef 
   store i64 %30, ptr %27, align 8
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i16 %3, ptr %31, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %6
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #6
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #7
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i64 @guest_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -522,7 +516,7 @@ declare void @qvirtio_wait_used_elem(ptr noundef, ptr noundef, ptr noundef, i32 
 define dso_local void @v9fs_req_recv(ptr noundef captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #1 {
   %3 = alloca %struct.P9Hdr, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %3, i8 0, i64 7, i1 false), !annotation !4
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -585,7 +579,7 @@ define dso_local void @v9fs_req_recv(ptr noundef captures(none) %0, i8 noundef z
   br i1 %39, label %40, label %49
 
 40:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !4
   %41 = load ptr, ptr %0, align 8
   %42 = load i64, ptr %6, align 8
@@ -598,7 +592,7 @@ define dso_local void @v9fs_req_recv(ptr noundef captures(none) %0, i8 noundef z
   %47 = load i32, ptr %4, align 4
   %48 = call ptr @strerror(i32 noundef %47) #14
   call void (ptr, ...) @g_printerr(ptr noundef nonnull @.str.12, i32 noundef %47, ptr noundef %48) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load i8, ptr %31, align 4
   br label %49
 
@@ -614,14 +608,14 @@ define dso_local void @v9fs_req_recv(ptr noundef captures(none) %0, i8 noundef z
   br label %.thread
 
 .thread:                                          ; preds = %30, %49, %52
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 declare void @g_printerr(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal fastcc noundef nonnull ptr @rmessage_name(i8 noundef zeroext %0) unnamed_addr #9 {
+define internal fastcc noundef nonnull ptr @rmessage_name(i8 noundef zeroext %0) unnamed_addr #8 {
   switch i8 %0, label %2 [
     i8 7, label %7
     i8 101, label %.fold.split
@@ -683,7 +677,7 @@ define internal fastcc noundef nonnull ptr @rmessage_name(i8 noundef zeroext %0)
 }
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #10
+declare ptr @strerror(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @v9fs_req_free(ptr noundef %0) local_unnamed_addr #1 {
@@ -733,9 +727,9 @@ define dso_local noundef ptr @v9fs_tversion(ptr noundef readonly byval(%struct.T
   %3 = alloca i32, align 4
   %4 = alloca i16, align 2
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
@@ -774,7 +768,7 @@ v9fs_string_size.exit:                            ; preds = %8, %17
   %21 = and i32 %20, 65535
   %22 = add nuw nsw i32 %21, 4
   %23 = tail call ptr @v9fs_req_init(ptr noundef nonnull %6, i32 noundef %22, i8 noundef zeroext 100, i16 noundef zeroext %spec.store.select54)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %spec.store.select, ptr %2, align 4
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
@@ -785,7 +779,7 @@ v9fs_string_size.exit:                            ; preds = %8, %17
   call void @qtest_memwrite(ptr noundef %24, i64 noundef %29, ptr noundef nonnull %2, i64 noundef 4) #14
   %30 = add i64 %28, 4
   store i64 %30, ptr %27, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @v9fs_string_write(ptr noundef nonnull %23, ptr noundef nonnull %spec.store.select53)
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %32 = load ptr, ptr %31, align 8
@@ -894,19 +888,19 @@ v9fs_string_size.exit:                            ; preds = %8, %17
   %.val = phi ptr [ null, %v9fs_string_size.exit ], [ null, %80 ], [ %74, %83 ], [ %74, %89 ], [ %74, %87 ], [ %74, %86 ], [ null, %70 ], [ null, %56 ]
   %.0 = phi ptr [ %23, %v9fs_string_size.exit ], [ null, %80 ], [ null, %83 ], [ null, %89 ], [ null, %87 ], [ null, %86 ], [ null, %70 ], [ null, %56 ]
   call void @g_free(ptr noundef %.val) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #11
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @v9fs_rversion(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !4
   tail call void @v9fs_req_recv(ptr noundef %0, i8 noundef zeroext 101)
   %5 = load ptr, ptr %0, align 8
@@ -947,7 +941,7 @@ define dso_local void @v9fs_rversion(ptr noundef %0, ptr noundef writeonly captu
   %26 = load i64, ptr %6, align 8
   call void @guest_free(ptr noundef %25, i64 noundef %26) #14
   call void @g_free(ptr noundef nonnull %0) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -961,7 +955,7 @@ define dso_local noundef ptr @v9fs_tattach(ptr noundef readonly byval(%struct.TA
   %5 = alloca %struct.P9Hdr, align 4
   %6 = alloca i32, align 4
   %7 = alloca %struct.TVersionOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %10, !prof !5
@@ -1013,7 +1007,7 @@ define dso_local noundef ptr @v9fs_tattach(ptr noundef readonly byval(%struct.TA
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i16, ptr %32, align 8
   %34 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0(i64 noundef 72) #16
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 104, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 5
@@ -1036,32 +1030,32 @@ define dso_local noundef ptr @v9fs_tattach(ptr noundef readonly byval(%struct.TA
   %46 = add i64 %44, 7
   %47 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i16 %33, ptr %47, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %49 = load i32, ptr %48, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %49, ptr %4, align 4
   %50 = add i64 %41, %46
   call void @qtest_memwrite(ptr noundef %37, i64 noundef %50, ptr noundef nonnull %4, i64 noundef 4) #14
   %51 = add i64 %44, 11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -1, ptr %3, align 4
   %52 = add i64 %41, %51
   call void @qtest_memwrite(ptr noundef %37, i64 noundef %52, ptr noundef nonnull %3, i64 noundef 4) #14
   %53 = add i64 %44, 15
   store i64 %53, ptr %43, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @v9fs_string_write(ptr noundef nonnull %34, ptr noundef nonnull @.str.23)
   call void @v9fs_string_write(ptr noundef nonnull %34, ptr noundef nonnull @.str.23)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %31, ptr %2, align 4
   %54 = load ptr, ptr %34, align 8
   %55 = load i64, ptr %42, align 8
   %56 = load i64, ptr %43, align 8
   %57 = add i64 %56, %55
   call void @qtest_memwrite(ptr noundef %54, i64 noundef %57, ptr noundef nonnull %2, i64 noundef 4) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %58 = load ptr, ptr %38, align 8
   %59 = load ptr, ptr @alloc, align 8
   %60 = call i64 @guest_alloc(ptr noundef %59, i64 noundef 4096) #14
@@ -1145,12 +1139,12 @@ v9fs_rattach.exit:                                ; preds = %91, %92
 
 104:                                              ; preds = %v9fs_rattach.exit, %74, %88, %30
   %.024 = phi ptr [ %34, %30 ], [ null, %88 ], [ null, %74 ], [ null, %v9fs_rattach.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.024
 }
 
 ; Function Attrs: nounwind
-declare i32 @getuid() local_unnamed_addr #10
+declare i32 @getuid() local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @v9fs_rattach(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -1190,7 +1184,7 @@ define dso_local { i32, ptr } @v9fs_twalk(ptr noundef byval(%struct.TWalkOpt) al
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %8, !prof !5
@@ -1373,7 +1367,7 @@ v9fs_string_size.exit:                            ; preds = %60, %65
   %78 = tail call ptr @v9fs_req_init(ptr noundef nonnull %6, i32 noundef %.040.lcssa, i8 noundef zeroext 110, i16 noundef zeroext %77)
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %80 = load i32, ptr %79, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %80, ptr %4, align 4
   %81 = load ptr, ptr %78, align 8
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 24
@@ -1383,20 +1377,20 @@ v9fs_string_size.exit:                            ; preds = %60, %65
   %86 = add i64 %85, %83
   call void @qtest_memwrite(ptr noundef %81, i64 noundef %86, ptr noundef nonnull %4, i64 noundef 4) #14
   %87 = add i64 %85, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %35, ptr %3, align 4
   %88 = add i64 %83, %87
   call void @qtest_memwrite(ptr noundef %81, i64 noundef %88, ptr noundef nonnull %3, i64 noundef 4) #14
   %89 = add i64 %85, 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i16 %57, ptr %2, align 2
   %90 = add i64 %83, %89
   call void @qtest_memwrite(ptr noundef %81, i64 noundef %90, ptr noundef nonnull %2, i64 noundef 2) #14
   %91 = add i64 %85, 10
   store i64 %91, ptr %84, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not76, label %._crit_edge75, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %._crit_edge
@@ -1511,7 +1505,7 @@ v9fs_string_size.exit:                            ; preds = %60, %65
 
 split_free.exit:                                  ; preds = %142, %._crit_edge.i62
   %149 = phi i32 [ %35, %142 ], [ %.pre85, %._crit_edge.i62 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %149, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.0, 1
   ret { i32, ptr } %.fca.1.insert
@@ -1520,7 +1514,7 @@ split_free.exit:                                  ; preds = %142, %._crit_edge.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @v9fs_rwalk(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2, !annotation !4
   tail call void @v9fs_req_recv(ptr noundef %0, i8 noundef zeroext 111)
   %5 = load ptr, ptr %0, align 8
@@ -1573,7 +1567,7 @@ define dso_local void @v9fs_rwalk(ptr noundef %0, ptr noundef writeonly captures
   %35 = load i64, ptr %6, align 8
   call void @guest_free(ptr noundef %34, i64 noundef %35) #14
   call void @g_free(ptr noundef nonnull %0) #14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1583,7 +1577,7 @@ define dso_local noundef ptr @v9fs_tgetattr(ptr noundef readonly byval(%struct.T
   %3 = alloca i32, align 4
   %4 = alloca %struct.P9Hdr, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %8, !prof !5
@@ -1615,7 +1609,7 @@ define dso_local noundef ptr @v9fs_tgetattr(ptr noundef readonly byval(%struct.T
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i16, ptr %19, align 8
   %21 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0(i64 noundef 72) #16
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 24, ptr %22, align 4
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 5
@@ -1638,20 +1632,20 @@ define dso_local noundef ptr @v9fs_tgetattr(ptr noundef readonly byval(%struct.T
   %33 = add i64 %31, 7
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i16 %20, ptr %34, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %36 = load i32, ptr %35, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %36, ptr %3, align 4
   %37 = add i64 %28, %33
   call void @qtest_memwrite(ptr noundef %24, i64 noundef %37, ptr noundef nonnull %3, i64 noundef 4) #14
   %38 = add i64 %31, 11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %spec.store.select, ptr %2, align 8
   %39 = add i64 %28, %38
   call void @qtest_memwrite(ptr noundef %24, i64 noundef %39, ptr noundef nonnull %2, i64 noundef 8) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %40 = load ptr, ptr @alloc, align 8
   %41 = call i64 @guest_alloc(ptr noundef %40, i64 noundef 4096) #14
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -1713,7 +1707,7 @@ define dso_local noundef ptr @v9fs_tgetattr(ptr noundef readonly byval(%struct.T
 
 75:                                               ; preds = %74, %57, %71, %16
   %.0 = phi ptr [ %21, %16 ], [ null, %71 ], [ null, %57 ], [ null, %74 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -1900,7 +1894,7 @@ define dso_local noundef ptr @v9fs_treaddir(ptr noundef readonly byval(%struct.T
   %4 = alloca i32, align 4
   %5 = alloca %struct.P9Hdr, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %9, !prof !5
@@ -1938,7 +1932,7 @@ define dso_local noundef ptr @v9fs_treaddir(ptr noundef readonly byval(%struct.T
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i16, ptr %23, align 8
   %25 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0(i64 noundef 72) #16
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 40, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 5
@@ -1961,30 +1955,30 @@ define dso_local noundef ptr @v9fs_treaddir(ptr noundef readonly byval(%struct.T
   %37 = add i64 %35, 7
   %38 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i16 %24, ptr %38, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %40 = load i32, ptr %39, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %40, ptr %4, align 4
   %41 = add i64 %32, %37
   call void @qtest_memwrite(ptr noundef %28, i64 noundef %41, ptr noundef nonnull %4, i64 noundef 4) #14
   %42 = add i64 %35, 11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load i64, ptr %43, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %44, ptr %3, align 8
   %45 = add i64 %32, %42
   call void @qtest_memwrite(ptr noundef %28, i64 noundef %45, ptr noundef nonnull %3, i64 noundef 8) #14
   %46 = add i64 %35, 19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load i32, ptr %47, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %48, ptr %2, align 4
   %49 = add i64 %32, %46
   call void @qtest_memwrite(ptr noundef %28, i64 noundef %49, ptr noundef nonnull %2, i64 noundef 4) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %50 = load ptr, ptr @alloc, align 8
   %51 = call i64 @guest_alloc(ptr noundef %50, i64 noundef 4096) #14
   %52 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -2051,7 +2045,7 @@ define dso_local noundef ptr @v9fs_treaddir(ptr noundef readonly byval(%struct.T
 
 91:                                               ; preds = %84, %67, %81, %22
   %.0 = phi ptr [ %25, %22 ], [ null, %81 ], [ null, %67 ], [ null, %84 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
@@ -2059,7 +2053,7 @@ define dso_local noundef ptr @v9fs_treaddir(ptr noundef readonly byval(%struct.T
 define dso_local void @v9fs_rreaddir(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = alloca i16, align 2
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !annotation !4
   tail call void @v9fs_req_recv(ptr noundef %0, i8 noundef zeroext 41)
   %7 = load ptr, ptr %0, align 8
@@ -2144,7 +2138,7 @@ define dso_local void @v9fs_rreaddir(ptr noundef %0, ptr noundef writeonly captu
   %43 = add i64 %42, 1
   store i64 %43, ptr %10, align 8
   %44 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 0, ptr %5, align 2, !annotation !4
   %45 = load ptr, ptr %0, align 8
   %46 = load i64, ptr %8, align 8
@@ -2173,7 +2167,7 @@ define dso_local void @v9fs_rreaddir(ptr noundef %0, ptr noundef writeonly captu
   %64 = zext i16 %63 to i64
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 %64
   store i8 0, ptr %65, align 1
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %66 = zext i16 %50 to i32
   %.neg62 = add nsw i32 %.05463, -24
   %67 = sub nsw i32 %.neg62, %66
@@ -2209,7 +2203,7 @@ v9fs_free_dirents.exit:                           ; preds = %.lr.ph.i, %71
   %80 = load i64, ptr %8, align 8
   call void @guest_free(ptr noundef %79, i64 noundef %80) #14
   call void @g_free(ptr noundef nonnull %0) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -2239,7 +2233,7 @@ define dso_local noundef ptr @v9fs_tlopen(ptr noundef readonly byval(%struct.TLO
   %3 = alloca i32, align 4
   %4 = alloca %struct.P9Hdr, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %8, !prof !5
@@ -2273,7 +2267,7 @@ define dso_local noundef ptr @v9fs_tlopen(ptr noundef readonly byval(%struct.TLO
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i16, ptr %19, align 8
   %21 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0(i64 noundef 72) #16
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 12, ptr %22, align 4
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 5
@@ -2296,22 +2290,22 @@ define dso_local noundef ptr @v9fs_tlopen(ptr noundef readonly byval(%struct.TLO
   %33 = add i64 %31, 7
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i16 %20, ptr %34, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %36 = load i32, ptr %35, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %36, ptr %3, align 4
   %37 = add i64 %28, %33
   call void @qtest_memwrite(ptr noundef %24, i64 noundef %37, ptr noundef nonnull %3, i64 noundef 4) #14
   %38 = add i64 %31, 11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load i32, ptr %39, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %40, ptr %2, align 4
   %41 = add i64 %28, %38
   call void @qtest_memwrite(ptr noundef %24, i64 noundef %41, ptr noundef nonnull %2, i64 noundef 4) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %42 = load ptr, ptr @alloc, align 8
   %43 = call i64 @guest_alloc(ptr noundef %42, i64 noundef 4096) #14
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -2376,7 +2370,7 @@ define dso_local noundef ptr @v9fs_tlopen(ptr noundef readonly byval(%struct.TLO
 
 81:                                               ; preds = %76, %59, %73, %18
   %.0 = phi ptr [ %21, %18 ], [ null, %73 ], [ null, %59 ], [ null, %76 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -2443,8 +2437,8 @@ define dso_local { ptr, i32 } @v9fs_twrite(ptr noundef readonly byval(%struct.TW
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %7 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %7, null
@@ -2474,7 +2468,7 @@ define dso_local { ptr, i32 } @v9fs_twrite(ptr noundef readonly byval(%struct.TW
   %20 = tail call ptr @v9fs_req_init(ptr noundef nonnull %7, i32 noundef %17, i8 noundef zeroext 118, i16 noundef zeroext %19)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %22 = load i32, ptr %21, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %22, ptr %4, align 4
   %23 = load ptr, ptr %20, align 8
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -2484,21 +2478,21 @@ define dso_local { ptr, i32 } @v9fs_twrite(ptr noundef readonly byval(%struct.TW
   %28 = add i64 %27, %25
   call void @qtest_memwrite(ptr noundef %23, i64 noundef %28, ptr noundef nonnull %4, i64 noundef 4) #14
   %29 = add i64 %27, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load i64, ptr %30, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %31, ptr %3, align 8
   %32 = add i64 %25, %29
   call void @qtest_memwrite(ptr noundef %23, i64 noundef %32, ptr noundef nonnull %3, i64 noundef 8) #14
   %33 = add i64 %27, 12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   %34 = add i64 %25, %33
   call void @qtest_memwrite(ptr noundef %23, i64 noundef %34, ptr noundef nonnull %2, i64 noundef 4) #14
   %35 = add i64 %27, 16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = zext i32 %11 to i64
@@ -2588,8 +2582,8 @@ define dso_local { ptr, i32 } @v9fs_twrite(ptr noundef readonly byval(%struct.TW
 91:                                               ; preds = %80, %64, %77, %16
   %92 = phi i32 [ 0, %16 ], [ 0, %77 ], [ 0, %64 ], [ %.pre, %80 ]
   %.0 = phi ptr [ %20, %16 ], [ null, %77 ], [ null, %64 ], [ null, %80 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %92, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -2632,7 +2626,7 @@ define dso_local noundef ptr @v9fs_tflush(ptr noundef readonly byval(%struct.TFl
   %2 = alloca i32, align 4
   %3 = alloca %struct.P9Hdr, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %7, !prof !5
@@ -2646,7 +2640,7 @@ define dso_local noundef ptr @v9fs_tflush(ptr noundef readonly byval(%struct.TFl
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i16, ptr %8, align 8
   %10 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0(i64 noundef 72) #16
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 108, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 5
@@ -2669,15 +2663,15 @@ define dso_local noundef ptr @v9fs_tflush(ptr noundef readonly byval(%struct.TFl
   %22 = add i64 %20, 7
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i16 %9, ptr %23, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %26, ptr %2, align 4
   %27 = add i64 %17, %22
   call void @qtest_memwrite(ptr noundef %13, i64 noundef %27, ptr noundef nonnull %2, i64 noundef 4) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %28 = load ptr, ptr @alloc, align 8
   %29 = call i64 @guest_alloc(ptr noundef %28, i64 noundef 4096) #14
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -2748,7 +2742,7 @@ define dso_local noundef ptr @v9fs_tflush(ptr noundef readonly byval(%struct.TFl
 
 69:                                               ; preds = %64, %47, %61, %7
   %.0 = phi ptr [ %10, %7 ], [ null, %61 ], [ null, %47 ], [ null, %64 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -2774,7 +2768,7 @@ define dso_local noundef ptr @v9fs_tmkdir(ptr noundef readonly byval(%struct.TMk
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %struct.TWalkOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %9, !prof !5
@@ -2851,7 +2845,7 @@ v9fs_string_size.exit:                            ; preds = %31, %39
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load i16, ptr %45, align 8
   %47 = tail call ptr @v9fs_req_init(ptr noundef nonnull %7, i32 noundef %44, i8 noundef zeroext 72, i16 noundef zeroext %46)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %32, ptr %4, align 4
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 24
@@ -2862,9 +2856,9 @@ v9fs_string_size.exit:                            ; preds = %31, %39
   call void @qtest_memwrite(ptr noundef %48, i64 noundef %53, ptr noundef nonnull %4, i64 noundef 4) #14
   %54 = add i64 %52, 4
   store i64 %54, ptr %51, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @v9fs_string_write(ptr noundef nonnull %47, ptr noundef nonnull %36)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %spec.store.select, ptr %3, align 4
   %55 = load ptr, ptr %47, align 8
   %56 = load i64, ptr %49, align 8
@@ -2872,14 +2866,14 @@ v9fs_string_size.exit:                            ; preds = %31, %39
   %58 = add i64 %57, %56
   call void @qtest_memwrite(ptr noundef %55, i64 noundef %58, ptr noundef nonnull %3, i64 noundef 4) #14
   %59 = add i64 %57, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %61 = load i32, ptr %60, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %61, ptr %2, align 4
   %62 = add i64 %56, %59
   call void @qtest_memwrite(ptr noundef %55, i64 noundef %62, ptr noundef nonnull %2, i64 noundef 4) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %63 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr @alloc, align 8
@@ -2975,7 +2969,7 @@ v9fs_rmkdir.exit:                                 ; preds = %102, %110
 
 118:                                              ; preds = %v9fs_rmkdir.exit, %84, %98, %v9fs_string_size.exit
   %.0 = phi ptr [ %47, %v9fs_string_size.exit ], [ null, %98 ], [ null, %84 ], [ null, %v9fs_rmkdir.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -3026,7 +3020,7 @@ define dso_local noundef ptr @v9fs_tlcreate(ptr noundef readonly byval(%struct.T
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %struct.TWalkOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %10, !prof !5
@@ -3109,7 +3103,7 @@ v9fs_string_size.exit:                            ; preds = %34, %42
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load i16, ptr %48, align 8
   %50 = tail call ptr @v9fs_req_init(ptr noundef nonnull %8, i32 noundef %47, i8 noundef zeroext 14, i16 noundef zeroext %49)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %35, ptr %5, align 4
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 24
@@ -3120,11 +3114,11 @@ v9fs_string_size.exit:                            ; preds = %34, %42
   call void @qtest_memwrite(ptr noundef %51, i64 noundef %56, ptr noundef nonnull %5, i64 noundef 4) #14
   %57 = add i64 %55, 4
   store i64 %57, ptr %54, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @v9fs_string_write(ptr noundef nonnull %50, ptr noundef nonnull %39)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %59 = load i32, ptr %58, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %59, ptr %4, align 4
   %60 = load ptr, ptr %50, align 8
   %61 = load i64, ptr %52, align 8
@@ -3132,20 +3126,20 @@ v9fs_string_size.exit:                            ; preds = %34, %42
   %63 = add i64 %62, %61
   call void @qtest_memwrite(ptr noundef %60, i64 noundef %63, ptr noundef nonnull %4, i64 noundef 4) #14
   %64 = add i64 %62, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %spec.store.select, ptr %3, align 4
   %65 = add i64 %61, %64
   call void @qtest_memwrite(ptr noundef %60, i64 noundef %65, ptr noundef nonnull %3, i64 noundef 4) #14
   %66 = add i64 %62, 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %68 = load i32, ptr %67, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %68, ptr %2, align 4
   %69 = add i64 %61, %66
   call void @qtest_memwrite(ptr noundef %60, i64 noundef %69, ptr noundef nonnull %2, i64 noundef 4) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %70 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr @alloc, align 8
@@ -3214,7 +3208,7 @@ v9fs_string_size.exit:                            ; preds = %34, %42
 
 113:                                              ; preds = %108, %91, %105, %v9fs_string_size.exit
   %.0 = phi ptr [ %50, %v9fs_string_size.exit ], [ null, %105 ], [ null, %91 ], [ null, %108 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
@@ -3280,7 +3274,7 @@ define dso_local noundef ptr @v9fs_tsymlink(ptr noundef readonly byval(%struct.T
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %struct.TWalkOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %8, !prof !5
@@ -3367,7 +3361,7 @@ v9fs_string_size.exit45:                          ; preds = %v9fs_string_size.ex
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load i16, ptr %50, align 8
   %52 = tail call ptr @v9fs_req_init(ptr noundef nonnull %6, i32 noundef %49, i8 noundef zeroext 16, i16 noundef zeroext %51)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %31, ptr %3, align 4
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 24
@@ -3378,19 +3372,19 @@ v9fs_string_size.exit45:                          ; preds = %v9fs_string_size.ex
   call void @qtest_memwrite(ptr noundef %53, i64 noundef %58, ptr noundef nonnull %3, i64 noundef 4) #14
   %59 = add i64 %57, 4
   store i64 %59, ptr %56, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @v9fs_string_write(ptr noundef nonnull %52, ptr noundef nonnull %33)
   call void @v9fs_string_write(ptr noundef nonnull %52, ptr noundef nonnull %40)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %61 = load i32, ptr %60, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %61, ptr %2, align 4
   %62 = load ptr, ptr %52, align 8
   %63 = load i64, ptr %54, align 8
   %64 = load i64, ptr %56, align 8
   %65 = add i64 %64, %63
   call void @qtest_memwrite(ptr noundef %62, i64 noundef %65, ptr noundef nonnull %2, i64 noundef 4) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %66 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr @alloc, align 8
@@ -3486,7 +3480,7 @@ v9fs_rsymlink.exit:                               ; preds = %105, %113
 
 121:                                              ; preds = %v9fs_rsymlink.exit, %87, %101, %v9fs_string_size.exit45
   %.0 = phi ptr [ %52, %v9fs_string_size.exit45 ], [ null, %101 ], [ null, %87 ], [ null, %v9fs_rsymlink.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -3536,7 +3530,7 @@ define dso_local noundef ptr @v9fs_tlink(ptr noundef readonly byval(%struct.Tlin
   %4 = alloca i32, align 4
   %5 = alloca %struct.TWalkOpt, align 8
   %6 = alloca %struct.TWalkOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %9, !prof !5
@@ -3624,7 +3618,7 @@ v9fs_string_size.exit:                            ; preds = %38, %44
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load i16, ptr %50, align 8
   %52 = tail call ptr @v9fs_req_init(ptr noundef nonnull %7, i32 noundef %49, i8 noundef zeroext 70, i16 noundef zeroext %51)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %32, ptr %3, align 4
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 24
@@ -3634,14 +3628,14 @@ v9fs_string_size.exit:                            ; preds = %38, %44
   %58 = add i64 %57, %55
   call void @qtest_memwrite(ptr noundef %53, i64 noundef %58, ptr noundef nonnull %3, i64 noundef 4) #14
   %59 = add i64 %57, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %39, ptr %2, align 4
   %60 = add i64 %55, %59
   call void @qtest_memwrite(ptr noundef %53, i64 noundef %60, ptr noundef nonnull %2, i64 noundef 4) #14
   %61 = add i64 %57, 8
   store i64 %61, ptr %56, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @v9fs_string_write(ptr noundef nonnull %52, ptr noundef nonnull %41)
   %62 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %63 = load ptr, ptr %62, align 8
@@ -3719,7 +3713,7 @@ v9fs_string_size.exit:                            ; preds = %38, %44
 
 109:                                              ; preds = %104, %87, %101, %v9fs_string_size.exit
   %.0 = phi ptr [ %52, %v9fs_string_size.exit ], [ null, %101 ], [ null, %87 ], [ null, %104 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -3744,7 +3738,7 @@ define dso_local noundef ptr @v9fs_tunlinkat(ptr noundef readonly byval(%struct.
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %struct.TWalkOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %8, !prof !5
@@ -3803,7 +3797,7 @@ v9fs_string_size.exit:                            ; preds = %22, %28
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i16, ptr %34, align 8
   %36 = tail call ptr @v9fs_req_init(ptr noundef nonnull %6, i32 noundef %33, i8 noundef zeroext 76, i16 noundef zeroext %35)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %23, ptr %3, align 4
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 24
@@ -3814,18 +3808,18 @@ v9fs_string_size.exit:                            ; preds = %22, %28
   call void @qtest_memwrite(ptr noundef %37, i64 noundef %42, ptr noundef nonnull %3, i64 noundef 4) #14
   %43 = add i64 %41, 4
   store i64 %43, ptr %40, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @v9fs_string_write(ptr noundef nonnull %36, ptr noundef nonnull %25)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %45 = load i32, ptr %44, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %45, ptr %2, align 4
   %46 = load ptr, ptr %36, align 8
   %47 = load i64, ptr %38, align 8
   %48 = load i64, ptr %40, align 8
   %49 = add i64 %48, %47
   call void @qtest_memwrite(ptr noundef %46, i64 noundef %49, ptr noundef nonnull %2, i64 noundef 4) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %50 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr @alloc, align 8
@@ -3900,7 +3894,7 @@ v9fs_string_size.exit:                            ; preds = %22, %28
 
 95:                                               ; preds = %90, %73, %87, %v9fs_string_size.exit
   %.0 = phi ptr [ %36, %v9fs_string_size.exit ], [ null, %87 ], [ null, %73 ], [ null, %90 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -3922,7 +3916,13 @@ define dso_local void @v9fs_runlinkat(ptr noundef %0) local_unnamed_addr #1 {
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #12
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
@@ -3931,15 +3931,15 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willre
 attributes #1 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #6 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #7 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #5 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #6 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #14 = { nounwind }
 attributes #15 = { nounwind willreturn memory(read) }

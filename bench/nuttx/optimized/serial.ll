@@ -59,7 +59,7 @@ define void @uart_datareceived(ptr noundef %0) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   tail call void @poll_notify(ptr noundef nonnull %3, i32 noundef 4, i32 noundef 1) #5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = call i32 @nxsem_get_value(ptr noundef nonnull %4, ptr noundef nonnull %2) #5
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %.preheader.i, label %uart_wakeup.exit
@@ -80,7 +80,7 @@ define void @uart_datareceived(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %12, label %.lr.ph.i, label %uart_wakeup.exit, !llvm.loop !6
 
 uart_wakeup.exit:                                 ; preds = %.lr.ph.i, %1, %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -92,7 +92,7 @@ define void @uart_datasent(ptr noundef %0) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   tail call void @poll_notify(ptr noundef nonnull %3, i32 noundef 4, i32 noundef 4) #5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = call i32 @nxsem_get_value(ptr noundef nonnull %4, ptr noundef nonnull %2) #5
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %.preheader.i, label %uart_wakeup.exit
@@ -113,7 +113,7 @@ define void @uart_datasent(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %12, label %.lr.ph.i, label %uart_wakeup.exit, !llvm.loop !6
 
 uart_wakeup.exit:                                 ; preds = %.lr.ph.i, %1, %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -159,10 +159,10 @@ define internal i32 @uart_open(ptr noundef readonly captures(none) %0) #0 {
   br i1 %15, label %16, label %up_irq_restore.exit37
 
 16:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #5, !srcloc !8
   %17 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %19 = load i8, ptr %18, align 2
@@ -281,10 +281,10 @@ define internal noundef i32 @uart_close(ptr noundef readonly captures(none) %0) 
   br label %25
 
 25:                                               ; preds = %23, %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #5, !srcloc !8
   %26 = load i64, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %27 = load ptr, ptr %16, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
@@ -315,7 +315,7 @@ up_irq_restore.exit:                              ; preds = %37, %39
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 288
   call void @poll_notify(ptr noundef nonnull %40, i32 noundef 4, i32 noundef 1) #5
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %42 = call i32 @nxsem_get_value(ptr noundef nonnull %41, ptr noundef nonnull %2) #5
   %.not.i.i = icmp eq i32 %42, 0
   br i1 %.not.i.i, label %.preheader.i.i, label %uart_datareceived.exit
@@ -336,7 +336,7 @@ up_irq_restore.exit:                              ; preds = %37, %39
   br i1 %49, label %.lr.ph.i.i, label %uart_datareceived.exit, !llvm.loop !6
 
 uart_datareceived.exit:                           ; preds = %.lr.ph.i.i, %up_irq_restore.exit, %.preheader.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %51 = call i32 @nxsem_reset(ptr noundef nonnull %50, i16 noundef signext 0) #5
   %52 = call i32 @nxsem_reset(ptr noundef nonnull %41, i16 noundef signext 0) #5
@@ -572,10 +572,10 @@ select.unfold.us:                                 ; preds = %74, %69
   br label %uart_putxmitchar.exit
 
 .lr.ph.split.i:                                   ; preds = %.split, %.backedge.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #5, !srcloc !8
   %104 = load i64, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %105 = load volatile i16, ptr %26, align 2
   %106 = sext i16 %105 to i32
@@ -633,10 +633,10 @@ up_irq_restore.exit24.i:                          ; preds = %117, %107
   br label %uart_putxmitchar.exit110
 
 .lr.ph.split.i102:                                ; preds = %.split81, %.backedge.i106
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #5, !srcloc !8
   %127 = load i64, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %128 = load volatile i16, ptr %26, align 2
   %129 = sext i16 %128 to i32
@@ -704,10 +704,10 @@ uart_putxmitchar.exit110:                         ; preds = %up_irq_restore.exit
   br label %uart_putxmitchar.exit
 
 .lr.ph.split.i117:                                ; preds = %uart_putxmitchar.exit110, %.backedge.i121
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #5, !srcloc !8
   %157 = load i64, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %158 = load volatile i16, ptr %26, align 2
   %159 = sext i16 %158 to i32
@@ -754,10 +754,10 @@ up_irq_restore.exit24.i124:                       ; preds = %170, %160
   br i1 %.not85, label %179, label %.loopexit
 
 179:                                              ; preds = %176
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #5, !srcloc !8
   %180 = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %181 = load ptr, ptr %20, align 8
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 48
@@ -885,10 +885,10 @@ define internal i64 @uart_write(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %13, label %14, label %50
 
 14:                                               ; preds = %12, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #5, !srcloc !8
   %15 = load i64, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %.not20.i = icmp eq i64 %2, 0
   br i1 %.not20.i, label %uart_irqwrite.exit, label %.lr.ph.i
@@ -1062,10 +1062,10 @@ up_irq_restore.exit:                              ; preds = %uart_irqwrite.exit,
   br label %113
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i55, %.backedge.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #5, !srcloc !8
   %97 = load i64, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %98 = load volatile i16, ptr %67, align 2
   %99 = sext i16 %98 to i32
@@ -1127,10 +1127,10 @@ up_irq_restore.exit24.i:                          ; preds = %110, %100
   br label %.backedge.i66
 
 .lr.ph.split.i62:                                 ; preds = %.lr.ph.i61, %.backedge.i66
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #5, !srcloc !8
   %123 = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %124 = load volatile i16, ptr %67, align 2
   %125 = sext i16 %124 to i32
@@ -1244,10 +1244,10 @@ define internal noundef i32 @uart_ioctl(ptr noundef %0, i32 noundef %1, i64 noun
   ]
 
 20:                                               ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8) #5, !srcloc !8
   %21 = load i64, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 258
   %23 = load volatile i16, ptr %22, align 2
@@ -1292,10 +1292,10 @@ up_irq_restore.exit:                              ; preds = %41, %43
   br label %up_irq_restore.exit99.thread.thread
 
 45:                                               ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #5, !srcloc !8
   %46 = load i64, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %47 = getelementptr inbounds nuw i8, ptr %12, i64 202
   %48 = load volatile i16, ptr %47, align 2
@@ -1340,10 +1340,10 @@ up_irq_restore.exit95:                            ; preds = %66, %68
   br label %up_irq_restore.exit99.thread.thread
 
 70:                                               ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #5, !srcloc !8
   %71 = load i64, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 200
   %73 = load volatile i16, ptr %72, align 8
@@ -1390,10 +1390,10 @@ up_irq_restore.exit97:                            ; preds = %95, %97
   br label %up_irq_restore.exit99.thread.thread
 
 99:                                               ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #5, !srcloc !8
   %100 = load i64, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %101 = and i64 %2, -3
   %or.cond = icmp eq i64 %101, 0
@@ -1419,7 +1419,7 @@ up_irq_restore.exit97:                            ; preds = %95, %97
   %112 = getelementptr inbounds nuw i8, ptr %12, i64 288
   call void @poll_notify(ptr noundef nonnull %112, i32 noundef 4, i32 noundef 4) #5
   %113 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %114 = call i32 @nxsem_get_value(ptr noundef nonnull %113, ptr noundef nonnull %4) #5
   %.not.i.i = icmp eq i32 %114, 0
   br i1 %.not.i.i, label %.preheader.i.i, label %uart_datasent.exit
@@ -1440,7 +1440,7 @@ up_irq_restore.exit97:                            ; preds = %95, %97
   br i1 %121, label %.lr.ph.i.i, label %uart_datasent.exit, !llvm.loop !6
 
 uart_datasent.exit:                               ; preds = %.lr.ph.i.i, %108, %.preheader.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %122
 
 122:                                              ; preds = %106, %uart_datasent.exit
@@ -1696,10 +1696,10 @@ define internal fastcc i32 @uart_tcdrain(ptr noundef %0, i64 noundef range(i64 4
   br i1 %6, label %7, label %42
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #5, !srcloc !8
   %8 = load i64, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 202
@@ -1796,10 +1796,10 @@ declare i32 @nxsem_get_value(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @nxsem_post(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #4

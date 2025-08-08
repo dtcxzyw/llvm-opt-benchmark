@@ -5802,8 +5802,8 @@ _ZN16Unique_Node_List4pushEP4Node.exit.thread:    ; preds = %388, %.loopexit367,
   br i1 %393, label %394, label %549
 
 394:                                              ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit.thread
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %395 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %396 = load ptr, ptr %395, align 8
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 800
@@ -6100,8 +6100,8 @@ _ZN9Node_List4pushEP4Node.exit22.i:               ; preds = %536, %532
   br label %"_ZNK4Node10visit_usesIZN12PhaseIterGVN28add_users_of_use_to_worklistEPS_S2_R16Unique_Node_ListE3$_0ZNS1_28add_users_of_use_to_worklistES2_S2_S4_E3$_1EEvT_T0_.exit"
 
 "_ZNK4Node10visit_usesIZN12PhaseIterGVN28add_users_of_use_to_worklistEPS_S2_R16Unique_Node_ListE3$_0ZNS1_28add_users_of_use_to_worklistES2_S2_S4_E3$_1EEvT_T0_.exit": ; preds = %546, %548
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %549
 
 549:                                              ; preds = %"_ZNK4Node10visit_usesIZN12PhaseIterGVN28add_users_of_use_to_worklistEPS_S2_R16Unique_Node_ListE3$_0ZNS1_28add_users_of_use_to_worklistES2_S2_S4_E3$_1EEvT_T0_.exit", %_ZN16Unique_Node_List4pushEP4Node.exit.thread
@@ -8689,8 +8689,8 @@ define hidden void @_ZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_(ptr nou
   br i1 %16, label %17, label %178
 
 17:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %18 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 800
@@ -8995,8 +8995,8 @@ _ZN9Node_List4pushEP4Node.exit22.i:               ; preds = %165, %161
   br label %"_ZNK4Node10visit_usesIZNK8PhaseCCP8push_andER16Unique_Node_ListPKS_S5_E3$_0ZNKS1_8push_andES3_S5_S5_E3$_1EEvT_T0_.exit"
 
 "_ZNK4Node10visit_usesIZNK8PhaseCCP8push_andER16Unique_Node_ListPKS_S5_E3$_0ZNKS1_8push_andES3_S5_S5_E3$_1EEvT_T0_.exit": ; preds = %175, %177
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %178
 
 178:                                              ; preds = %4, %"_ZNK4Node10visit_usesIZNK8PhaseCCP8push_andER16Unique_Node_ListPKS_S5_E3$_0ZNKS1_8push_andES3_S5_S5_E3$_1EEvT_T0_.exit", %11
@@ -11668,10 +11668,10 @@ declare void @llvm.assume(i1 noundef) #14
 declare i32 @llvm.ctpop.i32(i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

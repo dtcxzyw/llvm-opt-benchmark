@@ -2373,7 +2373,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$std..collections..hash..set.
 
 6:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !752)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !755
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !755
   %7 = add i64 %4, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.10958641669084791720(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %2, i64 noundef 1, i64 noundef 16, i64 noundef %7), !noalias !755
   %8 = load i64, ptr %2, align 8, !range !464, !noalias !755, !noundef !4
@@ -2383,7 +2383,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$std..collections..hash..set.
   %11 = load i64, ptr %10, align 8, !noalias !755, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8, !noalias !755, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !755
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !755
   %14 = icmp eq i64 %11, 0
   br i1 %14, label %"_ZN4core3ptr87drop_in_place$LT$hashbrown..set..HashSet$LT$u8$C$std..hash..random..RandomState$GT$$GT$17hba28b6f31ecb7a09E.llvm.10579361824584921976.exit", label %15
 
@@ -2459,7 +2459,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$hashbrown..raw..RawTable$LT$
 
 6:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !763)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !766
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !766
   %7 = add i64 %4, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.10958641669084791720(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %2, i64 noundef 2, i64 noundef 16, i64 noundef %7), !noalias !766
   %8 = load i64, ptr %2, align 8, !range !464, !noalias !766, !noundef !4
@@ -2469,7 +2469,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$hashbrown..raw..RawTable$LT$
   %11 = load i64, ptr %10, align 8, !noalias !766, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8, !noalias !766, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !766
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !766
   %14 = icmp eq i64 %11, 0
   br i1 %14, label %"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h51a0a6295efbd2c5E.llvm.10579361824584921976.exit", label %15
 
@@ -2517,7 +2517,7 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$std..collections..hash..map.
 
 6:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !792)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !795
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !795
   %7 = add i64 %4, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.10958641669084791720(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %2, i64 noundef 2, i64 noundef 16, i64 noundef %7), !noalias !795
   %8 = load i64, ptr %2, align 8, !range !464, !noalias !795, !noundef !4
@@ -2527,7 +2527,7 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$std..collections..hash..map.
   %11 = load i64, ptr %10, align 8, !noalias !795, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8, !noalias !795, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !795
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !795
   %14 = icmp eq i64 %11, 0
   br i1 %14, label %"_ZN4core3ptr92drop_in_place$LT$hashbrown..map..HashMap$LT$u8$C$u8$C$std..hash..random..RandomState$GT$$GT$17h133f9dd8d25046afE.llvm.10579361824584921976.exit", label %15
 
@@ -2554,7 +2554,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$hashbrown..raw..RawTable$LT$
 
 6:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !803)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !806
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !806
   %7 = add i64 %4, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.10958641669084791720(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %2, i64 noundef 1, i64 noundef 16, i64 noundef %7), !noalias !806
   %8 = load i64, ptr %2, align 8, !range !464, !noalias !806, !noundef !4
@@ -2564,7 +2564,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$hashbrown..raw..RawTable$LT$
   %11 = load i64, ptr %10, align 8, !noalias !806, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8, !noalias !806, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !806
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !806
   %14 = icmp eq i64 %11, 0
   br i1 %14, label %"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h359be9891a1f4ea7E.llvm.10579361824584921976.exit", label %15
 
@@ -2810,7 +2810,7 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$hashbrown..set..HashSet$LT$u
 
 6:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !849)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !852
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !852
   %7 = add i64 %4, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.10958641669084791720(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %2, i64 noundef 1, i64 noundef 16, i64 noundef %7), !noalias !852
   %8 = load i64, ptr %2, align 8, !range !464, !noalias !852, !noundef !4
@@ -2820,7 +2820,7 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$hashbrown..set..HashSet$LT$u
   %11 = load i64, ptr %10, align 8, !noalias !852, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8, !noalias !852, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !852
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !852
   %14 = icmp eq i64 %11, 0
   br i1 %14, label %"_ZN4core3ptr98drop_in_place$LT$hashbrown..map..HashMap$LT$u8$C$$LP$$RP$$C$std..hash..random..RandomState$GT$$GT$17hbd0b15dfbbd72caaE.llvm.10579361824584921976.exit", label %15
 
@@ -2870,7 +2870,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$hashbrown..map..HashMap$LT$u
 
 6:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !880)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !883
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !883
   %7 = add i64 %4, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.10958641669084791720(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %2, i64 noundef 2, i64 noundef 16, i64 noundef %7), !noalias !883
   %8 = load i64, ptr %2, align 8, !range !464, !noalias !883, !noundef !4
@@ -2880,7 +2880,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$hashbrown..map..HashMap$LT$u
   %11 = load i64, ptr %10, align 8, !noalias !883, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8, !noalias !883, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !883
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !883
   %14 = icmp eq i64 %11, 0
   br i1 %14, label %"_ZN4core3ptr68drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$u8$C$u8$RP$$GT$$GT$17h6495050b3f61f675E.llvm.10579361824584921976.exit", label %15
 
@@ -3029,7 +3029,7 @@ define hidden void @"_ZN4core3ptr98drop_in_place$LT$hashbrown..map..HashMap$LT$u
 
 6:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !915)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !918
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !918
   %7 = add i64 %4, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.10958641669084791720(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %2, i64 noundef 1, i64 noundef 16, i64 noundef %7), !noalias !918
   %8 = load i64, ptr %2, align 8, !range !464, !noalias !918, !noundef !4
@@ -3039,7 +3039,7 @@ define hidden void @"_ZN4core3ptr98drop_in_place$LT$hashbrown..map..HashMap$LT$u
   %11 = load i64, ptr %10, align 8, !noalias !918, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8, !noalias !918, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !918
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !918
   %14 = icmp eq i64 %11, 0
   br i1 %14, label %"_ZN4core3ptr74drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$u8$C$$LP$$RP$$RP$$GT$$GT$17h9164fabf02d67f1dE.llvm.10579361824584921976.exit", label %15
 
@@ -3381,7 +3381,7 @@ define hidden void @"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
 
 6:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !975)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !978
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !978
   %7 = add i64 %4, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.10958641669084791720(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %2, i64 noundef 1, i64 noundef 16, i64 noundef %7), !noalias !978
   %8 = load i64, ptr %2, align 8, !range !464, !noalias !978, !noundef !4
@@ -3391,7 +3391,7 @@ define hidden void @"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %11 = load i64, ptr %10, align 8, !noalias !978, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8, !noalias !978, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !978
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !978
   %14 = icmp eq i64 %11, 0
   br i1 %14, label %_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hf237e14c3f82379cE.exit, label %15
 
@@ -3417,7 +3417,7 @@ define hidden void @"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
 
 6:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !982)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !985
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !985
   %7 = add i64 %4, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.10958641669084791720(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %2, i64 noundef 2, i64 noundef 16, i64 noundef %7), !noalias !985
   %8 = load i64, ptr %2, align 8, !range !464, !noalias !985, !noundef !4
@@ -3427,7 +3427,7 @@ define hidden void @"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %11 = load i64, ptr %10, align 8, !noalias !985, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8, !noalias !985, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !985
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !985
   %14 = icmp eq i64 %11, 0
   br i1 %14, label %_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h3fbb98b8e87ebc44E.exit, label %15
 
@@ -3534,14 +3534,14 @@ declare void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() unnamed
 ; Function Attrs: nounwind nonlazybind allockind("free") uwtable
 declare void @__rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unnamed_addr #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
-
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.10958641669084791720(ptr noalias noundef sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24), i64 noundef, i64 noundef, i64 noundef) unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11

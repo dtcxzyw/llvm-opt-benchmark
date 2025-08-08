@@ -67,7 +67,7 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_long() #0 {
   %1 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr @t_invalid_zero, ptr %1, align 8, !tbaa !4
   %2 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %1, i64 noundef 4, ptr noundef nonnull @ASN1_LONG_DATA_it.local_it) #4
   %3 = icmp eq ptr %2, null
@@ -79,14 +79,14 @@ define internal range(i32 0, 2) i32 @test_long() #0 {
 
 5:                                                ; preds = %0, %4
   %.0 = phi i32 [ 1, %4 ], [ 0, %0 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_int32() #0 {
   %1 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr @t_invalid_zero, ptr %1, align 8, !tbaa !4
   %2 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %1, i64 noundef 4, ptr noundef nonnull @ASN1_INT32_DATA_it.local_it) #4
   %3 = icmp eq ptr %2, null
@@ -98,14 +98,14 @@ define internal range(i32 0, 2) i32 @test_int32() #0 {
 
 5:                                                ; preds = %0, %4
   %.0 = phi i32 [ 1, %4 ], [ 0, %0 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_uint32() #0 {
   %1 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr @t_invalid_zero, ptr %1, align 8, !tbaa !4
   %2 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %1, i64 noundef 4, ptr noundef nonnull @ASN1_UINT32_DATA_it.local_it) #4
   %3 = icmp eq ptr %2, null
@@ -117,14 +117,14 @@ define internal range(i32 0, 2) i32 @test_uint32() #0 {
 
 5:                                                ; preds = %0, %4
   %.0 = phi i32 [ 1, %4 ], [ 0, %0 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_int64() #0 {
   %1 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr @t_invalid_zero, ptr %1, align 8, !tbaa !4
   %2 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %1, i64 noundef 4, ptr noundef nonnull @ASN1_INT64_DATA_it.local_it) #4
   %3 = icmp eq ptr %2, null
@@ -136,14 +136,14 @@ define internal range(i32 0, 2) i32 @test_int64() #0 {
 
 5:                                                ; preds = %0, %4
   %.0 = phi i32 [ 1, %4 ], [ 0, %0 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_uint64() #0 {
   %1 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr @t_invalid_zero, ptr %1, align 8, !tbaa !4
   %2 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %1, i64 noundef 4, ptr noundef nonnull @ASN1_UINT64_DATA_it.local_it) #4
   %3 = icmp eq ptr %2, null
@@ -155,7 +155,7 @@ define internal range(i32 0, 2) i32 @test_uint64() #0 {
 
 5:                                                ; preds = %0, %4
   %.0 = phi i32 [ 1, %4 ], [ 0, %0 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -163,17 +163,17 @@ define internal range(i32 0, 2) i32 @test_uint64() #0 {
 define internal range(i32 0, 2) i32 @test_gentime() #0 {
   %1 = alloca [15 x i8], align 1
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %1, ptr noundef nonnull align 1 dereferenceable(15) @__const.test_gentime.der, i64 15, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %1, ptr %2, align 8, !tbaa !4
   %3 = call ptr @d2i_ASN1_GENERALIZEDTIME(ptr noundef null, ptr noundef nonnull %2, i64 noundef 15) #4
   %4 = call i32 @test_ptr_null(ptr noundef nonnull @.str.14, i32 noundef 182, ptr noundef nonnull @.str.15, ptr noundef %3) #4
   %.not = icmp ne i32 %4, 0
   %spec.select = zext i1 %.not to i32
   call void @ASN1_GENERALIZEDTIME_free(ptr noundef %3) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %spec.select
 }
 
@@ -181,24 +181,24 @@ define internal range(i32 0, 2) i32 @test_gentime() #0 {
 define internal range(i32 0, 2) i32 @test_utctime() #0 {
   %1 = alloca [13 x i8], align 1
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %1, ptr noundef nonnull align 1 dereferenceable(13) @__const.test_utctime.der, i64 13, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %1, ptr %2, align 8, !tbaa !4
   %3 = call ptr @d2i_ASN1_UTCTIME(ptr noundef null, ptr noundef nonnull %2, i64 noundef 13) #4
   %4 = call i32 @test_ptr_null(ptr noundef nonnull @.str.14, i32 noundef 206, ptr noundef nonnull @.str.16, ptr noundef %3) #4
   %.not = icmp ne i32 %4, 0
   %spec.select = zext i1 %.not to i32
   call void @ASN1_UTCTIME_free(ptr noundef %3) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %spec.select
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_invalid_template() #0 {
   %1 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr @t_invalid_template, ptr %1, align 8, !tbaa !4
   %2 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %1, i64 noundef 5, ptr noundef nonnull @INVALIDTEMPLATE_it.local_it) #4
   %3 = call i32 @test_ptr_null(ptr noundef nonnull @.str.14, i32 noundef 243, ptr noundef nonnull @.str.17, ptr noundef %2) #4
@@ -211,7 +211,7 @@ define internal range(i32 0, 2) i32 @test_invalid_template() #0 {
 
 5:                                                ; preds = %0, %4
   %.0 = phi i32 [ 0, %4 ], [ 1, %0 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -219,8 +219,8 @@ define internal range(i32 0, 2) i32 @test_invalid_template() #0 {
 define internal range(i32 0, 2) i32 @test_reuse_asn1_object() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @test_reuse_asn1_object.oid_der, ptr %2, align 8, !tbaa !4
   %3 = tail call ptr @ASN1_OBJECT_create(i32 noundef 0, ptr noundef nonnull @test_reuse_asn1_object.cn_der, i32 noundef 5, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #4
   store ptr %3, ptr %1, align 8, !tbaa !9
@@ -240,16 +240,10 @@ define internal range(i32 0, 2) i32 @test_reuse_asn1_object() #0 {
   %9 = phi ptr [ %3, %0 ], [ %.pre, %5 ]
   %.0 = phi i32 [ 0, %0 ], [ %spec.select, %5 ]
   call void @ASN1_OBJECT_free(ptr noundef %9) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @ASN1_item_d2i(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -266,7 +260,7 @@ declare ptr @INT64_it() #1
 declare ptr @UINT64_it() #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @d2i_ASN1_GENERALIZEDTIME(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -288,10 +282,16 @@ declare ptr @d2i_ASN1_OBJECT(ptr noundef, ptr noundef, i64 noundef) local_unname
 
 declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

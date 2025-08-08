@@ -129,18 +129,12 @@ tc_ptr_to_region_tree.exit.thread:                ; preds = %9, %tc_ptr_to_regio
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @q_tree_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @q_tree_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_tb_remove(ptr noundef %0) local_unnamed_addr #1 {
@@ -206,7 +200,7 @@ tc_ptr_to_region_tree.exit.thread:                ; preds = %9, %tc_ptr_to_regio
   ret void
 }
 
-declare i32 @q_tree_remove(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @q_tree_remove(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @tcg_tb_lookup(i64 noundef %0) local_unnamed_addr #1 {
@@ -229,7 +223,7 @@ define dso_local ptr @tcg_tb_lookup(i64 noundef %0) local_unnamed_addr #1 {
   br i1 %.not12.i, label %tc_ptr_to_region_tree.exit.thread, label %14
 
 tc_ptr_to_region_tree.exit.thread:                ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %38
 
 14:                                               ; preds = %8, %1
@@ -255,7 +249,7 @@ tc_ptr_to_region_tree.exit:                       ; preds = %14, %16, %24
   %.08.i = phi i64 [ 0, %14 ], [ %25, %24 ], [ %21, %16 ]
   %26 = load ptr, ptr @region_trees, align 8
   %27 = load i64, ptr @tree_size, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %28, align 8
@@ -276,14 +270,14 @@ tc_ptr_to_region_tree.exit:                       ; preds = %14, %16, %24
 
 38:                                               ; preds = %tc_ptr_to_region_tree.exit.thread, %tc_ptr_to_region_tree.exit, %30
   %.0 = phi ptr [ %37, %30 ], [ null, %tc_ptr_to_region_tree.exit ], [ null, %tc_ptr_to_region_tree.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare ptr @q_tree_lookup(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @q_tree_lookup(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_tb_foreach(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -343,7 +337,7 @@ tcg_region_tree_unlock_all.exit:                  ; preds = %.lr.ph.i6, %2, %tcg
   ret void
 }
 
-declare void @q_tree_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @q_tree_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @tcg_nb_tbs() local_unnamed_addr #1 {
@@ -407,7 +401,7 @@ tcg_region_tree_unlock_all.exit:                  ; preds = %.lr.ph.i7, %0, %tcg
   ret i64 %.0.lcssa16
 }
 
-declare i32 @q_tree_nnodes(ptr noundef) local_unnamed_addr #4
+declare i32 @q_tree_nnodes(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @tcg_region_alloc(ptr noundef captures(none) %0) local_unnamed_addr #1 {
@@ -656,7 +650,7 @@ define dso_local void @tcg_region_init(i64 noundef %0, i32 noundef %1, i32 nound
   %.044 = phi i64 [ %0, %3 ], [ %16, %12 ], [ 1073741824, %9 ]
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %.044, i64 1048576)
   %spec.store.select1 = tail call i64 @llvm.umin.i64(i64 %spec.store.select, i64 2147483648)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %5, align 8
   store ptr @error_fatal, ptr %18, align 8
@@ -664,7 +658,7 @@ define dso_local void @tcg_region_init(i64 noundef %0, i32 noundef %1, i32 nound
   br i1 %.not.i, label %41, label %19
 
 19:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4
   %20 = call ptr @qemu_memfd_alloc(ptr noundef nonnull @.str.8, i64 noundef %spec.store.select1, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
   %magicptr.i.i.i = ptrtoint ptr %20 to i64
@@ -701,11 +695,11 @@ alloc_code_gen_buffer_splitwx.exit.i:             ; preds = %21
   %36 = ptrtoint ptr %23 to i64
   %37 = sub i64 %36, %magicptr.i.i.i
   store i64 %37, ptr @tcg_splitwx_diff, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %alloc_code_gen_buffer.exit
 
 38:                                               ; preds = %32, %29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %39 = icmp sgt i32 %1, 0
   br i1 %39, label %.critedge, label %40
 
@@ -735,7 +729,7 @@ alloc_code_gen_buffer.exit:                       ; preds = %alloc_code_gen_buff
   %.val.i = load ptr, ptr %5, align 8
   %.val19.i = load ptr, ptr %18, align 8
   call void @error_propagate(ptr noundef %.val19.i, ptr noundef %.val.i) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @region, i64 48), align 8
   %49 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 88), align 8
   %50 = call i32 @qemu_madvise(ptr noundef %48, i64 noundef %49, i32 noundef 14) #12
@@ -747,7 +741,7 @@ alloc_code_gen_buffer.exit:                       ; preds = %alloc_code_gen_buff
   %.val.i.c = load ptr, ptr %5, align 8
   %.val19.i.c = load ptr, ptr %18, align 8
   call void @error_propagate(ptr noundef %.val19.i.c, ptr noundef %.val.i.c) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 776, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_region_init) #11
   unreachable
 
@@ -994,25 +988,25 @@ tcg_region_initial_alloc__locked.exit:            ; preds = %tcg_region_trees_in
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !18
 }
 
-declare i64 @qemu_get_host_physmem() local_unnamed_addr #4
+declare i64 @qemu_get_host_physmem() local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @qemu_madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @qemu_madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #4
+declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #3
 
-declare i32 @qemu_mprotect_rwx(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @qemu_mprotect_rwx(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @qemu_mprotect_rw(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @qemu_mprotect_rw(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #7
+declare ptr @__errno_location() local_unnamed_addr #6
 
-declare i32 @qemu_mprotect_none(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @qemu_mprotect_none(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_region_prologue_set(ptr noundef captures(none) %0) local_unnamed_addr #1 {
@@ -1058,7 +1052,7 @@ define dso_local void @tcg_region_prologue_set(ptr noundef captures(none) %0) lo
   ret void
 }
 
-declare void @tcg_register_jit(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @tcg_register_jit(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @tcg_code_size() local_unnamed_addr #1 {
@@ -1123,30 +1117,30 @@ define dso_local i64 @tcg_code_capacity() local_unnamed_addr #0 {
   ret i64 %8
 }
 
-declare ptr @q_tree_ref(ptr noundef) local_unnamed_addr #4
+declare ptr @q_tree_ref(ptr noundef) local_unnamed_addr #3
 
-declare void @q_tree_destroy(ptr noundef) local_unnamed_addr #4
+declare void @q_tree_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @getpagesize() local_unnamed_addr #7
+declare i32 @getpagesize() local_unnamed_addr #6
 
-declare void @error_free_or_abort(ptr noundef) local_unnamed_addr #4
+declare void @error_free_or_abort(ptr noundef) local_unnamed_addr #3
 
-declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @qemu_memfd_alloc(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: nounwind
-declare ptr @mmap64(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
-
-declare i32 @close(i32 noundef) local_unnamed_addr #4
+declare ptr @qemu_memfd_alloc(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #8
+declare ptr @mmap64(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
-declare ptr @qemu_memalign(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @close(i32 noundef) local_unnamed_addr #3
 
-declare ptr @q_tree_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+; Function Attrs: nounwind
+declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #7
+
+declare ptr @qemu_memalign(i64 noundef, i64 noundef) local_unnamed_addr #3
+
+declare ptr @q_tree_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 -1, 2) i32 @tb_tc_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #1 {
@@ -1207,9 +1201,15 @@ define internal range(i32 -1, 2) i32 @tb_tc_cmp(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @tb_destroy(ptr readnone captures(none) %0) #9 {
+define internal void @tb_destroy(ptr readnone captures(none) %0) #8 {
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
@@ -1219,14 +1219,14 @@ declare i64 @llvm.umax.i64(i64, i64) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #1 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { noreturn nounwind }
 attributes #12 = { nounwind }

@@ -291,7 +291,7 @@ _ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunction
   br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   invoke void @_ZN5arrow6Status8FromArgsIJRA36_KcEEES0_NS_10StatusCodeEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %1, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(36) @.str.1)
           to label %.noexc5 unwind label %.loopexit.split-lp
 
@@ -320,7 +320,7 @@ _ZNK5arrow8internal15DynamicDispatchINS0_12_GLOBAL__N_123Unpack32DynamicFunction
   br label %_ZN5arrow6StatusD2Ev.exit.i
 
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %35, %31, %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %_ZNSt6vectorISt4pairIN5arrow8internal13DispatchLevelEPFiPKjPjiiEESaIS9_EED2Ev.exit7
 
 _ZNSt6vectorISt4pairIN5arrow8internal13DispatchLevelEPFiPKjPjiiEESaIS9_EED2Ev.exit: ; preds = %._crit_edge.i
@@ -5127,14 +5127,8 @@ define internal fastcc noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow
   ret i32 %2684
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack23_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack23_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i111 = load i64, ptr %3, align 1
@@ -5289,7 +5283,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack23_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack25_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack25_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i115 = load i64, ptr %3, align 1
@@ -5446,7 +5440,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack25_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack26_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack26_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i115 = load i64, ptr %3, align 1
@@ -5602,7 +5596,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack26_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack27_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack27_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i119 = load i64, ptr %3, align 1
@@ -5761,7 +5755,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack27_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack28_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack28_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i118 = load i64, ptr %3, align 1
@@ -5917,7 +5911,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack28_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack29_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack29_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i123 = load i64, ptr %3, align 1
@@ -6078,7 +6072,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack29_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack30_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack30_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i123 = load i64, ptr %3, align 1
@@ -6238,7 +6232,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack30_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack31_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack31_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i127 = load i64, ptr %3, align 1
@@ -6401,7 +6395,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack31_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack33_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack33_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i131 = load i64, ptr %3, align 1
@@ -6566,7 +6560,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack33_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack34_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack34_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i131 = load i64, ptr %3, align 1
@@ -6730,7 +6724,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack34_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack35_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack35_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i135 = load i64, ptr %3, align 1
@@ -6897,7 +6891,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack35_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack36_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack36_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i134 = load i64, ptr %3, align 1
@@ -7061,7 +7055,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack36_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack37_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack37_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i139 = load i64, ptr %3, align 1
@@ -7230,7 +7224,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack37_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack38_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack38_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i139 = load i64, ptr %3, align 1
@@ -7398,7 +7392,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack38_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack39_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack39_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i143 = load i64, ptr %3, align 1
@@ -7569,7 +7563,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack39_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack40_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack40_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i140 = load i64, ptr %3, align 1
@@ -7733,7 +7727,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack40_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack41_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack41_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i147 = load i64, ptr %3, align 1
@@ -7906,7 +7900,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack41_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack42_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack42_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i147 = load i64, ptr %3, align 1
@@ -8078,7 +8072,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack42_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack43_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack43_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i151 = load i64, ptr %3, align 1
@@ -8253,7 +8247,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack43_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack44_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack44_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i150 = load i64, ptr %3, align 1
@@ -8425,7 +8419,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack44_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack45_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack45_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i155 = load i64, ptr %3, align 1
@@ -8602,7 +8596,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack45_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack46_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack46_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i155 = load i64, ptr %3, align 1
@@ -8778,7 +8772,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack46_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack47_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack47_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i159 = load i64, ptr %3, align 1
@@ -8957,7 +8951,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack47_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack49_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack49_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i163 = load i64, ptr %3, align 1
@@ -9138,7 +9132,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack49_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack50_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack50_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i163 = load i64, ptr %3, align 1
@@ -9318,7 +9312,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack50_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack51_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack51_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i167 = load i64, ptr %3, align 1
@@ -9501,7 +9495,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack51_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack52_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack52_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i166 = load i64, ptr %3, align 1
@@ -9681,7 +9675,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack52_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack53_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack53_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i171 = load i64, ptr %3, align 1
@@ -9866,7 +9860,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack53_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack54_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack54_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i171 = load i64, ptr %3, align 1
@@ -10050,7 +10044,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack54_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack55_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack55_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i175 = load i64, ptr %3, align 1
@@ -10237,7 +10231,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack55_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack56_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack56_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i172 = load i64, ptr %3, align 1
@@ -10417,7 +10411,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack56_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack57_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack57_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i179 = load i64, ptr %3, align 1
@@ -10606,7 +10600,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack57_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack58_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack58_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i179 = load i64, ptr %3, align 1
@@ -10794,7 +10788,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack58_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack59_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack59_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i183 = load i64, ptr %3, align 1
@@ -10985,7 +10979,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack59_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack60_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack60_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i182 = load i64, ptr %3, align 1
@@ -11173,7 +11167,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack60_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack61_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack61_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i187 = load i64, ptr %3, align 1
@@ -11366,7 +11360,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack61_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack62_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack62_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i187 = load i64, ptr %3, align 1
@@ -11558,7 +11552,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack62_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack63_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack63_64EPKhPm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i64, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i191 = load i64, ptr %3, align 1
@@ -11753,21 +11747,21 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack63_64EPKhPm(ptr nound
 }
 
 ; Function Attrs: noreturn
-declare void @_ZNK5arrow6Status5AbortEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
+declare void @_ZNK5arrow6Status5AbortEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
-declare noundef ptr @_ZN5arrow8internal7CpuInfo11GetInstanceEv() local_unnamed_addr #6
+declare noundef ptr @_ZN5arrow8internal7CpuInfo11GetInstanceEv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #3
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #6
 
-declare noundef zeroext i1 @_ZNK5arrow8internal7CpuInfo11IsSupportedEl(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
+declare noundef zeroext i1 @_ZNK5arrow8internal7CpuInfo11IsSupportedEl(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow6Status8FromArgsIJRA36_KcEEES0_NS_10StatusCodeEDpOT_(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, i8 noundef signext %1, ptr noundef nonnull align 1 dereferenceable(36) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.arrow::util::detail::StringStreamWrapper", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15, !noalias !103
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !103
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !103
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !106, !noalias !103
@@ -11787,12 +11781,12 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15, !noalias !103
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !103
   br label %common.resume
 
 _ZN5arrow4util13StringBuilderIJRA36_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit: ; preds = %_ZN5arrow4util22StringBuilderRecursiveIRA36_KcEEvRSoOT_.exit.i
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15, !noalias !103
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !103
   invoke void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %12 unwind label %21
 
@@ -11816,7 +11810,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 21:                                               ; preds = %_ZN5arrow4util13StringBuilderIJRA36_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit
@@ -11841,20 +11835,20 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 }
 
-declare void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext, ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
+declare void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext, ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
-declare void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
+declare void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
 
-declare void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #6
+declare void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #7
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #6
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
@@ -13507,12 +13501,12 @@ define internal noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8intern
   ret i32 %707
 }
 
-declare noundef i32 @_ZN5arrow8internal13unpack32_avx2EPKjPjii(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #6
+declare noundef i32 @_ZN5arrow8internal13unpack32_avx2EPKjPjii(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #5
 
-declare noundef i32 @_ZN5arrow8internal15unpack32_avx512EPKjPjii(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #6
+declare noundef i32 @_ZN5arrow8internal15unpack32_avx512EPKjPjii(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #5
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal10unpack5_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal10unpack5_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 31
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -13664,7 +13658,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal10unpack5_32EPKjPj(ptr nounde
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal10unpack6_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal10unpack6_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 63
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -13816,7 +13810,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal10unpack6_32EPKjPj(ptr nounde
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal10unpack7_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal10unpack7_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 127
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -13978,7 +13972,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal10unpack7_32EPKjPj(ptr nounde
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal10unpack9_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal10unpack9_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 511
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -14150,7 +14144,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal10unpack9_32EPKjPj(ptr nounde
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack10_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack10_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 1023
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -14322,7 +14316,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack10_32EPKjPj(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack11_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack11_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 2047
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -14504,7 +14498,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack11_32EPKjPj(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack12_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack12_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 4095
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -14676,7 +14670,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack12_32EPKjPj(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack13_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack13_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 8191
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -14868,7 +14862,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack13_32EPKjPj(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack14_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack14_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 16383
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -15060,7 +15054,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack14_32EPKjPj(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack15_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack15_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 32767
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -15262,7 +15256,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack15_32EPKjPj(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack17_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack17_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 131071
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -15474,7 +15468,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack17_32EPKjPj(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack18_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack18_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 262143
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -15686,7 +15680,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack18_32EPKjPj(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack19_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack19_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 524287
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -15908,7 +15902,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack19_32EPKjPj(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack20_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack20_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 1048575
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -16120,7 +16114,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack20_32EPKjPj(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack21_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack21_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 2097151
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -16352,7 +16346,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack21_32EPKjPj(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack22_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack22_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 4194303
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -16584,7 +16578,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack22_32EPKjPj(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack23_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack23_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 8388607
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -16826,7 +16820,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack23_32EPKjPj(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack24_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack24_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 16777215
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -17038,7 +17032,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack24_32EPKjPj(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack25_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack25_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 33554431
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -17290,7 +17284,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack25_32EPKjPj(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack26_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack26_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 67108863
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -17542,7 +17536,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack26_32EPKjPj(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack27_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack27_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 134217727
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -17804,7 +17798,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack27_32EPKjPj(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack28_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack28_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 268435455
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -18056,7 +18050,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack28_32EPKjPj(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack29_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack29_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 536870911
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -18328,7 +18322,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack29_32EPKjPj(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack30_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack30_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 1073741823
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -18600,7 +18594,7 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack30_32EPKjPj(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack31_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
+define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack31_32EPKjPj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %.0.copyload.i = load i32, ptr %0, align 1
   %3 = and i32 %.0.copyload.i, 2147483647
   store i32 %3, ptr %1, align 4, !tbaa !126
@@ -18884,6 +18878,12 @@ define linkonce_odr noundef ptr @_ZN5arrow8internal11unpack31_32EPKjPj(ptr nound
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
 
@@ -18896,10 +18896,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
 attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

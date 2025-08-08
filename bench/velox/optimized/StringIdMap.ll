@@ -1002,7 +1002,7 @@ if.end32:                                         ; preds = %while.end.i213, %if
   %numInUse.i = getelementptr inbounds nuw i8, ptr %entry33, i64 40
   store i32 0, ptr %numInUse.i, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35) #24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %call.i104 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %string.coerce0.fr, ptr %string.coerce1) #24
   %41 = extractvalue { i64, ptr } %call.i104, 0
   %42 = extractvalue { i64, ptr } %call.i104, 1
@@ -1014,7 +1014,7 @@ if.end32:                                         ; preds = %while.end.i213, %if
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %if.end32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   %call39 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %entry33, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35) #24
@@ -1100,9 +1100,9 @@ do.end:                                           ; preds = %while.end.i, %if.en
   store i64 %add57, ptr %pinnedSize_56, align 8
   %59 = load i64, ptr %id, align 8
   store i64 %59, ptr %id58, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %rv.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rv.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i)
   store ptr %id58, ptr %ref.tmp.i.i, align 8, !alias.scope !22, !noalias !25
   %60 = call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 0, i64 %59)
   %shr.i.i.i.i = lshr i64 %60, 24
@@ -1116,22 +1116,22 @@ invoke.cont61:                                    ; preds = %do.end
   %62 = load ptr, ptr %idToString_42, align 8, !noalias !25, !nonnull !10, !noundef !10
   %63 = load i32, ptr %61, align 4, !noalias !25
   %idx.ext8.i.i.i = zext i32 %63 to i64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rv.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rv.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i)
   %second.i = getelementptr inbounds nuw %"struct.std::pair.21", ptr %62, i64 %idx.ext8.i.i.i, i32 1
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(44) %second.i, ptr noundef nonnull align 8 dereferenceable(44) %entry33) #24
   %id.i = getelementptr inbounds nuw i8, ptr %second.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %id.i, ptr noundef nonnull align 8 dereferenceable(12) %id, i64 12, i1 false)
   %64 = load i64, ptr %id, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i141)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i141)
   invoke void @_ZN5folly3f146detail11F14BasicMapINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmvvvSt17integral_constantIbLb1EEEEE11try_emplaceIRS9_JEEENSt9enable_ifIXgssr5folly6detail30EligibleForHeterogeneousInsertIS9_NS_23HeterogeneousAccessHashIS9_vEENS_26HeterogeneousAccessEqualToIS9_vEET_EE5valueESt4pairINS1_23VectorContainerIteratorIPSM_IKS9_mEEEbEE4typeEOSL_DpOT0_(ptr nonnull sret(%"struct.std::pair.65") align 8 %ref.tmp.i141, ptr noundef nonnull align 8 dereferenceable(24) %stringToId_, ptr noundef nonnull align 8 dereferenceable(32) %second.i)
           to label %invoke.cont67 unwind label %lpad44
 
 invoke.cont67:                                    ; preds = %invoke.cont61
   %65 = load ptr, ptr %ref.tmp.i141, align 8
   %second.i142 = getelementptr inbounds nuw i8, ptr %65, i64 32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i141)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i141)
   store i64 %64, ptr %second.i142, align 8
   %66 = load i64, ptr %lastId_, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(44) %entry33) #24
@@ -3517,10 +3517,10 @@ declare i64 @llvm.umax.i64(i64, i64) #22
 declare i16 @llvm.cttz.i16(i16, i1 immarg) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { cold noreturn nounwind memory(inaccessiblemem: write) }

@@ -22,7 +22,7 @@ define noundef zeroext i1 @_ZN4base7Process22CanBackgroundProcessesEv() local_un
 
 5:                                                ; preds = %3
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 8), align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %6 = call i32 @getrlimit(i32 noundef 13, ptr noundef nonnull %1) #5
   %7 = icmp eq i32 %6, 0
   %8 = load i64, ptr %1, align 8
@@ -36,7 +36,7 @@ define noundef zeroext i1 @_ZN4base7Process22CanBackgroundProcessesEv() local_un
   br label %_ZN4base25DefaultLazyInstanceTraitsINS_12_GLOBAL__N_122CheckForNicePermissionEE3NewEPv.exit.i.i
 
 _ZN4base25DefaultLazyInstanceTraitsINS_12_GLOBAL__N_122CheckForNicePermissionEE3NewEPv.exit.i.i: ; preds = %11, %5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 noundef ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 8) to i64), ptr noundef nonnull @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, ptr noundef nonnull @_ZN4base12LazyInstanceINS_12_GLOBAL__N_122CheckForNicePermissionENS_25DefaultLazyInstanceTraitsIS2_EEE6OnExitEPv)
   br label %_ZN4base12LazyInstanceINS_12_GLOBAL__N_122CheckForNicePermissionENS_25DefaultLazyInstanceTraitsIS2_EEE3GetEv.exit
 
@@ -70,7 +70,7 @@ define noundef zeroext i1 @_ZN4base7Process22SetProcessBackgroundedEb(ptr nounde
 
 7:                                                ; preds = %5
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 8), align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = call i32 @getrlimit(i32 noundef 13, ptr noundef nonnull %3) #5
   %9 = icmp eq i32 %8, 0
   %10 = load i64, ptr %3, align 8
@@ -84,7 +84,7 @@ define noundef zeroext i1 @_ZN4base7Process22SetProcessBackgroundedEb(ptr nounde
   br label %_ZN4base25DefaultLazyInstanceTraitsINS_12_GLOBAL__N_122CheckForNicePermissionEE3NewEPv.exit.i.i.i
 
 _ZN4base25DefaultLazyInstanceTraitsINS_12_GLOBAL__N_122CheckForNicePermissionEE3NewEPv.exit.i.i.i: ; preds = %13, %7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 noundef ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 8) to i64), ptr noundef nonnull @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, ptr noundef nonnull @_ZN4base12LazyInstanceINS_12_GLOBAL__N_122CheckForNicePermissionENS_25DefaultLazyInstanceTraitsIS2_EEE6OnExitEPv)
   br label %_ZN4base7Process22CanBackgroundProcessesEv.exit
 
@@ -107,21 +107,15 @@ _ZN4base7Process22CanBackgroundProcessesEv.exit:  ; preds = %2, %5, %_ZN4base25D
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind
-declare i32 @setpriority(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @setpriority(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 declare noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef) local_unnamed_addr #1
 
 declare void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZN4base12LazyInstanceINS_12_GLOBAL__N_122CheckForNicePermissionENS_25DefaultLazyInstanceTraitsIS2_EEE6OnExitEPv(ptr noundef %0) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4base12LazyInstanceINS_12_GLOBAL__N_122CheckForNicePermissionENS_25DefaultLazyInstanceTraitsIS2_EEE6OnExitEPv(ptr noundef %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic volatile i64, ptr %0 monotonic, align 8
   store atomic volatile i64 0, ptr %0 monotonic, align 8
   ret void
@@ -130,13 +124,19 @@ define internal void @_ZN4base12LazyInstanceINS_12_GLOBAL__N_122CheckForNicePerm
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare i32 @getrlimit(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @getrlimit(i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

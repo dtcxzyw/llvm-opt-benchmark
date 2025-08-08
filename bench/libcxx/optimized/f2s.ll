@@ -91,17 +91,14 @@ define hidden { ptr, i32 } @_ZNSt3__116__f2s_buffered_nB8ne210000EPcS0_fNS_12cha
   ret { ptr, i32 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden { ptr, i32 } @_ZNSt3__123_Large_integer_to_charsB8ne210000EPcS0_ji(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 comdat {
+define linkonce_odr hidden { ptr, i32 } @_ZNSt3__123_Large_integer_to_charsB8ne210000EPcS0_ji(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 comdat {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [4 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %7 = add i32 %3, 55
   %8 = lshr i32 %7, 5
@@ -125,7 +122,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__123_Large_integer_to_charsB8ne2
   %20 = zext i32 %9 to i64
   %21 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %20
   store i32 %.sink, ptr %21, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.loopexit73, label %.preheader
 
@@ -252,18 +249,15 @@ _ZNSt3__116__decimalLength9B8ne210000Ej.exit:     ; preds = %62, %60, %58, %56, 
 .loopexit:                                        ; preds = %.lr.ph, %72, %_ZNSt3__116__decimalLength9B8ne210000Ej.exit
   %.sroa.0.0 = phi ptr [ %1, %_ZNSt3__116__decimalLength9B8ne210000Ej.exit ], [ %74, %72 ], [ %79, %.lr.ph ]
   %.sroa.3.0 = phi i32 [ 75, %_ZNSt3__116__decimalLength9B8ne210000Ej.exit ], [ 0, %72 ], [ 0, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.3.0, 1
   ret { ptr, i32 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden i64 @_ZNSt3__15__f2dB8ne210000Ejj(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 comdat {
+define linkonce_odr hidden i64 @_ZNSt3__15__f2dB8ne210000Ejj(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 comdat {
   %3 = icmp eq i32 %1, 0
   %4 = add nsw i32 %1, -152
   %5 = or i32 %0, 8388608
@@ -724,7 +718,7 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196: ; preds = %.lr.ph.i.i192, 
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden { ptr, i32 } @_ZNSt3__110__to_charsB8ne210000EPcS0_NS_21__floating_decimal_32ENS_12chars_formatEjj(ptr noundef %0, ptr noundef %1, i64 %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 comdat {
+define linkonce_odr hidden { ptr, i32 } @_ZNSt3__110__to_charsB8ne210000EPcS0_NS_21__floating_decimal_32ENS_12chars_formatEjj(ptr noundef %0, ptr noundef %1, i64 %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 comdat {
   %.sroa.0.0.extract.trunc = trunc i64 %2 to i32
   %.sroa.4.0.extract.shift = lshr i64 %2, 32
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
@@ -1111,26 +1105,31 @@ _ZNSt3__116__decimalLength9B8ne210000Ej.exit:     ; preds = %6, %8, %10, %12, %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare hidden void @_ZNSt3__117__append_n_digitsB8ne210000EjjPc(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare hidden void @_ZNSt3__117__append_n_digitsB8ne210000EjjPc(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare hidden void @_ZNSt3__120__append_nine_digitsB8ne210000EjPc(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare hidden void @_ZNSt3__120__append_nine_digitsB8ne210000EjPc(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #6
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3}

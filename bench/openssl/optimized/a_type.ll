@@ -81,7 +81,7 @@ define range(i32 0, 2) i32 @ASN1_TYPE_set1(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %or.cond, label %9, label %22
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !9
   %10 = load i32, ptr %0, align 8, !tbaa !3
   switch i32 %10, label %11 [
@@ -117,7 +117,7 @@ define range(i32 0, 2) i32 @ASN1_TYPE_set1(ptr noundef %0, i32 noundef %1, ptr n
   br label %ASN1_TYPE_set.exit
 
 ASN1_TYPE_set.exit:                               ; preds = %17, %20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %44
 
 22:                                               ; preds = %3
@@ -130,7 +130,7 @@ ASN1_TYPE_set.exit:                               ; preds = %17, %20
   br i1 %.not25, label %44, label %26
 
 26:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8, !tbaa !9
   %27 = load i32, ptr %0, align 8, !tbaa !3
   switch i32 %27, label %28 [
@@ -154,7 +154,7 @@ ASN1_TYPE_set.exit:                               ; preds = %17, %20
   store i32 6, ptr %32, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %25, ptr %33, align 8, !tbaa !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %44
 
 34:                                               ; preds = %22
@@ -163,7 +163,7 @@ ASN1_TYPE_set.exit:                               ; preds = %17, %20
   br i1 %.not, label %44, label %36
 
 36:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !9
   %37 = load i32, ptr %0, align 8, !tbaa !3
   switch i32 %37, label %38 [
@@ -187,7 +187,7 @@ ASN1_TYPE_set.exit:                               ; preds = %17, %20
   store i32 %1, ptr %42, align 8, !tbaa !3
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %35, ptr %43, align 8, !tbaa !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %44
 
 44:                                               ; preds = %ASN1_TYPE_set.exit, %.thread, %.thread36, %34, %24
@@ -288,7 +288,7 @@ define noundef ptr @ASN1_TYPE_pack_sequence(ptr noundef %0, ptr noundef %1, ptr 
 
 17:                                               ; preds = %10, %8, %16
   %.0 = phi ptr [ %13, %16 ], [ %9, %8 ], [ %11, %10 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.0, ptr %4, align 8, !tbaa !9
   %18 = load i32, ptr %.0, align 8, !tbaa !3
   switch i32 %18, label %19 [
@@ -312,7 +312,7 @@ ASN1_TYPE_set.exit:                               ; preds = %17, %17, %19, %22
   store i32 16, ptr %23, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %5, ptr %24, align 8, !tbaa !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %25
 
 25:                                               ; preds = %3, %ASN1_TYPE_set.exit, %15
@@ -354,10 +354,10 @@ define ptr @ASN1_TYPE_unpack_sequence(ptr noundef %0, ptr noundef readonly captu
 declare ptr @ASN1_item_unpack(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

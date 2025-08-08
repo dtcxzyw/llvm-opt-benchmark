@@ -248,11 +248,11 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !12
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %8, ptr %3, align 8, !noalias !12
   %9 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.776e1d5b36f01edf9e52f5ac250f7ba8.12, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.776e1d5b36f01edf9e52f5ac250f7ba8.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !12
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hda05311194b4b964E.exit"
 
 10:                                               ; preds = %2
@@ -432,7 +432,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN8protobuf8rep
   br i1 %10, label %26, label %30
 
 11:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %12 = tail call noundef i8 @"_ZN86_$LT$raft_proto..protos..eraftpb..ConfChangeType$u20$as$u20$core..default..Default$GT$7default17h12344d7ceed1876aE"(), !noalias !22
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -468,7 +468,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN8protobuf8rep
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %25 = add nuw nsw i64 %4, 1
   store i64 %25, ptr %5, align 8, !alias.scope !26, !noalias !29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load i64, ptr %3, align 8
   %.pre3 = load ptr, ptr %22, align 8
   br label %31
@@ -528,7 +528,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN8protobuf8re
   br i1 %10, label %30, label %34
 
 11:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
   %12 = tail call noundef i8 @"_ZN81_$LT$raft_proto..protos..eraftpb..EntryType$u20$as$u20$core..default..Default$GT$7default17hc0c0423c90b63dbcE"(), !noalias !34
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 96
@@ -580,7 +580,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN8protobuf8re
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %28, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 104, i1 false)
   %29 = add nuw nsw i64 %4, 1
   store i64 %29, ptr %5, align 8, !alias.scope !37, !noalias !40
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load i64, ptr %3, align 8
   %.pre3 = load ptr, ptr %26, align 8
   br label %35
@@ -723,10 +723,10 @@ declare noundef range(i8 0, 3) i8 @"_ZN81_$LT$raft_proto..protos..eraftpb..Entry
 declare noundef range(i8 0, 3) i8 @"_ZN86_$LT$raft_proto..protos..eraftpb..ConfChangeType$u20$as$u20$core..default..Default$GT$7default17h12344d7ceed1876aE"() unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13

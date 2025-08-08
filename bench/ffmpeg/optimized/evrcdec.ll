@@ -181,9 +181,9 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   %16 = load ptr, ptr %15, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %18 = load i32, ptr %17, align 8, !tbaa !48
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i32 160, ptr %19, align 8, !tbaa !49
   %20 = tail call i32 @ff_get_buffer(ptr noundef %0, ptr noundef %1, i32 noundef 0) #9
@@ -1212,7 +1212,7 @@ decode_lspf.exit:                                 ; preds = %577, %.preheader.i
   %.1264 = phi ptr [ %23, %688 ], [ %922, %921 ]
   %709 = phi float [ %690, %688 ], [ %750, %921 ]
   %710 = phi float [ %689, %688 ], [ %749, %921 ]
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %12, i8 0, i64 240, i1 false)
   %711 = getelementptr inbounds nuw [3 x i8], ptr @subframe_sizes, i64 0, i64 %indvars.iv294
   %712 = load i8, ptr %711, align 1, !tbaa !28
@@ -1571,7 +1571,7 @@ synthesis_filter.exit:                            ; preds = %915
 
 921:                                              ; preds = %919, %synthesis_filter.exit
   %922 = getelementptr inbounds nuw float, ptr %.1264, i64 %895
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
   %exitcond297.not = icmp eq i64 %indvars.iv.next295, 3
   br i1 %exitcond297.not, label %.loopexit, label %708, !llvm.loop !95
@@ -1579,10 +1579,10 @@ synthesis_filter.exit:                            ; preds = %915
 decode_lspf.exit.thread:                          ; preds = %526, %572, %578, %54, %54, %602, %593, %535, %60, %50
   %923 = phi ptr [ %55, %602 ], [ %55, %593 ], [ %55, %535 ], [ %55, %60 ], [ %55, %54 ], [ %51, %50 ], [ %55, %54 ], [ %55, %578 ], [ %55, %572 ], [ %55, %526 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.7) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %924 = load i32, ptr %923, align 8, !tbaa !56
   %.not116.i = icmp eq i32 %924, 1
   %925 = getelementptr i8, ptr %16, i64 144
@@ -1950,10 +1950,10 @@ synthesis_filter.exit.i:                          ; preds = %1107
   br i1 %exitcond181.not.i, label %frame_erasure.exit, label %992, !llvm.loop !103
 
 frame_erasure.exit:                               ; preds = %synthesis_filter.exit.i
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %921, %frame_erasure.exit
@@ -1998,41 +1998,35 @@ frame_erasure.exit:                               ; preds = %synthesis_filter.ex
 
 1132:                                             ; preds = %63, %4, %1130
   %.0 = phi i32 [ %1131, %1130 ], [ %20, %4 ], [ -1094995529, %63 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
 declare ptr @av_default_item_name(ptr noundef) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare void @av_channel_layout_uninit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.cos.f64(double) #5
+declare double @llvm.cos.f64(double) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #5
+declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sin.f64(double) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare double @llvm.sin.f64(double) #4
 
 declare i32 @ff_get_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @acb_excitation(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, float noundef %2, ptr noundef nonnull readonly captures(none) %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #7 {
+define internal fastcc void @acb_excitation(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, float noundef %2, ptr noundef nonnull readonly captures(none) %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #6 {
   %6 = uitofp nneg i32 %4 to float
   %7 = uitofp nneg i32 %4 to double
   %8 = fdiv nsz double 1.000000e+00, %7
@@ -2190,13 +2184,13 @@ bl_intrp.exit44:                                  ; preds = %80
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.pow.f64(double, double) #5
+declare double @llvm.pow.f64(double, double) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.lrint.i64.f32(float) #5
+declare i64 @llvm.lrint.i64.f32(float) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_predictor_coeffs(ptr noundef nonnull %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #1 {
@@ -2207,16 +2201,16 @@ define internal fastcc void @decode_predictor_coeffs(ptr noundef nonnull %0, ptr
   %7 = alloca [5 x float], align 16
   %8 = alloca [5 x float], align 16
   %9 = alloca [5 x float], align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %6, i8 0, i64 20, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %7, i8 0, i64 20, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %8, i8 0, i64 20, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %9, i8 0, i64 20, i1 false)
   call void @ff_acelp_lsf2lspd(ptr noundef nonnull %3, ptr noundef nonnull %0, i32 noundef 10) #9
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -2295,34 +2289,34 @@ define internal fastcc void @decode_predictor_coeffs(ptr noundef nonnull %0, ptr
   br i1 %exitcond35.not, label %60, label %12, !llvm.loop !112
 
 60:                                               ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.exp.f64(double) #5
+declare double @llvm.exp.f64(double) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #5
+declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @postfilter(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 noundef range(i32 0, 256) %6) unnamed_addr #7 {
+define internal fastcc void @postfilter(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 noundef range(i32 0, 256) %6) unnamed_addr #6 {
   %8 = alloca [10 x float], align 16
   %9 = alloca [10 x float], align 16
   %10 = alloca [54 x float], align 16
   %11 = alloca [54 x float], align 16
   %12 = alloca [54 x float], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = load float, ptr %5, align 4, !tbaa !113
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = load float, ptr %14, align 4, !tbaa !115
@@ -2737,11 +2731,11 @@ synthesis_filter.exit156:                         ; preds = %182, %synthesis_fil
   %186 = phi i64 [ %134, %synthesis_filter.exit ], [ %130, %.loopexit ], [ %110, %.loopexit.thread ], [ %134, %182 ]
   %187 = getelementptr inbounds nuw float, ptr %71, i64 %186
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %71, ptr noundef nonnull align 4 dereferenceable(512) %187, i64 512, i1 false)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -2750,6 +2744,12 @@ declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 declare void @ff_weighted_vector_sumf(ptr noundef, ptr noundef, ptr noundef, float noundef, float noundef, i32 noundef) local_unnamed_addr #2
 
 declare void @ff_acelp_lsf2lspd(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #8
@@ -2775,11 +2775,11 @@ declare i32 @llvm.umax.i32(i32, i32) #8
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 

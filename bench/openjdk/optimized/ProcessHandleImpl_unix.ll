@@ -218,8 +218,8 @@ declare i32 @getpid() local_unnamed_addr #1
 define zeroext range(i8 0, 2) i8 @Java_java_lang_ProcessHandleImpl_destroy0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = trunc i64 %2 to i32
   store i64 0, ptr %6, align 8
   store i64 0, ptr %7, align 8
@@ -227,8 +227,8 @@ define zeroext range(i8 0, 2) i8 @Java_java_lang_ProcessHandleImpl_destroy0(ptr 
   %10 = icmp slt i32 %9, 0
   %11 = load i64, ptr %6, align 8
   %12 = select i1 %10, i64 -1, i64 %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %13 = icmp eq i64 %12, %3
   %14 = icmp eq i64 %12, 0
   %or.cond = or i1 %13, %14
@@ -923,10 +923,10 @@ declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #9
 declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

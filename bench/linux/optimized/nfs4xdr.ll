@@ -139,7 +139,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -523, 1) i32 @nfs4_decode_dirent(ptr noundef %0, ptr noundef captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = alloca [3 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   %5 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #12
   %6 = icmp eq ptr %5, null
@@ -311,18 +311,15 @@ define dso_local noundef range(i32 -523, 1) i32 @nfs4_decode_dirent(ptr noundef 
 
 105:                                              ; preds = %103, %72, %69, %.thread, %21, %18, %16, %13, %10, %3
   %106 = phi i32 [ -523, %16 ], [ 0, %103 ], [ -11, %3 ], [ -11, %10 ], [ -11, %13 ], [ -11, %18 ], [ -11, %21 ], [ -11, %.thread ], [ -11, %72 ], [ -11, %69 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %106
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @xdr_inline_decode(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare dso_local ptr @xdr_inline_decode(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -121, 33554433) i32 @decode_getfattr_attrs(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef %5) unnamed_addr #0 align 16 {
@@ -998,13 +995,10 @@ decode_pathname.exit:                             ; preds = %209, %decode_pathna
   ret i32 %403
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_read(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1126,14 +1120,14 @@ encode_putfh.exit:                                ; preds = %23, %27
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %66 = load ptr, ptr %65, align 8
   store i32 %64, ptr %66, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_read(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((48, 52)) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = load i32, ptr %4, align 8
@@ -1276,14 +1270,14 @@ define internal i32 @nfs4_xdr_dec_read(ptr readnone captures(none) %0, ptr nound
 
 .thread:                                          ; preds = %66, %.thread13, %70, %.thread18, %71, %34, %9, %38, %76, %39, %3
   %89 = phi i32 [ %5, %3 ], [ %40, %39 ], [ %84, %76 ], [ -5, %9 ], [ -121, %38 ], [ -121, %34 ], [ -5, %.thread18 ], [ %72, %71 ], [ -5, %.thread13 ], [ -121, %70 ], [ -121, %66 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %89
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_write(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1424,14 +1418,14 @@ encode_putfh.exit:                                ; preds = %23, %27
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %76 = load ptr, ptr %75, align 8
   store i32 %74, ptr %76, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) initializes((48, 52)) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = load i32, ptr %4, align 8
@@ -1594,14 +1588,14 @@ define internal i32 @nfs4_xdr_dec_write(ptr readnone captures(none) %0, ptr noun
 
 .thread:                                          ; preds = %66, %.thread15, %70, %76, %.thread20, %71, %34, %9, %38, %99, %39, %3
   %102 = phi i32 [ %5, %3 ], [ %40, %39 ], [ %101, %99 ], [ -5, %9 ], [ -121, %38 ], [ -121, %34 ], [ -5, %76 ], [ -5, %.thread20 ], [ %72, %71 ], [ -5, %.thread15 ], [ -121, %70 ], [ -121, %66 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %102
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_commit(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1694,14 +1688,14 @@ encode_putfh.exit:                                ; preds = %21, %25
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %48 = load ptr, ptr %47, align 8
   store i32 %46, ptr %48, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_commit(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) initializes((32, 36)) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = load i32, ptr %4, align 8
@@ -1836,14 +1830,14 @@ define internal i32 @nfs4_xdr_dec_commit(ptr readnone captures(none) %0, ptr nou
 
 .thread:                                          ; preds = %68, %.thread13, %72, %.thread18, %73, %34, %9, %38, %78, %39, %3
   %81 = phi i32 [ %5, %3 ], [ %40, %39 ], [ 0, %78 ], [ -5, %9 ], [ -121, %38 ], [ -121, %34 ], [ -5, %.thread18 ], [ %74, %73 ], [ -5, %.thread13 ], [ -121, %72 ], [ -121, %68 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %81
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1992,14 +1986,14 @@ encode_putfh.exit:                                ; preds = %25, %29
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %77 = load ptr, ptr %76, align 8
   store i32 %75, ptr %77, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_open(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -2093,14 +2087,14 @@ define internal i32 @nfs4_xdr_dec_open(ptr readnone captures(none) %0, ptr nound
 
 .thread:                                          ; preds = %32, %7, %36, %54, %42, %.thread8, %37, %3
   %60 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %40, %.thread8 ], [ %44, %42 ], [ 0, %54 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %60
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_open_confirm(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -2231,14 +2225,14 @@ encode_putfh.exit:                                ; preds = %21, %25
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %63 = load ptr, ptr %62, align 8
   store i32 %61, ptr %63, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_open_confirm(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -2387,14 +2381,14 @@ define internal i32 @nfs4_xdr_dec_open_confirm(ptr readnone captures(none) %0, p
 
 .thread:                                          ; preds = %.thread16.thread, %.thread12, %32, %7, %36, %83, %79, %.thread16, %71, %37, %3
   %85 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %72, %.thread16 ], [ -5, %71 ], [ 0, %83 ], [ -5, %79 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread12 ], [ -121, %.thread16.thread ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %85
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_open_noattr(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -2524,14 +2518,14 @@ encode_putfh.exit:                                ; preds = %25, %29
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %70 = load ptr, ptr %69, align 8
   store i32 %68, ptr %70, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_open_noattr(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -2619,14 +2613,14 @@ define internal i32 @nfs4_xdr_dec_open_noattr(ptr readnone captures(none) %0, pt
 
 .thread:                                          ; preds = %32, %7, %36, %50, %.thread7, %37, %3
   %56 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %40, %.thread7 ], [ 0, %50 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %56
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_open_downgrade(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -2772,14 +2766,14 @@ encode_putfh.exit:                                ; preds = %21, %25
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %70 = load ptr, ptr %69, align 8
   store i32 %68, ptr %70, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_open_downgrade(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -2939,14 +2933,14 @@ define internal i32 @nfs4_xdr_dec_open_downgrade(ptr readnone captures(none) %0,
 
 .thread:                                          ; preds = %.thread16.thread, %45, %32, %7, %36, %89, %85, %.thread16, %77, %37, %3
   %91 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %78, %.thread16 ], [ -5, %77 ], [ 0, %89 ], [ -5, %85 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %45 ], [ -121, %.thread16.thread ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %91
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_close(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3093,14 +3087,14 @@ encode_putfh.exit:                                ; preds = %25, %29
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %72 = load ptr, ptr %71, align 8
   store i32 %70, ptr %72, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_close(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -3272,14 +3266,14 @@ define internal i32 @nfs4_xdr_dec_close(ptr readnone captures(none) %0, ptr noun
 
 .thread:                                          ; preds = %.thread17.thread, %54, %32, %7, %36, %94, %.thread17, %86, %49, %37, %3
   %101 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %52, %49 ], [ %87, %.thread17 ], [ %100, %94 ], [ -5, %86 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %54 ], [ -121, %.thread17.thread ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %101
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_setattr(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3386,14 +3380,14 @@ encode_putfh.exit:                                ; preds = %23, %27
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %57 = load ptr, ptr %56, align 8
   store i32 %55, ptr %57, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_setattr(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -3469,14 +3463,14 @@ define internal i32 @nfs4_xdr_dec_setattr(ptr readnone captures(none) %0, ptr no
 
 .thread:                                          ; preds = %32, %7, %36, %42, %.thread7, %37, %3
   %48 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %40, %.thread7 ], [ 0, %42 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %48
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_fsinfo(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3544,14 +3538,14 @@ encode_putfh.exit:                                ; preds = %25, %29
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %38 = load ptr, ptr %37, align 8
   store i32 %36, ptr %38, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_fsinfo(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -3620,14 +3614,14 @@ define internal i32 @nfs4_xdr_dec_fsinfo(ptr readnone captures(none) %0, ptr nou
 
 .thread:                                          ; preds = %32, %7, %36, %3, %.thread6, %37
   %43 = phi i32 [ %38, %37 ], [ %42, %.thread6 ], [ -5, %7 ], [ -121, %36 ], [ %5, %3 ], [ -121, %32 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %43
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_renew(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 304
@@ -3680,14 +3674,14 @@ define internal void @nfs4_xdr_enc_renew(ptr readnone captures(none) %0, ptr nou
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load ptr, ptr %25, align 8
   store i32 %24, ptr %26, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_renew(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -3746,14 +3740,14 @@ define internal i32 @nfs4_xdr_dec_renew(ptr readnone captures(none) %0, ptr noun
 
 38:                                               ; preds = %37, %32, %29, %14, %7, %3
   %39 = phi i32 [ %5, %3 ], [ -121, %37 ], [ 0, %14 ], [ %31, %29 ], [ %36, %32 ], [ -5, %7 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_setclientid(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 4) #12
@@ -3902,14 +3896,14 @@ define internal void @nfs4_xdr_enc_setclientid(ptr readnone captures(none) %0, p
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %82 = load ptr, ptr %81, align 8
   store i32 %80, ptr %82, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_setclientid(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -4003,14 +3997,14 @@ define internal i32 @nfs4_xdr_dec_setclientid(ptr readnone captures(none) %0, pt
 
 61:                                               ; preds = %56, %53, %38, %35, %29, %26, %20, %17, %10, %7, %3
   %62 = phi i32 [ %5, %3 ], [ 0, %20 ], [ -5, %7 ], [ -5, %10 ], [ -5, %17 ], [ -5, %26 ], [ -5, %29 ], [ -5, %35 ], [ %44, %38 ], [ %55, %53 ], [ %60, %56 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %62
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_setclientid_confirm(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 4) #12
@@ -4078,14 +4072,14 @@ define internal void @nfs4_xdr_enc_setclientid_confirm(ptr readnone captures(non
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %32 = load ptr, ptr %31, align 8
   store i32 %30, ptr %32, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_setclientid_confirm(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -4144,14 +4138,14 @@ define internal i32 @nfs4_xdr_dec_setclientid_confirm(ptr readnone captures(none
 
 38:                                               ; preds = %37, %32, %29, %14, %7, %3
   %39 = phi i32 [ %5, %3 ], [ -121, %37 ], [ 0, %14 ], [ %31, %29 ], [ %36, %32 ], [ -5, %7 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_lock(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -4474,14 +4468,14 @@ encode_putfh.exit:                                ; preds = %21, %25
   %172 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %173 = load ptr, ptr %172, align 8
   store i32 %171, ptr %173, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_lock(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -4646,14 +4640,14 @@ define internal i32 @nfs4_xdr_dec_lock(ptr readnone captures(none) %0, ptr nound
 
 .thread:                                          ; preds = %.thread19, %.thread14, %32, %7, %36, %92, %69, %37, %3
   %95 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %70, %69 ], [ %87, %92 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread14 ], [ -5, %.thread19 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %95
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_lockt(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -4795,14 +4789,14 @@ encode_putfh.exit:                                ; preds = %21, %25
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %82 = load ptr, ptr %81, align 8
   store i32 %80, ptr %82, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_lockt(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -4966,14 +4960,14 @@ define internal i32 @nfs4_xdr_dec_lockt(ptr readnone captures(none) %0, ptr noun
 
 .thread:                                          ; preds = %64, %.thread13, %46, %68, %32, %7, %36, %98, %72, %69, %37, %3
   %106 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %70, %69 ], [ -5, %72 ], [ %105, %98 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread13 ], [ 0, %46 ], [ -121, %68 ], [ -121, %64 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %106
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_locku(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -5157,14 +5151,14 @@ encode_putfh.exit:                                ; preds = %21, %25
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %94 = load ptr, ptr %93, align 8
   store i32 %92, ptr %94, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_locku(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -5313,14 +5307,14 @@ define internal i32 @nfs4_xdr_dec_locku(ptr readnone captures(none) %0, ptr noun
 
 .thread:                                          ; preds = %.thread16.thread, %.thread12, %32, %7, %36, %83, %79, %.thread16, %71, %37, %3
   %85 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %72, %.thread16 ], [ -5, %71 ], [ 0, %83 ], [ -5, %79 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread12 ], [ -121, %.thread16.thread ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %85
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_access(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -5429,14 +5423,14 @@ encode_putfh.exit:                                ; preds = %23, %27
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %54 = load ptr, ptr %53, align 8
   store i32 %52, ptr %54, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_access(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -5518,14 +5512,14 @@ define internal i32 @nfs4_xdr_dec_access(ptr readnone captures(none) %0, ptr nou
 
 .thread:                                          ; preds = %32, %7, %36, %48, %44, %.thread8, %37, %3
   %52 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %42, %.thread8 ], [ 0, %48 ], [ 0, %44 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %52
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_getattr(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -5593,14 +5587,14 @@ encode_putfh.exit:                                ; preds = %25, %29
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %38 = load ptr, ptr %37, align 8
   store i32 %36, ptr %38, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_getattr(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -5671,14 +5665,14 @@ define internal i32 @nfs4_xdr_dec_getattr(ptr readnone captures(none) %0, ptr no
 
 .thread:                                          ; preds = %32, %7, %36, %.thread6, %37, %3
   %45 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %44, %.thread6 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %45
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_lookup(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -5805,14 +5799,14 @@ encode_lookup.exit:                               ; preds = %47, %49
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %65 = load ptr, ptr %64, align 8
   store i32 %63, ptr %65, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_lookup(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -5945,14 +5939,14 @@ define internal i32 @nfs4_xdr_dec_lookup(ptr readnone captures(none) %0, ptr nou
 
 .thread:                                          ; preds = %64, %.thread12, %68, %32, %7, %36, %76, %.thread17, %69, %37, %3
   %82 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %70, %69 ], [ %74, %.thread17 ], [ %81, %76 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread12 ], [ -121, %68 ], [ -121, %64 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %82
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_lookup_root(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 4) #12
@@ -6011,14 +6005,14 @@ define internal void @nfs4_xdr_enc_lookup_root(ptr readnone captures(none) %0, p
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = load ptr, ptr %28, align 8
   store i32 %27, ptr %29, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_lookup_root(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -6096,14 +6090,14 @@ define internal i32 @nfs4_xdr_dec_lookup_root(ptr readnone captures(none) %0, pt
 
 .thread:                                          ; preds = %32, %7, %36, %44, %.thread7, %37, %3
   %50 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %49, %44 ], [ %42, %.thread7 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %50
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_remove(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -6200,14 +6194,14 @@ encode_putfh.exit:                                ; preds = %21, %25
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %51 = load ptr, ptr %50, align 8
   store i32 %49, ptr %51, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_remove(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -6347,14 +6341,14 @@ define internal i32 @nfs4_xdr_dec_remove(ptr readnone captures(none) %0, ptr nou
 
 .thread:                                          ; preds = %65, %.thread12, %69, %32, %7, %36, %75, %.thread17, %70, %37, %3
   %86 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %71, %70 ], [ 0, %75 ], [ -5, %.thread17 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread12 ], [ -121, %69 ], [ -121, %65 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %86
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_rename(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -6532,14 +6526,14 @@ encode_putfh.exit4:                               ; preds = %45, %49
   %92 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %93 = load ptr, ptr %92, align 8
   store i32 %91, ptr %93, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_rename(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -6718,14 +6712,14 @@ define internal i32 @nfs4_xdr_dec_rename(ptr readnone captures(none) %0, ptr nou
 
 .thread:                                          ; preds = %96, %.thread21, %100, %64, %.thread16, %68, %32, %7, %36, %.thread26, %101, %69, %37, %3
   %107 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %70, %69 ], [ %102, %101 ], [ %106, %.thread26 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread16 ], [ -121, %68 ], [ -121, %64 ], [ -5, %.thread21 ], [ -121, %100 ], [ -121, %96 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %107
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_link(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -6910,14 +6904,14 @@ encode_putfh.exit4:                               ; preds = %51, %55
   %91 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %92 = load ptr, ptr %91, align 8
   store i32 %90, ptr %92, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_link(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -7109,7 +7103,7 @@ define internal i32 @nfs4_xdr_dec_link(ptr readnone captures(none) %0, ptr nound
 
 .thread:                                          ; preds = %96, %.thread23, %100, %64, %.thread18, %68, %32, %7, %36, %110, %107, %.thread28, %101, %69, %37, %3
   %116 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %70, %69 ], [ %102, %101 ], [ %105, %.thread28 ], [ %108, %107 ], [ 0, %110 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread18 ], [ -121, %68 ], [ -121, %64 ], [ -5, %.thread23 ], [ -121, %100 ], [ -121, %96 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %116
 }
 
@@ -7128,7 +7122,7 @@ define internal i32 @nfs4_xdr_dec_symlink(ptr readnone captures(none) %0, ptr no
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_create(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -7339,14 +7333,14 @@ encode_putfh.exit:                                ; preds = %23, %27
   %111 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %112 = load ptr, ptr %111, align 8
   store i32 %110, ptr %112, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_create(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -7512,14 +7506,14 @@ define internal i32 @nfs4_xdr_dec_create(ptr readnone captures(none) %0, ptr nou
 
 .thread:                                          ; preds = %88, %.thread20, %65, %.thread15, %69, %75, %70, %32, %7, %36, %100, %95, %37, %3
   %106 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %98, %95 ], [ 0, %100 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %75 ], [ %71, %70 ], [ -5, %.thread15 ], [ -121, %69 ], [ -121, %65 ], [ -5, %.thread20 ], [ -5, %88 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %106
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_pathconf(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -7587,7 +7581,7 @@ encode_putfh.exit:                                ; preds = %25, %29
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %38 = load ptr, ptr %37, align 8
   store i32 %36, ptr %38, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -7595,7 +7589,7 @@ encode_putfh.exit:                                ; preds = %25, %29
 define internal i32 @nfs4_xdr_dec_pathconf(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca [3 x i32], align 4
   %5 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !50
   %6 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %5)
   %7 = icmp eq i32 %6, 0
@@ -7659,7 +7653,7 @@ define internal i32 @nfs4_xdr_dec_pathconf(ptr readnone captures(none) %0, ptr n
 .thread20:                                        ; preds = %15, %38
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %42 = load ptr, ptr %41, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   %43 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 8) #12
   %44 = icmp eq ptr %43, null
@@ -7841,19 +7835,19 @@ define internal i32 @nfs4_xdr_dec_pathconf(ptr readnone captures(none) %0, ptr n
 
 decode_attr_maxname.exit:                         ; preds = %103, %.thread25, %77, %.critedge.thread, %67, %.thread20, %71, %134, %127, %107, %120, %140, %72
   %146 = phi i32 [ %73, %72 ], [ %145, %140 ], [ -5, %107 ], [ -5, %120 ], [ -5, %127 ], [ -5, %134 ], [ -5, %.thread20 ], [ -121, %71 ], [ -121, %67 ], [ -5, %.critedge.thread ], [ -5, %77 ], [ -5, %.thread25 ], [ -5, %103 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 .thread:                                          ; preds = %33, %8, %37, %3, %decode_attr_maxname.exit, %38
   %147 = phi i32 [ %39, %38 ], [ %146, %decode_attr_maxname.exit ], [ -5, %8 ], [ -121, %37 ], [ %6, %3 ], [ -121, %33 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %147
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_statfs(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -7921,7 +7915,7 @@ encode_putfh.exit:                                ; preds = %25, %29
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %38 = load ptr, ptr %37, align 8
   store i32 %36, ptr %38, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -7929,7 +7923,7 @@ encode_putfh.exit:                                ; preds = %25, %29
 define internal i32 @nfs4_xdr_dec_statfs(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca [3 x i32], align 4
   %5 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !50
   %6 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %5)
   %7 = icmp eq i32 %6, 0
@@ -7993,7 +7987,7 @@ define internal i32 @nfs4_xdr_dec_statfs(ptr readnone captures(none) %0, ptr nou
 .thread24:                                        ; preds = %15, %38
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %42 = load ptr, ptr %41, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   %43 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 8) #12
   %44 = icmp eq ptr %43, null
@@ -8208,19 +8202,19 @@ define internal i32 @nfs4_xdr_dec_statfs(ptr readnone captures(none) %0, ptr nou
 
 decode_attr_files_free.exit:                      ; preds = %103, %.thread29, %77, %.critedge.thread, %67, %.thread24, %71, %135, %127, %107, %120, %161, %157, %153, %149, %146, %142, %72
   %167 = phi i32 [ %73, %72 ], [ %144, %142 ], [ -5, %146 ], [ %151, %149 ], [ %155, %153 ], [ %159, %157 ], [ %166, %161 ], [ -5, %107 ], [ -5, %120 ], [ -5, %127 ], [ -5, %135 ], [ -5, %.thread24 ], [ -121, %71 ], [ -121, %67 ], [ -5, %.critedge.thread ], [ -5, %77 ], [ -5, %.thread29 ], [ -5, %103 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 .thread:                                          ; preds = %33, %8, %37, %3, %decode_attr_files_free.exit, %38
   %168 = phi i32 [ %39, %38 ], [ %167, %decode_attr_files_free.exit ], [ -5, %8 ], [ -121, %37 ], [ %6, %3 ], [ -121, %33 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %168
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_readlink(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -8304,14 +8298,14 @@ encode_putfh.exit:                                ; preds = %23, %27
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %46 = load ptr, ptr %45, align 8
   store i32 %44, ptr %46, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_readlink(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -8454,7 +8448,7 @@ define internal i32 @nfs4_xdr_dec_readlink(ptr noundef %0, ptr noundef %1, ptr r
 
 .thread:                                          ; preds = %65, %.thread13, %69, %32, %7, %36, %86, %83, %75, %.thread18, %70, %37, %3
   %87 = phi i32 [ %5, %3 ], [ %38, %37 ], [ 0, %86 ], [ %71, %70 ], [ -5, %.thread18 ], [ -36, %75 ], [ -5, %83 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread13 ], [ -121, %69 ], [ -121, %65 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %87
 }
 
@@ -8462,7 +8456,7 @@ define internal i32 @nfs4_xdr_dec_readlink(ptr noundef %0, ptr noundef %1, ptr r
 define internal void @nfs4_xdr_enc_readdir(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca [3 x i32], align 4
   %5 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -8508,7 +8502,7 @@ define internal void @nfs4_xdr_enc_readdir(ptr noundef %0, ptr noundef %1, ptr n
   br label %encode_putfh.exit
 
 encode_putfh.exit:                                ; preds = %24, %28
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 2050, ptr %4, align 4
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 8388608, ptr %29, align 4
@@ -8652,7 +8646,7 @@ encode_putfh.exit:                                ; preds = %24, %28
   br i1 %104, label %.loopexit, label %96, !llvm.loop !59
 
 .loopexit:                                        ; preds = %96, %87
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -8674,14 +8668,14 @@ encode_putfh.exit:                                ; preds = %24, %28
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %116 = load ptr, ptr %115, align 8
   store i32 %114, ptr %116, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_readdir(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -8815,7 +8809,7 @@ define internal i32 @nfs4_xdr_dec_readdir(ptr readnone captures(none) %0, ptr no
 
 .thread:                                          ; preds = %64, %.thread13, %68, %.thread18, %69, %32, %7, %36, %74, %37, %3
   %82 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %81, %74 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread18 ], [ %70, %69 ], [ -5, %.thread13 ], [ -121, %68 ], [ -121, %64 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %82
 }
 
@@ -8824,7 +8818,7 @@ define internal void @nfs4_xdr_enc_server_caps(ptr readnone captures(none) %0, p
   %4 = alloca %struct.compound_hdr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -8890,7 +8884,7 @@ encode_putfh.exit:                                ; preds = %27, %31
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %38 = load ptr, ptr %37, align 8
   store i32 %36, ptr %38, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -8898,7 +8892,7 @@ encode_putfh.exit:                                ; preds = %27, %31
 define internal i32 @nfs4_xdr_dec_server_caps(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) #0 align 16 {
   %4 = alloca [3 x i32], align 4
   %5 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !50
   %6 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %5)
   %7 = icmp eq i32 %6, 0
@@ -8960,7 +8954,7 @@ define internal i32 @nfs4_xdr_dec_server_caps(ptr readnone captures(none) %0, pt
   br i1 %40, label %.thread36, label %.thread
 
 .thread36:                                        ; preds = %15, %38
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   %41 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 8) #12
   %42 = icmp eq ptr %41, null
@@ -9209,19 +9203,19 @@ define internal i32 @nfs4_xdr_dec_server_caps(ptr readnone captures(none) %0, pt
 
 .thread40:                                        ; preds = %143, %114, %117, %101, %.thread41, %75, %.critedge.thread, %65, %.thread36, %69, %177, %173, %169, %165, %161, %157, %153, %149, %70
   %183 = phi i32 [ %71, %70 ], [ %151, %149 ], [ %155, %153 ], [ %159, %157 ], [ %163, %161 ], [ %167, %165 ], [ %171, %169 ], [ %175, %173 ], [ %182, %177 ], [ -5, %.thread36 ], [ -121, %69 ], [ -121, %65 ], [ -5, %.critedge.thread ], [ -5, %75 ], [ -5, %.thread41 ], [ -5, %101 ], [ -5, %117 ], [ -5, %114 ], [ -5, %143 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 .thread:                                          ; preds = %33, %8, %37, %.thread40, %38, %3
   %184 = phi i32 [ %6, %3 ], [ %39, %38 ], [ %183, %.thread40 ], [ -5, %8 ], [ -121, %37 ], [ -121, %33 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %184
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_delegreturn(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -9329,14 +9323,14 @@ encode_putfh.exit:                                ; preds = %25, %29
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %55 = load ptr, ptr %54, align 8
   store i32 %53, ptr %55, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_delegreturn(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -9474,7 +9468,7 @@ define internal i32 @nfs4_xdr_dec_delegreturn(ptr readnone captures(none) %0, pt
 
 .thread:                                          ; preds = %32, %7, %36, %84, %79, %76, %61, %54, %49, %37, %3
   %85 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %52, %49 ], [ -121, %84 ], [ 0, %61 ], [ %78, %76 ], [ %83, %79 ], [ -5, %54 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %85
 }
 
@@ -9482,9 +9476,9 @@ define internal i32 @nfs4_xdr_dec_delegreturn(ptr readnone captures(none) %0, pt
 define internal void @nfs4_xdr_enc_getacl(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
   %5 = alloca [2 x i32], align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !50
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load i32, ptr %6, align 8
@@ -9576,8 +9570,8 @@ encode_putfh.exit:                                ; preds = %33, %37
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %50 = load ptr, ptr %49, align 8
   store i32 %48, ptr %50, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -9585,7 +9579,7 @@ encode_putfh.exit:                                ; preds = %33, %37
 define internal i32 @nfs4_xdr_dec_getacl(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = alloca [3 x i32], align 4
   %5 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -9669,7 +9663,7 @@ define internal i32 @nfs4_xdr_dec_getacl(ptr readnone captures(none) %0, ptr nou
 .thread20:                                        ; preds = %29, %52
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %56 = load i32, ptr %55, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 0, ptr %57, align 8
@@ -9875,12 +9869,12 @@ define internal i32 @nfs4_xdr_dec_getacl(ptr readnone captures(none) %0, ptr nou
 
 .thread24:                                        ; preds = %122, %.thread25, %96, %.critedge.thread, %82, %.thread20, %86, %176, %169, %158, %150, %147, %139, %136, %132, %87
   %180 = phi i32 [ -5, %132 ], [ -95, %136 ], [ -5, %139 ], [ -95, %147 ], [ -5, %150 ], [ -95, %158 ], [ %88, %87 ], [ 0, %176 ], [ 0, %169 ], [ -5, %.thread20 ], [ -121, %86 ], [ -121, %82 ], [ -5, %.critedge.thread ], [ -5, %96 ], [ -5, %.thread25 ], [ -5, %122 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 .thread:                                          ; preds = %47, %22, %51, %.thread24, %52, %19
   %181 = phi i32 [ %20, %19 ], [ %53, %52 ], [ %180, %.thread24 ], [ -5, %22 ], [ -121, %51 ], [ -121, %47 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %181
 }
 
@@ -9888,7 +9882,7 @@ define internal i32 @nfs4_xdr_dec_getacl(ptr readnone captures(none) %0, ptr nou
 define internal void @nfs4_xdr_enc_setacl(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca [2 x i32], align 8
   %5 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -9932,7 +9926,7 @@ define internal void @nfs4_xdr_enc_setacl(ptr readnone captures(none) %0, ptr no
   br label %encode_putfh.exit
 
 encode_putfh.exit:                                ; preds = %22, %26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !50
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %28 = load i32, ptr %27, align 8
@@ -10041,7 +10035,7 @@ encode_putfh.exit:                                ; preds = %22, %26
   %72 = load i64, ptr %61, align 8
   %73 = trunc i64 %72 to i32
   tail call void @xdr_write_pages(ptr noundef %1, ptr noundef %71, i32 noundef 0, i32 noundef %73) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %74 = icmp ugt i32 %40, 8
   br i1 %74, label %75, label %76, !prof !6
 
@@ -10056,14 +10050,14 @@ encode_putfh.exit:                                ; preds = %22, %26
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %79 = load ptr, ptr %78, align 8
   store i32 %77, ptr %79, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_setacl(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -10130,14 +10124,14 @@ define internal i32 @nfs4_xdr_dec_setacl(ptr readnone captures(none) %0, ptr nou
 
 .thread:                                          ; preds = %32, %7, %36, %.thread6, %37, %3
   %41 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %40, %.thread6 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %41
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_fs_locations(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -10351,14 +10345,14 @@ encode_lookup.exit:                               ; preds = %98, %100
   %112 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %113 = load ptr, ptr %112, align 8
   store i32 %111, ptr %113, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_fs_locations(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -10514,14 +10508,14 @@ define internal i32 @nfs4_xdr_dec_fs_locations(ptr readnone captures(none) %0, p
 
 .thread:                                          ; preds = %83, %58, %87, %32, %7, %36, %.thread17, %88, %56, %52, %44, %37, %3
   %97 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %50, %44 ], [ %57, %56 ], [ 0, %52 ], [ %89, %88 ], [ %96, %.thread17 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %58 ], [ -121, %87 ], [ -121, %83 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %97
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_release_lockowner(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -10583,14 +10577,14 @@ define internal void @nfs4_xdr_enc_release_lockowner(ptr readnone captures(none)
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %35 = load ptr, ptr %34, align 8
   store i32 %33, ptr %35, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_release_lockowner(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -10649,14 +10643,14 @@ define internal i32 @nfs4_xdr_dec_release_lockowner(ptr readnone captures(none) 
 
 38:                                               ; preds = %37, %32, %29, %14, %7, %3
   %39 = phi i32 [ %5, %3 ], [ -121, %37 ], [ 0, %14 ], [ %31, %29 ], [ %36, %32 ], [ -5, %7 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_secinfo(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -10755,14 +10749,14 @@ encode_putfh.exit:                                ; preds = %21, %25
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %53 = load ptr, ptr %52, align 8
   store i32 %51, ptr %53, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_secinfo(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -10965,14 +10959,14 @@ define internal i32 @nfs4_xdr_dec_secinfo(ptr readnone captures(none) %0, ptr no
 
 .thread:                                          ; preds = %106, %102, %98, %95, %119, %88, %82, %64, %.thread20, %68, %32, %7, %36, %74, %.thread25, %69, %37, %3
   %125 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %70, %69 ], [ -5, %.thread25 ], [ 0, %74 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread20 ], [ -121, %68 ], [ -121, %64 ], [ -5, %95 ], [ -22, %98 ], [ -5, %102 ], [ -5, %106 ], [ -5, %88 ], [ 0, %119 ], [ 0, %82 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %125
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_fsid_present(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -11088,14 +11082,14 @@ encode_putfh.exit:                                ; preds = %21, %25
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %57 = load ptr, ptr %56, align 8
   store i32 %55, ptr %57, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_fsid_present(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -11223,7 +11217,7 @@ define internal i32 @nfs4_xdr_dec_fsid_present(ptr readnone captures(none) %0, p
 
 .thread:                                          ; preds = %32, %7, %36, %79, %74, %71, %56, %49, %44, %.thread11, %37, %3
   %80 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %42, %.thread11 ], [ 0, %44 ], [ -121, %79 ], [ 0, %56 ], [ %73, %71 ], [ %78, %74 ], [ -5, %49 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %80
 }
 
@@ -11231,9 +11225,9 @@ define internal i32 @nfs4_xdr_dec_fsid_present(ptr readnone captures(none) %0, p
 define internal void @nfs4_xdr_enc_get_lease_time(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
   %5 = alloca [3 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1024, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4
@@ -11279,15 +11273,15 @@ define internal void @nfs4_xdr_enc_get_lease_time(ptr readnone captures(none) %0
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load ptr, ptr %24, align 8
   store i32 %23, ptr %25, align 4
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_get_lease_time(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -11356,14 +11350,14 @@ define internal i32 @nfs4_xdr_dec_get_lease_time(ptr readnone captures(none) %0,
 
 .thread:                                          ; preds = %32, %7, %36, %3, %.thread6, %37
   %43 = phi i32 [ %38, %37 ], [ %42, %.thread6 ], [ -5, %7 ], [ -121, %36 ], [ %5, %3 ], [ -121, %32 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %43
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_xdr_enc_lookupp(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @encode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -11465,14 +11459,14 @@ encode_putfh.exit:                                ; preds = %25, %29
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %50 = load ptr, ptr %49, align 8
   store i32 %48, ptr %50, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_xdr_dec_lookupp(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
   %5 = call fastcc i32 @decode_compound_hdr(ptr noundef %1, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
@@ -11605,18 +11599,18 @@ define internal i32 @nfs4_xdr_dec_lookupp(ptr readnone captures(none) %0, ptr no
 
 .thread:                                          ; preds = %64, %.thread12, %68, %32, %7, %36, %76, %.thread17, %69, %37, %3
   %82 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %70, %69 ], [ %74, %.thread17 ], [ %81, %76 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread12 ], [ -121, %68 ], [ -121, %64 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %82
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #4
+declare i64 @llvm.bswap.i64(i64) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #4
+declare i32 @llvm.bswap.i32(i32) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @xdr_stream_pos(ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @xdr_stream_pos(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -5, 5) i32 @decode_attr_nlink(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #0 align 16 {
@@ -12084,7 +12078,7 @@ define internal fastcc range(i32 -121, 1) i32 @decode_attr_mdsthreshold(ptr noun
   br label %23
 
 23:                                               ; preds = %21, %18
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   %24 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #12
   %25 = icmp eq ptr %24, null
@@ -12243,7 +12237,7 @@ define internal fastcc range(i32 -121, 1) i32 @decode_attr_mdsthreshold(ptr noun
 
 .thread16:                                        ; preds = %.critedge.thread, %32, %26, %58, %101, %91, %81, %71, %107, %23
   %113 = phi i32 [ -5, %23 ], [ %112, %107 ], [ -5, %71 ], [ -5, %81 ], [ -5, %91 ], [ -5, %101 ], [ -5, %58 ], [ -5, %26 ], [ -5, %32 ], [ -5, %.critedge.thread ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %114 = load i32, ptr %5, align 4
   %115 = and i32 %114, -17
   store i32 %115, ptr %5, align 4
@@ -12336,19 +12330,19 @@ define internal fastcc noundef range(i32 -34, 33554433) i32 @decode_attr_securit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_xdr_bad_filehandle(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local i32 @__SCT__tp_func_nfs4_xdr_bad_filehandle(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
-declare i64 @llvm.read_register.i64(metadata) #6
+declare i64 @llvm.read_register.i64(metadata) #5
 
 ; Function Attrs: nocallback nounwind
-declare void @llvm.write_register.i64(metadata, i64) #7
+declare void @llvm.write_register.i64(metadata, i64) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -5, 1) i32 @decode_pathname(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 align 16 {
@@ -12421,16 +12415,16 @@ define internal fastcc noundef range(i32 -5, 1) i32 @decode_pathname(ptr noundef
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_map_name_to_uid(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @nfs_map_name_to_uid(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @xdr_stream_decode_string_dup(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local i64 @xdr_stream_decode_string_dup(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_map_group_to_gid(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @nfs_map_group_to_gid(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #9
+declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @encode_compound_hdr(ptr noundef %0, ptr noundef captures(none) initializes((32, 36)) %1) unnamed_addr #0 align 16 {
@@ -12497,16 +12491,16 @@ define internal fastcc void @encode_compound_hdr(ptr noundef %0, ptr noundef cap
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @rpc_prepare_reply_pages(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local void @rpc_prepare_reply_pages(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @xdr_reserve_space(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare dso_local ptr @xdr_reserve_space(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @xdr_encode_opaque(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local ptr @xdr_encode_opaque(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @xdr_encode_opaque_fixed(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local ptr @xdr_encode_opaque_fixed(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @decode_compound_hdr(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 align 16 {
@@ -12589,7 +12583,7 @@ define internal fastcc i32 @decode_compound_hdr(ptr noundef %0, ptr noundef capt
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_nfs4_xdr_status(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #10 align 16 {
+define internal fastcc void @trace_nfs4_xdr_status(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #9 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_nfs4_xdr_status, i64 8), i32 2) #12
           to label %24 [label %4], !srcloc !12
 
@@ -12634,7 +12628,7 @@ define internal fastcc void @trace_nfs4_xdr_status(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_nfs4_xdr_bad_operation(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 3, 40) %2) unnamed_addr #10 align 16 {
+define internal fastcc void @trace_nfs4_xdr_bad_operation(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 3, 40) %2) unnamed_addr #9 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_nfs4_xdr_bad_operation, i64 8), i32 2) #12
           to label %24 [label %4], !srcloc !12
 
@@ -12679,21 +12673,21 @@ define internal fastcc void @trace_nfs4_xdr_bad_operation(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_xdr_status(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local i32 @__SCT__tp_func_nfs4_xdr_status(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_xdr_bad_operation(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local i32 @__SCT__tp_func_nfs4_xdr_bad_operation(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @xdr_read_pages(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local i32 @xdr_read_pages(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @xdr_write_pages(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local void @xdr_write_pages(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @encode_getattr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef range(i64 2, 4) %3, ptr noundef captures(none) %4) unnamed_addr #0 align 16 {
   %6 = alloca [4 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call ptr @xdr_reserve_space(ptr noundef %0, i64 noundef 4) #12
   %8 = icmp eq ptr %7, null
   %.ph14.sroa.gep = getelementptr i8, ptr %1, i64 -4
@@ -12811,14 +12805,14 @@ define internal fastcc void @encode_getattr(ptr noundef %0, ptr noundef readonly
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %56, %.critedge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -2147483648, 1) i32 @decode_getfattr_generic(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca [3 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false)
   %6 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 8) #12
   %7 = icmp eq ptr %6, null
@@ -12954,7 +12948,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_getfattr_generic(pt
 
 .thread:                                          ; preds = %.critedge.thread, %40, %.thread13, %66, %30, %4, %34, %75, %70, %35
   %83 = phi i32 [ %36, %35 ], [ %73, %70 ], [ %82, %75 ], [ -5, %4 ], [ -121, %34 ], [ -121, %30 ], [ -5, %66 ], [ -5, %.thread13 ], [ -5, %40 ], [ -5, %.critedge.thread ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %83
 }
 
@@ -13384,9 +13378,9 @@ define internal fastcc void @encode_attrs(ptr noundef %0, ptr noundef readonly c
   %7 = alloca [128 x i8], align 16
   %8 = alloca [128 x i8], align 16
   %9 = alloca [3 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, i8 0, i64 12, i1 false)
   %10 = load i32, ptr %1, align 8
   %11 = and i32 %10, 8
@@ -13842,17 +13836,17 @@ define internal fastcc void @encode_attrs(ptr noundef %0, ptr noundef readonly c
   br label %299
 
 299:                                              ; preds = %289, %284
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_map_uid_to_name(ptr noundef, i32, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare dso_local i32 @nfs_map_uid_to_name(ptr noundef, i32, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_map_gid_to_group(ptr noundef, i32, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare dso_local i32 @nfs_map_gid_to_group(ptr noundef, i32, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef i32 @decode_open(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 align 16 {
@@ -14352,7 +14346,7 @@ define internal fastcc i32 @decode_access(ptr noundef %0, ptr noundef writeonly 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_increment_open_seqid(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local void @nfs_increment_open_seqid(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @decode_setattr(ptr noundef %0) unnamed_addr #0 align 16 {
@@ -14435,7 +14429,7 @@ define internal fastcc i32 @decode_setattr(ptr noundef %0) unnamed_addr #0 align
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @decode_fsinfo(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca [3 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 8) #12
   %5 = icmp eq ptr %4, null
   br i1 %5, label %decode_attr_maxfilesize.exit, label %6, !prof !6
@@ -14715,7 +14709,7 @@ define internal fastcc i32 @decode_fsinfo(ptr noundef %0, ptr noundef captures(n
 
 decode_attr_maxfilesize.exit:                     ; preds = %64, %.thread22, %38, %.critedge.thread, %28, %2, %32, %113, %105, %98, %90, %68, %83, %161, %157, %153, %149, %145, %141, %138, %134, %129, %122, %33
   %167 = phi i32 [ %34, %33 ], [ %127, %122 ], [ -5, %129 ], [ %136, %134 ], [ %139, %138 ], [ -5, %141 ], [ %147, %145 ], [ %151, %149 ], [ %155, %153 ], [ %159, %157 ], [ %166, %161 ], [ -5, %68 ], [ -5, %83 ], [ -5, %90 ], [ -5, %98 ], [ -5, %105 ], [ -5, %113 ], [ -5, %2 ], [ -121, %32 ], [ -121, %28 ], [ -5, %.critedge.thread ], [ -5, %38 ], [ -5, %.thread22 ], [ -5, %64 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %167
 }
 
@@ -15054,10 +15048,10 @@ define internal fastcc i32 @decode_renew(ptr noundef %0) unnamed_addr #0 align 1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_increment_lock_seqid(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local void @nfs_increment_lock_seqid(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @decode_rename(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 align 16 {
@@ -15434,7 +15428,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_space_total(ptr
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @xdr_terminate_string(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local void @xdr_terminate_string(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_fh_expire_type(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #0 align 16 {
@@ -15722,35 +15716,41 @@ define internal fastcc range(i32 -5, 1) i32 @decode_attr_exclcreat_supported(ptr
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @xdr_enter_page(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local void @xdr_enter_page(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @xdr_page_pos(ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @xdr_page_pos(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #4
+declare i64 @llvm.smin.i64(i64, i64) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #4
+declare i32 @llvm.umin.i32(i32, i32) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #4
+declare i64 @llvm.smax.i64(i64, i64) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #4
+declare i64 @llvm.umin.i64(i64, i64) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
-attributes #7 = { nocallback nounwind }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #10 = { fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
+attributes #6 = { nocallback nounwind }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #8 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #9 = { fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nounwind }
 attributes #13 = { cold nounwind }
 

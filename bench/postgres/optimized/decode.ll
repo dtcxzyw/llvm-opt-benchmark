@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @LogicalDecodingProcessRecord(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.XLogRecordBuffer, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -86,22 +86,16 @@ GetRmgr.exit:                                     ; preds = %21, %28
   br label %36
 
 36:                                               ; preds = %30, %29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @ReorderBufferAssignChild(ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @ReorderBufferAssignChild(ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @ReorderBufferProcessXid(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @ReorderBufferProcessXid(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @xlog_decode(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -174,18 +168,18 @@ define dso_local void @xlog_decode(ptr noundef readonly captures(none) %0, ptr n
   ret void
 }
 
-declare void @SnapBuildSerializationPoint(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @SnapBuildSerializationPoint(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @xact_decode(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -222,7 +216,7 @@ define dso_local void @xact_decode(ptr noundef %0, ptr noundef readonly captures
   ]
 
 22:                                               ; preds = %18, %18
-  call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = load ptr, ptr %12, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %25 = load ptr, ptr %24, align 8
@@ -402,11 +396,11 @@ DecodeTXNNeedSkip.exit._crit_edge.i:              ; preds = %DecodeTXNNeedSkip.e
   br label %DecodeCommit.exit
 
 DecodeCommit.exit:                                ; preds = %._crit_edge.i, %120
-  call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %314
 
 121:                                              ; preds = %18, %18
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %122 = load ptr, ptr %12, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 72
   %124 = load ptr, ptr %123, align 8
@@ -555,7 +549,7 @@ DecodeTXNNeedSkip.exit.i72:                       ; preds = %FilterByOrigin.exit
 
 DecodeAbort.exit:                                 ; preds = %184, %._crit_edge.i66
   call void @UpdateDecodingStats(ptr noundef nonnull %0) #7
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %314
 
 205:                                              ; preds = %18
@@ -598,7 +592,7 @@ DecodeAbort.exit:                                 ; preds = %184, %._crit_edge.i
   br label %314
 
 228:                                              ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %229 = load ptr, ptr %12, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 72
   %231 = load ptr, ptr %230, align 8
@@ -746,7 +740,7 @@ DecodeTXNNeedSkip.exit._crit_edge.i82:            ; preds = %DecodeTXNNeedSkip.e
   br label %DecodePrepare.exit
 
 DecodePrepare.exit:                               ; preds = %DecodeTXNNeedSkip.exit._crit_edge.i82, %297, %270, %FilterPrepare.exit74.thread88, %FilterPrepare.exit74.thread
-  call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %314
 
 default.unreachable:                              ; preds = %18
@@ -763,19 +757,19 @@ default.unreachable:                              ; preds = %18
   ret void
 }
 
-declare i32 @SnapBuildCurrentState(ptr noundef) local_unnamed_addr #2
+declare i32 @SnapBuildCurrentState(ptr noundef) local_unnamed_addr #1
 
-declare void @ParseCommitRecord(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ParseCommitRecord(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ParseAbortRecord(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ParseAbortRecord(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ReorderBufferAddInvalidations(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ReorderBufferAddInvalidations(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ReorderBufferXidSetCatalogChanges(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @ReorderBufferXidSetCatalogChanges(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @ReorderBufferImmediateInvalidation(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ReorderBufferImmediateInvalidation(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ParsePrepareRecord(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ParsePrepareRecord(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @standby_decode(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -824,9 +818,9 @@ define dso_local void @standby_decode(ptr noundef readonly captures(none) %0, pt
   ret void
 }
 
-declare void @SnapBuildProcessRunningXacts(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @SnapBuildProcessRunningXacts(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ReorderBufferAbortOld(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ReorderBufferAbortOld(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @heap2_decode(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -894,7 +888,7 @@ default.unreachable:                              ; preds = %22
   ret void
 }
 
-declare zeroext i1 @SnapBuildProcessChange(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @SnapBuildProcessChange(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @DecodeMultiInsert(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
@@ -902,8 +896,8 @@ define internal fastcc void @DecodeMultiInsert(ptr noundef %0, ptr noundef reado
   %4 = alloca %struct.RelFileLocator, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
@@ -1032,12 +1026,12 @@ FilterByOrigin.exit.thread:                       ; preds = %20, %FilterByOrigin
   br i1 %85, label %32, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %._crit_edge, %FilterByOrigin.exit.thread, %FilterByOrigin.exit, %13, %2
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @SnapBuildProcessNewCid(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @SnapBuildProcessNewCid(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @heap_decode(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -1097,7 +1091,7 @@ define dso_local void @heap_decode(ptr noundef %0, ptr noundef readonly captures
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 104
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 72
@@ -1144,7 +1138,7 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
   br i1 %.not32.i, label %89, label %65
 
 65:                                               ; preds = %FilterByOrigin.exit.thread.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %66 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %35, i8 noundef zeroext 0, ptr noundef nonnull %4) #7
   %67 = load i64, ptr %4, align 8
   %68 = add i64 %67, -5
@@ -1185,7 +1179,7 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
   store i16 %.sroa.0.0.copyload.i.i, ptr %87, align 2
   %88 = getelementptr inbounds nuw i8, ptr %78, i64 22
   store i8 %.sroa.5.0.copyload.i.i, ptr %88, align 2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre.i = load i8, ptr %62, align 1
   br label %89
 
@@ -1254,7 +1248,7 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
   br label %DecodeUpdate.exit
 
 DecodeUpdate.exit:                                ; preds = %34, %FilterByOrigin.exit.i, %120
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %139
 
 127:                                              ; preds = %24
@@ -1295,10 +1289,10 @@ default.unreachable:                              ; preds = %24
 define internal fastcc void @DecodeInsert(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.RelFileLocator, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
@@ -1404,8 +1398,8 @@ FilterByOrigin.exit.thread:                       ; preds = %21, %FilterByOrigin
   br label %73
 
 73:                                               ; preds = %FilterByOrigin.exit, %14, %2, %FilterByOrigin.exit.thread
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1414,7 +1408,7 @@ define internal fastcc void @DecodeDelete(ptr noundef %0, ptr noundef readonly c
   %3 = alloca %struct.RelFileLocator, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
@@ -1522,7 +1516,7 @@ FilterByOrigin.exit.thread:                       ; preds = %16, %FilterByOrigin
   br label %71
 
 71:                                               ; preds = %FilterByOrigin.exit, %2, %64
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1621,7 +1615,7 @@ define internal fastcc void @DecodeSpecConfirm(ptr noundef %0, ptr noundef reado
   %3 = alloca %struct.RelFileLocator, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @XLogRecGetBlockTag(ptr noundef %5, i8 noundef zeroext 0, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #7
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = load i32, ptr %6, align 4
@@ -1670,7 +1664,7 @@ FilterByOrigin.exit.thread:                       ; preds = %12, %FilterByOrigin
   br label %36
 
 36:                                               ; preds = %FilterByOrigin.exit, %2, %FilterByOrigin.exit.thread
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1801,66 +1795,72 @@ FilterByOrigin.exit.thread:                       ; preds = %35, %FilterByOrigin
   ret void
 }
 
-declare zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @SnapBuildGetOrBuildSnapshot(ptr noundef) local_unnamed_addr #2
+declare ptr @SnapBuildGetOrBuildSnapshot(ptr noundef) local_unnamed_addr #1
 
-declare void @ReorderBufferQueueMessage(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i1 noundef zeroext, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ReorderBufferQueueMessage(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i1 noundef zeroext, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @RmgrNotFound(i8 noundef zeroext) local_unnamed_addr #2
+declare void @RmgrNotFound(i8 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @filter_prepare_cb_wrapper(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @filter_prepare_cb_wrapper(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @filter_by_origin_cb_wrapper(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @filter_by_origin_cb_wrapper(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
-declare void @SnapBuildCommitTxn(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @SnapBuildCommitTxn(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ReorderBufferForget(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @ReorderBufferForget(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @ReorderBufferCommitChild(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @ReorderBufferCommitChild(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @ReorderBufferFinishPrepared(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i16 noundef zeroext, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @ReorderBufferFinishPrepared(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i16 noundef zeroext, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i64 @SnapBuildGetTwoPhaseAt(ptr noundef) local_unnamed_addr #2
+declare i64 @SnapBuildGetTwoPhaseAt(ptr noundef) local_unnamed_addr #1
 
-declare void @ReorderBufferCommit(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i16 noundef zeroext, i64 noundef) local_unnamed_addr #2
+declare void @ReorderBufferCommit(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i16 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
-declare void @UpdateDecodingStats(ptr noundef) local_unnamed_addr #2
+declare void @UpdateDecodingStats(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @ReorderBufferRememberPrepareInfo(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i16 noundef zeroext, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @ReorderBufferRememberPrepareInfo(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i16 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
-declare void @ReorderBufferSkipPrepare(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ReorderBufferSkipPrepare(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ReorderBufferInvalidate(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @ReorderBufferInvalidate(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @ReorderBufferPrepare(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ReorderBufferPrepare(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ReorderBufferAbort(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @ReorderBufferAbort(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @XLogRecGetBlockTag(ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @XLogRecGetBlockTag(ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ReorderBufferGetChange(ptr noundef) local_unnamed_addr #2
+declare ptr @ReorderBufferGetChange(ptr noundef) local_unnamed_addr #1
 
-declare ptr @XLogRecGetBlockData(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare ptr @XLogRecGetBlockData(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ReorderBufferGetTupleBuf(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @ReorderBufferGetTupleBuf(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @ReorderBufferQueueChange(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @ReorderBufferQueueChange(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare ptr @ReorderBufferGetRelids(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @ReorderBufferGetRelids(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #7 = { nounwind }
 attributes #8 = { cold nounwind }

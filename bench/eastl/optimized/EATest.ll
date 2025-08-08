@@ -2413,11 +2413,11 @@ for.inc:                                          ; preds = %if.then10, %if.else
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.inc.thread:                                   ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store i64 0, ptr %ref.tmp.i, align 8
   store i64 100000000, ptr %tv_nsec.i.i, align 8
   call void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %incdec.ptr10 = getelementptr inbounds nuw i8, ptr %it.08, i64 16
   %5 = load ptr, ptr %mpEnd.i, align 8
   %cmp.not11 = icmp eq ptr %incdec.ptr10, %5
@@ -3548,14 +3548,14 @@ if.then29:                                        ; preds = %while.body
           to label %if.end31 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end31:                                         ; preds = %if.then29, %while.body
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store i64 0, ptr %ref.tmp.i, align 8
   store i64 100000000, ptr %tv_nsec.i.i, align 8
   invoke void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
           to label %invoke.cont32 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont32:                                    ; preds = %if.end31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call.i24 = call i64 (i32, ...) @ptrace(i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #33
   %call.i2628 = invoke noundef i64 @_ZN2EA4StdC7GetTimeEv()
           to label %_ZN2EA8UnitTest25GetSystemTimeMicrosecondsEv.exit29 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -3813,14 +3813,14 @@ for.inc.i:                                        ; preds = %if.then10.i, %if.el
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !18
 
 for.inc.thread.i:                                 ; preds = %.noexc
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   store i64 0, ptr %ref.tmp.i.i, align 8
   store i64 100000000, ptr %tv_nsec.i.i.i, align 8
   invoke void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
           to label %.noexc35 unwind label %lpad.loopexit.split-lp.loopexit
 
 .noexc35:                                         ; preds = %for.inc.thread.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   %incdec.ptr10.i = getelementptr inbounds nuw i8, ptr %it.08.i, i64 16
   %20 = load ptr, ptr %mpEnd.i.i, align 8
   %cmp.not11.i = icmp eq ptr %incdec.ptr10.i, %20
@@ -3932,14 +3932,14 @@ for.inc.i56:                                      ; preds = %if.then10.i68, %if.
   br i1 %cmp.not.i58, label %for.end.i59, label %for.body.i52, !llvm.loop !18
 
 for.inc.thread.i69:                               ; preds = %.noexc72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i42)
   store i64 0, ptr %ref.tmp.i.i42, align 8
   store i64 100000000, ptr %tv_nsec.i.i.i48, align 8
   invoke void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i42)
           to label %.noexc73 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc73:                                         ; preds = %for.inc.thread.i69
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i42)
   %incdec.ptr10.i70 = getelementptr inbounds nuw i8, ptr %it.08.i53, i64 16
   %31 = load ptr, ptr %mpEnd.i.i45, align 8
   %cmp.not11.i71 = icmp eq ptr %incdec.ptr10.i70, %31
@@ -4656,10 +4656,10 @@ declare i64 @strlen(ptr captures(none)) local_unnamed_addr #28
 declare i64 @llvm.umin.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #30
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #30
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #30
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

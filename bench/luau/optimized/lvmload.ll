@@ -33,7 +33,7 @@ define hidden void @_Z14luaV_getimportP9lua_StateP8LuaTableP10lua_TValueS4_jb(pt
   %15 = ptrtoint ptr %3 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 6, ptr %18, align 4, !tbaa !20
@@ -79,17 +79,11 @@ define hidden void @_Z14luaV_getimportP9lua_StateP8LuaTableP10lua_TValueS4_jb(pt
   br label %.thread33.thread
 
 .thread33.thread:                                 ; preds = %25, %.thread33, %36, %29, %6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare hidden void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef range(i32 0, 2) i32 @_Z9luau_loadP9lua_StatePKcS2_mi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -106,14 +100,14 @@ define dso_local noundef range(i32 0, 2) i32 @_Z9luau_loadP9lua_StatePKcS2_mi(pt
   br i1 %14, label %15, label %22
 
 15:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #10
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
   %17 = call noundef ptr @_Z12luaO_chunkidPcmPKcm(ptr noundef nonnull %7, i64 noundef 256, ptr noundef nonnull %1, i64 noundef %16)
   %18 = trunc i64 %3 to i32
   %19 = add i32 %18, -1
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %21 = call noundef ptr (ptr, ptr, ...) @_Z16lua_pushfstringLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %17, i32 noundef %19, ptr noundef nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %753
 
 22:                                               ; preds = %5
@@ -122,11 +116,11 @@ define dso_local noundef range(i32 0, 2) i32 @_Z9luau_loadP9lua_StatePKcS2_mi(pt
   br i1 %or.cond, label %24, label %28
 
 24:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #10
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
   %26 = call noundef ptr @_Z12luaO_chunkidPcmPKcm(ptr noundef nonnull %8, i64 noundef 256, ptr noundef nonnull %1, i64 noundef %25)
   %27 = call noundef ptr (ptr, ptr, ...) @_Z16lua_pushfstringLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef %26, i32 noundef 3, i32 noundef 6, i32 noundef %13)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %753
 
 28:                                               ; preds = %22
@@ -165,7 +159,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z9luau_loadP9lua_StatePKcS2_mi(pt
 46:                                               ; preds = %44, %42
   %.in = phi ptr [ %43, %42 ], [ %45, %44 ]
   %47 = load ptr, ptr %.in, align 8, !tbaa !19
-  %48 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %48 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
   %49 = invoke noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %48)
           to label %50 unwind label %64
 
@@ -182,8 +176,8 @@ define dso_local noundef range(i32 0, 2) i32 @_Z9luau_loadP9lua_StatePKcS2_mi(pt
   br i1 %or.cond5, label %56, label %68
 
 56:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9) #10
-  %57 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  %57 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
   %58 = invoke noundef ptr @_Z12luaO_chunkidPcmPKcm(ptr noundef nonnull %9, i64 noundef 256, ptr noundef nonnull %1, i64 noundef %57)
           to label %59 unwind label %66
 
@@ -192,7 +186,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z9luau_loadP9lua_StatePKcS2_mi(pt
           to label %61 unwind label %66
 
 61:                                               ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %751
 
 62:                                               ; preds = %44
@@ -208,7 +202,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z9luau_loadP9lua_StatePKcS2_mi(pt
 66:                                               ; preds = %59, %56
   %67 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %752
 
 68:                                               ; preds = %52, %50
@@ -232,7 +226,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z9luau_loadP9lua_StatePKcS2_mi(pt
   br i1 %.not.i, label %_ZL10readVarIntPKcmRm.exit, label %69, !llvm.loop !38
 
 _ZL10readVarIntPKcmRm.exit:                       ; preds = %69
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %78 = zext i32 %76 to i64
   store ptr %0, ptr %10, align 8, !tbaa !40
   %79 = shl nuw nsw i64 %78, 3
@@ -254,7 +248,7 @@ _ZN10TempBufferIP7TStringEC2EP9lua_Statem.exit:   ; preds = %_ZL10readVarIntPKcm
 
 ._crit_edge:                                      ; preds = %98, %_ZN10TempBufferIP7TStringEC2EP9lua_Statem.exit
   %.1739.lcssa = phi i64 [ %72, %_ZN10TempBufferIP7TStringEC2EP9lua_Statem.exit ], [ %100, %98 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %83 = icmp eq i8 %.0446, 3
   br i1 %83, label %103, label %.loopexit775.preheader
 
@@ -396,7 +390,7 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit: ; preds = %115, %_ZL10readVa
   br i1 %.not.i535, label %_ZL10readVarIntPKcmRm.exit536, label %.loopexit775, !llvm.loop !38
 
 _ZL10readVarIntPKcmRm.exit536:                    ; preds = %.loopexit775
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %147 = zext i32 %145 to i64
   store ptr %0, ptr %12, align 8, !tbaa !50
   %148 = shl nuw nsw i64 %147, 3
@@ -809,7 +803,7 @@ _ZL10readVarIntPKcmRm.exit571:                    ; preds = %_ZL18remapUserdataT
           to label %344 unwind label %.loopexit754
 
 342:                                              ; preds = %_ZL10readVarIntPKcmRm.exit571
-  invoke void @_Z11luaM_toobigP9lua_State(ptr noundef nonnull %0) #12
+  invoke void @_Z11luaM_toobigP9lua_State(ptr noundef nonnull %0) #11
           to label %343 unwind label %.loopexit.split-lp
 
 343:                                              ; preds = %342
@@ -880,7 +874,7 @@ _ZL10readVarIntPKcmRm.exit577:                    ; preds = %348
           to label %371 unwind label %.loopexit755
 
 369:                                              ; preds = %_ZL10readVarIntPKcmRm.exit577
-  invoke void @_Z11luaM_toobigP9lua_State(ptr noundef nonnull %0) #12
+  invoke void @_Z11luaM_toobigP9lua_State(ptr noundef nonnull %0) #11
           to label %370 unwind label %.loopexit.split-lp756
 
 370:                                              ; preds = %369
@@ -1029,7 +1023,7 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit598: ; preds = %417, %_ZL10rea
   %.0.copyload.i599 = load i32, ptr %427, align 1
   %428 = add i64 %.7879, 5
   %429 = load ptr, ptr %372, align 8, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %429, ptr %6, align 8, !tbaa !82
   store i32 %.0.copyload.i599, ptr %154, align 8, !tbaa !84
   %430 = load ptr, ptr %155, align 8, !tbaa !85
@@ -1071,7 +1065,7 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit598: ; preds = %417, %_ZL10rea
 
 447:                                              ; preds = %443, %441, %.noexc601
   %448 = phi ptr [ %446, %443 ], [ %.pre1029, %441 ], [ %.pre1029, %.noexc601 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %449 = getelementptr inbounds i8, ptr %448, i64 -16
   %450 = load ptr, ptr %372, align 8, !tbaa !77
   %451 = getelementptr inbounds nuw %struct.lua_TValue, ptr %450, i64 %indvars.iv994
@@ -1227,7 +1221,7 @@ _ZL10readVarIntPKcmRm.exit584:                    ; preds = %.preheader750
           to label %527 unwind label %.loopexit760
 
 525:                                              ; preds = %_ZL10readVarIntPKcmRm.exit584
-  invoke void @_Z11luaM_toobigP9lua_State(ptr noundef nonnull %0) #12
+  invoke void @_Z11luaM_toobigP9lua_State(ptr noundef nonnull %0) #11
           to label %526 unwind label %.loopexit.split-lp761
 
 526:                                              ; preds = %525
@@ -1456,7 +1450,7 @@ _ZL10readVarIntPKcmRm.exit649:                    ; preds = %.preheader746
           to label %630 unwind label %.loopexit765
 
 628:                                              ; preds = %_ZL10readVarIntPKcmRm.exit649
-  invoke void @_Z11luaM_toobigP9lua_State(ptr noundef nonnull %0) #12
+  invoke void @_Z11luaM_toobigP9lua_State(ptr noundef nonnull %0) #11
           to label %629 unwind label %.loopexit.split-lp766
 
 629:                                              ; preds = %628
@@ -1595,7 +1589,7 @@ _ZL10readVarIntPKcmRm.exit655:                    ; preds = %.preheader745
           to label %689 unwind label %.loopexit770
 
 687:                                              ; preds = %_ZL10readVarIntPKcmRm.exit655
-  invoke void @_Z11luaM_toobigP9lua_State(ptr noundef nonnull %0) #12
+  invoke void @_Z11luaM_toobigP9lua_State(ptr noundef nonnull %0) #11
           to label %688 unwind label %.loopexit.split-lp771
 
 688:                                              ; preds = %687
@@ -1729,12 +1723,12 @@ _ZL10readVarIntPKcmRm.exit542:                    ; preds = %.preheader
   %740 = landingpad { ptr, i32 }
           catch ptr null
   %741 = extractvalue { ptr, i32 } %740, 0
-  call void @__clang_call_terminate(ptr %741) #13
+  call void @__clang_call_terminate(ptr %741) #12
   unreachable
 
 _ZN10TempBufferIP5ProtoED2Ev.exit:                ; preds = %736
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %742 = load ptr, ptr %10, align 8, !tbaa !40
   invoke void @_Z10luaM_free_P9lua_StatePvmh(ptr noundef %742, ptr noundef %80, i64 noundef %79, i8 noundef zeroext 0)
           to label %_ZN10TempBufferIP7TStringED2Ev.exit unwind label %743
@@ -1743,36 +1737,36 @@ _ZN10TempBufferIP5ProtoED2Ev.exit:                ; preds = %736
   %744 = landingpad { ptr, i32 }
           catch ptr null
   %745 = extractvalue { ptr, i32 } %744, 0
-  call void @__clang_call_terminate(ptr %745) #13
+  call void @__clang_call_terminate(ptr %745) #12
   unreachable
 
 _ZN10TempBufferIP7TStringED2Ev.exit:              ; preds = %_ZN10TempBufferIP5ProtoED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %751
 
 746:                                              ; preds = %.loopexit770, %.loopexit.split-lp771, %.loopexit765, %.loopexit.split-lp766, %.loopexit760, %.loopexit.split-lp761, %.loopexit755, %.loopexit.split-lp756, %.loopexit754, %.loopexit.split-lp, %734, %718, %204, %206, %243, %513, %487, %469, %454, %586
   %.pn497.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %205, %204 ], [ %207, %206 ], [ %244, %243 ], [ %455, %454 ], [ %470, %469 ], [ %488, %487 ], [ %514, %513 ], [ %587, %586 ], [ %735, %734 ], [ %719, %718 ], [ %lpad.loopexit, %.loopexit754 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit757, %.loopexit755 ], [ %lpad.loopexit.split-lp758, %.loopexit.split-lp756 ], [ %lpad.loopexit762, %.loopexit760 ], [ %lpad.loopexit.split-lp763, %.loopexit.split-lp761 ], [ %lpad.loopexit767, %.loopexit765 ], [ %lpad.loopexit.split-lp768, %.loopexit.split-lp766 ], [ %lpad.loopexit772, %.loopexit770 ], [ %lpad.loopexit.split-lp773, %.loopexit.split-lp771 ]
-  call void @_ZN10TempBufferIP5ProtoED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #10
+  call void @_ZN10TempBufferIP5ProtoED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
   br label %747
 
 747:                                              ; preds = %746, %166
   %.pn497.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn497.pn.pn.pn.pn.pn, %746 ], [ %167, %166 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %748
 
 748:                                              ; preds = %747, %136
   %.pn507.pn = phi { ptr, i32 } [ %137, %136 ], [ %.pn497.pn.pn.pn.pn.pn.pn, %747 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %749
 
 749:                                              ; preds = %748, %101
   %.pn510 = phi { ptr, i32 } [ %102, %101 ], [ %.pn507.pn, %748 ]
-  call void @_ZN10TempBufferIP7TStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #10
+  call void @_ZN10TempBufferIP7TStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   br label %750
 
 750:                                              ; preds = %749, %84
   %.pn510.pn = phi { ptr, i32 } [ %.pn510, %749 ], [ %85, %84 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %752
 
 751:                                              ; preds = %_ZN10TempBufferIP7TStringED2Ev.exit, %61
@@ -1790,46 +1784,46 @@ _ZN10TempBufferIP7TStringED2Ev.exit:              ; preds = %_ZN10TempBufferIP5P
   ret i32 %.0
 }
 
-declare hidden noundef ptr @_Z12luaO_chunkidPcmPKcm(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare hidden noundef ptr @_Z12luaO_chunkidPcmPKcm(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
-declare noundef ptr @_Z16lua_pushfstringLP9lua_StatePKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noundef ptr @_Z16lua_pushfstringLP9lua_StatePKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare hidden noundef i64 @_Z9luaC_stepP9lua_Stateb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare hidden noundef i64 @_Z9luaC_stepP9lua_Stateb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare hidden noundef ptr @_Z13luaA_toobjectP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden noundef ptr @_Z13luaA_toobjectP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @__gxx_personality_v0(...)
 
-declare hidden noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare hidden noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare hidden noundef ptr @_Z13luaF_newprotoP9lua_State(ptr noundef) local_unnamed_addr #2
+declare hidden noundef ptr @_Z13luaF_newprotoP9lua_State(ptr noundef) local_unnamed_addr #1
 
-declare hidden noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare hidden noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare hidden void @_Z11luaM_toobigP9lua_State(ptr noundef) local_unnamed_addr #5
+declare hidden void @_Z11luaM_toobigP9lua_State(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare hidden noundef ptr @_Z8luaH_newP9lua_Stateii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare hidden noundef ptr @_Z8luaH_newP9lua_Stateii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden noundef ptr @_Z8luaH_setP9lua_StateP8LuaTablePK10lua_TValue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden noundef ptr @_Z8luaH_setP9lua_StateP8LuaTablePK10lua_TValue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden noundef ptr @_Z16luaF_newLclosureP9lua_StateiP8LuaTableP5Proto(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden noundef ptr @_Z16luaF_newLclosureP9lua_StateiP8LuaTableP5Proto(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden void @_Z16luaC_barrierbackP9lua_StateP8GCObjectPS2_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden void @_Z16luaC_barrierbackP9lua_StateP8GCObjectPS2_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden void @_Z14luaD_growstackP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden void @_Z14luaD_growstackP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN10TempBufferIP5ProtoED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN10TempBufferIP5ProtoED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !50
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !53
@@ -1846,12 +1840,12 @@ define linkonce_odr dso_local void @_ZN10TempBufferIP5ProtoED2Ev(ptr noundef non
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #13
+  tail call void @__clang_call_terminate(ptr %11) #12
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN10TempBufferIP7TStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN10TempBufferIP7TStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !42
@@ -1868,13 +1862,13 @@ define linkonce_odr dso_local void @_ZN10TempBufferIP7TStringED2Ev(ptr noundef n
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #13
+  tail call void @__clang_call_terminate(ptr %11) #12
   unreachable
 }
 
-declare noundef i32 @_Z10lua_gettopP9lua_State(ptr noundef) local_unnamed_addr #2
+declare noundef i32 @_Z10lua_gettopP9lua_State(ptr noundef) local_unnamed_addr #1
 
-declare hidden noundef i32 @_Z10luaD_pcallP9lua_StatePFvS0_PvES1_ll(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare hidden noundef i32 @_Z10luaD_pcallP9lua_StatePFvS0_PvES1_ll(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZZL17resolveImportSafeP9lua_StateP8LuaTableP10lua_TValuejEN13ResolveImport3runES0_Pv(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 2 {
@@ -1916,7 +1910,7 @@ define internal void @_ZZL17resolveImportSafeP9lua_StateP8LuaTableP10lua_TValuej
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   %29 = ptrtoint ptr %28 to i64
   %30 = sub i64 %.pre-phi, %29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %18, ptr %3, align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 6, ptr %31, align 4, !tbaa !20
@@ -1956,38 +1950,44 @@ define internal void @_ZZL17resolveImportSafeP9lua_StateP8LuaTableP10lua_TValuej
   br label %_Z14luaV_getimportP9lua_StateP8LuaTableP10lua_TValueS4_jb.exit
 
 _Z14luaV_getimportP9lua_StateP8LuaTableP10lua_TValueS4_jb.exit: ; preds = %13, %35, %41, %44, %48
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare hidden void @_Z10luaM_free_P9lua_StatePvmh(ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare hidden void @_Z10luaM_free_P9lua_StatePvmh(ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
-  tail call void @_ZSt9terminatev() #13
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
+  tail call void @_ZSt9terminatev() #12
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #9
+declare void @_ZSt9terminatev() local_unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold nofree noreturn }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { noreturn }
-attributes #13 = { noreturn nounwind }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { noreturn }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

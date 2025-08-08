@@ -722,7 +722,7 @@ _ZN5Bytes11put_Java_u8EPhm.exit:
 define hidden void @_ZN18AbstractDumpWriter13write_addressEPh(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca i64, align 8
   %4 = ptrtoint ptr %1 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = tail call noundef i64 @llvm.bswap.i64(i64 %4)
   store i64 %5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -751,7 +751,7 @@ define hidden void @_ZN18AbstractDumpWriter13write_addressEPh(ptr noundef nonnul
   br label %_ZN18AbstractDumpWriter8write_u8Em.exit
 
 _ZN18AbstractDumpWriter8write_u8Em.exit:          ; preds = %12, %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -759,7 +759,7 @@ _ZN18AbstractDumpWriter8write_u8Em.exit:          ; preds = %12, %18
 define hidden void @_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca i64, align 8
   %4 = ptrtoint ptr %1 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = tail call noundef i64 @llvm.bswap.i64(i64 %4)
   store i64 %5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -788,7 +788,7 @@ define hidden void @_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc(ptr nounde
   br label %_ZN18AbstractDumpWriter13write_addressEPh.exit
 
 _ZN18AbstractDumpWriter13write_addressEPh.exit:   ; preds = %12, %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -796,7 +796,7 @@ _ZN18AbstractDumpWriter13write_addressEPh.exit:   ; preds = %12, %18
 define hidden void @_ZN18AbstractDumpWriter12write_rootIDEPP7oopDesc(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca i64, align 8
   %4 = ptrtoint ptr %1 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = tail call noundef i64 @llvm.bswap.i64(i64 %4)
   store i64 %5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -825,7 +825,7 @@ define hidden void @_ZN18AbstractDumpWriter12write_rootIDEPP7oopDesc(ptr noundef
   br label %_ZN18AbstractDumpWriter13write_addressEPh.exit
 
 _ZN18AbstractDumpWriter13write_addressEPh.exit:   ; preds = %12, %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -833,7 +833,7 @@ _ZN18AbstractDumpWriter13write_addressEPh.exit:   ; preds = %12, %18
 define hidden void @_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca i64, align 8
   %4 = ptrtoint ptr %1 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = tail call noundef i64 @llvm.bswap.i64(i64 %4)
   store i64 %5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -862,7 +862,7 @@ define hidden void @_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol(ptr noundef
   br label %_ZN18AbstractDumpWriter13write_addressEPh.exit
 
 _ZN18AbstractDumpWriter13write_addressEPh.exit:   ; preds = %12, %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -870,7 +870,7 @@ _ZN18AbstractDumpWriter13write_addressEPh.exit:   ; preds = %12, %18
 define hidden void @_ZN18AbstractDumpWriter8write_idEj(ptr noundef nonnull align 8 dereferenceable(34) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca i64, align 8
   %4 = zext i32 %1 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = tail call noundef i64 @llvm.bswap.i64(i64 %4)
   store i64 %5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -899,7 +899,7 @@ define hidden void @_ZN18AbstractDumpWriter8write_idEj(ptr noundef nonnull align
   br label %_ZN18AbstractDumpWriter8write_u8Em.exit
 
 _ZN18AbstractDumpWriter8write_u8Em.exit:          ; preds = %12, %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -920,7 +920,7 @@ define hidden void @_ZN18AbstractDumpWriter13write_classIDEP5Klass(ptr noundef n
 
 _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %2, %7
   %12 = phi i64 [ %11, %7 ], [ 0, %2 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %12, ptr %3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
@@ -948,7 +948,7 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %2, %7
   br label %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %19, %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1038,7 +1038,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZN18AbstractDumpWr
 
 22:                                               ; preds = %18, %tailrecurse._crit_edge
   %23 = phi i64 [ %.pre, %18 ], [ 0, %tailrecurse._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 28, ptr %7, align 1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i64, ptr %24, align 8
@@ -1065,8 +1065,8 @@ tailrecurse._crit_edge:                           ; preds = %_ZN18AbstractDumpWr
 
 _ZN18AbstractDumpWriter8write_u1Eh.exit:          ; preds = %26, %32
   %36 = phi i64 [ %31, %26 ], [ %.pre12, %32 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %37 = load i64, ptr %24, align 8
   %38 = sub i64 %37, %36
@@ -1093,8 +1093,8 @@ _ZN18AbstractDumpWriter8write_u1Eh.exit:          ; preds = %26, %32
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %40, %46
   %50 = phi i64 [ %45, %40 ], [ %.pre13, %46 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %51 = call noundef i32 @llvm.bswap.i32(i32 %2)
   store i32 %51, ptr %5, align 4
   %52 = load i64, ptr %24, align 8
@@ -1122,7 +1122,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %40, %46
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit6:         ; preds = %55, %61
   %.pre14 = phi i64 [ %60, %55 ], [ %.pre14.pre, %61 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i8 1, ptr %8, align 8
   %65 = zext i32 %2 to i64
   %66 = load i64, ptr %24, align 8
@@ -1181,7 +1181,7 @@ _ZN18AbstractDumpWriter19finish_dump_segmentEv.exit: ; preds = %88, %89, %90
 .loopexit:                                        ; preds = %74, %_ZN18AbstractDumpWriter8write_u4Ej.exit6
   %96 = phi i64 [ %.pre14, %_ZN18AbstractDumpWriter8write_u4Ej.exit6 ], [ %76, %74 ]
   %97 = phi i64 [ %66, %_ZN18AbstractDumpWriter8write_u4Ej.exit6 ], [ %75, %74 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %1, ptr %4, align 1
   %.not.i7 = icmp eq i64 %97, %96
   br i1 %.not.i7, label %105, label %98
@@ -1205,7 +1205,7 @@ _ZN18AbstractDumpWriter19finish_dump_segmentEv.exit: ; preds = %88, %89, %90
   br label %_ZN18AbstractDumpWriter8write_u1Eh.exit8
 
 _ZN18AbstractDumpWriter8write_u1Eh.exit8:         ; preds = %98, %105
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1492,7 +1492,7 @@ define hidden void @_ZN13DumperSupport12write_headerEP18AbstractDumpWriter8hprof
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %1, ptr %6, align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
@@ -1521,8 +1521,8 @@ define hidden void @_ZN13DumperSupport12write_headerEP18AbstractDumpWriter8hprof
 
 _ZN18AbstractDumpWriter8write_u1Eh.exit:          ; preds = %11, %17
   %21 = phi i64 [ %16, %11 ], [ %.pre, %17 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %22 = load i64, ptr %7, align 8
   %23 = sub i64 %22, %21
@@ -1549,8 +1549,8 @@ _ZN18AbstractDumpWriter8write_u1Eh.exit:          ; preds = %11, %17
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %25, %31
   %35 = phi i64 [ %30, %25 ], [ %.pre5, %31 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %36 = call noundef i32 @llvm.bswap.i32(i32 %2)
   store i32 %36, ptr %4, align 4
   %37 = load i64, ptr %7, align 8
@@ -1576,7 +1576,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %25, %31
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit4
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit4:         ; preds = %40, %46
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1696,7 +1696,7 @@ define hidden void @_ZN13DumperSupport10dump_floatEP18AbstractDumpWriterf(ptr no
   br i1 %5, label %23, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 49279, ptr %4, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
@@ -1724,12 +1724,12 @@ define hidden void @_ZN13DumperSupport10dump_floatEP18AbstractDumpWriterf(ptr no
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %13, %19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %42
 
 23:                                               ; preds = %2
   %24 = bitcast float %1 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = tail call noundef i32 @llvm.bswap.i32(i32 %24)
   store i32 %25, ptr %3, align 4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1758,7 +1758,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %13, %19
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit4
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit4:         ; preds = %32, %38
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %42
 
 42:                                               ; preds = %_ZN18AbstractDumpWriter8write_u4Ej.exit4, %_ZN18AbstractDumpWriter8write_u4Ej.exit
@@ -1773,7 +1773,7 @@ define hidden void @_ZN13DumperSupport11dump_doubleEP18AbstractDumpWriterd(ptr n
   br i1 %5, label %23, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 63615, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
@@ -1801,12 +1801,12 @@ define hidden void @_ZN13DumperSupport11dump_doubleEP18AbstractDumpWriterd(ptr n
   br label %_ZN18AbstractDumpWriter8write_u8Em.exit
 
 _ZN18AbstractDumpWriter8write_u8Em.exit:          ; preds = %13, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %42
 
 23:                                               ; preds = %2
   %24 = bitcast double %1 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = tail call noundef i64 @llvm.bswap.i64(i64 %24)
   store i64 %25, ptr %3, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1835,7 +1835,7 @@ _ZN18AbstractDumpWriter8write_u8Em.exit:          ; preds = %13, %19
   br label %_ZN18AbstractDumpWriter8write_u8Em.exit4
 
 _ZN18AbstractDumpWriter8write_u8Em.exit4:         ; preds = %32, %38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %42
 
 42:                                               ; preds = %_ZN18AbstractDumpWriter8write_u8Em.exit4, %_ZN18AbstractDumpWriter8write_u8Em.exit
@@ -1917,7 +1917,7 @@ _ZNK5Klass24java_mirror_no_keepaliveEv.exit.thread.i: ; preds = %_ZNK5Klass24jav
 _ZN13DumperSupport28mask_dormant_archived_objectEP7oopDescS1_.exit: ; preds = %16, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.thread.i
   %.0.i = phi ptr [ null, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.thread.i ], [ %19, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i ], [ null, %16 ]
   %42 = ptrtoint ptr %.0.i to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %43 = tail call noundef i64 @llvm.bswap.i64(i64 %42)
   store i64 %43, ptr %15, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1946,7 +1946,7 @@ _ZN13DumperSupport28mask_dormant_archived_objectEP7oopDescS1_.exit: ; preds = %1
   br label %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %50, %56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZN13DumperSupport10dump_floatEP18AbstractDumpWriterf.exit
 
 60:                                               ; preds = %4
@@ -1955,7 +1955,7 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %50, %56
   %63 = add nsw i64 %62, %61
   %64 = inttoptr i64 %63 to ptr
   %65 = load i8, ptr %64, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i8 %65, ptr %14, align 1
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load i64, ptr %66, align 8
@@ -1982,7 +1982,7 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %50, %56
   br label %_ZN18AbstractDumpWriter8write_u1Eh.exit
 
 _ZN18AbstractDumpWriter8write_u1Eh.exit:          ; preds = %70, %76
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZN13DumperSupport10dump_floatEP18AbstractDumpWriterf.exit
 
 80:                                               ; preds = %4
@@ -1991,7 +1991,7 @@ _ZN18AbstractDumpWriter8write_u1Eh.exit:          ; preds = %70, %76
   %83 = add nsw i64 %82, %81
   %84 = inttoptr i64 %83 to ptr
   %85 = load i16, ptr %84, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %86 = tail call noundef i16 @llvm.bswap.i16(i16 %85)
   store i16 %86, ptr %13, align 2
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2020,7 +2020,7 @@ _ZN18AbstractDumpWriter8write_u1Eh.exit:          ; preds = %70, %76
   br label %_ZN18AbstractDumpWriter8write_u2Et.exit
 
 _ZN18AbstractDumpWriter8write_u2Et.exit:          ; preds = %93, %99
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZN13DumperSupport10dump_floatEP18AbstractDumpWriterf.exit
 
 103:                                              ; preds = %4
@@ -2029,7 +2029,7 @@ _ZN18AbstractDumpWriter8write_u2Et.exit:          ; preds = %93, %99
   %106 = add nsw i64 %105, %104
   %107 = inttoptr i64 %106 to ptr
   %108 = load i16, ptr %107, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %109 = tail call noundef i16 @llvm.bswap.i16(i16 %108)
   store i16 %109, ptr %12, align 2
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2058,7 +2058,7 @@ _ZN18AbstractDumpWriter8write_u2Et.exit:          ; preds = %93, %99
   br label %_ZN18AbstractDumpWriter8write_u2Et.exit39
 
 _ZN18AbstractDumpWriter8write_u2Et.exit39:        ; preds = %116, %122
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN13DumperSupport10dump_floatEP18AbstractDumpWriterf.exit
 
 126:                                              ; preds = %4
@@ -2071,7 +2071,7 @@ _ZN18AbstractDumpWriter8write_u2Et.exit39:        ; preds = %116, %122
   br i1 %132, label %150, label %133
 
 133:                                              ; preds = %126
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 49279, ptr %11, align 4
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %135 = load i64, ptr %134, align 8
@@ -2099,12 +2099,12 @@ _ZN18AbstractDumpWriter8write_u2Et.exit39:        ; preds = %116, %122
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit.i
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit.i:        ; preds = %146, %140
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN13DumperSupport10dump_floatEP18AbstractDumpWriterf.exit
 
 150:                                              ; preds = %126
   %151 = bitcast float %131 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %152 = tail call noundef i32 @llvm.bswap.i32(i32 %151)
   store i32 %152, ptr %10, align 4
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2133,7 +2133,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit.i:        ; preds = %146, %140
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit4.i
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit4.i:       ; preds = %165, %159
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN13DumperSupport10dump_floatEP18AbstractDumpWriterf.exit
 
 169:                                              ; preds = %4
@@ -2146,7 +2146,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit4.i:       ; preds = %165, %159
   br i1 %175, label %193, label %176
 
 176:                                              ; preds = %169
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 63615, ptr %9, align 8
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %178 = load i64, ptr %177, align 8
@@ -2174,12 +2174,12 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit4.i:       ; preds = %165, %159
   br label %_ZN18AbstractDumpWriter8write_u8Em.exit.i
 
 _ZN18AbstractDumpWriter8write_u8Em.exit.i:        ; preds = %189, %183
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN13DumperSupport10dump_floatEP18AbstractDumpWriterf.exit
 
 193:                                              ; preds = %169
   %194 = bitcast double %174 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %195 = tail call noundef i64 @llvm.bswap.i64(i64 %194)
   store i64 %195, ptr %8, align 8
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2208,7 +2208,7 @@ _ZN18AbstractDumpWriter8write_u8Em.exit.i:        ; preds = %189, %183
   br label %_ZN18AbstractDumpWriter8write_u8Em.exit4.i
 
 _ZN18AbstractDumpWriter8write_u8Em.exit4.i:       ; preds = %208, %202
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN13DumperSupport10dump_floatEP18AbstractDumpWriterf.exit
 
 212:                                              ; preds = %4
@@ -2217,7 +2217,7 @@ _ZN18AbstractDumpWriter8write_u8Em.exit4.i:       ; preds = %208, %202
   %215 = add nsw i64 %214, %213
   %216 = inttoptr i64 %215 to ptr
   %217 = load i32, ptr %216, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %218 = tail call noundef i32 @llvm.bswap.i32(i32 %217)
   store i32 %218, ptr %7, align 4
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2246,7 +2246,7 @@ _ZN18AbstractDumpWriter8write_u8Em.exit4.i:       ; preds = %208, %202
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %225, %231
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN13DumperSupport10dump_floatEP18AbstractDumpWriterf.exit
 
 235:                                              ; preds = %4
@@ -2255,7 +2255,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %225, %231
   %238 = add nsw i64 %237, %236
   %239 = inttoptr i64 %238 to ptr
   %240 = load i64, ptr %239, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %241 = tail call noundef i64 @llvm.bswap.i64(i64 %240)
   store i64 %241, ptr %6, align 8
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2284,7 +2284,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %225, %231
   br label %_ZN18AbstractDumpWriter8write_u8Em.exit
 
 _ZN18AbstractDumpWriter8write_u8Em.exit:          ; preds = %248, %254
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN13DumperSupport10dump_floatEP18AbstractDumpWriterf.exit
 
 258:                                              ; preds = %4
@@ -2293,7 +2293,7 @@ _ZN18AbstractDumpWriter8write_u8Em.exit:          ; preds = %248, %254
   %261 = add nsw i64 %260, %259
   %262 = inttoptr i64 %261 to ptr
   %263 = load i8, ptr %262, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 %263, ptr %5, align 1
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %265 = load i64, ptr %264, align 8
@@ -2320,7 +2320,7 @@ _ZN18AbstractDumpWriter8write_u8Em.exit:          ; preds = %248, %254
   br label %_ZN18AbstractDumpWriter8write_u1Eh.exit41
 
 _ZN18AbstractDumpWriter8write_u1Eh.exit41:        ; preds = %268, %274
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN13DumperSupport10dump_floatEP18AbstractDumpWriterf.exit
 
 278:                                              ; preds = %4
@@ -2817,7 +2817,7 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
   %.0.in.i.i34 = select i1 %.not.i.i, ptr %77, ptr %76
   %.0.i.i35 = load ptr, ptr %.0.in.i.i34, align 8
   %78 = ptrtoint ptr %.0.i.i35 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %79 = call noundef i64 @llvm.bswap.i64(i64 %78)
   store i64 %79, ptr %13, align 8
   %80 = load i64, ptr %50, align 8
@@ -2843,7 +2843,7 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
   br label %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit
 
 _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit: ; preds = %84, %89
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %93 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 6
   %94 = load i8, ptr %93, align 1
   switch i8 %94, label %103 [
@@ -2891,7 +2891,7 @@ _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit: ; preds = %84, %89
 
 _ZN13DumperSupport7sig2tagEP6Symbol.exit:         ; preds = %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit, %95, %96, %97, %98, %99, %100, %101, %102
   %.0.i = phi i8 [ 8, %95 ], [ 5, %96 ], [ 6, %97 ], [ 7, %98 ], [ 10, %99 ], [ 11, %100 ], [ 9, %101 ], [ 4, %102 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 %.0.i, ptr %12, align 1
   %105 = load i64, ptr %50, align 8
   %106 = load i64, ptr %51, align 8
@@ -2915,7 +2915,7 @@ _ZN13DumperSupport7sig2tagEP6Symbol.exit:         ; preds = %_ZN18AbstractDumpWr
   br label %_ZN18AbstractDumpWriter8write_u1Eh.exit
 
 _ZN18AbstractDumpWriter8write_u1Eh.exit:          ; preds = %107, %112
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %116 = load i8, ptr %93, align 1
   %117 = load ptr, ptr %53, align 8
   %118 = icmp eq ptr %117, null
@@ -2957,7 +2957,7 @@ _ZN15FieldStreamBase4nextEv.exit:                 ; preds = %124, %128
 131:                                              ; preds = %._crit_edge
   %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4112), align 8
   %133 = ptrtoint ptr %132 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %134 = call noundef i64 @llvm.bswap.i64(i64 %133)
   store i64 %134, ptr %11, align 8
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2986,7 +2986,7 @@ _ZN15FieldStreamBase4nextEv.exit:                 ; preds = %124, %128
   br label %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit37
 
 _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit37: ; preds = %141, %147
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7464), align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 6
   %153 = load i8, ptr %152, align 1
@@ -3035,7 +3035,7 @@ _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit37: ; preds = %141, %147
 
 _ZN13DumperSupport7sig2tagEP6Symbol.exit39:       ; preds = %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit37, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit37, %154, %155, %156, %157, %158, %159, %160, %161
   %.0.i38 = phi i8 [ 8, %154 ], [ 5, %155 ], [ 6, %156 ], [ 7, %157 ], [ 10, %158 ], [ 11, %159 ], [ 9, %160 ], [ 4, %161 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit37 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit37 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 %.0.i38, ptr %10, align 1
   %164 = load i64, ptr %135, align 8
   %165 = load i64, ptr %137, align 8
@@ -3062,9 +3062,9 @@ _ZN13DumperSupport7sig2tagEP6Symbol.exit39:       ; preds = %_ZN18AbstractDumpWr
 
 _ZN18AbstractDumpWriter8write_u1Eh.exit41:        ; preds = %166, %172
   %176 = phi i64 [ %171, %166 ], [ %.pre66, %172 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %177 = ptrtoint ptr %60 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %178 = call noundef i64 @llvm.bswap.i64(i64 %177)
   store i64 %178, ptr %9, align 8
   %179 = load i64, ptr %135, align 8
@@ -3090,7 +3090,7 @@ _ZN18AbstractDumpWriter8write_u1Eh.exit41:        ; preds = %166, %172
   br label %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %182, %188
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.0.in57 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %.058 = load ptr, ptr %.0.in57, align 8
   %.not3059 = icmp eq ptr %.058, null
@@ -3111,7 +3111,7 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %182, %188
 197:                                              ; preds = %193
   %198 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4112), align 8
   %199 = ptrtoint ptr %198 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %200 = call noundef i64 @llvm.bswap.i64(i64 %199)
   store i64 %200, ptr %8, align 8
   %201 = load i64, ptr %135, align 8
@@ -3137,7 +3137,7 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %182, %188
   br label %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit42
 
 _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit42: ; preds = %205, %210
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %214 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7464), align 8
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 6
   %216 = load i8, ptr %215, align 1
@@ -3186,7 +3186,7 @@ _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit42: ; preds = %205, %210
 
 _ZN13DumperSupport7sig2tagEP6Symbol.exit44:       ; preds = %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit42, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit42, %217, %218, %219, %220, %221, %222, %223, %224
   %.0.i43 = phi i8 [ 8, %217 ], [ 5, %218 ], [ 6, %219 ], [ 7, %220 ], [ 10, %221 ], [ 11, %222 ], [ 9, %223 ], [ 4, %224 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit42 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit42 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 %.0.i43, ptr %7, align 1
   %227 = load i64, ptr %135, align 8
   %228 = load i64, ptr %137, align 8
@@ -3210,11 +3210,11 @@ _ZN13DumperSupport7sig2tagEP6Symbol.exit44:       ; preds = %_ZN18AbstractDumpWr
   br label %_ZN18AbstractDumpWriter8write_u1Eh.exit46
 
 _ZN18AbstractDumpWriter8write_u1Eh.exit46:        ; preds = %229, %234
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %238 = load ptr, ptr %194, align 8
   %239 = call noundef ptr @_ZNK12ConstantPool19resolved_referencesEv(ptr noundef nonnull align 8 dereferenceable(68) %238) #19
   %240 = ptrtoint ptr %239 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %241 = call noundef i64 @llvm.bswap.i64(i64 %240)
   store i64 %241, ptr %6, align 8
   %242 = load i64, ptr %135, align 8
@@ -3240,7 +3240,7 @@ _ZN18AbstractDumpWriter8write_u1Eh.exit46:        ; preds = %229, %234
   br label %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit47
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit47: ; preds = %246, %251
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.0.in = getelementptr inbounds nuw i8, ptr %.060, i64 376
   %.0 = load ptr, ptr %.0.in, align 8
   %.not30 = icmp eq ptr %.0, null
@@ -3254,7 +3254,7 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit47: ; preds = %246, %251
 256:                                              ; preds = %.critedge
   %257 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4120), align 8
   %258 = ptrtoint ptr %257 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %259 = call noundef i64 @llvm.bswap.i64(i64 %258)
   store i64 %259, ptr %5, align 8
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3283,7 +3283,7 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit47: ; preds = %246, %251
   br label %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit48
 
 _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit48: ; preds = %266, %272
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %276 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7056), align 8
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 6
   %278 = load i8, ptr %277, align 1
@@ -3332,7 +3332,7 @@ _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit48: ; preds = %266, %272
 
 _ZN13DumperSupport7sig2tagEP6Symbol.exit50:       ; preds = %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit48, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit48, %279, %280, %281, %282, %283, %284, %285, %286
   %.0.i49 = phi i8 [ 8, %279 ], [ 5, %280 ], [ 6, %281 ], [ 7, %282 ], [ 10, %283 ], [ 11, %284 ], [ 9, %285 ], [ 4, %286 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit48 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit48 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %.0.i49, ptr %4, align 1
   %289 = load i64, ptr %260, align 8
   %290 = load i64, ptr %262, align 8
@@ -3359,9 +3359,9 @@ _ZN13DumperSupport7sig2tagEP6Symbol.exit50:       ; preds = %_ZN18AbstractDumpWr
 
 _ZN18AbstractDumpWriter8write_u1Eh.exit52:        ; preds = %291, %297
   %301 = phi i64 [ %296, %291 ], [ %.pre67, %297 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %302 = ptrtoint ptr %255 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %303 = call noundef i64 @llvm.bswap.i64(i64 %302)
   store i64 %303, ptr %3, align 8
   %304 = load i64, ptr %260, align 8
@@ -3387,7 +3387,7 @@ _ZN18AbstractDumpWriter8write_u1Eh.exit52:        ; preds = %291, %297
   br label %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit53
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit53: ; preds = %307, %313
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %317
 
 317:                                              ; preds = %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit53, %.critedge
@@ -3619,7 +3619,7 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
   %.0.in.i.i6 = select i1 %.not.i.i, ptr %64, ptr %63
   %.0.i.i7 = load ptr, ptr %.0.in.i.i6, align 8
   %65 = ptrtoint ptr %.0.i.i7 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %66 = call noundef i64 @llvm.bswap.i64(i64 %65)
   store i64 %66, ptr %4, align 8
   %67 = load i64, ptr %41, align 8
@@ -3645,7 +3645,7 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
   br label %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit
 
 _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit: ; preds = %71, %76
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %80 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 6
   %81 = load i8, ptr %80, align 1
   switch i8 %81, label %90 [
@@ -3693,7 +3693,7 @@ _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit: ; preds = %71, %76
 
 _ZN13DumperSupport7sig2tagEP6Symbol.exit:         ; preds = %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit, %82, %83, %84, %85, %86, %87, %88, %89
   %.0.i = phi i8 [ 8, %82 ], [ 5, %83 ], [ 6, %84 ], [ 7, %85 ], [ 10, %86 ], [ 11, %87 ], [ 9, %88 ], [ 4, %89 ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit ], [ 2, %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %.0.i, ptr %3, align 1
   %92 = load i64, ptr %41, align 8
   %93 = load i64, ptr %42, align 8
@@ -3717,7 +3717,7 @@ _ZN13DumperSupport7sig2tagEP6Symbol.exit:         ; preds = %_ZN18AbstractDumpWr
   br label %_ZN18AbstractDumpWriter8write_u1Eh.exit
 
 _ZN18AbstractDumpWriter8write_u1Eh.exit:          ; preds = %94, %99
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load i32, ptr %32, align 8
   %.pre11 = load i32, ptr %33, align 4
   br label %103
@@ -3777,7 +3777,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %11, %21
   %25 = add i32 %24, 25
   tail call void @_ZN18AbstractDumpWriter16start_sub_recordEhj(ptr noundef nonnull align 8 dereferenceable(34) %0, i8 noundef zeroext 33, i32 noundef %25)
   %26 = ptrtoint ptr %1 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %27 = tail call noundef i64 @llvm.bswap.i64(i64 %26)
   store i64 %27, ptr %7, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3808,8 +3808,8 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %11, %21
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %34, %40
   %44 = phi i64 [ %39, %34 ], [ %.pre, %40 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 16777216, ptr %6, align 4
   %45 = load i64, ptr %28, align 8
   %46 = sub i64 %45, %44
@@ -3834,7 +3834,7 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %34, %40
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %48, %54
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %58 = getelementptr inbounds nuw i8, ptr %.0.i, i64 112
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
@@ -3849,7 +3849,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %48, %54
 
 _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %61, %_ZN18AbstractDumpWriter8write_u4Ej.exit
   %66 = phi i64 [ %65, %61 ], [ 0, %_ZN18AbstractDumpWriter8write_u4Ej.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %66, ptr %5, align 8
   %67 = load i64, ptr %28, align 8
   %68 = load i64, ptr %30, align 8
@@ -3877,8 +3877,8 @@ _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %61, %_ZN18AbstractD
 
 _ZN18AbstractDumpWriter13write_classIDEP5Klass.exit: ; preds = %71, %77
   %81 = phi i64 [ %76, %71 ], [ %.pre19, %77 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %82 = call noundef i32 @llvm.bswap.i32(i32 %24)
   store i32 %82, ptr %4, align 4
   %83 = load i64, ptr %28, align 8
@@ -3904,7 +3904,7 @@ _ZN18AbstractDumpWriter13write_classIDEP5Klass.exit: ; preds = %71, %77
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit18
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit18:        ; preds = %86, %92
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %96 = getelementptr inbounds nuw i8, ptr %23, i64 52
   %97 = load i32, ptr %96, align 4
   %98 = icmp sgt i32 %97, 0
@@ -4228,9 +4228,9 @@ _ZN23HierarchicalFieldStreamI15JavaFieldStreamE4nextEv.exit: ; preds = %156, %16
   br i1 %166, label %._crit_edge, label %98, !llvm.loop !18
 
 167:                                              ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1031EP13InstanceKlassP26DumperClassCacheTableEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS23EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSC_SC_EEE6unlinkIZN21DumperClassCacheTable10unlink_allEP17ResourceHashtableIS2_S4_Lj1031ELS7_2ELS8_23EXadL_ZS9_IS2_EjSC_EEXadL_ZSD_IS2_EbSC_SC_EEEE12CleanupEntryEEvPSA_(ptr noundef nonnull align 8 dereferenceable(8252) %94, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre39 = load ptr, ptr %0, align 8
   br label %168
 
@@ -4352,7 +4352,7 @@ define hidden void @_ZN13DumperSupport19dump_instance_classEP18AbstractDumpWrite
 
 _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %29, %19
   %34 = phi i64 [ %33, %29 ], [ 0, %19 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 %34, ptr %15, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load i64, ptr %35, align 8
@@ -4382,8 +4382,8 @@ _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %29, %19
 
 _ZN18AbstractDumpWriter13write_classIDEP5Klass.exit: ; preds = %41, %47
   %51 = phi i64 [ %46, %41 ], [ %.pre, %47 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 16777216, ptr %14, align 4
   %52 = load i64, ptr %35, align 8
   %53 = sub i64 %52, %51
@@ -4408,7 +4408,7 @@ _ZN18AbstractDumpWriter13write_classIDEP5Klass.exit: ; preds = %41, %47
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %55, %61
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %65 = load ptr, ptr %1, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 120
   %67 = load ptr, ptr %66, align 8
@@ -4417,7 +4417,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %55, %61
   br i1 %69, label %70, label %85
 
 70:                                               ; preds = %_ZN18AbstractDumpWriter8write_u4Ej.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8
   %71 = load i64, ptr %35, align 8
   %72 = load i64, ptr %37, align 8
@@ -4443,7 +4443,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %55, %61
   br label %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %75, %81
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %109
 
 85:                                               ; preds = %_ZN18AbstractDumpWriter8write_u4Ej.exit
@@ -4461,7 +4461,7 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %75, %81
 
 _ZNK5Klass11java_mirrorEv.exit.i35:               ; preds = %89, %85
   %94 = phi i64 [ %93, %89 ], [ 0, %85 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 %94, ptr %12, align 8
   %95 = load i64, ptr %35, align 8
   %96 = load i64, ptr %37, align 8
@@ -4487,7 +4487,7 @@ _ZNK5Klass11java_mirrorEv.exit.i35:               ; preds = %89, %85
   br label %_ZN18AbstractDumpWriter13write_classIDEP5Klass.exit36
 
 _ZN18AbstractDumpWriter13write_classIDEP5Klass.exit36: ; preds = %99, %105
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %109
 
 109:                                              ; preds = %_ZN18AbstractDumpWriter13write_classIDEP5Klass.exit36, %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit
@@ -4507,7 +4507,7 @@ _ZN18AbstractDumpWriter13write_classIDEP5Klass.exit36: ; preds = %99, %105
 
 _ZNK5Klass12class_loaderEv.exit:                  ; preds = %109, %115
   %120 = phi i64 [ %119, %115 ], [ 0, %109 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 %120, ptr %11, align 8
   %121 = load i64, ptr %35, align 8
   %122 = load i64, ptr %37, align 8
@@ -4533,10 +4533,10 @@ _ZNK5Klass12class_loaderEv.exit:                  ; preds = %109, %115
   br label %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit37
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit37: ; preds = %125, %131
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %135 = call noundef ptr @_ZNK13InstanceKlass7signersEv(ptr noundef nonnull align 8 dereferenceable(464) %1) #19
   %136 = ptrtoint ptr %135 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %137 = call noundef i64 @llvm.bswap.i64(i64 %136)
   store i64 %137, ptr %10, align 8
   %138 = load i64, ptr %35, align 8
@@ -4563,13 +4563,13 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit37: ; preds = %125, %131
   br label %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit38
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit38: ; preds = %142, %148
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %152 = load ptr, ptr %1, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 232
   %154 = load ptr, ptr %153, align 8
   %155 = call noundef ptr %154(ptr noundef nonnull align 8 dereferenceable(464) %1) #19
   %156 = ptrtoint ptr %155 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %157 = call noundef i64 @llvm.bswap.i64(i64 %156)
   store i64 %157, ptr %9, align 8
   %158 = load i64, ptr %35, align 8
@@ -4598,8 +4598,8 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit38: ; preds = %142, %148
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit39: ; preds = %162, %168
   %172 = phi i64 [ %167, %162 ], [ %.pre45, %168 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8
   %173 = load i64, ptr %35, align 8
   %174 = sub i64 %173, %172
@@ -4626,8 +4626,8 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit39: ; preds = %162, %168
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit40: ; preds = %176, %182
   %186 = phi i64 [ %181, %176 ], [ %.pre46, %182 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %187 = load i64, ptr %35, align 8
   %188 = sub i64 %187, %186
@@ -4652,9 +4652,9 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit40: ; preds = %176, %182
   br label %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit41
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit41: ; preds = %190, %196
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %200 = call noundef i32 @_ZN13DumperSupport13instance_sizeEP13InstanceKlassP26DumperClassCacheTableEntry(ptr noundef nonnull %1, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %201 = call noundef i32 @llvm.bswap.i32(i32 %200)
   store i32 %201, ptr %6, align 4
   %202 = load i64, ptr %35, align 8
@@ -4683,8 +4683,8 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit41: ; preds = %190, %196
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit42:        ; preds = %206, %212
   %216 = phi i64 [ %211, %206 ], [ %.pre47, %212 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 0, ptr %5, align 2
   %217 = load i64, ptr %35, align 8
   %218 = sub i64 %217, %216
@@ -4711,9 +4711,9 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit42:        ; preds = %206, %212
 
 _ZN18AbstractDumpWriter8write_u2Et.exit:          ; preds = %220, %226
   %230 = phi i64 [ %225, %220 ], [ %.pre48, %226 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %231 = load i16, ptr %16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %232 = call noundef i16 @llvm.bswap.i16(i16 %231)
   store i16 %232, ptr %4, align 2
   %233 = load i64, ptr %35, align 8
@@ -4739,9 +4739,9 @@ _ZN18AbstractDumpWriter8write_u2Et.exit:          ; preds = %220, %226
   br label %_ZN18AbstractDumpWriter8write_u2Et.exit43
 
 _ZN18AbstractDumpWriter8write_u2Et.exit43:        ; preds = %236, %242
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN13DumperSupport18dump_static_fieldsEP18AbstractDumpWriterP5Klass(ptr noundef nonnull %0, ptr noundef nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %246 = call noundef i16 @llvm.bswap.i16(i16 %21)
   store i16 %246, ptr %3, align 2
   %247 = load i64, ptr %35, align 8
@@ -4768,7 +4768,7 @@ _ZN18AbstractDumpWriter8write_u2Et.exit43:        ; preds = %236, %242
   br label %_ZN18AbstractDumpWriter8write_u2Et.exit44
 
 _ZN18AbstractDumpWriter8write_u2Et.exit44:        ; preds = %251, %257
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN13DumperSupport31dump_instance_field_descriptorsEP18AbstractDumpWriterP5Klass(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %261
 
@@ -4824,7 +4824,7 @@ define hidden void @_ZN13DumperSupport16dump_array_classEP18AbstractDumpWriterP5
 
 _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %29, %25
   %34 = phi i64 [ %33, %29 ], [ 0, %25 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 %34, ptr %15, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load i64, ptr %35, align 8
@@ -4854,8 +4854,8 @@ _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %29, %25
 
 _ZN18AbstractDumpWriter13write_classIDEP5Klass.exit: ; preds = %41, %47
   %51 = phi i64 [ %46, %41 ], [ %.pre, %47 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 16777216, ptr %14, align 4
   %52 = load i64, ptr %35, align 8
   %53 = sub i64 %52, %51
@@ -4880,7 +4880,7 @@ _ZN18AbstractDumpWriter13write_classIDEP5Klass.exit: ; preds = %41, %47
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %55, %61
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %65 = load ptr, ptr %1, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 120
   %67 = load ptr, ptr %66, align 8
@@ -4899,7 +4899,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %55, %61
 
 _ZNK5Klass11java_mirrorEv.exit.i29:               ; preds = %72, %_ZN18AbstractDumpWriter8write_u4Ej.exit
   %77 = phi i64 [ %76, %72 ], [ 0, %_ZN18AbstractDumpWriter8write_u4Ej.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 %77, ptr %13, align 8
   %78 = load i64, ptr %35, align 8
   %79 = load i64, ptr %37, align 8
@@ -4925,7 +4925,7 @@ _ZNK5Klass11java_mirrorEv.exit.i29:               ; preds = %72, %_ZN18AbstractD
   br label %_ZN18AbstractDumpWriter13write_classIDEP5Klass.exit30
 
 _ZN18AbstractDumpWriter13write_classIDEP5Klass.exit30: ; preds = %82, %88
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %92 = icmp eq ptr %.0, null
   br i1 %92, label %.critedge, label %93
 
@@ -4946,7 +4946,7 @@ _ZN18AbstractDumpWriter13write_classIDEP5Klass.exit30: ; preds = %82, %88
 
 _ZNK5Klass12class_loaderEv.exit:                  ; preds = %93, %99
   %104 = phi i64 [ %103, %99 ], [ 0, %93 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 %104, ptr %12, align 8
   %105 = load i64, ptr %35, align 8
   %106 = load i64, ptr %37, align 8
@@ -4972,14 +4972,14 @@ _ZNK5Klass12class_loaderEv.exit:                  ; preds = %93, %99
   br label %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %109, %115
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %119 = call noundef ptr @_ZNK13InstanceKlass7signersEv(ptr noundef nonnull align 8 dereferenceable(464) %.0) #19
   %120 = ptrtoint ptr %119 to i64
   %121 = call i64 @llvm.bswap.i64(i64 %120)
   br label %136
 
 .critedge:                                        ; preds = %_ZN18AbstractDumpWriter13write_classIDEP5Klass.exit30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8
   %122 = load i64, ptr %35, align 8
   %123 = load i64, ptr %37, align 8
@@ -5005,12 +5005,12 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %109, %115
   br label %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit31
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit31: ; preds = %126, %132
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %136
 
 136:                                              ; preds = %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit31, %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit
   %137 = phi i64 [ %121, %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit ], [ 0, %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit31 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 %137, ptr %10, align 8
   %138 = load i64, ptr %35, align 8
   %139 = load i64, ptr %37, align 8
@@ -5036,7 +5036,7 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit31: ; preds = %126, %132
   br label %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit32
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit32: ; preds = %142, %148
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %92, label %159, label %152
 
 152:                                              ; preds = %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit32
@@ -5050,7 +5050,7 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit32: ; preds = %142, %148
 
 159:                                              ; preds = %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit32, %152
   %160 = phi i64 [ %158, %152 ], [ 0, %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit32 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %160, ptr %9, align 8
   %161 = load i64, ptr %35, align 8
   %162 = load i64, ptr %37, align 8
@@ -5078,8 +5078,8 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit32: ; preds = %142, %148
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit33: ; preds = %165, %171
   %175 = phi i64 [ %170, %165 ], [ %.pre39, %171 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8
   %176 = load i64, ptr %35, align 8
   %177 = sub i64 %176, %175
@@ -5106,8 +5106,8 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit33: ; preds = %165, %171
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit34: ; preds = %179, %185
   %189 = phi i64 [ %184, %179 ], [ %.pre40, %185 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %190 = load i64, ptr %35, align 8
   %191 = sub i64 %190, %189
@@ -5134,8 +5134,8 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit34: ; preds = %179, %185
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit35: ; preds = %193, %199
   %203 = phi i64 [ %198, %193 ], [ %.pre41, %199 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %204 = load i64, ptr %35, align 8
   %205 = sub i64 %204, %203
@@ -5162,8 +5162,8 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit35: ; preds = %193, %199
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit36:        ; preds = %207, %213
   %217 = phi i64 [ %212, %207 ], [ %.pre42, %213 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 0, ptr %5, align 2
   %218 = load i64, ptr %35, align 8
   %219 = sub i64 %218, %217
@@ -5190,8 +5190,8 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit36:        ; preds = %207, %213
 
 _ZN18AbstractDumpWriter8write_u2Et.exit:          ; preds = %221, %227
   %231 = phi i64 [ %226, %221 ], [ %.pre43, %227 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2
   %232 = load i64, ptr %35, align 8
   %233 = sub i64 %232, %231
@@ -5218,8 +5218,8 @@ _ZN18AbstractDumpWriter8write_u2Et.exit:          ; preds = %221, %227
 
 _ZN18AbstractDumpWriter8write_u2Et.exit37:        ; preds = %235, %241
   %245 = phi i64 [ %240, %235 ], [ %.pre44, %241 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 0, ptr %3, align 2
   %246 = load i64, ptr %35, align 8
   %247 = sub i64 %246, %245
@@ -5244,7 +5244,7 @@ _ZN18AbstractDumpWriter8write_u2Et.exit37:        ; preds = %235, %241
   br label %_ZN18AbstractDumpWriter8write_u2Et.exit38
 
 _ZN18AbstractDumpWriter8write_u2Et.exit38:        ; preds = %249, %255
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -5387,7 +5387,7 @@ _ZN13DumperSupport26calculate_array_max_lengthEP18AbstractDumpWriterP12arrayOopD
   %46 = add i32 %45, 25
   tail call void @_ZN18AbstractDumpWriter16start_sub_recordEhj(ptr noundef nonnull align 8 dereferenceable(34) %0, i8 noundef zeroext 34, i32 noundef %46)
   %47 = ptrtoint ptr %1 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %48 = tail call noundef i64 @llvm.bswap.i64(i64 %47)
   store i64 %48, ptr %7, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5418,8 +5418,8 @@ _ZN13DumperSupport26calculate_array_max_lengthEP18AbstractDumpWriterP12arrayOopD
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %55, %61
   %65 = phi i64 [ %60, %55 ], [ %.pre, %61 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 16777216, ptr %6, align 4
   %66 = load i64, ptr %49, align 8
   %67 = sub i64 %66, %65
@@ -5446,8 +5446,8 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %55, %61
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %69, %75
   %79 = phi i64 [ %74, %69 ], [ %.pre31, %75 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %80 = call noundef i32 @llvm.bswap.i32(i32 %.0.i)
   store i32 %80, ptr %5, align 4
   %81 = load i64, ptr %49, align 8
@@ -5473,7 +5473,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %69, %75
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit23
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit23:        ; preds = %84, %90
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %94 = load i8, ptr @UseCompressedClassPointers, align 1
   %95 = trunc i8 %94 to i1
   br i1 %95, label %96, label %106
@@ -5510,7 +5510,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %96, %106
 
 _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %111, %_ZNK7oopDesc5klassEv.exit
   %116 = phi i64 [ %115, %111 ], [ 0, %_ZNK7oopDesc5klassEv.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %116, ptr %4, align 8
   %117 = load i64, ptr %49, align 8
   %118 = load i64, ptr %51, align 8
@@ -5536,7 +5536,7 @@ _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %111, %_ZNK7oopDesc5
   br label %_ZN18AbstractDumpWriter13write_classIDEP5Klass.exit
 
 _ZN18AbstractDumpWriter13write_classIDEP5Klass.exit: ; preds = %121, %127
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %131 = icmp sgt i32 %.0.i, 0
   br i1 %131, label %.lr.ph, label %._crit_edge
 
@@ -5603,7 +5603,7 @@ _ZNK5Klass24java_mirror_no_keepaliveEv.exit.thread.i: ; preds = %_ZNK5Klass24jav
 _ZN13DumperSupport28mask_dormant_archived_objectEP7oopDescS1_.exit: ; preds = %133, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.thread.i
   %.0.i27 = phi ptr [ null, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.thread.i ], [ %142, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i ], [ null, %133 ]
   %165 = ptrtoint ptr %.0.i27 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %166 = call noundef i64 @llvm.bswap.i64(i64 %165)
   store i64 %166, ptr %3, align 8
   %167 = load i64, ptr %49, align 8
@@ -5629,7 +5629,7 @@ _ZN13DumperSupport28mask_dormant_archived_objectEP7oopDescS1_.exit: ; preds = %1
   br label %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit28
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit28: ; preds = %171, %176
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %133, !llvm.loop !19
@@ -5725,7 +5725,7 @@ _ZN13DumperSupport26calculate_array_max_lengthEP18AbstractDumpWriterP12arrayOopD
   %54 = add i32 %53, 18
   tail call void @_ZN18AbstractDumpWriter16start_sub_recordEhj(ptr noundef nonnull align 8 dereferenceable(34) %0, i8 noundef zeroext 35, i32 noundef %54)
   %55 = ptrtoint ptr %1 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %56 = tail call noundef i64 @llvm.bswap.i64(i64 %55)
   store i64 %56, ptr %15, align 8
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5756,8 +5756,8 @@ _ZN13DumperSupport26calculate_array_max_lengthEP18AbstractDumpWriterP12arrayOopD
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %63, %69
   %73 = phi i64 [ %68, %63 ], [ %.pre, %69 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 16777216, ptr %14, align 4
   %74 = load i64, ptr %57, align 8
   %75 = sub i64 %74, %73
@@ -5784,8 +5784,8 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %63, %69
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %77, %83
   %87 = phi i64 [ %82, %77 ], [ %.pre157, %83 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %88 = call noundef i32 @llvm.bswap.i32(i32 %.0.i88)
   store i32 %88, ptr %13, align 4
   %89 = load i64, ptr %57, align 8
@@ -5811,7 +5811,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %77, %83
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit89
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit89:        ; preds = %92, %98
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.off.i = add i8 %32, -4
   %switch.i = icmp ult i8 %.off.i, 8
   br i1 %switch.i, label %_ZN13DumperSupport8type2tagE9BasicType.exit, label %102
@@ -5823,7 +5823,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit89:        ; preds = %92, %98
   unreachable
 
 _ZN13DumperSupport8type2tagE9BasicType.exit:      ; preds = %_ZN18AbstractDumpWriter8write_u4Ej.exit89
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 %32, ptr %12, align 1
   %104 = load i64, ptr %57, align 8
   %105 = load i64, ptr %59, align 8
@@ -5848,7 +5848,7 @@ _ZN13DumperSupport8type2tagE9BasicType.exit:      ; preds = %_ZN18AbstractDumpWr
   br label %_ZN18AbstractDumpWriter8write_u1Eh.exit
 
 _ZN18AbstractDumpWriter8write_u1Eh.exit:          ; preds = %106, %112
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %116 = icmp eq i32 %.0.i88, 0
   br i1 %116, label %.loopexit, label %117
 
@@ -5936,7 +5936,7 @@ _ZN18AbstractDumpWriter8write_u1Eh.exit:          ; preds = %106, %112
   %137 = inttoptr i64 %136 to ptr
   %138 = getelementptr inbounds nuw i32, ptr %137, i64 %indvars.iv152
   %139 = load i32, ptr %138, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %140 = call noundef i32 @llvm.bswap.i32(i32 %139)
   store i32 %140, ptr %11, align 4
   %141 = load i64, ptr %57, align 8
@@ -5962,7 +5962,7 @@ _ZN18AbstractDumpWriter8write_u1Eh.exit:          ; preds = %106, %112
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit90
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit90:        ; preds = %145, %150
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
   br i1 %exitcond156.not, label %.loopexit, label %132, !llvm.loop !20
@@ -5989,7 +5989,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit90:        ; preds = %145, %150
   %169 = inttoptr i64 %168 to ptr
   %170 = getelementptr inbounds nuw i16, ptr %169, i64 %indvars.iv147
   %171 = load i16, ptr %170, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %172 = call noundef i16 @llvm.bswap.i16(i16 %171)
   store i16 %172, ptr %10, align 2
   %173 = load i64, ptr %57, align 8
@@ -6015,7 +6015,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit90:        ; preds = %145, %150
   br label %_ZN18AbstractDumpWriter8write_u2Et.exit
 
 _ZN18AbstractDumpWriter8write_u2Et.exit:          ; preds = %177, %182
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
   br i1 %exitcond151.not, label %.loopexit, label %164, !llvm.loop !21
@@ -6029,7 +6029,7 @@ _ZN18AbstractDumpWriter8write_u2Et.exit:          ; preds = %177, %182
   %191 = inttoptr i64 %190 to ptr
   %192 = getelementptr inbounds nuw i16, ptr %191, i64 %indvars.iv142
   %193 = load i16, ptr %192, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %194 = call noundef i16 @llvm.bswap.i16(i16 %193)
   store i16 %194, ptr %9, align 2
   %195 = load i64, ptr %57, align 8
@@ -6055,7 +6055,7 @@ _ZN18AbstractDumpWriter8write_u2Et.exit:          ; preds = %177, %182
   br label %_ZN18AbstractDumpWriter8write_u2Et.exit91
 
 _ZN18AbstractDumpWriter8write_u2Et.exit91:        ; preds = %199, %204
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145
   br i1 %exitcond146.not, label %.loopexit, label %186, !llvm.loop !22
@@ -6069,7 +6069,7 @@ _ZN18AbstractDumpWriter8write_u2Et.exit91:        ; preds = %199, %204
   %213 = inttoptr i64 %212 to ptr
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 %indvars.iv137
   %215 = load i8, ptr %214, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 %215, ptr %8, align 1
   %216 = load i64, ptr %57, align 8
   %217 = load i64, ptr %59, align 8
@@ -6093,7 +6093,7 @@ _ZN18AbstractDumpWriter8write_u2Et.exit91:        ; preds = %199, %204
   br label %_ZN18AbstractDumpWriter8write_u1Eh.exit93
 
 _ZN18AbstractDumpWriter8write_u1Eh.exit93:        ; preds = %218, %223
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count140
   br i1 %exitcond141.not, label %.loopexit, label %208, !llvm.loop !23
@@ -6107,7 +6107,7 @@ _ZN18AbstractDumpWriter8write_u1Eh.exit93:        ; preds = %218, %223
   %232 = inttoptr i64 %231 to ptr
   %233 = getelementptr inbounds nuw i64, ptr %232, i64 %indvars.iv132
   %234 = load i64, ptr %233, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %235 = call noundef i64 @llvm.bswap.i64(i64 %234)
   store i64 %235, ptr %7, align 8
   %236 = load i64, ptr %57, align 8
@@ -6133,7 +6133,7 @@ _ZN18AbstractDumpWriter8write_u1Eh.exit93:        ; preds = %218, %223
   br label %_ZN18AbstractDumpWriter8write_u8Em.exit
 
 _ZN18AbstractDumpWriter8write_u8Em.exit:          ; preds = %240, %245
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count135
   br i1 %exitcond136.not, label %.loopexit, label %227, !llvm.loop !24
@@ -6151,7 +6151,7 @@ _ZN18AbstractDumpWriter8write_u8Em.exit:          ; preds = %240, %245
   br i1 %257, label %272, label %258
 
 258:                                              ; preds = %249
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 49279, ptr %6, align 4
   %259 = load i64, ptr %57, align 8
   %260 = load i64, ptr %59, align 8
@@ -6176,12 +6176,12 @@ _ZN18AbstractDumpWriter8write_u8Em.exit:          ; preds = %240, %245
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit.i
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit.i:        ; preds = %268, %263
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN13DumperSupport10dump_floatEP18AbstractDumpWriterf.exit
 
 272:                                              ; preds = %249
   %273 = bitcast float %256 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %274 = call noundef i32 @llvm.bswap.i32(i32 %273)
   store i32 %274, ptr %5, align 4
   %275 = load i64, ptr %57, align 8
@@ -6207,7 +6207,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit.i:        ; preds = %268, %263
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit4.i
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit4.i:       ; preds = %284, %279
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN13DumperSupport10dump_floatEP18AbstractDumpWriterf.exit
 
 _ZN13DumperSupport10dump_floatEP18AbstractDumpWriterf.exit: ; preds = %_ZN18AbstractDumpWriter8write_u4Ej.exit.i, %_ZN18AbstractDumpWriter8write_u4Ej.exit4.i
@@ -6228,7 +6228,7 @@ _ZN13DumperSupport10dump_floatEP18AbstractDumpWriterf.exit: ; preds = %_ZN18Abst
   br i1 %296, label %311, label %297
 
 297:                                              ; preds = %288
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 63615, ptr %4, align 8
   %298 = load i64, ptr %57, align 8
   %299 = load i64, ptr %59, align 8
@@ -6253,12 +6253,12 @@ _ZN13DumperSupport10dump_floatEP18AbstractDumpWriterf.exit: ; preds = %_ZN18Abst
   br label %_ZN18AbstractDumpWriter8write_u8Em.exit.i
 
 _ZN18AbstractDumpWriter8write_u8Em.exit.i:        ; preds = %307, %302
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN13DumperSupport11dump_doubleEP18AbstractDumpWriterd.exit
 
 311:                                              ; preds = %288
   %312 = bitcast double %295 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %313 = call noundef i64 @llvm.bswap.i64(i64 %312)
   store i64 %313, ptr %3, align 8
   %314 = load i64, ptr %57, align 8
@@ -6284,7 +6284,7 @@ _ZN18AbstractDumpWriter8write_u8Em.exit.i:        ; preds = %307, %302
   br label %_ZN18AbstractDumpWriter8write_u8Em.exit4.i
 
 _ZN18AbstractDumpWriter8write_u8Em.exit4.i:       ; preds = %323, %318
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN13DumperSupport11dump_doubleEP18AbstractDumpWriterd.exit
 
 _ZN13DumperSupport11dump_doubleEP18AbstractDumpWriterd.exit: ; preds = %_ZN18AbstractDumpWriter8write_u8Em.exit.i, %_ZN18AbstractDumpWriter8write_u8Em.exit4.i
@@ -6323,7 +6323,7 @@ define hidden void @_ZN13DumperSupport16dump_stack_frameEP18AbstractDumpWriterii
 
 20:                                               ; preds = %5, %17
   %.0 = phi i32 [ %19, %17 ], [ -33554433, %5 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i8 4, ptr %14, align 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i64, ptr %21, align 8
@@ -6352,8 +6352,8 @@ define hidden void @_ZN13DumperSupport16dump_stack_frameEP18AbstractDumpWriterii
 
 _ZN18AbstractDumpWriter8write_u1Eh.exit.i:        ; preds = %31, %25
   %35 = phi i64 [ %30, %25 ], [ %.pre.i, %31 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4
   %36 = load i64, ptr %21, align 8
   %37 = sub i64 %36, %35
@@ -6380,8 +6380,8 @@ _ZN18AbstractDumpWriter8write_u1Eh.exit.i:        ; preds = %31, %25
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit.i:        ; preds = %45, %39
   %49 = phi i64 [ %44, %39 ], [ %.pre5.i, %45 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 671088640, ptr %12, align 4
   %50 = load i64, ptr %21, align 8
   %51 = sub i64 %50, %49
@@ -6408,9 +6408,9 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit.i:        ; preds = %45, %39
 
 _ZN13DumperSupport12write_headerEP18AbstractDumpWriter8hprofTagj.exit: ; preds = %53, %59
   %63 = phi i64 [ %58, %53 ], [ %.pre, %59 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %64 = zext i32 %1 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %65 = call noundef i64 @llvm.bswap.i64(i64 %64)
   store i64 %65, ptr %11, align 8
   %66 = load i64, ptr %21, align 8
@@ -6438,7 +6438,7 @@ _ZN13DumperSupport12write_headerEP18AbstractDumpWriter8hprofTagj.exit: ; preds =
 
 _ZN18AbstractDumpWriter8write_idEj.exit:          ; preds = %69, %75
   %79 = phi i64 [ %74, %69 ], [ %.pre18, %75 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
@@ -6450,7 +6450,7 @@ _ZN18AbstractDumpWriter8write_idEj.exit:          ; preds = %69, %75
   %88 = getelementptr inbounds nuw i64, ptr %86, i64 %87
   %89 = load ptr, ptr %88, align 8
   %90 = ptrtoint ptr %89 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %91 = call noundef i64 @llvm.bswap.i64(i64 %90)
   store i64 %91, ptr %10, align 8
   %92 = load i64, ptr %21, align 8
@@ -6478,7 +6478,7 @@ _ZN18AbstractDumpWriter8write_idEj.exit:          ; preds = %69, %75
 
 _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit: ; preds = %95, %101
   %105 = phi i64 [ %100, %95 ], [ %.pre19, %101 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %106 = load ptr, ptr %80, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8
@@ -6489,7 +6489,7 @@ _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit: ; preds = %95, %101
   %113 = getelementptr inbounds nuw i64, ptr %111, i64 %112
   %114 = load ptr, ptr %113, align 8
   %115 = ptrtoint ptr %114 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %116 = call noundef i64 @llvm.bswap.i64(i64 %115)
   store i64 %116, ptr %9, align 8
   %117 = load i64, ptr %21, align 8
@@ -6515,7 +6515,7 @@ _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit: ; preds = %95, %101
   br label %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit15
 
 _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit15: ; preds = %120, %126
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %130 = load ptr, ptr %80, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load ptr, ptr %131, align 8
@@ -6523,7 +6523,7 @@ _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit15: ; preds = %120, %126
   %134 = load ptr, ptr %133, align 8
   %135 = call noundef ptr @_ZNK13InstanceKlass16source_file_nameEv(ptr noundef nonnull align 8 dereferenceable(464) %134) #19
   %136 = ptrtoint ptr %135 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %137 = call noundef i64 @llvm.bswap.i64(i64 %136)
   store i64 %137, ptr %8, align 8
   %138 = load i64, ptr %21, align 8
@@ -6552,8 +6552,8 @@ _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit15: ; preds = %120, %126
 
 _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit16: ; preds = %142, %148
   %152 = phi i64 [ %147, %142 ], [ %.pre20, %148 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %153 = call noundef i32 @llvm.bswap.i32(i32 %2)
   store i32 %153, ptr %7, align 4
   %154 = load i64, ptr %21, align 8
@@ -6581,8 +6581,8 @@ _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit16: ; preds = %142, %148
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %157, %163
   %167 = phi i64 [ %162, %157 ], [ %.pre21, %163 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %.0, ptr %6, align 4
   %168 = load i64, ptr %21, align 8
   %169 = sub i64 %168, %167
@@ -6607,7 +6607,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %157, %163
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit17
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit17:        ; preds = %171, %177
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -6645,7 +6645,7 @@ define hidden void @_ZN17SymbolTableDumper9do_symbolEPP6Symbol(ptr noundef nonnu
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = add nuw nsw i32 %23, 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 1
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = load i64, ptr %28, align 8
@@ -6674,8 +6674,8 @@ define hidden void @_ZN17SymbolTableDumper9do_symbolEPP6Symbol(ptr noundef nonnu
 
 _ZN18AbstractDumpWriter8write_u1Eh.exit.i:        ; preds = %38, %32
   %42 = phi i64 [ %37, %32 ], [ %.pre.i, %38 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %43 = load i64, ptr %28, align 8
   %44 = sub i64 %43, %42
@@ -6702,8 +6702,8 @@ _ZN18AbstractDumpWriter8write_u1Eh.exit.i:        ; preds = %38, %32
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit.i:        ; preds = %52, %46
   %56 = phi i64 [ %51, %46 ], [ %.pre5.i, %52 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %57 = call noundef i32 @llvm.bswap.i32(i32 %27)
   store i32 %57, ptr %4, align 4
   %58 = load i64, ptr %28, align 8
@@ -6729,10 +6729,10 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit.i:        ; preds = %52, %46
   br label %_ZN13DumperSupport12write_headerEP18AbstractDumpWriter8hprofTagj.exit
 
 _ZN13DumperSupport12write_headerEP18AbstractDumpWriter8hprofTagj.exit: ; preds = %61, %67
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %71 = load ptr, ptr %25, align 8
   %72 = ptrtoint ptr %19 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %73 = call noundef i64 @llvm.bswap.i64(i64 %72)
   store i64 %73, ptr %3, align 8
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 16
@@ -6761,7 +6761,7 @@ _ZN13DumperSupport12write_headerEP18AbstractDumpWriter8hprofTagj.exit: ; preds =
   br label %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit
 
 _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit: ; preds = %80, %86
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %90 = load ptr, ptr %25, align 8
   %91 = zext i16 %21 to i64
   %92 = load ptr, ptr %90, align 8
@@ -6810,7 +6810,7 @@ define hidden void @_ZN15JNILocalsDumper6do_oopEPP7oopDesc(ptr noundef nonnull r
   tail call void @_ZN18AbstractDumpWriter16start_sub_recordEhj(ptr noundef nonnull align 8 dereferenceable(34) %9, i8 noundef zeroext 2, i32 noundef 17)
   %10 = load ptr, ptr %8, align 8
   %11 = ptrtoint ptr %6 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = tail call noundef i64 @llvm.bswap.i64(i64 %11)
   store i64 %12, ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -6839,11 +6839,11 @@ define hidden void @_ZN15JNILocalsDumper6do_oopEPP7oopDesc(ptr noundef nonnull r
   br label %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %19, %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %29 = load ptr, ptr %8, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load i32, ptr %30, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %32 = call noundef i32 @llvm.bswap.i32(i32 %31)
   store i32 %32, ptr %4, align 4
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -6872,11 +6872,11 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %19, %25
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %39, %45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %49 = load ptr, ptr %8, align 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %51 = load i32, ptr %50, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %52 = call noundef i32 @llvm.bswap.i32(i32 %51)
   store i32 %52, ptr %3, align 4
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -6905,7 +6905,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %39, %45
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit4
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit4:         ; preds = %59, %65
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %69
 
 69:                                               ; preds = %_ZN18AbstractDumpWriter8write_u4Ej.exit4, %2
@@ -6964,7 +6964,7 @@ _ZNK7oopDesc12is_typeArrayEv.exit:                ; preds = %_ZNK7oopDesc11is_in
   tail call void @_ZN18AbstractDumpWriter16start_sub_recordEhj(ptr noundef nonnull align 8 dereferenceable(34) %34, i8 noundef zeroext 1, i32 noundef 17)
   %35 = load ptr, ptr %33, align 8
   %36 = ptrtoint ptr %6 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %37 = tail call noundef i64 @llvm.bswap.i64(i64 %36)
   store i64 %37, ptr %4, align 8
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
@@ -6993,10 +6993,10 @@ _ZNK7oopDesc12is_typeArrayEv.exit:                ; preds = %_ZNK7oopDesc11is_in
   br label %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %44, %50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %54 = load ptr, ptr %33, align 8
   %55 = ptrtoint ptr %1 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %56 = call noundef i64 @llvm.bswap.i64(i64 %55)
   store i64 %56, ptr %3, align 8
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 16
@@ -7025,7 +7025,7 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %44, %50
   br label %_ZN18AbstractDumpWriter12write_rootIDEPP7oopDesc.exit
 
 _ZN18AbstractDumpWriter12write_rootIDEPP7oopDesc.exit: ; preds = %63, %69
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %73
 
 73:                                               ; preds = %2, %_ZN18AbstractDumpWriter12write_rootIDEPP7oopDesc.exit, %_ZNK7oopDesc12is_typeArrayEv.exit
@@ -7074,7 +7074,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %19
   call void @_ZN18AbstractDumpWriter16start_sub_recordEhj(ptr noundef nonnull align 8 dereferenceable(34) %25, i8 noundef zeroext 3, i32 noundef 17)
   %26 = load ptr, ptr %0, align 8
   %27 = ptrtoint ptr %23 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %28 = call noundef i64 @llvm.bswap.i64(i64 %27)
   store i64 %28, ptr %5, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -7103,10 +7103,10 @@ _ZNK6HandleclEv.exit:                             ; preds = %19
   br label %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %35, %41
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %45 = load ptr, ptr %0, align 8
   %46 = load i32, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %47 = call noundef i32 @llvm.bswap.i32(i32 %46)
   store i32 %47, ptr %4, align 4
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -7135,10 +7135,10 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %35, %41
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %54, %60
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %64 = load ptr, ptr %0, align 8
   %65 = load i32, ptr %10, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %66 = call noundef i32 @llvm.bswap.i32(i32 %65)
   store i32 %66, ptr %3, align 4
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 16
@@ -7167,7 +7167,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %54, %60
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit11
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit11:        ; preds = %73, %79
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK6HandleclEv.exit.thread
 
 _ZNK6HandleclEv.exit.thread:                      ; preds = %19, %11, %_ZN18AbstractDumpWriter8write_u4Ej.exit11, %_ZNK6HandleclEv.exit
@@ -7455,27 +7455,27 @@ _ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.thread: ; preds = %_ZNK19C
   br i1 %.not.i.i8, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !29
 
 _ZNK10JavaThread18is_vthread_mountedEv.exit:      ; preds = %.lr.ph.i.i
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN10JavaThread18carrier_last_frameEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %4, ptr noundef nonnull align 8 dereferenceable(1800) %54, ptr noundef nonnull %7) #19
   %63 = call noundef ptr @_ZN10JavaThread16last_java_vframeE5frameP11RegisterMap(ptr noundef nonnull align 8 dereferenceable(1800) %54, ptr noundef nonnull byval(%class.frame) align 8 %4, ptr noundef nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread
 
 .loopexit:                                        ; preds = %61, %57
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN10JavaThread26platform_thread_last_frameEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %3, ptr noundef nonnull align 8 dereferenceable(1800) %54, ptr noundef nonnull %7) #19
   %64 = call noundef ptr @_ZN10JavaThread16last_java_vframeE5frameP11RegisterMap(ptr noundef nonnull align 8 dereferenceable(1800) %54, ptr noundef nonnull byval(%class.frame) align 8 %3, ptr noundef nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread
 
 65:                                               ; preds = %49
   %66 = load ptr, ptr %50, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 928
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %67) #19, !noalias !30
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %2, ptr noundef nonnull align 8 dereferenceable(1800) %66) #19
   %68 = call noundef ptr @_ZN10JavaThread16last_java_vframeE5frameP11RegisterMap(ptr noundef nonnull align 8 dereferenceable(1800) %66, ptr noundef nonnull byval(%class.frame) align 8 %2, ptr noundef nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread
 
 69:                                               ; preds = %49
@@ -7625,7 +7625,7 @@ _ZNK17GrowableArrayViewIP5KlassE4findERKS1_.exit37: ; preds = %62, %42, %._crit_
 ._crit_edge:                                      ; preds = %_ZNK17GrowableArrayViewIP5KlassE4findERKS1_.exit37, %37
   %71 = shl nsw i32 %.027, 3
   %72 = add i32 %71, 12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 5, ptr %10, align 1
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %74 = load i64, ptr %73, align 8
@@ -7654,8 +7654,8 @@ _ZNK17GrowableArrayViewIP5KlassE4findERKS1_.exit37: ; preds = %62, %42, %._crit_
 
 _ZN18AbstractDumpWriter8write_u1Eh.exit.i:        ; preds = %83, %77
   %87 = phi i64 [ %82, %77 ], [ %.pre.i, %83 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %88 = load i64, ptr %73, align 8
   %89 = sub i64 %88, %87
@@ -7682,8 +7682,8 @@ _ZN18AbstractDumpWriter8write_u1Eh.exit.i:        ; preds = %83, %77
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit.i:        ; preds = %97, %91
   %101 = phi i64 [ %96, %91 ], [ %.pre5.i, %97 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %102 = call noundef i32 @llvm.bswap.i32(i32 %72)
   store i32 %102, ptr %8, align 4
   %103 = load i64, ptr %73, align 8
@@ -7711,11 +7711,11 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit.i:        ; preds = %97, %91
 
 _ZN13DumperSupport12write_headerEP18AbstractDumpWriter8hprofTagj.exit: ; preds = %106, %112
   %116 = phi i64 [ %111, %106 ], [ %.pre54, %112 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %118 = load i32, ptr %117, align 8
   %119 = add nsw i32 %118, 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %120 = call noundef i32 @llvm.bswap.i32(i32 %119)
   store i32 %120, ptr %7, align 4
   %121 = load i64, ptr %73, align 8
@@ -7743,9 +7743,9 @@ _ZN13DumperSupport12write_headerEP18AbstractDumpWriter8hprofTagj.exit: ; preds =
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %124, %130
   %134 = phi i64 [ %129, %124 ], [ %.pre55, %130 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %135 = load i32, ptr %117, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %136 = call noundef i32 @llvm.bswap.i32(i32 %135)
   store i32 %136, ptr %6, align 4
   %137 = load i64, ptr %73, align 8
@@ -7773,8 +7773,8 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %124, %130
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit38:        ; preds = %140, %146
   %150 = phi i64 [ %145, %140 ], [ %.pre56, %146 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %151 = call noundef i32 @llvm.bswap.i32(i32 %.027)
   store i32 %151, ptr %5, align 4
   %152 = load i64, ptr %73, align 8
@@ -7800,7 +7800,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit38:        ; preds = %140, %146
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit39
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit39:        ; preds = %155, %161
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not46 = icmp slt i32 %.027, 1
   br i1 %.not46, label %._crit_edge49, label %.lr.ph48
 
@@ -7813,7 +7813,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit39:        ; preds = %155, %161
   %167 = load i32, ptr %14, align 4
   %168 = add nsw i32 %167, %.047
   %169 = zext i32 %168 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %170 = call noundef i64 @llvm.bswap.i64(i64 %169)
   store i64 %170, ptr %4, align 8
   %171 = load i64, ptr %73, align 8
@@ -7839,7 +7839,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit39:        ; preds = %155, %161
   br label %_ZN18AbstractDumpWriter8write_idEj.exit
 
 _ZN18AbstractDumpWriter8write_idEj.exit:          ; preds = %175, %180
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %184 = add nuw i32 %.047, 1
   %exitcond.not = icmp eq i32 %.047, %.027
   br i1 %exitcond.not, label %._crit_edge49, label %166, !llvm.loop !35
@@ -7857,7 +7857,7 @@ define hidden void @_ZN12ThreadDumper15dump_thread_objEP18AbstractDumpWriter(ptr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = tail call noundef i64 @llvm.bswap.i64(i64 %8)
   store i64 %9, ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -7888,10 +7888,10 @@ define hidden void @_ZN12ThreadDumper15dump_thread_objEP18AbstractDumpWriter(ptr
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %16, %22
   %26 = phi i64 [ %21, %16 ], [ %.pre, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i32, ptr %27, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %29 = call noundef i32 @llvm.bswap.i32(i32 %28)
   store i32 %29, ptr %4, align 4
   %30 = load i64, ptr %10, align 8
@@ -7919,10 +7919,10 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %16, %22
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %33, %39
   %43 = phi i64 [ %38, %33 ], [ %.pre7, %39 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %44 = load i32, ptr %27, align 8
   %45 = add nsw i32 %44, 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %46 = call noundef i32 @llvm.bswap.i32(i32 %45)
   store i32 %46, ptr %3, align 4
   %47 = load i64, ptr %10, align 8
@@ -7948,7 +7948,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %33, %39
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit6
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit6:         ; preds = %50, %56
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -8425,7 +8425,7 @@ _ZN5Bytes11put_Java_u4EPhj.exit.i:                ; preds = %26, %25, %24
   br label %_ZN18AbstractDumpWriter19finish_dump_segmentEv.exit
 
 _ZN18AbstractDumpWriter19finish_dump_segmentEv.exit: ; preds = %1, %_ZN5Bytes11put_Java_u4EPhj.exit.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 44, ptr %4, align 1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load i64, ptr %30, align 8
@@ -8454,8 +8454,8 @@ _ZN18AbstractDumpWriter19finish_dump_segmentEv.exit: ; preds = %1, %_ZN5Bytes11p
 
 _ZN18AbstractDumpWriter8write_u1Eh.exit:          ; preds = %34, %40
   %44 = phi i64 [ %39, %34 ], [ %.pre, %40 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %45 = load i64, ptr %30, align 8
   %46 = sub i64 %45, %44
@@ -8482,8 +8482,8 @@ _ZN18AbstractDumpWriter8write_u1Eh.exit:          ; preds = %34, %40
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %48, %54
   %58 = phi i64 [ %53, %48 ], [ %.pre7, %54 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
   %59 = load i64, ptr %30, align 8
   %60 = sub i64 %59, %58
@@ -8508,7 +8508,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %48, %54
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit6
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit6:         ; preds = %62, %68
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -8818,7 +8818,7 @@ define hidden void @_ZN13VM_HeapDumper13do_load_classEP5Klass(ptr noundef %0) #3
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
   %9 = load ptr, ptr @_ZN13VM_HeapDumper14_global_writerE, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 2, ptr %8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8
@@ -8847,8 +8847,8 @@ define hidden void @_ZN13VM_HeapDumper13do_load_classEP5Klass(ptr noundef %0) #3
 
 _ZN18AbstractDumpWriter8write_u1Eh.exit.i:        ; preds = %20, %14
   %24 = phi i64 [ %19, %14 ], [ %.pre.i, %20 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %25 = load i64, ptr %10, align 8
   %26 = sub i64 %25, %24
@@ -8875,8 +8875,8 @@ _ZN18AbstractDumpWriter8write_u1Eh.exit.i:        ; preds = %20, %14
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit.i:        ; preds = %34, %28
   %38 = phi i64 [ %33, %28 ], [ %.pre5.i, %34 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 402653184, ptr %6, align 4
   %39 = load i64, ptr %10, align 8
   %40 = sub i64 %39, %38
@@ -8901,12 +8901,12 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit.i:        ; preds = %34, %28
   br label %_ZN13DumperSupport12write_headerEP18AbstractDumpWriter8hprofTagj.exit
 
 _ZN13DumperSupport12write_headerEP18AbstractDumpWriter8hprofTagj.exit: ; preds = %42, %48
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %52 = load ptr, ptr @_ZN13VM_HeapDumper14_global_writerE, align 8
   %53 = load i32, ptr @_ZZN13VM_HeapDumper13do_load_classEP5KlassE16class_serial_num, align 4
   %54 = add i32 %53, 1
   store i32 %54, ptr @_ZZN13VM_HeapDumper13do_load_classEP5KlassE16class_serial_num, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %55 = call noundef i32 @llvm.bswap.i32(i32 %54)
   store i32 %55, ptr %5, align 4
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 16
@@ -8935,7 +8935,7 @@ _ZN13DumperSupport12write_headerEP18AbstractDumpWriter8hprofTagj.exit: ; preds =
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %62, %68
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %72 = load ptr, ptr @_ZN13VM_HeapDumper14_global_writerE, align 8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %74 = load ptr, ptr %73, align 8
@@ -8951,7 +8951,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %62, %68
 
 _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %76, %_ZN18AbstractDumpWriter8write_u4Ej.exit
   %81 = phi i64 [ %80, %76 ], [ 0, %_ZN18AbstractDumpWriter8write_u4Ej.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %81, ptr %4, align 8
   %82 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %83 = load i64, ptr %82, align 8
@@ -8979,7 +8979,7 @@ _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %76, %_ZN18AbstractD
   br label %_ZN18AbstractDumpWriter13write_classIDEP5Klass.exit
 
 _ZN18AbstractDumpWriter13write_classIDEP5Klass.exit: ; preds = %88, %94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %98 = load ptr, ptr @_ZN13VM_HeapDumper14_global_dumperE, align 8
   %99 = load i32, ptr @_ZZN13VM_HeapDumper13do_load_classEP5KlassE16class_serial_num, align 4
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 104
@@ -9040,7 +9040,7 @@ _ZN13VM_HeapDumper23add_class_serial_numberEP5Klassi.exit: ; preds = %_ZN18Abstr
   %126 = getelementptr inbounds ptr, ptr %124, i64 %125
   store ptr %0, ptr %126, align 8
   %127 = load ptr, ptr @_ZN13VM_HeapDumper14_global_writerE, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 16777216, ptr %3, align 4
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %129 = load i64, ptr %128, align 8
@@ -9068,12 +9068,12 @@ _ZN13VM_HeapDumper23add_class_serial_numberEP5Klassi.exit: ; preds = %_ZN18Abstr
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit5
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit5:         ; preds = %134, %140
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %145 = load ptr, ptr %144, align 8
   %146 = load ptr, ptr @_ZN13VM_HeapDumper14_global_writerE, align 8
   %147 = ptrtoint ptr %145 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %148 = call noundef i64 @llvm.bswap.i64(i64 %147)
   store i64 %148, ptr %2, align 8
   %149 = getelementptr inbounds nuw i8, ptr %146, i64 16
@@ -9102,7 +9102,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit5:         ; preds = %134, %140
   br label %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit
 
 _ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit: ; preds = %155, %161
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -9405,7 +9405,7 @@ _ZN13MonitorLocker4waitEl.exit.i:                 ; preds = %_ZN13MonitorLocker4
   %49 = load ptr, ptr %48, align 8
   call void %49(ptr noundef nonnull align 8 dereferenceable(34) %46, ptr noundef nonnull @.str.18, i64 noundef 19) #19
   %50 = load ptr, ptr @_ZN13VM_HeapDumper14_global_writerE, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 134217728, ptr %5, align 4
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i64, ptr %51, align 8
@@ -9433,10 +9433,10 @@ _ZN13MonitorLocker4waitEl.exit.i:                 ; preds = %_ZN13MonitorLocker4
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %57, %63
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %67 = load ptr, ptr @_ZN13VM_HeapDumper14_global_writerE, align 8
   %68 = call noundef i64 @_ZN2os14javaTimeMillisEv() #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %69 = call noundef i64 @llvm.bswap.i64(i64 %68)
   store i64 %69, ptr %4, align 8
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 16
@@ -9465,7 +9465,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %57, %63
   br label %_ZN18AbstractDumpWriter8write_u8Em.exit
 
 _ZN18AbstractDumpWriter8write_u8Em.exit:          ; preds = %76, %82
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %86 = load ptr, ptr @_ZN13VM_HeapDumper14_global_writerE, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV17SymbolTableDumper, i64 16), ptr %7, align 8
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -9704,9 +9704,9 @@ _ZN18AbstractDumpWriter19finish_dump_segmentEv.exit: ; preds = %187, %_ZN5Bytes1
   call void @_ZN10DumpWriter5flushEv(ptr noundef nonnull align 8 dereferenceable(112) %9)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV16HeapObjectDumper, i64 16), ptr %15, align 8
   %213 = load ptr, ptr %175, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1031EP13InstanceKlassP26DumperClassCacheTableEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS23EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSC_SC_EEE6unlinkIZN21DumperClassCacheTable10unlink_allEP17ResourceHashtableIS2_S4_Lj1031ELS7_2ELS8_23EXadL_ZS9_IS2_EjSC_EEXadL_ZSD_IS2_EbSC_SC_EEEE12CleanupEntryEEvPSA_(ptr noundef nonnull align 8 dereferenceable(8252) %213, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %214 = load ptr, ptr %175, align 8
   %215 = icmp eq ptr %214, null
   br i1 %215, label %_ZN16HeapObjectDumperD2Ev.exit, label %.preheader.i.i
@@ -9912,7 +9912,7 @@ define hidden void @_ZN13VM_HeapDumper17dump_stack_tracesEP18AbstractDumpWriter(
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
   %9 = alloca %class.JavaThreadIteratorWithHandle, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 5, ptr %8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8
@@ -9941,8 +9941,8 @@ define hidden void @_ZN13VM_HeapDumper17dump_stack_tracesEP18AbstractDumpWriter(
 
 _ZN18AbstractDumpWriter8write_u1Eh.exit.i:        ; preds = %20, %14
   %24 = phi i64 [ %19, %14 ], [ %.pre.i, %20 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %25 = load i64, ptr %10, align 8
   %26 = sub i64 %25, %24
@@ -9969,8 +9969,8 @@ _ZN18AbstractDumpWriter8write_u1Eh.exit.i:        ; preds = %20, %14
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit.i:        ; preds = %34, %28
   %38 = phi i64 [ %33, %28 ], [ %.pre5.i, %34 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 201326592, ptr %6, align 4
   %39 = load i64, ptr %10, align 8
   %40 = sub i64 %39, %38
@@ -9997,8 +9997,8 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit.i:        ; preds = %34, %28
 
 _ZN13DumperSupport12write_headerEP18AbstractDumpWriter8hprofTagj.exit: ; preds = %42, %48
   %52 = phi i64 [ %47, %42 ], [ %.pre, %48 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 16777216, ptr %5, align 4
   %53 = load i64, ptr %10, align 8
   %54 = sub i64 %53, %52
@@ -10025,8 +10025,8 @@ _ZN13DumperSupport12write_headerEP18AbstractDumpWriter8hprofTagj.exit: ; preds =
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %56, %62
   %66 = phi i64 [ %61, %56 ], [ %.pre54, %62 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %67 = load i64, ptr %10, align 8
   %68 = sub i64 %67, %66
@@ -10053,8 +10053,8 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %56, %62
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit40:        ; preds = %70, %76
   %80 = phi i64 [ %75, %70 ], [ %.pre55, %76 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %81 = load i64, ptr %10, align 8
   %82 = sub i64 %81, %80
@@ -10079,7 +10079,7 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit40:        ; preds = %70, %76
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit41
 
 _ZN18AbstractDumpWriter8write_u4Ej.exit41:        ; preds = %84, %90
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %94 = load i32, ptr @_ZN7Threads18_number_of_threadsE, align 4
   %95 = shl nsw i32 %94, 1
   %96 = sext i32 %95 to i64
@@ -10332,7 +10332,7 @@ define hidden void @_ZN13VM_HeapDumper12dump_vthreadEP7oopDescP18AbstractDumpWri
 ; Function Attrs: nounwind uwtable
 define hidden void @_ZThn64_N13VM_HeapDumper12dump_vthreadEP7oopDescP18AbstractDumpWriter(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #12 align 2 {
   %4 = alloca %class.ThreadDumper, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN12ThreadDumperC2ENS_10ThreadTypeEP10JavaThreadP7oopDesc(ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef 2, ptr noundef null, ptr noundef %1)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -10365,7 +10365,7 @@ define hidden void @_ZThn64_N13VM_HeapDumper12dump_vthreadEP7oopDescP18AbstractD
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %28) #19
   call void @_ZN12ThreadDumper15dump_thread_objEP18AbstractDumpWriter(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %2)
   call void @_ZN12ThreadDumper15dump_stack_refsEP18AbstractDumpWriter(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -14356,7 +14356,7 @@ define linkonce_odr hidden void @_ZN17StickyClassDumper8do_klassEP5Klass(ptr nou
 
 _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %14, %7
   %19 = phi i64 [ %18, %14 ], [ 0, %7 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %19, ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %21 = load i64, ptr %20, align 8
@@ -14384,7 +14384,7 @@ _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %14, %7
   br label %_ZN18AbstractDumpWriter13write_classIDEP5Klass.exit
 
 _ZN18AbstractDumpWriter13write_classIDEP5Klass.exit: ; preds = %26, %32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %36
 
 36:                                               ; preds = %_ZN18AbstractDumpWriter13write_classIDEP5Klass.exit, %2
@@ -16006,14 +16006,14 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %42 = load ptr, ptr %8, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = sub i64 %38, %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %45 = load ptr, ptr %9, align 8
   %46 = load ptr, ptr %10, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %45, i64 noundef %44, i64 noundef 9, ptr noundef %46) #19
   %47 = load ptr, ptr %7, align 8
   store ptr %47, ptr %9, align 8
   %.not5.i.i.i = icmp eq ptr %47, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %41
@@ -16107,7 +16107,7 @@ define linkonce_odr hidden void @_ZN15EventWriterHostI11EncoderHostI20BigEndianE
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
@@ -16115,7 +16115,7 @@ define linkonce_odr hidden void @_ZN15EventWriterHostI11EncoderHostI20BigEndianE
   %13 = load ptr, ptr %5, align 8
   store ptr %13, ptr %9, align 8
   %.not1.i.i.i = icmp eq ptr %13, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not1.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE5flushEv.exit.i.i, label %14
 
 14:                                               ; preds = %8
@@ -16160,7 +16160,7 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %36 = ptrtoint ptr %35 to i64
   %37 = sub i64 %31, %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8
@@ -16168,7 +16168,7 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %42 = load ptr, ptr %4, align 8
   store ptr %42, ptr %38, align 8
   %.not5.i.i = icmp eq ptr %42, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %34
@@ -16223,7 +16223,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %64 = ptrtoint ptr %63 to i64
   %65 = sub i64 %62, %64
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %69 = load ptr, ptr %68, align 8
@@ -16231,7 +16231,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %70 = load ptr, ptr %3, align 8
   store ptr %70, ptr %66, align 8
   %.not5.i.i8 = icmp eq ptr %70, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i8, label %.sink.split.i.i10, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i9
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i9: ; preds = %61
@@ -16297,7 +16297,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -16305,7 +16305,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -16504,7 +16504,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -16512,7 +16512,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -16720,7 +16720,7 @@ define linkonce_odr hidden void @_ZN13EventHeapDump9writeDataI15EventWriterHostI
   %22 = ptrtoint ptr %21 to i64
   %23 = sub i64 %20, %22
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
@@ -16728,7 +16728,7 @@ define linkonce_odr hidden void @_ZN13EventHeapDump9writeDataI15EventWriterHostI
   %28 = load ptr, ptr %5, align 8
   store ptr %28, ptr %24, align 8
   %.not5.i.i.i.i = icmp eq ptr %28, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not5.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i: ; preds = %19
@@ -16785,7 +16785,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %50 = ptrtoint ptr %49 to i64
   %51 = sub i64 %48, %50
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %55 = load ptr, ptr %54, align 8
@@ -16793,7 +16793,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %56 = load ptr, ptr %4, align 8
   store ptr %56, ptr %52, align 8
   %.not5.i.i.i.i11 = icmp eq ptr %56, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not5.i.i.i.i11, label %.sink.split.i.i.i.i13, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i12
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i12: ; preds = %47
@@ -16850,7 +16850,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %78 = ptrtoint ptr %77 to i64
   %79 = sub i64 %76, %78
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %83 = load ptr, ptr %82, align 8
@@ -16858,7 +16858,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %84 = load ptr, ptr %3, align 8
   store ptr %84, ptr %80, align 8
   %.not5.i.i.i.i21 = icmp eq ptr %84, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i.i.i21, label %.sink.split.i.i.i.i23, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i22
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i22: ; preds = %75
@@ -16921,14 +16921,14 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
   br i1 %11, label %12, label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit
 
 12:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %13, i64 noundef 0, i64 noundef 0, ptr noundef %15) #19
   %16 = load ptr, ptr %4, align 8
   store ptr %16, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit
 
 17:                                               ; preds = %2
@@ -17006,14 +17006,14 @@ _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit: ; preds = %_ZN11St
   br i1 %50, label %51, label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit15
 
 51:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %52 = load ptr, ptr %47, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load ptr, ptr %53, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %52, i64 noundef 0, i64 noundef 0, ptr noundef %54) #19
   %55 = load ptr, ptr %3, align 8
   store ptr %55, ptr %47, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit15
 
 _ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit15: ; preds = %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit, %49, %51
@@ -17057,7 +17057,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -17065,7 +17065,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -17214,7 +17214,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %19 = ptrtoint ptr %18 to i64
   %20 = sub i64 %14, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -17222,7 +17222,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %25 = load ptr, ptr %5, align 8
   store ptr %25, ptr %21, align 8
   %.not5.i.i.i = icmp eq ptr %25, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %17
@@ -17275,7 +17275,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %48 = ptrtoint ptr %47 to i64
   %49 = sub i64 %43, %48
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -17283,7 +17283,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %54 = load ptr, ptr %4, align 8
   store ptr %54, ptr %50, align 8
   %.not5.i.i.i11 = icmp eq ptr %54, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not5.i.i.i11, label %.sink.split.i.i.i13, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i12
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i12: ; preds = %46
@@ -17346,7 +17346,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %82 = ptrtoint ptr %81 to i64
   %83 = sub i64 %77, %82
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %87 = load ptr, ptr %86, align 8
@@ -17354,7 +17354,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %88 = load ptr, ptr %3, align 8
   store ptr %88, ptr %84, align 8
   %.not5.i.i = icmp eq ptr %88, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %80
@@ -17419,7 +17419,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
 
 19:                                               ; preds = %7
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
@@ -17427,7 +17427,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %24 = load ptr, ptr %4, align 8
   store ptr %24, ptr %20, align 8
   %.not5.i.i.i = icmp eq ptr %24, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %19
@@ -17544,7 +17544,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -17552,7 +17552,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -17973,10 +17973,10 @@ declare i32 @llvm.ctpop.i32(i32) #17
 declare i32 @llvm.umin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

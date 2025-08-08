@@ -42,7 +42,7 @@ define noundef range(i64 1, 0) i64 @_ZN9html5ever9serialize7tagname17h7b0bd583a5
   br i1 %10, label %20, label %24
 
 .critedge:                                        ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8
   %11 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17had86ed48f0b2ede2E monotonic, align 8
   %12 = icmp ult i64 %11, 6
@@ -51,12 +51,12 @@ define noundef range(i64 1, 0) i64 @_ZN9html5ever9serialize7tagname17h7b0bd583a5
   br i1 %13, label %14, label %.critedge11
 
 14:                                               ; preds = %.critedge, %.critedge11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %6
 
 .critedge11:                                      ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %4, ptr %2, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h412fae17cf47cc1bE", ptr %15, align 8
@@ -70,8 +70,8 @@ define noundef range(i64 1, 0) i64 @_ZN9html5ever9serialize7tagname17h7b0bd583a5
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 1, ptr %19, align 8, !alias.scope !6, !noalias !9
   call void @_ZN3log13__private_api8log_impl17h0fe6cde48349b67dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, i64 noundef 2, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.28dd728cb7565027754588209dbab502.18, i32 noundef 70, ptr noalias noundef readonly align 8 null, i64 undef)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %14
 
 20:                                               ; preds = %6
@@ -94,10 +94,10 @@ declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$
 declare void @_ZN3log13__private_api8log_impl17h0fe6cde48349b67dE(ptr noalias noundef align 8 captures(none) dereferenceable(48), i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(48), i32 noundef, ptr noalias noundef readonly align 8, i64) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

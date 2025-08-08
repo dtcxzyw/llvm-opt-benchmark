@@ -128,20 +128,14 @@ define void @secrets_wtap_callback(i32 noundef %0, ptr noundef %1, i32 noundef %
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @key_id_hash(ptr noundef readonly captures(none) %0) #4 {
+define internal i32 @key_id_hash(ptr noundef readonly captures(none) %0) #3 {
   %2 = load i32, ptr %0, align 4
   %3 = getelementptr i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -159,7 +153,7 @@ define internal i32 @key_id_hash(ptr noundef readonly captures(none) %0) #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @key_id_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 0, 2) i32 @key_id_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %bcmp = tail call i32 @bcmp(ptr noundef dereferenceable(20) %0, ptr noundef dereferenceable(20) %1, i64 20)
   %.not = icmp eq i32 %bcmp, 0
   %3 = zext i1 %.not to i32
@@ -173,9 +167,9 @@ declare void @gnutls_privkey_deinit(ptr noundef) #1
 define ptr @secrets_get_available_keys() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @gnutls_pkcs11_token_get_url(i32 noundef 0, i32 noundef 0, ptr noundef nonnull %1)
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %get_pkcs11_token_uris.exit, label %.lr.ph.i
@@ -205,20 +199,20 @@ define ptr @secrets_get_available_keys() local_unnamed_addr #0 {
   %16 = load ptr, ptr @gnutls_free, align 8
   %17 = load ptr, ptr %1, align 8
   call void %16(ptr noundef %17)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %18 = add i32 %.0815.i, 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = call i32 @gnutls_pkcs11_token_get_url(i32 noundef %18, i32 noundef 0, ptr noundef nonnull %1)
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %get_pkcs11_token_uris.exit, label %.lr.ph.i
 
 get_pkcs11_token_uris.exit:                       ; preds = %15, %0
   %.09.lcssa.i = phi ptr [ null, %0 ], [ %.1.ph.i, %15 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %21 = call ptr @g_slist_reverse(ptr noundef %.09.lcssa.i)
   %22 = call ptr @g_slist_concat(ptr noundef null, ptr noundef %21)
   ret ptr %22
@@ -253,9 +247,9 @@ define noundef zeroext i1 @secrets_verify_key(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not25, label %33, label %13
 
 13:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   tail call void @gnutls_pkcs11_set_pin_function(ptr noundef nonnull @set_pin_callback, ptr noundef %1)
   %14 = call i32 @gnutls_pkcs11_obj_list_import_url4(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %0, i32 noundef 2097153)
@@ -300,14 +294,14 @@ define noundef zeroext i1 @secrets_verify_key(ptr noundef %0, ptr noundef %1, pt
   br i1 %or.cond.i, label %verify_pkcs11_token.exit, label %30
 
 30:                                               ; preds = %29
-  %31 = call ptr @gnutls_strerror(i32 noundef %14) #14
+  %31 = call ptr @gnutls_strerror(i32 noundef %14) #13
   %32 = call noalias ptr @g_strdup(ptr noundef %31)
   store ptr %32, ptr %3, align 8
   br label %verify_pkcs11_token.exit
 
 verify_pkcs11_token.exit:                         ; preds = %29, %30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %46
 
 33:                                               ; preds = %11
@@ -316,7 +310,7 @@ verify_pkcs11_token.exit:                         ; preds = %29, %30
   br i1 %.not26, label %43, label %35
 
 35:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   call fastcc void @load_rsa_keyfile(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false, ptr noundef nonnull %7)
   %.pr = load ptr, ptr %7, align 8
@@ -344,7 +338,7 @@ thread-pre-split:                                 ; preds = %35, %36
   br label %42
 
 42:                                               ; preds = %thread-pre-split, %40, %41
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %46
 
 43:                                               ; preds = %33
@@ -372,21 +366,21 @@ define internal fastcc void @load_rsa_keyfile(ptr noundef %0, ptr noundef %1, i1
   %6 = alloca ptr, align 8
   %7 = alloca %struct.cert_key_id, align 1
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 20, ptr %8, align 8
   %9 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.2)
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %15
 
 10:                                               ; preds = %4
-  %11 = tail call ptr @__errno_location() #14
+  %11 = tail call ptr @__errno_location() #13
   %12 = load i32, ptr %11, align 4
-  %13 = tail call ptr @g_strerror(i32 noundef %12) #14
+  %13 = tail call ptr @g_strerror(i32 noundef %12) #13
   %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef %0, ptr noundef %13)
   store ptr %14, ptr %3, align 8
   br label %52
@@ -430,7 +424,7 @@ define internal fastcc void @load_rsa_keyfile(ptr noundef %0, ptr noundef %1, i1
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %28
-  %34 = call ptr @gnutls_strerror(i32 noundef %31) #14
+  %34 = call ptr @gnutls_strerror(i32 noundef %31) #13
   %35 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef %0, ptr noundef %34)
   store ptr %35, ptr %3, align 8
   br label %50
@@ -444,7 +438,7 @@ define internal fastcc void @load_rsa_keyfile(ptr noundef %0, ptr noundef %1, i1
   br i1 %or.cond, label %41, label %44
 
 41:                                               ; preds = %36
-  %42 = call ptr @gnutls_strerror(i32 noundef %37) #14
+  %42 = call ptr @gnutls_strerror(i32 noundef %37) #13
   %43 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef %42)
   store ptr %43, ptr %3, align 8
   br label %50
@@ -454,7 +448,7 @@ define internal fastcc void @load_rsa_keyfile(ptr noundef %0, ptr noundef %1, i1
 
 45:                                               ; preds = %44
   %46 = load ptr, ptr %5, align 8
-  %47 = call dereferenceable_or_null(20) ptr @g_memdup2(ptr noundef nonnull %7, i64 noundef 20) #15
+  %47 = call dereferenceable_or_null(20) ptr @g_memdup2(ptr noundef nonnull %7, i64 noundef 20) #14
   %48 = load ptr, ptr @rsa_privkeys, align 8
   %49 = call i32 @g_hash_table_insert(ptr noundef %48, ptr noundef %47, ptr noundef %46)
   store ptr null, ptr %5, align 8
@@ -467,10 +461,10 @@ define internal fastcc void @load_rsa_keyfile(ptr noundef %0, ptr noundef %1, i1
   br label %52
 
 52:                                               ; preds = %50, %24, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -481,13 +475,13 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 define range(i32 -49, 2) i32 @secrets_rsa_decrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.gnutls_datum_t, align 8
   %7 = alloca %struct.gnutls_datum_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %2, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 0, ptr %9, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr @rsa_privkeys, align 8
   %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef %0)
@@ -504,7 +498,7 @@ define range(i32 -49, 2) i32 @secrets_rsa_decrypt(ptr noundef %0, ptr noundef %1
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
-  %19 = call ptr @g_memdup2(ptr noundef %15, i64 noundef %18) #15
+  %19 = call ptr @g_memdup2(ptr noundef %15, i64 noundef %18) #14
   store ptr %19, ptr %3, align 8
   %20 = load i32, ptr %16, align 8
   store i32 %20, ptr %4, align 4
@@ -515,19 +509,19 @@ define range(i32 -49, 2) i32 @secrets_rsa_decrypt(ptr noundef %0, ptr noundef %1
 
 23:                                               ; preds = %12, %14, %5
   %.0 = phi i32 [ -49, %5 ], [ 0, %14 ], [ 1, %12 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @gnutls_privkey_decrypt_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @gnutls_pkcs11_token_get_url(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -545,12 +539,12 @@ declare ptr @g_slist_reverse(ptr noundef) local_unnamed_addr #1
 declare void @gnutls_pkcs11_set_pin_function(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable
-define internal range(i32 -303, 1) i32 @set_pin_callback(ptr noundef readonly captures(address_is_null) %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) #8 {
+define internal range(i32 -303, 1) i32 @set_pin_callback(ptr noundef readonly captures(address_is_null) %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %8
 
 8:                                                ; preds = %7
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
   %10 = and i32 %4, 32
   %.not12 = icmp eq i32 %10, 0
   %.not13 = icmp ult i64 %9, %6
@@ -559,7 +553,7 @@ define internal range(i32 -303, 1) i32 @set_pin_callback(ptr noundef readonly ca
 
 11:                                               ; preds = %8
   %12 = add nuw i64 %9, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %5, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %12, i1 noundef false) #13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %5, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %12, i1 noundef false) #16
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %7, %11
@@ -577,10 +571,10 @@ declare void @gnutls_pkcs11_obj_deinit(ptr noundef) local_unnamed_addr #1
 declare ptr @gnutls_strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -598,7 +592,7 @@ declare ptr @rsa_load_pem_key(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @rsa_load_pkcs12(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @gnutls_privkey_init(ptr noundef) local_unnamed_addr #1
@@ -632,7 +626,7 @@ define internal void @pkcs11_libs_uats_library_path_tostr_cb(ptr noundef readonl
   %8 = tail call noalias ptr @g_strdup(ptr noundef nonnull %6)
   store ptr %8, ptr %1, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call i64 @strlen(ptr noundef %9) #16
+  %10 = tail call i64 @strlen(ptr noundef %9) #15
   %11 = trunc i64 %10 to i32
   br label %14
 
@@ -695,7 +689,7 @@ define internal void @uat_pkcs11_libs_load_all() #0 {
 
 9:                                                ; preds = %7, %6
   %.2 = phi ptr [ %.017, %6 ], [ %8, %7 ]
-  %10 = tail call ptr @gnutls_strerror(i32 noundef %5) #14
+  %10 = tail call ptr @gnutls_strerror(i32 noundef %5) #13
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %.2, ptr noundef nonnull @.str.21, ptr noundef %4, ptr noundef %10)
   br label %11
 
@@ -737,7 +731,7 @@ define internal void @rsa_privkeys_uats_uri_tostr_cb(ptr noundef readonly captur
   %8 = tail call noalias ptr @g_strdup(ptr noundef nonnull %6)
   store ptr %8, ptr %1, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call i64 @strlen(ptr noundef %9) #16
+  %10 = tail call i64 @strlen(ptr noundef %9) #15
   %11 = trunc i64 %10 to i32
   br label %14
 
@@ -774,7 +768,7 @@ define internal void @rsa_privkeys_uats_password_tostr_cb(ptr noundef readonly c
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #16
+  %11 = tail call i64 @strlen(ptr noundef %10) #15
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -841,7 +835,7 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
   %12 = load ptr, ptr @uat_rsa_privkeys, align 8
   %13 = getelementptr %struct.rsa_privkey_record_t, ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %15 = call i32 @g_str_has_prefix(ptr noundef %14, ptr noundef nonnull @.str)
   %.not15 = icmp eq i32 %15, 0
@@ -850,9 +844,9 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
   br i1 %.not15, label %90, label %18
 
 18:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %23, label %19
@@ -879,7 +873,7 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
   br i1 %.not36.i, label %.critedge.i, label %.lr.ph.i
 
 28:                                               ; preds = %23
-  %29 = call ptr @gnutls_strerror(i32 noundef %25) #14
+  %29 = call ptr @gnutls_strerror(i32 noundef %25) #13
   %30 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.24, ptr noundef %14, ptr noundef %29)
   store ptr %30, ptr %8, align 8
   br label %pkcs11_load_keys_from_token.exit
@@ -893,14 +887,14 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
 .lr.ph.i:                                         ; preds = %.preheader.i, %74
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %74 ], [ 0, %.preheader.i ]
   %.02534.i = phi i1 [ %.1.i, %74 ], [ false, %.preheader.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %33 = load ptr, ptr %1, align 8
   %34 = getelementptr ptr, ptr %33, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8
@@ -960,7 +954,7 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
 
 69:                                               ; preds = %63
   %70 = load ptr, ptr %4, align 8
-  %71 = call dereferenceable_or_null(20) ptr @g_memdup2(ptr noundef nonnull %6, i64 noundef 20) #15
+  %71 = call dereferenceable_or_null(20) ptr @g_memdup2(ptr noundef nonnull %6, i64 noundef 20) #14
   %72 = load ptr, ptr @rsa_privkeys, align 8
   %73 = call i32 @g_hash_table_insert(ptr noundef %72, ptr noundef %71, ptr noundef %70)
   store ptr null, ptr %4, align 8
@@ -979,11 +973,11 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
   %80 = getelementptr ptr, ptr %79, i64 %indvars.iv.i
   %81 = load ptr, ptr %80, align 8
   call void @gnutls_pkcs11_obj_deinit(ptr noundef %81)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %82 = load i32, ptr %2, align 4
   %83 = zext i32 %82 to i64
@@ -1006,8 +1000,8 @@ pkcs11_load_keys_from_token.exit:                 ; preds = %28, %._crit_edge.i,
   %.026.i = phi ptr [ %24, %28 ], [ null, %85 ], [ %24, %._crit_edge.i ], [ %24, %.critedge.i ]
   call void @gnutls_pkcs11_set_pin_function(ptr noundef null, ptr noundef null)
   call void @g_free(ptr noundef %.026.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %91
 
 90:                                               ; preds = %.lr.ph
@@ -1062,7 +1056,7 @@ g_string_append_c_inline.exit:                    ; preds = %103, %109
 
 114:                                              ; preds = %g_string_append_c_inline.exit, %91
   %.1 = phi ptr [ %.2, %g_string_append_c_inline.exit ], [ %.019, %91 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %115 = load i32, ptr @uat_num_rsa_privkeys, align 4
   %116 = zext i32 %115 to i64
@@ -1133,6 +1127,12 @@ declare void @gnutls_pubkey_deinit(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid
 declare ptr @g_string_insert_c(ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
@@ -1142,20 +1142,20 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(none) }
-attributes #15 = { allocsize(1) }
-attributes #16 = { nounwind willreturn memory(read) }
+attributes #13 = { nounwind willreturn memory(none) }
+attributes #14 = { allocsize(1) }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

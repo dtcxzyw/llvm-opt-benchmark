@@ -471,8 +471,8 @@ entry:
   %add.i = add i64 %Source.coerce1, 1
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %Result, i64 noundef %add.i) #12
   %call1.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %Result, i64 noundef 0) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sourceStart23.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %targetStart25.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sourceStart23.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %targetStart25.i.i)
   store ptr %Source.coerce0, ptr %sourceStart23.i.i, align 8
   store ptr %call1.i, ptr %targetStart25.i.i, align 8
   %add.ptr28.i.i = getelementptr inbounds i8, ptr %Source.coerce0, i64 %Source.coerce1
@@ -482,15 +482,15 @@ entry:
   br i1 %cmp32.i.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sourceStart23.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %targetStart25.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sourceStart23.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %targetStart25.i.i)
   call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %Result) #12
   br label %_ZN4llvhL25ConvertUTF8toWideInternalINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEbNS_9StringRefERT_.exit
 
 if.end.i:                                         ; preds = %entry
   %0 = load ptr, ptr %targetStart25.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sourceStart23.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %targetStart25.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sourceStart23.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %targetStart25.i.i)
   %call3.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %Result, i64 noundef 0) #12
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %call3.i to i64
@@ -762,10 +762,10 @@ declare i64 @llvm.umax.i64(i64, i64) #9
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

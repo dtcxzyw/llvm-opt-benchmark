@@ -24,7 +24,7 @@ define ptr @curl_easy_escape(ptr readnone captures(none) %0, ptr noundef readonl
   %4 = alloca %struct.dynbuf, align 8
   %5 = alloca i8, align 1
   %6 = alloca [3 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = icmp eq ptr %1, null
   %8 = icmp slt i32 %2, 0
   %or.cond = or i1 %7, %8
@@ -39,20 +39,20 @@ define ptr @curl_easy_escape(ptr readnone captures(none) %0, ptr noundef readonl
   br label %.lr.ph
 
 11:                                               ; preds = %9
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #6
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #5
   %.not41 = icmp eq i64 %12, 0
   br i1 %.not41, label %13, label %.lr.ph
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !3
-  %15 = tail call ptr %14(ptr noundef nonnull @.str) #5
+  %15 = tail call ptr %14(ptr noundef nonnull @.str) #6
   br label %43
 
 .lr.ph:                                           ; preds = %11, %.thread
   %16 = phi i64 [ %10, %.thread ], [ %12, %11 ]
   %17 = mul i64 %16, 3
   %18 = add i64 %17, 1
-  call void @Curl_dyn_init(ptr noundef nonnull %4, i64 noundef %18) #5
+  call void @Curl_dyn_init(ptr noundef nonnull %4, i64 noundef %18) #6
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 2
   br label %21
@@ -61,7 +61,7 @@ define ptr @curl_easy_escape(ptr readnone captures(none) %0, ptr noundef readonl
   %.in = phi i64 [ %16, %.lr.ph ], [ %22, %.critedge ]
   %.03750 = phi ptr [ %1, %.lr.ph ], [ %23, %.critedge ]
   %22 = add i64 %.in, -1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %23 = getelementptr inbounds nuw i8, ptr %.03750, i64 1
   %24 = load i8, ptr %.03750, align 1, !tbaa !7
   %.fr47 = freeze i8 %24
@@ -83,12 +83,12 @@ switch.early.test:                                ; preds = %21
   ]
 
 29:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %21
-  %30 = call i32 @Curl_dyn_addn(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 1) #5
+  %30 = call i32 @Curl_dyn_addn(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 1) #6
   %.not44 = icmp eq i32 %30, 0
   br i1 %.not44, label %.critedge, label %41
 
 31:                                               ; preds = %switch.early.test
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 37, ptr %6, align 1
   %32 = lshr i8 %.fr47, 4
   %33 = zext nneg i8 %32 to i64
@@ -100,27 +100,27 @@ switch.early.test:                                ; preds = %21
   %38 = getelementptr inbounds nuw [17 x i8], ptr @__const.curl_easy_escape.hex, i64 0, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !7
   store i8 %39, ptr %20, align 1, !tbaa !7
-  %40 = call i32 @Curl_dyn_addn(ptr noundef nonnull %4, ptr noundef nonnull %6, i64 noundef 3) #5
+  %40 = call i32 @Curl_dyn_addn(ptr noundef nonnull %4, ptr noundef nonnull %6, i64 noundef 3) #6
   %.not43 = icmp eq i32 %40, 0
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not43, label %.critedge, label %41
 
 .critedge:                                        ; preds = %31, %29
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not42 = icmp eq i64 %22, 0
   br i1 %.not42, label %._crit_edge, label %21
 
 41:                                               ; preds = %29, %31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %43, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.critedge
-  %42 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %4) #5
+  %42 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %4) #6
   br label %43
 
 43:                                               ; preds = %41, %3, %._crit_edge, %13
   %.035 = phi ptr [ null, %41 ], [ %42, %._crit_edge ], [ %15, %13 ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.035
 }
 
@@ -137,14 +137,14 @@ define ptr @curl_unescape(ptr noundef readonly captures(address_is_null) %0, i32
   br i1 %.not.i.i, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #6
+  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #5
   br label %9
 
 9:                                                ; preds = %7, %5
   %10 = phi i64 [ %8, %7 ], [ %6, %5 ]
   %11 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !3
   %12 = add i64 %10, 1
-  %13 = tail call ptr %11(i64 noundef %12) #5
+  %13 = tail call ptr %11(i64 noundef %12) #6
   %.not67.i.i = icmp eq ptr %13, null
   br i1 %.not67.i.i, label %curl_easy_unescape.exit, label %14
 
@@ -257,14 +257,14 @@ define ptr @curl_easy_unescape(ptr noundef readnone captures(none) %0, ptr nound
   br i1 %.not.i, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #6
+  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #5
   br label %11
 
 11:                                               ; preds = %9, %7
   %12 = phi i64 [ %10, %9 ], [ %8, %7 ]
   %13 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !3
   %14 = add i64 %12, 1
-  %15 = tail call ptr %13(i64 noundef %14) #5
+  %15 = tail call ptr %13(i64 noundef %14) #6
   %.not67.i = icmp eq ptr %15, null
   br i1 %.not67.i, label %.critedge, label %16
 
@@ -368,13 +368,13 @@ switch.early.test80.us.i:                         ; preds = %24
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %46
-  %49 = tail call i32 @curlx_uztosi(i64 noundef %45) #5
+  %49 = tail call i32 @curlx_uztosi(i64 noundef %45) #6
   store i32 %49, ptr %3, align 4, !tbaa !12
   br label %.critedge
 
 50:                                               ; preds = %46
   %51 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  tail call void %51(ptr noundef nonnull %15) #5
+  tail call void %51(ptr noundef nonnull %15) #6
   br label %.critedge
 
 .critedge:                                        ; preds = %11, %4, %.loopexit, %50, %48
@@ -382,20 +382,14 @@ switch.early.test80.us.i:                         ; preds = %24
   ret ptr %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
-declare void @Curl_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @Curl_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @Curl_dyn_addn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @Curl_dyn_addn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @Curl_dyn_ptr(ptr noundef) local_unnamed_addr #3
+declare ptr @Curl_dyn_ptr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 28) i32 @Curl_urldecode(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -403,14 +397,14 @@ define hidden range(i32 0, 28) i32 @Curl_urldecode(ptr noundef readonly captures
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %5
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #5
   br label %8
 
 8:                                                ; preds = %5, %6
   %9 = phi i64 [ %7, %6 ], [ %1, %5 ]
   %10 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !3
   %11 = add i64 %9, 1
-  %12 = tail call ptr %10(i64 noundef %11) #5
+  %12 = tail call ptr %10(i64 noundef %11) #6
   %.not67 = icmp eq ptr %12, null
   br i1 %.not67, label %79, label %13
 
@@ -600,7 +594,7 @@ switch.early.test80:                              ; preds = %51
 .critedge:                                        ; preds = %38, %66
   %72 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %73 = load ptr, ptr %2, align 8, !tbaa !14
-  tail call void %72(ptr noundef %73) #5
+  tail call void %72(ptr noundef %73) #6
   store ptr null, ptr %2, align 8, !tbaa !14
   br label %79
 
@@ -623,17 +617,17 @@ switch.early.test80:                              ; preds = %51
   ret i32 %.054
 }
 
-declare i32 @curlx_uztosi(i64 noundef) local_unnamed_addr #3
+declare i32 @curlx_uztosi(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @curl_free(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  tail call void %2(ptr noundef %0) #5
+  tail call void %2(ptr noundef %0) #6
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Curl_hexencode(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) local_unnamed_addr #4 {
+define hidden void @Curl_hexencode(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne i64 %1, 0
   %or.cond = and i1 %5, %6
@@ -681,13 +675,19 @@ define hidden void @Curl_hexencode(ptr noundef readonly captures(address_is_null
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind willreturn memory(read) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind willreturn memory(read) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

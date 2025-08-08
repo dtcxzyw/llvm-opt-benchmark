@@ -2617,7 +2617,7 @@ unpinStreamBuffer.exit.i145:                      ; preds = %205, %202
   br label %RELEASE_ARRAYS.exit147
 
 RELEASE_ARRAYS.exit147:                           ; preds = %unpinStreamBuffer.exit.i145, %218
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %6, i8 0, i64 2048, i1 false)
   %223 = getelementptr inbounds nuw i8, ptr %12, i64 400
   %.070101.i = load ptr, ptr %223, align 8
@@ -2876,7 +2876,7 @@ marker_is_icc.exit.thread.i:                      ; preds = %296, %marker_is_icc
 
 read_icc_profile.exit:                            ; preds = %RELEASE_ARRAYS.exit147, %284, %290, %295, %._crit_edge.i, %300, %311, %316, %._crit_edge111.thread.i, %328, %335, %._crit_edge116.i
   %.0.i148 = phi ptr [ null, %290 ], [ null, %295 ], [ null, %284 ], [ null, %300 ], [ null, %311 ], [ null, %316 ], [ null, %._crit_edge111.thread.i ], [ null, %328 ], [ null, %335 ], [ %326, %._crit_edge116.i ], [ null, %._crit_edge.i ], [ null, %RELEASE_ARRAYS.exit147 ]
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %350 = load ptr, ptr %0, align 8
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 1824
   %352 = load ptr, ptr %351, align 8
@@ -6068,10 +6068,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10

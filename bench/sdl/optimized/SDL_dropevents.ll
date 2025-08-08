@@ -30,12 +30,12 @@ define internal fastcc zeroext i1 @SDL_SendDrop(ptr noundef captures(address_is_
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %12 = load i8, ptr %11, align 8, !range !3, !noundef !4
   %.not42 = icmp eq i8 %12, 0
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %.not42, label %.thread40, label %21
 
 13:                                               ; preds = %9
   %.b34 = load i1, ptr @SDL_SendDrop.app_is_dropping, align 1
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %.b34, label %21, label %14
 
 14:                                               ; preds = %13
@@ -142,7 +142,7 @@ define internal fastcc zeroext i1 @SDL_SendDrop(ptr noundef captures(address_is_
 
 .sink.split:                                      ; preds = %14, %22, %26, %.thread40, %48, %37
   %.1.ph = phi i1 [ %42, %37 ], [ %42, %48 ], [ false, %.thread40 ], [ false, %26 ], [ false, %22 ], [ false, %14 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %49
 
 49:                                               ; preds = %.sink.split, %6
@@ -164,12 +164,12 @@ define hidden zeroext i1 @SDL_SendDropPosition(ptr noundef captures(address_is_n
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %9 = load i8, ptr %8, align 8, !range !3, !noundef !4
   %.not42.i = icmp eq i8 %9, 0
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %.not42.i, label %.thread40.i, label %17
 
 10:                                               ; preds = %6
   %.b34.i = load i1, ptr @SDL_SendDrop.app_is_dropping, align 1
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %.b34.i, label %.thread, label %11
 
 11:                                               ; preds = %10
@@ -221,7 +221,7 @@ define hidden zeroext i1 @SDL_SendDropPosition(ptr noundef captures(address_is_n
 
 .sink.split.i:                                    ; preds = %19, %.thread40.i, %11
   %.1.ph.i = phi i1 [ %24, %19 ], [ false, %.thread40.i ], [ false, %11 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %SDL_SendDrop.exit
 
 SDL_SendDrop.exit:                                ; preds = %3, %.sink.split.i
@@ -241,25 +241,25 @@ define hidden zeroext i1 @SDL_SendDropComplete(ptr noundef captures(address_is_n
   ret i1 %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare zeroext i1 @SDL_EventEnabled_REAL(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_EventEnabled_REAL(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare zeroext i1 @SDL_PushEvent_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_PushEvent_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_CreateTemporaryString(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateTemporaryString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

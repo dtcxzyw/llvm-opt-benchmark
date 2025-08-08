@@ -86,8 +86,8 @@ define hidden range(i32 0, 2) i32 @FLAC__ogg_encoder_aspect_write_callback_wrapp
   br i1 %.not, label %89, label %15
 
 15:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 51, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 noundef 0, i64 noundef 48, i1 noundef false) #8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %17 = load i64, ptr %16, align 8, !tbaa !19
@@ -231,8 +231,8 @@ define hidden range(i32 0, 2) i32 @FLAC__ogg_encoder_aspect_write_callback_wrapp
   br i1 %.not108, label %.preheader118, label %.critedge117, !llvm.loop !35
 
 .critedge:                                        ; preds = %.preheader118, %.preheader
-  call void @llvm.lifetime.end.p0(i64 51, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %95
 
 89:                                               ; preds = %9
@@ -261,20 +261,14 @@ define hidden range(i32 0, 2) i32 @FLAC__ogg_encoder_aspect_write_callback_wrapp
   br label %99
 
 .critedge117:                                     ; preds = %81, %85, %65, %69, %23, %48
-  call void @llvm.lifetime.end.p0(i64 51, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %99
 
 99:                                               ; preds = %89, %92, %.critedge117, %95
   %.8 = phi i32 [ 0, %95 ], [ 1, %.critedge117 ], [ 1, %92 ], [ 1, %89 ]
   ret i32 %.8
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare i32 @ogg_stream_packetin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -283,6 +277,12 @@ declare i32 @ogg_stream_flush(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @ogg_page_granulepos(ptr noundef) local_unnamed_addr #1
 
 declare i32 @ogg_stream_pageout(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5

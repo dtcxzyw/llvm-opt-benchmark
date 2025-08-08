@@ -54,7 +54,7 @@ define dso_local range(i32 0, 7) i32 @getNextToken(ptr noundef %0, ptr noundef %
   br label %136
 
 20:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %6, i8 0, i64 6, i1 false)
   %21 = load i32, ptr %4, align 4, !tbaa !4
   %22 = icmp sgt i32 %21, 0
@@ -355,7 +355,7 @@ unescape.exit165.thread.sink.split.i:             ; preds = %134, %134, %134, %1
 
 getStringToken.exit:                              ; preds = %34, %74, %82, %86, %unescape.exit165.i, %102, %isWhitespace.exit.thread.i, %107, %unescape.exit168.i, %128, %37, %40, %unescape.exit.i, %68, %20, %23, %unescape.exit165.thread.sink.split.i
   %.0152.i = phi i32 [ 6, %20 ], [ 6, %23 ], [ 0, %unescape.exit165.thread.sink.split.i ], [ 5, %37 ], [ 6, %40 ], [ 6, %unescape.exit.i ], [ 6, %68 ], [ 0, %107 ], [ 6, %unescape.exit168.i ], [ 6, %128 ], [ 6, %34 ], [ 6, %74 ], [ 6, %82 ], [ 6, %unescape.exit165.i ], [ 6, %102 ], [ 0, %isWhitespace.exit.thread.i ], [ 6, %86 ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %135 = load i32, ptr @lineCount, align 4, !tbaa !4
   store i32 %135, ptr %2, align 4, !tbaa !4
   br label %136
@@ -364,9 +364,6 @@ getStringToken.exit:                              ; preds = %34, %74, %82, %86, 
   %.0 = phi i32 [ %.0152.i, %getStringToken.exit ], [ 1, %15 ], [ 2, %16 ], [ 3, %17 ], [ 5, %18 ], [ 4, %19 ], [ 6, %5 ], [ 6, %9 ], [ 6, %13 ]
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @getNextChar(ptr noundef %0, i8 noundef signext range(i8 0, 2) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
@@ -508,9 +505,6 @@ isNewline.exit.thread.us.i:                       ; preds = %.split.us.i, %.spli
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @unescape(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %1, align 4, !tbaa !4
@@ -527,26 +521,26 @@ define dso_local i32 @unescape(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret i32 %.0
 }
 
-declare void @ucbuf_ungetc(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @ucbuf_ungetc(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ucbuf_getcx32(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ucbuf_getcx32(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare void @ustr_setlen(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @ustr_setlen(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ustr_ucat(ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare void @ustr_ucat(ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ucbuf_getc(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ucbuf_getc(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ustr_uscat(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @ustr_uscat(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare signext i8 @getShowWarning() local_unnamed_addr #3
+declare signext i8 @getShowWarning() local_unnamed_addr #2
 
-declare void @warning(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @warning(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare signext i8 @isStrict() local_unnamed_addr #3
+declare signext i8 @isStrict() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @seekUntilEndOfComment(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
@@ -631,15 +625,21 @@ isNewline.exit.thread:                            ; preds = %21, %21
   ret void
 }
 
-declare void @ustr_u32cat(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @ustr_u32cat(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @error(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @error(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

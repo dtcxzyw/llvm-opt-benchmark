@@ -331,7 +331,7 @@ define internal i32 @dissect_mpeg_audio(ptr noundef %0, ptr noundef %1, ptr noun
   ]
 
 19:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %20 = load ptr, ptr %15, align 8
   call void @col_set_str(ptr noundef %20, i32 noundef 35, ptr noundef nonnull @.str.59)
   %21 = load ptr, ptr %15, align 8
@@ -340,7 +340,7 @@ define internal i32 @dissect_mpeg_audio(ptr noundef %0, ptr noundef %1, ptr noun
   %22 = load i32, ptr @hf_id3v1, align 4
   %23 = load i32, ptr @ett_mpeg_audio_ID3v1, align 4
   %24 = call i32 @dissect_per_sequence(ptr noundef %17, i32 noundef 0, ptr noundef nonnull %8, ptr noundef %12, i32 noundef %22, i32 noundef %23, ptr noundef nonnull @ID3v1_sequence)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %107
 
 25:                                               ; preds = %16
@@ -349,8 +349,8 @@ define internal i32 @dissect_mpeg_audio(ptr noundef %0, ptr noundef %1, ptr noun
   br label %107
 
 28:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %29 = call zeroext i1 @tvb_bytes_exist(ptr noundef %17, i32 noundef 0, i32 noundef 4)
   br i1 %29, label %30, label %dissect_mpeg_audio_frame.exit.thread
 
@@ -437,21 +437,21 @@ define internal i32 @dissect_mpeg_audio(ptr noundef %0, ptr noundef %1, ptr noun
   br label %dissect_mpeg_audio_frame.exit
 
 dissect_mpeg_audio_frame.exit.thread:             ; preds = %28, %36, %33, %30
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %7) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %87
 
 dissect_mpeg_audio_frame.exit:                    ; preds = %66, %71, %78
   %.037.i = phi i32 [ %69, %66 ], [ %84, %78 ], [ %76, %71 ]
   %85 = sdiv i32 %.037.i, 8
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %7) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.037.i.off = add i32 %.037.i, 7
   %86 = icmp ult i32 %.037.i.off, 15
   br i1 %86, label %87, label %107
 
 87:                                               ; preds = %dissect_mpeg_audio_frame.exit.thread, %dissect_mpeg_audio_frame.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %88 = call i32 @tvb_find_uint8(ptr noundef %17, i32 noundef 0, i32 noundef -1, i8 noundef zeroext -1)
   %.not28.i = icmp eq i32 %88, -1
   br i1 %.not28.i, label %.critedge.i, label %.lr.ph.i
@@ -499,7 +499,7 @@ dissect_mpeg_audio_frame.exit:                    ; preds = %66, %71, %78
 
 mpeg_resync.exit:                                 ; preds = %101, %.critedge.i
   %.0.i27 = phi i32 [ %106, %.critedge.i ], [ %.02429.i, %101 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %107
 
 107:                                              ; preds = %dissect_mpeg_audio_frame.exit, %mpeg_resync.exit, %25, %19
@@ -536,7 +536,7 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @dissect_mpeg_audio_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.mpa, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 4)
   br i1 %6, label %7, label %test_mpeg_audio.exit.thread
 
@@ -572,17 +572,17 @@ define internal noundef zeroext i1 @dissect_mpeg_audio_heur(ptr noundef %0, ptr 
   br i1 %.not.i, label %test_mpeg_audio.exit.thread, label %test_mpeg_audio.exit
 
 test_mpeg_audio.exit.thread:                      ; preds = %4, %22, %19, %16, %13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %27
 
 test_mpeg_audio.exit.thread9:                     ; preds = %7, %10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %25
 
 test_mpeg_audio.exit:                             ; preds = %22
   %24 = call i32 @mpa_frequency(ptr noundef nonnull %5)
   %.not = icmp eq i32 %24, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not, label %27, label %25
 
 25:                                               ; preds = %test_mpeg_audio.exit.thread9, %test_mpeg_audio.exit
@@ -596,9 +596,6 @@ test_mpeg_audio.exit:                             ; preds = %22
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -620,9 +617,6 @@ declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -780,10 +774,15 @@ declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_strneql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

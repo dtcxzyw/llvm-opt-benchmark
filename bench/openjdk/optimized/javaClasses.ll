@@ -1345,9 +1345,9 @@ define hidden void @_ZN11JavaClasses14compute_offsetERiP13InstanceKlassPKcP6Symb
   %6 = alloca i32, align 4
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #20
   %8 = trunc i64 %7 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %2, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %6) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %10
 
@@ -2999,9 +2999,9 @@ _ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit.thread._crit_edge
 .thread:                                          ; preds = %_ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit.thread, %31, %33
   %.05.i1517 = phi i32 [ %spec.select.i, %33 ], [ 0, %31 ], [ 0, %_ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit.thread ]
   %38 = phi ptr [ %37, %33 ], [ null, %31 ], [ null, %_ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit.thread ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %39 = call noundef ptr @_ZN11SymbolTable19lookup_only_unicodeEPKtiRj(ptr noundef %38, i32 noundef %.05.i1517, ptr noundef nonnull align 4 dereferenceable(4) %3) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12ResourceMarkD2Ev.exit
 
 40:                                               ; preds = %_ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit.thread._crit_edge, %_ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit
@@ -3028,9 +3028,9 @@ _ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit.thread._crit_edge
   %spec.select = select i1 %53, ptr null, ptr %57
   %58 = call noundef ptr @_ZN7UNICODE7as_utf8IaEEPcPKT_Ri(ptr noundef %spec.select, ptr noundef nonnull align 4 dereferenceable(4) %4) #19
   %59 = load i32, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %60 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef %58, i32 noundef %59, ptr noundef nonnull align 4 dereferenceable(4) %2) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %61 = load ptr, ptr %46, align 8
   %.not.i.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i.i, label %63, label %62
@@ -5760,9 +5760,9 @@ _ZN15java_lang_Class14primitive_typeEP7oopDesc.exit: ; preds = %7, %10
   br i1 %1, label %48, label %46
 
 46:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %47 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %43, i32 noundef %45, ptr noundef nonnull align 4 dereferenceable(4) %3) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %50
 
 48:                                               ; preds = %27
@@ -7257,7 +7257,7 @@ define hidden noundef ptr @_ZN21java_lang_ThreadGroup4nameEP7oopDesc(ptr noundef
   br i1 %.not, label %52, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %9 = sext i32 %8 to i64
   %10 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
@@ -7329,7 +7329,7 @@ _ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit.thread.i.i: ; pre
 
 _ZN16java_lang_String14as_utf8_stringEP7oopDesc.exit: ; preds = %.thread.i.i, %.thread18.i.i
   %.0.i.i = phi ptr [ %51, %.thread18.i.i ], [ %43, %.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %52
 
 52:                                               ; preds = %1, %_ZN16java_lang_String14as_utf8_stringEP7oopDesc.exit
@@ -7619,7 +7619,7 @@ define hidden noundef ptr @_ZN19java_lang_Throwable15message_as_utf8EP7oopDesc(p
   br i1 %.not, label %52, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %9 = sext i32 %8 to i64
   %10 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
@@ -7691,7 +7691,7 @@ _ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit.thread.i.i: ; pre
 
 _ZN16java_lang_String14as_utf8_stringEP7oopDesc.exit: ; preds = %.thread.i.i, %.thread18.i.i
   %.0.i.i = phi ptr [ %51, %.thread18.i.i ], [ %43, %.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %52
 
 52:                                               ; preds = %_ZN16java_lang_String14as_utf8_stringEP7oopDesc.exit, %1
@@ -7783,7 +7783,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %19, %29
   br i1 %.not, label %81, label %36
 
 36:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %37 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %38 = sext i32 %37 to i64
   %39 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
@@ -7855,7 +7855,7 @@ _ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit.thread.i.i: ; pre
 
 _ZN16java_lang_String14as_utf8_stringEP7oopDesc.exit: ; preds = %.thread.i.i, %.thread18.i.i
   %.0.i.i = phi ptr [ %80, %.thread18.i.i ], [ %72, %.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.63, ptr noundef %.0.i.i) #19
   br label %81
 
@@ -9098,7 +9098,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread:          ; preds = %246, %_ZNK11Registe
   br label %315
 
 _ZNK5frame20is_interpreted_frameEv.exit.i.i.i.i:  ; preds = %_ZNK11RegisterMap7in_contEv.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.011.0.copyload.i = load ptr, ptr %8, align 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa_idx.i, align 8
@@ -9136,10 +9136,10 @@ _ZNK5frame20is_interpreted_frameEv.exit.i.i.i.i:  ; preds = %_ZNK11RegisterMap7i
   store ptr %268, ptr %.sroa.76.0..sroa_idx.i, align 8
   store ptr %272, ptr %.sroa.9.0..sroa_idx.i, align 8
   %277 = call noundef ptr @_ZNK5frame21interpreter_frame_bcpEv(ptr noundef nonnull align 8 dereferenceable(56) %5) #19
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.0.0.copyload.i82 = load ptr, ptr %107, align 8
   %278 = load ptr, ptr %.sroa.0.0.copyload.i82, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.011.0.copyload.i83 = load ptr, ptr %8, align 8
   %.sroa.2.0.copyload.i85 = load ptr, ptr %105, align 8
   %.sroa.4.0.copyload.i87 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
@@ -9199,7 +9199,7 @@ _ZN17stackChunkOopDesc24interpreter_frame_methodERK5frame.exit: ; preds = %_ZNK5
   store ptr %.sroa.76.0.i93, ptr %.sroa.76.0..sroa_idx.i99, align 8
   store ptr %309, ptr %.sroa.9.0..sroa_idx.i100, align 8
   %314 = call noundef ptr @_ZNK5frame24interpreter_frame_methodEv(ptr noundef nonnull align 8 dereferenceable(56) %4) #19
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %315
 
 315:                                              ; preds = %_ZN17stackChunkOopDesc24interpreter_frame_methodERK5frame.exit, %_ZNK11RegisterMap7in_contEv.exit.thread
@@ -10987,7 +10987,7 @@ _ZNK6HandleclEv.exit:
   br i1 %.not, label %_ZNK6HandleclEv.exit17, label %21
 
 21:                                               ; preds = %_ZNK6HandleclEv.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %22 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %23 = sext i32 %22 to i64
   %24 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
@@ -11059,7 +11059,7 @@ _ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit.thread.i.i: ; pre
 
 _ZN16java_lang_String14as_utf8_stringEP7oopDesc.exit: ; preds = %.thread.i.i, %.thread18.i.i
   %.0.i.i = phi ptr [ %65, %.thread18.i.i ], [ %57, %.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK6HandleclEv.exit17
 
 _ZNK6HandleclEv.exit17:                           ; preds = %_ZN16java_lang_String14as_utf8_stringEP7oopDesc.exit, %_ZNK6HandleclEv.exit
@@ -15626,9 +15626,9 @@ define hidden noundef ptr @_ZN27java_lang_invoke_MethodType12as_signatureEP7oopD
   br i1 %1, label %24, label %22
 
 22:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef %18, i32 noundef %21, ptr noundef nonnull align 4 dereferenceable(4) %3) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %26
 
 24:                                               ; preds = %2
@@ -24530,7 +24530,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread:          ; preds = %1, %_ZNK11RegisterM
   br label %84
 
 10:                                               ; preds = %_ZNK11RegisterMap7in_contEv.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.sroa.011.0.copyload.i = load ptr, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -24598,10 +24598,10 @@ _ZN17stackChunkOopDesc24interpreter_frame_methodERK5frame.exit: ; preds = %10, %
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %41, ptr %.sroa.9.0..sroa_idx.i, align 8
   %46 = call noundef ptr @_ZNK5frame24interpreter_frame_methodEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #19
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.0.0.copyload.i6 = load ptr, ptr %4, align 8
   %47 = load ptr, ptr %.sroa.0.0.copyload.i6, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.sroa.011.0.copyload.i7 = load ptr, ptr %0, align 8
   %.sroa.2.0.copyload.i9 = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.4.0.copyload.i11 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
@@ -24665,7 +24665,7 @@ _ZN17stackChunkOopDesc21interpreter_frame_bcpERK5frame.exit: ; preds = %_ZN17sta
   %.sroa.9.0..sroa_idx.i24 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %78, ptr %.sroa.9.0..sroa_idx.i24, align 8
   %83 = call noundef ptr @_ZNK5frame21interpreter_frame_bcpEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #19
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %84
 
 84:                                               ; preds = %_ZN17stackChunkOopDesc21interpreter_frame_bcpERK5frame.exit, %_ZNK11RegisterMap7in_contEv.exit.thread
@@ -26601,10 +26601,10 @@ declare i32 @llvm.smax.i32(i32, i32) #15
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #18

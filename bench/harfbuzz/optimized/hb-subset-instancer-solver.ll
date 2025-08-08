@@ -40,7 +40,7 @@ define hidden noundef double @_Z16renormalizeValuedRK6TripleRK15TripleDistancesb
 
 20:                                               ; preds = %18
   %21 = fneg double %.033
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = fneg double %11
   %23 = fneg double %9
   %24 = fneg double %7
@@ -49,7 +49,7 @@ define hidden noundef double @_Z16renormalizeValuedRK6TripleRK15TripleDistancesb
   store double %23, ptr %25, align 8, !tbaa !9, !alias.scope !11
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double %24, ptr %26, align 8, !tbaa !10, !alias.scope !11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.val = load double, ptr %2, align 8, !tbaa !14
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val28 = load double, ptr %27, align 8, !tbaa !16
@@ -58,8 +58,8 @@ define hidden noundef double @_Z16renormalizeValuedRK6TripleRK15TripleDistancesb
   store double %.val, ptr %28, align 8
   %29 = call noundef double @_Z16renormalizeValuedRK6TripleRK15TripleDistancesb(double noundef %21, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i1 noundef zeroext %3)
   %30 = fneg double %29
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %60
 
 31:                                               ; preds = %18
@@ -113,23 +113,17 @@ define hidden noundef double @_Z16renormalizeValuedRK6TripleRK15TripleDistancesb
   ret double %.024
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #2
+declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z11rebase_tent6TripleS_15TripleDistances(ptr dead_on_unwind noalias writable writeonly sret(%struct.hb_vector_t) align 8 captures(none) initializes((0, 16)) %0, ptr noundef readonly byval(%struct.Triple) align 8 captures(none) %1, ptr noundef readonly byval(%struct.Triple) align 8 captures(none) %2, double %3, double %4) local_unnamed_addr #3 {
+define hidden void @_Z11rebase_tent6TripleS_15TripleDistances(ptr dead_on_unwind noalias writable writeonly sret(%struct.hb_vector_t) align 8 captures(none) initializes((0, 16)) %0, ptr noundef readonly byval(%struct.Triple) align 8 captures(none) %1, ptr noundef readonly byval(%struct.Triple) align 8 captures(none) %2, double %3, double %4) local_unnamed_addr #2 {
   %6 = alloca %struct.TripleDistances, align 8
   %7 = alloca %struct.hb_vector_t, align 8
   store double %3, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double %4, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call fastcc void @_ZL6_solve6TripleS_b(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull byval(%struct.Triple) align 8 %1, ptr noundef nonnull byval(%struct.Triple) align 8 %2, i1 noundef zeroext false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -200,7 +194,7 @@ _ZNK6TripleeqERKS_.exit:                          ; preds = %22
 _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i: ; preds = %.thread.i.i
   %41 = shl nuw i32 %38, 5
   %42 = zext i32 %41 to i64
-  %43 = call ptr @realloc(ptr noundef %18, i64 noundef %42) #12
+  %43 = call ptr @realloc(ptr noundef %18, i64 noundef %42) #11
   %.not21.i.i = icmp eq ptr %43, null
   br i1 %.not21.i.i, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread9.i, label %.critedge.i, !prof !29
 
@@ -254,7 +248,7 @@ _ZNK6TripleeqERKS_.exit.thread:                   ; preds = %22, %_ZNK6TripleeqE
 _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24: ; preds = %.thread.i.i23
   %58 = shl nuw i32 %55, 5
   %59 = zext i32 %58 to i64
-  %60 = call ptr @realloc(ptr noundef %18, i64 noundef %59) #12
+  %60 = call ptr @realloc(ptr noundef %18, i64 noundef %59) #11
   %.not21.i.i25 = icmp eq ptr %60, null
   br i1 %.not21.i.i25, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread9.i28, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24..critedge.i19_crit_edge, !prof !29
 
@@ -310,16 +304,16 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit: ; preds 
 71:                                               ; preds = %69
   store i32 0, ptr %11, align 4, !tbaa !22
   %72 = load ptr, ptr %9, align 8, !tbaa !17
-  call void @free(ptr noundef %72) #11
+  call void @free(ptr noundef %72) #12
   br label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EED2Ev.exit
 
 _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EED2Ev.exit: ; preds = %69, %71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZL6_solve6TripleS_b(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef byval(%struct.Triple) align 8 captures(none) %1, ptr noundef readonly byval(%struct.Triple) align 8 captures(none) %2, i1 noundef zeroext %3) unnamed_addr #4 {
+define internal fastcc void @_ZL6_solve6TripleS_b(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef byval(%struct.Triple) align 8 captures(none) %1, ptr noundef readonly byval(%struct.Triple) align 8 captures(none) %2, i1 noundef zeroext %3) unnamed_addr #3 {
   %5 = alloca %struct.Triple, align 8
   %6 = alloca %struct.Triple, align 8
   %7 = load double, ptr %2, align 8, !tbaa !4
@@ -574,7 +568,7 @@ _ZL13supportScalardRK6Triple.exit115:             ; preds = %_ZN11hb_vector_tI9h
   %130 = add nuw nsw i32 %129, %128
   %131 = shl nuw nsw i32 %130, 5
   %132 = zext nneg i32 %131 to i64
-  %133 = tail call ptr @realloc(ptr noundef nonnull %malloc.i, i64 noundef %132) #12
+  %133 = tail call ptr @realloc(ptr noundef nonnull %malloc.i, i64 noundef %132) #11
   %.not21.i.i121 = icmp eq ptr %133, null
   br i1 %.not21.i.i121, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i, !prof !29
 
@@ -643,7 +637,7 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_if
   %152 = load ptr, ptr %105, align 8, !tbaa !17
   %153 = shl nuw i32 %149, 5
   %154 = zext i32 %153 to i64
-  %155 = tail call ptr @realloc(ptr noundef %152, i64 noundef %154) #12
+  %155 = tail call ptr @realloc(ptr noundef %152, i64 noundef %154) #11
   %.not21.i.i132 = icmp eq ptr %155, null
   br i1 %.not21.i.i132, label %156, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i133, !prof !29
 
@@ -718,7 +712,7 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_if
   %179 = load ptr, ptr %105, align 8, !tbaa !17
   %180 = shl nuw i32 %176, 5
   %181 = zext i32 %180 to i64
-  %182 = tail call ptr @realloc(ptr noundef %179, i64 noundef %181) #12
+  %182 = tail call ptr @realloc(ptr noundef %179, i64 noundef %181) #11
   %.not21.i.i150 = icmp eq ptr %182, null
   br i1 %.not21.i.i150, label %183, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i151, !prof !29
 
@@ -791,7 +785,7 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_if
   %203 = load ptr, ptr %105, align 8, !tbaa !17
   %204 = shl nuw i32 %200, 5
   %205 = zext i32 %204 to i64
-  %206 = tail call ptr @realloc(ptr noundef %203, i64 noundef %205) #12
+  %206 = tail call ptr @realloc(ptr noundef %203, i64 noundef %205) #11
   %.not21.i.i168 = icmp eq ptr %206, null
   br i1 %.not21.i.i168, label %207, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i169, !prof !29
 
@@ -851,7 +845,7 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i174: ; preds =
   %222 = add nuw nsw i32 %221, %220
   %223 = shl nuw nsw i32 %222, 5
   %224 = zext nneg i32 %223 to i64
-  %225 = tail call ptr @realloc(ptr noundef nonnull %malloc.i, i64 noundef %224) #12
+  %225 = tail call ptr @realloc(ptr noundef nonnull %malloc.i, i64 noundef %224) #11
   %.not21.i.i186 = icmp eq ptr %225, null
   br i1 %.not21.i.i186, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread9.i189, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i187, !prof !29
 
@@ -920,7 +914,7 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_if
   %244 = load ptr, ptr %105, align 8, !tbaa !17
   %245 = shl nuw i32 %241, 5
   %246 = zext i32 %245 to i64
-  %247 = tail call ptr @realloc(ptr noundef %244, i64 noundef %246) #12
+  %247 = tail call ptr @realloc(ptr noundef %244, i64 noundef %246) #11
   %.not21.i.i204 = icmp eq ptr %247, null
   br i1 %.not21.i.i204, label %248, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i205, !prof !29
 
@@ -1042,7 +1036,7 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_if
   %296 = load ptr, ptr %105, align 8, !tbaa !17
   %297 = shl nuw i32 %293, 5
   %298 = zext i32 %297 to i64
-  %299 = tail call ptr @realloc(ptr noundef %296, i64 noundef %298) #12
+  %299 = tail call ptr @realloc(ptr noundef %296, i64 noundef %298) #11
   %.not21.i.i228 = icmp eq ptr %299, null
   br i1 %.not21.i.i228, label %300, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i229, !prof !29
 
@@ -1117,7 +1111,7 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_if
   %323 = load ptr, ptr %105, align 8, !tbaa !17
   %324 = shl nuw i32 %320, 5
   %325 = zext i32 %324 to i64
-  %326 = tail call ptr @realloc(ptr noundef %323, i64 noundef %325) #12
+  %326 = tail call ptr @realloc(ptr noundef %323, i64 noundef %325) #11
   %.not21.i.i246 = icmp eq ptr %326, null
   br i1 %.not21.i.i246, label %327, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i247, !prof !29
 
@@ -1190,7 +1184,7 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_if
   %347 = load ptr, ptr %105, align 8, !tbaa !17
   %348 = shl nuw i32 %344, 5
   %349 = zext i32 %348 to i64
-  %350 = tail call ptr @realloc(ptr noundef %347, i64 noundef %349) #12
+  %350 = tail call ptr @realloc(ptr noundef %347, i64 noundef %349) #11
   %.not21.i.i264 = icmp eq ptr %350, null
   br i1 %.not21.i.i264, label %351, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i265, !prof !29
 
@@ -1235,16 +1229,22 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i270: ; preds =
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9
@@ -1253,18 +1253,18 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #10 = { nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind allocsize(1) }
+attributes #11 = { nounwind allocsize(1) }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -72,7 +72,7 @@ define internal zeroext i1 @HIDAPI_DriverSteamHori_UpdateDevice(ptr noundef %0) 
   %4 = alloca [64 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 0
@@ -316,7 +316,7 @@ define internal zeroext i1 @HIDAPI_DriverSteamHori_UpdateDevice(ptr noundef %0) 
   br i1 %169, label %170, label %185
 
 170:                                              ; preds = %167
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %171 = load i8, ptr %31, align 2
   %172 = zext i8 %171 to i32
   %173 = load i8, ptr %32, align 1
@@ -333,7 +333,7 @@ define internal zeroext i1 @HIDAPI_DriverSteamHori_UpdateDevice(ptr noundef %0) 
   %184 = call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %2) #9
   store ptr %184, ptr %37, align 8
   store i8 0, ptr %30, align 1
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %185
 
 185:                                              ; preds = %170, %167, %164
@@ -347,7 +347,7 @@ define internal zeroext i1 @HIDAPI_DriverSteamHori_UpdateDevice(ptr noundef %0) 
   %192 = mul nuw i16 %191, 257
   %193 = xor i16 %192, -32768
   call void @SDL_SendJoystickAxis(i64 noundef %58, ptr noundef nonnull %14, i8 noundef zeroext 4, i16 noundef signext %193) #9
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %194 = load i8, ptr %40, align 2
   %195 = zext i8 %194 to i32
   %196 = load i8, ptr %41, align 1
@@ -428,7 +428,7 @@ RemapValClamped.exit168.i:                        ; preds = %232, %RemapValClamp
   %247 = fmul float %246, 0x3F639D0140000000
   store float %247, ptr %3, align 4
   call void @SDL_SendJoystickSensor(i64 noundef %58, ptr noundef nonnull %14, i32 noundef 1, i64 noundef %58, ptr noundef nonnull %3, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %248 = load i8, ptr %52, align 8
   %249 = load i8, ptr %53, align 8
   %.not165.i = icmp eq i8 %248, %249
@@ -482,7 +482,7 @@ HIDAPI_DriverSteamHori_HandleStatePacket.exit:    ; preds = %.lr.ph.split, %259
 
 271:                                              ; preds = %1, %269
   %.0 = phi i1 [ %270, %269 ], [ false, %1 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -582,18 +582,12 @@ declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) loc
 
 declare zeroext i1 @SDL_IsJoystickHoriSteamController(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 declare void @HIDAPI_SetDeviceName(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare zeroext i1 @HIDAPI_JoystickConnected(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare ptr @SDL_GetJoystickFromID_REAL(i32 noundef) local_unnamed_addr #2
 
@@ -620,19 +614,25 @@ declare void @SDL_SendJoystickSensor(i64 noundef, ptr noundef, i32 noundef, i64 
 declare void @SDL_SendJoystickPowerInfo(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #6
+declare float @llvm.fmuladd.f32(float, float, float) #5
 
 declare void @SDL_AssertJoysticksLocked() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @SDL_PrivateJoystickAddSensor(ptr noundef, i32 noundef, float noundef) local_unnamed_addr #2
 
 declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
@@ -640,11 +640,11 @@ declare i32 @llvm.umin.i32(i32, i32) #8
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind allocsize(0,1) }

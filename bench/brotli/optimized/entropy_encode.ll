@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden range(i32 0, 2) i32 @BrotliSetDepth(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 -1, ptr %5, align 16, !tbaa !3
   br label %.backedge
 
@@ -75,15 +75,9 @@ define hidden range(i32 0, 2) i32 @BrotliSetDepth(i32 noundef %0, ptr noundef re
 
 .critedge.thread:                                 ; preds = %11, %20, %31
   %.022 = phi i32 [ 1, %31 ], [ 1, %20 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.022
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @BrotliCreateHuffmanTree(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
@@ -320,7 +314,7 @@ SortHuffmanTreeItems.exit:                        ; preds = %._crit_edge131, %41
 
 ._crit_edge141:                                   ; preds = %._crit_edge141.loopexit, %SortHuffmanTreeItems.exit
   %.065.lcssa155157165 = phi i32 [ 1, %SortHuffmanTreeItems.exit ], [ %98, %._crit_edge141.loopexit ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 -1, ptr %6, align 16, !tbaa !3
   br label %.backedge.i
 
@@ -383,11 +377,11 @@ SortHuffmanTreeItems.exit:                        ; preds = %._crit_edge131, %41
   br label %.backedge.i
 
 BrotliSetDepth.exit.thread:                       ; preds = %113, %124
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %130
 
 128:                                              ; preds = %104
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %129 = shl i32 %.0, 1
   br label %8
 
@@ -697,7 +691,7 @@ define hidden void @BrotliOptimizeHuffmanCountsForRle(i64 noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @BrotliWriteHuffmanTree(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
@@ -1132,9 +1126,9 @@ BrotliWriteHuffmanTreeRepetitionsZeros.exit:      ; preds = %.lr.ph.i67, %.lr.ph
 define hidden void @BrotliConvertBitDepthsToSymbols(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i16], align 16
   %5 = alloca [16 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not30 = icmp eq i64 %1, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
@@ -1223,10 +1217,16 @@ BrotliReverseBits.exit:                           ; preds = %.lr.ph.i, %23
   br i1 %exitcond33.not, label %._crit_edge29, label %.lr.ph28, !llvm.loop !43
 
 ._crit_edge29:                                    ; preds = %47, %.preheader
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #3
@@ -1235,10 +1235,9 @@ declare i32 @llvm.umax.i32(i32, i32) #3
 declare i32 @llvm.umin.i32(i32, i32) #3
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

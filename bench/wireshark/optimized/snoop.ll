@@ -45,9 +45,9 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
   %4 = alloca [8 x i8], align 1
   %5 = alloca %struct.snoop_hdr, align 4
   %6 = alloca %struct.snooprec_hdr, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %0, align 8
   %8 = call zeroext i1 @wtap_read_bytes(ptr noundef %7, ptr noundef nonnull %4, i32 noundef 8, ptr noundef %1, ptr noundef %2)
   br i1 %8, label %11, label %9
@@ -70,7 +70,7 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
 
 15:                                               ; preds = %12
   %16 = load i32, ptr %5, align 4
-  %17 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %16) #9, !srcloc !6
+  %17 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %16) #8, !srcloc !6
   store i32 %17, ptr %5, align 4
   %.0101.off = add i32 %17, -2
   %switch = icmp ult i32 %.0101.off, 4
@@ -97,19 +97,19 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
 27:                                               ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %29 = load i32, ptr %28, align 4
-  %30 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %29) #9, !srcloc !7
+  %30 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %29) #8, !srcloc !7
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %33 = load i32, ptr %32, align 4
-  %34 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %33) #9, !srcloc !8
+  %34 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %33) #8, !srcloc !8
   %35 = zext i32 %34 to i64
   %36 = add nuw nsw i64 %35, 24
   %37 = icmp samesign ult i64 %36, %31
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %27
-  %39 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %29) #9, !srcloc !9
-  %40 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %33) #9, !srcloc !10
+  %39 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %29) #8, !srcloc !9
+  %40 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %33) #8, !srcloc !10
   %.neg = add i32 %39, -24
   %41 = sub i32 %.neg, %40
   %42 = icmp ugt i32 %41, 15
@@ -125,7 +125,7 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %49 = load i32, ptr %48, align 4
-  %50 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %49) #9, !srcloc !11
+  %50 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %49) #8, !srcloc !11
   store i32 %50, ptr %48, align 4
   br i1 %.099, label %51, label %61
 
@@ -194,7 +194,7 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
   %79 = select i1 %.099, i32 %77, i32 %78
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %79, ptr %80, align 4
-  %81 = call noalias dereferenceable_or_null(1) ptr @g_malloc0(i64 noundef 1) #10
+  %81 = call noalias dereferenceable_or_null(1) ptr @g_malloc0(i64 noundef 1) #9
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -214,35 +214,29 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
 
 89:                                               ; preds = %43, %25, %12, %11, %9, %76, %72, %64, %57, %18
   %.0 = phi i32 [ -1, %18 ], [ -1, %57 ], [ 1, %76 ], [ -1, %64 ], [ -1, %72 ], [ %., %9 ], [ 0, %11 ], [ -1, %12 ], [ -1, %25 ], [ -1, %43 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @file_tell(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @snoop_read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) #0 {
@@ -298,7 +292,7 @@ define internal noundef zeroext i1 @snoop_seek_read(ptr noundef readonly capture
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_add_generated_idb(ptr noundef) local_unnamed_addr #2
+declare void @wtap_add_generated_idb(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @register_snoop() local_unnamed_addr #0 {
@@ -314,10 +308,10 @@ define hidden void @register_snoop() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #2
+declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @snoop_read_packet(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
@@ -325,20 +319,20 @@ define internal fastcc i32 @snoop_read_packet(ptr noundef readonly captures(none
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 24, ptr noundef %3, ptr noundef %4)
   br i1 %10, label %11, label %98
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load i32, ptr %12, align 4
-  %14 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %13) #9, !srcloc !12
+  %14 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %13) #8, !srcloc !12
   %15 = load i32, ptr %6, align 4
-  %16 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %15) #9, !srcloc !13
+  %16 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %15) #8, !srcloc !13
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %18 = load i32, ptr %17, align 4
-  %19 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %18) #9, !srcloc !14
+  %19 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %18) #8, !srcloc !14
   %20 = icmp ugt i32 %16, 262144
   br i1 %20, label %21, label %23
 
@@ -446,13 +440,13 @@ define internal fastcc i32 @snoop_read_packet(ptr noundef readonly captures(none
   store i32 3, ptr %66, align 4
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %68 = load i32, ptr %67, align 4
-  %69 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %68) #9, !srcloc !17
+  %69 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %68) #8, !srcloc !17
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %70, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %73 = load i32, ptr %72, align 4
-  %74 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %73) #9, !srcloc !18
+  %74 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %73) #8, !srcloc !18
   %75 = mul i32 %74, 1000
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %75, ptr %76, align 8
@@ -499,15 +493,15 @@ define internal fastcc i32 @snoop_read_packet(ptr noundef readonly captures(none
 
 98:                                               ; preds = %85, %55, %38, %5, %96, %83, %53, %36, %29, %25, %21
   %.0 = phi i32 [ -1, %21 ], [ -1, %25 ], [ -1, %29 ], [ -1, %83 ], [ %97, %96 ], [ -1, %36 ], [ -1, %53 ], [ -1, %5 ], [ -1, %38 ], [ -1, %55 ], [ -1, %85 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef zeroext i1 @snoop_read_atm_pseudoheader(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.snoop_atm_hdr, align 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 4, ptr noundef %2, ptr noundef %3)
   br i1 %6, label %7, label %37
 
@@ -576,14 +570,14 @@ switch.lookup:                                    ; preds = %7
   br label %37
 
 37:                                               ; preds = %4, %24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %6
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef zeroext i1 @snoop_read_shomiti_wireless_pseudoheader(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca %struct.shomiti_wireless_header, align 1
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 12, ptr noundef %2, ptr noundef %3)
   br i1 %7, label %8, label %50
 
@@ -606,7 +600,7 @@ define internal fastcc noundef zeroext i1 @snoop_read_shomiti_wireless_pseudohea
   br i1 %17, label %18, label %50
 
 18:                                               ; preds = %15
-  call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(72) %1, i8 noundef 0, i64 noundef 72, i1 noundef false) #8
+  call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(72) %1, i8 noundef 0, i64 noundef 72, i1 noundef false) #10
   store i32 4, ptr %1, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i8 0, ptr %19, align 4
@@ -681,21 +675,21 @@ define internal fastcc noundef zeroext i1 @snoop_read_shomiti_wireless_pseudohea
 
 50:                                               ; preds = %15, %5, %48, %13
   %.0 = phi i1 [ false, %13 ], [ true, %48 ], [ false, %5 ], [ false, %15 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #2
+declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_read_bytes_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @atm_guess_lane_type(ptr noundef) local_unnamed_addr #2
+declare void @atm_guess_lane_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal range(i32 -9, 1) i32 @snoop_dump_can_write_encap(i32 noundef %0) #4 {
+define internal range(i32 -9, 1) i32 @snoop_dump_can_write_encap(i32 noundef %0) #3 {
   %2 = icmp eq i32 %0, -1
   br i1 %2, label %9, label %3
 
@@ -719,7 +713,7 @@ define internal range(i32 -9, 1) i32 @snoop_dump_can_write_encap(i32 noundef %0)
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @snoop_dump_open(ptr noundef initializes((64, 72)) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct.snoop_hdr, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @snoop_dump, ptr %5, align 8
   %6 = tail call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull @snoop_magic, i64 noundef 8, ptr noundef %1)
@@ -732,7 +726,7 @@ define internal zeroext i1 @snoop_dump_open(ptr noundef initializes((64, 72)) %0
   %10 = sext i32 %9 to i64
   %11 = getelementptr [14 x i32], ptr @wtap_encap, i64 0, i64 %10
   %12 = load i32, ptr %11, align 4
-  %13 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #9, !srcloc !19
+  %13 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #8, !srcloc !19
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %13, ptr %14, align 4
   %15 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 8, ptr noundef %1)
@@ -740,7 +734,7 @@ define internal zeroext i1 @snoop_dump_open(ptr noundef initializes((64, 72)) %0
 
 16:                                               ; preds = %7, %3
   %.0 = phi i1 [ false, %3 ], [ %15, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -749,8 +743,8 @@ define internal zeroext i1 @snoop_dump(ptr noundef %0, ptr noundef readonly capt
   %6 = alloca %struct.snooprec_hdr, align 4
   %7 = alloca %struct.snoop_atm_hdr, align 2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %11, label %10
@@ -791,12 +785,12 @@ define internal zeroext i1 @snoop_dump(ptr noundef %0, ptr noundef readonly capt
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %29 = load i32, ptr %28, align 4
   %30 = add i32 %29, %.
-  %31 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %30) #9, !srcloc !20
+  %31 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %30) #8, !srcloc !20
   store i32 %31, ptr %6, align 4
-  %32 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %20) #9, !srcloc !21
+  %32 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %20) #8, !srcloc !21
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %32, ptr %33, align 4
-  %34 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %23) #9, !srcloc !22
+  %34 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %23) #8, !srcloc !22
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %34, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -804,13 +798,13 @@ define internal zeroext i1 @snoop_dump(ptr noundef %0, ptr noundef readonly capt
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = load i64, ptr %37, align 8
   %39 = trunc i64 %38 to i32
-  %40 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %39) #9, !srcloc !23
+  %40 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %39) #8, !srcloc !23
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %40, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %43 = load i32, ptr %42, align 8
   %44 = sdiv i32 %43, 1000
-  %45 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %44) #9, !srcloc !24
+  %45 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %44) #8, !srcloc !24
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %45, ptr %46, align 4
   %47 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 24, ptr noundef %3)
@@ -882,13 +876,19 @@ define internal zeroext i1 @snoop_dump(ptr noundef %0, ptr noundef readonly capt
 
 80:                                               ; preds = %77, %73, %64, %27, %26, %16, %10
   %.0 = phi i1 [ false, %10 ], [ false, %16 ], [ false, %26 ], [ false, %27 ], [ false, %64 ], [ false, %73 ], [ %79, %77 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
@@ -900,16 +900,16 @@ declare i16 @llvm.bswap.i16(i16) #6
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind memory(none) }
-attributes #10 = { allocsize(0) }
+attributes #8 = { nounwind memory(none) }
+attributes #9 = { allocsize(0) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

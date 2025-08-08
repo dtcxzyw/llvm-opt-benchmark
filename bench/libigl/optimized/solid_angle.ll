@@ -47,7 +47,7 @@ $_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1E
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELi2ELi0ELin1ELi2EEELi1ELi2ELb0EEES6_S6_NS3_IdLi1ELi2ELi1ELi1ELi2EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !12
@@ -129,7 +129,7 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %79 = tail call double @llvm.fmuladd.f64(double %74, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %78)
   %80 = tail call double @atan2(double noundef %65, double noundef %79) #5, !tbaa !21
   %81 = fdiv double %80, 0x401921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret double %81
 
 82:                                               ; preds = %4, %82
@@ -160,22 +160,16 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   br i1 %exitcond.not, label %23, label %82, !llvm.loop !23
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #2
+declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @atan2(double noundef, double noundef) local_unnamed_addr #3
+declare double @atan2(double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEES6_S6_NS3_IdLi1ELi3ELi1ELi1ELi3EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !28
@@ -257,7 +251,7 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %79 = tail call double @llvm.fmuladd.f64(double %74, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %78)
   %80 = tail call double @atan2(double noundef %65, double noundef %79) #5, !tbaa !21
   %81 = fdiv double %80, 0x401921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret double %81
 
 82:                                               ; preds = %4, %82
@@ -291,7 +285,7 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELi2ELi0ELin1ELi2EEELi1ELi2ELb0EEES6_S6_NS3_IdLi1ELi3ELi1ELi1ELi3EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !12
@@ -373,7 +367,7 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %79 = tail call double @llvm.fmuladd.f64(double %74, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %78)
   %80 = tail call double @atan2(double noundef %65, double noundef %79) #5, !tbaa !21
   %81 = fdiv double %80, 0x401921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret double %81
 
 82:                                               ; preds = %4, %82
@@ -407,7 +401,7 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELi2ELi0ELin1ELi2EEELi1ELi2ELb0EEES6_S6_NS2_IKNS3_IdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEENT_6ScalarERKNS1_10MatrixBaseISA_EERKNSC_IT0_EERKNSC_IT1_EERKNSC_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !12
@@ -494,7 +488,7 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %84 = tail call double @llvm.fmuladd.f64(double %79, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %83)
   %85 = tail call double @atan2(double noundef %70, double noundef %84) #5, !tbaa !21
   %86 = fdiv double %85, 0x401921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret double %86
 
 87:                                               ; preds = %4, %87
@@ -529,7 +523,7 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELi3ELi1ELin1ELi3EEELi1ELi3ELb1EEES6_S6_NS3_IdLi1ELi3ELi1ELi1ELi3EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !43
   %7 = load ptr, ptr %1, align 8, !tbaa !43
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -599,7 +593,7 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %67 = tail call double @llvm.fmuladd.f64(double %62, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %66)
   %68 = tail call double @atan2(double noundef %53, double noundef %67) #5, !tbaa !21
   %69 = fdiv double %68, 0x401921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret double %69
 
 70:                                               ; preds = %4, %70
@@ -630,7 +624,7 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELi3ELi1ELin1ELi3EEELi1ELi3ELb1EEES6_S6_NS3_IdLi1ELi2ELi1ELi1ELi2EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !43
   %7 = load ptr, ptr %1, align 8, !tbaa !43
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -700,7 +694,7 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %67 = tail call double @llvm.fmuladd.f64(double %62, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %66)
   %68 = tail call double @atan2(double noundef %53, double noundef %67) #5, !tbaa !21
   %69 = fdiv double %68, 0x401921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret double %69
 
 70:                                               ; preds = %4, %70
@@ -731,7 +725,7 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_S6_NS3_IfLi1ELi3ELi1ELi1ELi3EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix.54", align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !47
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !50
@@ -819,7 +813,7 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
   %88 = tail call double @atan2(double noundef %81, double noundef %87) #5, !tbaa !21
   %89 = fdiv double %88, 0x401921FB54442D18
   %90 = fptrunc double %89 to float
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret float %90
 
 91:                                               ; preds = %4, %91
@@ -851,12 +845,12 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #2
+declare float @llvm.fmuladd.f32(float, float, float) #1
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIfLin1ELi3ELi1ELin1ELi3EEELi1ELi3ELb1EEES6_S6_NS3_IfLi1ELi3ELi1ELi1ELi3EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix.54", align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !58
   %7 = load ptr, ptr %1, align 8, !tbaa !58
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -932,7 +926,7 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
   %76 = tail call double @atan2(double noundef %69, double noundef %75) #5, !tbaa !21
   %77 = fdiv double %76, 0x401921FB54442D18
   %78 = fptrunc double %77 to float
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret float %78
 
 79:                                               ; preds = %4, %79
@@ -963,7 +957,7 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIfLin1ELi3ELi1ELin1ELi3EEELi1ELi3ELb1EEES6_S6_NS3_IfLi1ELi2ELi1ELi1ELi2EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix.54", align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !58
   %7 = load ptr, ptr %1, align 8, !tbaa !58
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1039,7 +1033,7 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
   %76 = tail call double @atan2(double noundef %69, double noundef %75) #5, !tbaa !21
   %77 = fdiv double %76, 0x401921FB54442D18
   %78 = fptrunc double %77 to float
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret float %78
 
 79:                                               ; preds = %4, %79
@@ -1070,7 +1064,7 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIfLin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEES6_S6_NS3_IfLi1ELi3ELi1ELi1ELi3EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix.54", align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !62
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !64
@@ -1158,7 +1152,7 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
   %88 = tail call double @atan2(double noundef %81, double noundef %87) #5, !tbaa !21
   %89 = fdiv double %88, 0x401921FB54442D18
   %90 = fptrunc double %89 to float
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret float %90
 
 91:                                               ; preds = %4, %91
@@ -1192,7 +1186,7 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIfLin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEES6_S6_NS3_IfLi1ELi2ELi1ELi1ELi2EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix.54", align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !62
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !64
@@ -1280,7 +1274,7 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
   %88 = tail call double @atan2(double noundef %81, double noundef %87) #5, !tbaa !21
   %89 = fdiv double %88, 0x401921FB54442D18
   %90 = fptrunc double %89 to float
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret float %90
 
 91:                                               ; preds = %4, %91
@@ -1314,7 +1308,7 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_S6_S6_EENT_6ScalarERKNS1_10MatrixBaseIS7_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !37
@@ -1401,7 +1395,7 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %84 = tail call double @llvm.fmuladd.f64(double %79, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %83)
   %85 = tail call double @atan2(double noundef %70, double noundef %84) #5, !tbaa !21
   %86 = fdiv double %85, 0x401921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret double %86
 
 87:                                               ; preds = %4, %87
@@ -1436,7 +1430,7 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_S6_NS3_IdLi3ELi1ELi0ELi3ELi1EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !37
@@ -1518,7 +1512,7 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %79 = tail call double @llvm.fmuladd.f64(double %74, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %78)
   %80 = tail call double @atan2(double noundef %65, double noundef %79) #5, !tbaa !21
   %81 = fdiv double %80, 0x401921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret double %81
 
 82:                                               ; preds = %4, %82
@@ -1552,7 +1546,7 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_S6_NS3_IdLi1ELi3ELi1ELi1ELi3EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !37
@@ -1634,7 +1628,7 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %79 = tail call double @llvm.fmuladd.f64(double %74, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %78)
   %80 = tail call double @atan2(double noundef %65, double noundef %79) #5, !tbaa !21
   %81 = fdiv double %80, 0x401921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret double %81
 
 82:                                               ; preds = %4, %82
@@ -1668,7 +1662,7 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_S6_NS3_IdLi1ELi2ELi1ELi1ELi2EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !37
@@ -1750,7 +1744,7 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %79 = tail call double @llvm.fmuladd.f64(double %74, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %78)
   %80 = tail call double @atan2(double noundef %65, double noundef %79) #5, !tbaa !21
   %81 = fdiv double %80, 0x401921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret double %81
 
 82:                                               ; preds = %4, %82
@@ -1784,18 +1778,24 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #2
+declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #2
+declare float @llvm.sqrt.f32(float) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #4
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

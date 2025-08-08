@@ -155,12 +155,6 @@ define dso_local i32 @RelationMapOidToFilenumber(i32 noundef %0, i1 noundef zero
   ret i32 %.033
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @RelationMapFilenumberToOid(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   br i1 %1, label %.preheader34, label %.preheader37
@@ -264,9 +258,9 @@ define dso_local i32 @RelationMapFilenumberToOid(i32 noundef %0, i1 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RelationMapOidToFilenumberForDatabase(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local i32 @RelationMapOidToFilenumberForDatabase(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.RelMapFile, align 4
-  call void @llvm.lifetime.start.p0(i64 524, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call fastcc void @read_relmap_file(ptr noundef nonnull %3, ptr noundef %0, i1 noundef zeroext false, i32 noundef 21)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i32, ptr %4, align 4
@@ -299,14 +293,14 @@ define dso_local i32 @RelationMapOidToFilenumberForDatabase(ptr noundef %0, i32 
 
 .loopexit:                                        ; preds = %8, %2, %13
   %.06 = phi i32 [ %16, %13 ], [ 0, %2 ], [ 0, %8 ]
-  call void @llvm.lifetime.end.p0(i64 524, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.06
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_relmap_file(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef range(i32 21, 23) %3) unnamed_addr #2 {
+define internal fastcc void @read_relmap_file(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef range(i32 21, 23) %3) unnamed_addr #1 {
   %5 = alloca [1024 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %2, label %10, label %6
 
 6:                                                ; preds = %4
@@ -431,14 +425,14 @@ define internal fastcc void @read_relmap_file(ptr noundef %0, ptr noundef %1, i1
   br label %65
 
 65:                                               ; preds = %61, %63, %54
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationMapCopy(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define dso_local void @RelationMapCopy(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.RelMapFile, align 4
-  call void @llvm.lifetime.start.p0(i64 524, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call fastcc void @read_relmap_file(ptr noundef nonnull %5, ptr noundef %2, i1 noundef zeroext false, i32 noundef 21)
   %6 = load ptr, ptr @MainLWLockArray, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3200
@@ -447,19 +441,19 @@ define dso_local void @RelationMapCopy(i32 noundef %0, i32 noundef %1, ptr nound
   %9 = load ptr, ptr @MainLWLockArray, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 3200
   call void @LWLockRelease(ptr noundef nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 524, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_relmap_file(ptr noundef initializes((0, 4)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #2 {
+define internal fastcc void @write_relmap_file(ptr noundef initializes((0, 4)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #1 {
   %8 = alloca [1024 x i8], align 16
   %9 = alloca [1024 x i8], align 16
   %10 = alloca %struct.xl_relmap_update, align 4
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 5842711, ptr %0, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
@@ -538,7 +532,7 @@ define internal fastcc void @write_relmap_file(ptr noundef initializes((0, 4)) %
   br i1 %1, label %49, label %55
 
 49:                                               ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %50 = load volatile i32, ptr @CritSectionCount, align 4
   %51 = add i32 %50, 1
   store volatile i32 %51, ptr @CritSectionCount, align 4
@@ -552,7 +546,7 @@ define internal fastcc void @write_relmap_file(ptr noundef initializes((0, 4)) %
   call void @XLogRegisterData(ptr noundef nonnull %0, i32 noundef 524) #12
   %54 = call i64 @XLogInsert(i8 noundef zeroext 7, i8 noundef zeroext 0) #12
   call void @XLogFlush(i64 noundef %54) #12
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %55
 
 55:                                               ; preds = %49, %48
@@ -605,15 +599,15 @@ define internal fastcc void @write_relmap_file(ptr noundef initializes((0, 4)) %
   br label %73
 
 73:                                               ; preds = %70, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
-declare void @LWLockRelease(ptr noundef) local_unnamed_addr #3
+declare void @LWLockRelease(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationMapUpdateMap(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #2 {
+define dso_local void @RelationMapUpdateMap(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = load i32, ptr @Mode, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %8
@@ -716,21 +710,21 @@ apply_map_update.exit:                            ; preds = %32, %._crit_edge.i.
   ret void
 }
 
-declare i32 @GetCurrentTransactionNestLevel() local_unnamed_addr #3
+declare i32 @GetCurrentTransactionNestLevel() local_unnamed_addr #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @IsInParallelMode() local_unnamed_addr #3
+declare zeroext i1 @IsInParallelMode() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationMapRemoveMapping(i32 noundef %0) local_unnamed_addr #2 {
+define dso_local void @RelationMapRemoveMapping(i32 noundef %0) local_unnamed_addr #1 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 4), align 4
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
@@ -770,10 +764,10 @@ define dso_local void @RelationMapRemoveMapping(i32 noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationMapInvalidate(i1 noundef zeroext %0) local_unnamed_addr #2 {
+define dso_local void @RelationMapInvalidate(i1 noundef zeroext %0) local_unnamed_addr #1 {
   br i1 %0, label %2, label %6
 
 2:                                                ; preds = %1
@@ -800,7 +794,7 @@ define dso_local void @RelationMapInvalidate(i1 noundef zeroext %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationMapInvalidateAll() local_unnamed_addr #2 {
+define dso_local void @RelationMapInvalidateAll() local_unnamed_addr #1 {
   %1 = load i32, ptr @shared_map, align 4
   %2 = icmp eq i32 %1, 5842711
   br i1 %2, label %3, label %4
@@ -824,7 +818,7 @@ define dso_local void @RelationMapInvalidateAll() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @AtCCI_RelationMap() local_unnamed_addr #2 {
+define dso_local void @AtCCI_RelationMap() local_unnamed_addr #1 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pending_shared_updates, i64 4), align 4
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %29, label %2
@@ -991,7 +985,7 @@ merge_map_updates.exit18:                         ; preds = %apply_map_update.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @AtEOXact_RelationMap(i1 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
+define dso_local void @AtEOXact_RelationMap(i1 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
   %.not = xor i1 %0, true
   %or.cond = or i1 %1, %.not
   br i1 %or.cond, label %9, label %3
@@ -1028,9 +1022,9 @@ define dso_local void @AtEOXact_RelationMap(i1 noundef zeroext %0, i1 noundef ze
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @perform_relmap_update(i1 noundef zeroext %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 {
+define internal fastcc void @perform_relmap_update(i1 noundef zeroext %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca %struct.RelMapFile, align 4
-  call void @llvm.lifetime.start.p0(i64 524, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr @MainLWLockArray, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3200
   %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 0) #12
@@ -1201,12 +1195,12 @@ merge_map_updates.exit:                           ; preds = %apply_map_update.ex
   %68 = load ptr, ptr @MainLWLockArray, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 3200
   call void @LWLockRelease(ptr noundef nonnull %69) #12
-  call void @llvm.lifetime.end.p0(i64 524, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @AtPrepare_RelationMap() local_unnamed_addr #2 {
+define dso_local void @AtPrepare_RelationMap() local_unnamed_addr #1 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_shared_updates, i64 4), align 4
   %2 = icmp ne i32 %1, 0
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 4), align 4
@@ -1232,12 +1226,12 @@ define dso_local void @AtPrepare_RelationMap() local_unnamed_addr #2 {
   ret void
 }
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #3
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @CheckPointRelationMap() local_unnamed_addr #2 {
+define dso_local void @CheckPointRelationMap() local_unnamed_addr #1 {
   %1 = load ptr, ptr @MainLWLockArray, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 3200
   %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 1) #12
@@ -1248,7 +1242,7 @@ define dso_local void @CheckPointRelationMap() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationMapFinishBootstrap() local_unnamed_addr #2 {
+define dso_local void @RelationMapFinishBootstrap() local_unnamed_addr #1 {
   %1 = load ptr, ptr @MainLWLockArray, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 3200
   %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 0) #12
@@ -1264,7 +1258,7 @@ define dso_local void @RelationMapFinishBootstrap() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @RelationMapInitialize() local_unnamed_addr #6 {
+define dso_local void @RelationMapInitialize() local_unnamed_addr #5 {
   store i32 0, ptr @shared_map, align 4
   store i32 0, ptr @local_map, align 4
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @shared_map, i64 4), align 4
@@ -1277,7 +1271,7 @@ define dso_local void @RelationMapInitialize() local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationMapInitializePhase2() local_unnamed_addr #2 {
+define dso_local void @RelationMapInitializePhase2() local_unnamed_addr #1 {
   %1 = load i32, ptr @Mode, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %4, label %3
@@ -1291,7 +1285,7 @@ define dso_local void @RelationMapInitializePhase2() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationMapInitializePhase3() local_unnamed_addr #2 {
+define dso_local void @RelationMapInitializePhase3() local_unnamed_addr #1 {
   %1 = load i32, ptr @Mode, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %5, label %3
@@ -1306,12 +1300,12 @@ define dso_local void @RelationMapInitializePhase3() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @EstimateRelationMapSpace() local_unnamed_addr #7 {
+define dso_local noundef i64 @EstimateRelationMapSpace() local_unnamed_addr #6 {
   ret i64 1048
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @SerializeRelationMap(i64 noundef %0, ptr noundef writeonly captures(none) initializes((0, 1048)) %1) local_unnamed_addr #8 {
+define dso_local void @SerializeRelationMap(i64 noundef %0, ptr noundef writeonly captures(none) initializes((0, 1048)) %1) local_unnamed_addr #7 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(524) %1, ptr noundef nonnull align 4 dereferenceable(524) @active_shared_updates, i64 524, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 524
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(524) %3, ptr noundef nonnull align 4 dereferenceable(524) @active_local_updates, i64 524, i1 false)
@@ -1319,7 +1313,7 @@ define dso_local void @SerializeRelationMap(i64 noundef %0, ptr noundef writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RestoreRelationMap(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define dso_local void @RestoreRelationMap(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_shared_updates, i64 4), align 4
   %3 = icmp ne i32 %2, 0
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 4), align 4
@@ -1348,7 +1342,7 @@ define dso_local void @RestoreRelationMap(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @relmap_redo(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define dso_local void @relmap_redo(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca %struct.RelMapFile, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
@@ -1361,7 +1355,7 @@ define dso_local void @relmap_redo(ptr noundef readonly captures(none) %0) local
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 524, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %13, 524
@@ -1392,7 +1386,7 @@ define dso_local void @relmap_redo(ptr noundef readonly captures(none) %0) local
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 3200
   call void @LWLockRelease(ptr noundef nonnull %30) #12
   call void @pfree(ptr noundef %23) #12
-  call void @llvm.lifetime.end.p0(i64 524, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 31:                                               ; preds = %1
@@ -1404,55 +1398,61 @@ define dso_local void @relmap_redo(ptr noundef readonly captures(none) %0) local
   unreachable
 }
 
-declare ptr @GetDatabasePath(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @GetDatabasePath(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @pfree(ptr noundef) local_unnamed_addr #3
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @OpenTransientFile(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @OpenTransientFile(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @errcode_for_file_access() local_unnamed_addr #3
-
-; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
-
-declare i32 @CloseTransientFile(i32 noundef) local_unnamed_addr #3
+declare i32 @errcode_for_file_access() local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
+
+declare i32 @CloseTransientFile(i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: nofree
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #10
+declare ptr @__errno_location() local_unnamed_addr #9
 
-declare void @XLogBeginInsert() local_unnamed_addr #3
+declare void @XLogBeginInsert() local_unnamed_addr #2
 
-declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #3
+declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
 
-declare void @XLogFlush(i64 noundef) local_unnamed_addr #3
+declare void @XLogFlush(i64 noundef) local_unnamed_addr #2
 
-declare i32 @durable_rename(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @durable_rename(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @CacheInvalidateRelmap(i32 noundef) local_unnamed_addr #3
+declare void @CacheInvalidateRelmap(i32 noundef) local_unnamed_addr #2
 
-declare void @RelationPreserveStorage(i64, i32, i1 noundef zeroext) local_unnamed_addr #3
+declare void @RelationPreserveStorage(i64, i32, i1 noundef zeroext) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #12 = { nounwind }
 attributes #13 = { cold nounwind }

@@ -32,15 +32,9 @@ define i32 @wc_SignatureGetSize(i32 noundef %0, ptr noundef %1, i32 noundef %2) 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @wc_ecc_sig_size(ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_ecc_sig_size(ptr noundef) local_unnamed_addr #2
-
-declare i32 @wc_RsaEncryptSize(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @wc_RsaEncryptSize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @wc_SignatureVerifyHash(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
@@ -101,7 +95,7 @@ wc_SignatureGetSize.exit:                         ; preds = %18, %19, %21, %23, 
   ]
 
 32:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !3
   br label %33
 
@@ -125,18 +119,18 @@ wc_SignatureGetSize.exit:                         ; preds = %18, %19, %21, %23, 
   %42 = icmp ne i32 %41, 1
   %or.cond11 = select i1 %40, i1 true, i1 %42
   %spec.store.select = select i1 %or.cond11, i32 -229, i32 %.1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %66
 
 43:                                               ; preds = %31, %31
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %spec.select = tail call i32 @llvm.umax.i32(i32 %3, i32 %5)
   %44 = icmp ult i32 %spec.select, 513
   br i1 %44, label %45, label %65
 
 45:                                               ; preds = %43
   %46 = zext nneg i32 %spec.select to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !9
   call void @llvm.memset.p0.i64(ptr nonnull align 64 %10, i8 0, i64 %46, i1 false)
   %47 = zext i32 %5 to i64
@@ -179,12 +173,12 @@ wc_SignatureGetSize.exit:                         ; preds = %18, %19, %21, %23, 
 
 64:                                               ; preds = %60, %63, %54
   %.5 = phi i32 [ -229, %63 ], [ %.4, %54 ], [ 0, %60 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %65
 
 65:                                               ; preds = %43, %64
   %.6 = phi i32 [ %.5, %64 ], [ -125, %43 ]
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %66
 
 66:                                               ; preds = %39, %65, %31, %28, %wc_SignatureGetSize.exit, %8
@@ -192,22 +186,22 @@ wc_SignatureGetSize.exit:                         ; preds = %18, %19, %21, %23, 
   ret i32 %.055
 }
 
-declare i32 @wc_HashGetDigestSize(i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HashGetDigestSize(i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_ecc_verify_hash(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_ecc_verify_hash(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @wc_RsaSSL_VerifyInline(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_RsaSSL_VerifyInline(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @wc_SignatureVerify(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca [100 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp eq ptr %2, null
   %11 = icmp eq i32 %3, 0
   %or.cond = or i1 %10, %11
@@ -285,11 +279,11 @@ wc_SignatureDerEncode.exit.thread:                ; preds = %38, %33, %wc_Signat
 
 wc_SignatureDerEncode.exit.thread55:              ; preds = %35, %29, %wc_SignatureDerEncode.exit.thread, %wc_SignatureDerEncode.exit, %26, %wc_SignatureGetSize.exit, %8
   %.0 = phi i32 [ -173, %8 ], [ -173, %wc_SignatureGetSize.exit ], [ %27, %26 ], [ %42, %wc_SignatureDerEncode.exit.thread ], [ %39, %wc_SignatureDerEncode.exit ], [ %31, %29 ], [ %36, %35 ]
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
-declare i32 @wc_Hash(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Hash(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 1) i32 @wc_SignatureDerEncode(i32 noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 0, -2147483648) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
@@ -434,9 +428,9 @@ wc_SignatureGetSize.exit:                         ; preds = %20, %21, %23, %25, 
   ret i32 %.056
 }
 
-declare i32 @wc_ecc_sign_hash(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_ecc_sign_hash(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_RsaSSL_Sign(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_RsaSSL_Sign(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @wc_SignatureGenerate(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #0 {
@@ -448,8 +442,8 @@ define i32 @wc_SignatureGenerate(i32 noundef %0, i32 noundef %1, ptr noundef %2,
 define i32 @wc_SignatureGenerate_ex(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca [100 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #7
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = icmp eq ptr %2, null
   %14 = icmp eq i32 %3, 0
   %or.cond = or i1 %13, %14
@@ -529,14 +523,20 @@ wc_SignatureGetSize.exit:                         ; preds = %22, %23, %25, %27, 
 
 46:                                               ; preds = %35, %.thread, %41, %32, %wc_SignatureGetSize.exit, %10, %17
   %.0 = phi i32 [ -173, %17 ], [ -173, %10 ], [ -173, %wc_SignatureGetSize.exit ], [ %33, %32 ], [ %45, %.thread ], [ %42, %41 ], [ %38, %35 ]
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %12) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
 
-declare i32 @wc_HashGetOID(i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HashGetOID(i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_EncodeSignature(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_EncodeSignature(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
@@ -545,10 +545,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i32 @llvm.umax.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }

@@ -74,7 +74,7 @@ declare i64 @hash_get_num_entries(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @XLogCheckInvalidPages() local_unnamed_addr #0 {
   %1 = alloca %struct.HASH_SEQ_STATUS, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load ptr, ptr @invalid_page_tab, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %25, label %4
@@ -136,28 +136,22 @@ report_invalid_page.exit:                         ; preds = %.lr.ph, %.sink.spli
   br label %25
 
 25:                                               ; preds = %0, %.critedge
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @hash_seq_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @hash_seq_search(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @hash_destroy(ptr noundef) local_unnamed_addr #1
 
@@ -175,10 +169,10 @@ define dso_local range(i32 0, 4) i32 @XLogReadBufferForRedoExtended(ptr noundef 
   %9 = alloca i32, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %12 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef %0, i8 noundef zeroext %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #8
   br i1 %12, label %17, label %13
 
@@ -361,20 +355,20 @@ BufferGetPage.exit47:                             ; preds = %90, %96
 
 103:                                              ; preds = %79, %BufferGetPage.exit47, %73, %77
   %.0 = phi i32 [ 2, %77 ], [ 2, %73 ], [ %., %BufferGetPage.exit47 ], [ 3, %79 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @XLogInitBufferForRedo(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @XLogReadBufferForRedoExtended(ptr noundef %0, i8 noundef zeroext %1, i32 noundef 1, i1 noundef zeroext false, ptr noundef nonnull %3)
   %5 = load i32, ptr %3, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %5
 }
 
@@ -492,8 +486,8 @@ define internal fastcc void @log_invalid_page(i64 %0, i32 %1, i32 noundef %2, i3
   %7 = alloca i8, align 1
   %8 = alloca %struct.HASHCTL, align 8
   %9 = zext i1 %4 to i8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = load i8, ptr @reachedConsistency, align 1, !range !4, !noundef !5
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %22
@@ -555,14 +549,14 @@ report_invalid_page.exit21:                       ; preds = %24, %.sink.split.i1
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 20, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 24, ptr %33, align 8
   %34 = call ptr @hash_create(ptr noundef nonnull @.str.14, i64 noundef 100, ptr noundef nonnull %8, i32 noundef 40) #8
   store ptr %34, ptr @invalid_page_tab, align 8
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %35
 
 35:                                               ; preds = %31, %28
@@ -585,15 +579,15 @@ report_invalid_page.exit21:                       ; preds = %24, %.sink.split.i1
   br label %44
 
 44:                                               ; preds = %35, %42
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 declare i32 @ExtendBufferedRelTo(ptr noundef byval(%struct.BufferManagerRelation) align 8, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @ReleaseBuffer(i32 noundef) local_unnamed_addr #1
 
@@ -648,7 +642,7 @@ define internal fastcc void @forget_invalid_pages(i64 %0, i32 %1, i32 noundef %2
   %.sroa.014.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.215.0.extract.shift = lshr i64 %0, 32
   %.sroa.215.0.extract.trunc = trunc nuw i64 %.sroa.215.0.extract.shift to i32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr @invalid_page_tab, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %8
@@ -730,7 +724,7 @@ define internal fastcc void @forget_invalid_pages(i64 %0, i32 %1, i32 noundef %2
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %47, %8, %4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -738,7 +732,7 @@ define internal fastcc void @forget_invalid_pages(i64 %0, i32 %1, i32 noundef %2
 define dso_local void @XLogDropDatabase(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.HASH_SEQ_STATUS, align 8
   tail call void @smgrdestroyall() #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @invalid_page_tab, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %forget_invalid_pages_db.exit, label %5
@@ -801,7 +795,7 @@ define dso_local void @XLogDropDatabase(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %forget_invalid_pages_db.exit, label %.lr.ph.i, !llvm.loop !9
 
 forget_invalid_pages_db.exit:                     ; preds = %34, %1, %5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -914,7 +908,7 @@ declare void @list_free_deep(ptr noundef) local_unnamed_addr #1
 define dso_local void @wal_segment_open(ptr noundef captures(none) initializes((1208, 1212)) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = load i32, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
@@ -931,7 +925,7 @@ define dso_local void @wal_segment_open(ptr noundef captures(none) initializes((
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 19:                                               ; preds = %3
@@ -957,7 +951,7 @@ define dso_local void @wal_segment_open(ptr noundef captures(none) initializes((
 declare i32 @BasicOpenFile(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #5
+declare ptr @__errno_location() local_unnamed_addr #4
 
 declare i32 @errcode_for_file_access() local_unnamed_addr #1
 
@@ -984,8 +978,8 @@ define dso_local i32 @read_local_xlog_page(ptr noundef %0, i64 noundef %1, i32 n
 define internal fastcc i32 @read_local_xlog_page_guts(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %struct.WALReadError, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = sext i32 %2 to i64
   %9 = add i64 %1, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1264
@@ -1094,8 +1088,8 @@ define internal fastcc i32 @read_local_xlog_page_guts(ptr noundef %0, i64 nounde
 
 52:                                               ; preds = %48, %51, %43
   %.0 = phi i32 [ -1, %43 ], [ %.027, %51 ], [ %.027, %48 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -1108,7 +1102,7 @@ define dso_local i32 @read_local_xlog_page_no_wait(ptr noundef %0, i64 noundef %
 ; Function Attrs: nounwind uwtable
 define dso_local void @WALReadRaiseError(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1157,7 +1151,7 @@ define dso_local void @WALReadRaiseError(ptr noundef readonly captures(none) %0)
   unreachable
 
 37:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1183,6 +1177,12 @@ declare void @pg_usleep(i64 noundef) local_unnamed_addr #1
 
 declare zeroext i1 @WALRead(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
 
@@ -1194,10 +1194,10 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }

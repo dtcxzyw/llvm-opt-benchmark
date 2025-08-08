@@ -388,8 +388,8 @@ define dso_local range(i32 -2147483648, 1) i32 @uv_pipe_getsockname(ptr noundef 
 entry:
   %sa.i = alloca %struct.sockaddr_un, align 2
   %addrlen.i = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %sa.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %addrlen.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sa.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %addrlen.i)
   store i32 110, ptr %addrlen.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %sa.i, i8 0, i64 110, i1 false)
   %call.i = call i32 @uv__getsockpeername(ptr noundef %handle, ptr noundef nonnull @getsockname, ptr noundef nonnull %sa.i, ptr noundef nonnull %addrlen.i) #12
@@ -443,8 +443,8 @@ if.then26.i:                                      ; preds = %if.end17.i
 
 uv__pipe_getsockpeername.exit:                    ; preds = %if.then.i, %if.then15.i, %if.end17.i, %if.then26.i
   %retval.0.i = phi i32 [ %call.i, %if.then.i ], [ -105, %if.then15.i ], [ 0, %if.then26.i ], [ 0, %if.end17.i ]
-  call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %sa.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %addrlen.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sa.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %addrlen.i)
   ret i32 %retval.0.i
 }
 
@@ -456,8 +456,8 @@ define dso_local range(i32 -2147483648, 1) i32 @uv_pipe_getpeername(ptr noundef 
 entry:
   %sa.i = alloca %struct.sockaddr_un, align 2
   %addrlen.i = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %sa.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %addrlen.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sa.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %addrlen.i)
   store i32 110, ptr %addrlen.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %sa.i, i8 0, i64 110, i1 false)
   %call.i = call i32 @uv__getsockpeername(ptr noundef %handle, ptr noundef nonnull @getpeername, ptr noundef nonnull %sa.i, ptr noundef nonnull %addrlen.i) #12
@@ -511,8 +511,8 @@ if.then26.i:                                      ; preds = %if.end17.i
 
 uv__pipe_getsockpeername.exit:                    ; preds = %if.then.i, %if.then15.i, %if.end17.i, %if.then26.i
   %retval.0.i = phi i32 [ %call.i, %if.then.i ], [ -105, %if.then15.i ], [ 0, %if.then26.i ], [ 0, %if.end17.i ]
-  call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %sa.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %addrlen.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sa.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %addrlen.i)
   ret i32 %retval.0.i
 }
 
@@ -604,8 +604,8 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %or.cond1, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %sa.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %addrlen.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sa.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %addrlen.i.i)
   store i32 110, ptr %addrlen.i.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %sa.i.i, i8 0, i64 110, i1 false)
   %call.i.i = call i32 @uv__getsockpeername(ptr noundef nonnull %handle, ptr noundef nonnull @getsockname, ptr noundef nonnull %sa.i.i, ptr noundef nonnull %addrlen.i.i) #12
@@ -632,13 +632,13 @@ uv_pipe_getsockname.exit.thread:                  ; preds = %if.else.i.i, %if.th
   %storemerge.in.i.i = phi i64 [ %call9.i.i, %if.else.i.i ], [ %sub.i.i, %if.then5.i.i ]
   %add.i.i = add i64 %storemerge.in.i.i, 1
   %conv16.i.i = and i64 %add.i.i, 4294967295
-  call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %sa.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %addrlen.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sa.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %addrlen.i.i)
   br label %if.end10
 
 uv_pipe_getsockname.exit:                         ; preds = %if.end7
-  call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %sa.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %addrlen.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sa.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %addrlen.i.i)
   %cmp8.not = icmp eq i32 %call.i.i, -105
   br i1 %cmp8.not, label %if.end10, label %return
 
@@ -649,8 +649,8 @@ if.end10:                                         ; preds = %uv_pipe_getsockname
   br i1 %cmp12, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.end10
-  call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %sa.i.i24)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %addrlen.i.i25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sa.i.i24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %addrlen.i.i25)
   store i32 110, ptr %addrlen.i.i25, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %sa.i.i24, i8 0, i64 110, i1 false)
   %call.i.i26 = call i32 @uv__getsockpeername(ptr noundef nonnull %handle, ptr noundef nonnull @getsockname, ptr noundef nonnull %sa.i.i24, ptr noundef nonnull %addrlen.i.i25) #12
@@ -692,14 +692,14 @@ if.then26.i.i43:                                  ; preds = %if.end17.i.i41
 
 if.then17:                                        ; preds = %if.end11.i.i33, %if.end14
   %retval.0.i.i40 = phi i32 [ %call.i.i26, %if.end14 ], [ -105, %if.end11.i.i33 ]
-  call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %sa.i.i24)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %addrlen.i.i25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sa.i.i24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %addrlen.i.i25)
   call void @uv__free(ptr noundef nonnull %call11) #12
   br label %return
 
 if.end18:                                         ; preds = %if.then26.i.i43, %if.end17.i.i41
-  call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %sa.i.i24)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %addrlen.i.i25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sa.i.i24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %addrlen.i.i25)
   %call.i = call noundef i32 @stat64(ptr noundef nonnull readonly %call11, ptr noundef nonnull %pipe_stat) #12
   %cmp20 = icmp eq i32 %call.i, -1
   br i1 %cmp20, label %if.then21, label %if.end23
@@ -848,10 +848,10 @@ declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef cap
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

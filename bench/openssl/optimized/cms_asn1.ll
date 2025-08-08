@@ -370,9 +370,9 @@ define i32 @CMS_SharedInfo_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %5 = alloca %struct.asn1_string_st, align 8
   %6 = alloca [4 x i8], align 1
   %7 = alloca %struct.CMS_SharedInfo, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = shl i32 %3, 3
   %9 = lshr i32 %8, 24
   %10 = trunc nuw i32 %9 to i8
@@ -401,19 +401,13 @@ define i32 @CMS_SharedInfo_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %5, ptr %23, align 8, !tbaa !20
   %24 = call i32 @ASN1_item_i2d(ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull @CMS_SharedInfo_it.local_it) #4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %24
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @ASN1_item_i2d(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare ptr @X509_NAME_it() #2
 
@@ -724,6 +718,12 @@ define internal noundef nonnull ptr @CMS_ReceiptsFrom_it() #0 {
 }
 
 declare ptr @GENERAL_NAMES_it() #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

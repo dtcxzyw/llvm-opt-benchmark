@@ -925,18 +925,15 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   ret i32 %.05
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @opt_next() local_unnamed_addr #2
 
-declare i32 @opt_next() local_unnamed_addr #3
+declare i64 @test_get_argument_count() local_unnamed_addr #2
 
-declare i64 @test_get_argument_count() local_unnamed_addr #3
+declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @BN_CTX_new() local_unnamed_addr #2
 
-declare ptr @BN_CTX_new() local_unnamed_addr #3
-
-declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_sub() #1 {
@@ -1233,7 +1230,7 @@ define internal range(i32 0, 2) i32 @test_div_recip() #1 {
   ret i32 %.037
 }
 
-declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_signed_mod_replace_ab(i32 noundef %0) #1 {
@@ -1669,9 +1666,9 @@ define internal range(i32 0, 2) i32 @test_mod() #1 {
 define internal range(i32 0, 2) i32 @test_mod_inverse() #1 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !21
   %3 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.105) #8
   %4 = icmp ne i32 %3, 0
@@ -1735,8 +1732,8 @@ define internal range(i32 0, 2) i32 @test_mod_inverse() #1 {
   call void @BN_free(ptr noundef %35) #8
   call void @BN_free(ptr noundef %.0) #8
   call void @CRYPTO_free(ptr noundef %.06, ptr noundef nonnull @.str.17, i32 noundef 3206) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.07
 }
 
@@ -1745,11 +1742,11 @@ define internal range(i32 0, 2) i32 @test_mod_exp_alias(i32 noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !21
   %5 = call i32 @BN_dec2bn(ptr noundef nonnull %2, ptr noundef nonnull @.str.117) #8
   %6 = icmp ne i32 %5, 0
@@ -1874,9 +1871,9 @@ define internal range(i32 0, 2) i32 @test_mod_exp_alias(i32 noundef %0) #1 {
   call void @BN_free(ptr noundef %70) #8
   call void @BN_free(ptr noundef %.0) #8
   call void @CRYPTO_free(ptr noundef %.016, ptr noundef nonnull @.str.17, i32 noundef 3273) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.017
 }
 
@@ -1888,16 +1885,16 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !21
   %7 = tail call ptr @BN_new() #8
   store ptr %7, ptr %1, align 8, !tbaa !21
@@ -2530,12 +2527,12 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %400 = load ptr, ptr %6, align 8, !tbaa !21
   call void @BN_free(ptr noundef %400) #8
   call void @BN_free(ptr noundef %.053) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -2793,9 +2790,9 @@ define internal range(i32 0, 2) i32 @test_bn2padded() #1 {
   %1 = alloca [256 x i8], align 16
   %2 = alloca [256 x i8], align 16
   %3 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %1) #8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @BN_new() #8
   %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1816, ptr noundef nonnull @.str.247, ptr noundef %4) #8
   %.not = icmp eq i32 %5, 0
@@ -2918,16 +2915,16 @@ define internal range(i32 0, 2) i32 @test_bn2padded() #1 {
 .loopexit:                                        ; preds = %16, %52, %55, %59, %43, %48, %50, %38, %41, %34, %31, %23, %28, %17, %12, %9, %6, %0
   %.0 = phi i32 [ 0, %12 ], [ 0, %9 ], [ 0, %6 ], [ 0, %0 ], [ 1, %16 ], [ 0, %17 ], [ 0, %23 ], [ 0, %28 ], [ 0, %31 ], [ 0, %34 ], [ 0, %38 ], [ 0, %41 ], [ 0, %43 ], [ 0, %48 ], [ 0, %50 ], [ 0, %52 ], [ 0, %55 ], [ 0, %59 ]
   call void @BN_free(ptr noundef %4) #8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_dec2bn() #1 {
   %1 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !21
   %2 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.69) #8
   %3 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2002, ptr noundef nonnull @.str.264, ptr noundef nonnull @.str.123, i32 noundef %2, i32 noundef 1) #8
@@ -3164,14 +3161,14 @@ define internal range(i32 0, 2) i32 @test_dec2bn() #1 {
   %.0 = phi i32 [ 0, %108 ], [ 0, %105 ], [ 0, %102 ], [ 0, %99 ], [ 0, %95 ], [ 0, %92 ], [ 0, %89 ], [ 0, %86 ], [ 0, %83 ], [ 0, %79 ], [ 0, %76 ], [ 0, %73 ], [ 0, %70 ], [ 0, %67 ], [ 0, %64 ], [ 0, %61 ], [ 0, %57 ], [ 0, %54 ], [ 0, %51 ], [ 0, %48 ], [ 0, %45 ], [ 0, %42 ], [ 0, %38 ], [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %23 ], [ 0, %19 ], [ 0, %16 ], [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %111 ]
   %115 = load ptr, ptr %1, align 8, !tbaa !21
   call void @BN_free(ptr noundef %115) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_hex2bn() #1 {
   %1 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !21
   %2 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.69) #8
   %3 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2071, ptr noundef nonnull @.str.276, ptr noundef nonnull @.str.123, i32 noundef %2, i32 noundef 1) #8
@@ -3390,14 +3387,14 @@ define internal range(i32 0, 2) i32 @test_hex2bn() #1 {
   %.0 = phi i32 [ 0, %99 ], [ 0, %96 ], [ 0, %93 ], [ 0, %90 ], [ 0, %86 ], [ 0, %83 ], [ 0, %80 ], [ 0, %77 ], [ 0, %74 ], [ 0, %70 ], [ 0, %67 ], [ 0, %64 ], [ 0, %61 ], [ 0, %58 ], [ 0, %55 ], [ 0, %51 ], [ 0, %48 ], [ 0, %45 ], [ 0, %42 ], [ 0, %39 ], [ 0, %36 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %23 ], [ 0, %20 ], [ 0, %17 ], [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %102 ]
   %106 = load ptr, ptr %1, align 8, !tbaa !21
   call void @BN_free(ptr noundef %106) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_asc2bn() #1 {
   %1 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call ptr @BN_new() #8
   store ptr %2, ptr %1, align 8, !tbaa !21
   %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2137, ptr noundef nonnull @.str.238, ptr noundef %2) #8
@@ -3569,14 +3566,14 @@ define internal range(i32 0, 2) i32 @test_asc2bn() #1 {
   %.0 = phi i32 [ 0, %86 ], [ 0, %81 ], [ 0, %78 ], [ 0, %75 ], [ 0, %70 ], [ 0, %67 ], [ 0, %64 ], [ 0, %59 ], [ 0, %56 ], [ 0, %53 ], [ 0, %48 ], [ 0, %45 ], [ 0, %42 ], [ 0, %37 ], [ 0, %34 ], [ 0, %31 ], [ 0, %26 ], [ 0, %23 ], [ 0, %20 ], [ 0, %15 ], [ 0, %12 ], [ 0, %9 ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %89 ]
   %93 = load ptr, ptr %1, align 8, !tbaa !21
   call void @BN_free(ptr noundef %93) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_bin2zero() #1 {
   %1 = alloca [1 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i8 0, ptr %1, align 1
   %2 = tail call ptr @BN_new() #8
   %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2236, ptr noundef nonnull @.str.302, ptr noundef %2) #8
@@ -3755,14 +3752,14 @@ define internal range(i32 0, 2) i32 @test_bin2zero() #1 {
 100:                                              ; preds = %95, %76, %79, %84, %87, %92, %52, %55, %60, %63, %68, %71, %28, %31, %36, %39, %44, %47, %4, %7, %12, %15, %20, %23, %0
   %.0 = phi i32 [ 0, %92 ], [ 0, %87 ], [ 0, %84 ], [ 0, %79 ], [ 0, %76 ], [ 0, %71 ], [ 0, %68 ], [ 0, %63 ], [ 0, %60 ], [ 0, %55 ], [ 0, %52 ], [ 0, %47 ], [ 0, %44 ], [ 0, %39 ], [ 0, %36 ], [ 0, %31 ], [ 0, %28 ], [ 0, %23 ], [ 0, %20 ], [ 0, %15 ], [ 0, %12 ], [ 0, %7 ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %95 ]
   call void @BN_free(ptr noundef %2) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_bin2bn_lengths() #1 {
   %1 = alloca [2 x i8], align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i16 513, ptr %1, align 2
   %2 = tail call ptr @BN_new() #8
   %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2267, ptr noundef nonnull @.str.316, ptr noundef %2) #8
@@ -3941,7 +3938,7 @@ define internal range(i32 0, 2) i32 @test_bin2bn_lengths() #1 {
   call void @BN_free(ptr noundef %.032) #8
   call void @BN_free(ptr noundef %.031) #8
   call void @BN_free(ptr noundef %.030) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -3949,10 +3946,10 @@ define internal range(i32 0, 2) i32 @test_bin2bn_lengths() #1 {
 define internal range(i32 0, 2) i32 @test_mpi(i32 noundef %0) #1 {
   %2 = alloca [8 x i8], align 1
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds [6 x %struct.mpitest_st], ptr @kMPITests, i64 0, i64 %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = tail call ptr @BN_new() #8
   store ptr %6, ptr %3, align 8, !tbaa !21
   %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2204, ptr noundef nonnull @.str.238, ptr noundef %6) #8
@@ -4011,8 +4008,8 @@ define internal range(i32 0, 2) i32 @test_mpi(i32 noundef %0) #1 {
   %.0 = phi i32 [ 0, %30 ], [ 0, %24 ], [ 0, %19 ], [ 0, %14 ], [ 0, %8 ], [ 0, %1 ], [ %., %33 ]
   %37 = load ptr, ptr %3, align 8, !tbaa !21
   call void @BN_free(ptr noundef %37) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -4021,11 +4018,11 @@ define internal range(i32 0, 2) i32 @test_bn2signed(i32 noundef %0) #1 {
   %2 = alloca [10 x i8], align 1
   %3 = alloca [10 x i8], align 1
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds [43 x %struct.mpitest_st], ptr @kSignedTests_BE, i64 0, i64 %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call ptr @BN_new() #8
   store ptr %7, ptr %4, align 8, !tbaa !21
   %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1935, ptr noundef nonnull @.str.238, ptr noundef %7) #8
@@ -4170,9 +4167,9 @@ copy_reversed.exit41:                             ; preds = %.preheader
   call void @BN_free(ptr noundef %.020) #8
   %73 = load ptr, ptr %4, align 8, !tbaa !21
   call void @BN_free(ptr noundef %73) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -6605,11 +6602,11 @@ define internal range(i32 0, 2) i32 @test_mod_exp(i32 noundef %0) #1 {
   %4 = alloca ptr, align 8
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds [16 x %struct.mod_exp_test_st], ptr @ModExpTests, i64 0, i64 %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !21
   %7 = tail call ptr @BN_new() #8
   %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3067, ptr noundef nonnull @.str.566, ptr noundef %7) #8
@@ -6682,9 +6679,9 @@ define internal range(i32 0, 2) i32 @test_mod_exp(i32 noundef %0) #1 {
   call void @BN_free(ptr noundef %47) #8
   %48 = load ptr, ptr %4, align 8, !tbaa !21
   call void @BN_free(ptr noundef %48) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.012
 }
 
@@ -6695,11 +6692,11 @@ define internal range(i32 0, 2) i32 @test_mod_exp_consttime(i32 noundef %0) #1 {
   %4 = alloca ptr, align 8
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds [16 x %struct.mod_exp_test_st], ptr @ModExpTests, i64 0, i64 %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !21
   %7 = tail call ptr @BN_new() #8
   %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3101, ptr noundef nonnull @.str.566, ptr noundef %7) #8
@@ -6778,9 +6775,9 @@ define internal range(i32 0, 2) i32 @test_mod_exp_consttime(i32 noundef %0) #1 {
   call void @BN_free(ptr noundef %50) #8
   %51 = load ptr, ptr %4, align 8, !tbaa !21
   call void @BN_free(ptr noundef %51) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.012
 }
 
@@ -7144,9 +7141,6 @@ file_test_run.exit:                               ; preds = %40, %49
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define dso_local void @cleanup_tests() local_unnamed_addr #1 {
   %1 = load ptr, ptr @ctx, align 8, !tbaa !6
@@ -7154,88 +7148,88 @@ define dso_local void @cleanup_tests() local_unnamed_addr #1 {
   ret void
 }
 
-declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #3
+declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_new() local_unnamed_addr #3
+declare ptr @BN_new() local_unnamed_addr #2
 
-declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BN_bntest_rand(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @BN_bntest_rand(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @BN_copy(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @BN_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @test_int_ne(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @test_int_ne(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BN_set_bit(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @BN_set_bit(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BN_add_word(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @BN_add_word(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @BN_set_negative(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @BN_set_negative(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BN_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @test_BN_eq_zero(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @test_BN_eq_zero(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @BN_free(ptr noundef) local_unnamed_addr #3
+declare void @BN_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_RECP_CTX_new() local_unnamed_addr #3
+declare ptr @BN_RECP_CTX_new() local_unnamed_addr #2
 
-declare i32 @BN_lshift(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @BN_lshift(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BN_RECP_CTX_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_RECP_CTX_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_div_recp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_div_recp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @BN_RECP_CTX_free(ptr noundef) local_unnamed_addr #3
+declare void @BN_RECP_CTX_free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @test_BN_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @test_BN_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_set_word(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @BN_set_word(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @BN_dec2bn(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_dec2bn(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @test_ptr_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @test_ptr_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_mod_inverse(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @BN_mod_inverse(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @test_ptr_ne(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @test_ptr_ne(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_bn2dec(ptr noundef) local_unnamed_addr #3
+declare ptr @BN_bn2dec(ptr noundef) local_unnamed_addr #2
 
-declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
-declare i32 @test_ptr_null(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @test_ptr_null(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BN_mod_exp_simple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_mod_exp_simple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_mod_exp_recp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_mod_exp_recp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @test_str_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @test_str_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_MONT_CTX_new() local_unnamed_addr #3
+declare ptr @BN_MONT_CTX_new() local_unnamed_addr #2
 
-declare void @BN_zero_ex(ptr noundef) local_unnamed_addr #3
+declare void @BN_zero_ex(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_mod_exp_mont_consttime(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_mod_exp_mont_consttime(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @test_BN_eq_one(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @test_BN_eq_one(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_hex2bn(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_hex2bn(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_MONT_CTX_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_MONT_CTX_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_mod_mul_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_mod_mul_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @parse_bigBN(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #1 {
@@ -7245,106 +7239,106 @@ define internal fastcc i32 @parse_bigBN(ptr noundef nonnull %0, ptr noundef %1) 
   ret i32 %4
 }
 
-declare ptr @BN_dup(ptr noundef) local_unnamed_addr #3
+declare ptr @BN_dup(ptr noundef) local_unnamed_addr #2
 
-declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BN_mod_exp_mont(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_mod_exp_mont(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_from_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_from_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @BN_MONT_CTX_free(ptr noundef) local_unnamed_addr #3
+declare void @BN_MONT_CTX_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @glue_strings(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @glue_strings(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_generate_prime_ex(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_generate_prime_ex(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_sub_word(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @BN_sub_word(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @BN_rshift1(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_rshift1(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_is_word(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @BN_is_word(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #3
+declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_ucmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_ucmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @test_int_ge(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @test_int_ge(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BN_kronecker(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_kronecker(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_is_negative(ptr noundef) local_unnamed_addr #3
+declare i32 @BN_is_negative(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_rand(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @BN_rand(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @test_BN_eq_word(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @test_BN_eq_word(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @BN_bn2binpad(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @BN_bn2binpad(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #3
+declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_bn2bin(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_bn2bin(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @test_BN_le_zero(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @test_BN_le_zero(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @test_BN_ge_zero(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @test_BN_ge_zero(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @test_BN_even(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @test_BN_even(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @test_BN_gt_zero(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @test_BN_gt_zero(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @test_BN_ne_zero(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @test_BN_ne_zero(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @test_BN_abs_eq_word(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @test_BN_abs_eq_word(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @test_BN_lt_zero(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @test_BN_lt_zero(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @test_BN_odd(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @test_BN_odd(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_asc2bn(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_asc2bn(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_signed_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @BN_signed_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_lebin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @BN_lebin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_signed_lebin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @BN_signed_lebin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_bn2mpi(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_bn2mpi(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @test_size_t_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @test_size_t_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @test_size_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @test_size_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @BN_mpi2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @BN_mpi2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_signed_bn2bin(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @BN_signed_bn2bin(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BN_signed_bn2lebin(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @BN_signed_bn2lebin(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @BN_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @BN_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @BN_value_one() local_unnamed_addr #3
+declare ptr @BN_value_one() local_unnamed_addr #2
 
-declare void @ERR_clear_error() local_unnamed_addr #3
+declare void @ERR_clear_error() local_unnamed_addr #2
 
-declare i32 @BN_mod_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_mod_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_mod_exp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_mod_exp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_mod_exp_mont_word(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_mod_exp_mont_word(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @BN_swap(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @BN_swap(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @equalBN(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
@@ -7362,79 +7356,79 @@ define internal fastcc range(i32 0, 2) i32 @equalBN(ptr noundef %0, ptr noundef 
   ret i32 %.0
 }
 
-declare void @BN_consttime_swap(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @BN_consttime_swap(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BN_get_flags(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @BN_get_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @BN_CTX_secure_new() local_unnamed_addr #3
+declare ptr @BN_CTX_secure_new() local_unnamed_addr #2
 
-declare void @BN_CTX_start(ptr noundef) local_unnamed_addr #3
+declare void @BN_CTX_start(ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #3
+declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #2
 
-declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #3
+declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_GF2m_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_GF2m_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_is_odd(ptr noundef) local_unnamed_addr #3
+declare i32 @BN_is_odd(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_GF2m_arr2poly(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_GF2m_arr2poly(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_GF2m_mod(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_GF2m_mod(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_GF2m_mod_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_GF2m_mod_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_GF2m_mod_sqr(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_GF2m_mod_sqr(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_GF2m_mod_inv(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_GF2m_mod_inv(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_GF2m_mod_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_GF2m_mod_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_GF2m_mod_exp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_GF2m_mod_exp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_GF2m_mod_sqrt(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_GF2m_mod_sqrt(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_GF2m_mod_solve_quad(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_GF2m_mod_solve_quad(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_check_prime(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_check_prime(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_gcd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_gcd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_is_one(ptr noundef) local_unnamed_addr #3
+declare i32 @BN_is_one(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_are_coprime(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_are_coprime(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
-declare i32 @BN_mod_exp2_mont(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_mod_exp2_mont(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @test_note(ptr noundef, ...) local_unnamed_addr #3
+declare void @test_note(ptr noundef, ...) local_unnamed_addr #2
 
-declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BN_rand_range(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_rand_range(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @test_uint_lt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @test_uint_lt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @BN_get_word(ptr noundef) local_unnamed_addr #3
+declare i64 @BN_get_word(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #6
+declare double @llvm.fmuladd.f64(double, double, double) #5
 
-declare ptr @test_get_argument(i64 noundef) local_unnamed_addr #3
+declare ptr @test_get_argument(i64 noundef) local_unnamed_addr #2
 
-declare i32 @test_start_file(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @test_start_file(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @test_readstanza(ptr noundef) local_unnamed_addr #3
+declare i32 @test_readstanza(ptr noundef) local_unnamed_addr #2
 
-declare void @test_clearstanza(ptr noundef) local_unnamed_addr #3
+declare void @test_clearstanza(ptr noundef) local_unnamed_addr #2
 
-declare i32 @test_end_file(ptr noundef) local_unnamed_addr #3
+declare i32 @test_end_file(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @file_sum(ptr noundef readonly captures(none) %0) #1 {
@@ -8802,10 +8796,10 @@ define internal range(i32 0, 2) i32 @file_modexp(ptr noundef readonly captures(n
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !21
   %5 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.640)
   store ptr %5, ptr %2, align 8, !tbaa !21
@@ -8944,9 +8938,9 @@ equalBN.exit:                                     ; preds = %28
   call void @BN_free(ptr noundef %.032) #8
   call void @BN_free(ptr noundef %.031) #8
   call void @BN_free(ptr noundef %.030) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -9149,7 +9143,7 @@ equalBN.exit:                                     ; preds = %22, %19, %13, %1, %
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @getBN(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4, !tbaa !73
   %6 = icmp sgt i32 %5, 0
@@ -9204,46 +9198,52 @@ findattr.exit.thread:                             ; preds = %11, %2, %findattr.e
 
 28:                                               ; preds = %26, %25, %findattr.exit.thread
   %.0 = phi ptr [ null, %findattr.exit.thread ], [ null, %25 ], [ %27, %26 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
-declare i32 @BN_uadd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_uadd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_usub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_usub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_lshift1(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_lshift1(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_rshift(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @BN_rshift(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @test_ulong_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @test_ulong_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @BN_sqr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_sqr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @BN_div_word(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @BN_div_word(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @BN_mod_word(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @BN_mod_word(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @BN_nnmod(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_nnmod(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_to_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_to_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_exp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_exp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_mod_sqrt(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @BN_mod_sqrt(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }

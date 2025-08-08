@@ -47,7 +47,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal26DemangleRustSymbolEncodingEPKcPcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %"class.absl::debugging_internal::(anonymous namespace)::RustSymbolParser", align 8
-  call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 408
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %4, i8 0, i64 400, i1 false)
@@ -671,7 +671,7 @@ switch.lookup558:                                 ; preds = %switch.hole_check
   br i1 %292, label %.critedge51.preheader.i, label %293
 
 293:                                              ; preds = %switch.lookup558
-  %294 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %switch.load) #8
+  %294 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %switch.load) #7
   %295 = add i64 %294, 1
   %296 = load ptr, ptr %8, align 8, !tbaa !12
   %297 = load ptr, ptr %7, align 8, !tbaa !11
@@ -2134,15 +2134,9 @@ switch.lookup:                                    ; preds = %.loopexit238.i
 
 _ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit: ; preds = %718, %513, %693, %639, %578, %544, %199, %108, %36, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i, %53, %58, %67, %70, %89, %98, %101, %116, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i.i, %165, %180, %189, %207, %231, %233, %262, %266, %293, %552, %586, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit148.i, %647, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit156.i, %678, %701, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit8, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i, %729, %762, %765, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit169.i, %893, %964, %969, %.critedge51.preheader.i, %.critedge233._crit_edge.i, %switch.hole_check, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i200.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i194.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit190.i, %903, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177._crit_edge.i, %862, %852, %821, %809, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit, %747, %612, %601, %567, %534, %377, %349, %341, %333, %284, %276, %255, %247, %215, %.critedge51.backedge.i, %124, %77, %.lr.ph362.i.backedge, %781, %494, %482, %469, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i, %431, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i49, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i43, %390, %310, %319, %362, %371, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i, %981, %987, %874, %.lr.ph358.i, %1004, %.loopexit238.i, %switch.lookup, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParserC2EPKcPcS5_.exit, %18
   %.0.i = phi i1 [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParserC2EPKcPcS5_.exit ], [ false, %18 ], [ %switch.masked, %switch.lookup ], [ false, %.loopexit238.i ], [ false, %1004 ], [ false, %.lr.ph358.i ], [ false, %874 ], [ false, %987 ], [ false, %981 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i ], [ false, %371 ], [ false, %362 ], [ false, %319 ], [ false, %310 ], [ false, %390 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i43 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i49 ], [ false, %431 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i ], [ false, %469 ], [ false, %482 ], [ false, %494 ], [ false, %781 ], [ false, %.lr.ph362.i.backedge ], [ false, %77 ], [ false, %124 ], [ false, %.critedge51.backedge.i ], [ false, %215 ], [ false, %247 ], [ false, %255 ], [ false, %276 ], [ false, %284 ], [ false, %333 ], [ false, %341 ], [ false, %349 ], [ false, %377 ], [ false, %534 ], [ false, %567 ], [ false, %601 ], [ false, %612 ], [ false, %747 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit ], [ false, %809 ], [ false, %821 ], [ false, %852 ], [ false, %862 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177._crit_edge.i ], [ false, %903 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit190.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i194.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i200.i ], [ false, %switch.hole_check ], [ false, %.critedge233._crit_edge.i ], [ false, %.critedge51.preheader.i ], [ false, %969 ], [ false, %964 ], [ false, %893 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit169.i ], [ false, %765 ], [ false, %762 ], [ false, %729 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit8 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.i ], [ false, %701 ], [ false, %678 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit156.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.i ], [ false, %647 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit148.i ], [ false, %586 ], [ false, %552 ], [ false, %293 ], [ false, %266 ], [ false, %262 ], [ false, %233 ], [ false, %231 ], [ false, %207 ], [ false, %189 ], [ false, %180 ], [ false, %165 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i.i ], [ false, %116 ], [ false, %101 ], [ false, %98 ], [ false, %89 ], [ false, %70 ], [ false, %67 ], [ false, %58 ], [ false, %53 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i ], [ false, %36 ], [ false, %108 ], [ false, %199 ], [ false, %544 ], [ false, %578 ], [ false, %639 ], [ false, %693 ], [ false, %513 ], [ false, %718 ]
-  call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0.i
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser15ParseIdentifierEc(ptr noundef nonnull align 8 captures(none) dereferenceable(432) %0, i8 noundef signext %1) unnamed_addr #0 align 2 {
@@ -2262,7 +2256,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser18ParseDisambiguator
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser19ParseOptionalBinderEv(ptr noundef nonnull align 8 captures(none) dereferenceable(432) %0) unnamed_addr #2 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser19ParseOptionalBinderEv(ptr noundef nonnull align 8 captures(none) dereferenceable(432) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 400
@@ -2711,7 +2705,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116IsIdentifierCharEc.exit.thread: ; pr
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17EmitDisambiguatorEi.exit.thread
 
 .lr.ph.preheader.i:                               ; preds = %195
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   br label %.lr.ph.i46
 
@@ -2735,7 +2729,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116IsIdentifierCharEc.exit.thread: ; pr
   br i1 %220, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17EmitDisambiguatorEi.exit.thread71, label %221
 
 221:                                              ; preds = %._crit_edge.i
-  %222 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %218) #8
+  %222 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %218) #7
   %223 = add i64 %222, 1
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %225 = load ptr, ptr %224, align 8, !tbaa !12
@@ -2755,11 +2749,11 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116IsIdentifierCharEc.exit.thread: ; pr
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17EmitDisambiguatorEi.exit.thread71
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17EmitDisambiguatorEi.exit.thread71: ; preds = %._crit_edge.i, %231
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17EmitDisambiguatorEi.exit.thread
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17EmitDisambiguatorEi.exit: ; preds = %221
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17EmitDisambiguatorEi.exit.thread: ; preds = %209, %192, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17EmitDisambiguatorEi.exit.thread71
@@ -2792,7 +2786,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17EmitDisambiguatorE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser21ParseRequiredLifetimeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(432) %0) unnamed_addr #2 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser21ParseRequiredLifetimeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(432) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %.val = load i32, ptr %2, align 8, !tbaa !17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -2859,7 +2853,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser21ParseOptionalLifet
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12BeginBackrefEv(ptr noundef nonnull align 8 captures(none) dereferenceable(432) %0) unnamed_addr #2 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12BeginBackrefEv(ptr noundef nonnull align 8 captures(none) dereferenceable(432) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %3 = load i32, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -2982,25 +2976,30 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12PushPositionEi.exi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare noundef ptr @_ZN4absl18debugging_internal18DecodeRustPunycodeENS0_25DecodeRustPunycodeOptionsE(ptr noundef byval(%"struct.absl::debugging_internal::DecodeRustPunycodeOptions") align 8) local_unnamed_addr #5
+declare noundef ptr @_ZN4absl18debugging_internal18DecodeRustPunycodeENS0_25DecodeRustPunycodeOptionsE(ptr noundef byval(%"struct.absl::debugging_internal::DecodeRustPunycodeOptions") align 8) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

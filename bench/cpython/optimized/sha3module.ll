@@ -389,17 +389,11 @@ define internal range(i32 -1, 1) i32 @_sha3_exec(ptr noundef %0) #0 {
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @PyModule_AddStringConstant(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @PyModule_GetState(ptr noundef) local_unnamed_addr #1
 
@@ -480,7 +474,7 @@ define internal i32 @SHA3_traverse(ptr noundef readonly captures(none) %0, ptr n
 define internal ptr @py_sha3_new(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Py_buffer, align 8
   %5 = alloca [2 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %6, align 8, !tbaa !34
   %.not = icmp eq ptr %2, null
@@ -530,7 +524,7 @@ define internal ptr @py_sha3_new(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %28, label %101, label %29
 
 29:                                               ; preds = %24, %23
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   %30 = getelementptr i8, ptr %0, i64 888
   %.val.i = load ptr, ptr %30, align 8, !tbaa !40
@@ -684,12 +678,12 @@ Py_DECREF.exit.i:                                 ; preds = %96, %93, %.thread.i
 
 py_sha3_new_impl.exit:                            ; preds = %Py_DECREF.exit.i, %.sink.split.i
   %.0.i = phi ptr [ null, %Py_DECREF.exit.i ], [ %.0.ph.i, %.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %101
 
 101:                                              ; preds = %24, %13, %py_sha3_new_impl.exit
   %.031 = phi ptr [ null, %24 ], [ %.0.i, %py_sha3_new_impl.exit ], [ null, %13 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.031
 }
 
@@ -755,7 +749,7 @@ _sha3_sha3_224_copy_impl.exit:                    ; preds = %2, %_PyMutex_Lock.e
 ; Function Attrs: nounwind uwtable
 define internal ptr @_sha3_sha3_224_digest(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %4, align 8, !tbaa !51, !range !58, !noundef !59
   %6 = trunc nuw i8 %5 to i1
@@ -794,14 +788,14 @@ _sha3_sha3_224_digest_impl.exit:                  ; preds = %_PyMutex_Lock.exit.
   %23 = call i32 @python_hashlib_Hacl_Hash_SHA3_hash_len(ptr noundef %22) #4
   %24 = zext i32 %23 to i64
   %25 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %3, i64 noundef %24) #4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %25
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_sha3_sha3_224_hexdigest(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %4, align 8, !tbaa !51, !range !58, !noundef !59
   %6 = trunc nuw i8 %5 to i1
@@ -840,14 +834,14 @@ _sha3_sha3_224_hexdigest_impl.exit:               ; preds = %_PyMutex_Lock.exit.
   %23 = call i32 @python_hashlib_Hacl_Hash_SHA3_hash_len(ptr noundef %22) #4
   %24 = zext i32 %23 to i64
   %25 = call ptr @_Py_strhex(ptr noundef nonnull %3, i64 noundef %24) #4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %25
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @_sha3_sha3_224_update(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !22
   %5 = getelementptr i8, ptr %.val, i64 168
@@ -980,7 +974,7 @@ sha3_update.exit23:                               ; preds = %.lr.ph.i20, %51
 
 63:                                               ; preds = %13, %62, %20, %11, %7
   %.0 = phi ptr [ null, %7 ], [ null, %20 ], [ @_Py_NoneStruct, %62 ], [ null, %11 ], [ null, %13 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -1168,10 +1162,10 @@ define internal ptr @SHA3_get_rate_bits(ptr noundef readonly captures(none) %0, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @SHA3_get_suffix(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca [2 x i8], align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 6, ptr %3, align 2
   %4 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %3, i64 noundef 1) #4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %4
 }
 
@@ -1190,14 +1184,14 @@ declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr no
 declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @python_hashlib_Hacl_Hash_SHA3_malloc(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_sha3_shake_128_digest(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @_PyLong_UnsignedLong_Converter(ptr noundef %1, ptr noundef nonnull %3) #4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %_sha3_shake_128_digest_impl.exit, label %5
@@ -1239,14 +1233,14 @@ define internal ptr @_sha3_shake_128_digest(ptr noundef readonly captures(none) 
 
 _sha3_shake_128_digest_impl.exit:                 ; preds = %21, %13, %8, %2
   %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ %14, %13 ], [ %22, %21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_sha3_shake_128_hexdigest(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @_PyLong_UnsignedLong_Converter(ptr noundef %1, ptr noundef nonnull %3) #4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %_sha3_shake_128_hexdigest_impl.exit, label %5
@@ -1288,7 +1282,7 @@ define internal ptr @_sha3_shake_128_hexdigest(ptr noundef readonly captures(non
 
 _sha3_shake_128_hexdigest_impl.exit:              ; preds = %21, %13, %8, %2
   %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ %14, %13 ], [ %22, %21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -1311,17 +1305,23 @@ define internal ptr @SHAKE_get_digest_size(ptr readnone captures(none) %0, ptr r
 ; Function Attrs: nounwind uwtable
 define internal ptr @SHAKE_get_suffix(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca [2 x i8], align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 31, ptr %3, align 2
   %4 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %3, i64 noundef 1) #4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %4
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

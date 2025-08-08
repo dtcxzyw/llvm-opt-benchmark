@@ -24,7 +24,7 @@ define dso_local void @meshopt_spatialSortRemap(ptr noundef captures(none) %0, p
   %6 = alloca [3 x float], align 4
   %7 = alloca %class.meshopt_Allocator, align 8
   %8 = alloca [1024 x [3 x i32]], align 16
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %7, i8 0, i64 200, i1 false)
   %9 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8, !tbaa !4
   %10 = icmp ugt i64 %2, 4611686018427387903
@@ -38,9 +38,9 @@ define dso_local void @meshopt_spatialSortRemap(ptr noundef captures(none) %0, p
   store i64 1, ptr %15, align 8, !tbaa !8
   store ptr %13, ptr %7, align 8, !tbaa !4
   %16 = lshr i64 %3, 2
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) @__const._ZN7meshoptL12computeOrderEPjPKfmm.minv, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) @__const._ZN7meshoptL12computeOrderEPjPKfmm.maxv, i64 12, i1 false)
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -80,9 +80,9 @@ define dso_local void @meshopt_spatialSortRemap(ptr noundef captures(none) %0, p
   br i1 %.not.i, label %.thread, label %.lr.ph55.i
 
 .thread:                                          ; preds = %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 12288, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(12288) %8, i8 0, i64 12288, i1 false)
   br label %.preheader.i.preheader
 
@@ -178,9 +178,9 @@ define dso_local void @meshopt_spatialSortRemap(ptr noundef captures(none) %0, p
   br i1 %exitcond60.not.i, label %105, label %.lr.ph55.i, !llvm.loop !18
 
 105:                                              ; preds = %.lr.ph55.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 12288, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(12288) %8, i8 0, i64 12288, i1 false)
   br label %.lr.ph.i40
 
@@ -324,7 +324,7 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit44:   ; preds = %_ZN7meshoptL16compu
 180:                                              ; preds = %_ZN7meshoptL16computeHistogramERA1024_A3_jPKjm.exit
   %181 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 12288, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %200
 
 .lr.ph:                                           ; preds = %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit44, %.lr.ph
@@ -337,7 +337,7 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit44:   ; preds = %_ZN7meshoptL16compu
   br i1 %exitcond.not, label %.lr.ph.i46, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge68:                                    ; preds = %.lr.ph67, %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit44
-  call void @llvm.lifetime.end.p0(i64 12288, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %185
 
 185:                                              ; preds = %186, %._crit_edge68
@@ -357,11 +357,11 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit44:   ; preds = %_ZN7meshoptL16compu
   %192 = landingpad { ptr, i32 }
           catch ptr null
   %193 = extractvalue { ptr, i32 } %192, 0
-  tail call void @__clang_call_terminate(ptr %193) #11
+  tail call void @__clang_call_terminate(ptr %193) #10
   unreachable
 
 _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %185
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 .lr.ph67:                                         ; preds = %164, %.lr.ph67
@@ -378,21 +378,15 @@ _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %185
 
 200:                                              ; preds = %180, %178
   %.pn = phi { ptr, i32 } [ %181, %180 ], [ %179, %178 ]
-  call void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %7) #10
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #10
+  call void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i64, ptr %2, align 8, !tbaa !8
   br label %4
@@ -417,7 +411,7 @@ define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnu
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #11
+  tail call void @__clang_call_terminate(ptr %13) #10
   unreachable
 }
 
@@ -426,7 +420,7 @@ define dso_local void @meshopt_spatialSortTriangles(ptr noundef writeonly captur
   %7 = alloca %class.meshopt_Allocator, align 8
   %8 = udiv i64 %2, 3
   %9 = lshr i64 %5, 2
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %7, i8 0, i64 200, i1 false)
   %10 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8, !tbaa !4
   %11 = icmp ugt i64 %2, 4611686018427387905
@@ -569,11 +563,11 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit:     ; preds = %6
   %93 = landingpad { ptr, i32 }
           catch ptr null
   %94 = extractvalue { ptr, i32 } %93, 0
-  tail call void @__clang_call_terminate(ptr %94) #11
+  tail call void @__clang_call_terminate(ptr %94) #10
   unreachable
 
 _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %._crit_edge83
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 .lr.ph82:                                         ; preds = %85, %.lr.ph82
@@ -605,50 +599,56 @@ _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %._crit_edge83
 
 113:                                              ; preds = %81, %83, %21
   %.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %84, %83 ], [ %82, %81 ]
-  call void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %7) #10
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #10
+  call void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #5
+declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
-  tail call void @_ZSt9terminatev() #11
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
+  tail call void @_ZSt9terminatev() #10
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #7
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #8
+declare void @_ZdlPv(ptr noundef) #7
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold nofree noreturn }
-attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn nounwind }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

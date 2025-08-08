@@ -24,9 +24,9 @@ define noundef i32 @dgemv_thread_n(i64 noundef %0, i64 noundef %1, double nounde
   %16 = alloca [16 x %struct.blas_queue], align 16
   %17 = alloca [17 x i64], align 16
   store double %2, ptr %14, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %15) #6
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %16) #6
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store i64 %0, ptr %18, align 8, !tbaa !7
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 56
@@ -62,7 +62,7 @@ define noundef i32 @dgemv_thread_n(i64 noundef %0, i64 noundef %1, double nounde
   %33 = trunc i64 %32 to i32
   %34 = trunc i64 %.0100113 to i32
   %35 = sub i32 %10, %34
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %36 = icmp ult i32 %35, 2
   br i1 %36, label %blas_quickdivide.exit, label %37
 
@@ -81,7 +81,7 @@ define noundef i32 @dgemv_thread_n(i64 noundef %0, i64 noundef %1, double nounde
 blas_quickdivide.exit:                            ; preds = %28, %37
   %43 = phi i64 [ %.pre, %37 ], [ %29, %28 ]
   %.0.i = phi i32 [ %.0..0..0..0..0..0..i, %37 ], [ %33, %28 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %44 = call i32 @llvm.umax.i32(i32 %.0.i, i32 4)
   %spec.store.select = zext i32 %44 to i64
   %spec.select = call i64 @llvm.umin.i64(i64 %.096114, i64 %spec.store.select)
@@ -144,7 +144,7 @@ blas_quickdivide.exit:                            ; preds = %28, %37
   %76 = trunc i64 %75 to i32
   %77 = trunc i64 %.2102115 to i32
   %78 = sub i32 %10, %77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %79 = icmp ult i32 %78, 2
   br i1 %79, label %blas_quickdivide.exit110, label %80
 
@@ -163,7 +163,7 @@ blas_quickdivide.exit:                            ; preds = %28, %37
 blas_quickdivide.exit110:                         ; preds = %.lr.ph118, %80
   %86 = phi i64 [ %.pre130, %80 ], [ %72, %.lr.ph118 ]
   %.0.i109 = phi i32 [ %.0..0..0..0..0..0..i108, %80 ], [ %76, %.lr.ph118 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %87 = call i32 @llvm.umax.i32(i32 %.0.i109, i32 4)
   %spec.store.select1 = zext i32 %87 to i64
   %spec.select107 = call i64 @llvm.umin.i64(i64 %.197116, i64 %spec.store.select1)
@@ -244,14 +244,11 @@ blas_quickdivide.exit110:                         ; preds = %.lr.ph118, %80
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge122.us, %.loopexit.critedge, %67, %.loopexit112, %.loopexit112.thread134
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %17) #6
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @gemv_kernel(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr readnone captures(none) %3, ptr noundef %4, i64 noundef %5) #0 {
@@ -321,17 +318,20 @@ define internal noundef i32 @gemv_kernel(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #2
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+
+declare i32 @exec_blas(i64 noundef, ptr noundef) local_unnamed_addr #3
+
+declare i32 @dgemv_n(i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
-declare i32 @exec_blas(i64 noundef, ptr noundef) local_unnamed_addr #4
-
-declare i32 @dgemv_n(i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #5
@@ -340,10 +340,10 @@ declare i32 @llvm.umax.i32(i32, i32) #5
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

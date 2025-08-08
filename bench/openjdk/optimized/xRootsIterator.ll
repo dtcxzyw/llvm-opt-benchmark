@@ -208,7 +208,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %2, %15
   %indvars.iv.i = phi i64 [ 0, %_ZN10XStatTimerC2ERK10XStatPhase.exit ], [ %indvars.iv.next.i, %_ZN10OopStorage8ParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_.exit.i ]
   %20 = getelementptr inbounds nuw [5 x ptr], ptr %0, i64 0, i64 %indvars.iv.i
   %21 = load ptr, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %22 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull %4) #7
   br i1 %22, label %.lr.ph.i.i.i.i, label %_ZN10OopStorage8ParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_.exit.i
@@ -255,13 +255,13 @@ _ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI10OopCl
   br i1 %43, label %24, label %_ZN10OopStorage8ParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_.exit.i, !llvm.loop !9
 
 _ZN10OopStorage8ParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_.exit.i: ; preds = %42, %19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i2 = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %.not.i2, label %_ZN27OopStorageSetStrongParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_.exit, label %19
 
 _ZN27OopStorageSetStrongParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_.exit: ; preds = %_ZN10OopStorage8ParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = load i8, ptr %5, align 8
   %45 = trunc i8 %44 to i1
   br i1 %45, label %46, label %_ZN10XStatTimerD2Ev.exit
@@ -281,7 +281,7 @@ _ZN27OopStorageSetStrongParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_.exit: ; pr
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN27OopStorageSetStrongParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_.exit, %46
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -313,7 +313,7 @@ define hidden void @_ZN19XStrongCLDsIterator5applyEP10CLDClosure(ptr noundef non
 
 _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %2, %14
   call void @_ZN20ClassLoaderDataGraph20always_strong_cld_doEP10CLDClosure(ptr noundef %1) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = load i8, ptr %4, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %_ZN10XStatTimerD2Ev.exit
@@ -333,7 +333,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %2, %14
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit, %19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -446,7 +446,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %2, %14
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %51, %53
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %54 = load i8, ptr %4, align 8
   %55 = trunc i8 %54 to i1
   br i1 %55, label %56, label %_ZN10XStatTimerD2Ev.exit
@@ -466,7 +466,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %51, %53
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN12ResourceMarkD2Ev.exit, %56
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -530,7 +530,7 @@ define hidden void @_ZN17XNMethodsIterator5applyEP14NMethodClosure(ptr noundef n
 
 _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %2, %14
   call void @_ZN8XNMethod11nmethods_doEP14NMethodClosure(ptr noundef %1) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = load i8, ptr %4, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %_ZN10XStatTimerD2Ev.exit
@@ -550,7 +550,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %2, %14
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit, %19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -631,7 +631,7 @@ _ZN14XParallelApplyI28XStrongOopStorageSetIteratorE5applyI10OopClosureEEvPT_.exi
   br i1 %19, label %_ZN14XParallelApplyI19XStrongCLDsIteratorE5applyI10CLDClosureEEvPT_.exit, label %20
 
 20:                                               ; preds = %_ZN14XParallelApplyI28XStrongOopStorageSetIteratorE5applyI10OopClosureEEvPT_.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN17XStatTimerDisable7_activeE)
   %22 = load i32, ptr %21, align 4
   %.not.i.i.i = icmp eq i32 %22, 0
@@ -656,7 +656,7 @@ _ZN14XParallelApplyI28XStrongOopStorageSetIteratorE5applyI10OopClosureEEvPT_.exi
 
 _ZN10XStatTimerC2ERK10XStatPhase.exit.i.i:        ; preds = %30, %20
   call void @_ZN20ClassLoaderDataGraph20always_strong_cld_doEP10CLDClosure(ptr noundef %2) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %33 = load i8, ptr %9, align 8
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %_ZN19XStrongCLDsIterator5applyEP10CLDClosure.exit.i
@@ -676,8 +676,8 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit.i.i:        ; preds = %30, %20
   br label %_ZN19XStrongCLDsIterator5applyEP10CLDClosure.exit.i
 
 _ZN19XStrongCLDsIterator5applyEP10CLDClosure.exit.i: ; preds = %35, %_ZN10XStatTimerC2ERK10XStatPhase.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %44 = load volatile i8, ptr %17, align 1
   %45 = trunc i8 %44 to i1
   br i1 %45, label %_ZN14XParallelApplyI19XStrongCLDsIteratorE5applyI10CLDClosureEEvPT_.exit, label %46
@@ -715,7 +715,7 @@ _ZN14XParallelApplyI20XJavaThreadsIteratorE5applyI13ThreadClosureEEvPT_.exit: ; 
   br i1 %60, label %_ZN14XParallelApplyI17XNMethodsIteratorE5applyI14NMethodClosureEEvPT_.exit, label %61
 
 61:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %62 = call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN17XStatTimerDisable7_activeE)
   %63 = load i32, ptr %62, align 4
   %.not.i.i.i5 = icmp eq i32 %63, 0
@@ -740,7 +740,7 @@ _ZN14XParallelApplyI20XJavaThreadsIteratorE5applyI13ThreadClosureEEvPT_.exit: ; 
 
 _ZN10XStatTimerC2ERK10XStatPhase.exit.i.i6:       ; preds = %71, %61
   call void @_ZN8XNMethod11nmethods_doEP14NMethodClosure(ptr noundef %4) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %74 = load i8, ptr %7, align 8
   %75 = trunc i8 %74 to i1
   br i1 %75, label %76, label %_ZN17XNMethodsIterator5applyEP14NMethodClosure.exit.i
@@ -760,8 +760,8 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit.i.i6:       ; preds = %71, %61
   br label %_ZN17XNMethodsIterator5applyEP14NMethodClosure.exit.i
 
 _ZN17XNMethodsIterator5applyEP14NMethodClosure.exit.i: ; preds = %76, %_ZN10XStatTimerC2ERK10XStatPhase.exit.i.i6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %85 = load volatile i8, ptr %58, align 1
   %86 = trunc i8 %85 to i1
   br i1 %86, label %_ZN14XParallelApplyI17XNMethodsIteratorE5applyI14NMethodClosureEEvPT_.exit, label %87
@@ -810,7 +810,7 @@ define hidden void @_ZN26XWeakOopStorageSetIterator5applyEP10OopClosure(ptr noun
 
 _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %2, %14
   call void @_ZN25OopStorageSetWeakParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_(ptr noundef nonnull align 8 dereferenceable(568) %0, ptr noundef %1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = load i8, ptr %4, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %_ZN10XStatTimerD2Ev.exit
@@ -830,7 +830,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %2, %14
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit, %19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -858,7 +858,7 @@ define linkonce_odr hidden void @_ZN25OopStorageSetWeakParStateILb1ELb0EE7oops_d
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18DeadCounterClosureI10OopClosureE, i64 16), ptr %5, align 8
   store ptr %1, ptr %7, align 8
   store i64 0, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %17 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull %4) #7
   br i1 %17, label %.lr.ph.i.i.i, label %_ZN10OopStorage8ParStateILb1ELb0EE7oops_doI18DeadCounterClosureI10OopClosureEEEvPT_.exit
@@ -905,13 +905,13 @@ _ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI18DeadC
   br i1 %38, label %19, label %_ZN10OopStorage8ParStateILb1ELb0EE7oops_doI18DeadCounterClosureI10OopClosureEEEvPT_.exit, !llvm.loop !14
 
 _ZN10OopStorage8ParStateILb1ELb0EE7oops_doI18DeadCounterClosureI10OopClosureEEEvPT_.exit: ; preds = %37, %16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %39 = load i64, ptr %8, align 8
   call void @_ZN10OopStorage13BasicParState18increment_num_deadEm(ptr noundef nonnull align 8 dereferenceable(48) %13, i64 noundef %39) #7
   br label %63
 
 40:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %41 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull %3) #7
   br i1 %41, label %.lr.ph.i.i.i10, label %_ZN10OopStorage8ParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_.exit
@@ -958,7 +958,7 @@ _ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI10OopCl
   br i1 %62, label %43, label %_ZN10OopStorage8ParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_.exit, !llvm.loop !9
 
 _ZN10OopStorage8ParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_.exit: ; preds = %61, %40
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %63
 
 63:                                               ; preds = %_ZN10OopStorage8ParStateILb1ELb0EE7oops_doI18DeadCounterClosureI10OopClosureEEEvPT_.exit, %_ZN10OopStorage8ParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_.exit
@@ -1020,7 +1020,7 @@ define hidden void @_ZN18XWeakRootsIterator5applyEP10OopClosure(ptr noundef nonn
   br i1 %7, label %_ZN14XParallelApplyI26XWeakOopStorageSetIteratorE5applyI10OopClosureEEvPT_.exit, label %8
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN17XStatTimerDisable7_activeE)
   %10 = load i32, ptr %9, align 4
   %.not.i.i.i = icmp eq i32 %10, 0
@@ -1045,7 +1045,7 @@ define hidden void @_ZN18XWeakRootsIterator5applyEP10OopClosure(ptr noundef nonn
 
 _ZN10XStatTimerC2ERK10XStatPhase.exit.i.i:        ; preds = %18, %8
   call void @_ZN25OopStorageSetWeakParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_(ptr noundef nonnull align 8 dereferenceable(569) %0, ptr noundef %1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = load i8, ptr %4, align 8
   %22 = trunc i8 %21 to i1
   br i1 %22, label %23, label %_ZN26XWeakOopStorageSetIterator5applyEP10OopClosure.exit.i
@@ -1065,8 +1065,8 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit.i.i:        ; preds = %18, %8
   br label %_ZN26XWeakOopStorageSetIterator5applyEP10OopClosure.exit.i
 
 _ZN26XWeakOopStorageSetIterator5applyEP10OopClosure.exit.i: ; preds = %23, %_ZN10XStatTimerC2ERK10XStatPhase.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = load volatile i8, ptr %5, align 8
   %33 = trunc i8 %32 to i1
   br i1 %33, label %_ZN14XParallelApplyI26XWeakOopStorageSetIteratorE5applyI10OopClosureEEvPT_.exit, label %34
@@ -2166,10 +2166,10 @@ define internal void @_GLOBAL__sub_I_xRootsIterator.cpp() #3 section ".text.star
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

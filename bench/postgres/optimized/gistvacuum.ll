@@ -208,7 +208,7 @@ BufferGetPage.exit.i:                             ; preds = %74, %68
   br i1 %.not103.i, label %182, label %99
 
 99:                                               ; preds = %97
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %100 = getelementptr i8, ptr %.0.i.i.i, i64 12
   %.val.i = load i16, ptr %100, align 4
   %101 = icmp ult i16 %.val.i, 25
@@ -427,7 +427,7 @@ BufferGetPage.exit.i:                             ; preds = %74, %68
   br label %gistvacuumpage.exit
 
 212:                                              ; preds = %178, %177, %.thread118.i
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @UnlockReleaseBuffer(i32 noundef %66) #4
   %.not109.i = icmp eq i32 %.1.i, -1
   br i1 %.not109.i, label %gistvacuumpage.exit, label %64
@@ -449,7 +449,7 @@ gistvacuumpage.exit:                              ; preds = %212, %.thread120.i
 216:                                              ; preds = %215, %213
   store i32 %56, ptr %1, align 8
   %217 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %218 = call i64 @intset_num_entries(ptr noundef %18) #4
   %219 = trunc i64 %218 to i32
   call void @intset_begin_iterate(ptr noundef %17) #4
@@ -466,8 +466,8 @@ gistvacuumpage.exit:                              ; preds = %212, %.thread120.i
   br i1 %222, label %223, label %gistvacuum_delete_empty_pages.exit
 
 223:                                              ; preds = %221
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %224 = load i64, ptr %5, align 8
   %225 = trunc i64 %224 to i32
   %226 = load ptr, ptr %49, align 8
@@ -809,13 +809,13 @@ gistdeletepage.exit.thread.i:                     ; preds = %409, %359, %350, %3
 
 420:                                              ; preds = %.thread.i41, %251
   %.1.i37 = phi i32 [ %.087.i, %251 ], [ %419, %.thread.i41 ]
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i38 = icmp eq i32 %.1.i37, 0
   br i1 %.not.i38, label %gistvacuum_delete_empty_pages.exit, label %221
 
 gistvacuum_delete_empty_pages.exit:               ; preds = %221, %420, %216
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @MemoryContextDelete(ptr noundef %15) #4
   ret void
 }
@@ -860,9 +860,6 @@ define dso_local noundef ptr @gistvacuumcleanup(ptr noundef readonly captures(no
   ret ptr %.012
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @GenerationContextCreate(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 declare ptr @intset_create() local_unnamed_addr #1
@@ -880,9 +877,6 @@ declare void @UnlockRelationForExtension(ptr noundef, i32 noundef) local_unnamed
 declare void @IndexFreeSpaceMapVacuum(ptr noundef) local_unnamed_addr #1
 
 declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @vacuum_delay_point(i1 noundef zeroext) local_unnamed_addr #1
 
@@ -933,6 +927,12 @@ declare i64 @ReadNextFullTransactionId() local_unnamed_addr #1
 declare void @PageIndexTupleDelete(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 declare i64 @gistXLogPageDelete(i32 noundef, i64, i32 noundef, i16 noundef zeroext) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #3

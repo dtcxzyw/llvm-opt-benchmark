@@ -268,7 +268,7 @@ entry:
 define hidden void @_ZN6hermes2vm8Metadata7Builder8addFieldEPKNS0_13GCPointerBaseE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %fieldLocation) local_unnamed_addr #5 align 2 {
 entry:
   %offset.i = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %offset.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %offset.i)
   %0 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %fieldLocation to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -278,7 +278,7 @@ entry:
   %mapGCPointerBase_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call2.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIhPKcSt4lessIhESaISt4pairIKhS1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %mapGCPointerBase_.i, ptr noundef nonnull align 1 dereferenceable(1) %offset.i)
   store ptr null, ptr %call2.i, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %offset.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %offset.i)
   ret void
 }
 
@@ -302,7 +302,7 @@ entry:
 define hidden void @_ZN6hermes2vm8Metadata7Builder8addFieldEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %fieldLocation) local_unnamed_addr #5 align 2 {
 entry:
   %offset.i = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %offset.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %offset.i)
   %0 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %fieldLocation to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -312,7 +312,7 @@ entry:
   %mapGCHermesValue_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %call2.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIhPKcSt4lessIhESaISt4pairIKhS1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %mapGCHermesValue_.i, ptr noundef nonnull align 1 dereferenceable(1) %offset.i)
   store ptr null, ptr %call2.i, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %offset.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %offset.i)
   ret void
 }
 
@@ -336,7 +336,7 @@ entry:
 define hidden void @_ZN6hermes2vm8Metadata7Builder8addFieldEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %fieldLocation) local_unnamed_addr #5 align 2 {
 entry:
   %offset.i = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %offset.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %offset.i)
   %0 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %fieldLocation to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -346,7 +346,7 @@ entry:
   %mapGCSmallHermesValue_.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %call2.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIhPKcSt4lessIhESaISt4pairIKhS1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %mapGCSmallHermesValue_.i, ptr noundef nonnull align 1 dereferenceable(1) %offset.i)
   store ptr null, ptr %call2.i, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %offset.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %offset.i)
   ret void
 }
 
@@ -370,7 +370,7 @@ entry:
 define hidden void @_ZN6hermes2vm8Metadata7Builder8addFieldEPKNS0_10GCSymbolIDE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %fieldLocation) local_unnamed_addr #5 align 2 {
 entry:
   %offset.i = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %offset.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %offset.i)
   %0 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %fieldLocation to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -380,7 +380,7 @@ entry:
   %mapGCSymbolID_.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %call2.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIhPKcSt4lessIhESaISt4pairIKhS1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %mapGCSymbolID_.i, ptr noundef nonnull align 1 dereferenceable(1) %offset.i)
   store ptr null, ptr %call2.i, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %offset.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %offset.i)
   ret void
 }
 
@@ -1377,10 +1377,10 @@ __cxx_global_var_init.exit:                       ; preds = %arrayinit.body.i
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #1 = { mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -397,17 +397,11 @@ if.end22:                                         ; preds = %if.then12, %if.then
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
-define void @_ZN3irr5scene16CCameraSceneNode27recalculateProjectionMatrixEv(ptr noundef nonnull align 8 captures(none) dereferenceable(646) initializes((232, 233), (496, 560)) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode27recalculateProjectionMatrixEv(ptr noundef nonnull align 8 captures(none) dereferenceable(646) initializes((232, 233), (496, 560)) %this) local_unnamed_addr #2 align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 496
   %Fovy = getelementptr inbounds nuw i8, ptr %this, i64 284
@@ -456,7 +450,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene16CCameraSceneNode19recalculateViewAreaEv(ptr noundef nonnull align 8 dereferenceable(646) %this) local_unnamed_addr #4 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode19recalculateViewAreaEv(ptr noundef nonnull align 8 dereferenceable(646) %this) local_unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 232
@@ -890,7 +884,7 @@ if.end20:                                         ; preds = %if.then10, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5scene16CCameraSceneNode23setInputReceiverEnabledEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(646) initializes((644, 645)) %this, i1 noundef zeroext %enabled) unnamed_addr #5 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode23setInputReceiverEnabledEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(646) initializes((644, 645)) %this, i1 noundef zeroext %enabled) unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %enabled to i8
   %InputReceiverEnabled = getelementptr inbounds nuw i8, ptr %this, i64 644
@@ -899,7 +893,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3irr5scene16CCameraSceneNode22isInputReceiverEnabledEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(646) %this) unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK3irr5scene16CCameraSceneNode22isInputReceiverEnabledEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(646) %this) unnamed_addr #5 align 2 {
 entry:
   %InputReceiverEnabled = getelementptr inbounds nuw i8, ptr %this, i64 644
   %0 = load i8, ptr %InputReceiverEnabled, align 4, !tbaa !50, !range !67, !noundef !68
@@ -908,7 +902,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5scene16CCameraSceneNode19setProjectionMatrixERKNS_4core8CMatrix4IfEEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(646) initializes((232, 233), (496, 560)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %projection, i1 noundef zeroext %isOrthogonal) unnamed_addr #7 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode19setProjectionMatrixERKNS_4core8CMatrix4IfEEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(646) initializes((232, 233), (496, 560)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %projection, i1 noundef zeroext %isOrthogonal) unnamed_addr #6 align 2 {
 entry:
   %frombool = zext i1 %isOrthogonal to i8
   %IsOrthogonal = getelementptr inbounds nuw i8, ptr %this, i64 232
@@ -919,21 +913,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(64) ptr @_ZNK3irr5scene16CCameraSceneNode19getProjectionMatrixEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(646) %this) unnamed_addr #8 align 2 {
+define noundef nonnull align 4 dereferenceable(64) ptr @_ZNK3irr5scene16CCameraSceneNode19getProjectionMatrixEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(646) %this) unnamed_addr #7 align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 496
   ret ptr %arrayidx.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(64) ptr @_ZNK3irr5scene16CCameraSceneNode13getViewMatrixEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(646) %this) unnamed_addr #8 align 2 {
+define noundef nonnull align 4 dereferenceable(64) ptr @_ZNK3irr5scene16CCameraSceneNode13getViewMatrixEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(646) %this) unnamed_addr #7 align 2 {
 entry:
   %Matrices.i = getelementptr inbounds nuw i8, ptr %this, i64 432
   ret ptr %Matrices.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5scene16CCameraSceneNode21setViewMatrixAffectorERKNS_4core8CMatrix4IfEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(646) initializes((580, 644)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %affector) unnamed_addr #7 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode21setViewMatrixAffectorERKNS_4core8CMatrix4IfEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(646) initializes((580, 644)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %affector) unnamed_addr #6 align 2 {
 entry:
   %Affector = getelementptr inbounds nuw i8, ptr %this, i64 580
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %Affector, ptr noundef nonnull align 4 dereferenceable(64) %affector, i64 64, i1 false), !tbaa.struct !69
@@ -941,26 +935,26 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(64) ptr @_ZNK3irr5scene16CCameraSceneNode21getViewMatrixAffectorEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(646) %this) unnamed_addr #8 align 2 {
+define noundef nonnull align 4 dereferenceable(64) ptr @_ZNK3irr5scene16CCameraSceneNode21getViewMatrixAffectorEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(646) %this) unnamed_addr #7 align 2 {
 entry:
   %Affector = getelementptr inbounds nuw i8, ptr %this, i64 580
   ret ptr %Affector
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CCameraSceneNode7OnEventERKNS_6SEventE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %event) unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CCameraSceneNode7OnEventERKNS_6SEventE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %event) unnamed_addr #7 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZThn224_N3irr5scene16CCameraSceneNode7OnEventERKNS_6SEventE(ptr readnone captures(none) %this, ptr nonnull readnone align 8 captures(none) %event) unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZThn224_N3irr5scene16CCameraSceneNode7OnEventERKNS_6SEventE(ptr readnone captures(none) %this, ptr nonnull readnone align 8 captures(none) %event) unnamed_addr #7 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene16CCameraSceneNode9setTargetERKNS_4core8vector3dIfEE(ptr noundef nonnull align 8 dereferenceable(646) initializes((260, 272)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %pos) unnamed_addr #4 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode9setTargetERKNS_4core8vector3dIfEE(ptr noundef nonnull align 8 dereferenceable(646) initializes((260, 272)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %pos) unnamed_addr #3 align 2 {
 entry:
   %Target = getelementptr inbounds nuw i8, ptr %this, i64 260
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %Target, ptr noundef nonnull align 4 dereferenceable(12) %pos, i64 12, i1 false), !tbaa.struct !12
@@ -1025,7 +1019,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene16CCameraSceneNode11setRotationERKNS_4core8vector3dIfEE(ptr noundef nonnull align 8 dereferenceable(646) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %rotation) unnamed_addr #4 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode11setRotationERKNS_4core8vector3dIfEE(ptr noundef nonnull align 8 dereferenceable(646) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %rotation) unnamed_addr #3 align 2 {
 entry:
   %TargetAndRotationAreBound = getelementptr inbounds nuw i8, ptr %this, i64 645
   %0 = load i8, ptr %TargetAndRotationAreBound, align 1, !tbaa !51, !range !67, !noundef !68
@@ -1113,14 +1107,14 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(12) ptr @_ZNK3irr5scene16CCameraSceneNode9getTargetEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(646) %this) unnamed_addr #8 align 2 {
+define noundef nonnull align 4 dereferenceable(12) ptr @_ZNK3irr5scene16CCameraSceneNode9getTargetEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(646) %this) unnamed_addr #7 align 2 {
 entry:
   %Target = getelementptr inbounds nuw i8, ptr %this, i64 260
   ret ptr %Target
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5scene16CCameraSceneNode11setUpVectorERKNS_4core8vector3dIfEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(646) initializes((272, 284)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %pos) unnamed_addr #7 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode11setUpVectorERKNS_4core8vector3dIfEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(646) initializes((272, 284)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %pos) unnamed_addr #6 align 2 {
 entry:
   %UpVector = getelementptr inbounds nuw i8, ptr %this, i64 272
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %UpVector, ptr noundef nonnull align 4 dereferenceable(12) %pos, i64 12, i1 false), !tbaa.struct !12
@@ -1128,14 +1122,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(12) ptr @_ZNK3irr5scene16CCameraSceneNode11getUpVectorEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(646) %this) unnamed_addr #8 align 2 {
+define noundef nonnull align 4 dereferenceable(12) ptr @_ZNK3irr5scene16CCameraSceneNode11getUpVectorEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(646) %this) unnamed_addr #7 align 2 {
 entry:
   %UpVector = getelementptr inbounds nuw i8, ptr %this, i64 272
   ret ptr %UpVector
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZNK3irr5scene16CCameraSceneNode12getNearValueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(646) %this) unnamed_addr #6 align 2 {
+define noundef float @_ZNK3irr5scene16CCameraSceneNode12getNearValueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(646) %this) unnamed_addr #5 align 2 {
 entry:
   %ZNear = getelementptr inbounds nuw i8, ptr %this, i64 292
   %0 = load float, ptr %ZNear, align 4, !tbaa !56
@@ -1143,7 +1137,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZNK3irr5scene16CCameraSceneNode11getFarValueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(646) %this) unnamed_addr #6 align 2 {
+define noundef float @_ZNK3irr5scene16CCameraSceneNode11getFarValueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(646) %this) unnamed_addr #5 align 2 {
 entry:
   %ZFar = getelementptr inbounds nuw i8, ptr %this, i64 296
   %0 = load float, ptr %ZFar, align 8, !tbaa !46
@@ -1151,7 +1145,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZNK3irr5scene16CCameraSceneNode14getAspectRatioEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(646) %this) unnamed_addr #6 align 2 {
+define noundef float @_ZNK3irr5scene16CCameraSceneNode14getAspectRatioEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(646) %this) unnamed_addr #5 align 2 {
 entry:
   %Aspect = getelementptr inbounds nuw i8, ptr %this, i64 288
   %0 = load float, ptr %Aspect, align 8, !tbaa !55
@@ -1159,7 +1153,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZNK3irr5scene16CCameraSceneNode6getFOVEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(646) %this) unnamed_addr #6 align 2 {
+define noundef float @_ZNK3irr5scene16CCameraSceneNode6getFOVEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(646) %this) unnamed_addr #5 align 2 {
 entry:
   %Fovy = getelementptr inbounds nuw i8, ptr %this, i64 284
   %0 = load float, ptr %Fovy, align 4, !tbaa !58
@@ -1167,7 +1161,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
-define void @_ZN3irr5scene16CCameraSceneNode12setNearValueEf(ptr noundef nonnull align 8 captures(none) dereferenceable(646) initializes((232, 233), (292, 296), (496, 560), (564, 568)) %this, float noundef %f) unnamed_addr #3 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode12setNearValueEf(ptr noundef nonnull align 8 captures(none) dereferenceable(646) initializes((232, 233), (292, 296), (496, 560), (564, 568)) %this, float noundef %f) unnamed_addr #2 align 2 {
 entry:
   %ZNear = getelementptr inbounds nuw i8, ptr %this, i64 292
   store float %f, ptr %ZNear, align 4, !tbaa !56
@@ -1221,7 +1215,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
-define void @_ZN3irr5scene16CCameraSceneNode11setFarValueEf(ptr noundef nonnull align 8 captures(none) dereferenceable(646) initializes((232, 233), (296, 300), (496, 560), (564, 568)) %this, float noundef %f) unnamed_addr #3 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode11setFarValueEf(ptr noundef nonnull align 8 captures(none) dereferenceable(646) initializes((232, 233), (296, 300), (496, 560), (564, 568)) %this, float noundef %f) unnamed_addr #2 align 2 {
 entry:
   %ZFar = getelementptr inbounds nuw i8, ptr %this, i64 296
   store float %f, ptr %ZFar, align 8, !tbaa !46
@@ -1275,7 +1269,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
-define void @_ZN3irr5scene16CCameraSceneNode14setAspectRatioEf(ptr noundef nonnull align 8 captures(none) dereferenceable(646) initializes((232, 233), (288, 292), (496, 560)) %this, float noundef %f) unnamed_addr #3 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode14setAspectRatioEf(ptr noundef nonnull align 8 captures(none) dereferenceable(646) initializes((232, 233), (288, 292), (496, 560)) %this, float noundef %f) unnamed_addr #2 align 2 {
 entry:
   %Aspect = getelementptr inbounds nuw i8, ptr %this, i64 288
   store float %f, ptr %Aspect, align 8, !tbaa !55
@@ -1324,7 +1318,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
-define void @_ZN3irr5scene16CCameraSceneNode6setFOVEf(ptr noundef nonnull align 8 captures(none) dereferenceable(646) initializes((232, 233), (284, 288), (496, 560)) %this, float noundef %f) unnamed_addr #3 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode6setFOVEf(ptr noundef nonnull align 8 captures(none) dereferenceable(646) initializes((232, 233), (284, 288), (496, 560)) %this, float noundef %f) unnamed_addr #2 align 2 {
 entry:
   %Fovy = getelementptr inbounds nuw i8, ptr %this, i64 284
   store float %f, ptr %Fovy, align 4, !tbaa !58
@@ -1484,7 +1478,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene16CCameraSceneNode14updateMatricesEv(ptr noundef nonnull align 8 dereferenceable(646) %this) unnamed_addr #4 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode14updateMatricesEv(ptr noundef nonnull align 8 dereferenceable(646) %this) unnamed_addr #3 align 2 {
 entry:
   %temp.i = alloca %"class.irr::core::CMatrix4", align 4
   %up = alloca %"class.irr::core::vector3d", align 8
@@ -1525,7 +1519,7 @@ if.end.i:                                         ; preds = %entry
 _ZN3irr4core8vector3dIfE9normalizeEv.exit:        ; preds = %if.end.i, %entry
   %tgtv.sroa.0.0 = phi <2 x float> [ %2, %entry ], [ %12, %if.end.i ]
   %tgtv.sroa.9.0 = phi float [ %sub6.i, %entry ], [ %conv18.i, %if.end.i ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %up)
+  call void @llvm.lifetime.start.p0(ptr nonnull %up)
   %UpVector = getelementptr inbounds nuw i8, ptr %this, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %up, ptr noundef nonnull align 8 dereferenceable(12) %UpVector, i64 12, i1 false), !tbaa.struct !12
   %up.0.up.0.up.0. = load <2 x float>, ptr %up, align 8
@@ -1697,31 +1691,31 @@ _ZN3irr4core8CMatrix4IfE25buildCameraLookAtMatrixLHERKNS0_8vector3dIfEES6_S6_.ex
   %arrayidx48.i = getelementptr inbounds nuw i8, ptr %this, i64 492
   store float 1.000000e+00, ptr %arrayidx48.i, align 4, !tbaa !10
   %Affector = getelementptr inbounds nuw i8, ptr %this, i64 580
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %temp.i) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %temp.i, ptr noundef nonnull align 8 dereferenceable(64) %Matrices.i, i64 64, i1 false), !tbaa.struct !69
   %call.i = call noundef nonnull align 4 dereferenceable(64) ptr @_ZN3irr4core8CMatrix4IfE20setbyproduct_nocheckERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(64) %Matrices.i, ptr noundef nonnull align 4 dereferenceable(64) %temp.i, ptr noundef nonnull align 4 dereferenceable(64) %Affector)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %temp.i) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i)
   call void @_ZN3irr5scene16CCameraSceneNode19recalculateViewAreaEv(ptr noundef nonnull align 8 dereferenceable(646) %this)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %up)
+  call void @llvm.lifetime.end.p0(ptr nonnull %up)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(24) ptr @_ZNK3irr5scene16CCameraSceneNode14getBoundingBoxEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(646) %this) unnamed_addr #8 align 2 {
+define noundef nonnull align 4 dereferenceable(24) ptr @_ZNK3irr5scene16CCameraSceneNode14getBoundingBoxEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(646) %this) unnamed_addr #7 align 2 {
 entry:
   %BoundingBox = getelementptr inbounds nuw i8, ptr %this, i64 236
   ret ptr %BoundingBox
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK3irr5scene16CCameraSceneNode14getViewFrustumEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(646) %this) unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZNK3irr5scene16CCameraSceneNode14getViewFrustumEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(646) %this) unnamed_addr #7 align 2 {
 entry:
   %ViewArea = getelementptr inbounds nuw i8, ptr %this, i64 300
   ret ptr %ViewArea
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(64) ptr @_ZN3irr4core8CMatrix4IfE20setbyproduct_nocheckERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(64) %other_a, ptr noundef nonnull align 4 dereferenceable(64) %other_b) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr noundef nonnull align 4 dereferenceable(64) ptr @_ZN3irr4core8CMatrix4IfE20setbyproduct_nocheckERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(64) %other_a, ptr noundef nonnull align 4 dereferenceable(64) %other_b) local_unnamed_addr #8 comdat align 2 {
 entry:
   %0 = load float, ptr %other_a, align 4, !tbaa !10
   %1 = load float, ptr %other_b, align 4, !tbaa !10
@@ -1980,7 +1974,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5scene16CCameraSceneNode21bindTargetAndRotationEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(646) initializes((645, 646)) %this, i1 noundef zeroext %bound) unnamed_addr #5 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode21bindTargetAndRotationEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(646) initializes((645, 646)) %this, i1 noundef zeroext %bound) unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %bound to i8
   %TargetAndRotationAreBound = getelementptr inbounds nuw i8, ptr %this, i64 645
@@ -1989,7 +1983,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3irr5scene16CCameraSceneNode27getTargetAndRotationBindingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(646) %this) unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK3irr5scene16CCameraSceneNode27getTargetAndRotationBindingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(646) %this) unnamed_addr #5 align 2 {
 entry:
   %TargetAndRotationAreBound = getelementptr inbounds nuw i8, ptr %this, i64 645
   %0 = load i8, ptr %TargetAndRotationAreBound, align 1, !tbaa !51, !range !67, !noundef !68
@@ -2126,17 +2120,17 @@ entry:
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5scene16ICameraSceneNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(233) %this) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN3irr5scene16ICameraSceneNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(233) %this) unnamed_addr #8 comdat align 2 {
 entry:
   tail call void @llvm.trap() #24
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5scene16ICameraSceneNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(233) %this) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN3irr5scene16ICameraSceneNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(233) %this) unnamed_addr #8 comdat align 2 {
 entry:
   tail call void @llvm.trap() #24
   unreachable
@@ -2288,7 +2282,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNK3irr5scene10ISceneNode30getTransformedBoundingBoxEdgesERNS_4core5arrayINS2_8vector3dIfEEEE(ptr noundef nonnull align 8 dereferenceable(222) %this, ptr noundef nonnull align 8 dereferenceable(25) %edges) unnamed_addr #4 comdat align 2 {
+define linkonce_odr void @_ZNK3irr5scene10ISceneNode30getTransformedBoundingBoxEdgesERNS_4core5arrayINS2_8vector3dIfEEEE(ptr noundef nonnull align 8 dereferenceable(222) %this, ptr noundef nonnull align 8 dereferenceable(25) %edges) unnamed_addr #3 comdat align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %edges, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !83
@@ -2624,7 +2618,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNK3irr5scene10ISceneNode25getRelativeTransformationEv(ptr dead_on_unwind noalias writable sret(%"class.irr::core::CMatrix4") align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(222) %this) unnamed_addr #4 comdat align 2 {
+define linkonce_odr void @_ZNK3irr5scene10ISceneNode25getRelativeTransformationEv(ptr dead_on_unwind noalias writable sret(%"class.irr::core::CMatrix4") align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(222) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, i8 0, i64 36, i1 false)
@@ -3088,7 +3082,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr { <2 x float>, float } @_ZNK3irr5scene10ISceneNode19getAbsolutePositionEv(ptr noundef nonnull align 8 dereferenceable(222) %this) unnamed_addr #4 comdat align 2 {
+define linkonce_odr { <2 x float>, float } @_ZNK3irr5scene10ISceneNode19getAbsolutePositionEv(ptr noundef nonnull align 8 dereferenceable(222) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load <4 x float>, ptr %arrayidx.i, align 8
@@ -3169,7 +3163,7 @@ if.then:                                          ; preds = %entry
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 80
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 4 dereferenceable(64) ptr %1(ptr noundef nonnull align 8 dereferenceable(222) %0) #22
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3)
   %vtable4 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn5 = getelementptr inbounds nuw i8, ptr %vtable4, i64 88
   %2 = load ptr, ptr %vfn5, align 8
@@ -3246,18 +3240,18 @@ if.then:                                          ; preds = %entry
   %50 = shufflevector <4 x float> %15, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
   %51 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %25, <4 x float> %50, <4 x float> %49)
   store <4 x float> %51, ptr %ref.tmp.sroa.15.0.AbsoluteTransformation.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp6)
   %vtable7 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn8 = getelementptr inbounds nuw i8, ptr %vtable7, i64 88
   %52 = load ptr, ptr %vfn8, align 8
   call void %52(ptr dead_on_unwind nonnull writable sret(%"class.irr::core::CMatrix4") align 4 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(222) %this) #22
   %AbsoluteTransformation9 = getelementptr inbounds nuw i8, ptr %this, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %AbsoluteTransformation9, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp6, i64 64, i1 false), !tbaa.struct !69
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -3288,14 +3282,14 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr5scene16ICameraSceneNodeD1Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr5scene16ICameraSceneNodeD1Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 {
 entry:
   tail call void @llvm.trap() #24
   unreachable
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr5scene16ICameraSceneNodeD0Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr5scene16ICameraSceneNodeD0Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 {
 entry:
   tail call void @llvm.trap() #24
   unreachable
@@ -3316,21 +3310,21 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr5scene10ISceneNodeD1Ev(ptr noundef %this) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr5scene10ISceneNodeD1Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 {
 entry:
   tail call void @llvm.trap() #24
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr5scene10ISceneNodeD0Ev(ptr noundef %this) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr5scene10ISceneNodeD0Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 {
 entry:
   tail call void @llvm.trap() #24
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5scene16CCameraSceneNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(646) %this) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN3irr5scene16CCameraSceneNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(646) %this) unnamed_addr #8 comdat align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 648
@@ -3427,7 +3421,7 @@ _ZN3irr5scene16CCameraSceneNodeD2Ev.exit:         ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5scene16CCameraSceneNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(646) %this) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN3irr5scene16CCameraSceneNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(646) %this) unnamed_addr #8 comdat align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 648
@@ -3531,7 +3525,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZThn224_N3irr5scene16CCameraSceneNodeD1Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 {
+define linkonce_odr void @_ZThn224_N3irr5scene16CCameraSceneNodeD1Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -224
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %0, align 8, !tbaa !3
@@ -3629,7 +3623,7 @@ _ZN3irr5scene16CCameraSceneNodeD1Ev.exit:         ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZThn224_N3irr5scene16CCameraSceneNodeD0Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 {
+define linkonce_odr void @_ZThn224_N3irr5scene16CCameraSceneNodeD0Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -224
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %0, align 8, !tbaa !3
@@ -3728,7 +3722,7 @@ _ZN3irr5scene16CCameraSceneNodeD0Ev.exit:         ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr5scene16CCameraSceneNodeD1Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr5scene16CCameraSceneNodeD1Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
@@ -3829,7 +3823,7 @@ _ZN3irr5scene16CCameraSceneNodeD1Ev.exit:         ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr5scene16CCameraSceneNodeD0Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr5scene16CCameraSceneNodeD0Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
@@ -3931,14 +3925,14 @@ _ZN3irr5scene16CCameraSceneNodeD0Ev.exit:         ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZThn224_N3irr5scene16ICameraSceneNodeD1Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 {
+define linkonce_odr void @_ZThn224_N3irr5scene16ICameraSceneNodeD1Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 {
 entry:
   tail call void @llvm.trap() #24
   unreachable
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZThn224_N3irr5scene16ICameraSceneNodeD0Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 {
+define linkonce_odr void @_ZThn224_N3irr5scene16ICameraSceneNodeD0Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 {
 entry:
   tail call void @llvm.trap() #24
   unreachable
@@ -3958,13 +3952,13 @@ entry:
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #13
+declare void @llvm.trap() #12
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5scene12SViewFrustum22recalculateBoundingBoxEv(ptr noundef nonnull align 4 dereferenceable(280) %this) local_unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZN3irr5scene12SViewFrustum22recalculateBoundingBoxEv(ptr noundef nonnull align 4 dereferenceable(280) %this) local_unnamed_addr #14 comdat align 2 {
 entry:
   %boundingBox = getelementptr inbounds nuw i8, ptr %this, i64 108
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 28
@@ -5120,13 +5114,13 @@ _ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit257: ; preds 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #16
+declare float @sqrtf(float noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #17
+declare float @llvm.fmuladd.f32(float, float, float) #16
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5scene12SViewFrustum25recalculateBoundingSphereEv(ptr noundef nonnull align 4 dereferenceable(280) %this) local_unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZN3irr5scene12SViewFrustum25recalculateBoundingSphereEv(ptr noundef nonnull align 4 dereferenceable(280) %this) local_unnamed_addr #14 comdat align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 92
@@ -6210,10 +6204,10 @@ _ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #17
+declare double @llvm.fabs.f64(double) #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14_M_copy_assignERKS6_(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(33) %__other) local_unnamed_addr #0 comdat align 2 {
@@ -6241,7 +6235,7 @@ if.then8:                                         ; preds = %if.else
   %3 = load ptr, ptr %__other, align 8, !tbaa !97
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %__other, i64 8
   %4 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !100
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i.i) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i.i.i)
   store i64 %4, ptr %__dnew.i.i.i.i, align 8, !tbaa !107
   %cmp.i.i.i.i = icmp ugt i64 %4, 15
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
@@ -6276,7 +6270,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %9 = load ptr, ptr %this, align 8, !tbaa !97
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
   store i8 0, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i.i) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i.i.i)
   store i8 1, ptr %_M_engaged, align 8, !tbaa !6
   br label %if.end11
 
@@ -6305,18 +6299,18 @@ if.end11:                                         ; preds = %if.then.i.i.i.i16, 
   ret void
 }
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #19
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #18
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #19
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @cos(double noundef) local_unnamed_addr #16
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sin(double noundef) local_unnamed_addr #16
+declare double @cos(double noundef) local_unnamed_addr #15
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @sin(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #17
+declare double @llvm.fmuladd.f64(double, double, double) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene10ISceneNode15setSceneManagerEPNS0_13ISceneManagerE(ptr noundef nonnull align 8 dereferenceable(222) %this, ptr noundef %newManager) local_unnamed_addr #0 comdat align 2 {
@@ -6342,66 +6336,72 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #20
+declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind
-declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #20
+declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #17
+declare float @llvm.fabs.f32(float) #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @atan2(double noundef, double noundef) local_unnamed_addr #16
+declare double @atan2(double noundef, double noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @tan(double noundef) local_unnamed_addr #16
+declare double @tan(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #21
+declare void @llvm.assume(i1 noundef) #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
+declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #17
+declare float @llvm.sqrt.f32(float) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #17
+declare double @llvm.sqrt.f64(double) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #17
+declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #17
+declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #17
+declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.sqrt.v2f32(<2 x float>) #17
+declare <2 x float> @llvm.sqrt.v2f32(<2 x float>) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #14 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #19 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #13 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #18 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #22 = { nounwind }
 attributes #23 = { builtin nounwind allocsize(0) }
 attributes #24 = { noreturn nounwind }

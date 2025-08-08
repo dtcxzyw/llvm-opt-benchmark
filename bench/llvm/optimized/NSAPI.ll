@@ -152,13 +152,13 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %1, i64 %2) local_unnamed_addr #2 comdat align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !375
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %1, i64 %2) #12
   %6 = call { ptr, i8 } @_ZN4llvm9StringMapIPN5clang14IdentifierInfoENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJDnEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr %1, i64 %2, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.fca.0.extract = extractvalue { ptr, i8 } %6, 0
   %7 = load ptr, ptr %.fca.0.extract, align 8, !tbaa !377
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !8
   %.not = icmp eq ptr %9, null
@@ -274,7 +274,7 @@ define dso_local i64 @_ZNK5clang5NSAPI19getNSStringSelectorENS0_18NSStringMethod
   br label %58
 
 30:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %31 = load ptr, ptr %0, align 8, !tbaa !10
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 17344
   %33 = load ptr, ptr %32, align 8, !tbaa !15
@@ -290,7 +290,7 @@ define dso_local i64 @_ZNK5clang5NSAPI19getNSStringSelectorENS0_18NSStringMethod
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 17352
   %42 = load ptr, ptr %41, align 8, !tbaa !393
   %43 = call i64 @_ZN5clang13SelectorTable11getSelectorEjPPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(8) %42, i32 noundef 2, ptr noundef nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %58
 
 44:                                               ; preds = %8
@@ -321,16 +321,10 @@ define dso_local i64 @_ZNK5clang5NSAPI19getNSStringSelectorENS0_18NSStringMethod
   ret i64 %.sroa.09.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
-declare i64 @_ZN5clang13SelectorTable11getSelectorEjPPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, ptr noundef) local_unnamed_addr #5
+declare i64 @_ZN5clang13SelectorTable11getSelectorEjPPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local i64 @_ZNK5clang5NSAPI18getNSArraySelectorENS0_17NSArrayMethodKindE(ptr noundef nonnull align 8 captures(none) dereferenceable(712) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
@@ -398,7 +392,7 @@ define dso_local i64 @_ZNK5clang5NSAPI18getNSArraySelectorENS0_17NSArrayMethodKi
   br label %124
 
 40:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %41 = load ptr, ptr %0, align 8, !tbaa !10
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 17344
   %43 = load ptr, ptr %42, align 8, !tbaa !15
@@ -414,7 +408,7 @@ define dso_local i64 @_ZNK5clang5NSAPI18getNSArraySelectorENS0_17NSArrayMethodKi
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 17352
   %52 = load ptr, ptr %51, align 8, !tbaa !393
   %53 = call i64 @_ZN5clang13SelectorTable11getSelectorEjPPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(8) %52, i32 noundef 2, ptr noundef nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %124
 
 54:                                               ; preds = %11
@@ -445,7 +439,7 @@ define dso_local i64 @_ZNK5clang5NSAPI18getNSArraySelectorENS0_17NSArrayMethodKi
   br label %124
 
 75:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %76 = load ptr, ptr %0, align 8, !tbaa !10
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 17344
   %78 = load ptr, ptr %77, align 8, !tbaa !15
@@ -461,7 +455,7 @@ define dso_local i64 @_ZNK5clang5NSAPI18getNSArraySelectorENS0_17NSArrayMethodKi
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 17352
   %87 = load ptr, ptr %86, align 8, !tbaa !393
   %88 = call i64 @_ZN5clang13SelectorTable11getSelectorEjPPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(8) %87, i32 noundef 2, ptr noundef nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %124
 
 89:                                               ; preds = %11
@@ -474,7 +468,7 @@ define dso_local i64 @_ZNK5clang5NSAPI18getNSArraySelectorENS0_17NSArrayMethodKi
   br label %124
 
 96:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %97 = load ptr, ptr %0, align 8, !tbaa !10
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 17344
   %99 = load ptr, ptr %98, align 8, !tbaa !15
@@ -490,11 +484,11 @@ define dso_local i64 @_ZNK5clang5NSAPI18getNSArraySelectorENS0_17NSArrayMethodKi
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 17352
   %108 = load ptr, ptr %107, align 8, !tbaa !393
   %109 = call i64 @_ZN5clang13SelectorTable11getSelectorEjPPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(8) %108, i32 noundef 2, ptr noundef nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %124
 
 110:                                              ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %111 = load ptr, ptr %0, align 8, !tbaa !10
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 17344
   %113 = load ptr, ptr %112, align 8, !tbaa !15
@@ -510,7 +504,7 @@ define dso_local i64 @_ZNK5clang5NSAPI18getNSArraySelectorENS0_17NSArrayMethodKi
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 17352
   %122 = load ptr, ptr %121, align 8, !tbaa !393
   %123 = call i64 @_ZN5clang13SelectorTable11getSelectorEjPPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(8) %122, i32 noundef 2, ptr noundef nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %124
 
 124:                                              ; preds = %110, %96, %89, %75, %68, %61, %54, %40, %33, %26, %19, %12, %11
@@ -598,7 +592,7 @@ define dso_local i64 @_ZNK5clang5NSAPI23getNSDictionarySelectorENS0_22NSDictiona
   br label %160
 
 29:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %30 = load ptr, ptr %0, align 8, !tbaa !10
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 17344
   %32 = load ptr, ptr %31, align 8, !tbaa !15
@@ -614,11 +608,11 @@ define dso_local i64 @_ZNK5clang5NSAPI23getNSDictionarySelectorENS0_22NSDictiona
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 17352
   %41 = load ptr, ptr %40, align 8, !tbaa !393
   %42 = call i64 @_ZN5clang13SelectorTable11getSelectorEjPPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(8) %41, i32 noundef 2, ptr noundef nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %160
 
 43:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %44 = load ptr, ptr %0, align 8, !tbaa !10
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 17344
   %46 = load ptr, ptr %45, align 8, !tbaa !15
@@ -634,11 +628,11 @@ define dso_local i64 @_ZNK5clang5NSAPI23getNSDictionarySelectorENS0_22NSDictiona
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 17352
   %55 = load ptr, ptr %54, align 8, !tbaa !393
   %56 = call i64 @_ZN5clang13SelectorTable11getSelectorEjPPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(8) %55, i32 noundef 2, ptr noundef nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %160
 
 57:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %58 = load ptr, ptr %0, align 8, !tbaa !10
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 17344
   %60 = load ptr, ptr %59, align 8, !tbaa !15
@@ -660,7 +654,7 @@ define dso_local i64 @_ZNK5clang5NSAPI23getNSDictionarySelectorENS0_22NSDictiona
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 17352
   %74 = load ptr, ptr %73, align 8, !tbaa !393
   %75 = call i64 @_ZN5clang13SelectorTable11getSelectorEjPPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(8) %74, i32 noundef 3, ptr noundef nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %160
 
 76:                                               ; preds = %14
@@ -691,7 +685,7 @@ define dso_local i64 @_ZNK5clang5NSAPI23getNSDictionarySelectorENS0_22NSDictiona
   br label %160
 
 97:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %98 = load ptr, ptr %0, align 8, !tbaa !10
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 17344
   %100 = load ptr, ptr %99, align 8, !tbaa !15
@@ -707,7 +701,7 @@ define dso_local i64 @_ZNK5clang5NSAPI23getNSDictionarySelectorENS0_22NSDictiona
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 17352
   %109 = load ptr, ptr %108, align 8, !tbaa !393
   %110 = call i64 @_ZN5clang13SelectorTable11getSelectorEjPPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(8) %109, i32 noundef 2, ptr noundef nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %160
 
 111:                                              ; preds = %14
@@ -720,7 +714,7 @@ define dso_local i64 @_ZNK5clang5NSAPI23getNSDictionarySelectorENS0_22NSDictiona
   br label %160
 
 118:                                              ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %119 = load ptr, ptr %0, align 8, !tbaa !10
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 17344
   %121 = load ptr, ptr %120, align 8, !tbaa !15
@@ -736,11 +730,11 @@ define dso_local i64 @_ZNK5clang5NSAPI23getNSDictionarySelectorENS0_22NSDictiona
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 17352
   %130 = load ptr, ptr %129, align 8, !tbaa !393
   %131 = call i64 @_ZN5clang13SelectorTable11getSelectorEjPPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(8) %130, i32 noundef 2, ptr noundef nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %160
 
 132:                                              ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %133 = load ptr, ptr %0, align 8, !tbaa !10
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 17344
   %135 = load ptr, ptr %134, align 8, !tbaa !15
@@ -756,11 +750,11 @@ define dso_local i64 @_ZNK5clang5NSAPI23getNSDictionarySelectorENS0_22NSDictiona
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 17352
   %144 = load ptr, ptr %143, align 8, !tbaa !393
   %145 = call i64 @_ZN5clang13SelectorTable11getSelectorEjPPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(8) %144, i32 noundef 2, ptr noundef nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %160
 
 146:                                              ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %147 = load ptr, ptr %0, align 8, !tbaa !10
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 17344
   %149 = load ptr, ptr %148, align 8, !tbaa !15
@@ -776,7 +770,7 @@ define dso_local i64 @_ZNK5clang5NSAPI23getNSDictionarySelectorENS0_22NSDictiona
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 17352
   %158 = load ptr, ptr %157, align 8, !tbaa !393
   %159 = call i64 @_ZN5clang13SelectorTable11getSelectorEjPPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(8) %158, i32 noundef 2, ptr noundef nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %160
 
 160:                                              ; preds = %146, %132, %118, %111, %97, %90, %83, %76, %57, %43, %29, %22, %15, %14
@@ -844,7 +838,7 @@ define dso_local i64 @_ZNK5clang5NSAPI16getNSSetSelectorENS0_15NSSetMethodKindE(
   br label %75
 
 19:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = load ptr, ptr %0, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 17344
   %22 = load ptr, ptr %21, align 8, !tbaa !15
@@ -860,11 +854,11 @@ define dso_local i64 @_ZNK5clang5NSAPI16getNSSetSelectorENS0_15NSSetMethodKindE(
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 17352
   %31 = load ptr, ptr %30, align 8, !tbaa !393
   %32 = call i64 @_ZN5clang13SelectorTable11getSelectorEjPPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(8) %31, i32 noundef 2, ptr noundef nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %75
 
 33:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %34 = load ptr, ptr %0, align 8, !tbaa !10
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 17344
   %36 = load ptr, ptr %35, align 8, !tbaa !15
@@ -880,11 +874,11 @@ define dso_local i64 @_ZNK5clang5NSAPI16getNSSetSelectorENS0_15NSSetMethodKindE(
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 17352
   %45 = load ptr, ptr %44, align 8, !tbaa !393
   %46 = call i64 @_ZN5clang13SelectorTable11getSelectorEjPPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(8) %45, i32 noundef 2, ptr noundef nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %75
 
 47:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = load ptr, ptr %0, align 8, !tbaa !10
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 17344
   %50 = load ptr, ptr %49, align 8, !tbaa !15
@@ -900,11 +894,11 @@ define dso_local i64 @_ZNK5clang5NSAPI16getNSSetSelectorENS0_15NSSetMethodKindE(
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 17352
   %59 = load ptr, ptr %58, align 8, !tbaa !393
   %60 = call i64 @_ZN5clang13SelectorTable11getSelectorEjPPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(8) %59, i32 noundef 2, ptr noundef nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %75
 
 61:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %62 = load ptr, ptr %0, align 8, !tbaa !10
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 17344
   %64 = load ptr, ptr %63, align 8, !tbaa !15
@@ -920,7 +914,7 @@ define dso_local i64 @_ZNK5clang5NSAPI16getNSSetSelectorENS0_15NSSetMethodKindE(
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 17352
   %73 = load ptr, ptr %72, align 8, !tbaa !393
   %74 = call i64 @_ZN5clang13SelectorTable11getSelectorEjPPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(8) %73, i32 noundef 2, ptr noundef nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %75
 
 75:                                               ; preds = %61, %47, %33, %19, %12, %11
@@ -1165,7 +1159,7 @@ define dso_local range(i64 0, 4294967312) i64 @_ZNK5clang5NSAPI28getNSNumberFact
   ret i64 %.sroa.030.0.insert.insert
 }
 
-declare noundef ptr @_ZNK5clang4Type5getAsINS_11TypedefTypeEEEPKT_v(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #5
+declare noundef ptr @_ZNK5clang4Type5getAsINS_11TypedefTypeEEEPKT_v(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang5NSAPI14isObjCBOOLTypeENS_8QualTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(712) %0, i64 %1) local_unnamed_addr #2 align 2 {
@@ -1522,7 +1516,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit88.thr
   ret { ptr, i64 } %.fca.1.insert
 }
 
-declare i64 @_ZNK5clang11TypedefType7desugarEv(ptr noundef nonnull align 16 dereferenceable(48)) local_unnamed_addr #5
+declare i64 @_ZNK5clang11TypedefType7desugarEv(ptr noundef nonnull align 16 dereferenceable(48)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang5NSAPI14isMacroDefinedEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(712) %0, ptr %1, i64 %2) local_unnamed_addr #2 align 2 {
@@ -1586,7 +1580,7 @@ _ZNK5clang5NSAPI12getNSClassIdENS0_17NSClassIdKindKindE.exit: ; preds = %4, %_ZN
   ret i1 %.0
 }
 
-declare noundef ptr @_ZNK5clang17ObjCInterfaceDecl13getSuperClassEv(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #5
+declare noundef ptr @_ZNK5clang17ObjCInterfaceDecl13getSuperClassEv(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang5NSAPI16isObjCEnumeratorEPKNS_4ExprEN4llvm9StringRefERPNS_14IdentifierInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(712) %0, ptr noundef readonly %1, ptr %2, i64 %3, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %4) local_unnamed_addr #2 align 2 {
@@ -1657,7 +1651,7 @@ define dso_local i64 @_ZNK5clang5NSAPI17getOrInitSelectorEN4llvm8ArrayRefINS1_9S
   br i1 %6, label %7, label %38
 
 7:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %5, align 8, !tbaa !422
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1692,7 +1686,7 @@ define dso_local i64 @_ZNK5clang5NSAPI17getOrInitSelectorEN4llvm8ArrayRefINS1_9S
 
 _ZN4llvm11SmallVectorIPKN5clang14IdentifierInfoELj4EED2Ev.exit: ; preds = %._crit_edge, %20
   %.sroa.09.0.copyload.pre = phi i64 [ %17, %._crit_edge ], [ %.sroa.09.0.copyload.pre.pre, %20 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %38
 
 .lr.ph:                                           ; preds = %7, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang14IdentifierInfoELb1EE9push_backES4_.exit
@@ -1743,7 +1737,7 @@ define dso_local i64 @_ZNK5clang5NSAPI24getOrInitNullarySelectorEN4llvm9StringRe
   br i1 %6, label %7, label %16
 
 7:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = load ptr, ptr %0, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 17344
   %10 = load ptr, ptr %9, align 8, !tbaa !15
@@ -1754,7 +1748,7 @@ define dso_local i64 @_ZNK5clang5NSAPI24getOrInitNullarySelectorEN4llvm9StringRe
   %14 = load ptr, ptr %13, align 8, !tbaa !393
   %15 = call i64 @_ZN5clang13SelectorTable11getSelectorEjPPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef 0, ptr noundef nonnull %5) #12
   store i64 %15, ptr %3, align 8, !tbaa !394
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %16
 
 16:                                               ; preds = %7, %4
@@ -1874,14 +1868,14 @@ _ZN4llvm17StringMapIteratorIPN5clang14IdentifierInfoEEC2EPPNS_18StringMapEntryBa
   ret { ptr, i8 } %.pn
 }
 
-declare noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr, i64) local_unnamed_addr #5
+declare noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr, i64) local_unnamed_addr #4
 
-declare noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24), ptr, i64, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24), ptr, i64, i32 noundef) local_unnamed_addr #4
 
-declare noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #5
+declare noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1, i64 noundef %2, i8 %3) local_unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1, i64 noundef %2, i8 %3) local_unnamed_addr #5 comdat align 2 {
   %5 = zext nneg i8 %3 to i64
   %6 = shl nuw i64 1, %5
   %7 = add i64 %6, -1
@@ -1974,18 +1968,24 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   ret ptr %.0
 }
 
-declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #8
+declare noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
@@ -1996,13 +1996,13 @@ declare i32 @llvm.umin.i32(i32, i32) #11
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }

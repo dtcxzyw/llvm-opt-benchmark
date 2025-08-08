@@ -137,10 +137,10 @@ define hidden noundef zeroext i1 @_ZN11JfrRecorder14on_create_vm_1Ev() local_unn
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i8 1, ptr %1, align 1
   %10 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 912, i32 noundef 0, ptr noundef nonnull %1, i32 noundef 4) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %.pre.i = load i8, ptr @FlightRecorder, align 1
   br label %_ZL6enablev.exit
 
@@ -382,7 +382,7 @@ _ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1
   %85 = load ptr, ptr %58, align 8
   %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv.i
   %87 = load ptr, ptr %86, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %88 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #13
   call void @_ZN7CmdLineC1EPKcmb(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %87, i64 noundef %88, i1 noundef zeroext true) #12
   %89 = load ptr, ptr %61, align 8
@@ -394,7 +394,7 @@ _ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1
   br i1 %.not.i.i, label %93, label %_ZL26validate_recording_optionsP10JavaThread.exit
 
 93:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1_EE6appendERKS1_.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit, label %60, !llvm.loop !8
@@ -403,7 +403,7 @@ _ZL26validate_recording_optionsP10JavaThread.exit: ; preds = %_ZN26GrowableArray
   %94 = load ptr, ptr @tty, align 8
   call void @_ZN19java_lang_Throwable5printEP7oopDescP12outputStream(ptr noundef nonnull %92, ptr noundef %94) #12
   call void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28) %33) #12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %103
 
 .loopexit:                                        ; preds = %93, %41, %56
@@ -418,7 +418,7 @@ _ZL26validate_recording_optionsP10JavaThread.exit: ; preds = %_ZN26GrowableArray
   br i1 %brmerge, label %103, label %99
 
 99:                                               ; preds = %96
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %1, i1 noundef zeroext false) #12
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %1, align 8
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -430,7 +430,7 @@ _ZL26validate_recording_optionsP10JavaThread.exit: ; preds = %_ZN26GrowableArray
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %1, align 8
   %102 = call noundef zeroext i1 @_ZN14JfrJavaSupport27is_jdk_jfr_module_availableEP12outputStreamP10JavaThread(ptr noundef nonnull %1, ptr noundef nonnull %33) #12
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %1) #12
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %103
 
 103:                                              ; preds = %_ZL26validate_recording_optionsP10JavaThread.exit, %_ZL21is_cds_dump_requestedv.exit, %96, %.loopexit, %37, %31, %99
@@ -610,10 +610,10 @@ define hidden noundef zeroext i1 @_ZN11JfrRecorder6createEb(i1 noundef zeroext %
   br i1 %7, label %_ZL6enablev.exit, label %8
 
 8:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 1, ptr %2, align 1
   %9 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 912, i32 noundef 0, ptr noundef nonnull %2, i32 noundef 4) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre.i = load i8, ptr @FlightRecorder, align 1
   br label %_ZL6enablev.exit
 
@@ -1511,10 +1511,10 @@ declare void @_ZN5Chunk9next_chopEPS_(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11

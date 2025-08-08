@@ -750,10 +750,10 @@ define internal range(i32 0, 2) i32 @test_property_defn_cache() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !20
   %4 = tail call ptr @ossl_method_store_new(ptr noundef null) #6
   %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 298, ptr noundef nonnull @.str.70, ptr noundef %4) #6
@@ -882,9 +882,9 @@ define internal range(i32 0, 2) i32 @test_property_defn_cache() #0 {
 56:                                               ; preds = %.critedge25, %50, %.critedge19
   %57 = phi i32 [ 0, %.critedge19 ], [ 0, %.critedge25 ], [ %55, %50 ]
   call void @ossl_method_store_free(ptr noundef %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %57
 }
 
@@ -939,7 +939,7 @@ define internal range(i32 0, 2) i32 @test_definition_compares(i32 noundef %0) #0
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_register_deregister() #0 {
   %1 = alloca %struct.ossl_provider_st, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 1, ptr %1, align 4
   %2 = tail call ptr @ossl_method_store_new(ptr noundef null) #6
   %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 388, ptr noundef nonnull @.str.70, ptr noundef %2) #6
@@ -1019,7 +1019,7 @@ define internal range(i32 0, 2) i32 @test_register_deregister() #0 {
 42:                                               ; preds = %32, %37, %0, %4, %16
   %.026 = phi i32 [ 0, %16 ], [ 0, %32 ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %37 ]
   call void @ossl_method_store_free(ptr noundef %2) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.026
 }
 
@@ -1027,7 +1027,7 @@ define internal range(i32 0, 2) i32 @test_register_deregister() #0 {
 define internal range(i32 0, 2) i32 @test_property() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = tail call ptr @ossl_method_store_new(ptr noundef null) #6
   %4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 462, ptr noundef nonnull @.str.70, ptr noundef %3) #6
   %.not = icmp eq i32 %4, 0
@@ -1067,7 +1067,7 @@ define internal range(i32 0, 2) i32 @test_property() #0 {
 
 .preheader90:                                     ; preds = %22, %39
   %.199 = phi i64 [ %40, %39 ], [ 0, %22 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !31
   %23 = getelementptr inbounds nuw [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %.199
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -1093,12 +1093,12 @@ define internal range(i32 0, 2) i32 @test_property() #0 {
   %38 = add nuw nsw i64 %.199, 1
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.212, i64 noundef %38) #6
   call void @ossl_property_free(ptr noundef null) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread82
 
 39:                                               ; preds = %32
   call void @ossl_property_free(ptr noundef null) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %40 = add nuw nsw i64 %.199, 1
   %exitcond108.not = icmp eq i64 %40, 11
   br i1 %exitcond108.not, label %.preheader89, label %.preheader90, !llvm.loop !38
@@ -1244,7 +1244,7 @@ define internal range(i32 0, 2) i32 @test_property() #0 {
 .thread82:                                        ; preds = %107, %105, %95, %71, %61, %37, %0, %5, %21
   %.056 = phi i32 [ 0, %21 ], [ 0, %37 ], [ 0, %5 ], [ 0, %0 ], [ 0, %61 ], [ 0, %71 ], [ 0, %95 ], [ 0, %105 ], [ 1, %107 ]
   call void @ossl_method_store_free(ptr noundef %3) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.056
 }
 
@@ -1254,10 +1254,10 @@ define internal range(i32 0, 2) i32 @test_query_cache_stochastic() #0 {
   %2 = alloca ptr, align 8
   %3 = alloca [10001 x i32], align 16
   %4 = alloca %struct.ossl_provider_st, align 4
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 40004, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1, ptr %4, align 4
   %5 = tail call ptr @ossl_method_store_new(ptr noundef null) #6
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 573, ptr noundef nonnull @.str.70, ptr noundef %5) #6
@@ -1340,10 +1340,10 @@ define internal range(i32 0, 2) i32 @test_query_cache_stochastic() #0 {
 41:                                               ; preds = %35, %37, %0, %7, %27
   %.023 = phi i32 [ 0, %27 ], [ 0, %7 ], [ 0, %0 ], [ 0, %35 ], [ %40, %37 ]
   call void @ossl_method_store_free(ptr noundef %5) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 40004, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.023
 }
 
@@ -1538,9 +1538,6 @@ define internal range(i32 0, 2) i32 @test_property_list_to_string(i32 noundef %0
   ret i32 %.017
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @OSSL_LIB_CTX_new() local_unnamed_addr #1
@@ -1567,13 +1564,10 @@ declare void @ossl_method_store_free(ptr noundef) local_unnamed_addr #1
 
 declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @add_property_names(ptr noundef %0, ...) unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1612,7 +1606,7 @@ define internal range(i32 0, 2) i32 @add_property_names(ptr noundef %0, ...) unn
 
 21:                                               ; preds = %18
   call void @llvm.va_end.p0(ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %spec.select
 }
 
@@ -1623,10 +1617,10 @@ declare i32 @ossl_property_match_count(ptr noundef, ptr noundef) local_unnamed_a
 declare void @ossl_property_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #3
+declare void @llvm.va_start.p0(ptr) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #3
+declare void @llvm.va_end.p0(ptr) #2
 
 declare ptr @ossl_parse_property(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1647,12 +1641,12 @@ declare ptr @ossl_prop_defn_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_method_store_add(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @up_ref(ptr readnone captures(none) %0) #4 {
+define internal noundef i32 @up_ref(ptr readnone captures(none) %0) #3 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @down_ref(ptr readnone captures(none) %0) #4 {
+define internal void @down_ref(ptr readnone captures(none) %0) #3 {
   ret void
 }
 
@@ -1689,16 +1683,22 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i32 @test_size_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }
 

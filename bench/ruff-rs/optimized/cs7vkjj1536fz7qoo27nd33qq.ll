@@ -15,7 +15,7 @@ define noundef zeroext i1 @_ZN17ruff_python_index14fstring_ranges13FStringRanges
   store i32 %1, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %2, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr %0, align 8, !noundef !3
   %.not = icmp ne ptr %7, null
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -76,14 +76,14 @@ define noundef zeroext i1 @_ZN17ruff_python_index14fstring_ranges13FStringRanges
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h8810c95bc18838bfE.exit": ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hcbe6e5fa20df1dacE.exit.i.i", %22, %15
   %.sroa.0.0.i = phi i1 [ false, %15 ], [ false, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hcbe6e5fa20df1dacE.exit.i.i" ], [ true, %22 ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN17ruff_python_index14fstring_ranges13FStringRanges9innermost17ha8ab8d55d57220efE(ptr dead_on_unwind noalias noundef writable writeonly sret([12 x i8]) align 4 captures(none) dereferenceable(12) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [48 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5range17h4a31fd4045e5238eE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2)
   br label %5
 
@@ -118,7 +118,7 @@ _ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17habb2bf257815
 .critedge:                                        ; preds = %5, %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17habb2bf257815c553E.exit
   %storemerge = phi i32 [ 1, %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17habb2bf257815c553E.exit ], [ 0, %5 ]
   store i32 %storemerge, ptr %0, align 4
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -128,7 +128,7 @@ define void @_ZN17ruff_python_index14fstring_ranges13FStringRanges9outermost17hc
   %5 = alloca [80 x i8], align 8
   %6 = alloca [4 x i8], align 4
   store i32 %2, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5range17h4a31fd4045e5238eE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %.sroa.42.0..sroa_idx, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -140,7 +140,7 @@ define void @_ZN17ruff_python_index14fstring_ranges13FStringRanges9outermost17hc
   store ptr %6, ptr %5, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !25)
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !31
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !31
   call void @llvm.experimental.noalias.scope.decl(metadata !32)
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
@@ -183,8 +183,8 @@ define void @_ZN17ruff_python_index14fstring_ranges13FStringRanges9outermost17hc
   %.phi.trans.insert11.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre12.i = load ptr, ptr %.phi.trans.insert11.i, align 8, !noalias !31
   %23 = icmp eq ptr %.pre10.i, null
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !31
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !31
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %23, label %31, label %24
 
 24:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17habdc139eb432bd5dE.exit.i.i"
@@ -200,8 +200,8 @@ define void @_ZN17ruff_python_index14fstring_ranges13FStringRanges9outermost17hc
   br label %31
 
 .critedge:                                        ; preds = %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h7c00bd6700dd63f3E.exit.i.i.i.i.i.i", %18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !31
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !31
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %31
 
 31:                                               ; preds = %.critedge, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17habdc139eb432bd5dE.exit.i.i", %24
@@ -263,7 +263,7 @@ define hidden void @_ZN17ruff_python_index14fstring_ranges20FStringRangesBuilder
   tail call void @llvm.assume(i1 %29)
   %30 = getelementptr inbounds nuw i32, ptr %28, i64 %24
   %31 = load i32, ptr %30, align 4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %32 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_parser..token..Token$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h6968fe5e7cf78ab6E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %1)
   %33 = extractvalue { i32, i32 } %32, 1
   %.not = icmp ugt i32 %31, %33
@@ -276,7 +276,7 @@ define hidden void @_ZN17ruff_python_index14fstring_ranges20FStringRangesBuilder
 35:                                               ; preds = %23
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h0a45d9c6bb1f50ccE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %36, i32 noundef %31, i32 noundef %31, i32 noundef %33)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %6
 }
 
@@ -328,10 +328,10 @@ declare hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT
 declare hidden void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$ruff_text_size..size..TextSize$GT$$GT$17h1a5a3ecb5059ddedE"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6

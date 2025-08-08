@@ -34,7 +34,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_get_cluster_info(ptr noundef writeo
 
 12:                                               ; preds = %9, %7
   %13 = tail call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_cluster_rec) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %14 = call i32 @slurm_load_federation(ptr noundef nonnull %4) #3
   %15 = icmp eq i32 %14, 0
@@ -77,7 +77,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_get_cluster_info(ptr noundef writeo
   br i1 %.not21.i, label %_get_clusters_from_fed.exit.thread15, label %_get_clusters_from_fed.exit
 
 _get_clusters_from_fed.exit.thread15:             ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
 _get_clusters_from_fed.exit.thread19:             ; preds = %18, %30
@@ -87,11 +87,11 @@ _get_clusters_from_fed.exit.thread19:             ; preds = %18, %30
 
 _get_clusters_from_fed.exit:                      ; preds = %31
   call void @list_destroy(ptr noundef nonnull %21) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
 .sink.split:                                      ; preds = %30, %18, %_get_clusters_from_fed.exit.thread19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %32
 
 32:                                               ; preds = %.sink.split, %9, %5
@@ -111,9 +111,6 @@ declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @xstrstr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @slurmdb_get_info_cluster(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @list_create(ptr noundef) local_unnamed_addr #1
 
@@ -156,14 +153,17 @@ define internal range(i32 0, 2) i32 @_match_and_setup_cluster_rec(ptr noundef %0
 
 declare i32 @list_count(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @slurmdb_setup_cluster_rec(ptr noundef) local_unnamed_addr #1
 
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @slurm_find_char_in_list(ptr noundef, ptr noundef) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

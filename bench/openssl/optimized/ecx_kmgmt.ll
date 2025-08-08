@@ -823,17 +823,11 @@ key_to_params.exit:                               ; preds = %39, %36, %.thread, 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare ptr @OSSL_PARAM_locate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @OSSL_PARAM_set_int(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @OSSL_PARAM_set_octet_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @ossl_param_build_set_octet_string(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -854,7 +848,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br i1 %.not21, label %23, label %8
 
 8:                                                ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 17
   store ptr %9, ptr %3, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -879,11 +873,11 @@ ossl_param_is_empty.exit:                         ; preds = %2
   %20 = load i8, ptr %19, align 8
   %21 = or i8 %20, 1
   store i8 %21, ptr %19, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %23
 
 22:                                               ; preds = %8, %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %set_property_query.exit
 
 23:                                               ; preds = %.critedge, %6
@@ -1000,7 +994,7 @@ define internal fastcc range(i32 0, 2) i32 @ecx_validate(ptr noundef %0, i32 nou
   br i1 %.not31, label %60, label %33
 
 33:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %switch = icmp eq i32 %2, 2
   %34 = load ptr, ptr %0, align 8, !tbaa !29
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1029,14 +1023,14 @@ define internal fastcc range(i32 0, 2) i32 @ecx_validate(ptr noundef %0, i32 nou
 
 ecd_key_pairwise_check.exit:                      ; preds = %39, %41, %43
   %.0.i = phi i32 [ %48, %43 ], [ 0, %39 ], [ 0, %41 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %60
 
 49:                                               ; preds = %31
   br i1 %.not31, label %60, label %50
 
 50:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %switch35 = icmp eq i32 %2, 0
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %52 = load ptr, ptr %51, align 8, !tbaa !3
@@ -1056,7 +1050,7 @@ ecx_key_pairwise_check.exit:                      ; preds = %54, %53
   %57 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %55, ptr noundef nonnull %5, i64 noundef %56) #4
   %58 = icmp eq i32 %57, 0
   %59 = zext i1 %58 to i32
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %60
 
 60:                                               ; preds = %ecd_key_pairwise_check.exit, %32, %ecx_key_pairwise_check.exit, %49, %30, %11, %4, %15
@@ -1276,6 +1270,12 @@ declare i32 @RAND_priv_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 nound
 declare ptr @ossl_ecx_key_dup(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @OSSL_PARAM_set_utf8_string(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

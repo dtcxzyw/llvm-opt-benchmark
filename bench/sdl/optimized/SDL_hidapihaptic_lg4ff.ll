@@ -98,8 +98,8 @@ SDL_HIDAPI_HapticDriverLg4ff_JoystickSupported.exit: ; preds = %8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2960) %13, i8 0, i64 2960, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 2664
   store ptr %0, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %19, i8 0, i64 5, i1 false)
   store i8 13, ptr %3, align 1
@@ -141,15 +141,15 @@ SDL_HIDAPI_HapticDriverLg4ff_JoystickSupported.exit: ; preds = %8
   br i1 %exitcond.not.i37, label %37, label %29, !llvm.loop !5
 
 .loopexit:                                        ; preds = %29, %17
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %36 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #8
   call void @SDL_free_REAL(ptr noundef nonnull %13) #8
   br label %83
 
 37:                                               ; preds = %34
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %38 = call ptr @SDL_CreateMutex_REAL() #8
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 2944
   store ptr %38, ptr %39, align 8
@@ -710,7 +710,7 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_SetAutocenter(p
   %3 = alloca [7 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %3, i8 0, i64 7, i1 false)
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %spec.store.select2 = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 100)
@@ -837,7 +837,7 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_SetAutocenter(p
 
 .thread:                                          ; preds = %31, %61, %68, %36, %22, %.critedge
   %.1 = phi i1 [ true, %.critedge ], [ false, %22 ], [ false, %31 ], [ false, %61 ], [ false, %68 ], [ true, %36 ]
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.1
 }
 
@@ -879,36 +879,30 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_StopEffects(ptr
   ret i1 true
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare zeroext i16 @SDL_GetJoystickVendor_REAL(ptr noundef) local_unnamed_addr #3
 
-declare zeroext i16 @SDL_GetJoystickVendor_REAL(ptr noundef) local_unnamed_addr #4
+declare zeroext i16 @SDL_GetJoystickProduct_REAL(ptr noundef) local_unnamed_addr #3
 
-declare zeroext i16 @SDL_GetJoystickProduct_REAL(ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #4
-
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #4
-
-declare zeroext i1 @SDL_OutOfMemory_REAL() local_unnamed_addr #4
+declare zeroext i1 @SDL_OutOfMemory_REAL() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #4
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #3
 
-declare ptr @SDL_CreateMutex_REAL() local_unnamed_addr #4
+declare ptr @SDL_CreateMutex_REAL() local_unnamed_addr #3
 
-declare zeroext i16 @SDL_GetJoystickProductVersion_REAL(ptr noundef) local_unnamed_addr #4
+declare zeroext i16 @SDL_GetJoystickProductVersion_REAL(ptr noundef) local_unnamed_addr #3
 
-declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @SDL_GetJoystickID_REAL(ptr noundef) local_unnamed_addr #4
+declare i32 @SDL_GetJoystickID_REAL(ptr noundef) local_unnamed_addr #3
 
-declare ptr @SDL_CreateThreadRuntime_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @SDL_CreateThreadRuntime_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @SDL_HIDAPI_HapticDriverLg4ff_ThreadFunction(ptr noundef %0) #0 {
@@ -949,7 +943,7 @@ define internal noundef i32 @SDL_HIDAPI_HapticDriverLg4ff_ThreadFunction(ptr nou
 28:                                               ; preds = %.lr.ph, %lg4ff_timer.exit
   %29 = load ptr, ptr %6, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %29) #8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %30 = tail call i64 @SDL_GetTicks_REAL() #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %2, i8 0, i64 96, i1 false)
   %31 = load i32, ptr %7, align 4
@@ -2176,7 +2170,7 @@ lg4ff_update_state.exit.i:                        ; preds = %606, %596, %577, %l
   br i1 %exitcond138.not.i, label %lg4ff_timer.exit, label %674, !llvm.loop !12
 
 lg4ff_timer.exit:                                 ; preds = %684
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %685 = load ptr, ptr %6, align 8
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %685) #8
   tail call void @SDL_Delay_REAL(i32 noundef 2) #8
@@ -2185,12 +2179,12 @@ lg4ff_timer.exit:                                 ; preds = %684
   br i1 %687, label %._crit_edge, label %28
 }
 
-declare zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @lg4ff_update_slot(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [7 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %3, ptr noundef nonnull align 4 dereferenceable(7) %4, i64 7, i1 false)
   %5 = load i8, ptr %3, align 1
@@ -2442,34 +2436,40 @@ define internal fastcc void @lg4ff_update_slot(ptr noundef %0, ptr noundef nonnu
   br label %180
 
 180:                                              ; preds = %178, %176
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @SDL_getenv_REAL(ptr noundef) local_unnamed_addr #4
+declare ptr @SDL_getenv_REAL(ptr noundef) local_unnamed_addr #3
 
-declare i32 @SDL_atoi_REAL(ptr noundef) local_unnamed_addr #4
+declare i32 @SDL_atoi_REAL(ptr noundef) local_unnamed_addr #3
 
-declare void @SDL_LockMutex_REAL(ptr noundef) local_unnamed_addr #4
+declare void @SDL_LockMutex_REAL(ptr noundef) local_unnamed_addr #3
 
-declare void @SDL_UnlockMutex_REAL(ptr noundef) local_unnamed_addr #4
+declare void @SDL_UnlockMutex_REAL(ptr noundef) local_unnamed_addr #3
 
-declare void @SDL_Delay_REAL(i32 noundef) local_unnamed_addr #4
+declare void @SDL_Delay_REAL(i32 noundef) local_unnamed_addr #3
 
-declare i64 @SDL_GetTicks_REAL() local_unnamed_addr #4
+declare i64 @SDL_GetTicks_REAL() local_unnamed_addr #3
 
-declare double @SDL_sin_REAL(double noundef) local_unnamed_addr #4
+declare double @SDL_sin_REAL(double noundef) local_unnamed_addr #3
 
-declare double @SDL_atan2_REAL(double noundef, double noundef) local_unnamed_addr #4
+declare double @SDL_atan2_REAL(double noundef, double noundef) local_unnamed_addr #3
 
-declare void @SDL_WaitThread_REAL(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @SDL_WaitThread_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @SDL_DestroyMutex_REAL(ptr noundef) local_unnamed_addr #4
+declare void @SDL_DestroyMutex_REAL(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
@@ -2486,10 +2486,10 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #7
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 

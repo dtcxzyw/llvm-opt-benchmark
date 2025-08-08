@@ -196,27 +196,24 @@ Dec_ConvertSopToMvc.exit:                         ; preds = %.critedge.i, %8
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @Abc_SopIsConst0(ptr noundef) local_unnamed_addr #1
 
-declare i32 @Abc_SopIsConst0(ptr noundef) local_unnamed_addr #2
+declare i32 @Abc_SopIsConst1(ptr noundef) local_unnamed_addr #1
 
-declare i32 @Abc_SopIsConst1(ptr noundef) local_unnamed_addr #2
+declare i32 @Mvc_CoverContain(ptr noundef) local_unnamed_addr #1
 
-declare i32 @Mvc_CoverContain(ptr noundef) local_unnamed_addr #2
+declare void @Mvc_CoverInverse(ptr noundef) local_unnamed_addr #1
 
-declare void @Mvc_CoverInverse(ptr noundef) local_unnamed_addr #2
-
-declare i32 @Abc_SopGetVarNum(ptr noundef) local_unnamed_addr #2
+declare i32 @Abc_SopGetVarNum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @Dec_Factor_rec(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @Mvc_CoverDivisor(ptr noundef %1) #7
   store ptr %6, ptr %3, align 8, !tbaa !32
   %7 = icmp eq ptr %6, null
@@ -498,30 +495,27 @@ Dec_GraphAddNodeOr.exit:                          ; preds = %107, %122
 
 148:                                              ; preds = %142, %Dec_GraphAddNodeOr.exit, %106, %54, %Dec_FactorTrivial.exit
   %.sroa.027.0 = phi i32 [ %47, %Dec_FactorTrivial.exit ], [ %55, %54 ], [ %101, %106 ], [ %141, %Dec_GraphAddNodeOr.exit ], [ %147, %142 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.sroa.027.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @Abc_SopIsComplement(ptr noundef) local_unnamed_addr #1
 
-declare i32 @Abc_SopIsComplement(ptr noundef) local_unnamed_addr #2
-
-declare void @Mvc_CoverFree(ptr noundef) local_unnamed_addr #2
+declare void @Mvc_CoverFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare ptr @Mvc_CoverDivisor(ptr noundef) local_unnamed_addr #2
+declare ptr @Mvc_CoverDivisor(ptr noundef) local_unnamed_addr #1
 
-declare void @Mvc_CoverDivideInternal(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Mvc_CoverDivideInternal(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @Mvc_CoverReadCubeNum(ptr noundef) local_unnamed_addr #2
+declare i32 @Mvc_CoverReadCubeNum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, -2147483648) i32 @Dec_FactorLF_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -530,8 +524,8 @@ define internal fastcc range(i32 0, -2147483648) i32 @Dec_FactorLF_rec(ptr nound
   %6 = tail call ptr (...) @Abc_FrameReadManDec() #7
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = tail call ptr @Mvc_CoverBestLiteralCover(ptr noundef %1, ptr noundef %2) #7
   call void @Mvc_CoverDivideByLiteral(ptr noundef %1, ptr noundef %9, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
   %10 = call ptr @Mvc_CoverReadCubeHead(ptr noundef %9) #7
@@ -673,18 +667,18 @@ Dec_GraphAddNodeOr.exit:                          ; preds = %54, %69
 
 89:                                               ; preds = %Dec_GraphAddNodeOr.exit, %53
   %.sroa.021.0 = phi i32 [ %48, %53 ], [ %88, %Dec_GraphAddNodeOr.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.sroa.021.0
 }
 
-declare void @Mvc_CoverMakeCubeFree(ptr noundef) local_unnamed_addr #2
+declare void @Mvc_CoverMakeCubeFree(ptr noundef) local_unnamed_addr #1
 
-declare i32 @Mvc_CoverIsCubeFree(ptr noundef) local_unnamed_addr #2
+declare i32 @Mvc_CoverIsCubeFree(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Mvc_CoverCommonCubeCover(ptr noundef) local_unnamed_addr #2
+declare ptr @Mvc_CoverCommonCubeCover(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Abc_FrameReadManDec(...) local_unnamed_addr #2
+declare ptr @Abc_FrameReadManDec(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @Dec_FactorTrivialCube(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) initializes((4, 8)) %3) unnamed_addr #0 {
@@ -941,27 +935,33 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %53, %62
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
-declare ptr @Mvc_CoverBestLiteralCover(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Mvc_CoverBestLiteralCover(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @Mvc_CoverDivideByLiteral(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Mvc_CoverDivideByLiteral(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Mvc_CoverReadCubeHead(ptr noundef) local_unnamed_addr #2
+declare ptr @Mvc_CoverReadCubeHead(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Mvc_CoverAlloc(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Mvc_CoverAlloc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @Mvc_CubeAlloc(ptr noundef) local_unnamed_addr #2
+declare ptr @Mvc_CubeAlloc(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind allocsize(0) }

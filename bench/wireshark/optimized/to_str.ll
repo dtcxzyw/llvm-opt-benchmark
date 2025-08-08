@@ -58,7 +58,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @abs_time_to_str_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [8 x i8], align 8
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq i32 %2, 0
   %spec.store.select = select i1 %7, i32 18, i32 %2
   switch i32 %spec.store.select, label %21 [
@@ -70,7 +70,7 @@ define ptr @abs_time_to_str_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   ]
 
 8:                                                ; preds = %4
-  %9 = tail call noalias dereferenceable_or_null(31) ptr @wmem_alloc(ptr noundef %0, i64 noundef 31) #10
+  %9 = tail call noalias dereferenceable_or_null(31) ptr @wmem_alloc(ptr noundef %0, i64 noundef 31) #9
   tail call void @display_epoch_time(ptr noundef %9, i64 noundef 31, ptr noundef %1, i32 noundef 9)
   br label %snprint_abs_time_iso8601.exit
 
@@ -92,11 +92,11 @@ define ptr @abs_time_to_str_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br label %snprint_abs_time_iso8601.exit
 
 .thread:                                          ; preds = %4, %4, %10, %13
-  %18 = tail call ptr @gmtime(ptr noundef %1) #9
+  %18 = tail call ptr @gmtime(ptr noundef %1) #10
   br label %get_fmt_broken_down_time.exit
 
 19:                                               ; preds = %4
-  %20 = tail call ptr @localtime(ptr noundef %1) #9
+  %20 = tail call ptr @localtime(ptr noundef %1) #10
   br label %get_fmt_broken_down_time.exit
 
 21:                                               ; preds = %4
@@ -183,13 +183,13 @@ get_fmt_broken_down_time.exit:                    ; preds = %.thread, %19
   br label %snprint_abs_time_iso8601.exit
 
 70:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %71 = trunc i8 %.0.i39 to i1
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %70
-  %73 = call i64 @strftime(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull @.str.29, ptr noundef nonnull %.0.i) #9
+  %73 = call i64 @strftime(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull @.str.29, ptr noundef nonnull %.0.i) #10
   br label %74
 
 74:                                               ; preds = %72, %70
@@ -208,7 +208,7 @@ get_fmt_broken_down_time.exit:                    ; preds = %.thread, %19
   %87 = load i32, ptr %86, align 4
   %88 = load i32, ptr %.0.i, align 8
   %89 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull @.str.28, ptr noundef nonnull %75, i32 noundef %78, i32 noundef %81, i32 noundef %83, i32 noundef %85, i32 noundef %87, i32 noundef %88, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %75)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %snprint_abs_time_iso8601.exit
 
 default.unreachable48:                            ; preds = %32
@@ -289,45 +289,39 @@ default.unreachable48:                            ; preds = %32
 
 snprint_abs_time_iso8601.exit:                    ; preds = %116, %102, %74, %52, %36, %23, %16, %8
   %.032 = phi ptr [ %9, %8 ], [ %17, %16 ], [ %24, %23 ], [ %51, %36 ], [ %69, %52 ], [ %89, %74 ], [ %115, %102 ], [ %133, %116 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.032
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef ptr @abs_time_to_unix_str(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noalias dereferenceable_or_null(31) ptr @wmem_alloc(ptr noundef %0, i64 noundef 31) #10
+  %3 = tail call noalias dereferenceable_or_null(31) ptr @wmem_alloc(ptr noundef %0, i64 noundef 31) #9
   tail call void @display_epoch_time(ptr noundef %3, i64 noundef 31, ptr noundef %1, i32 noundef 9)
   ret ptr %3
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @abs_time_secs_to_str_ex(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.nstime_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @nstime_set_unset(ptr noundef nonnull %5)
   store i64 %1, ptr %5, align 8
   %6 = call ptr @abs_time_to_str_ex(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %2, i32 noundef %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %6
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @nstime_set_unset(ptr noundef) local_unnamed_addr #2
+declare void @nstime_set_unset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @unsigned_time_secs_to_str(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -351,7 +345,7 @@ define ptr @unsigned_time_secs_to_str(ptr noundef %0, i32 noundef %1) local_unna
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strbuf_new_sized(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @wmem_strbuf_new_sized(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @unsigned_time_secs_to_str_buf(i64 noundef range(i64 -1, -9223372036854775808) %0, i32 noundef range(i32 -999, -2147483647) %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
@@ -473,7 +467,7 @@ define internal fastcc void @unsigned_time_secs_to_str_buf(i64 noundef range(i64
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_strbuf_finalize(ptr noundef) local_unnamed_addr #2
+declare ptr @wmem_strbuf_finalize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @signed_time_secs_to_str(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -617,23 +611,23 @@ define ptr @rel_time_to_str(ptr noundef %0, ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wmem_strbuf_append_c(ptr noundef, i8 noundef signext) local_unnamed_addr #2
+declare void @wmem_strbuf_append_c(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noundef ptr @rel_time_to_secs_str(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noalias dereferenceable_or_null(31) ptr @wmem_alloc(ptr noundef %0, i64 noundef 31) #10
+  %3 = tail call noalias dereferenceable_or_null(31) ptr @wmem_alloc(ptr noundef %0, i64 noundef 31) #9
   tail call void @display_signed_time(ptr noundef %3, i64 noundef 31, ptr noundef %1, i32 noundef 9)
   ret ptr %3
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare void @display_signed_time(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @display_signed_time(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @display_epoch_time(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @display_epoch_time(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noalias noundef ptr @decode_bits_in_field(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -646,7 +640,7 @@ define noalias noundef ptr @decode_bits_in_field(ptr noundef %0, i32 noundef %1,
   %.not71 = icmp slt i32 %4, 0
   %.0.in = select i1 %.not71, i32 %11, i32 %1
   %.0 = and i32 %.0.in, 7
-  %12 = tail call noalias dereferenceable_or_null(320) ptr @wmem_alloc0(ptr noundef %0, i64 noundef 320) #10
+  %12 = tail call noalias dereferenceable_or_null(320) ptr @wmem_alloc0(ptr noundef %0, i64 noundef 320) #9
   %.not = icmp eq i32 %.0, 0
   br i1 %.not, label %.preheader72, label %.lr.ph
 
@@ -769,11 +763,11 @@ define noalias noundef ptr @decode_bits_in_field(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noundef ptr @guid_to_str(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noalias dereferenceable_or_null(37) ptr @wmem_alloc(ptr noundef %0, i64 noundef 37) #10
+  %3 = tail call noalias dereferenceable_or_null(37) ptr @wmem_alloc(ptr noundef %0, i64 noundef 37) #9
   %4 = load i32, ptr %1, align 4
   %5 = tail call ptr @dword_to_hex(ptr noundef %3, i32 noundef %4)
   %6 = getelementptr i8, ptr %5, i64 1
@@ -837,19 +831,19 @@ define noundef ptr @guid_to_str_buf(ptr noundef %0, ptr noundef returned %1, i32
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @dword_to_hex(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @dword_to_hex(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @word_to_hex(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare ptr @word_to_hex(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @bytes_to_hexstr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @bytes_to_hexstr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define noundef nonnull ptr @port_type_to_str(i32 noundef %0) local_unnamed_addr #6 {
+define noundef nonnull ptr @port_type_to_str(i32 noundef %0) local_unnamed_addr #5 {
   %2 = icmp ult i32 %0, 13
   br i1 %2, label %switch.lookup, label %4
 
@@ -865,34 +859,40 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind null_pointer_is_valid
-declare ptr @gmtime(ptr noundef) local_unnamed_addr #7
+declare ptr @gmtime(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind null_pointer_is_valid
-declare ptr @localtime(ptr noundef) local_unnamed_addr #7
+declare ptr @localtime(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind null_pointer_is_valid
-declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wmem_strbuf_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @wmem_strbuf_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { allocsize(1) }
+attributes #9 = { allocsize(1) }
+attributes #10 = { nounwind }
 attributes #11 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

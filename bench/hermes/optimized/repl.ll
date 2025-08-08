@@ -560,18 +560,18 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_10JSFunctionEEENS0_6HandleIT_EEON
   store i32 0, ptr %Size.i.i.i.i.i.i55, align 8
   %Capacity2.i.i.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %historyFile, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i56, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp2.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp4.i)
   %call.i57 = call noundef zeroext i1 @_ZN4llvh3sys4path14home_directoryERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(144) %historyFile) #20
   br i1 %call.i57, label %if.end.i59, label %_ZL15loadHistoryFileRN4llvh11SmallStringILj128EEE.exit.thread
 
 _ZL15loadHistoryFileRN4llvh11SmallStringILj128EEE.exit.thread: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_10JSFunctionEEENS0_6HandleIT_EEONS0_12PseudoHandleINS0_11HermesValueEEE.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp2.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4.i)
   br label %if.end91
 
 if.end.i59:                                       ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_10JSFunctionEEENS0_6HandleIT_EEONS0_12PseudoHandleINS0_11HermesValueEEE.exit
@@ -606,10 +606,10 @@ _ZL15loadHistoryFileRN4llvh11SmallStringILj128EEE.exit: ; preds = %if.end.i59, %
   %44 = load ptr, ptr %historyFile, align 8
   %call6.i = call i32 @read_history(ptr noundef %44) #20
   %call.i.i58 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp2.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4.i)
   switch i32 %call6.i, label %if.then85 [
     i32 0, label %if.end91
     i32 2, label %if.end91
@@ -829,11 +829,11 @@ if.end.i103:                                      ; preds = %if.then119
 if.end122:                                        ; preds = %while.cond
   %call.i280 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %code) #20
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %code) #20
-  call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %sm.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %allocator.i)
-  call void @llvm.lifetime.start.p0(i64 1128, ptr nonnull %lexer.i)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %stack.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i106)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sm.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %allocator.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lexer.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %stack.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i106)
   call void @_ZN6hermes18SourceErrorManagerC1Ev(ptr noundef nonnull align 8 dereferenceable(464) %sm.i) #20
   %69 = load i64, ptr %suppressMessages_.i.i, align 8
   store i32 0, ptr %suppressMessages_.i.i, align 8
@@ -857,7 +857,7 @@ if.end122:                                        ; preds = %while.cond
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %allocator.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   call void @_ZN4llvh12MemoryBuffer12getMemBufferENS_9StringRefES1_b(ptr nonnull sret(%"class.std::unique_ptr.295") align 8 %agg.tmp.i.i, ptr %call.i280, i64 %call2.i, ptr nonnull @.str.20, i64 10, i1 noundef zeroext true) #20
   call void @_ZN6hermes6parser7JSLexerC2ESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS4_EERNS_18SourceErrorManagerERNS_28BacktrackingBumpPtrAllocatorEPNS_11StringTableEbb(ptr noundef nonnull align 8 dereferenceable(1128) %lexer.i, ptr noundef nonnull %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(464) %sm.i, ptr noundef nonnull align 8 dereferenceable(32) %allocator.i, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #20
   %71 = load ptr, ptr %agg.tmp.i.i, align 8
@@ -872,7 +872,7 @@ _ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i.i: ; preds = %if.e
   br label %_ZN6hermes6parser7JSLexerC2EN4llvh9StringRefERNS_18SourceErrorManagerERNS_28BacktrackingBumpPtrAllocatorEPNS_11StringTableEbb.exit.i
 
 _ZN6hermes6parser7JSLexerC2EN4llvh9StringRefERNS_18SourceErrorManagerERNS_28BacktrackingBumpPtrAllocatorEPNS_11StringTableEbb.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i.i, %if.end122
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   store i64 8, ptr %_M_map_size.i.i.i.i.i, align 8
   %call5.i.i.i.i.i.i.i6.i = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
   store ptr %call5.i.i.i.i.i.i.i6.i, ptr %stack.i, align 8
@@ -1097,11 +1097,11 @@ _ZL16needsAnotherLineN4llvh9StringRefE.exit:      ; preds = %_ZN4llvh11SmallStri
   %suppress.sroa.2.8.extract.trunc.i = trunc i64 %69 to i40
   store i40 %suppress.sroa.2.8.extract.trunc.i, ptr %suppressMessages_.i.i, align 8
   call void @_ZN6hermes18SourceErrorManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %sm.i) #20
-  call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %sm.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %allocator.i)
-  call void @llvm.lifetime.end.p0(i64 1128, ptr nonnull %lexer.i)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %stack.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i106)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sm.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %allocator.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lexer.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i106)
   br i1 %retval.0.i115, label %if.then125, label %if.end127
 
 if.then125:                                       ; preds = %_ZL16needsAnotherLineN4llvh9StringRefE.exit
@@ -1686,7 +1686,7 @@ declare { i32, i64 } @_ZN6hermes2vm8Callable12executeCall2ENS0_6HandleIS1_EERNS0
 define linkonce_odr hidden ptr @_ZN6hermes2vm15StringPrimitive13createNoThrowERNS0_7RuntimeEN4llvh8ArrayRefIDsEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %str.coerce0, i64 %str.coerce1) local_unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string.333", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %0 = and i64 %str.coerce1, 4294901760
   %cmp.i.not.i = icmp eq i64 %0, 0
   br i1 %cmp.i.not.i, label %if.then.i, label %if.then.i.i.i.i
@@ -1734,7 +1734,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i.i.i
 
 _ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit: ; preds = %if.then.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
   %call3.pn.i = phi { i32, i64 } [ %call3.i, %if.then.i ], [ %call5.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i ], [ %call5.i, %if.then.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %4 = extractvalue { i32, i64 } %call3.pn.i, 0
   %cmp.i = icmp eq i32 %4, 0
   br i1 %cmp.i, label %if.then, label %if.end
@@ -3028,7 +3028,7 @@ entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit) #20
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #20
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #20
   %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZL20kHistoryFileBaseNameB5cxx11) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) @_ZL20kHistoryFileBaseNameB5cxx11, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #20
@@ -3038,8 +3038,8 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZL20kHistoryFileBaseNameB5cxx11, i64 noundef 15) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #20
   %1 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZL20kHistoryFileBaseNameB5cxx11, ptr nonnull @__dso_handle) #20
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1)
   store ptr @.str.4, ptr %ref.tmp.i1, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh2cl6OptionE, i64 16), ptr @_ZL12PromptStringB5cxx11, align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL12PromptStringB5cxx11, i64 8), align 8
@@ -3068,8 +3068,8 @@ entry:
   store i64 27, ptr getelementptr inbounds nuw (i8, ptr @_ZL12PromptStringB5cxx11, i64 48), align 8
   call void @_ZN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEE4doneEv(ptr noundef nonnull align 8 dereferenceable(240) @_ZL12PromptStringB5cxx11) #20
   %2 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEED2Ev, ptr nonnull @_ZL12PromptStringB5cxx11, ptr nonnull @__dso_handle) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2)
   store ptr @.str.8, ptr %ref.tmp.i2, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh2cl6OptionE, i64 16), ptr @_ZL13Prompt2StringB5cxx11, align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 8), align 8
@@ -3098,7 +3098,7 @@ entry:
   store i64 49, ptr getelementptr inbounds nuw (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 48), align 8
   call void @_ZN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEE4doneEv(ptr noundef nonnull align 8 dereferenceable(240) @_ZL13Prompt2StringB5cxx11) #20
   %3 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEED2Ev, ptr nonnull @_ZL13Prompt2StringB5cxx11, ptr nonnull @__dso_handle) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2)
   ret void
 }
 
@@ -3109,10 +3109,10 @@ declare void @llvm.assume(i1 noundef) #16
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19

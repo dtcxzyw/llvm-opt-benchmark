@@ -392,7 +392,7 @@ if.then.i:                                        ; preds = %entry
 _ZN4llvh15SmallVectorImplIDsE7reserveEm.exit:     ; preds = %entry, %if.then.i
   %0 = phi ptr [ %add.ptr.i.i.i.i.i, %entry ], [ %.pre, %if.then.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %input.coerce0, i64 %input.coerce1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %begin8.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %begin8.addr.i)
   store ptr %input.coerce0, ptr %begin8.addr.i, align 8
   %cmp7.i = icmp sgt i64 %input.coerce1, 0
   br i1 %cmp7.i, label %while.body.i, label %_ZN6hermes32convertUTF8WithSurrogatesToUTF16IPDsEET_S2_PKcS4_.exit
@@ -453,7 +453,7 @@ _ZN6hermes32convertUTF8WithSurrogatesToUTF16IPDsEET_S2_PKcS4_.exit.loopexit: ; p
 _ZN6hermes32convertUTF8WithSurrogatesToUTF16IPDsEET_S2_PKcS4_.exit: ; preds = %_ZN6hermes32convertUTF8WithSurrogatesToUTF16IPDsEET_S2_PKcS4_.exit.loopexit, %_ZN4llvh15SmallVectorImplIDsE7reserveEm.exit
   %9 = phi ptr [ %0, %_ZN4llvh15SmallVectorImplIDsE7reserveEm.exit ], [ %.pre7, %_ZN6hermes32convertUTF8WithSurrogatesToUTF16IPDsEET_S2_PKcS4_.exit.loopexit ]
   %dest.addr.0.lcssa.i = phi ptr [ %0, %_ZN4llvh15SmallVectorImplIDsE7reserveEm.exit ], [ %storemerge.i.i, %_ZN6hermes32convertUTF8WithSurrogatesToUTF16IPDsEET_S2_PKcS4_.exit.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %begin8.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %begin8.addr.i)
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %dest.addr.0.lcssa.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -676,10 +676,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #7
 declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

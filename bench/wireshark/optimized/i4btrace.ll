@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden range(i32 -1, 2) i32 @i4btrace_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.i4b_trace_hdr_t, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
   %6 = call zeroext i1 @wtap_read_bytes(ptr noundef %5, ptr noundef nonnull %4, i32 noundef 32, ptr noundef %1, ptr noundef %2)
   br i1 %6, label %9, label %7
@@ -56,25 +56,25 @@ define hidden range(i32 -1, 2) i32 @i4btrace_open(ptr noundef %0, ptr noundef %1
   br i1 %or.cond17, label %27, label %46
 
 27:                                               ; preds = %9
-  %28 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #5, !srcloc !6
+  %28 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #4, !srcloc !6
   store i32 %28, ptr %4, align 4
-  %29 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %13) #5, !srcloc !7
+  %29 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %13) #4, !srcloc !7
   store i32 %29, ptr %12, align 4
-  %30 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %16) #5, !srcloc !8
+  %30 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %16) #4, !srcloc !8
   store i32 %30, ptr %15, align 4
-  %31 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %19) #5, !srcloc !9
+  %31 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %19) #4, !srcloc !9
   store i32 %31, ptr %18, align 4
-  %32 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %22) #5, !srcloc !10
+  %32 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %22) #4, !srcloc !10
   store i32 %32, ptr %21, align 4
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %34 = load i32, ptr %33, align 4
-  %35 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %34) #5, !srcloc !11
+  %35 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %34) #4, !srcloc !11
   store i32 %35, ptr %33, align 4
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %37 = load i32, ptr %36, align 4
-  %38 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %37) #5, !srcloc !12
+  %38 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %37) #4, !srcloc !12
   store i32 %38, ptr %36, align 4
-  %39 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %25) #5, !srcloc !13
+  %39 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %25) #4, !srcloc !13
   store i32 %39, ptr %24, align 4
   %40 = add i32 %28, -16385
   %or.cond20 = icmp ult i32 %40, -16353
@@ -141,28 +141,28 @@ define hidden range(i32 -1, 2) i32 @i4btrace_open(ptr noundef %0, ptr noundef %1
   br label %80
 
 64:                                               ; preds = %63
-  %65 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.pre) #5, !srcloc !16
+  %65 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.pre) #4, !srcloc !16
   store i32 %65, ptr %4, align 4
   %66 = load i32, ptr %12, align 4
-  %67 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %66) #5, !srcloc !17
+  %67 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %66) #4, !srcloc !17
   store i32 %67, ptr %12, align 4
   %68 = load i32, ptr %15, align 4
-  %69 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %68) #5, !srcloc !18
+  %69 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %68) #4, !srcloc !18
   store i32 %69, ptr %15, align 4
   %70 = load i32, ptr %18, align 4
-  %71 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %70) #5, !srcloc !19
+  %71 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %70) #4, !srcloc !19
   store i32 %71, ptr %18, align 4
   %72 = load i32, ptr %21, align 4
-  %73 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %72) #5, !srcloc !20
+  %73 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %72) #4, !srcloc !20
   store i32 %73, ptr %21, align 4
   %74 = load i32, ptr %51, align 4
-  %75 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %74) #5, !srcloc !21
+  %75 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %74) #4, !srcloc !21
   store i32 %75, ptr %51, align 4
   %76 = load i32, ptr %52, align 4
-  %77 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %76) #5, !srcloc !22
+  %77 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %76) #4, !srcloc !22
   store i32 %77, ptr %52, align 4
   %78 = load i32, ptr %24, align 4
-  %79 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %78) #5, !srcloc !23
+  %79 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %78) #4, !srcloc !23
   store i32 %79, ptr %24, align 4
   br label %80
 
@@ -208,7 +208,7 @@ define hidden range(i32 -1, 2) i32 @i4btrace_open(ptr noundef %0, ptr noundef %1
   %103 = load i32, ptr @i4btrace_file_type_subtype, align 4
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %103, ptr %104, align 4
-  %105 = call noalias dereferenceable_or_null(1) ptr @g_malloc(i64 noundef 1) #6
+  %105 = call noalias dereferenceable_or_null(1) ptr @g_malloc(i64 noundef 1) #5
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -228,27 +228,21 @@ define hidden range(i32 -1, 2) i32 @i4btrace_open(ptr noundef %0, ptr noundef %1
 
 .thread:                                          ; preds = %80, %60, %62, %.thread257, %53, %27, %7, %97, %102
   %.0 = phi i32 [ 1, %102 ], [ -1, %97 ], [ %., %7 ], [ 0, %27 ], [ -1, %53 ], [ -1, %.thread257 ], [ 0, %62 ], [ -1, %60 ], [ 0, %80 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @i4btrace_read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) #0 {
@@ -292,7 +286,7 @@ define internal noundef zeroext i1 @i4btrace_seek_read(ptr noundef readonly capt
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_add_generated_idb(ptr noundef) local_unnamed_addr #2
+declare void @wtap_add_generated_idb(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @register_i4btrace() local_unnamed_addr #0 {
@@ -303,18 +297,18 @@ define hidden void @register_i4btrace() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #2
+declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @file_tell(ptr noundef) local_unnamed_addr #2
+declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc zeroext i1 @i4b_read_rec(ptr readonly captures(none) %.96.val, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.i4b_trace_hdr_t, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 32, ptr noundef %2, ptr noundef %3)
   br i1 %6, label %7, label %78
 
@@ -325,35 +319,35 @@ define internal fastcc zeroext i1 @i4b_read_rec(ptr readonly captures(none) %.96
   br i1 %9, label %10, label %33
 
 10:                                               ; preds = %7
-  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.pre) #5, !srcloc !26
+  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.pre) #4, !srcloc !26
   store i32 %11, ptr %5, align 4
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %13) #5, !srcloc !27
+  %14 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %13) #4, !srcloc !27
   store i32 %14, ptr %12, align 4
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load i32, ptr %15, align 4
-  %17 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %16) #5, !srcloc !28
+  %17 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %16) #4, !srcloc !28
   store i32 %17, ptr %15, align 4
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %19 = load i32, ptr %18, align 4
-  %20 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %19) #5, !srcloc !29
+  %20 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %19) #4, !srcloc !29
   store i32 %20, ptr %18, align 4
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %22 = load i32, ptr %21, align 4
-  %23 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %22) #5, !srcloc !30
+  %23 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %22) #4, !srcloc !30
   store i32 %23, ptr %21, align 4
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %25 = load i32, ptr %24, align 4
-  %26 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %25) #5, !srcloc !31
+  %26 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %25) #4, !srcloc !31
   store i32 %26, ptr %24, align 4
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %28 = load i32, ptr %27, align 4
-  %29 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %28) #5, !srcloc !32
+  %29 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %28) #4, !srcloc !32
   store i32 %29, ptr %27, align 4
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %31 = load i32, ptr %30, align 4
-  %32 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %31) #5, !srcloc !33
+  %32 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %31) #4, !srcloc !33
   store i32 %32, ptr %30, align 4
   br label %33
 
@@ -448,26 +442,31 @@ define internal fastcc zeroext i1 @i4b_read_rec(ptr readonly captures(none) %.96
 
 78:                                               ; preds = %4, %70, %41, %36
   %.0 = phi i1 [ false, %36 ], [ false, %41 ], [ %77, %70 ], [ false, %4 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #2
+declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_read_bytes_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind memory(none) }
-attributes #6 = { allocsize(0) }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind memory(none) }
+attributes #5 = { allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

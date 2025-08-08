@@ -83,9 +83,6 @@ define range(i32 -500, 1) i32 @SetCipherSpecs(ptr noundef %0) local_unnamed_addr
   ret i32 %13
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define range(i32 -500, 1) i32 @GetCipherSpec(i16 noundef zeroext %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = icmp eq i16 %0, 1
@@ -901,14 +898,11 @@ define range(i32 -500, 1) i32 @GetCipherSpec(i16 noundef zeroext %0, i8 noundef 
   ret i32 %.0
 }
 
-declare i32 @TLS_hmac(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #2
+declare i32 @TLS_hmac(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @IsAtLeastTLSv1_3(i16) local_unnamed_addr #2
+declare i32 @IsAtLeastTLSv1_3(i16) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @VerifyClientSuite(i16 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
+declare i32 @VerifyClientSuite(i16 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SetKeys(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) local_unnamed_addr #0 {
@@ -1383,25 +1377,25 @@ thread-pre-split:                                 ; preds = %72, %73
   ret i32 %.2183
 }
 
-declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #2
+declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Chacha_SetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Chacha_SetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare void @wc_AesFree(ptr noundef) local_unnamed_addr #2
+declare void @wc_AesFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare i32 @wc_AesInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_AesInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_AesSetKey(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_AesSetKey(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_AesGcmSetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_AesGcmSetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_AesGcmSetIV(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_AesGcmSetIV(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SetKeysSide(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1479,7 +1473,7 @@ SetAuthKeys.exit:                                 ; preds = %22, %2, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @StoreKeys(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
+define noundef i32 @StoreKeys(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 732
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 714
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 723
@@ -1612,12 +1606,12 @@ define i32 @DeriveKeys(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %19 = shl nuw nsw i32 %18, 1
   %20 = add nuw nsw i32 %19, 15
   %21 = lshr i32 %20, 4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 121, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %2, i8 0, i64 20, i1 false)
   %22 = call i32 @wc_InitMd5(ptr noundef nonnull %6) #7
   %23 = icmp eq i32 %22, 0
@@ -1802,26 +1796,26 @@ SetPrefix.exit:                                   ; preds = %.thread39, %58, %61
 
 StoreKeys.exit:                                   ; preds = %32, %1, %100, %._crit_edge.i, %._crit_edge, %24
   %.1 = phi i32 [ %25, %24 ], [ %.4, %._crit_edge ], [ 0, %._crit_edge.i ], [ 0, %100 ], [ %22, %1 ], [ -302, %32 ]
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 121, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
 }
 
-declare i32 @wc_InitMd5(ptr noundef) local_unnamed_addr #2
+declare i32 @wc_InitMd5(ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_InitSha(ptr noundef) local_unnamed_addr #2
+declare i32 @wc_InitSha(ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_ShaUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_ShaUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_ShaFinal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_ShaFinal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_Md5Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Md5Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Md5Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Md5Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MakeMasterSecret(ptr noundef %0) local_unnamed_addr #0 {
@@ -1846,11 +1840,11 @@ define i32 @MakeMasterSecret(ptr noundef %0) local_unnamed_addr #0 {
   %15 = load ptr, ptr %14, align 8, !tbaa !77
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i32, ptr %16, align 8, !tbaa !80
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 532, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 579, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !82
   %20 = icmp eq ptr %19, null
@@ -1881,7 +1875,7 @@ define i32 @MakeMasterSecret(ptr noundef %0) local_unnamed_addr #0 {
 34:                                               ; preds = %.thread53.i, %27
   %indvars.iv.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i, %.thread53.i ]
   %.266.i = phi i32 [ 0, %27 ], [ %.4.ph.i, %.thread53.i ]
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %35 = trunc nuw nsw i64 %indvars.iv.i to i32
   switch i32 %35, label %default.unreachable.i [
     i32 0, label %36
@@ -1957,7 +1951,7 @@ default.unreachable.i:                            ; preds = %34
 
 .thread53.i:                                      ; preds = %62, %59, %56, %.thread50.i
   %.4.ph.i = phi i32 [ %60, %59 ], [ %67, %62 ], [ %.6.ph.i, %.thread50.i ], [ %57, %56 ]
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %68, label %34, !llvm.loop !83
 
@@ -2051,11 +2045,11 @@ CleanPreMaster.exit.i:                            ; preds = %95, %._crit_edge.i.
 
 MakeSslMasterSecret.exit:                         ; preds = %13, %CleanPreMaster.exit.i
   %.041.i = phi i32 [ %..1.i, %CleanPreMaster.exit.i ], [ -173, %13 ]
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 579, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 532, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %99
 
 99:                                               ; preds = %MakeSslMasterSecret.exit, %11
@@ -2063,21 +2057,27 @@ MakeSslMasterSecret.exit:                         ; preds = %13, %CleanPreMaster
   ret i32 %.0
 }
 
-declare i32 @MakeTlsMasterSecret(ptr noundef) local_unnamed_addr #2
+declare i32 @MakeTlsMasterSecret(ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #2
+declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 

@@ -449,9 +449,9 @@ entry:
   %ref.tmp13.i = alloca %"class.google::ErrnoLogMessage", align 8
   %indirect-arg-temp.i = alloca { i64, i64 }, align 8
   %p.val = load ptr, ptr %p, align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ss.i)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp13.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %indirect-arg-temp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ss.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp13.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %indirect-arg-temp.i)
   %call.i = call i32 @sigemptyset(ptr noundef nonnull %ss.i) #18
   %call2.i = call i32 @sigaddset(ptr noundef nonnull %ss.i, i32 noundef 1) #18
   %call3.i = call i32 @sigaddset(ptr noundef nonnull %ss.i, i32 noundef 2) #18
@@ -498,9 +498,9 @@ lpad.i:                                           ; preds = %invoke.cont.i, %con
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %3 = load ptr, ptr %vfn.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %p.val)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ss.i)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp13.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %indirect-arg-temp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ss.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp13.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %indirect-arg-temp.i)
   ret void
 }
 
@@ -547,10 +547,10 @@ define weak_odr hidden noundef ptr @_ZTWN8proxygen19RequestWorkerThread21current
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

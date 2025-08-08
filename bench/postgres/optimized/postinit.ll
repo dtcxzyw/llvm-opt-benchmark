@@ -102,7 +102,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @pg_split_opts(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.StringInfoData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @initStringInfo(ptr noundef nonnull %4) #12
   %5 = load i8, ptr %2, align 1
   %.not31 = icmp eq i8 %5, 0
@@ -176,28 +176,22 @@ define dso_local void @pg_split_opts(ptr noundef writeonly captures(none) %0, pt
 .thread:                                          ; preds = %._crit_edge, %15, %3
   %37 = load ptr, ptr %4, align 8
   call void @pfree(ptr noundef %37) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
 
-declare void @initStringInfo(ptr noundef) local_unnamed_addr #2
-
-declare void @resetStringInfo(ptr noundef) local_unnamed_addr #2
+declare void @resetStringInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #3
+declare ptr @__ctype_b_loc() local_unnamed_addr #2
 
-declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #2
+declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @InitializeMaxBackends() local_unnamed_addr #0 {
@@ -231,20 +225,20 @@ define dso_local void @InitializeMaxBackends() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @InitializeFastPathLocks() local_unnamed_addr #5 {
+define dso_local void @InitializeFastPathLocks() local_unnamed_addr #4 {
   %1 = load i32, ptr @max_locks_per_xact, align 4
   br label %2
 
@@ -280,25 +274,25 @@ define dso_local void @BaseInit() local_unnamed_addr #0 {
   ret void
 }
 
-declare void @DebugFileOpen() local_unnamed_addr #2
+declare void @DebugFileOpen() local_unnamed_addr #1
 
-declare void @InitFileAccess() local_unnamed_addr #2
+declare void @InitFileAccess() local_unnamed_addr #1
 
-declare void @pgstat_initialize() local_unnamed_addr #2
+declare void @pgstat_initialize() local_unnamed_addr #1
 
-declare void @InitSync() local_unnamed_addr #2
+declare void @InitSync() local_unnamed_addr #1
 
-declare void @smgrinit() local_unnamed_addr #2
+declare void @smgrinit() local_unnamed_addr #1
 
-declare void @InitBufferManagerAccess() local_unnamed_addr #2
+declare void @InitBufferManagerAccess() local_unnamed_addr #1
 
-declare void @InitTemporaryFileAccess() local_unnamed_addr #2
+declare void @InitTemporaryFileAccess() local_unnamed_addr #1
 
-declare void @InitXLogInsert() local_unnamed_addr #2
+declare void @InitXLogInsert() local_unnamed_addr #1
 
-declare void @InitLockManagerAccess() local_unnamed_addr #2
+declare void @InitLockManagerAccess() local_unnamed_addr #1
 
-declare void @ReplicationSlotInitialize() local_unnamed_addr #2
+declare void @ReplicationSlotInitialize() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @InitPostgres(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -310,8 +304,8 @@ define dso_local void @InitPostgres(ptr noundef %0, i32 noundef %1, ptr noundef 
   %12 = alloca i32, align 4
   %13 = load i32, ptr @Mode, align 4
   %14 = icmp eq i32 %13, 0
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4
   %15 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #12
   br i1 %15, label %16, label %18
@@ -456,7 +450,7 @@ define dso_local void @InitPostgres(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %76, label %77, label %PerformAuthentication.exit
 
 77:                                               ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @initStringInfo(ptr noundef nonnull %10) #12
   %78 = load i8, ptr @am_walsender, align 1, !range !8, !noundef !9
   %79 = trunc nuw i8 %78 to i1
@@ -497,7 +491,7 @@ define dso_local void @InitPostgres(ptr noundef %0, i32 noundef %1, ptr noundef 
 96:                                               ; preds = %93, %91
   %97 = load ptr, ptr %10, align 8
   call void @pfree(ptr noundef %97) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %PerformAuthentication.exit
 
 PerformAuthentication.exit:                       ; preds = %71, %96
@@ -641,7 +635,7 @@ PerformAuthentication.exit:                       ; preds = %71, %96
   br i1 %.not87, label %182, label %162
 
 162:                                              ; preds = %161
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %163 = ptrtoint ptr %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %9, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 62, i64 noundef %163) #12
   %164 = call ptr @table_open(i32 noundef 1262, i32 noundef 1) #12
@@ -660,7 +654,7 @@ GetDatabaseTuple.exit:                            ; preds = %162, %169
   %.0.i = phi ptr [ %170, %169 ], [ null, %162 ]
   call void @systable_endscan(ptr noundef %167) #12
   call void @table_close(ptr noundef %164, i32 noundef 1) #12
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not89 = icmp eq ptr %.0.i, null
   br i1 %.not89, label %171, label %175
 
@@ -698,7 +692,7 @@ GetDatabaseTuple.exit:                            ; preds = %162, %169
 185:                                              ; preds = %175, %182
   %.069.ph = phi i32 [ %1, %182 ], [ %181, %175 ]
   call void @LockSharedObject(i32 noundef 1262, i32 noundef %.069.ph, i16 noundef zeroext 0, i32 noundef 3) #12
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %186 = zext i32 %.069.ph to i64
   call void @ScanKeyInit(ptr noundef nonnull %8, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %186) #12
   %187 = call ptr @table_open(i32 noundef 1262, i32 noundef 1) #12
@@ -717,7 +711,7 @@ GetDatabaseTupleByOid.exit:                       ; preds = %185, %192
   %.0.i106 = phi ptr [ %193, %192 ], [ null, %185 ]
   call void @systable_endscan(ptr noundef %190) #12
   call void @table_close(ptr noundef %187, i32 noundef 1) #12
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not90 = icmp eq ptr %.0.i106, null
   br i1 %.not90, label %.critedge98, label %194
 
@@ -831,7 +825,7 @@ GetDatabaseTupleByOid.exit:                       ; preds = %185, %192
   call void @initialize_acl() #12
   %248 = and i32 %4, 2
   %249 = icmp ne i32 %248, 0
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %250 = load i32, ptr @MyDatabaseId, align 4
   %251 = zext i32 %250 to i64
   %252 = call ptr @SearchSysCache1(i32 noundef 21, i64 noundef %251) #12
@@ -1054,7 +1048,7 @@ sub_0.i:                                          ; preds = %325
 
 CheckMyDatabase.exit:                             ; preds = %340, %357, %361, %363, %.sink.split.i
   call void @ReleaseSysCache(ptr noundef nonnull %252) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %370
 
 .critedge100:                                     ; preds = %.critedge
@@ -1124,22 +1118,22 @@ process_settings.exit:                            ; preds = %373, %378
   br label %.critedge102
 
 .critedge102:                                     ; preds = %391, %390, %183, %160, %38
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 }
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @InitProcessPhase2() local_unnamed_addr #2
+declare void @InitProcessPhase2() local_unnamed_addr #1
 
-declare void @SharedInvalBackendInit(i1 noundef zeroext) local_unnamed_addr #2
+declare void @SharedInvalBackendInit(i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @ProcSignalInit(i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @ProcSignalInit(i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare i32 @RegisterTimeout(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @RegisterTimeout(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @CheckDeadLockAlert() #2
+declare void @CheckDeadLockAlert() #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @StatementTimeoutHandler() #0 {
@@ -1209,29 +1203,29 @@ define internal void @IdleStatsUpdateTimeoutHandler() #0 {
   ret void
 }
 
-declare void @CreateAuxProcessResourceOwner() local_unnamed_addr #2
+declare void @CreateAuxProcessResourceOwner() local_unnamed_addr #1
 
-declare void @StartupXLOG() local_unnamed_addr #2
+declare void @StartupXLOG() local_unnamed_addr #1
 
-declare void @ReleaseAuxProcessResources(i1 noundef zeroext) local_unnamed_addr #2
+declare void @ReleaseAuxProcessResources(i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @before_shmem_exit(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @before_shmem_exit(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @pgstat_before_server_shutdown(i32 noundef, i64 noundef) #2
+declare void @pgstat_before_server_shutdown(i32 noundef, i64 noundef) #1
 
-declare void @ShutdownXLOG(i32 noundef, i64 noundef) #2
+declare void @ShutdownXLOG(i32 noundef, i64 noundef) #1
 
-declare void @RelationCacheInitialize() local_unnamed_addr #2
+declare void @RelationCacheInitialize() local_unnamed_addr #1
 
-declare void @InitCatalogCache() local_unnamed_addr #2
+declare void @InitCatalogCache() local_unnamed_addr #1
 
-declare void @InitPlanCache() local_unnamed_addr #2
+declare void @InitPlanCache() local_unnamed_addr #1
 
-declare void @EnablePortalManager() local_unnamed_addr #2
+declare void @EnablePortalManager() local_unnamed_addr #1
 
-declare void @pgstat_beinit() local_unnamed_addr #2
+declare void @pgstat_beinit() local_unnamed_addr #1
 
-declare void @RelationCacheInitializePhase2() local_unnamed_addr #2
+declare void @RelationCacheInitializePhase2() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @ShutdownPostgres(i32 %0, i64 %1) #0 {
@@ -1240,31 +1234,31 @@ define internal void @ShutdownPostgres(i32 %0, i64 %1) #0 {
   ret void
 }
 
-declare void @pgstat_bestart() local_unnamed_addr #2
+declare void @pgstat_bestart() local_unnamed_addr #1
 
-declare void @SetCurrentStatementStartTimestamp() local_unnamed_addr #2
+declare void @SetCurrentStatementStartTimestamp() local_unnamed_addr #1
 
-declare void @StartTransactionCommand() local_unnamed_addr #2
+declare void @StartTransactionCommand() local_unnamed_addr #1
 
-declare void @InitializeSessionUserIdStandalone() local_unnamed_addr #2
+declare void @InitializeSessionUserIdStandalone() local_unnamed_addr #1
 
-declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @InitializeSessionUserId(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @InitializeSessionUserId(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @superuser() local_unnamed_addr #2
+declare zeroext i1 @superuser() local_unnamed_addr #1
 
-declare void @InitializeSystemUser(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @InitializeSystemUser(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @hba_authname(i32 noundef) local_unnamed_addr #2
+declare ptr @hba_authname(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @HaveNFreeProcs(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @HaveNFreeProcs(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @has_privs_of_role(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @has_privs_of_role(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @GetUserId() local_unnamed_addr #2
+declare i32 @GetUserId() local_unnamed_addr #1
 
-declare zeroext i1 @has_rolreplication(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @has_rolreplication(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @process_startup_options(ptr noundef nonnull readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 {
@@ -1276,7 +1270,7 @@ define internal fastcc void @process_startup_options(ptr noundef nonnull readonl
   br i1 %.not, label %17, label %7
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #15
   %9 = shl i64 %8, 31
   %sext = add i64 %9, 10737418240
@@ -1292,7 +1286,7 @@ define internal fastcc void @process_startup_options(ptr noundef nonnull readonl
   %16 = getelementptr inbounds ptr, ptr %12, i64 %15
   store ptr null, ptr %16, align 8
   tail call void @process_postgres_switches(i32 noundef %14, ptr noundef nonnull %12, i32 noundef %4, ptr noundef null) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %7, %2
@@ -1330,149 +1324,155 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %17,
   ret void
 }
 
-declare void @pg_usleep(i64 noundef) local_unnamed_addr #2
+declare void @pg_usleep(i64 noundef) local_unnamed_addr #1
 
-declare void @InitializeClientEncoding() local_unnamed_addr #2
+declare void @InitializeClientEncoding() local_unnamed_addr #1
 
-declare void @CommitTransactionCommand() local_unnamed_addr #2
+declare void @CommitTransactionCommand() local_unnamed_addr #1
 
-declare void @LockSharedObject(i32 noundef, i32 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @LockSharedObject(i32 noundef, i32 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare i32 @namestrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @namestrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare zeroext i1 @database_is_invalid_form(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @database_is_invalid_form(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
-declare void @InvalidateCatalogSnapshot() local_unnamed_addr #2
+declare void @InvalidateCatalogSnapshot() local_unnamed_addr #1
 
-declare ptr @GetDatabasePath(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @GetDatabasePath(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #8
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #3
+declare ptr @__errno_location() local_unnamed_addr #2
 
-declare i32 @errcode_for_file_access() local_unnamed_addr #2
+declare i32 @errcode_for_file_access() local_unnamed_addr #1
 
-declare void @ValidatePgVersion(ptr noundef) local_unnamed_addr #2
+declare void @ValidatePgVersion(ptr noundef) local_unnamed_addr #1
 
-declare void @SetDatabasePath(ptr noundef) local_unnamed_addr #2
+declare void @SetDatabasePath(ptr noundef) local_unnamed_addr #1
 
-declare void @RelationCacheInitializePhase3() local_unnamed_addr #2
+declare void @RelationCacheInitializePhase3() local_unnamed_addr #1
 
-declare void @initialize_acl() local_unnamed_addr #2
+declare void @initialize_acl() local_unnamed_addr #1
 
-declare i32 @GetSessionUserId() local_unnamed_addr #2
+declare i32 @GetSessionUserId() local_unnamed_addr #1
 
-declare void @InitializeSearchPath() local_unnamed_addr #2
+declare void @InitializeSearchPath() local_unnamed_addr #1
 
-declare void @InitializeSession() local_unnamed_addr #2
+declare void @InitializeSession() local_unnamed_addr #1
 
-declare void @process_session_preload_libraries() local_unnamed_addr #2
+declare void @process_session_preload_libraries() local_unnamed_addr #1
 
-declare void @enable_timeout_after(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @enable_timeout_after(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ClientAuthentication(ptr noundef) local_unnamed_addr #2
+declare void @ClientAuthentication(ptr noundef) local_unnamed_addr #1
 
-declare void @disable_timeout(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @disable_timeout(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @set_ps_display_with_len(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
-
-declare void @ScanKeyInit(ptr noundef, i16 noundef signext, i16 noundef zeroext, i32 noundef, i64 noundef) local_unnamed_addr #2
-
-declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare ptr @systable_beginscan(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @systable_getnext(ptr noundef) local_unnamed_addr #2
-
-declare ptr @heap_copytuple(ptr noundef) local_unnamed_addr #2
-
-declare void @systable_endscan(ptr noundef) local_unnamed_addr #2
-
-declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @set_ps_display_with_len(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
-declare i32 @object_aclcheck(i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @ScanKeyInit(ptr noundef, i16 noundef signext, i16 noundef zeroext, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @CountDBConnections(i32 noundef) local_unnamed_addr #2
+declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @SetDatabaseEncoding(i32 noundef) local_unnamed_addr #2
+declare ptr @systable_beginscan(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SetConfigOption(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @systable_getnext(ptr noundef) local_unnamed_addr #1
 
-declare ptr @GetDatabaseEncodingName() local_unnamed_addr #2
+declare ptr @heap_copytuple(ptr noundef) local_unnamed_addr #1
 
-declare i64 @SysCacheGetAttrNotNull(i32 noundef, ptr noundef, i16 noundef signext) local_unnamed_addr #2
+declare void @systable_endscan(ptr noundef) local_unnamed_addr #1
 
-declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
+declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @pg_perm_setlocale(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @init_database_collation() local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
-declare i64 @SysCacheGetAttr(i32 noundef, ptr noundef, i16 noundef signext, ptr noundef) local_unnamed_addr #2
+declare i32 @object_aclcheck(i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @get_collation_actual_version(i8 noundef signext, ptr noundef) local_unnamed_addr #2
+declare i32 @CountDBConnections(i32 noundef) local_unnamed_addr #1
 
-declare ptr @quote_identifier(ptr noundef) local_unnamed_addr #2
+declare void @SetDatabaseEncoding(i32 noundef) local_unnamed_addr #1
 
-declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #2
+declare void @SetConfigOption(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @GetDatabaseEncodingName() local_unnamed_addr #1
 
-declare void @process_postgres_switches(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @SysCacheGetAttrNotNull(i32 noundef, ptr noundef, i16 noundef signext) local_unnamed_addr #1
 
-declare ptr @RegisterSnapshot(ptr noundef) local_unnamed_addr #2
+declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #1
 
-declare ptr @GetCatalogSnapshot(i32 noundef) local_unnamed_addr #2
+declare ptr @pg_perm_setlocale(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ApplySetting(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @init_database_collation() local_unnamed_addr #1
 
-declare void @UnregisterSnapshot(ptr noundef) local_unnamed_addr #2
+declare i64 @SysCacheGetAttr(i32 noundef, ptr noundef, i16 noundef signext, ptr noundef) local_unnamed_addr #1
 
-declare void @AbortOutOfAnyTransaction() local_unnamed_addr #2
+declare ptr @get_collation_actual_version(i8 noundef signext, ptr noundef) local_unnamed_addr #1
 
-declare void @LockReleaseAll(i16 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @quote_identifier(ptr noundef) local_unnamed_addr #1
+
+declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
+
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
+
+declare void @process_postgres_switches(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @RegisterSnapshot(ptr noundef) local_unnamed_addr #1
+
+declare ptr @GetCatalogSnapshot(i32 noundef) local_unnamed_addr #1
+
+declare void @ApplySetting(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @UnregisterSnapshot(ptr noundef) local_unnamed_addr #1
+
+declare void @AbortOutOfAnyTransaction() local_unnamed_addr #1
+
+declare void @LockReleaseAll(i16 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #10
+declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #9
 
-declare void @SetLatch(ptr noundef) local_unnamed_addr #2
+declare void @SetLatch(ptr noundef) local_unnamed_addr #1
 
-declare ptr @table_beginscan_catalog(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @table_beginscan_catalog(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @heap_getnext(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @heap_getnext(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(none) }

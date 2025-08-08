@@ -1376,7 +1376,7 @@ _ZN13HasherVisitorD2Ev.exit:                      ; preds = %_ZN13HasherVisitorC
 ; Function Attrs: mustprogress uwtable
 define dso_local i32 @_ZN8V3Hasher12uncachedHashEPK7AstNode(ptr noundef %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.HasherVisitor, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 3736) (i8, ptr @_ZTV13HasherVisitor, i64 16), ptr %2, align 8, !tbaa !21
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %3, align 8, !tbaa !23
@@ -1420,22 +1420,16 @@ _ZN13HasherVisitorC2EPK7AstNodeNS_8UncachedE.exit: ; preds = %1
   unreachable
 
 _ZN13HasherVisitorD2Ev.exit:                      ; preds = %_ZN13HasherVisitorC2EPK7AstNodeNS_8UncachedE.exit
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.sroa.0.0.copyload.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 declare i32 @__gxx_personality_v0(...)
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef range(i64 0, 4294967296) i64 @_Z20V3HasherUncachedHashRK7AstNode(ptr noundef nonnull align 8 dereferenceable(152) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.HasherVisitor, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 3736) (i8, ptr @_ZTV13HasherVisitor, i64 16), ptr %2, align 8, !tbaa !21
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %3, align 8, !tbaa !23
@@ -1479,7 +1473,7 @@ _ZN13HasherVisitorC2EPK7AstNodeNS_8UncachedE.exit.i: ; preds = %1
   unreachable
 
 _ZN8V3Hasher12uncachedHashEPK7AstNode.exit:       ; preds = %_ZN13HasherVisitorC2EPK7AstNodeNS_8UncachedE.exit.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %21 = zext i32 %.sroa.0.0.copyload.i.i to i64
   ret i64 %21
 }
@@ -1504,7 +1498,7 @@ define linkonce_odr dso_local ptr @_ZNK7AstNode6user4uEv(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3setIP7AstNodeSt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1527,7 +1521,7 @@ _ZNSt8_Rb_treeIP7AstNodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EED2Ev.exit: ; pre
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP7AstNode(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -1636,7 +1630,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 53:                                               ; preds = %.body
@@ -1651,7 +1645,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %.body, %53
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %27
 }
 
@@ -1682,7 +1676,7 @@ declare void @_ZN14VNVisitorConst5visitEP9AstAcoshD(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstActive(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -1806,7 +1800,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %45, %55
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 60:                                               ; preds = %.body
@@ -1821,7 +1815,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %45, %55
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %34
 }
 
@@ -1832,7 +1826,7 @@ declare void @_ZN14VNVisitorConst5visitEP7AstAddD(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstAddrOfCFunc(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -1956,7 +1950,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %45, %55
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 60:                                               ; preds = %.body
@@ -1971,7 +1965,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %45, %55
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %34
 }
 
@@ -1992,7 +1986,7 @@ declare void @_ZN14VNVisitorConst5visitEP6AstAnd(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP6AstArg(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -2101,7 +2095,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 53:                                               ; preds = %.body
@@ -2116,7 +2110,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %.body, %53
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %27
 }
 
@@ -2151,7 +2145,7 @@ declare void @_ZN14VNVisitorConst5visitEP10AstAssignW(ptr noundef nonnull align 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP18AstAssocArrayDType(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -2278,7 +2272,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %46, %56
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 61:                                               ; preds = %.body
@@ -2293,7 +2287,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %46, %56
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %61
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %35
 }
 
@@ -2310,7 +2304,7 @@ declare void @_ZN14VNVisitorConst5visitEP7AstAtoN(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstAttrOf(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -2430,7 +2424,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %46, %56
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 61:                                               ; preds = %.body
@@ -2445,14 +2439,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %46, %56
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %61
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %35
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstBasicDType(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -2584,7 +2578,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %64, %74
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 79:                                               ; preds = %.body
@@ -2599,7 +2593,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %64, %74
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %79
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %53
 }
 
@@ -2612,7 +2606,7 @@ declare void @_ZN14VNVisitorConst5visitEP14AstBitsToRealD(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP20AstBracketArrayDType(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -2708,7 +2702,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %32, %42
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 47:                                               ; preds = %.body
@@ -2723,7 +2717,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %32, %42
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %47
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %21
 }
 
@@ -2736,7 +2730,7 @@ declare void @_ZN14VNVisitorConst5visitEP9AstBufIf1(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstCAwait(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -2860,7 +2854,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %45, %55
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 60:                                               ; preds = %.body
@@ -2875,7 +2869,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %45, %55
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %34
 }
 
@@ -2884,7 +2878,7 @@ declare void @_ZN14VNVisitorConst5visitEP8AstCCall(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP8AstCCast(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -3004,7 +2998,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %46, %56
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 61:                                               ; preds = %.body
@@ -3019,14 +3013,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %46, %56
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %61
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %35
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstCDType(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -3141,7 +3135,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -3156,7 +3150,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -3167,7 +3161,7 @@ declare void @_ZN14VNVisitorConst5visitEP8AstCFile(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP8AstCFunc(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -3195,7 +3189,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP8AstCFunc(ptr noun
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %6, %8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 13:                                               ; preds = %2
@@ -3217,14 +3211,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %6, %8
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %13, %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstCLocalScope(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -3333,7 +3327,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 53:                                               ; preds = %.body
@@ -3348,7 +3342,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %.body, %53
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %27
 }
 
@@ -3359,7 +3353,7 @@ declare void @_ZN14VNVisitorConst5visitEP14AstCMethodCall(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstCMethodHard(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -3459,7 +3453,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %33, %43
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 48:                                               ; preds = %.body
@@ -3474,7 +3468,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %33, %43
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %22
 }
 
@@ -3507,7 +3501,7 @@ declare void @_ZN14VNVisitorConst5visitEP8AstCeilD(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP7AstCell(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -3622,7 +3616,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -3637,7 +3631,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -3646,7 +3640,7 @@ declare void @_ZN14VNVisitorConst5visitEP15AstCellArrayRef(ptr noundef nonnull a
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstCellInline(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -3761,7 +3755,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -3776,7 +3770,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -3789,7 +3783,7 @@ declare void @_ZN14VNVisitorConst5visitEP8AstClass(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP15AstClassExtends(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -3898,7 +3892,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 53:                                               ; preds = %.body
@@ -3913,14 +3907,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %.body, %53
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %27
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP20AstClassOrPackageRef(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -4044,7 +4038,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %45, %55
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 60:                                               ; preds = %.body
@@ -4059,7 +4053,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %45, %55
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %34
 }
 
@@ -4068,7 +4062,7 @@ declare void @_ZN14VNVisitorConst5visitEP15AstClassPackage(ptr noundef nonnull a
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP16AstClassRefDType(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -4177,7 +4171,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -4192,7 +4186,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -4227,7 +4221,7 @@ declare void @_ZN14VNVisitorConst5visitEP15AstConsWildcard(ptr noundef nonnull a
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP8AstConst(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -4351,7 +4345,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %48, %58
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 63:                                               ; preds = %.body
@@ -4366,14 +4360,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %48, %58
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %63
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %37
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstConstDType(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -4497,7 +4491,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %45, %55
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 60:                                               ; preds = %.body
@@ -4512,7 +4506,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %45, %55
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %34
 }
 
@@ -4551,7 +4545,7 @@ declare void @_ZN14VNVisitorConst5visitEP12AstCoverDecl(ptr noundef nonnull alig
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstCoverInc(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -4660,7 +4654,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -4675,7 +4669,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -4690,7 +4684,7 @@ declare void @_ZN14VNVisitorConst5visitEP19AstCvtPackedToArray(ptr noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP19AstDefImplicitDType(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -4810,7 +4804,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %46, %56
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 61:                                               ; preds = %.body
@@ -4825,14 +4819,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %46, %56
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %61
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %35
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstDefParam(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -4941,7 +4935,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 53:                                               ; preds = %.body
@@ -4956,7 +4950,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %.body, %53
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %27
 }
 
@@ -4971,7 +4965,7 @@ declare void @_ZN14VNVisitorConst5visitEP14AstDisableFork(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstDisplay(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -5076,7 +5070,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %40, %50
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 55:                                               ; preds = %.body
@@ -5091,7 +5085,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %40, %50
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %55
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %29
 }
 
@@ -5130,7 +5124,7 @@ declare void @_ZN14VNVisitorConst5visitEP10AstDumpCtl(ptr noundef nonnull align 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP16AstDynArrayDType(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -5239,7 +5233,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -5254,14 +5248,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstElabDisplay(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -5381,7 +5375,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %46, %56
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 61:                                               ; preds = %.body
@@ -5396,7 +5390,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %46, %56
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %61
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %35
 }
 
@@ -5475,7 +5469,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %._crit_edge, %26, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstEnumItem(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -5590,7 +5584,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -5605,7 +5599,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -5658,7 +5652,7 @@ declare void @_ZN14VNVisitorConst5visitEP10AstFRewind(ptr noundef nonnull align 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstFScanF(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -5773,7 +5767,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -5788,7 +5782,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -5857,7 +5851,7 @@ declare void @_ZN14VNVisitorConst5visitEP8AstIface(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP16AstIfaceRefDType(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -5966,7 +5960,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -5981,7 +5975,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -6016,7 +6010,7 @@ _ZN7AstNode9privateIsI18AstAssocArrayDTypeP12AstNodeDTypeEEbPKS_.exit: ; preds =
   br i1 %.not21, label %67, label %12
 
 12:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -6125,7 +6119,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %47, %57
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %67
 
 62:                                               ; preds = %.body
@@ -6140,7 +6134,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %47, %57
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %.body, %62
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %200
 
 67:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit, %9
@@ -6180,7 +6174,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %.body, %62
   store i32 %93, ptr %71, align 8, !tbaa !20
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.071.082, i64 40
   %95 = load ptr, ptr %94, align 8, !tbaa !170
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstInitArrayEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %73, align 8, !tbaa !44
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstInitArrayEUlvE0_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %72, align 8, !tbaa !47
@@ -6277,7 +6271,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i34: ; preds = %_ZN14VN
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit44:                 ; preds = %125, %133
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %138 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.071.082) #22
   %.not = icmp eq ptr %138, %70
   br i1 %.not, label %_ZN7AstNode11privateCastI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_.exit.thread, label %75
@@ -6294,11 +6288,11 @@ _ZNSt14_Function_baseD2Ev.exit44:                 ; preds = %125, %133
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit46:                 ; preds = %.body40, %139
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %200
 
 _ZN7AstNode11privateCastI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_.exit: ; preds = %_ZN7AstNode9privateIsI18AstAssocArrayDTypeP12AstNodeDTypeEEbPKS_.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %144 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %145 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %146 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -6414,7 +6408,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i55: ; preds = %165, %_ZNKS
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit66:                 ; preds = %180, %190
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN7AstNode11privateCastI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_.exit.thread
 
 195:                                              ; preds = %.body62
@@ -6429,7 +6423,7 @@ _ZNSt14_Function_baseD2Ev.exit66:                 ; preds = %180, %190
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit68:                 ; preds = %.body62, %195
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %200
 
 _ZN7AstNode11privateCastI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_.exit.thread: ; preds = %_ZNSt14_Function_baseD2Ev.exit44, %_ZN7AstNode9privateIsI18AstAssocArrayDTypeP12AstNodeDTypeEEbPKS_.exit, %67, %2, %_ZNSt14_Function_baseD2Ev.exit66
@@ -6443,7 +6437,7 @@ _ZN7AstNode11privateCastI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_.exit.threa
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstInitItem(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -6552,7 +6546,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 53:                                               ; preds = %.body
@@ -6567,7 +6561,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %.body, %53
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %27
 }
 
@@ -6592,7 +6586,7 @@ declare void @_ZN14VNVisitorConst5visitEP12AstJumpBlock(ptr noundef nonnull alig
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstJumpGo(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -6701,7 +6695,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -6716,7 +6710,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -6761,7 +6755,7 @@ declare void @_ZN14VNVisitorConst5visitEP7AstLteS(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstMTaskBody(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -6870,7 +6864,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 53:                                               ; preds = %.body
@@ -6885,14 +6879,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %.body, %53
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %27
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstMemberDType(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -6992,7 +6986,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %33, %43
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 48:                                               ; preds = %.body
@@ -7007,14 +7001,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %33, %43
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstMemberSel(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -7129,7 +7123,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -7144,7 +7138,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -7157,7 +7151,7 @@ declare void @_ZN14VNVisitorConst5visitEP10AstModDivS(ptr noundef nonnull align 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstModport(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -7272,7 +7266,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -7287,14 +7281,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP18AstModportFTaskRef(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -7409,7 +7403,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -7424,14 +7418,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP16AstModportVarRef(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -7546,7 +7540,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -7561,7 +7555,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -7570,7 +7564,7 @@ declare void @_ZN14VNVisitorConst5visitEP9AstModule(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstMonitorOff(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -7675,7 +7669,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %41, %51
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 56:                                               ; preds = %.body
@@ -7690,7 +7684,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %41, %51
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %56
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %30
 }
 
@@ -7731,7 +7725,7 @@ declare void @_ZN14VNVisitorConst5visitEP13AstNewDynamic(ptr noundef nonnull ali
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP17AstNodeArrayDType(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -7911,7 +7905,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %75, %85
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 90:                                               ; preds = %.body
@@ -7926,7 +7920,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %75, %85
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %90
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %64
 }
 
@@ -7942,7 +7936,7 @@ declare void @_ZN14VNVisitorConst5visitEP11AstNodeBiop(ptr noundef nonnull align
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNodeBlock(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %0, ptr %4, align 8, !tbaa !53
@@ -7979,7 +7973,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNodeBlock(ptr
   %.sroa.0.0.copyload.i.i = load i16, ptr %21, align 8, !tbaa !50
   %22 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %22, ptr %19, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = load ptr, ptr %1, align 8, !tbaa !21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %25 = load ptr, ptr %24, align 8
@@ -8031,7 +8025,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2.
   br label %.body.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %47 = load ptr, ptr %46, align 8, !tbaa !51
   %.not13.i = icmp eq ptr %1, %47
@@ -8110,7 +8104,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %63, %73
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 78:                                               ; preds = %.body.body
@@ -8125,14 +8119,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %63, %73
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body.body, %78
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %eh.lpad-body
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNodeCCall(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -8241,7 +8235,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -8256,7 +8250,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -8268,7 +8262,7 @@ declare void @_ZN14VNVisitorConst5visitEP11AstNodeCond(ptr noundef nonnull align
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP20AstNodeCoverOrAssert(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %0, ptr %4, align 8, !tbaa !53
@@ -8305,7 +8299,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP20AstNodeCoverOrAs
   %.sroa.0.0.copyload.i.i = load i16, ptr %21, align 8, !tbaa !50
   %22 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %22, ptr %19, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = load ptr, ptr %1, align 8, !tbaa !21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %25 = load ptr, ptr %24, align 8
@@ -8357,7 +8351,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2.
   br label %.body.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
@@ -8421,7 +8415,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %57, %67
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 72:                                               ; preds = %.body.body
@@ -8436,7 +8430,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %57, %67
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body.body, %72
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -8449,7 +8443,7 @@ declare void @_ZN14VNVisitorConst5visitEP16AstNodeDistTriop(ptr noundef nonnull 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstNodeExpr(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -8558,7 +8552,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 53:                                               ; preds = %.body
@@ -8573,14 +8567,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %.body, %53
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %27
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNodeFTask(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -8608,7 +8602,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNodeFTask(ptr
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %6, %8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 13:                                               ; preds = %2
@@ -8630,14 +8624,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %6, %8
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %13, %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP15AstNodeFTaskRef(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -8764,7 +8758,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %46, %56
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 61:                                               ; preds = %.body
@@ -8779,7 +8773,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %46, %56
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %61
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %35
 }
 
@@ -8787,7 +8781,7 @@ _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %61
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstNodeFile(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %0, ptr %4, align 8, !tbaa !53
@@ -8824,7 +8818,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstNodeFile(ptr 
   %.sroa.0.0.copyload.i.i = load i16, ptr %21, align 8, !tbaa !50
   %22 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %22, ptr %19, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = load ptr, ptr %1, align 8, !tbaa !21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %25 = load ptr, ptr %24, align 8
@@ -8876,7 +8870,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2.
   br label %.body.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %47 = load ptr, ptr %46, align 8, !tbaa !51
   %.not13.i = icmp eq ptr %1, %47
@@ -8955,7 +8949,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %63, %73
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 78:                                               ; preds = %.body.body
@@ -8970,7 +8964,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %63, %73
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body.body, %78
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -8984,7 +8978,7 @@ declare void @_ZN14VNVisitorConst5visitEP9AstNodeIf(ptr noundef nonnull align 8 
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstNodeModule(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %0, ptr %4, align 8, !tbaa !53
@@ -9021,7 +9015,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstNodeModule(pt
   %.sroa.0.0.copyload.i.i = load i16, ptr %21, align 8, !tbaa !50
   %22 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %22, ptr %19, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = load ptr, ptr %1, align 8, !tbaa !21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %25 = load ptr, ptr %24, align 8
@@ -9073,7 +9067,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2.
   br label %.body.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %47 = load ptr, ptr %46, align 8, !tbaa !51
   %.not13.i = icmp eq ptr %1, %47
@@ -9148,7 +9142,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %48, %_ZNKSt8f
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %63, %73
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 78:                                               ; preds = %.body.body
@@ -9163,14 +9157,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %63, %73
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body.body, %78
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %eh.lpad-body
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstNodePreSel(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -9279,7 +9273,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 53:                                               ; preds = %.body
@@ -9294,14 +9288,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %.body, %53
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %27
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP16AstNodeProcedure(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -9410,7 +9404,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 53:                                               ; preds = %.body
@@ -9425,7 +9419,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %.body, %53
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %27
 }
 
@@ -9434,7 +9428,7 @@ declare void @_ZN14VNVisitorConst5visitEP13AstNodeQuadop(ptr noundef nonnull ali
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNodeRange(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -9543,7 +9537,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 53:                                               ; preds = %.body
@@ -9558,7 +9552,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %.body, %53
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %27
 }
 
@@ -9571,7 +9565,7 @@ declare void @_ZN14VNVisitorConst5visitEP17AstNodeSimpleText(ptr noundef nonnull
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstNodeStmt(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -9665,7 +9659,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %32, %42
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 47:                                               ; preds = %.body
@@ -9680,7 +9674,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %32, %42
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %.body, %47
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %21
 }
 
@@ -9695,7 +9689,7 @@ declare void @_ZN14VNVisitorConst5visitEP13AstNodeTermop(ptr noundef nonnull ali
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstNodeText(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -9795,7 +9789,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %33, %43
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 48:                                               ; preds = %.body
@@ -9810,7 +9804,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %33, %43
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %22
 }
 
@@ -9893,7 +9887,7 @@ declare void @_ZN14VNVisitorConst5visitEP17AstNotFoundModule(ptr noundef nonnull
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNullCheck(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -10002,7 +9996,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 53:                                               ; preds = %.body
@@ -10017,7 +10011,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %.body, %53
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %27
 }
 
@@ -10040,7 +10034,7 @@ declare void @_ZN14VNVisitorConst5visitEP16AstPackageImport(ptr noundef nonnull 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP17AstParamTypeDType(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -10155,7 +10149,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -10170,7 +10164,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -10179,7 +10173,7 @@ declare void @_ZN14VNVisitorConst5visitEP14AstParseHolder(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstParseRef(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -10294,7 +10288,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -10309,7 +10303,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -10324,7 +10318,7 @@ declare void @_ZN14VNVisitorConst5visitEP10AstPattern(ptr noundef nonnull align 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP6AstPin(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -10439,7 +10433,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -10454,7 +10448,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -10477,7 +10471,7 @@ declare void @_ZN14VNVisitorConst5visitEP8AstPowUS(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstPragma(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -10597,7 +10591,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %46, %56
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 61:                                               ; preds = %.body
@@ -10612,7 +10606,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %46, %56
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %61
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %35
 }
 
@@ -10635,7 +10629,7 @@ declare void @_ZN14VNVisitorConst5visitEP8AstPutcN(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstQueueDType(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -10744,7 +10738,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -10759,7 +10753,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -10788,7 +10782,7 @@ declare void @_ZN14VNVisitorConst5visitEP9AstRedXor(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstRefDType(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -10888,7 +10882,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %33, %43
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 48:                                               ; preds = %.body
@@ -10903,7 +10897,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %33, %43
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %22
 }
 
@@ -10928,7 +10922,7 @@ declare void @_ZN14VNVisitorConst5visitEP10AstSFormat(ptr noundef nonnull align 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstSFormatF(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -11043,7 +11037,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -11058,14 +11052,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstSScanF(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -11180,7 +11174,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -11195,7 +11189,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -11218,7 +11212,7 @@ declare void @_ZN14VNVisitorConst5visitEP8AstScInt(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP8AstScope(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -11329,7 +11323,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -11344,7 +11338,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -11359,7 +11353,7 @@ declare void @_ZN14VNVisitorConst5visitEP13AstSelExtract(ptr noundef nonnull ali
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstSelLoopVars(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -11468,7 +11462,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 53:                                               ; preds = %.body
@@ -11483,7 +11477,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %.body, %53
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %27
 }
 
@@ -11494,7 +11488,7 @@ declare void @_ZN14VNVisitorConst5visitEP10AstSelPlus(ptr noundef nonnull align 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstSenItem(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -11614,7 +11608,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %46, %56
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 61:                                               ; preds = %.body
@@ -11629,14 +11623,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %46, %56
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %61
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %35
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstSenTree(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -11745,7 +11739,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 53:                                               ; preds = %.body
@@ -11760,7 +11754,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %48
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %.body, %53
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %27
 }
 
@@ -11805,7 +11799,7 @@ declare void @_ZN14VNVisitorConst5visitEP7AstStop(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstStreamDType(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -11899,7 +11893,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %32, %42
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 47:                                               ; preds = %.body
@@ -11914,7 +11908,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %32, %42
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %.body, %47
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %21
 }
 
@@ -11981,7 +11975,7 @@ declare void @_ZN14VNVisitorConst5visitEP12AstTraceDecl(ptr noundef nonnull alig
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstTraceInc(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -12090,7 +12084,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -12105,7 +12099,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -12118,7 +12112,7 @@ declare void @_ZN14VNVisitorConst5visitEP12AstTypeTable(ptr noundef nonnull alig
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstTypedef(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -12233,7 +12227,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -12248,14 +12242,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstTypedefFwd(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -12370,7 +12364,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -12385,7 +12379,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -12412,7 +12406,7 @@ declare void @_ZN14VNVisitorConst5visitEP11AstUnsigned(ptr noundef nonnull align
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP20AstUnsizedArrayDType(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -12521,7 +12515,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -12536,7 +12530,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -12549,7 +12543,7 @@ declare void @_ZN14VNVisitorConst5visitEP16AstValuePlusArgs(ptr noundef nonnull 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP6AstVar(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -12664,7 +12658,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -12679,14 +12673,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstVarRef(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -12801,7 +12795,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -12816,14 +12810,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstVarScope(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -12965,7 +12959,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %52, %62
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 67:                                               ; preds = %.body
@@ -12980,14 +12974,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %52, %62
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %67
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %41
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstVarXRef(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -13102,7 +13096,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -13117,14 +13111,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstVoidDType(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -13218,7 +13212,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %32, %42
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 47:                                               ; preds = %.body
@@ -13233,7 +13227,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %32, %42
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %.body, %47
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %21
 }
 
@@ -13246,7 +13240,7 @@ declare void @_ZN14VNVisitorConst5visitEP8AstWhile(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP21AstWildcardArrayDType(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !53
@@ -13355,7 +13349,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %.body
@@ -13370,7 +13364,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %39, %49
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 }
 
@@ -13389,7 +13383,7 @@ declare void @_ZN14VNVisitorConst5visitEP11AstWriteMem(ptr noundef nonnull align
 declare void @_ZN14VNVisitorConst5visitEP6AstXor(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
   tail call void @_ZSt9terminatev() #20
   unreachable
@@ -13398,7 +13392,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #8
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt8_Rb_treeIP7AstNodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -13421,7 +13415,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIP7AstNodeS1_St9_IdentityIS1_E
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local i16 @_ZNK7AstNode4typeEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #4 comdat align 2 {
@@ -13444,12 +13438,12 @@ define linkonce_odr dso_local noundef ptr @_ZNK7AstNode6dtypepEv(ptr noundef non
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #10
+declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #9
 
 declare void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP7AstNodeEUlvE_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
@@ -13929,7 +13923,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP9AstCDTypeEUlvE_E1
 define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visitEP9AstCDTypeEUlvE_JEET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !318
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !320
@@ -13940,7 +13934,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visi
   %9 = load ptr, ptr %7, align 8, !tbaa !201, !noalias !321
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %11 = load i64, ptr %10, align 8, !tbaa !202, !noalias !321
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !321
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !321
   store i64 %11, ptr %2, align 8, !tbaa !325, !noalias !321
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
@@ -13975,7 +13969,7 @@ _ZNK9AstCDType4nameB5cxx11Ev.exit.i:              ; preds = %18, %16, %._crit_ed
   %21 = load ptr, ptr %3, align 8, !tbaa !201, !alias.scope !321
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !321
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !321
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %3)
           to label %25 unwind label %32
@@ -14020,7 +14014,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i: ; preds = %_Z
   resume { ptr, i32 } %33
 
 _ZZN13HasherVisitor5visitEP9AstCDTypeENKUlvE_clEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -14033,7 +14027,7 @@ define linkonce_odr dso_local void @_ZNK9AstCDType4nameB5cxx11Ev(ptr dead_on_unw
   %6 = load ptr, ptr %4, align 8, !tbaa !201
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %8 = load i64, ptr %7, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !325
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
@@ -14068,7 +14062,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %18 = load ptr, ptr %0, align 8, !tbaa !201
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i8 0, ptr %19, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -14082,7 +14076,7 @@ define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_Z
   %7 = load ptr, ptr %1, align 8, !tbaa !201
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %9, ptr %4, align 8, !tbaa !325
   %10 = icmp ugt i64 %9, 15
   br i1 %10, label %.noexc.i, label %._crit_edge.i.i
@@ -14117,9 +14111,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %19 = load ptr, ptr %5, align 8, !tbaa !201
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store i8 0, ptr %20, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = load i32, ptr %0, align 4, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN6V3HashC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %22 unwind label %36
 
@@ -14131,7 +14125,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %27 = add i32 %26, %25
   %28 = add i32 %27, %23
   %29 = xor i32 %28, %21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 %29, ptr %0, align 4, !tbaa !20
   %30 = load ptr, ptr %5, align 8, !tbaa !201
   %31 = icmp eq ptr %30, %6
@@ -14222,7 +14216,7 @@ _ZNSt3setIP7AstNodeSt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %_ZNSt8_Rb_tr
   br label %.lr.ph.i.i.i6
 
 20:                                               ; preds = %_ZNSt3setIP7AstNodeSt4lessIS1_ESaIS1_EE4findERKS1_.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = load ptr, ptr %1, align 8, !tbaa !21
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %23 = load ptr, ptr %22, align 8
@@ -14260,7 +14254,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %79
 
 42:                                               ; preds = %20
@@ -14285,7 +14279,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %43
 
 .lr.ph.i.i.i6:                                    ; preds = %.lr.ph.i.i.i6.preheader, %.lr.ph.i.i.i6
@@ -14365,13 +14359,13 @@ _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %_ZNSt3setIP7AstNode
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP8AstCFuncEUlvE_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
@@ -14404,12 +14398,12 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP8AstCFuncEUlvE_E10
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP8AstCFuncENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP8AstCFuncENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::function", align 8
   %3 = load ptr, ptr %0, align 8, !tbaa !331
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !333
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %3, ptr %2, align 8, !tbaa !53
@@ -14544,7 +14538,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %._crit_edge, %67
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 72:                                               ; preds = %.body
@@ -14559,7 +14553,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %._crit_edge, %67
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4:                  ; preds = %.body, %72
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %47
 }
 
@@ -14682,7 +14676,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP14AstCMethodHardEU
 define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visitEP14AstCMethodHardEUlvE_JEET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !338
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !340
@@ -14693,7 +14687,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visi
   %9 = load ptr, ptr %7, align 8, !tbaa !201, !noalias !341
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %11 = load i64, ptr %10, align 8, !tbaa !202, !noalias !341
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !341
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !341
   store i64 %11, ptr %2, align 8, !tbaa !325, !noalias !341
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
@@ -14728,7 +14722,7 @@ _ZNK14AstCMethodHard4nameB5cxx11Ev.exit.i:        ; preds = %18, %16, %._crit_ed
   %21 = load ptr, ptr %3, align 8, !tbaa !201, !alias.scope !341
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !341
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !341
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %3)
           to label %25 unwind label %32
@@ -14773,7 +14767,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i: ; preds = %_Z
   resume { ptr, i32 } %33
 
 _ZZN13HasherVisitor5visitEP14AstCMethodHardENKUlvE_clEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -14786,7 +14780,7 @@ define linkonce_odr dso_local void @_ZNK14AstCMethodHard4nameB5cxx11Ev(ptr dead_
   %6 = load ptr, ptr %4, align 8, !tbaa !201
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %8 = load i64, ptr %7, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !325
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
@@ -14821,7 +14815,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %18 = load ptr, ptr %0, align 8, !tbaa !201
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i8 0, ptr %19, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -14856,7 +14850,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP7AstCellEUlvE_E10_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP7AstCellENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP7AstCellENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !345
@@ -14869,7 +14863,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP7AstCellENKUlvE_c
   %9 = load ptr, ptr %7, align 8, !tbaa !201, !noalias !348
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %11 = load i64, ptr %10, align 8, !tbaa !202, !noalias !348
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !348
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !348
   store i64 %11, ptr %2, align 8, !tbaa !325, !noalias !348
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i, label %._crit_edge.i.i.i
@@ -14904,7 +14898,7 @@ _ZNK7AstCell4nameB5cxx11Ev.exit:                  ; preds = %._crit_edge.i.i.i, 
   %21 = load ptr, ptr %3, align 8, !tbaa !201, !alias.scope !348
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !348
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !348
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %3)
           to label %25 unwind label %39
@@ -14975,7 +14969,7 @@ define linkonce_odr dso_local void @_ZNK7AstCell4nameB5cxx11Ev(ptr dead_on_unwin
   %6 = load ptr, ptr %4, align 8, !tbaa !201
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %8 = load i64, ptr %7, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !325
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
@@ -15010,7 +15004,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %18 = load ptr, ptr %0, align 8, !tbaa !201
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i8 0, ptr %19, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -15048,7 +15042,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP13AstCellInlineEUl
 define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visitEP13AstCellInlineEUlvE_JEET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !354
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !356
@@ -15059,7 +15053,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visi
   %9 = load ptr, ptr %7, align 8, !tbaa !201, !noalias !357
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %11 = load i64, ptr %10, align 8, !tbaa !202, !noalias !357
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !357
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !357
   store i64 %11, ptr %2, align 8, !tbaa !325, !noalias !357
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
@@ -15094,7 +15088,7 @@ _ZNK13AstCellInline4nameB5cxx11Ev.exit.i:         ; preds = %18, %16, %._crit_ed
   %21 = load ptr, ptr %3, align 8, !tbaa !201, !alias.scope !357
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !357
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !357
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %3)
           to label %25 unwind label %32
@@ -15139,7 +15133,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i: ; preds = %_Z
   resume { ptr, i32 } %33
 
 _ZZN13HasherVisitor5visitEP13AstCellInlineENKUlvE_clEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -15152,7 +15146,7 @@ define linkonce_odr dso_local void @_ZNK13AstCellInline4nameB5cxx11Ev(ptr dead_o
   %6 = load ptr, ptr %4, align 8, !tbaa !201
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %8 = load i64, ptr %7, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !325
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
@@ -15187,7 +15181,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %18 = load ptr, ptr %0, align 8, !tbaa !201
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i8 0, ptr %19, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -15681,7 +15675,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP11AstEnumItemEUlvE
 define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visitEP11AstEnumItemEUlvE_JEET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !397
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !399
@@ -15692,7 +15686,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visi
   %9 = load ptr, ptr %7, align 8, !tbaa !201, !noalias !400
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %11 = load i64, ptr %10, align 8, !tbaa !202, !noalias !400
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !400
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !400
   store i64 %11, ptr %2, align 8, !tbaa !325, !noalias !400
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
@@ -15727,7 +15721,7 @@ _ZNK11AstEnumItem4nameB5cxx11Ev.exit.i:           ; preds = %18, %16, %._crit_ed
   %21 = load ptr, ptr %3, align 8, !tbaa !201, !alias.scope !400
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !400
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !400
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %3)
           to label %25 unwind label %32
@@ -15772,7 +15766,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i: ; preds = %_Z
   resume { ptr, i32 } %33
 
 _ZZN13HasherVisitor5visitEP11AstEnumItemENKUlvE_clEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -15785,7 +15779,7 @@ define linkonce_odr dso_local void @_ZNK11AstEnumItem4nameB5cxx11Ev(ptr dead_on_
   %6 = load ptr, ptr %4, align 8, !tbaa !201
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %8 = load i64, ptr %7, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !325
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
@@ -15820,7 +15814,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %18 = load ptr, ptr %0, align 8, !tbaa !201
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i8 0, ptr %19, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -15858,7 +15852,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP9AstFScanFEUlvE_E1
 define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visitEP9AstFScanFEUlvE_JEET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !404
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !406
@@ -15869,7 +15863,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visi
   %9 = load ptr, ptr %7, align 8, !tbaa !201, !noalias !407
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %11 = load i64, ptr %10, align 8, !tbaa !202, !noalias !407
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !407
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !407
   store i64 %11, ptr %2, align 8, !tbaa !325, !noalias !407
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
@@ -15904,7 +15898,7 @@ _ZNK9AstFScanF4textB5cxx11Ev.exit.i:              ; preds = %18, %16, %._crit_ed
   %21 = load ptr, ptr %3, align 8, !tbaa !201, !alias.scope !407
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !407
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !407
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %3)
           to label %25 unwind label %32
@@ -15949,7 +15943,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i: ; preds = %_Z
   resume { ptr, i32 } %33
 
 _ZZN13HasherVisitor5visitEP9AstFScanFENKUlvE_clEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -16106,7 +16100,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP12AstInitArrayEUlv
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstInitArrayEUlvE1_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
@@ -16154,7 +16148,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP12AstInitArrayEUlv
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP12AstInitArrayENKUlvE1_clEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #14 comdat align 2 {
+define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP12AstInitArrayENKUlvE1_clEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #13 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !415
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !417
@@ -16270,7 +16264,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit: ; preds = %43, %46
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK17AstNodeArrayDType13elementsConstEv(ptr noundef nonnull align 8 dereferenceable(176) %0) #14 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZNK17AstNodeArrayDType13elementsConstEv(ptr noundef nonnull align 8 dereferenceable(176) %0) #13 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !198
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -16535,7 +16529,7 @@ _ZNK8AstRange10rightConstEv.exit:                 ; preds = %_ZNK8AstRange9leftC
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK8AstRange9leftConstEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #14 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZNK8AstRange9leftConstEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #13 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !166
   %.not.i = icmp eq ptr %3, null
@@ -16558,7 +16552,7 @@ _ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.thread: ; preds = 
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK8AstRange10rightConstEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #14 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZNK8AstRange10rightConstEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #13 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !198
   %.not.i = icmp eq ptr %3, null
@@ -16753,7 +16747,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP14AstMemberDTypeEU
 define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visitEP14AstMemberDTypeEUlvE_JEET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !425
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !427
@@ -16764,7 +16758,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visi
   %9 = load ptr, ptr %7, align 8, !tbaa !201, !noalias !428
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %11 = load i64, ptr %10, align 8, !tbaa !202, !noalias !428
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !428
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !428
   store i64 %11, ptr %2, align 8, !tbaa !325, !noalias !428
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
@@ -16799,7 +16793,7 @@ _ZNK14AstMemberDType4nameB5cxx11Ev.exit.i:        ; preds = %18, %16, %._crit_ed
   %21 = load ptr, ptr %3, align 8, !tbaa !201, !alias.scope !428
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !428
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !428
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %3)
           to label %25 unwind label %32
@@ -16844,7 +16838,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i: ; preds = %_Z
   resume { ptr, i32 } %33
 
 _ZZN13HasherVisitor5visitEP14AstMemberDTypeENKUlvE_clEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -16857,7 +16851,7 @@ define linkonce_odr dso_local void @_ZNK14AstMemberDType4nameB5cxx11Ev(ptr dead_
   %6 = load ptr, ptr %4, align 8, !tbaa !201
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %8 = load i64, ptr %7, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !325
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
@@ -16892,7 +16886,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %18 = load ptr, ptr %0, align 8, !tbaa !201
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i8 0, ptr %19, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -16930,7 +16924,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP12AstMemberSelEUlv
 define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visitEP12AstMemberSelEUlvE_JEET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !432
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !434
@@ -16941,7 +16935,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visi
   %9 = load ptr, ptr %7, align 8, !tbaa !201, !noalias !435
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %11 = load i64, ptr %10, align 8, !tbaa !202, !noalias !435
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !435
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !435
   store i64 %11, ptr %2, align 8, !tbaa !325, !noalias !435
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
@@ -16976,7 +16970,7 @@ _ZNK12AstMemberSel4nameB5cxx11Ev.exit.i:          ; preds = %18, %16, %._crit_ed
   %21 = load ptr, ptr %3, align 8, !tbaa !201, !alias.scope !435
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !435
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !435
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %3)
           to label %25 unwind label %32
@@ -17021,7 +17015,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i: ; preds = %_Z
   resume { ptr, i32 } %33
 
 _ZZN13HasherVisitor5visitEP12AstMemberSelENKUlvE_clEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -17034,7 +17028,7 @@ define linkonce_odr dso_local void @_ZNK12AstMemberSel4nameB5cxx11Ev(ptr dead_on
   %6 = load ptr, ptr %4, align 8, !tbaa !201
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %8 = load i64, ptr %7, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !325
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
@@ -17069,7 +17063,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %18 = load ptr, ptr %0, align 8, !tbaa !201
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i8 0, ptr %19, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -17107,7 +17101,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP10AstModportEUlvE_
 define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visitEP10AstModportEUlvE_JEET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !439
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !441
@@ -17118,7 +17112,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visi
   %9 = load ptr, ptr %7, align 8, !tbaa !201, !noalias !442
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %11 = load i64, ptr %10, align 8, !tbaa !202, !noalias !442
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !442
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !442
   store i64 %11, ptr %2, align 8, !tbaa !325, !noalias !442
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
@@ -17153,7 +17147,7 @@ _ZNK10AstModport4nameB5cxx11Ev.exit.i:            ; preds = %18, %16, %._crit_ed
   %21 = load ptr, ptr %3, align 8, !tbaa !201, !alias.scope !442
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !442
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !442
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %3)
           to label %25 unwind label %32
@@ -17198,7 +17192,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i: ; preds = %_Z
   resume { ptr, i32 } %33
 
 _ZZN13HasherVisitor5visitEP10AstModportENKUlvE_clEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -17211,7 +17205,7 @@ define linkonce_odr dso_local void @_ZNK10AstModport4nameB5cxx11Ev(ptr dead_on_u
   %6 = load ptr, ptr %4, align 8, !tbaa !201
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %8 = load i64, ptr %7, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !325
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
@@ -17246,7 +17240,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %18 = load ptr, ptr %0, align 8, !tbaa !201
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i8 0, ptr %19, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -17281,7 +17275,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP18AstModportFTaskR
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP18AstModportFTaskRefENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP18AstModportFTaskRefENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !446
@@ -17294,7 +17288,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP18AstModportFTask
   %9 = load ptr, ptr %7, align 8, !tbaa !201, !noalias !449
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %11 = load i64, ptr %10, align 8, !tbaa !202, !noalias !449
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !449
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !449
   store i64 %11, ptr %2, align 8, !tbaa !325, !noalias !449
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i, label %._crit_edge.i.i.i
@@ -17329,7 +17323,7 @@ _ZNK18AstModportFTaskRef4nameB5cxx11Ev.exit:      ; preds = %._crit_edge.i.i.i, 
   %21 = load ptr, ptr %3, align 8, !tbaa !201, !alias.scope !449
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !449
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !449
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %3)
           to label %25 unwind label %39
@@ -17400,7 +17394,7 @@ define linkonce_odr dso_local void @_ZNK18AstModportFTaskRef4nameB5cxx11Ev(ptr d
   %6 = load ptr, ptr %4, align 8, !tbaa !201
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %8 = load i64, ptr %7, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !325
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
@@ -17435,7 +17429,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %18 = load ptr, ptr %0, align 8, !tbaa !201
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i8 0, ptr %19, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -17470,7 +17464,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP16AstModportVarRef
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP16AstModportVarRefENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP16AstModportVarRefENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !455
@@ -17483,7 +17477,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP16AstModportVarRe
   %9 = load ptr, ptr %7, align 8, !tbaa !201, !noalias !458
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %11 = load i64, ptr %10, align 8, !tbaa !202, !noalias !458
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !458
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !458
   store i64 %11, ptr %2, align 8, !tbaa !325, !noalias !458
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i, label %._crit_edge.i.i.i
@@ -17518,7 +17512,7 @@ _ZNK16AstModportVarRef4nameB5cxx11Ev.exit:        ; preds = %._crit_edge.i.i.i, 
   %21 = load ptr, ptr %3, align 8, !tbaa !201, !alias.scope !458
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !458
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !458
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %3)
           to label %25 unwind label %39
@@ -17589,7 +17583,7 @@ define linkonce_odr dso_local void @_ZNK16AstModportVarRef4nameB5cxx11Ev(ptr dea
   %6 = load ptr, ptr %4, align 8, !tbaa !201
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %8 = load i64, ptr %7, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !325
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
@@ -17624,7 +17618,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %18 = load ptr, ptr %0, align 8, !tbaa !201
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i8 0, ptr %19, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -17794,7 +17788,7 @@ _ZZN13HasherVisitor5visitEP17AstNodeArrayDTypeENKUlvE_clEv.exit: ; preds = %_ZNK
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK17AstNodeArrayDType4leftEv(ptr noundef nonnull align 8 dereferenceable(176) %0) #14 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZNK17AstNodeArrayDType4leftEv(ptr noundef nonnull align 8 dereferenceable(176) %0) #13 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !198
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -17819,7 +17813,7 @@ _ZNK8AstRange9leftConstEv.exit:                   ; preds = %1, %6, %_ZN7AstNode
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK17AstNodeArrayDType5rightEv(ptr noundef nonnull align 8 dereferenceable(176) %0) #14 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZNK17AstNodeArrayDType5rightEv(ptr noundef nonnull align 8 dereferenceable(176) %0) #13 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !198
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -17846,7 +17840,7 @@ _ZNK8AstRange10rightConstEv.exit:                 ; preds = %1, %6, %_ZN7AstNode
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstNodeBlockEUlvE_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !tbaa !471
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !473
@@ -17902,7 +17896,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i.i.i: ; preds =
   resume { ptr, i32 } %21
 
 _ZSt10__invoke_rIvRZN13HasherVisitor5visitEP12AstNodeBlockEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -17978,7 +17972,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP12AstNodeCCallEUlv
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP20AstNodeCoverOrAssertEUlvE_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !tbaa !479
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !481
@@ -18034,7 +18028,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i.i.i: ; preds =
   resume { ptr, i32 } %21
 
 _ZSt10__invoke_rIvRZN13HasherVisitor5visitEP20AstNodeCoverOrAssertEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -18117,13 +18111,13 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP12AstNodeFTaskEUlv
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP12AstNodeFTaskENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP12AstNodeFTaskENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::function", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !484
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !486
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %4, ptr %3, align 8, !tbaa !53
@@ -18160,7 +18154,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP12AstNodeFTaskENK
   %.sroa.0.0.copyload.i.i = load i16, ptr %23, align 8, !tbaa !50
   %24 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %24, ptr %21, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %25 = load ptr, ptr %6, align 8, !tbaa !21
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %27 = load ptr, ptr %26, align 8
@@ -18226,7 +18220,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2.
   br label %.body.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %56 = load ptr, ptr %55, align 8, !tbaa !51
   %.not13.i = icmp eq ptr %6, %56
@@ -18305,7 +18299,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %72, %82
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 87:                                               ; preds = %.body.body
@@ -18320,14 +18314,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %72, %82
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4:                  ; preds = %.body.body, %87
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %eh.lpad-body
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvvEZZN13HasherVisitor5visitEP12AstNodeFTaskENKUlvE_clEvEUlvE_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !tbaa !489
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !487
@@ -18398,7 +18392,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i.i.i: ; preds =
   resume { ptr, i32 } %29
 
 _ZSt10__invoke_rIvRZZN13HasherVisitor5visitEP12AstNodeFTaskENKUlvE_clEvEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -18489,7 +18483,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP15AstNodeFTaskRefE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstNodeFileEUlvE_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !tbaa !492
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !494
@@ -18545,7 +18539,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i.i.i: ; preds =
   resume { ptr, i32 } %21
 
 _ZSt10__invoke_rIvRZN13HasherVisitor5visitEP11AstNodeFileEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -18576,7 +18570,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP11AstNodeFileEUlvE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP13AstNodeModuleEUlvE_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !tbaa !496
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !498
@@ -18632,7 +18626,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i.i.i: ; preds =
   resume { ptr, i32 } %21
 
 _ZSt10__invoke_rIvRZN13HasherVisitor5visitEP13AstNodeModuleEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -18790,7 +18784,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP11AstNodeTextEUlvE
 define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visitEP11AstNodeTextEUlvE_JEET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !501
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !503
@@ -18800,7 +18794,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visi
   %9 = load ptr, ptr %7, align 8, !tbaa !201
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %11 = load i64, ptr %10, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %11, ptr %2, align 8, !tbaa !325
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i, label %._crit_edge.i.i.i
@@ -18835,7 +18829,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   %21 = load ptr, ptr %3, align 8, !tbaa !201
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %3)
           to label %25 unwind label %32
@@ -18880,7 +18874,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i: ; preds = %_Z
   resume { ptr, i32 } %33
 
 _ZZN13HasherVisitor5visitEP11AstNodeTextENKUlvE_clEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -18945,7 +18939,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP17AstParamTypeDTyp
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP17AstParamTypeDTypeENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP17AstParamTypeDTypeENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !505
@@ -18958,7 +18952,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP17AstParamTypeDTy
   %9 = load ptr, ptr %7, align 8, !tbaa !201, !noalias !508
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %11 = load i64, ptr %10, align 8, !tbaa !202, !noalias !508
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !508
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !508
   store i64 %11, ptr %2, align 8, !tbaa !325, !noalias !508
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i, label %._crit_edge.i.i.i
@@ -18993,7 +18987,7 @@ _ZNK17AstParamTypeDType4nameB5cxx11Ev.exit:       ; preds = %._crit_edge.i.i.i, 
   %21 = load ptr, ptr %3, align 8, !tbaa !201, !alias.scope !508
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !508
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !508
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %3)
           to label %25 unwind label %42
@@ -19062,7 +19056,7 @@ define linkonce_odr dso_local void @_ZNK17AstParamTypeDType4nameB5cxx11Ev(ptr de
   %6 = load ptr, ptr %4, align 8, !tbaa !201
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %8 = load i64, ptr %7, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !325
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
@@ -19097,7 +19091,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %18 = load ptr, ptr %0, align 8, !tbaa !201
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i8 0, ptr %19, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -19132,7 +19126,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP11AstParseRefEUlvE
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstParseRefENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstParseRefENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !514
@@ -19157,7 +19151,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstParseRefENKU
   %19 = load ptr, ptr %17, align 8, !tbaa !201, !noalias !519
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %21 = load i64, ptr %20, align 8, !tbaa !202, !noalias !519
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !519
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !519
   store i64 %21, ptr %2, align 8, !tbaa !325, !noalias !519
   %22 = icmp ugt i64 %21, 15
   br i1 %22, label %.noexc.i.i, label %._crit_edge.i.i.i
@@ -19192,7 +19186,7 @@ _ZNK11AstParseRef4nameB5cxx11Ev.exit:             ; preds = %._crit_edge.i.i.i, 
   %31 = load ptr, ptr %3, align 8, !tbaa !201, !alias.scope !519
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %29
   store i8 0, ptr %32, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !519
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !519
   %33 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull %3)
           to label %34 unwind label %41
 
@@ -19248,7 +19242,7 @@ define linkonce_odr dso_local void @_ZNK11AstParseRef4nameB5cxx11Ev(ptr dead_on_
   %6 = load ptr, ptr %4, align 8, !tbaa !201
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %8 = load i64, ptr %7, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !325
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
@@ -19283,7 +19277,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %18 = load ptr, ptr %0, align 8, !tbaa !201
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i8 0, ptr %19, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -19318,7 +19312,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP6AstPinEUlvE_E10_M
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP6AstPinENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP6AstPinENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !523
@@ -19331,7 +19325,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP6AstPinENKUlvE_cl
   %9 = load ptr, ptr %7, align 8, !tbaa !201, !noalias !526
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %11 = load i64, ptr %10, align 8, !tbaa !202, !noalias !526
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !526
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !526
   store i64 %11, ptr %2, align 8, !tbaa !325, !noalias !526
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i, label %._crit_edge.i.i.i
@@ -19366,7 +19360,7 @@ _ZNK6AstPin4nameB5cxx11Ev.exit:                   ; preds = %._crit_edge.i.i.i, 
   %21 = load ptr, ptr %3, align 8, !tbaa !201, !alias.scope !526
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !526
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !526
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %3)
           to label %25 unwind label %42
@@ -19434,7 +19428,7 @@ define linkonce_odr dso_local void @_ZNK6AstPin4nameB5cxx11Ev(ptr dead_on_unwind
   %6 = load ptr, ptr %4, align 8, !tbaa !201
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %8 = load i64, ptr %7, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !325
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
@@ -19469,7 +19463,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %18 = load ptr, ptr %0, align 8, !tbaa !201
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i8 0, ptr %19, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -19593,7 +19587,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP11AstRefDTypeEUlvE
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstRefDTypeENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstRefDTypeENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !540
@@ -19606,7 +19600,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstRefDTypeENKU
   %9 = load ptr, ptr %7, align 8, !tbaa !201, !noalias !543
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %11 = load i64, ptr %10, align 8, !tbaa !202, !noalias !543
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !543
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !543
   store i64 %11, ptr %2, align 8, !tbaa !325, !noalias !543
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i, label %._crit_edge.i.i.i
@@ -19641,7 +19635,7 @@ _ZNK11AstRefDType4nameB5cxx11Ev.exit:             ; preds = %._crit_edge.i.i.i, 
   %21 = load ptr, ptr %3, align 8, !tbaa !201, !alias.scope !543
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !543
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !543
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %3)
           to label %25 unwind label %46
@@ -19727,7 +19721,7 @@ define linkonce_odr dso_local void @_ZNK11AstRefDType4nameB5cxx11Ev(ptr dead_on_
   %6 = load ptr, ptr %4, align 8, !tbaa !201
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %8 = load i64, ptr %7, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !325
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
@@ -19762,7 +19756,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %18 = load ptr, ptr %0, align 8, !tbaa !201
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i8 0, ptr %19, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -19814,7 +19808,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP11AstSFormatFEUlvE
 define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visitEP11AstSFormatFEUlvE_JEET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !550
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !552
@@ -19825,7 +19819,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visi
   %9 = load ptr, ptr %7, align 8, !tbaa !201, !noalias !553
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %11 = load i64, ptr %10, align 8, !tbaa !202, !noalias !553
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !553
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !553
   store i64 %11, ptr %2, align 8, !tbaa !325, !noalias !553
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
@@ -19860,7 +19854,7 @@ _ZNK11AstSFormatF4textB5cxx11Ev.exit.i:           ; preds = %18, %16, %._crit_ed
   %21 = load ptr, ptr %3, align 8, !tbaa !201, !alias.scope !553
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !553
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !553
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %3)
           to label %25 unwind label %32
@@ -19905,7 +19899,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i: ; preds = %_Z
   resume { ptr, i32 } %33
 
 _ZZN13HasherVisitor5visitEP11AstSFormatFENKUlvE_clEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -19943,7 +19937,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP9AstSScanFEUlvE_E1
 define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visitEP9AstSScanFEUlvE_JEET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !557
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !559
@@ -19954,7 +19948,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visi
   %9 = load ptr, ptr %7, align 8, !tbaa !201, !noalias !560
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %11 = load i64, ptr %10, align 8, !tbaa !202, !noalias !560
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !560
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !560
   store i64 %11, ptr %2, align 8, !tbaa !325, !noalias !560
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
@@ -19989,7 +19983,7 @@ _ZNK9AstSScanF4textB5cxx11Ev.exit.i:              ; preds = %18, %16, %._crit_ed
   %21 = load ptr, ptr %3, align 8, !tbaa !201, !alias.scope !560
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !560
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !560
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %3)
           to label %25 unwind label %32
@@ -20034,7 +20028,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i: ; preds = %_Z
   resume { ptr, i32 } %33
 
 _ZZN13HasherVisitor5visitEP9AstSScanFENKUlvE_clEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -20069,7 +20063,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP8AstScopeEUlvE_E10
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP8AstScopeENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP8AstScopeENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !564
@@ -20082,7 +20076,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP8AstScopeENKUlvE_
   %9 = load ptr, ptr %7, align 8, !tbaa !201, !noalias !567
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %11 = load i64, ptr %10, align 8, !tbaa !202, !noalias !567
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !567
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !567
   store i64 %11, ptr %2, align 8, !tbaa !325, !noalias !567
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i, label %._crit_edge.i.i.i
@@ -20117,7 +20111,7 @@ _ZNK8AstScope4nameB5cxx11Ev.exit:                 ; preds = %._crit_edge.i.i.i, 
   %21 = load ptr, ptr %3, align 8, !tbaa !201, !alias.scope !567
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !567
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !567
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %3)
           to label %25 unwind label %39
@@ -20188,7 +20182,7 @@ define linkonce_odr dso_local void @_ZNK8AstScope4nameB5cxx11Ev(ptr dead_on_unwi
   %6 = load ptr, ptr %4, align 8, !tbaa !201
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %8 = load i64, ptr %7, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !325
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
@@ -20223,7 +20217,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %18 = load ptr, ptr %0, align 8, !tbaa !201
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i8 0, ptr %19, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -20429,7 +20423,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP10AstTypedefEUlvE_
 define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visitEP10AstTypedefEUlvE_JEET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !581
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !583
@@ -20440,7 +20434,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visi
   %9 = load ptr, ptr %7, align 8, !tbaa !201, !noalias !584
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %11 = load i64, ptr %10, align 8, !tbaa !202, !noalias !584
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !584
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !584
   store i64 %11, ptr %2, align 8, !tbaa !325, !noalias !584
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
@@ -20475,7 +20469,7 @@ _ZNK10AstTypedef4nameB5cxx11Ev.exit.i:            ; preds = %18, %16, %._crit_ed
   %21 = load ptr, ptr %3, align 8, !tbaa !201, !alias.scope !584
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !584
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !584
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %3)
           to label %25 unwind label %32
@@ -20520,7 +20514,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i: ; preds = %_Z
   resume { ptr, i32 } %33
 
 _ZZN13HasherVisitor5visitEP10AstTypedefENKUlvE_clEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -20533,7 +20527,7 @@ define linkonce_odr dso_local void @_ZNK10AstTypedef4nameB5cxx11Ev(ptr dead_on_u
   %6 = load ptr, ptr %4, align 8, !tbaa !201
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %8 = load i64, ptr %7, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !325
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
@@ -20568,7 +20562,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %18 = load ptr, ptr %0, align 8, !tbaa !201
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i8 0, ptr %19, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -20606,7 +20600,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP13AstTypedefFwdEUl
 define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visitEP13AstTypedefFwdEUlvE_JEET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !588
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !590
@@ -20617,7 +20611,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvRZN13HasherVisitor5visi
   %9 = load ptr, ptr %7, align 8, !tbaa !201, !noalias !591
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %11 = load i64, ptr %10, align 8, !tbaa !202, !noalias !591
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !591
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !591
   store i64 %11, ptr %2, align 8, !tbaa !325, !noalias !591
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
@@ -20652,7 +20646,7 @@ _ZNK13AstTypedefFwd4nameB5cxx11Ev.exit.i:         ; preds = %18, %16, %._crit_ed
   %21 = load ptr, ptr %3, align 8, !tbaa !201, !alias.scope !591
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !591
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !591
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %3)
           to label %25 unwind label %32
@@ -20697,7 +20691,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i: ; preds = %_Z
   resume { ptr, i32 } %33
 
 _ZZN13HasherVisitor5visitEP13AstTypedefFwdENKUlvE_clEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -20710,7 +20704,7 @@ define linkonce_odr dso_local void @_ZNK13AstTypedefFwd4nameB5cxx11Ev(ptr dead_o
   %6 = load ptr, ptr %4, align 8, !tbaa !201
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %8 = load i64, ptr %7, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !325
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
@@ -20745,7 +20739,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %18 = load ptr, ptr %0, align 8, !tbaa !201
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i8 0, ptr %19, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -20825,7 +20819,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP6AstVarEUlvE_E10_M
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP6AstVarENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP6AstVarENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !599
@@ -20838,7 +20832,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP6AstVarENKUlvE_cl
   %9 = load ptr, ptr %7, align 8, !tbaa !201, !noalias !602
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %11 = load i64, ptr %10, align 8, !tbaa !202, !noalias !602
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !602
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !602
   store i64 %11, ptr %2, align 8, !tbaa !325, !noalias !602
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i, label %._crit_edge.i.i.i
@@ -20873,7 +20867,7 @@ _ZNK6AstVar4nameB5cxx11Ev.exit:                   ; preds = %._crit_edge.i.i.i, 
   %21 = load ptr, ptr %3, align 8, !tbaa !201, !alias.scope !602
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !602
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !602
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %3)
           to label %25 unwind label %42
@@ -20942,7 +20936,7 @@ define linkonce_odr dso_local void @_ZNK6AstVar4nameB5cxx11Ev(ptr dead_on_unwind
   %6 = load ptr, ptr %4, align 8, !tbaa !201
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %8 = load i64, ptr %7, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !325
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
@@ -20977,7 +20971,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %18 = load ptr, ptr %0, align 8, !tbaa !201
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i8 0, ptr %19, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -21019,7 +21013,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP9AstVarRefEUlvE_E1
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP9AstVarRefENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP9AstVarRefENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !606
@@ -21060,7 +21054,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit3: ; preds = %12, %15
   %23 = load ptr, ptr %21, align 8, !tbaa !201
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %25, ptr %2, align 8, !tbaa !325
   %26 = icmp ugt i64 %25, 15
   br i1 %26, label %.noexc.i, label %._crit_edge.i.i
@@ -21095,7 +21089,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %35 = load ptr, ptr %3, align 8, !tbaa !201
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %33
   store i8 0, ptr %36, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %38 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %37, ptr noundef nonnull %3)
           to label %39 unwind label %46
@@ -21255,7 +21249,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP10AstVarXRefEUlvE_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP10AstVarXRefENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP10AstVarXRefENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !624
@@ -21283,7 +21277,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit: ; preds = %1, %9
   %16 = load ptr, ptr %14, align 8, !tbaa !201, !noalias !627
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 240
   %18 = load i64, ptr %17, align 8, !tbaa !202, !noalias !627
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !627
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !627
   store i64 %18, ptr %2, align 8, !tbaa !325, !noalias !627
   %19 = icmp ugt i64 %18, 15
   br i1 %19, label %.noexc.i.i, label %._crit_edge.i.i.i
@@ -21318,7 +21312,7 @@ _ZNK10AstVarXRef6dottedB5cxx11Ev.exit:            ; preds = %._crit_edge.i.i.i, 
   %28 = load ptr, ptr %3, align 8, !tbaa !201, !alias.scope !627
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %26
   store i8 0, ptr %29, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !627
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !627
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %31 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6V3HashpLINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_T_(ptr noundef nonnull align 4 dereferenceable(4) %30, ptr noundef nonnull %3)
           to label %32 unwind label %39
@@ -21436,11 +21430,17 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP21AstWildcardArray
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_V3Hasher.cpp() #15 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_V3Hasher.cpp() #14 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16
@@ -21459,17 +21459,17 @@ attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold nofree noreturn }
-attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

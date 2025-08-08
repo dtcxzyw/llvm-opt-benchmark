@@ -557,7 +557,7 @@ define hidden noundef i64 @_ZN24CgroupV2MemoryController30memory_and_swap_limit_
 define hidden noundef i64 @_ZN24CgroupV2MemoryController26read_memory_limit_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call noundef zeroext i1 @_ZN16CgroupController22read_number_handle_maxEPKcPl(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.54, ptr noundef nonnull %3) #8
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not2.i = icmp eq ptr %6, null
@@ -584,7 +584,7 @@ define hidden noundef i64 @_ZN24CgroupV2MemoryController26read_memory_limit_in_b
 
 _ZL18memory_limit_valueP18CgroupV2Controller.exit: ; preds = %7, %8, %12
   %.0.i = phi i64 [ %13, %12 ], [ -2, %7 ], [ -2, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %14 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not15 = icmp eq ptr %14, null
   br i1 %.not15, label %22, label %15
@@ -641,7 +641,7 @@ _ZL18memory_limit_valueP18CgroupV2Controller.exit: ; preds = %7, %8, %12
 define hidden noundef i64 @_ZN24CgroupV2MemoryController30memory_and_swap_usage_in_bytesEmm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = call noundef zeroext i1 @_ZN16CgroupController11read_numberEPKcPm(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.19, ptr noundef nonnull %5) #8
   %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -664,17 +664,17 @@ define hidden noundef i64 @_ZN24CgroupV2MemoryController30memory_and_swap_usage_
   br label %_ZN24CgroupV2MemoryController21memory_usage_in_bytesEv.exit
 
 _ZN24CgroupV2MemoryController21memory_usage_in_bytesEv.exit.thread: ; preds = %9, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %28
 
 _ZN24CgroupV2MemoryController21memory_usage_in_bytesEv.exit: ; preds = %11, %12
   %14 = load i64, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %15 = icmp sgt i64 %14, -1
   br i1 %15, label %16, label %28
 
 16:                                               ; preds = %_ZN24CgroupV2MemoryController21memory_usage_in_bytesEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = call noundef zeroext i1 @_ZN16CgroupController11read_numberEPKcPm(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.51, ptr noundef nonnull %4) #8
   %18 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not2.i7 = icmp eq ptr %18, null
@@ -702,7 +702,7 @@ _ZN24CgroupV2MemoryController21memory_usage_in_bytesEv.exit: ; preds = %11, %12
 
 _ZL25memory_swap_current_valueP18CgroupV2Controller.exit: ; preds = %19, %20, %24
   %.0.i8 = phi i64 [ %26, %24 ], [ 0, %19 ], [ 0, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %27 = add nuw nsw i64 %.0.i8, %14
   br label %28
 
@@ -716,7 +716,7 @@ define hidden void @_ZN24CgroupV2MemoryController27print_version_specific_infoEP
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = call noundef zeroext i1 @_ZN16CgroupController11read_numberEPKcPm(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.51, ptr noundef nonnull %5) #8
   %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not2.i = icmp eq ptr %8, null
@@ -743,8 +743,8 @@ define hidden void @_ZN24CgroupV2MemoryController27print_version_specific_infoEP
 
 _ZL25memory_swap_current_valueP18CgroupV2Controller.exit: ; preds = %9, %10, %14
   %.0.i = phi i64 [ %15, %14 ], [ -2, %9 ], [ -2, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = call noundef zeroext i1 @_ZN16CgroupController22read_number_handle_maxEPKcPl(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.31, ptr noundef nonnull %4) #8
   %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not2.i4 = icmp eq ptr %17, null
@@ -771,7 +771,7 @@ _ZL25memory_swap_current_valueP18CgroupV2Controller.exit: ; preds = %9, %10, %14
 
 _ZL23memory_swap_limit_valueP18CgroupV2Controller.exit: ; preds = %18, %19, %23
   %.0.i5 = phi i64 [ %24, %23 ], [ -2, %18 ], [ -2, %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN11OSContainer22print_container_helperEP12outputStreamlPKc(ptr noundef %1, i64 noundef %.0.i, ptr noundef nonnull @.str.41) #8
   call void @_ZN11OSContainer22print_container_helperEP12outputStreamlPKc(ptr noundef %1, i64 noundef %.0.i5, ptr noundef nonnull @.str.42) #8
   ret void
@@ -961,10 +961,10 @@ declare i64 @llvm.smax.i64(i64, i64) #6
 declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

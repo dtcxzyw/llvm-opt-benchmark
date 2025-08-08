@@ -60,7 +60,7 @@ _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %17, %16, %12, %11, 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_Z17increment_counterP28alts_record_protocol_crypterPPc(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !10
@@ -85,20 +85,14 @@ define noundef i32 @_Z17increment_counterP28alts_record_protocol_crypterPPc(ptr 
 
 _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %11, %10, %7, %2
   %.0 = phi i32 [ %6, %2 ], [ 0, %7 ], [ 13, %10 ], [ 13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare noundef i32 @_Z22alts_counter_incrementP12alts_counterPbPPc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noundef i32 @_Z22alts_counter_incrementP12alts_counterPbPPc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_Z47alts_record_protocol_crypter_num_overhead_bytesPK12alts_crypter(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -108,17 +102,17 @@ define noundef i64 @_Z47alts_record_protocol_crypter_num_overhead_bytesPK12alts_
   br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !20
   %7 = call noundef i32 @_Z28gsec_aead_crypter_tag_lengthPK17gsec_aead_crypterPmPPc(ptr noundef %6, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %.not7 = icmp eq i32 %7, 0
   %8 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not7, label %10, label %9
 
 9:                                                ; preds = %4, %1
@@ -129,7 +123,7 @@ define noundef i64 @_Z47alts_record_protocol_crypter_num_overhead_bytesPK12alts_
   ret i64 %.1
 }
 
-declare noundef i32 @_Z28gsec_aead_crypter_tag_lengthPK17gsec_aead_crypterPmPPc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noundef i32 @_Z28gsec_aead_crypter_tag_lengthPK17gsec_aead_crypterPmPPc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z37alts_record_protocol_crypter_destructP12alts_crypter(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -149,9 +143,9 @@ define void @_Z37alts_record_protocol_crypter_destructP12alts_crypter(ptr nounde
   ret void
 }
 
-declare void @_Z20alts_counter_destroyP12alts_counter(ptr noundef) local_unnamed_addr #2
+declare void @_Z20alts_counter_destroyP12alts_counter(ptr noundef) local_unnamed_addr #1
 
-declare void @_Z25gsec_aead_crypter_destroyP17gsec_aead_crypter(ptr noundef) local_unnamed_addr #2
+declare void @_Z25gsec_aead_crypter_destroyP17gsec_aead_crypter(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z26alts_crypter_create_commonP17gsec_aead_crypterbmPPc(ptr noundef %0, i1 noundef zeroext %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -161,7 +155,7 @@ define noundef ptr @_Z26alts_crypter_create_commonP17gsec_aead_crypterbmPPc(ptr 
 
 6:                                                ; preds = %4
   %7 = tail call ptr @gpr_malloc(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !18
   %8 = call noundef i32 @_Z30gsec_aead_crypter_nonce_lengthPK17gsec_aead_crypterPmPPc(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %3)
   %.not14 = icmp eq i32 %8, 0
@@ -181,7 +175,7 @@ define noundef ptr @_Z26alts_crypter_create_commonP17gsec_aead_crypterbmPPc(ptr 
 
 15:                                               ; preds = %9, %6, %13
   %.0 = phi ptr [ %7, %13 ], [ null, %6 ], [ null, %9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
 16:                                               ; preds = %4
@@ -199,17 +193,22 @@ _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %17, %16, %15
   ret ptr %.1
 }
 
-declare ptr @gpr_malloc(i64 noundef) local_unnamed_addr #2
+declare ptr @gpr_malloc(i64 noundef) local_unnamed_addr #1
 
-declare noundef i32 @_Z30gsec_aead_crypter_nonce_lengthPK17gsec_aead_crypterPmPPc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noundef i32 @_Z30gsec_aead_crypter_nonce_lengthPK17gsec_aead_crypterPmPPc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare noundef i32 @_Z19alts_counter_createbmmPP12alts_counterPPc(i1 noundef zeroext, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noundef i32 @_Z19alts_counter_createbmmPP12alts_counterPPc(i1 noundef zeroext, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

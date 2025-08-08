@@ -78,7 +78,7 @@ define internal zeroext i1 @HIDAPI_Driver8BitDo_InitDevice(ptr noundef %0) #0 {
 
 11:                                               ; preds = %.preheader, %21
   %.02933 = phi i32 [ 0, %.preheader ], [ %22, %21 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = load ptr, ptr %10, align 8
   %13 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %12, ptr noundef nonnull %2, i64 noundef 64, i32 noundef 80) #9
   %14 = icmp eq i32 %13, 0
@@ -97,17 +97,17 @@ define internal zeroext i1 @HIDAPI_Driver8BitDo_InitDevice(ptr noundef %0) #0 {
   br label %20
 
 20:                                               ; preds = %15, %17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 21:                                               ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %22 = add nuw nsw i32 %.02933, 1
   %exitcond.not = icmp eq i32 %22, 3
   br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !3
 
 23:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -126,7 +126,7 @@ define internal zeroext i1 @HIDAPI_Driver8BitDo_InitDevice(ptr noundef %0) #0 {
   br label %32
 
 32:                                               ; preds = %29, %23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %20, %32
@@ -176,7 +176,7 @@ define internal zeroext i1 @HIDAPI_Driver8BitDo_UpdateDevice(ptr noundef %0) #0 
   %3 = alloca [64 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 0
@@ -607,7 +607,7 @@ default.unreachable:                              ; preds = %256
   br i1 %266, label %267, label %298
 
 267:                                              ; preds = %264
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %268 = load i64, ptr %37, align 8
   %269 = add i64 %268, 8000000
   store i64 %269, ptr %37, align 8
@@ -647,7 +647,7 @@ default.unreachable:                              ; preds = %256
   %297 = fmul float %288, %296
   store float %297, ptr %43, align 4
   call void @SDL_SendJoystickSensor(i64 noundef %53, ptr noundef nonnull %13, i32 noundef 1, i64 noundef %268, ptr noundef nonnull %2, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %298
 
 298:                                              ; preds = %267, %264
@@ -683,7 +683,7 @@ HIDAPI_Driver8BitDo_HandleStatePacket.exit:       ; preds = %HIDAPI_Driver8BitDo
 
 310:                                              ; preds = %1, %308
   %.0 = phi i1 [ %309, %308 ], [ false, %1 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
@@ -741,7 +741,7 @@ define internal zeroext i1 @HIDAPI_Driver8BitDo_RumbleJoystick(ptr noundef %0, p
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %5, ptr noundef nonnull align 1 dereferenceable(5) @__const.HIDAPI_Driver8BitDo_RumbleJoystick.rumble_packet, i64 5, i1 false)
   %12 = lshr i16 %2, 8
   %13 = trunc nuw i16 %12 to i8
@@ -761,7 +761,7 @@ define internal zeroext i1 @HIDAPI_Driver8BitDo_RumbleJoystick(ptr noundef %0, p
 
 21:                                               ; preds = %11, %19
   %.0 = phi i1 [ %20, %19 ], [ true, %11 ]
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %24
 
 22:                                               ; preds = %4
@@ -845,23 +845,17 @@ declare void @SDL_RemoveHintCallback_REAL(ptr noundef, ptr noundef, ptr noundef)
 
 declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 declare i32 @SDL_hid_read_timeout_REAL(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare void @HIDAPI_SetDeviceName(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 declare zeroext i1 @HIDAPI_JoystickConnected(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @SDL_hid_get_feature_report_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -880,7 +874,7 @@ declare void @SDL_SendJoystickAxis(i64 noundef, ptr noundef, i8 noundef zeroext,
 declare float @HIDAPI_RemapVal(float noundef, float noundef, float noundef, float noundef, float noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @SDL_SendJoystickPowerInfo(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
@@ -894,6 +888,12 @@ declare i32 @SDL_HIDAPI_SendRumble(ptr noundef, ptr noundef, i32 noundef) local_
 
 declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #3
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
 
@@ -901,10 +901,10 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind allocsize(0,1) }

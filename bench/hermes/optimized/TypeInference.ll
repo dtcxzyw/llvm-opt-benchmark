@@ -58,7 +58,7 @@ entry:
   %values.i.i.i.i = alloca %"class.llvh::SmallPtrSet", align 8
   %builder.i.i.i.i = alloca %"class.hermes::IRBuilder", align 8
   %scgp.i = alloca %"class.hermes::SimpleCallGraphProvider", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %scgp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %scgp.i)
   %Next.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %M, i64 72
   %FunctionList.i.i = getelementptr inbounds nuw i8, ptr %M, i64 64
   %__begin1.sroa.0.011.i = load ptr, ptr %Next.i.i.i.i.i.i, align 8
@@ -155,7 +155,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end9.i.i.i.i.i.i
 _ZN6hermes17CallGraphProvider17getKnownCallsitesEPNS_8FunctionE.exit.i.i.i: ; preds = %if.end13.i.i.i.i.i.i.i, %if.end.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %cond.sink.i.i.ph.pn.i.i.i.i.i = phi ptr [ %add.ptr.i.i4.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %add.ptr21.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end13.i.i.i.i.i.i.i ]
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.ph.pn.i.i.i.i.i, i64 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %builder.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %builder.i.i.i.i)
   %strictMode_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.014.i, i64 188
   %8 = load i8, ptr %strictMode_.i.i.i.i.i, align 4
   %tobool.i.i.i.i.i = trunc i8 %8 to i1
@@ -318,7 +318,7 @@ for.inc45.i.i.i.i:                                ; preds = %if.then38.i.i.i.i, 
 
 return.sink.split.i.i.i:                          ; preds = %for.inc45.i.i.i.i, %if.end.i.i.i.i, %land.lhs.true.i.i.i.i
   %retval.0.ph.i.i.i = phi i1 [ false, %land.lhs.true.i.i.i.i ], [ false, %if.end.i.i.i.i ], [ %changed.1.i.i.i.i, %for.inc45.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %builder.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %builder.i.i.i.i)
   br label %_ZN12_GLOBAL__N_117TypeInferenceImpl11inferParamsEPN6hermes8FunctionE.exit.i.i
 
 _ZN12_GLOBAL__N_117TypeInferenceImpl11inferParamsEPN6hermes8FunctionE.exit.i.i: ; preds = %if.end9.i.i.i.i.i.i, %return.sink.split.i.i.i, %for.body.i
@@ -613,8 +613,8 @@ _ZL14inferUnaryInstPN6hermes17UnaryOperatorInstE.exit.i.i.i: ; preds = %return.s
   br label %_ZN12_GLOBAL__N_117TypeInferenceImpl9inferTypeEPN6hermes11InstructionE.exit.i.i
 
 sw.bb20.i.i.i:                                    ; preds = %for.body16.i.i
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %visited.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %values.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %visited.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %values.i.i.i.i)
   %call.i.i.i.i = call noundef i32 @_ZNK6hermes7PhiInst13getNumEntriesEv(ptr noundef nonnull align 8 dereferenceable(132) %__begin3.sroa.0.0167.i.i) #7
   %cmp.i.i.i.i = icmp eq i32 %call.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %_ZL16inferPhiInstInstPN6hermes7PhiInstE.exit.i.i.i, label %if.end.i44.i.i.i
@@ -732,8 +732,8 @@ if.then.i.i.i19.i.i.i.i:                          ; preds = %_ZN4llvh11SmallPtrS
   br label %_ZL16inferPhiInstInstPN6hermes7PhiInstE.exit.i.i.i
 
 _ZL16inferPhiInstInstPN6hermes7PhiInstE.exit.i.i.i: ; preds = %if.then.i.i.i19.i.i.i.i, %_ZN4llvh11SmallPtrSetIPN6hermes5ValueELj8EED2Ev.exit.i.i.i.i, %sw.bb20.i.i.i
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %visited.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %values.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %visited.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %values.i.i.i.i)
   %retval.sroa.0.0.copyload.i48.i.i.i = load i32, ptr %valueType.i.i.i.i, align 2
   %ref.tmp25.sroa.0.0.extract.trunc.i.i.i = trunc i32 %retval.sroa.0.0.copyload.i48.i.i.i to i16
   %52 = trunc i32 %retval.sroa.0.0.copyload.i.i.i.i to i16
@@ -1778,7 +1778,7 @@ _ZN12_GLOBAL__N_117TypeInferenceImpl13runOnFunctionEPN6hermes8FunctionE.exit.i: 
 
 _ZN12_GLOBAL__N_117TypeInferenceImpl11runOnModuleEPN6hermes6ModuleE.exit: ; preds = %_ZN12_GLOBAL__N_117TypeInferenceImpl13runOnFunctionEPN6hermes8FunctionE.exit.i, %entry
   %changed.0.lcssa.i = phi i1 [ false, %entry ], [ %or4.i, %_ZN12_GLOBAL__N_117TypeInferenceImpl13runOnFunctionEPN6hermes8FunctionE.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %scgp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %scgp.i)
   ret i1 %changed.0.lcssa.i
 }
 
@@ -2161,10 +2161,10 @@ _ZN4llvh8DenseMapIPN6hermes8CallInstENS_8DenseSetIPNS1_8FunctionENS_12DenseMapIn
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

@@ -378,7 +378,7 @@ define i64 @ZSTD_compressBlock_doubleFast(ptr noundef readonly captures(none) %0
   ]
 
 61:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %9, ptr noundef nonnull align 1 dereferenceable(10) @__const.ZSTD_compressBlock_doubleFast_noDict_generic.dummy, i64 10, i1 false)
   br i1 %60, label %ZSTD_compressBlock_doubleFast_noDict_4.exit, label %.lr.ph374.i
 
@@ -443,7 +443,7 @@ define i64 @ZSTD_compressBlock_doubleFast(ptr noundef readonly captures(none) %0
   %.0280.i.val.us.i = load i64, ptr %.0280.i.us.i, align 1
   %96 = mul i64 %.0280.i.val.us.i, -3523014627327384477
   %97 = lshr i64 %96, %64
-  %98 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0307.i.us.i, i32 %36, ptr nonnull readnone %9, ptr readnone %.0300.i.us.i) #11, !srcloc !35
+  %98 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0307.i.us.i, i32 %36, ptr nonnull readnone %9, ptr readnone %.0300.i.us.i) #10, !srcloc !35
   %.val23.us.i = load i64, ptr %98, align 1, !tbaa !23
   %99 = icmp eq i64 %.val23.us.i, %.1283.i.val22.us.i
   %100 = icmp eq ptr %98, %.0300.i.us.i
@@ -458,7 +458,7 @@ define i64 @ZSTD_compressBlock_doubleFast(ptr noundef readonly captures(none) %0
   %105 = load i32, ptr %104, align 4, !tbaa !22
   %106 = zext i32 %105 to i64
   %107 = getelementptr inbounds nuw i8, ptr %22, i64 %106
-  %108 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %91, i32 %36, ptr nonnull readnone %9, ptr readnone %103) #11, !srcloc !35
+  %108 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %91, i32 %36, ptr nonnull readnone %9, ptr readnone %103) #10, !srcloc !35
   %.val.us.i = load i32, ptr %108, align 1, !tbaa !22
   %.4286.i.val.us.i = load i32, ptr %.1283.i.us.i, align 1, !tbaa !22
   %109 = icmp eq i32 %.val.us.i, %.4286.i.val.us.i
@@ -741,7 +741,7 @@ ZSTD_storeSeq.exit.i:                             ; preds = %190, %.lr.ph.i.i, %
   %.0280.i.val.i = load i64, ptr %.0280.i.i, align 1
   %228 = mul i64 %.0280.i.val.i, -3523014627327384477
   %229 = lshr i64 %228, %64
-  %230 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0307.i.i, i32 %36, ptr nonnull readnone %9, ptr readnone %.0300.i.i) #11, !srcloc !35
+  %230 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0307.i.i, i32 %36, ptr nonnull readnone %9, ptr readnone %.0300.i.i) #10, !srcloc !35
   %.val23.i = load i64, ptr %230, align 1, !tbaa !23
   %.1283.i.val22.i = load i64, ptr %.1283.i.i, align 1
   %231 = icmp eq i64 %.val23.i, %.1283.i.val22.i
@@ -888,7 +888,7 @@ ZSTD_count.exit75.i:                              ; preds = %270, %.thread63.i74
   %292 = load i32, ptr %291, align 4, !tbaa !22
   %293 = zext i32 %292 to i64
   %294 = getelementptr inbounds nuw i8, ptr %22, i64 %293
-  %295 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %123, i32 %36, ptr nonnull readnone %9, ptr readnone %128) #11, !srcloc !35
+  %295 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %123, i32 %36, ptr nonnull readnone %9, ptr readnone %128) #10, !srcloc !35
   %.val.i = load i32, ptr %295, align 1, !tbaa !22
   %296 = icmp eq i32 %.val.i, %290
   %297 = icmp eq ptr %295, %128
@@ -1580,11 +1580,11 @@ ZSTD_compressBlock_doubleFast_noDict_4.exit:      ; preds = %.critedge5.i.i, %30
   %595 = ptrtoint ptr %39 to i64
   %596 = ptrtoint ptr %.0248.i322.i to i64
   %597 = sub i64 %595, %596
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %2185
 
 598:                                              ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %8, ptr noundef nonnull align 1 dereferenceable(10) @__const.ZSTD_compressBlock_doubleFast_noDict_generic.dummy, i64 10, i1 false)
   br i1 %60, label %ZSTD_compressBlock_doubleFast_noDict_5.exit, label %.lr.ph374.i27
 
@@ -1647,7 +1647,7 @@ ZSTD_compressBlock_doubleFast_noDict_4.exit:      ; preds = %.critedge5.i.i, %30
   %.0280.i.val.us.i330 = load i64, ptr %.0280.i.us.i327, align 1, !tbaa !23
   %632 = mul i64 %.0280.i.val.us.i330, -3523014627327384477
   %633 = lshr i64 %632, %601
-  %634 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0307.i.us.i323, i32 %36, ptr nonnull readnone %8, ptr readnone %.0300.i.us.i324) #11, !srcloc !35
+  %634 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0307.i.us.i323, i32 %36, ptr nonnull readnone %8, ptr readnone %.0300.i.us.i324) #10, !srcloc !35
   %.val19.us.i = load i64, ptr %634, align 1, !tbaa !23
   %635 = icmp eq i64 %.val19.us.i, %.1283.i.val23.us.i
   %636 = icmp eq ptr %634, %.0300.i.us.i324
@@ -1661,7 +1661,7 @@ ZSTD_compressBlock_doubleFast_noDict_4.exit:      ; preds = %.critedge5.i.i, %30
   %640 = load i32, ptr %639, align 4, !tbaa !22
   %641 = zext i32 %640 to i64
   %642 = getelementptr inbounds nuw i8, ptr %22, i64 %641
-  %643 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %627, i32 %36, ptr nonnull readnone %8, ptr readnone %638) #11, !srcloc !35
+  %643 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %627, i32 %36, ptr nonnull readnone %8, ptr readnone %638) #10, !srcloc !35
   %.val.us.i333 = load i32, ptr %643, align 1, !tbaa !22
   %.4286.i.val.us.i334 = load i32, ptr %.1283.i.us.i326, align 1, !tbaa !22
   %644 = icmp eq i32 %.val.us.i333, %.4286.i.val.us.i334
@@ -1943,7 +1943,7 @@ ZSTD_storeSeq.exit.i288:                          ; preds = %724, %.lr.ph.i.i300
   %.0280.i.val.i45 = load i64, ptr %.0280.i.i40, align 1, !tbaa !23
   %762 = mul i64 %.0280.i.val.i45, -3523014627327384477
   %763 = lshr i64 %762, %601
-  %764 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0307.i.i36, i32 %36, ptr nonnull readnone %8, ptr readnone %.0300.i.i37) #11, !srcloc !35
+  %764 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0307.i.i36, i32 %36, ptr nonnull readnone %8, ptr readnone %.0300.i.i37) #10, !srcloc !35
   %.val19.i = load i64, ptr %764, align 1, !tbaa !23
   %765 = icmp eq i64 %.val19.i, %.1283.i.val23.i
   %766 = icmp eq ptr %764, %.0300.i.i37
@@ -2087,7 +2087,7 @@ ZSTD_count.exit75.i244:                           ; preds = %803, %.thread63.i74
   %824 = load i32, ptr %823, align 4, !tbaa !22
   %825 = zext i32 %824 to i64
   %826 = getelementptr inbounds nuw i8, ptr %22, i64 %825
-  %827 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %657, i32 %36, ptr nonnull readnone %8, ptr readnone %662) #11, !srcloc !35
+  %827 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %657, i32 %36, ptr nonnull readnone %8, ptr readnone %662) #10, !srcloc !35
   %.val.i48 = load i32, ptr %827, align 1, !tbaa !22
   %.4286.i.val.i = load i32, ptr %.1283.i.i39, align 1, !tbaa !22
   %828 = icmp eq i32 %.val.i48, %.4286.i.val.i
@@ -2776,11 +2776,11 @@ ZSTD_compressBlock_doubleFast_noDict_5.exit:      ; preds = %.critedge5.i.i111, 
   %1124 = ptrtoint ptr %39 to i64
   %1125 = ptrtoint ptr %.0248.i322.i56 to i64
   %1126 = sub i64 %1124, %1125
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %2185
 
 1127:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %7, ptr noundef nonnull align 1 dereferenceable(10) @__const.ZSTD_compressBlock_doubleFast_noDict_generic.dummy, i64 10, i1 false)
   br i1 %60, label %ZSTD_compressBlock_doubleFast_noDict_6.exit, label %.lr.ph374.i345
 
@@ -2843,7 +2843,7 @@ ZSTD_compressBlock_doubleFast_noDict_5.exit:      ; preds = %.critedge5.i.i111, 
   %.0280.i.val.us.i657 = load i64, ptr %.0280.i.us.i654, align 1, !tbaa !23
   %1161 = mul i64 %.0280.i.val.us.i657, -3523014627327384477
   %1162 = lshr i64 %1161, %1130
-  %1163 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0307.i.us.i650, i32 %36, ptr nonnull readnone %7, ptr readnone %.0300.i.us.i651) #11, !srcloc !35
+  %1163 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0307.i.us.i650, i32 %36, ptr nonnull readnone %7, ptr readnone %.0300.i.us.i651) #10, !srcloc !35
   %.val19.us.i658 = load i64, ptr %1163, align 1, !tbaa !23
   %1164 = icmp eq i64 %.val19.us.i658, %.1283.i.val23.us.i649
   %1165 = icmp eq ptr %1163, %.0300.i.us.i651
@@ -2857,7 +2857,7 @@ ZSTD_compressBlock_doubleFast_noDict_5.exit:      ; preds = %.critedge5.i.i111, 
   %1169 = load i32, ptr %1168, align 4, !tbaa !22
   %1170 = zext i32 %1169 to i64
   %1171 = getelementptr inbounds nuw i8, ptr %22, i64 %1170
-  %1172 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %1156, i32 %36, ptr nonnull readnone %7, ptr readnone %1167) #11, !srcloc !35
+  %1172 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %1156, i32 %36, ptr nonnull readnone %7, ptr readnone %1167) #10, !srcloc !35
   %.val.us.i661 = load i32, ptr %1172, align 1, !tbaa !22
   %.4286.i.val.us.i662 = load i32, ptr %.1283.i.us.i653, align 1, !tbaa !22
   %1173 = icmp eq i32 %.val.us.i661, %.4286.i.val.us.i662
@@ -3139,7 +3139,7 @@ ZSTD_storeSeq.exit.i614:                          ; preds = %1253, %.lr.ph.i.i62
   %.0280.i.val.i364 = load i64, ptr %.0280.i.i359, align 1, !tbaa !23
   %1291 = mul i64 %.0280.i.val.i364, -3523014627327384477
   %1292 = lshr i64 %1291, %1130
-  %1293 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0307.i.i355, i32 %36, ptr nonnull readnone %7, ptr readnone %.0300.i.i356) #11, !srcloc !35
+  %1293 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0307.i.i355, i32 %36, ptr nonnull readnone %7, ptr readnone %.0300.i.i356) #10, !srcloc !35
   %.val19.i365 = load i64, ptr %1293, align 1, !tbaa !23
   %1294 = icmp eq i64 %.val19.i365, %.1283.i.val23.i354
   %1295 = icmp eq ptr %1293, %.0300.i.i356
@@ -3283,7 +3283,7 @@ ZSTD_count.exit75.i570:                           ; preds = %1332, %.thread63.i7
   %1353 = load i32, ptr %1352, align 4, !tbaa !22
   %1354 = zext i32 %1353 to i64
   %1355 = getelementptr inbounds nuw i8, ptr %22, i64 %1354
-  %1356 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %1186, i32 %36, ptr nonnull readnone %7, ptr readnone %1191) #11, !srcloc !35
+  %1356 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %1186, i32 %36, ptr nonnull readnone %7, ptr readnone %1191) #10, !srcloc !35
   %.val.i368 = load i32, ptr %1356, align 1, !tbaa !22
   %.4286.i.val.i369 = load i32, ptr %.1283.i.i358, align 1, !tbaa !22
   %1357 = icmp eq i32 %.val.i368, %.4286.i.val.i369
@@ -3972,11 +3972,11 @@ ZSTD_compressBlock_doubleFast_noDict_6.exit:      ; preds = %.critedge5.i.i434, 
   %1653 = ptrtoint ptr %39 to i64
   %1654 = ptrtoint ptr %.0248.i322.i377 to i64
   %1655 = sub i64 %1653, %1654
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %2185
 
 1656:                                             ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %6, ptr noundef nonnull align 1 dereferenceable(10) @__const.ZSTD_compressBlock_doubleFast_noDict_generic.dummy, i64 10, i1 false)
   br i1 %60, label %ZSTD_compressBlock_doubleFast_noDict_7.exit, label %.lr.ph374.i673
 
@@ -4039,7 +4039,7 @@ ZSTD_compressBlock_doubleFast_noDict_6.exit:      ; preds = %.critedge5.i.i434, 
   %.0280.i.val.us.i985 = load i64, ptr %.0280.i.us.i982, align 1, !tbaa !23
   %1690 = mul i64 %.0280.i.val.us.i985, -3523014627327384477
   %1691 = lshr i64 %1690, %1659
-  %1692 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0307.i.us.i978, i32 %36, ptr nonnull readnone %6, ptr readnone %.0300.i.us.i979) #11, !srcloc !35
+  %1692 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0307.i.us.i978, i32 %36, ptr nonnull readnone %6, ptr readnone %.0300.i.us.i979) #10, !srcloc !35
   %.val19.us.i986 = load i64, ptr %1692, align 1, !tbaa !23
   %1693 = icmp eq i64 %.val19.us.i986, %.1283.i.val23.us.i977
   %1694 = icmp eq ptr %1692, %.0300.i.us.i979
@@ -4053,7 +4053,7 @@ ZSTD_compressBlock_doubleFast_noDict_6.exit:      ; preds = %.critedge5.i.i434, 
   %1698 = load i32, ptr %1697, align 4, !tbaa !22
   %1699 = zext i32 %1698 to i64
   %1700 = getelementptr inbounds nuw i8, ptr %22, i64 %1699
-  %1701 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %1685, i32 %36, ptr nonnull readnone %6, ptr readnone %1696) #11, !srcloc !35
+  %1701 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %1685, i32 %36, ptr nonnull readnone %6, ptr readnone %1696) #10, !srcloc !35
   %.val.us.i989 = load i32, ptr %1701, align 1, !tbaa !22
   %.4286.i.val.us.i990 = load i32, ptr %.1283.i.us.i981, align 1, !tbaa !22
   %1702 = icmp eq i32 %.val.us.i989, %.4286.i.val.us.i990
@@ -4335,7 +4335,7 @@ ZSTD_storeSeq.exit.i942:                          ; preds = %1782, %.lr.ph.i.i95
   %.0280.i.val.i692 = load i64, ptr %.0280.i.i687, align 1, !tbaa !23
   %1820 = mul i64 %.0280.i.val.i692, -3523014627327384477
   %1821 = lshr i64 %1820, %1659
-  %1822 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0307.i.i683, i32 %36, ptr nonnull readnone %6, ptr readnone %.0300.i.i684) #11, !srcloc !35
+  %1822 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0307.i.i683, i32 %36, ptr nonnull readnone %6, ptr readnone %.0300.i.i684) #10, !srcloc !35
   %.val19.i693 = load i64, ptr %1822, align 1, !tbaa !23
   %1823 = icmp eq i64 %.val19.i693, %.1283.i.val23.i682
   %1824 = icmp eq ptr %1822, %.0300.i.i684
@@ -4479,7 +4479,7 @@ ZSTD_count.exit75.i898:                           ; preds = %1861, %.thread63.i7
   %1882 = load i32, ptr %1881, align 4, !tbaa !22
   %1883 = zext i32 %1882 to i64
   %1884 = getelementptr inbounds nuw i8, ptr %22, i64 %1883
-  %1885 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %1715, i32 %36, ptr nonnull readnone %6, ptr readnone %1720) #11, !srcloc !35
+  %1885 = call ptr asm "cmp $1, $2\0Acmova $3, $0\0A", "=r,r,r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %1715, i32 %36, ptr nonnull readnone %6, ptr readnone %1720) #10, !srcloc !35
   %.val.i696 = load i32, ptr %1885, align 1, !tbaa !22
   %.4286.i.val.i697 = load i32, ptr %.1283.i.i686, align 1, !tbaa !22
   %1886 = icmp eq i32 %.val.i696, %.4286.i.val.i697
@@ -5168,7 +5168,7 @@ ZSTD_compressBlock_doubleFast_noDict_7.exit:      ; preds = %.critedge5.i.i762, 
   %2182 = ptrtoint ptr %39 to i64
   %2183 = ptrtoint ptr %.0248.i322.i705 to i64
   %2184 = sub i64 %2182, %2183
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %2185
 
 2185:                                             ; preds = %ZSTD_compressBlock_doubleFast_noDict_7.exit, %ZSTD_compressBlock_doubleFast_noDict_6.exit, %ZSTD_compressBlock_doubleFast_noDict_5.exit, %ZSTD_compressBlock_doubleFast_noDict_4.exit
@@ -5176,14 +5176,8 @@ ZSTD_compressBlock_doubleFast_noDict_7.exit:      ; preds = %.critedge5.i.i762, 
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define i64 @ZSTD_compressBlock_doubleFast_dictMatchState(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #3 {
+define i64 @ZSTD_compressBlock_doubleFast_dictMatchState(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %7 = load i32, ptr %6, align 8, !tbaa !31
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -9678,7 +9672,7 @@ ZSTD_compressBlock_doubleFast_dictMatchState_4.exit: ; preds = %ZSTD_compressBlo
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_doubleFast_extDict(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #4 {
+define i64 @ZSTD_compressBlock_doubleFast_extDict(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #3 {
 switch.lookup:
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %6 = load i32, ptr %5, align 8, !tbaa !31
@@ -9690,16 +9684,16 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #6
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #7
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #6
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i64 @ZSTD_count_2segments(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #8 {
+define internal fastcc i64 @ZSTD_count_2segments(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #7 {
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %1 to i64
   %8 = sub i64 %6, %7
@@ -10857,21 +10851,26 @@ ZSTD_storeSeqOnly.exit375:                        ; preds = %ZSTD_storeSeq.exit,
   ret i64 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree norecurse nosync nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind memory(none) }
+attributes #10 = { nounwind memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

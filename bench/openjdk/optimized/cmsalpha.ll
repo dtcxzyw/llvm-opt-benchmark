@@ -350,7 +350,7 @@ define internal fastcc range(i32 0, 2) i32 @ComputeComponentIncrements(i32 nound
   br i1 %.not, label %42, label %15
 
 15:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = add nsw i32 %12, -16
   %or.cond.i = icmp ult i32 %16, -15
   br i1 %or.cond.i, label %ComputeIncrementsForPlanar.exit, label %17
@@ -451,11 +451,11 @@ define internal fastcc range(i32 0, 2) i32 @ComputeComponentIncrements(i32 nound
 
 ComputeIncrementsForPlanar.exit:                  ; preds = %15, %.preheader.i, %.lr.ph63.preheader.i
   %.0.i = phi i32 [ 0, %15 ], [ 1, %.preheader.i ], [ 1, %.lr.ph63.preheader.i ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %73
 
 42:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %43 = mul nuw nsw i32 %..i.i8, %12
   %44 = add nsw i32 %12, -16
   %or.cond.i9 = icmp ult i32 %44, -15
@@ -552,7 +552,7 @@ ComputeIncrementsForPlanar.exit:                  ; preds = %15, %.preheader.i, 
 
 ComputeIncrementsForChunky.exit:                  ; preds = %42, %.loopexit54.i, %.lr.ph67.preheader.i
   %.0.i18 = phi i32 [ 0, %42 ], [ 1, %.loopexit54.i ], [ 1, %.lr.ph67.preheader.i ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %73
 
 73:                                               ; preds = %ComputeIncrementsForChunky.exit, %ComputeIncrementsForPlanar.exit
@@ -942,10 +942,10 @@ declare i16 @llvm.bswap.i16(i16) #8
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

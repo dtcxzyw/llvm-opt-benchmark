@@ -3516,7 +3516,7 @@ define hidden void @_ZN14ArchiveBuilder26relocate_embedded_pointersEPNS_13Source
 12:                                               ; preds = %.lr.ph, %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit ]
   %13 = phi ptr [ %5, %.lr.ph ], [ %53, %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
@@ -3593,7 +3593,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %43, %26
   br i1 %or.cond.i, label %26, label %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit, !llvm.loop !8
 
 _ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit: ; preds = %43, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, %47, %.preheader.i.i.i, %12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = load ptr, ptr %4, align 8
   %54 = load i32, ptr %53, align 4
@@ -3634,7 +3634,7 @@ define hidden void @_ZN14ArchiveBuilder39relocate_metaspaceobj_embedded_pointers
 15:                                               ; preds = %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit.i ]
   %16 = phi ptr [ %8, %.lr.ph.i ], [ %56, %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i
@@ -3711,7 +3711,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i:  ; preds = %46, %29
   br i1 %or.cond.i.i, label %29, label %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit.i, !llvm.loop !8
 
 _ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit.i: ; preds = %50, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i, %46, %.preheader.i.i.i.i, %15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %56 = load ptr, ptr %7, align 8
   %57 = load i32, ptr %56, align 4
@@ -3736,7 +3736,7 @@ _ZN14ArchiveBuilder26relocate_embedded_pointersEPNS_13SourceObjListE.exit: ; pre
 68:                                               ; preds = %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit.i3, %.lr.ph.i1
   %indvars.iv.i2 = phi i64 [ 0, %.lr.ph.i1 ], [ %indvars.iv.next.i4, %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit.i3 ]
   %69 = phi ptr [ %61, %.lr.ph.i1 ], [ %109, %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit.i3 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv.i2
@@ -3813,7 +3813,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i8: ; preds = %99, %82
   br i1 %or.cond.i.i11, label %82, label %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit.i3, !llvm.loop !8
 
 _ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit.i3: ; preds = %103, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i8, %99, %.preheader.i.i.i.i14, %68
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next.i4 = add nuw nsw i64 %indvars.iv.i2, 1
   %109 = load ptr, ptr %60, align 8
   %110 = load i32, ptr %109, align 4
@@ -4954,7 +4954,7 @@ define linkonce_odr hidden void @_ZN14ArchiveBuilder12CDSMapLogger3logEPS_P11Fil
   br label %_ZN14ArchiveBuilder12CDSMapLogger10log_regionEPKcPhS3_S3_.exit
 
 _ZN14ArchiveBuilder12CDSMapLogger10log_regionEPKcPhS3_S3_.exit: ; preds = %16, %24
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %8, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %8, align 8
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 56
@@ -4974,8 +4974,8 @@ _ZN14ArchiveBuilder12CDSMapLogger10log_regionEPKcPhS3_S3_.exit: ; preds = %16, %
 
 _ZN14ArchiveBuilder12CDSMapLogger10log_headerEP11FileMapInfo.exit: ; preds = %_ZN14ArchiveBuilder12CDSMapLogger10log_regionEPKcPhS3_S3_.exit, %28
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %8) #19
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %7, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %7, align 8
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -4995,7 +4995,7 @@ _ZN14ArchiveBuilder12CDSMapLogger10log_headerEP11FileMapInfo.exit: ; preds = %_Z
 
 _ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit: ; preds = %_ZN14ArchiveBuilder12CDSMapLogger10log_headerEP11FileMapInfo.exit, %32
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %7) #19
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -5058,7 +5058,7 @@ _ZN14ArchiveBuilder12CDSMapLogger20log_metaspace_regionEPKcP10DumpRegionPKNS_13S
   br label %_ZN14ArchiveBuilder12CDSMapLogger10log_regionEPKcPhS3_S3_.exit28
 
 _ZN14ArchiveBuilder12CDSMapLogger10log_regionEPKcPhS3_S3_.exit28: ; preds = %_ZN14ArchiveBuilder12CDSMapLogger20log_metaspace_regionEPKcP10DumpRegionPKNS_13SourceObjListE.exit26, %71
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %6, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %6, align 8
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -5078,7 +5078,7 @@ _ZN14ArchiveBuilder12CDSMapLogger10log_regionEPKcPhS3_S3_.exit28: ; preds = %_ZN
 
 _ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit31: ; preds = %_ZN14ArchiveBuilder12CDSMapLogger10log_regionEPKcPhS3_S3_.exit28, %75
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %6) #19
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %77 = load i64, ptr %76, align 8
   %.not32 = icmp eq i64 %77, 0
@@ -5684,7 +5684,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %41, %44, %51, %71
 95:                                               ; preds = %85, %92, %_ZN7oopDesc4sizeEv.exit
   %.025 = phi i64 [ %76, %_ZN7oopDesc4sizeEv.exit ], [ %89, %85 ], [ %91, %92 ]
   %96 = getelementptr inbounds i8, ptr %.032, i64 %.025
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %14) #19
@@ -5704,7 +5704,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %41, %44, %51, %71
 
 _ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit: ; preds = %95, %98
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %2) #19
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not, label %102, label %101
 
 101:                                              ; preds = %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit
@@ -5851,7 +5851,7 @@ define linkonce_odr hidden void @_ZN14ArchiveBuilder12CDSMapLogger21log_metaspac
   %29 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 96
   %31 = load i64, ptr %30, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %5, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %5, align 8
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %16) #19
@@ -5869,7 +5869,7 @@ define linkonce_odr hidden void @_ZN14ArchiveBuilder12CDSMapLogger21log_metaspac
 
 _ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit: ; preds = %19, %33
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %5) #19
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %35 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i64, ptr %36, align 8
@@ -6213,7 +6213,7 @@ _ZN14ArchiveBuilder12CDSMapLogger9log_klassEP5KlassPhPKciP6Thread.exit: ; preds 
   %191 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 96
   %193 = load i64, ptr %192, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
   %194 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -6234,7 +6234,7 @@ _ZN14ArchiveBuilder12CDSMapLogger9log_klassEP5KlassPhPKciP6Thread.exit: ; preds 
 
 _ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit86: ; preds = %190, %197
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #19
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %199 = icmp ult ptr %.065.lcssa, %9
   br i1 %199, label %200, label %220
 
@@ -6259,7 +6259,7 @@ _ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit86: ; preds = %190, 
   %212 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 96
   %214 = load i64, ptr %213, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %215 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -6280,7 +6280,7 @@ _ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit86: ; preds = %190, 
 
 _ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit89: ; preds = %211, %218
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #19
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %220
 
 220:                                              ; preds = %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit89, %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit86
@@ -8531,10 +8531,10 @@ declare i32 @llvm.umin.i32(i32, i32) #17
 declare i16 @llvm.umax.i16(i16, i16) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

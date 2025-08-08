@@ -119,16 +119,16 @@ define dso_local range(i32 0, 2) i32 @crl_main(i32 noundef %0, ptr noundef %1) l
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = tail call ptr @EVP_sha1() #3
   store ptr %12, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 32773, ptr %5, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !11
   tail call void @opt_set_unknown_name(ptr noundef nonnull @.str.70) #3
   %13 = tail call ptr @opt_init(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @crl_options) #3
@@ -489,11 +489,11 @@ define dso_local range(i32 0, 2) i32 @crl_main(i32 noundef %0, ptr noundef %1) l
   br i1 %.not194, label %144, label %142
 
 142:                                              ; preds = %141
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @X509_CRL_get0_signature(ptr noundef nonnull %.1, ptr noundef nonnull %8, ptr noundef null) #3
   %143 = load ptr, ptr %8, align 8, !tbaa !17
   call void @corrupt_signature(ptr noundef %143) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %144
 
 144:                                              ; preds = %142, %141
@@ -548,7 +548,7 @@ define dso_local range(i32 0, 2) i32 @crl_main(i32 noundef %0, ptr noundef %1) l
   br i1 %167, label %168, label %182
 
 168:                                              ; preds = %166
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %169 = call ptr @X509_CRL_get_issuer(ptr noundef nonnull %.1) #3
   %170 = call ptr @app_get0_libctx() #3
   %171 = call ptr @app_get0_propq() #3
@@ -568,12 +568,12 @@ define dso_local range(i32 0, 2) i32 @crl_main(i32 noundef %0, ptr noundef %1) l
 
 .thread213:                                       ; preds = %176
   %179 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %178, ptr noundef nonnull @.str.88, i64 noundef %172) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %182
 
 180:                                              ; preds = %176
   %181 = call i32 @BIO_puts(ptr noundef %178, ptr noundef nonnull @.str.89) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread
 
 182:                                              ; preds = %.thread213, %166
@@ -642,8 +642,8 @@ define dso_local range(i32 0, 2) i32 @crl_main(i32 noundef %0, ptr noundef %1) l
   br i1 %221, label %222, label %247
 
 222:                                              ; preds = %220
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #3
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %223 = load ptr, ptr %3, align 8, !tbaa !4
   %224 = call i32 @X509_CRL_digest(ptr noundef nonnull %.1, ptr noundef %223, ptr noundef nonnull %11, ptr noundef nonnull %10) #3
   %.not203 = icmp eq i32 %224, 0
@@ -659,8 +659,8 @@ define dso_local range(i32 0, 2) i32 @crl_main(i32 noundef %0, ptr noundef %1) l
   br i1 %231, label %.lr.ph, label %.thread215
 
 .thread215:                                       ; preds = %.lr.ph, %225
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %247
 
 .lr.ph:                                           ; preds = %225, %.lr.ph
@@ -683,8 +683,8 @@ define dso_local range(i32 0, 2) i32 @crl_main(i32 noundef %0, ptr noundef %1) l
 244:                                              ; preds = %222
   %245 = load ptr, ptr @bio_err, align 8, !tbaa !15
   %246 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %245, ptr noundef nonnull @.str.94) #3
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread
 
 247:                                              ; preds = %.thread215, %220
@@ -755,135 +755,135 @@ define dso_local range(i32 0, 2) i32 @crl_main(i32 noundef %0, ptr noundef %1) l
   call void @X509_CRL_free(ptr noundef %.0112234) #3
   call void @X509_STORE_CTX_free(ptr noundef %.0152226) #3
   call void @X509_STORE_free(ptr noundef %.0117230) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0141228
 }
 
+declare ptr @EVP_sha1() local_unnamed_addr #1
+
+declare void @opt_set_unknown_name(ptr noundef) local_unnamed_addr #1
+
+declare ptr @opt_init(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @opt_next() local_unnamed_addr #1
+
+declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare void @opt_help(ptr noundef) local_unnamed_addr #1
+
+declare i32 @opt_format(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @opt_arg() local_unnamed_addr #1
+
+declare i32 @set_dateopt(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @set_nameopt(ptr noundef) local_unnamed_addr #1
+
+declare ptr @opt_unknown() local_unnamed_addr #1
+
+declare i32 @opt_provider(i32 noundef) local_unnamed_addr #1
+
+declare i32 @opt_check_rest_arg(ptr noundef) local_unnamed_addr #1
+
+declare i32 @opt_md(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @load_crl(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @setup_verify(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @X509_STORE_add_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @X509_LOOKUP_file() local_unnamed_addr #1
+
+declare ptr @X509_STORE_CTX_new() local_unnamed_addr #1
+
+declare i32 @X509_STORE_CTX_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @X509_STORE_CTX_get_obj_by_subject(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @X509_CRL_get_issuer(ptr noundef) local_unnamed_addr #1
+
+declare ptr @X509_get_pubkey(ptr noundef) local_unnamed_addr #1
+
+declare ptr @X509_OBJECT_get0_X509(ptr noundef) local_unnamed_addr #1
+
+declare void @X509_OBJECT_free(ptr noundef) local_unnamed_addr #1
+
+declare i32 @X509_CRL_verify(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
+
+declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @load_key(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @X509_CRL_free(ptr noundef) local_unnamed_addr #1
+
+declare ptr @X509_CRL_diff(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @X509_CRL_get0_signature(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @corrupt_signature(ptr noundef) local_unnamed_addr #1
+
+declare void @print_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @X509_CRL_get_ext_d2i(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @i2a_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #1
+
+declare i64 @X509_NAME_hash_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @app_get0_libctx() local_unnamed_addr #1
+
+declare ptr @app_get0_propq() local_unnamed_addr #1
+
+declare i64 @X509_NAME_hash_old(ptr noundef) local_unnamed_addr #1
+
+declare i32 @ASN1_TIME_print_ex(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare ptr @X509_CRL_get0_lastUpdate(ptr noundef) local_unnamed_addr #1
+
+declare ptr @X509_CRL_get0_nextUpdate(ptr noundef) local_unnamed_addr #1
+
+declare i32 @X509_CRL_digest(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @EVP_MD_get0_name(ptr noundef) local_unnamed_addr #1
+
+declare ptr @bio_open_default(ptr noundef, i8 noundef signext, i32 noundef) local_unnamed_addr #1
+
+declare i32 @X509_CRL_print_ex(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i64 @get_nameopt() local_unnamed_addr #1
+
+declare i32 @i2d_X509_CRL_bio(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @PEM_write_bio_X509_CRL(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #1
+
+declare void @BIO_free_all(ptr noundef) local_unnamed_addr #1
+
+declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
+
+declare void @X509_STORE_CTX_free(ptr noundef) local_unnamed_addr #1
+
+declare void @X509_STORE_free(ptr noundef) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @EVP_sha1() local_unnamed_addr #2
-
-declare void @opt_set_unknown_name(ptr noundef) local_unnamed_addr #2
-
-declare ptr @opt_init(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @opt_next() local_unnamed_addr #2
-
-declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare void @opt_help(ptr noundef) local_unnamed_addr #2
-
-declare i32 @opt_format(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @opt_arg() local_unnamed_addr #2
-
-declare i32 @set_dateopt(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @set_nameopt(ptr noundef) local_unnamed_addr #2
-
-declare ptr @opt_unknown() local_unnamed_addr #2
-
-declare i32 @opt_provider(i32 noundef) local_unnamed_addr #2
-
-declare i32 @opt_check_rest_arg(ptr noundef) local_unnamed_addr #2
-
-declare i32 @opt_md(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @load_crl(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @setup_verify(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare ptr @X509_STORE_add_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @X509_LOOKUP_file() local_unnamed_addr #2
-
-declare ptr @X509_STORE_CTX_new() local_unnamed_addr #2
-
-declare i32 @X509_STORE_CTX_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @X509_STORE_CTX_get_obj_by_subject(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @X509_CRL_get_issuer(ptr noundef) local_unnamed_addr #2
-
-declare ptr @X509_get_pubkey(ptr noundef) local_unnamed_addr #2
-
-declare ptr @X509_OBJECT_get0_X509(ptr noundef) local_unnamed_addr #2
-
-declare void @X509_OBJECT_free(ptr noundef) local_unnamed_addr #2
-
-declare i32 @X509_CRL_verify(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
-
-declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @load_key(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @X509_CRL_free(ptr noundef) local_unnamed_addr #2
-
-declare ptr @X509_CRL_diff(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @X509_CRL_get0_signature(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @corrupt_signature(ptr noundef) local_unnamed_addr #2
-
-declare void @print_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @X509_CRL_get_ext_d2i(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @i2a_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #2
-
-declare i64 @X509_NAME_hash_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @app_get0_libctx() local_unnamed_addr #2
-
-declare ptr @app_get0_propq() local_unnamed_addr #2
-
-declare i64 @X509_NAME_hash_old(ptr noundef) local_unnamed_addr #2
-
-declare i32 @ASN1_TIME_print_ex(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare ptr @X509_CRL_get0_lastUpdate(ptr noundef) local_unnamed_addr #2
-
-declare ptr @X509_CRL_get0_nextUpdate(ptr noundef) local_unnamed_addr #2
-
-declare i32 @X509_CRL_digest(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @EVP_MD_get0_name(ptr noundef) local_unnamed_addr #2
-
-declare ptr @bio_open_default(ptr noundef, i8 noundef signext, i32 noundef) local_unnamed_addr #2
-
-declare i32 @X509_CRL_print_ex(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare i64 @get_nameopt() local_unnamed_addr #2
-
-declare i32 @i2d_X509_CRL_bio(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @PEM_write_bio_X509_CRL(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #2
-
-declare void @BIO_free_all(ptr noundef) local_unnamed_addr #2
-
-declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
-
-declare void @X509_STORE_CTX_free(ptr noundef) local_unnamed_addr #2
-
-declare void @X509_STORE_free(ptr noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

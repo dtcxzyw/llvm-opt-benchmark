@@ -42,7 +42,7 @@ _Py_atomic_compare_exchange_uint8.exit.thread:    ; preds = %10
 
 17:                                               ; preds = %_Py_atomic_compare_exchange_uint8.exit.thread, %15
   %.044 = phi i8 [ %7, %15 ], [ %14, %_Py_atomic_compare_exchange_uint8.exit.thread ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %18 = call i32 @PyTime_MonotonicRaw(ptr noundef nonnull %4) #8
   %19 = icmp sgt i64 %1, 0
   br i1 %19, label %20, label %23
@@ -54,7 +54,7 @@ _Py_atomic_compare_exchange_uint8.exit.thread:    ; preds = %10
 
 23:                                               ; preds = %20, %17
   %.024 = phi i64 [ %22, %20 ], [ 0, %17 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = load i64, ptr %4, align 8, !tbaa !4
   %25 = add i64 %24, 1000000
   store i64 %25, ptr %5, align 8, !tbaa !8
@@ -80,7 +80,7 @@ _Py_atomic_compare_exchange_uint8.exit.thread:    ; preds = %10
   br i1 %32, label %_Py_atomic_compare_exchange_uint8.exit38.thread, label %33
 
 33:                                               ; preds = %._crit_edge.us
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %.145.lcssa.us, ptr %6, align 1, !tbaa !12
   %34 = and i8 %.145.lcssa.us, 2
   %.not33.us = icmp eq i8 %34, 0
@@ -126,7 +126,7 @@ _Py_atomic_compare_exchange_uint8.exit39.us:      ; preds = %35, %33
 49:                                               ; preds = %47, %_Py_atomic_compare_exchange_uint8.exit39.thread.us
   %.347.us = phi i8 [ %48, %47 ], [ %39, %_Py_atomic_compare_exchange_uint8.exit39.thread.us ]
   %.128.us = phi i64 [ %.330.us, %47 ], [ %.027.ph.us, %_Py_atomic_compare_exchange_uint8.exit39.thread.us ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.outer.us, !llvm.loop !13
 
 .lr.ph.us:                                        ; preds = %.outer.us, %_Py_atomic_compare_exchange_uint8.exit38.us
@@ -168,7 +168,7 @@ _Py_atomic_compare_exchange_uint8.exit38:         ; preds = %.lr.ph
   br i1 %64, label %_Py_atomic_compare_exchange_uint8.exit38.thread, label %65
 
 65:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %.145.lcssa, ptr %6, align 1, !tbaa !12
   %66 = and i8 %.145.lcssa, 2
   %.not33 = icmp eq i8 %66, 0
@@ -219,19 +219,19 @@ _Py_atomic_compare_exchange_uint8.exit39:         ; preds = %67, %65
 
 .thread:                                          ; preds = %_Py_atomic_compare_exchange_uint8.exit39, %75, %73, %_Py_atomic_compare_exchange_uint8.exit39.us, %41
   %.us-phi = phi i32 [ 0, %_Py_atomic_compare_exchange_uint8.exit39.us ], [ 1, %41 ], [ 0, %_Py_atomic_compare_exchange_uint8.exit39 ], [ 2, %75 ], [ 1, %73 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_Py_atomic_compare_exchange_uint8.exit38.thread
 
 84:                                               ; preds = %_Py_atomic_compare_exchange_uint8.exit39.thread, %82
   %.347 = phi i8 [ %83, %82 ], [ %71, %_Py_atomic_compare_exchange_uint8.exit39.thread ]
   %.128 = phi i64 [ %.330, %82 ], [ %.027.ph, %_Py_atomic_compare_exchange_uint8.exit39.thread ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.outer
 
 _Py_atomic_compare_exchange_uint8.exit38.thread:  ; preds = %._crit_edge, %.lr.ph, %._crit_edge.us, %.lr.ph.us, %.thread
   %.2 = phi i32 [ %.us-phi, %.thread ], [ 1, %.lr.ph.us ], [ 0, %._crit_edge.us ], [ 1, %.lr.ph ], [ 0, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_Py_atomic_compare_exchange_uint8.exit
 
 _Py_atomic_compare_exchange_uint8.exit:           ; preds = %10, %15, %_Py_atomic_compare_exchange_uint8.exit38.thread
@@ -239,21 +239,15 @@ _Py_atomic_compare_exchange_uint8.exit:           ; preds = %10, %15, %_Py_atomi
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @PyTime_MonotonicRaw(ptr noundef) local_unnamed_addr #1
 
-declare i32 @PyTime_MonotonicRaw(ptr noundef) local_unnamed_addr #2
+declare i64 @_PyTime_Add(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @_PyTime_Add(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @_PyParkingLot_Park(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @_PyParkingLot_Park(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @Py_MakePendingCalls() local_unnamed_addr #1
 
-declare i32 @Py_MakePendingCalls() local_unnamed_addr #2
-
-declare i64 @_PyDeadline_Get(i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @_PyDeadline_Get(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @_PyMutex_TryUnlock(ptr noundef %0) local_unnamed_addr #0 {
@@ -291,7 +285,7 @@ _Py_atomic_compare_exchange_uint8.exit.thread:    ; preds = %_Py_atomic_compare_
   ret i32 %.0
 }
 
-declare void @_PyParkingLot_Unpark(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_PyParkingLot_Unpark(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @mutex_unpark(ptr noundef writeonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) #0 {
@@ -300,7 +294,7 @@ define internal void @mutex_unpark(ptr noundef writeonly captures(none) %0, ptr 
   br i1 %.not, label %13, label %5
 
 5:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = call i32 @PyTime_MonotonicRaw(ptr noundef nonnull %4) #8
   %7 = load i64, ptr %4, align 8, !tbaa !4
   %8 = load i64, ptr %1, align 8, !tbaa !8
@@ -312,7 +306,7 @@ define internal void @mutex_unpark(ptr noundef writeonly captures(none) %0, ptr 
   %.not10 = icmp eq i32 %2, 0
   %12 = or disjoint i8 %spec.select, 2
   %.2 = select i1 %.not10, i8 %spec.select, i8 %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %13
 
 13:                                               ; preds = %5, %3
@@ -324,7 +318,7 @@ define internal void @mutex_unpark(ptr noundef writeonly captures(none) %0, ptr 
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyRawMutex_LockSlow(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.raw_mutex_entry, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @_PySemaphore_Init(ptr noundef nonnull %3) #8
   %4 = load atomic i64, ptr %0 seq_cst, align 8
@@ -366,15 +360,15 @@ define hidden void @_PyRawMutex_LockSlow(ptr noundef captures(none) %0) local_un
 
 20:                                               ; preds = %11
   call void @_PySemaphore_Destroy(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare void @_PySemaphore_Init(ptr noundef) local_unnamed_addr #2
+declare void @_PySemaphore_Init(ptr noundef) local_unnamed_addr #1
 
-declare i32 @_PySemaphore_Wait(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_PySemaphore_Wait(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @_PySemaphore_Destroy(ptr noundef) local_unnamed_addr #2
+declare void @_PySemaphore_Destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyRawMutex_UnlockSlow(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -423,12 +417,12 @@ _Py_atomic_compare_exchange_uintptr.exit14:       ; preds = %14, %12
 }
 
 ; Function Attrs: noreturn
-declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @_PySemaphore_Wakeup(ptr noundef) local_unnamed_addr #2
+declare void @_PySemaphore_Wakeup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @_PyEvent_IsSet(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @_PyEvent_IsSet(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load atomic i8, ptr %0 seq_cst, align 1
   %3 = icmp eq i8 %2, 1
   %4 = zext i1 %3 to i32
@@ -449,7 +443,7 @@ define dso_local void @_PyEvent_Notify(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @_PyParkingLot_UnparkAll(ptr noundef) local_unnamed_addr #2
+declare void @_PyParkingLot_UnparkAll(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PyEvent_Wait(ptr noundef %0) local_unnamed_addr #0 {
@@ -472,12 +466,12 @@ _Py_atomic_compare_exchange_uint8.exit.i:         ; preds = %3
   br label %3, !llvm.loop !20
 
 PyEvent_WaitTimed.exit:                           ; preds = %3, %_Py_atomic_compare_exchange_uint8.exit.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 2, ptr %2, align 1, !tbaa !12
   %7 = call i32 @_PyParkingLot_Park(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef 1, i64 noundef -1, ptr noundef null, i32 noundef 1) #8
   %8 = load atomic i8, ptr %0 seq_cst, align 1
   %.not = icmp eq i8 %8, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not, label %PyEvent_WaitTimed.exit.thread, label %.backedge
 
 PyEvent_WaitTimed.exit.thread:                    ; preds = %PyEvent_WaitTimed.exit, %3
@@ -502,13 +496,13 @@ _Py_atomic_compare_exchange_uint8.exit:           ; preds = %5
   br i1 %8, label %9, label %5
 
 9:                                                ; preds = %5, %_Py_atomic_compare_exchange_uint8.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 2, ptr %4, align 1, !tbaa !12
   %10 = call i32 @_PyParkingLot_Park(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 1, i64 noundef %1, ptr noundef null, i32 noundef %2) #8
   %11 = load atomic i8, ptr %0 seq_cst, align 1
   %12 = icmp eq i8 %11, 1
   %13 = zext i1 %12 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %9
@@ -519,7 +513,7 @@ _Py_atomic_compare_exchange_uint8.exit:           ; preds = %5
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @_PyOnceFlag_CallOnceSlow(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load atomic i8, ptr %0 seq_cst, align 1
   br label %.backedge
 
@@ -592,7 +586,7 @@ thread-pre-split:                                 ; preds = %18, %7
 
 unlock_once.exit:                                 ; preds = %.backedge, %15, %.split6.i
   %.0 = phi i32 [ %11, %.split6.i ], [ %11, %15 ], [ 0, %.backedge ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -606,7 +600,7 @@ define dso_local range(i32 0, 2) i32 @_PyRecursiveMutex_IsLockedByCurrentThread(
   ret i32 %6
 }
 
-declare i64 @PyThread_get_thread_ident_ex() local_unnamed_addr #2
+declare i64 @PyThread_get_thread_ident_ex() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_PyRecursiveMutex_Lock(ptr noundef %0) local_unnamed_addr #0 {
@@ -814,7 +808,7 @@ define dso_local void @_PyRWMutex_RLock(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %18, label %6
 
 6:                                                ; preds = %.backedge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.0, ptr %3, align 8, !tbaa !4
   %7 = and i64 %.0, 2
   %8 = icmp eq i64 %7, 0
@@ -841,7 +835,7 @@ define dso_local void @_PyRWMutex_RLock(ptr noundef %0) local_unnamed_addr #0 {
 
 rwmutex_set_parked_and_wait.exit:                 ; preds = %13, %15
   %.1.i = phi i64 [ %17, %15 ], [ %14, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %rwmutex_set_parked_and_wait.exit, %rwmutex_set_parked_and_wait.exit9, %_Py_atomic_compare_exchange_uintptr.exit
@@ -854,11 +848,11 @@ rwmutex_set_parked_and_wait.exit:                 ; preds = %13, %15
   br i1 %.not5, label %22, label %rwmutex_set_parked_and_wait.exit9
 
 rwmutex_set_parked_and_wait.exit9:                ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %.0, ptr %2, align 8, !tbaa !4
   %20 = call i32 @_PyParkingLot_Park(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef 8, i64 noundef -1, ptr noundef null, i32 noundef 1) #8
   %21 = load atomic i64, ptr %0 monotonic, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.backedge.backedge
 
 22:                                               ; preds = %18
@@ -916,7 +910,7 @@ _Py_atomic_compare_exchange_uintptr.exit:         ; preds = %6
   ret void
 
 12:                                               ; preds = %.backedge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %.0, ptr %2, align 8, !tbaa !4
   %13 = and i64 %.0, 2
   %14 = icmp eq i64 %13, 0
@@ -943,7 +937,7 @@ _Py_atomic_compare_exchange_uintptr.exit:         ; preds = %6
 
 rwmutex_set_parked_and_wait.exit:                 ; preds = %19, %21
   %.1.i = phi i64 [ %23, %21 ], [ %20, %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %rwmutex_set_parked_and_wait.exit, %_Py_atomic_compare_exchange_uintptr.exit
@@ -1003,7 +997,7 @@ define dso_local void @_PySeqLock_LockWrite(ptr noundef captures(none) %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_PySeqLock_AbandonWrite(ptr noundef captures(none) %0) local_unnamed_addr #4 {
+define dso_local void @_PySeqLock_AbandonWrite(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = load atomic i32, ptr %0 monotonic, align 4
   %3 = add i32 %2, -1
   store atomic i32 %3, ptr %0 seq_cst, align 4
@@ -1011,7 +1005,7 @@ define dso_local void @_PySeqLock_AbandonWrite(ptr noundef captures(none) %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_PySeqLock_UnlockWrite(ptr noundef captures(none) %0) local_unnamed_addr #4 {
+define dso_local void @_PySeqLock_UnlockWrite(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = load atomic i32, ptr %0 monotonic, align 4
   %3 = add i32 %2, 1
   store atomic i32 %3, ptr %0 seq_cst, align 4
@@ -1054,7 +1048,7 @@ define dso_local range(i32 0, 2) i32 @_PySeqLock_EndRead(ptr noundef readonly ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @_PySeqLock_AfterFork(ptr noundef captures(none) %0) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @_PySeqLock_AfterFork(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 4, !tbaa !27
   %3 = and i32 %2, 1
   %.not = icmp eq i32 %3, 0
@@ -1115,18 +1109,24 @@ _PyMutex_TryUnlock.exit:                          ; preds = %9, %8
 }
 
 ; Function Attrs: nounwind
-declare i32 @sched_yield() local_unnamed_addr #6
+declare i32 @sched_yield() local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { noreturn nounwind }

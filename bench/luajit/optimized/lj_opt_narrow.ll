@@ -18,7 +18,7 @@ define hidden i32 @lj_opt_narrow_convert(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %113, label %6
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 1056, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8, !tbaa !27
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -218,7 +218,7 @@ define hidden i32 @lj_opt_narrow_convert(ptr noundef %0) local_unnamed_addr #0 {
 
 .sink.split:                                      ; preds = %24, %.thread11, %111
   %.1.ph = phi i32 [ %36, %.thread11 ], [ %112, %111 ], [ 0, %24 ]
-  call void @llvm.lifetime.end.p0(i64 1056, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %113
 
 113:                                              ; preds = %.sink.split, %1
@@ -226,11 +226,8 @@ define hidden i32 @lj_opt_narrow_convert(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2147483648, 11) i32 @narrow_conv_backprop(ptr noundef nonnull %0, i32 noundef range(i32 0, 65536) %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc range(i32 -2147483648, 11) i32 @narrow_conv_backprop(ptr noundef nonnull %0, i32 noundef range(i32 0, 65536) %1, i32 noundef %2) unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !36
@@ -555,9 +552,6 @@ narrow_bpc_get.exit133.thread:                    ; preds = %147, %135
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lj_opt_narrow_index(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = and i32 %1, 520093696
@@ -619,7 +613,7 @@ define hidden i32 @lj_opt_narrow_index(ptr noundef %0, i32 noundef %1) local_unn
   ret i32 %.0
 }
 
-declare hidden i32 @lj_opt_fold(ptr noundef) local_unnamed_addr #3
+declare hidden i32 @lj_opt_fold(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lj_opt_narrow_toint(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -676,7 +670,7 @@ define hidden i32 @lj_opt_narrow_toint(ptr noundef %0, i32 noundef %1) local_unn
 }
 
 ; Function Attrs: noreturn
-declare hidden void @lj_trace_err(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare hidden void @lj_trace_err(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @narrow_stripov(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 54, 56) %2, i32 noundef range(i32 627, 2740) %3) unnamed_addr #0 {
@@ -854,7 +848,7 @@ define hidden i32 @lj_opt_narrow_tobit(ptr noundef %0, i32 noundef %1) local_unn
   ret i32 %.013
 }
 
-declare hidden i32 @lj_ir_knum_u64(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare hidden i32 @lj_ir_knum_u64(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lj_opt_narrow_cindex(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1025,7 +1019,7 @@ conv_str_tonum.exit38:                            ; preds = %conv_str_tonum.exit
   ret i32 %81
 }
 
-declare hidden double @lj_vm_foldarith(double noundef, double noundef, i32 noundef) local_unnamed_addr #3
+declare hidden double @lj_vm_foldarith(double noundef, double noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lj_opt_narrow_unm(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1120,9 +1114,9 @@ conv_str_tonum.exit:                              ; preds = %3, %6
   ret i32 %53
 }
 
-declare hidden i32 @lj_ir_kint(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare hidden i32 @lj_ir_kint(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare hidden i32 @lj_ir_ggfload(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare hidden i32 @lj_ir_ggfload(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lj_opt_narrow_mod(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -1254,10 +1248,10 @@ conv_str_tonum.exit39:                            ; preds = %conv_str_tonum.exit
   ret i32 %72
 }
 
-declare hidden i32 @lj_ir_tonum(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare hidden i32 @lj_ir_tonum(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 14, 20) i32 @lj_opt_narrow_forl(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define hidden range(i32 14, 20) i32 @lj_opt_narrow_forl(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr i8, ptr %0, i64 168
   %.val = load i32, ptr %3, align 8, !tbaa !4
   %4 = and i32 %.val, 2097152
@@ -1309,7 +1303,7 @@ narrow_forl.exit.thread:                          ; preds = %2, %narrow_forl.exi
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @narrow_stripov_backprop(ptr noundef nonnull %0, i32 noundef range(i32 0, 65536) %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc void @narrow_stripov_backprop(ptr noundef nonnull %0, i32 noundef range(i32 0, 65536) %1, i32 noundef %2) unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !36
@@ -1420,18 +1414,24 @@ narrow_bpc_get.exit:                              ; preds = %23
   ret void
 }
 
-declare hidden i32 @lj_ir_emit(ptr noundef) local_unnamed_addr #3
+declare hidden i32 @lj_ir_emit(ptr noundef) local_unnamed_addr #2
 
-declare hidden i32 @lj_ir_kint64(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare hidden i32 @lj_ir_kint64(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare hidden i32 @lj_strscan_num(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare hidden i32 @lj_strscan_num(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { noreturn nounwind }
 

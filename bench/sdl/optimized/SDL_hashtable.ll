@@ -178,13 +178,10 @@ SDL_DestroyHashTable.exit34:                      ; preds = %destroy_all.exit.i3
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_CreateRWLock_REAL() local_unnamed_addr #3
+declare ptr @SDL_CreateRWLock_REAL() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_DestroyHashTable(ptr noundef %0) local_unnamed_addr #0 {
@@ -251,9 +248,6 @@ destroy_all.exit:                                 ; preds = %22, %2, %5
 30:                                               ; preds = %27, %1
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_InsertIntoHashTable(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
@@ -468,7 +462,7 @@ delete_item.exit:                                 ; preds = %.lr.ph.i, %60
 120:                                              ; preds = %.lr.ph.i.i31
   %121 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %122 = load i32, ptr %121, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.057.i.i.i = and i32 %122, %108
   %123 = zext i32 %.057.i.i.i to i64
   %124 = getelementptr inbounds nuw %struct.SDL_HashItem, ptr %110, i64 %123
@@ -548,7 +542,7 @@ delete_item.exit:                                 ; preds = %.lr.ph.i, %60
 
 insert_item.exit.i.i:                             ; preds = %137, %._crit_edge.i.i.i
   %162 = phi i32 [ %127, %._crit_edge.i.i.i ], [ %.0.i.i.i.i, %137 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %163
 
 163:                                              ; preds = %insert_item.exit.i.i, %.lr.ph.i.i31
@@ -678,11 +672,11 @@ insert_item.exit:                                 ; preds = %180, %._crit_edge.i
   ret i1 %.023
 }
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #3
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @SDL_LockRWLockForWriting_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_LockRWLockForWriting_REAL(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_UnlockRWLock_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_UnlockRWLock_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_FindInHashTable(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
@@ -790,7 +784,7 @@ find_first_item.exit.thread:                      ; preds = %42, %38, %8, %50, %
   ret i1 %.0
 }
 
-declare void @SDL_LockRWLockForReading_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_LockRWLockForReading_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_RemoveFromHashTable(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1109,11 +1103,11 @@ destroy_all.exit:                                 ; preds = %23, %2, %6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare void @SDL_DestroyRWLock_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_DestroyRWLock_REAL(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_HashPointer(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1123,10 +1117,10 @@ define hidden i32 @SDL_HashPointer(ptr noundef readnone captures(none) %0, ptr n
   ret i32 %4
 }
 
-declare i32 @SDL_murmur3_32_REAL(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @SDL_murmur3_32_REAL(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @SDL_KeyMatchPointer(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #5 {
+define hidden noundef zeroext i1 @SDL_KeyMatchPointer(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %1, %2
   ret i1 %4
 }
@@ -1155,7 +1149,7 @@ hash_string_djbxor.exit:                          ; preds = %.lr.ph.i, %2
   ret i32 %.0.lcssa.i
 }
 
-declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #3
+declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_KeyMatchString(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1184,17 +1178,17 @@ define hidden zeroext i1 @SDL_KeyMatchString(ptr noundef readnone captures(none)
   ret i1 %.0
 }
 
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @SDL_HashID(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
+define hidden noundef i32 @SDL_HashID(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = ptrtoint ptr %1 to i64
   %4 = trunc i64 %3 to i32
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @SDL_KeyMatchID(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #5 {
+define hidden noundef zeroext i1 @SDL_KeyMatchID(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %1, %2
   ret i1 %4
 }
@@ -1219,10 +1213,16 @@ define hidden void @SDL_DestroyHashValue(ptr noundef readnone captures(none) %0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
@@ -1231,13 +1231,13 @@ declare i32 @llvm.umin.i32(i32, i32) #8
 declare i32 @llvm.ctpop.i32(i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind allocsize(0,1) }
 attributes #10 = { nounwind }

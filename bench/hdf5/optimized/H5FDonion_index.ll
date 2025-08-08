@@ -347,29 +347,26 @@ define range(i32 -1, 1) i32 @H5FD__onion_ingest_revision_record(ptr noundef %0, 
   ret i32 %.0107
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i64 @llvm.expect.i64(i64, i64) #2
+declare i64 @llvm.expect.i64(i64, i64) #1
 
-declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #3
+declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #2
 
-declare i64 @H5FD_get_eof(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @H5FD_get_eof(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i64 @H5FD_get_eoa(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @H5FD_get_eoa(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @H5FD_set_eoa(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @H5FD_set_eoa(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
-declare i32 @H5FD_read(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @H5FD_read(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noinline nounwind optnone uwtable
-define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -394,25 +391,25 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
   %24 = alloca i64, align 8
   store ptr %0, ptr %4, align 8, !tbaa !33
   store ptr %1, ptr %5, align 8, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #14
+  call void @llvm.lifetime.start.p0(ptr %6)
   store i32 0, ptr %6, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #14
+  call void @llvm.lifetime.start.p0(ptr %7)
   store i32 0, ptr %7, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #14
+  call void @llvm.lifetime.start.p0(ptr %8)
   store i32 0, ptr %8, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #14
+  call void @llvm.lifetime.start.p0(ptr %9)
   store i64 0, ptr %9, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #14
+  call void @llvm.lifetime.start.p0(ptr %10)
   store i64 0, ptr %10, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #14
+  call void @llvm.lifetime.start.p0(ptr %11)
   store i32 0, ptr %11, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #14
+  call void @llvm.lifetime.start.p0(ptr %12)
   store ptr null, ptr %12, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #14
+  call void @llvm.lifetime.start.p0(ptr %13)
   store ptr null, ptr %13, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #14
+  call void @llvm.lifetime.start.p0(ptr %14)
   store i64 0, ptr %14, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #14
+  call void @llvm.lifetime.start.p0(ptr %15)
   store i8 0, ptr %15, align 1, !tbaa !3
   %25 = load i8, ptr @H5FD_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %26 = trunc nuw i8 %25 to i1
@@ -530,7 +527,7 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
   br label %83
 
 83:                                               ; preds = %79
-  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #14
+  call void @llvm.lifetime.start.p0(ptr %16)
   %84 = load ptr, ptr %5, align 8, !tbaa !34
   %85 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %84, i32 0, i32 1
   store i64 0, ptr %85, align 8, !tbaa !28
@@ -571,7 +568,7 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
   %107 = load ptr, ptr %12, align 8, !tbaa !33
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store ptr %108, ptr %12, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #14
+  call void @llvm.lifetime.end.p0(ptr %16)
   br label %109
 
 109:                                              ; preds = %106
@@ -587,7 +584,7 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
   br label %114
 
 114:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #14
+  call void @llvm.lifetime.start.p0(ptr %17)
   %115 = load ptr, ptr %5, align 8, !tbaa !34
   %116 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %115, i32 0, i32 2
   store i64 0, ptr %116, align 8, !tbaa !39
@@ -628,7 +625,7 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
   %138 = load ptr, ptr %12, align 8, !tbaa !33
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   store ptr %139, ptr %12, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #14
+  call void @llvm.lifetime.end.p0(ptr %17)
   br label %140
 
 140:                                              ; preds = %137
@@ -652,7 +649,7 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
   br label %151
 
 151:                                              ; preds = %141
-  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #14
+  call void @llvm.lifetime.start.p0(ptr %18)
   %152 = load ptr, ptr %5, align 8, !tbaa !34
   %153 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %152, i32 0, i32 4
   store i64 0, ptr %153, align 8, !tbaa !41
@@ -693,7 +690,7 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
   %175 = load ptr, ptr %12, align 8, !tbaa !33
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   store ptr %176, ptr %12, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #14
+  call void @llvm.lifetime.end.p0(ptr %18)
   br label %177
 
 177:                                              ; preds = %174
@@ -881,7 +878,7 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
   br label %279
 
 279:                                              ; preds = %277
-  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #14
+  call void @llvm.lifetime.start.p0(ptr %19)
   store i64 0, ptr %10, align 8, !tbaa !26
   %280 = load ptr, ptr %12, align 8, !tbaa !33
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
@@ -916,7 +913,7 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
   %297 = load ptr, ptr %12, align 8, !tbaa !33
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 8
   store ptr %298, ptr %12, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #14
+  call void @llvm.lifetime.end.p0(ptr %19)
   br label %299
 
 299:                                              ; preds = %296
@@ -1044,7 +1041,7 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
   br label %709
 
 374:                                              ; preds = %352
-  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #14
+  call void @llvm.lifetime.start.p0(ptr %20)
   store ptr null, ptr %20, align 8, !tbaa !46
   %375 = load ptr, ptr %5, align 8, !tbaa !34
   %376 = getelementptr inbounds nuw %struct.H5FD_onion_revision_record_t, ptr %375, i32 0, i32 5
@@ -1091,7 +1088,7 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
   br label %568
 
 395:                                              ; preds = %374
-  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #14
+  call void @llvm.lifetime.start.p0(ptr %21)
   store i64 0, ptr %21, align 8, !tbaa !26
   br label %396
 
@@ -1119,7 +1116,7 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
   br label %409
 
 409:                                              ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #14
+  call void @llvm.lifetime.start.p0(ptr %23)
   %410 = load ptr, ptr %20, align 8, !tbaa !46
   %411 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %410, i32 0, i32 0
   store i64 0, ptr %411, align 8, !tbaa !47
@@ -1160,7 +1157,7 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
   %433 = load ptr, ptr %12, align 8, !tbaa !33
   %434 = getelementptr inbounds nuw i8, ptr %433, i64 8
   store ptr %434, ptr %12, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #14
+  call void @llvm.lifetime.end.p0(ptr %23)
   br label %435
 
 435:                                              ; preds = %432
@@ -1236,7 +1233,7 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
   br label %475
 
 475:                                              ; preds = %462
-  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #14
+  call void @llvm.lifetime.start.p0(ptr %24)
   %476 = load ptr, ptr %20, align 8, !tbaa !46
   %477 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %476, i32 0, i32 1
   store i64 0, ptr %477, align 8, !tbaa !50
@@ -1277,7 +1274,7 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
   %499 = load ptr, ptr %12, align 8, !tbaa !33
   %500 = getelementptr inbounds nuw i8, ptr %499, i64 8
   store ptr %500, ptr %12, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #14
+  call void @llvm.lifetime.end.p0(ptr %24)
   br label %501
 
 501:                                              ; preds = %498
@@ -1395,7 +1392,7 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
   br label %396, !llvm.loop !52
 
 565:                                              ; preds = %560, %461, %400
-  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #14
+  call void @llvm.lifetime.end.p0(ptr %21)
   %566 = load i32, ptr %22, align 4
   %cond = icmp eq i32 %566, 78
   br i1 %cond, label %567, label %568
@@ -1405,7 +1402,7 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
   br label %568
 
 568:                                              ; preds = %565, %567, %394
-  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #14
+  call void @llvm.lifetime.end.p0(ptr %20)
   %569 = load i32, ptr %22, align 4
   switch i32 %569, label %712 [
     i32 0, label %570
@@ -1664,30 +1661,27 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef %1) l
   br label %712
 
 712:                                              ; preds = %710, %568
-  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #14
+  call void @llvm.lifetime.end.p0(ptr %15)
+  call void @llvm.lifetime.end.p0(ptr %14)
+  call void @llvm.lifetime.end.p0(ptr %13)
+  call void @llvm.lifetime.end.p0(ptr %12)
+  call void @llvm.lifetime.end.p0(ptr %11)
+  call void @llvm.lifetime.end.p0(ptr %10)
+  call void @llvm.lifetime.end.p0(ptr %9)
+  call void @llvm.lifetime.end.p0(ptr %8)
+  call void @llvm.lifetime.end.p0(ptr %7)
+  call void @llvm.lifetime.end.p0(ptr %6)
   %713 = load i64, ptr %3, align 8
   ret i64 %713
 }
 
-declare i32 @H5_checksum_fletcher32(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @H5_checksum_fletcher32(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @H5FD__onion_archival_index_is_valid(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define noundef zeroext i1 @H5FD__onion_archival_index_is_valid(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i8, ptr @H5FD_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %3 = trunc nuw i8 %2 to i1
   %4 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -1737,7 +1731,7 @@ define noundef zeroext i1 @H5FD__onion_archival_index_is_valid(ptr noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @H5FD__onion_archival_index_find(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @H5FD__onion_archival_index_find(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #7 {
   %4 = load i8, ptr @H5FD_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -2161,10 +2155,10 @@ H5FD__onion_revision_index_resize.exit:           ; preds = %._crit_edge.i, %.pr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @H5FD__onion_revision_index_find(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @H5FD__onion_revision_index_find(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #7 {
   %4 = load i8, ptr @H5FD_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -2209,7 +2203,7 @@ define range(i32 0, 2) i32 @H5FD__onion_revision_index_find(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define i64 @H5FD__onion_revision_record_encode(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
@@ -2689,32 +2683,38 @@ H5FD__onion_archival_index_find.exit:             ; preds = %.lr.ph77, %H5FD__on
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @H5FD__onion_archival_index_list_sort_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
+define internal range(i32 -1, 2) i32 @H5FD__onion_archival_index_list_sort_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = load i64, ptr %0, align 8, !tbaa !47
   %4 = load i64, ptr %1, align 8, !tbaa !47
   %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %3, i64 %4)
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noinline nounwind optnone uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noinline nounwind optnone uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nounwind }
 attributes #15 = { nounwind allocsize(0) }

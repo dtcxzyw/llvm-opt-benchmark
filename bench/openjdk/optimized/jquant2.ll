@@ -1570,7 +1570,7 @@ define internal fastcc void @fill_inverse_cmap(ptr noundef readonly captures(non
   %19 = shl nuw nsw i32 %3, 3
   %20 = and i32 %19, 224
   %21 = or disjoint i32 %20, 4
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %23 = load i32, ptr %22, align 4
   %24 = or i32 %13, 28
@@ -1732,8 +1732,8 @@ define internal fastcc void @fill_inverse_cmap(ptr noundef readonly captures(non
 
 find_nearby_colors.exit:                          ; preds = %108, %4
   %.0139.lcssa.i = phi i32 [ 0, %4 ], [ %.1140.i, %108 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %111
 
 .preheader71.i:                                   ; preds = %111
@@ -1852,7 +1852,7 @@ find_nearby_colors.exit:                          ; preds = %108, %4
   br i1 %exitcond.not.i43, label %find_best_colors.exit, label %114, !llvm.loop !54
 
 find_best_colors.exit:                            ; preds = %167, %.preheader71.i
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %168 = and i32 %1, 28
   %169 = and i32 %2, 56
   %170 = and i32 %3, 28
@@ -1908,10 +1908,10 @@ find_best_colors.exit:                            ; preds = %167, %.preheader71.
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6

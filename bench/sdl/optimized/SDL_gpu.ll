@@ -434,8 +434,8 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden ptr @SDL_GPU_FetchBlitPipeline(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef captures(none) %9, ptr noundef captures(address_is_null) %10, ptr noundef captures(none) %11) local_unnamed_addr #0 {
   %13 = alloca %struct.SDL_GPUGraphicsPipelineCreateInfo, align 8
   %14 = alloca %struct.SDL_GPUColorTargetDescription, align 4
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %13) #7
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %15 = icmp eq ptr %10, null
   br i1 %15, label %18, label %.preheader
 
@@ -528,7 +528,7 @@ define hidden ptr @SDL_GPU_FetchBlitPipeline(ptr noundef readonly captures(addre
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %45
-  %52 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str) #7
+  %52 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str) #6
   br label %78
 
 53:                                               ; preds = %45
@@ -576,19 +576,13 @@ define hidden ptr @SDL_GPU_FetchBlitPipeline(ptr noundef readonly captures(addre
 
 78:                                               ; preds = %.thread, %63, %51, %18
   %.047 = phi ptr [ %22, %18 ], [ null, %51 ], [ %49, %63 ], [ %32, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret ptr %.047
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -597,7 +591,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %.thread
 
 7:                                                ; preds = %2
@@ -605,7 +599,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.26) #7
+  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.26) #6
   br label %.thread
 
 11:                                               ; preds = %7
@@ -620,7 +614,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %17, label %.preheader, label %20
 
 .preheader:                                       ; preds = %15, %.preheader
-  %18 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 927) #7
+  %18 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 927) #6
   switch i32 %18, label %.thread [
     i32 0, label %.preheader
     i32 1, label %19
@@ -637,7 +631,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %23, label %.preheader478, label %26
 
 .preheader478:                                    ; preds = %20, %.preheader478
-  %24 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.30, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 931) #7
+  %24 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.30, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 931) #6
   switch i32 %24, label %.thread [
     i32 0, label %.preheader478
     i32 1, label %25
@@ -660,7 +654,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %32, label %.preheader536, label %.lr.ph
 
 .preheader536:                                    ; preds = %30, %.preheader536
-  %33 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.33, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 935) #7
+  %33 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.33, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 935) #6
   switch i32 %33, label %.thread [
     i32 0, label %.preheader536
     i32 1, label %34
@@ -686,7 +680,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %or.cond, label %.preheader480, label %44
 
 .preheader480:                                    ; preds = %37, %.preheader480
-  %42 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.35, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 939) #7
+  %42 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.35, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 939) #6
   switch i32 %42, label %.thread [
     i32 0, label %.preheader480
     i32 1, label %43
@@ -702,7 +696,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %switch.i, label %.preheader482, label %47
 
 .preheader482:                                    ; preds = %44, %.preheader482
-  %45 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.37, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 941) #7
+  %45 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.37, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 941) #6
   switch i32 %45, label %.thread [
     i32 0, label %.preheader482
     i32 1, label %46
@@ -715,11 +709,11 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
 47:                                               ; preds = %44
   %48 = load ptr, ptr %35, align 8
   %49 = load ptr, ptr %36, align 8
-  %50 = tail call zeroext i1 %48(ptr noundef %49, i32 noundef %40, i32 noundef 0, i32 noundef 2) #7
+  %50 = tail call zeroext i1 %48(ptr noundef %49, i32 noundef %40, i32 noundef 0, i32 noundef 2) #6
   br i1 %50, label %53, label %.preheader496
 
 .preheader496:                                    ; preds = %47, %.preheader496
-  %51 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.40, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 945) #7
+  %51 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.40, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 945) #6
   switch i32 %51, label %.thread [
     i32 0, label %.preheader496
     i32 1, label %52
@@ -744,7 +738,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %or.cond269, label %.preheader484, label %64
 
 .preheader484:                                    ; preds = %59, %.preheader484
-  %62 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.43, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 950) #7
+  %62 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.43, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 950) #6
   switch i32 %62, label %.thread [
     i32 0, label %.preheader484
     i32 1, label %63
@@ -762,7 +756,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %or.cond272, label %.preheader486, label %70
 
 .preheader486:                                    ; preds = %64, %.preheader486
-  %68 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.45, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 951) #7
+  %68 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.45, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 951) #6
   switch i32 %68, label %.thread [
     i32 0, label %.preheader486
     i32 1, label %69
@@ -780,7 +774,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %or.cond275, label %.preheader488, label %76
 
 .preheader488:                                    ; preds = %70, %.preheader488
-  %74 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.47, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 952) #7
+  %74 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.47, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 952) #6
   switch i32 %74, label %.thread [
     i32 0, label %.preheader488
     i32 1, label %75
@@ -798,7 +792,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %or.cond278, label %.preheader490, label %82
 
 .preheader490:                                    ; preds = %76, %.preheader490
-  %80 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.49, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 953) #7
+  %80 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.49, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 953) #6
   switch i32 %80, label %.thread [
     i32 0, label %.preheader490
     i32 1, label %81
@@ -816,7 +810,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %or.cond281, label %.preheader492, label %88
 
 .preheader492:                                    ; preds = %82, %.preheader492
-  %86 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.50, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 954) #7
+  %86 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.50, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 954) #6
   switch i32 %86, label %.thread [
     i32 0, label %.preheader492
     i32 1, label %87
@@ -834,7 +828,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %or.cond284, label %.preheader494, label %94
 
 .preheader494:                                    ; preds = %88, %.preheader494
-  %92 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.51, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 955) #7
+  %92 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.51, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 955) #6
   switch i32 %92, label %.thread [
     i32 0, label %.preheader494
     i32 1, label %93
@@ -865,7 +859,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %or.cond288, label %.preheader498, label %107
 
 .preheader498:                                    ; preds = %101, %.preheader498
-  %105 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.52, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 961) #7
+  %105 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.52, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 961) #6
   switch i32 %105, label %.thread [
     i32 0, label %.preheader498
     i32 1, label %106
@@ -881,7 +875,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %switch.i339, label %110, label %.preheader534
 
 .preheader534:                                    ; preds = %107, %.preheader534
-  %108 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.54, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 963) #7
+  %108 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.54, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 963) #6
   switch i32 %108, label %.thread [
     i32 0, label %.preheader534
     i32 1, label %109
@@ -896,7 +890,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %111, label %114, label %.preheader532
 
 .preheader532:                                    ; preds = %110, %.preheader532
-  %112 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.57, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 967) #7
+  %112 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.57, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 967) #6
   switch i32 %112, label %.thread [
     i32 0, label %.preheader532
     i32 1, label %113
@@ -918,7 +912,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %120, label %.preheader500, label %123
 
 .preheader500:                                    ; preds = %118, %.preheader500
-  %121 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.60, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 973) #7
+  %121 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.60, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 973) #6
   switch i32 %121, label %.thread [
     i32 0, label %.preheader500
     i32 1, label %122
@@ -935,7 +929,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %126, label %129, label %.preheader530
 
 .preheader530:                                    ; preds = %123, %.preheader530
-  %127 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.63, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 977) #7
+  %127 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.63, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 977) #6
   switch i32 %127, label %.thread [
     i32 0, label %.preheader530
     i32 1, label %128
@@ -958,7 +952,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %135, label %.preheader526, label %138
 
 .preheader526:                                    ; preds = %133, %.preheader526
-  %136 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.66, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 984) #7
+  %136 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.66, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 984) #6
   switch i32 %136, label %.thread [
     i32 0, label %.preheader526
     i32 1, label %137
@@ -973,7 +967,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %139, label %.preheader528, label %.thread414
 
 .preheader528:                                    ; preds = %138, %.preheader528
-  %140 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.69, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 988) #7
+  %140 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.69, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 988) #6
   switch i32 %140, label %.thread [
     i32 0, label %.preheader528
     i32 1, label %141
@@ -996,7 +990,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %147, label %.preheader524, label %150
 
 .preheader524:                                    ; preds = %144, %.preheader524
-  %148 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.72, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 992) #7
+  %148 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.72, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 992) #6
   switch i32 %148, label %.thread [
     i32 0, label %.preheader524
     i32 1, label %149
@@ -1019,7 +1013,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br label %156
 
 .preheader502:                                    ; preds = %150, %.preheader502
-  %153 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.75, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 996) #7
+  %153 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.75, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 996) #6
   switch i32 %153, label %.thread [
     i32 0, label %.preheader502
     i32 1, label %154
@@ -1042,7 +1036,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %.not256, label %155, label %.preheader504
 
 .preheader504:                                    ; preds = %156, %.preheader504
-  %159 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.78, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1001) #7
+  %159 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.78, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1001) #6
   switch i32 %159, label %.thread [
     i32 0, label %.preheader504
     i32 1, label %160
@@ -1053,7 +1047,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br label %.thread
 
 ._crit_edge541:                                   ; preds = %155, %.preheader523
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %.not255, label %._crit_edge549, label %.lr.ph548
 
 .lr.ph548:                                        ; preds = %._crit_edge541
@@ -1072,7 +1066,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %or.cond311, label %.preheader506, label %170
 
 .preheader506:                                    ; preds = %163, %.preheader506
-  %169 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.81, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1007) #7
+  %169 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.81, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1007) #6
   switch i32 %169, label %.critedge336.thread [
     i32 0, label %.preheader506
     i32 1, label %.critedge336.thread.sink.split
@@ -1098,7 +1092,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %176, label %.preheader507, label %173
 
 .preheader507:                                    ; preds = %.lr.ph545, %.preheader507
-  %177 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.84, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1012) #7
+  %177 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.84, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1012) #6
   switch i32 %177, label %.critedge336.thread [
     i32 0, label %.preheader507
     i32 1, label %.critedge336.thread.sink.split
@@ -1116,7 +1110,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %181, label %.preheader509, label %183
 
 .preheader509:                                    ; preds = %._crit_edge549, %.preheader509
-  %182 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.87, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1018) #7
+  %182 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.87, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1018) #6
   switch i32 %182, label %.critedge336.thread [
     i32 0, label %.preheader509
     i32 1, label %.critedge336.thread.sink.split
@@ -1129,7 +1123,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %.not258, label %187, label %.preheader521
 
 .preheader521:                                    ; preds = %183, %.preheader521
-  %186 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.90, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1022) #7
+  %186 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.90, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1022) #6
   switch i32 %186, label %.critedge336.thread [
     i32 0, label %.preheader521
     i32 1, label %.critedge336.thread.sink.split
@@ -1149,7 +1143,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %or.cond320, label %.preheader511, label %196
 
 .preheader511:                                    ; preds = %191, %.preheader511
-  %195 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.93, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1026) #7
+  %195 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.93, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1026) #6
   switch i32 %195, label %.critedge336.thread [
     i32 0, label %.preheader511
     i32 1, label %.critedge336.thread.sink.split
@@ -1169,7 +1163,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %or.cond323, label %.preheader513, label %205
 
 .preheader513:                                    ; preds = %200, %.preheader513
-  %204 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.95, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1030) #7
+  %204 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.95, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1030) #6
   switch i32 %204, label %.critedge336.thread [
     i32 0, label %.preheader513
     i32 1, label %.critedge336.thread.sink.split
@@ -1183,7 +1177,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %or.cond326, label %.preheader515, label %210
 
 .preheader515:                                    ; preds = %205, %.preheader515
-  %209 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.97, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1031) #7
+  %209 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.97, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1031) #6
   switch i32 %209, label %.critedge336.thread [
     i32 0, label %.preheader515
     i32 1, label %.critedge336.thread.sink.split
@@ -1197,7 +1191,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %or.cond329, label %.preheader517, label %215
 
 .preheader517:                                    ; preds = %210, %.preheader517
-  %214 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.99, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1032) #7
+  %214 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.99, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1032) #6
   switch i32 %214, label %.critedge336.thread [
     i32 0, label %.preheader517
     i32 1, label %.critedge336.thread.sink.split
@@ -1211,7 +1205,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br i1 %or.cond332, label %.preheader519, label %.critedge336
 
 .preheader519:                                    ; preds = %215, %.preheader519
-  %219 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.100, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1033) #7
+  %219 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUGraphicsPipeline_REAL.sdl_assert_data.100, ptr noundef nonnull @__func__.SDL_CreateGPUGraphicsPipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 1033) #6
   switch i32 %219, label %.critedge336.thread [
     i32 0, label %.preheader519
     i32 1, label %.critedge336.thread.sink.split
@@ -1222,11 +1216,11 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br label %.critedge336.thread
 
 .critedge336.thread:                              ; preds = %.preheader507, %.preheader506, %.preheader521, %.preheader519, %.preheader517, %.preheader515, %.preheader513, %.preheader511, %.preheader509, %.critedge336.thread.sink.split
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
 .critedge336:                                     ; preds = %196, %215
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %220
 
 220:                                              ; preds = %.critedge336, %11
@@ -1234,7 +1228,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   %222 = load ptr, ptr %221, align 8
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %224 = load ptr, ptr %223, align 8
-  %225 = tail call ptr %222(ptr noundef %224, ptr noundef nonnull %1) #7
+  %225 = tail call ptr %222(ptr noundef %224, ptr noundef nonnull %1) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader496, %.preheader494, %.preheader492, %.preheader490, %.preheader488, %.preheader486, %.preheader484, %.preheader482, %.preheader480, %.preheader536, %.preheader534, %.preheader532, %.preheader530, %.preheader528, %.preheader526, %.preheader502, %.preheader524, %.preheader504, %.preheader500, %.preheader498, %.preheader478, %.preheader, %160, %154, %149, %141, %137, %128, %122, %113, %109, %106, %93, %87, %81, %75, %69, %63, %52, %46, %43, %34, %25, %19, %.critedge336.thread, %220, %9, %5
@@ -1242,10 +1236,10 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   ret ptr %.0
 }
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #3
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(1)
-declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_GPU_BlitCommon(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(address_is_null) %11, ptr noundef captures(none) %12) local_unnamed_addr #0 {
@@ -1256,10 +1250,10 @@ define hidden void @SDL_GPU_BlitCommon(ptr noundef %0, ptr noundef readonly capt
   %18 = load ptr, ptr %1, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load ptr, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %21 = load ptr, ptr %0, align 8
   %22 = load i32, ptr %18, align 4
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 4
@@ -1330,7 +1324,7 @@ define hidden void @SDL_GPU_BlitCommon(ptr noundef %0, ptr noundef readonly capt
   br i1 %70, label %73, label %.preheader.i
 
 .preheader.i:                                     ; preds = %67, %.preheader.i
-  %71 = call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SetGPUViewport_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_SetGPUViewport_REAL, ptr noundef nonnull @.str.8, i32 noundef 1732) #7
+  %71 = call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SetGPUViewport_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_SetGPUViewport_REAL, ptr noundef nonnull @.str.8, i32 noundef 1732) #6
   switch i32 %71, label %.loopexit60 [
     i32 0, label %.preheader.i
     i32 1, label %72
@@ -1343,12 +1337,12 @@ define hidden void @SDL_GPU_BlitCommon(ptr noundef %0, ptr noundef readonly capt
 73:                                               ; preds = %67, %61
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 184
   %75 = load ptr, ptr %74, align 8
-  call void %75(ptr noundef nonnull %62, ptr noundef nonnull %15) #7
+  call void %75(ptr noundef nonnull %62, ptr noundef nonnull %15) #6
   br label %.loopexit60
 
 76:                                               ; preds = %13
-  %77 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #7
-  %78 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #7
+  %77 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
+  %78 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
   br label %SDL_BindGPUGraphicsPipeline_REAL.exit
 
 .loopexit60:                                      ; preds = %.preheader.i, %72, %73
@@ -1356,7 +1350,7 @@ define hidden void @SDL_GPU_BlitCommon(ptr noundef %0, ptr noundef readonly capt
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %.loopexit60
-  %81 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.226) #7
+  %81 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.226) #6
   br label %SDL_BindGPUGraphicsPipeline_REAL.exit
 
 82:                                               ; preds = %.loopexit60
@@ -1364,7 +1358,7 @@ define hidden void @SDL_GPU_BlitCommon(ptr noundef %0, ptr noundef readonly capt
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 176
   %86 = load ptr, ptr %85, align 8
-  call void %86(ptr noundef nonnull %83, ptr noundef nonnull %25) #7
+  call void %86(ptr noundef nonnull %83, ptr noundef nonnull %25) #6
   %87 = load ptr, ptr %42, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 72
   store i8 1, ptr %88, align 8
@@ -1472,7 +1466,7 @@ SDL_BindGPUGraphicsPipeline_REAL.exit:            ; preds = %76, %80, %82
   br i1 %157, label %.preheader.i56, label %160
 
 .preheader.i56:                                   ; preds = %154, %.preheader.i56
-  %158 = call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_PushGPUFragmentUniformData_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_PushGPUFragmentUniformData_REAL, ptr noundef nonnull @.str.8, i32 noundef 1542) #7
+  %158 = call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_PushGPUFragmentUniformData_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_PushGPUFragmentUniformData_REAL, ptr noundef nonnull @.str.8, i32 noundef 1542) #6
   switch i32 %158, label %SDL_PushGPUFragmentUniformData_REAL.exit [
     i32 0, label %.preheader.i56
     i32 1, label %159
@@ -1485,7 +1479,7 @@ SDL_BindGPUGraphicsPipeline_REAL.exit:            ; preds = %76, %80, %82
 160:                                              ; preds = %154, %149
   %161 = getelementptr inbounds nuw i8, ptr %150, i64 288
   %162 = load ptr, ptr %161, align 8
-  call void %162(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %17, i32 noundef 24) #7
+  call void %162(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %17, i32 noundef 24) #6
   br label %SDL_PushGPUFragmentUniformData_REAL.exit
 
 SDL_PushGPUFragmentUniformData_REAL.exit:         ; preds = %.preheader.i56, %159, %160
@@ -1506,7 +1500,7 @@ SDL_PushGPUFragmentUniformData_REAL.exit:         ; preds = %.preheader.i56, %15
   br i1 %172, label %175, label %.preheader27.i
 
 .preheader27.i:                                   ; preds = %169, %.preheader27.i
-  %173 = call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUPrimitives_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DrawGPUPrimitives_REAL, ptr noundef nonnull @.str.8, i32 noundef 2056) #7
+  %173 = call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUPrimitives_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DrawGPUPrimitives_REAL, ptr noundef nonnull @.str.8, i32 noundef 2056) #6
   switch i32 %173, label %.loopexit [
     i32 0, label %.preheader27.i
     i32 1, label %174
@@ -1523,7 +1517,7 @@ SDL_PushGPUFragmentUniformData_REAL.exit:         ; preds = %.preheader.i56, %15
   br i1 %178, label %181, label %.preheader.i57
 
 .preheader.i57:                                   ; preds = %175, %.preheader.i57
-  %179 = call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUPrimitives_REAL.sdl_assert_data.255, ptr noundef nonnull @__func__.SDL_DrawGPUPrimitives_REAL, ptr noundef nonnull @.str.8, i32 noundef 2057) #7
+  %179 = call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUPrimitives_REAL.sdl_assert_data.255, ptr noundef nonnull @__func__.SDL_DrawGPUPrimitives_REAL, ptr noundef nonnull @.str.8, i32 noundef 2057) #6
   switch i32 %179, label %.loopexit [
     i32 0, label %.preheader.i57
     i32 1, label %180
@@ -1536,12 +1530,12 @@ SDL_PushGPUFragmentUniformData_REAL.exit:         ; preds = %.preheader.i56, %15
 181:                                              ; preds = %175, %163
   %182 = getelementptr inbounds nuw i8, ptr %165, i64 304
   %183 = load ptr, ptr %182, align 8
-  call void %183(ptr noundef nonnull %164, i32 noundef 3, i32 noundef 1, i32 noundef 0, i32 noundef 0) #7
+  call void %183(ptr noundef nonnull %164, i32 noundef 3, i32 noundef 1, i32 noundef 0, i32 noundef 0) #6
   br label %.loopexit
 
 184:                                              ; preds = %SDL_PushGPUFragmentUniformData_REAL.exit
-  %185 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #7
-  %186 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #7
+  %185 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
+  %186 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
   br label %SDL_EndGPURenderPass_REAL.exit
 
 .loopexit:                                        ; preds = %.preheader27.i, %.preheader.i57, %174, %180, %181
@@ -1559,7 +1553,7 @@ SDL_PushGPUFragmentUniformData_REAL.exit:         ; preds = %.preheader.i56, %15
   br i1 %195, label %198, label %.preheader.i58
 
 .preheader.i58:                                   ; preds = %192, %.preheader.i58
-  %196 = call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_EndGPURenderPass_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_EndGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2133) #7
+  %196 = call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_EndGPURenderPass_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_EndGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2133) #6
   switch i32 %196, label %SDL_EndGPURenderPass_REAL.exit [
     i32 0, label %.preheader.i58
     i32 1, label %197
@@ -1572,7 +1566,7 @@ SDL_PushGPUFragmentUniformData_REAL.exit:         ; preds = %.preheader.i56, %15
 198:                                              ; preds = %192, %.loopexit
   %199 = getelementptr inbounds nuw i8, ptr %188, i64 328
   %200 = load ptr, ptr %199, align 8
-  call void %200(ptr noundef nonnull %187) #7
+  call void %200(ptr noundef nonnull %187) #6
   %201 = load ptr, ptr %42, align 8
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
   store i8 0, ptr %202, align 8
@@ -1585,15 +1579,15 @@ SDL_PushGPUFragmentUniformData_REAL.exit:         ; preds = %.preheader.i56, %15
   br label %SDL_EndGPURenderPass_REAL.exit
 
 SDL_EndGPURenderPass_REAL.exit:                   ; preds = %.preheader.i58, %184, %197, %198
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -1601,7 +1595,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #7
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #6
   br label %.critedge188
 
 8:                                                ; preds = %4
@@ -1611,7 +1605,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   br i1 %or.cond, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.184) #7
+  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.184) #6
   br label %.critedge188
 
 13:                                               ; preds = %8
@@ -1619,7 +1613,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.185) #7
+  %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.185) #6
   br label %.critedge188
 
 17:                                               ; preds = %13
@@ -1636,7 +1630,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   br i1 %25, label %.preheader, label %28
 
 .preheader:                                       ; preds = %22, %.preheader
-  %26 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1603) #7
+  %26 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1603) #6
   switch i32 %26, label %.critedge188 [
     i32 0, label %.preheader
     i32 1, label %27
@@ -1676,7 +1670,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   br label %.lr.ph
 
 40:                                               ; preds = %.preheader322, %40
-  %41 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.187, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1604) #7
+  %41 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.187, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1604) #6
   switch i32 %41, label %.critedge188 [
     i32 0, label %40
     i32 1, label %42
@@ -1707,7 +1701,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   br i1 %52, label %.preheader249, label %55
 
 .preheader249:                                    ; preds = %49, %.preheader249
-  %53 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.190, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1610) #7
+  %53 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.190, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1610) #6
   switch i32 %53, label %.critedge188 [
     i32 0, label %.preheader249
     i32 1, label %54
@@ -1731,7 +1725,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   br i1 %62, label %.preheader251, label %65
 
 .preheader251:                                    ; preds = %59, %.preheader251
-  %63 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.193, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1616) #7
+  %63 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.193, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1616) #6
   switch i32 %63, label %.critedge188 [
     i32 0, label %.preheader251
     i32 1, label %64
@@ -1748,7 +1742,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   br i1 %68, label %.preheader253, label %71
 
 .preheader253:                                    ; preds = %65, %.preheader253
-  %69 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.196, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1621) #7
+  %69 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.196, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1621) #6
   switch i32 %69, label %.critedge188 [
     i32 0, label %.preheader253
     i32 1, label %70
@@ -1765,7 +1759,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   br i1 %.not, label %76, label %.preheader265
 
 .preheader265:                                    ; preds = %71, %.preheader265
-  %74 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.199, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1625) #7
+  %74 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.199, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1625) #6
   switch i32 %74, label %.critedge188 [
     i32 0, label %.preheader265
     i32 1, label %75
@@ -1784,7 +1778,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   br i1 %.not149, label %83, label %.preheader263
 
 .preheader263:                                    ; preds = %76, %.preheader263
-  %81 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.202, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1629) #7
+  %81 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.202, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1629) #6
   switch i32 %81, label %.critedge188 [
     i32 0, label %.preheader263
     i32 1, label %82
@@ -1800,7 +1794,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   br i1 %85, label %.preheader255, label %88
 
 .preheader255:                                    ; preds = %83, %.preheader255
-  %86 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.205, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1633) #7
+  %86 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.205, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1633) #6
   switch i32 %86, label %.critedge188 [
     i32 0, label %.preheader255
     i32 1, label %87
@@ -1818,7 +1812,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   br i1 %.not150, label %.preheader257, label %94
 
 .preheader257:                                    ; preds = %88, %.preheader257
-  %92 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.208, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1637) #7
+  %92 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.208, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1637) #6
   switch i32 %92, label %.critedge188 [
     i32 0, label %.preheader257
     i32 1, label %93
@@ -1837,7 +1831,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   br i1 %.not151, label %.critedge, label %.preheader261
 
 .preheader261:                                    ; preds = %94, %.preheader261
-  %99 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.211, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1644) #7
+  %99 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.211, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1644) #6
   switch i32 %99, label %.critedge188 [
     i32 0, label %.preheader261
     i32 1, label %100
@@ -1856,7 +1850,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   br i1 %.not152, label %43, label %.preheader259
 
 .preheader259:                                    ; preds = %.critedge, %.preheader259
-  %105 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.214, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1649) #7
+  %105 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.214, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1649) #6
   switch i32 %105, label %.critedge188 [
     i32 0, label %.preheader259
     i32 1, label %106
@@ -1879,7 +1873,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   br i1 %.not155, label %.preheader267, label %114
 
 .preheader267:                                    ; preds = %107, %.preheader267
-  %112 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.217, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1658) #7
+  %112 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.217, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1658) #6
   switch i32 %112, label %.critedge188 [
     i32 0, label %.preheader267
     i32 1, label %113
@@ -1911,7 +1905,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   br label %126
 
 126:                                              ; preds = %.preheader325, %126
-  %127 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.220, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1663) #7
+  %127 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.220, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1663) #6
   switch i32 %127, label %.critedge188 [
     i32 0, label %126
     i32 1, label %128
@@ -1941,7 +1935,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   br label %138
 
 138:                                              ; preds = %.preheader327, %138
-  %139 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.223, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1671) #7
+  %139 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.223, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1671) #6
   switch i32 %139, label %.critedge188 [
     i32 0, label %138
     i32 1, label %140
@@ -1954,7 +1948,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
 141:                                              ; preds = %133, %.critedge178, %17
   %142 = getelementptr inbounds nuw i8, ptr %18, i64 168
   %143 = load ptr, ptr %142, align 8
-  tail call void %143(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #7
+  tail call void %143(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #6
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 1, ptr %145, align 8
@@ -1999,7 +1993,7 @@ define hidden void @SDL_SetGPUViewport_REAL(ptr noundef readonly captures(addres
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
   br label %.thread
 
 6:                                                ; preds = %2
@@ -2007,7 +2001,7 @@ define hidden void @SDL_SetGPUViewport_REAL(ptr noundef readonly captures(addres
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.227) #7
+  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.227) #6
   br label %.thread
 
 10:                                               ; preds = %6
@@ -2025,7 +2019,7 @@ define hidden void @SDL_SetGPUViewport_REAL(ptr noundef readonly captures(addres
   br i1 %19, label %22, label %.preheader
 
 .preheader:                                       ; preds = %16, %.preheader
-  %20 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SetGPUViewport_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_SetGPUViewport_REAL, ptr noundef nonnull @.str.8, i32 noundef 1732) #7
+  %20 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SetGPUViewport_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_SetGPUViewport_REAL, ptr noundef nonnull @.str.8, i32 noundef 1732) #6
   switch i32 %20, label %.thread [
     i32 0, label %.preheader
     i32 1, label %21
@@ -2038,7 +2032,7 @@ define hidden void @SDL_SetGPUViewport_REAL(ptr noundef readonly captures(addres
 22:                                               ; preds = %16, %10
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 184
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull %11, ptr noundef nonnull %1) #7
+  tail call void %24(ptr noundef nonnull %11, ptr noundef nonnull %1) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %21, %22, %8, %4
@@ -2051,7 +2045,7 @@ define hidden void @SDL_BindGPUGraphicsPipeline_REAL(ptr noundef readonly captur
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
   br label %17
 
 6:                                                ; preds = %2
@@ -2059,7 +2053,7 @@ define hidden void @SDL_BindGPUGraphicsPipeline_REAL(ptr noundef readonly captur
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.226) #7
+  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.226) #6
   br label %17
 
 10:                                               ; preds = %6
@@ -2067,7 +2061,7 @@ define hidden void @SDL_BindGPUGraphicsPipeline_REAL(ptr noundef readonly captur
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 176
   %14 = load ptr, ptr %13, align 8
-  tail call void %14(ptr noundef nonnull %11, ptr noundef nonnull %1) #7
+  tail call void %14(ptr noundef nonnull %11, ptr noundef nonnull %1) #6
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
   store i8 1, ptr %16, align 8
@@ -2083,7 +2077,7 @@ define hidden void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef readonly captur
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #7
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
   br label %.thread
 
 8:                                                ; preds = %4
@@ -2093,7 +2087,7 @@ define hidden void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef readonly captur
   br i1 %or.cond, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.233) #7
+  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.233) #6
   br label %.thread
 
 13:                                               ; preds = %8
@@ -2111,7 +2105,7 @@ define hidden void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef readonly captur
   br i1 %22, label %25, label %.preheader65
 
 .preheader65:                                     ; preds = %19, %.preheader65
-  %23 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUFragmentSamplers_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUFragmentSamplers_REAL, ptr noundef nonnull @.str.8, i32 noundef 1948) #7
+  %23 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUFragmentSamplers_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUFragmentSamplers_REAL, ptr noundef nonnull @.str.8, i32 noundef 1948) #6
   switch i32 %23, label %.thread [
     i32 0, label %.preheader65
     i32 1, label %24
@@ -2156,7 +2150,7 @@ define hidden void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef readonly captur
   br i1 %37, label %.preheader62.us, label %.thread53.us
 
 .preheader62.us:                                  ; preds = %33, %.preheader62.us
-  %38 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUFragmentSamplers_REAL.sdl_assert_data.248, ptr noundef nonnull @__func__.SDL_BindGPUFragmentSamplers_REAL, ptr noundef nonnull @.str.8, i32 noundef 1952) #7
+  %38 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUFragmentSamplers_REAL.sdl_assert_data.248, ptr noundef nonnull @__func__.SDL_BindGPUFragmentSamplers_REAL, ptr noundef nonnull @.str.8, i32 noundef 1952) #6
   switch i32 %38, label %.thread53.us [
     i32 0, label %.preheader62.us
     i32 1, label %39
@@ -2209,7 +2203,7 @@ define hidden void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef readonly captur
   br i1 %50, label %.preheader, label %.thread57
 
 .preheader:                                       ; preds = %47, %.preheader
-  %51 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUFragmentSamplers_REAL.sdl_assert_data.249, ptr noundef nonnull @__func__.SDL_BindGPUFragmentSamplers_REAL, ptr noundef nonnull @.str.8, i32 noundef 1952) #7
+  %51 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUFragmentSamplers_REAL.sdl_assert_data.249, ptr noundef nonnull @__func__.SDL_BindGPUFragmentSamplers_REAL, ptr noundef nonnull @.str.8, i32 noundef 1952) #6
   switch i32 %51, label %.thread57 [
     i32 0, label %.preheader
     i32 1, label %52
@@ -2229,7 +2223,7 @@ define hidden void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef readonly captur
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 256
   %56 = load ptr, ptr %55, align 8
-  tail call void %56(ptr noundef nonnull %53, i32 noundef %1, ptr noundef %2, i32 noundef %3) #7
+  tail call void %56(ptr noundef nonnull %53, i32 noundef %1, ptr noundef %2, i32 noundef %3) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader65, %24, %.loopexit, %11, %6
@@ -2242,7 +2236,7 @@ define hidden void @SDL_PushGPUFragmentUniformData_REAL(ptr noundef %0, i32 noun
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #7
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #6
   br label %.thread
 
 8:                                                ; preds = %4
@@ -2250,7 +2244,7 @@ define hidden void @SDL_PushGPUFragmentUniformData_REAL(ptr noundef %0, i32 noun
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.183) #7
+  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.183) #6
   br label %.thread
 
 12:                                               ; preds = %8
@@ -2267,7 +2261,7 @@ define hidden void @SDL_PushGPUFragmentUniformData_REAL(ptr noundef %0, i32 noun
   br i1 %20, label %.preheader, label %23
 
 .preheader:                                       ; preds = %17, %.preheader
-  %21 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_PushGPUFragmentUniformData_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_PushGPUFragmentUniformData_REAL, ptr noundef nonnull @.str.8, i32 noundef 1542) #7
+  %21 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_PushGPUFragmentUniformData_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_PushGPUFragmentUniformData_REAL, ptr noundef nonnull @.str.8, i32 noundef 1542) #6
   switch i32 %21, label %.thread [
     i32 0, label %.preheader
     i32 1, label %22
@@ -2280,7 +2274,7 @@ define hidden void @SDL_PushGPUFragmentUniformData_REAL(ptr noundef %0, i32 noun
 23:                                               ; preds = %17, %12
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 288
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3) #7
+  tail call void %25(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %22, %23, %10, %6
@@ -2293,7 +2287,7 @@ define hidden void @SDL_DrawGPUPrimitives_REAL(ptr noundef readonly captures(add
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #7
+  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
   br label %.thread
 
 9:                                                ; preds = %5
@@ -2311,7 +2305,7 @@ define hidden void @SDL_DrawGPUPrimitives_REAL(ptr noundef readonly captures(add
   br i1 %18, label %21, label %.preheader27
 
 .preheader27:                                     ; preds = %15, %.preheader27
-  %19 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUPrimitives_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DrawGPUPrimitives_REAL, ptr noundef nonnull @.str.8, i32 noundef 2056) #7
+  %19 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUPrimitives_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DrawGPUPrimitives_REAL, ptr noundef nonnull @.str.8, i32 noundef 2056) #6
   switch i32 %19, label %.thread [
     i32 0, label %.preheader27
     i32 1, label %20
@@ -2328,7 +2322,7 @@ define hidden void @SDL_DrawGPUPrimitives_REAL(ptr noundef readonly captures(add
   br i1 %24, label %27, label %.preheader
 
 .preheader:                                       ; preds = %21, %.preheader
-  %25 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUPrimitives_REAL.sdl_assert_data.255, ptr noundef nonnull @__func__.SDL_DrawGPUPrimitives_REAL, ptr noundef nonnull @.str.8, i32 noundef 2057) #7
+  %25 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUPrimitives_REAL.sdl_assert_data.255, ptr noundef nonnull @__func__.SDL_DrawGPUPrimitives_REAL, ptr noundef nonnull @.str.8, i32 noundef 2057) #6
   switch i32 %25, label %.thread [
     i32 0, label %.preheader
     i32 1, label %26
@@ -2341,7 +2335,7 @@ define hidden void @SDL_DrawGPUPrimitives_REAL(ptr noundef readonly captures(add
 27:                                               ; preds = %21, %9
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 304
   %29 = load ptr, ptr %28, align 8
-  tail call void %29(ptr noundef nonnull %10, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #7
+  tail call void %29(ptr noundef nonnull %10, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader27, %.preheader, %26, %20, %27, %7
@@ -2354,7 +2348,7 @@ define hidden void @SDL_EndGPURenderPass_REAL(ptr noundef readonly captures(addr
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #7
+  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
   br label %.thread
 
 5:                                                ; preds = %1
@@ -2372,7 +2366,7 @@ define hidden void @SDL_EndGPURenderPass_REAL(ptr noundef readonly captures(addr
   br i1 %14, label %17, label %.preheader
 
 .preheader:                                       ; preds = %11, %.preheader
-  %15 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_EndGPURenderPass_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_EndGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2133) #7
+  %15 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_EndGPURenderPass_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_EndGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2133) #6
   switch i32 %15, label %.thread [
     i32 0, label %.preheader
     i32 1, label %16
@@ -2385,7 +2379,7 @@ define hidden void @SDL_EndGPURenderPass_REAL(ptr noundef readonly captures(addr
 17:                                               ; preds = %11, %5
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 328
   %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef nonnull %6) #7
+  tail call void %19(ptr noundef nonnull %6) #6
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i8 0, ptr %21, align 8
@@ -2403,15 +2397,15 @@ define hidden void @SDL_EndGPURenderPass_REAL(ptr noundef readonly captures(addr
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_GPUSupportsShaderFormats_REAL(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @SDL_CreateProperties_REAL() #7
+  %3 = tail call i32 @SDL_CreateProperties_REAL() #6
   tail call fastcc void @SDL_GPU_FillProperties(i32 noundef %3, i32 noundef %0, i1 noundef zeroext false, ptr noundef %1)
   %4 = tail call fastcc ptr @SDL_GPUSelectBackend(i32 noundef %3)
   %5 = icmp ne ptr %4, null
-  tail call void @SDL_DestroyProperties_REAL(i32 noundef %3) #7
+  tail call void @SDL_DestroyProperties_REAL(i32 noundef %3) #6
   ret i1 %5
 }
 
-declare i32 @SDL_CreateProperties_REAL() local_unnamed_addr #3
+declare i32 @SDL_CreateProperties_REAL() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SDL_GPU_FillProperties(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
@@ -2420,7 +2414,7 @@ define internal fastcc void @SDL_GPU_FillProperties(i32 noundef %0, i32 noundef 
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %0, ptr noundef nonnull @.str.374, i1 noundef zeroext true) #7
+  %7 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %0, ptr noundef nonnull @.str.374, i1 noundef zeroext true) #6
   br label %8
 
 8:                                                ; preds = %6, %4
@@ -2429,7 +2423,7 @@ define internal fastcc void @SDL_GPU_FillProperties(i32 noundef %0, i32 noundef 
   br i1 %.not15, label %12, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %0, ptr noundef nonnull @.str.375, i1 noundef zeroext true) #7
+  %11 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %0, ptr noundef nonnull @.str.375, i1 noundef zeroext true) #6
   br label %12
 
 12:                                               ; preds = %10, %8
@@ -2438,7 +2432,7 @@ define internal fastcc void @SDL_GPU_FillProperties(i32 noundef %0, i32 noundef 
   br i1 %.not16, label %16, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %0, ptr noundef nonnull @.str.376, i1 noundef zeroext true) #7
+  %15 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %0, ptr noundef nonnull @.str.376, i1 noundef zeroext true) #6
   br label %16
 
 16:                                               ; preds = %14, %12
@@ -2447,7 +2441,7 @@ define internal fastcc void @SDL_GPU_FillProperties(i32 noundef %0, i32 noundef 
   br i1 %.not17, label %20, label %18
 
 18:                                               ; preds = %16
-  %19 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %0, ptr noundef nonnull @.str.377, i1 noundef zeroext true) #7
+  %19 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %0, ptr noundef nonnull @.str.377, i1 noundef zeroext true) #6
   br label %20
 
 20:                                               ; preds = %18, %16
@@ -2456,7 +2450,7 @@ define internal fastcc void @SDL_GPU_FillProperties(i32 noundef %0, i32 noundef 
   br i1 %.not18, label %24, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %0, ptr noundef nonnull @.str.378, i1 noundef zeroext true) #7
+  %23 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %0, ptr noundef nonnull @.str.378, i1 noundef zeroext true) #6
   br label %24
 
 24:                                               ; preds = %22, %20
@@ -2465,12 +2459,12 @@ define internal fastcc void @SDL_GPU_FillProperties(i32 noundef %0, i32 noundef 
   br i1 %.not19, label %28, label %26
 
 26:                                               ; preds = %24
-  %27 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %0, ptr noundef nonnull @.str.379, i1 noundef zeroext true) #7
+  %27 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %0, ptr noundef nonnull @.str.379, i1 noundef zeroext true) #6
   br label %28
 
 28:                                               ; preds = %26, %24
-  %29 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %0, ptr noundef nonnull @.str.1, i1 noundef zeroext %2) #7
-  %30 = tail call zeroext i1 @SDL_SetStringProperty_REAL(i32 noundef %0, ptr noundef nonnull @.str.380, ptr noundef %3) #7
+  %29 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %0, ptr noundef nonnull @.str.1, i1 noundef zeroext %2) #6
+  %30 = tail call zeroext i1 @SDL_SetStringProperty_REAL(i32 noundef %0, ptr noundef nonnull @.str.380, ptr noundef %3) #6
   ret void
 }
 
@@ -2481,51 +2475,51 @@ define hidden noundef zeroext i1 @SDL_GPUSupportsProperties_REAL(i32 noundef %0)
   ret i1 %3
 }
 
-declare void @SDL_DestroyProperties_REAL(i32 noundef) local_unnamed_addr #3
+declare void @SDL_DestroyProperties_REAL(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @SDL_GPUSelectBackend(i32 noundef %0) unnamed_addr #0 {
-  %2 = tail call ptr @SDL_GetVideoDevice() #7
+  %2 = tail call ptr @SDL_GetVideoDevice() #6
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.381) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.381) #6
   br label %.loopexit
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @SDL_GetHint_REAL(ptr noundef nonnull @.str.382) #7
+  %7 = tail call ptr @SDL_GetHint_REAL(ptr noundef nonnull @.str.382) #6
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %.preheader27.preheader
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @SDL_GetStringProperty_REAL(i32 noundef %0, ptr noundef nonnull @.str.380, ptr noundef null) #7
+  %10 = tail call ptr @SDL_GetStringProperty_REAL(i32 noundef %0, ptr noundef nonnull @.str.380, ptr noundef null) #6
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.preheader.preheader, label %.preheader27.preheader
 
 .preheader27.preheader:                           ; preds = %6, %9
   %.01940 = phi ptr [ %10, %9 ], [ %7, %6 ]
   %11 = load ptr, ptr @VulkanDriver, align 8
-  %12 = tail call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.01940, ptr noundef %11) #7
+  %12 = tail call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.01940, ptr noundef %11) #6
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %16, label %19
 
 .preheader.preheader:                             ; preds = %9
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VulkanDriver, i64 8), align 8
-  %15 = tail call zeroext i1 %14(ptr noundef nonnull %2, i32 noundef %0) #7
+  %15 = tail call zeroext i1 %14(ptr noundef nonnull %2, i32 noundef %0) #6
   br i1 %15, label %.loopexit, label %21
 
 16:                                               ; preds = %.preheader27.preheader
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VulkanDriver, i64 8), align 8
-  %18 = tail call zeroext i1 %17(ptr noundef nonnull %2, i32 noundef %0) #7
+  %18 = tail call zeroext i1 %17(ptr noundef nonnull %2, i32 noundef %0) #6
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %.preheader27.preheader, %16
-  %20 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.383, ptr noundef nonnull %.01940) #7
+  %20 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.383, ptr noundef nonnull %.01940) #6
   br label %.loopexit
 
 21:                                               ; preds = %.preheader.preheader
-  %22 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.384) #7
+  %22 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.384) #6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %.preheader.preheader, %21, %19, %4
@@ -2535,18 +2529,18 @@ define internal fastcc noundef ptr @SDL_GPUSelectBackend(i32 noundef %0) unnamed
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_CreateGPUDevice_REAL(i32 noundef %0, i1 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @SDL_CreateProperties_REAL() #7
+  %4 = tail call i32 @SDL_CreateProperties_REAL() #6
   tail call fastcc void @SDL_GPU_FillProperties(i32 noundef %4, i32 noundef %0, i1 noundef zeroext %1, ptr noundef %2)
   %5 = tail call fastcc ptr @SDL_GPUSelectBackend(i32 noundef %4)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %SDL_CreateGPUDeviceWithProperties_REAL.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef %4, ptr noundef nonnull @.str.1, i1 noundef zeroext true) #7
-  %8 = tail call zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef %4, ptr noundef nonnull @.str.2, i1 noundef zeroext false) #7
+  %7 = tail call zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef %4, ptr noundef nonnull @.str.1, i1 noundef zeroext true) #6
+  %8 = tail call zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef %4, ptr noundef nonnull @.str.2, i1 noundef zeroext false) #6
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call ptr %10(i1 noundef zeroext %7, i1 noundef zeroext %8, i32 noundef %4) #7
+  %11 = tail call ptr %10(i1 noundef zeroext %7, i1 noundef zeroext %8, i32 noundef %4) #6
   %.not15.i = icmp eq ptr %11, null
   br i1 %.not15.i, label %SDL_CreateGPUDeviceWithProperties_REAL.exit, label %12
 
@@ -2561,7 +2555,7 @@ define hidden ptr @SDL_CreateGPUDevice_REAL(i32 noundef %0, i1 noundef zeroext %
 
 SDL_CreateGPUDeviceWithProperties_REAL.exit:      ; preds = %3, %6, %12
   %.0.i = phi ptr [ %11, %12 ], [ null, %6 ], [ null, %3 ]
-  tail call void @SDL_DestroyProperties_REAL(i32 noundef %4) #7
+  tail call void @SDL_DestroyProperties_REAL(i32 noundef %4) #6
   ret ptr %.0.i
 }
 
@@ -2572,11 +2566,11 @@ define hidden ptr @SDL_CreateGPUDeviceWithProperties_REAL(i32 noundef %0) local_
   br i1 %.not, label %14, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef %0, ptr noundef nonnull @.str.1, i1 noundef zeroext true) #7
-  %5 = tail call zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef %0, ptr noundef nonnull @.str.2, i1 noundef zeroext false) #7
+  %4 = tail call zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef %0, ptr noundef nonnull @.str.1, i1 noundef zeroext true) #6
+  %5 = tail call zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef %0, ptr noundef nonnull @.str.2, i1 noundef zeroext false) #6
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr %7(i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %0) #7
+  %8 = tail call ptr %7(i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %0) #6
   %.not15 = icmp eq ptr %8, null
   br i1 %.not15, label %14, label %9
 
@@ -2594,7 +2588,7 @@ define hidden ptr @SDL_CreateGPUDeviceWithProperties_REAL(i32 noundef %0) local_
   ret ptr %.0
 }
 
-declare zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_DestroyGPUDevice_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -2602,12 +2596,12 @@ define hidden void @SDL_DestroyGPUDevice_REAL(ptr noundef %0) local_unnamed_addr
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %7
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  tail call void %6(ptr noundef nonnull %0) #7
+  tail call void %6(ptr noundef nonnull %0) #6
   br label %7
 
 7:                                                ; preds = %5, %3
@@ -2615,7 +2609,7 @@ define hidden void @SDL_DestroyGPUDevice_REAL(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @SDL_GetNumGPUDrivers_REAL() local_unnamed_addr #6 {
+define hidden noundef i32 @SDL_GetNumGPUDrivers_REAL() local_unnamed_addr #5 {
   ret i32 1
 }
 
@@ -2625,7 +2619,7 @@ define hidden ptr @SDL_GetGPUDriver_REAL(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #7
+  %3 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #6
   br label %6
 
 4:                                                ; preds = %1
@@ -2643,7 +2637,7 @@ define hidden ptr @SDL_GetGPUDeviceDriver_REAL(ptr noundef readonly captures(add
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %8
 
 5:                                                ; preds = %1
@@ -2662,7 +2656,7 @@ define hidden i32 @SDL_GetGPUShaderFormats_REAL(ptr noundef readonly captures(ad
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %8
 
 5:                                                ; preds = %1
@@ -2681,13 +2675,13 @@ define hidden i32 @SDL_GetGPUDeviceProperties_REAL(ptr noundef %0) local_unnamed
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %9
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(ptr noundef nonnull %0) #7
+  %8 = tail call i32 %7(ptr noundef nonnull %0) #6
   br label %9
 
 9:                                                ; preds = %5, %3
@@ -2702,7 +2696,7 @@ define hidden range(i32 0, 17) i32 @SDL_GPUTextureFormatTexelBlockSize_REAL(i32 
   br i1 %2, label %switch.lookup, label %.preheader
 
 .preheader:                                       ; preds = %1, %.preheader
-  %3 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_GPUTextureFormatTexelBlockSize_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_GPUTextureFormatTexelBlockSize_REAL, ptr noundef nonnull @.str.8, i32 noundef 825) #7
+  %3 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_GPUTextureFormatTexelBlockSize_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_GPUTextureFormatTexelBlockSize_REAL, ptr noundef nonnull @.str.8, i32 noundef 825) #6
   switch i32 %3, label %.thread [
     i32 0, label %.preheader
     i32 1, label %4
@@ -2723,10 +2717,10 @@ switch.lookup:                                    ; preds = %1
   ret i32 %.05
 }
 
-declare i32 @SDL_ReportAssertion_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @SDL_ReportAssertion_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @llvm.debugtrap() #7
+declare void @llvm.debugtrap() #6
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_GPUTextureSupportsFormat_REAL(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -2734,7 +2728,7 @@ define hidden zeroext i1 @SDL_GPUTextureSupportsFormat_REAL(ptr noundef readonly
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %.thread
 
 8:                                                ; preds = %4
@@ -2747,7 +2741,7 @@ define hidden zeroext i1 @SDL_GPUTextureSupportsFormat_REAL(ptr noundef readonly
   br i1 %or.cond20, label %.preheader, label %15
 
 .preheader:                                       ; preds = %8, %.preheader
-  %13 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_GPUTextureSupportsFormat_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_GPUTextureSupportsFormat_REAL, ptr noundef nonnull @.str.8, i32 noundef 839) #7
+  %13 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_GPUTextureSupportsFormat_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_GPUTextureSupportsFormat_REAL, ptr noundef nonnull @.str.8, i32 noundef 839) #6
   switch i32 %13, label %.thread [
     i32 0, label %.preheader
     i32 1, label %14
@@ -2774,7 +2768,7 @@ define hidden zeroext i1 @SDL_GPUTextureSupportsFormat_REAL(ptr noundef readonly
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call zeroext i1 %24(ptr noundef %26, i32 noundef %1, i32 noundef %2, i32 noundef %3) #7
+  %27 = tail call zeroext i1 %24(ptr noundef %26, i32 noundef %1, i32 noundef %2, i32 noundef %3) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %14, %17, %22, %6
@@ -2788,7 +2782,7 @@ define hidden zeroext i1 @SDL_GPUTextureSupportsSampleCount_REAL(ptr noundef rea
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %.thread
 
 7:                                                ; preds = %3
@@ -2801,7 +2795,7 @@ define hidden zeroext i1 @SDL_GPUTextureSupportsSampleCount_REAL(ptr noundef rea
   br i1 %or.cond15, label %.preheader, label %14
 
 .preheader:                                       ; preds = %7, %.preheader
-  %12 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_GPUTextureSupportsSampleCount_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_GPUTextureSupportsSampleCount_REAL, ptr noundef nonnull @.str.8, i32 noundef 864) #7
+  %12 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_GPUTextureSupportsSampleCount_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_GPUTextureSupportsSampleCount_REAL, ptr noundef nonnull @.str.8, i32 noundef 864) #6
   switch i32 %12, label %.thread [
     i32 0, label %.preheader
     i32 1, label %13
@@ -2816,7 +2810,7 @@ define hidden zeroext i1 @SDL_GPUTextureSupportsSampleCount_REAL(ptr noundef rea
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call zeroext i1 %16(ptr noundef %18, i32 noundef %1, i32 noundef %2) #7
+  %19 = tail call zeroext i1 %16(ptr noundef %18, i32 noundef %1, i32 noundef %2) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %13, %14, %5
@@ -2830,7 +2824,7 @@ define hidden ptr @SDL_CreateGPUComputePipeline_REAL(ptr noundef readonly captur
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %.thread
 
 6:                                                ; preds = %2
@@ -2838,7 +2832,7 @@ define hidden ptr @SDL_CreateGPUComputePipeline_REAL(ptr noundef readonly captur
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.11) #7
+  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.11) #6
   br label %.thread
 
 10:                                               ; preds = %6
@@ -2854,7 +2848,7 @@ define hidden ptr @SDL_CreateGPUComputePipeline_REAL(ptr noundef readonly captur
   br i1 %17, label %.preheader, label %20
 
 .preheader:                                       ; preds = %14, %.preheader
-  %18 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUComputePipeline_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_CreateGPUComputePipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 887) #7
+  %18 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUComputePipeline_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_CreateGPUComputePipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 887) #6
   switch i32 %18, label %.thread [
     i32 0, label %.preheader
     i32 1, label %19
@@ -2872,7 +2866,7 @@ define hidden ptr @SDL_CreateGPUComputePipeline_REAL(ptr noundef readonly captur
   br i1 %.not, label %.preheader65, label %26
 
 .preheader65:                                     ; preds = %20, %.preheader65
-  %24 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUComputePipeline_REAL.sdl_assert_data.15, ptr noundef nonnull @__func__.SDL_CreateGPUComputePipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 891) #7
+  %24 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUComputePipeline_REAL.sdl_assert_data.15, ptr noundef nonnull @__func__.SDL_CreateGPUComputePipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 891) #6
   switch i32 %24, label %.thread [
     i32 0, label %.preheader65
     i32 1, label %25
@@ -2889,7 +2883,7 @@ define hidden ptr @SDL_CreateGPUComputePipeline_REAL(ptr noundef readonly captur
   br i1 %29, label %.preheader67, label %32
 
 .preheader67:                                     ; preds = %26, %.preheader67
-  %30 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUComputePipeline_REAL.sdl_assert_data.18, ptr noundef nonnull @__func__.SDL_CreateGPUComputePipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 895) #7
+  %30 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUComputePipeline_REAL.sdl_assert_data.18, ptr noundef nonnull @__func__.SDL_CreateGPUComputePipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 895) #6
   switch i32 %30, label %.thread [
     i32 0, label %.preheader67
     i32 1, label %31
@@ -2906,7 +2900,7 @@ define hidden ptr @SDL_CreateGPUComputePipeline_REAL(ptr noundef readonly captur
   br i1 %35, label %.preheader69, label %38
 
 .preheader69:                                     ; preds = %32, %.preheader69
-  %36 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUComputePipeline_REAL.sdl_assert_data.21, ptr noundef nonnull @__func__.SDL_CreateGPUComputePipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 899) #7
+  %36 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUComputePipeline_REAL.sdl_assert_data.21, ptr noundef nonnull @__func__.SDL_CreateGPUComputePipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 899) #6
   switch i32 %36, label %.thread [
     i32 0, label %.preheader69
     i32 1, label %37
@@ -2938,7 +2932,7 @@ define hidden ptr @SDL_CreateGPUComputePipeline_REAL(ptr noundef readonly captur
   br label %50
 
 50:                                               ; preds = %.preheader87, %50
-  %51 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUComputePipeline_REAL.sdl_assert_data.24, ptr noundef nonnull @__func__.SDL_CreateGPUComputePipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 905) #7
+  %51 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUComputePipeline_REAL.sdl_assert_data.24, ptr noundef nonnull @__func__.SDL_CreateGPUComputePipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 905) #6
   switch i32 %51, label %.thread [
     i32 0, label %50
     i32 1, label %52
@@ -2953,7 +2947,7 @@ define hidden ptr @SDL_CreateGPUComputePipeline_REAL(ptr noundef readonly captur
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call ptr %55(ptr noundef %57, ptr noundef nonnull %1) #7
+  %58 = tail call ptr %55(ptr noundef %57, ptr noundef nonnull %1) #6
   br label %.thread
 
 .thread:                                          ; preds = %50, %.preheader69, %.preheader67, %.preheader65, %.preheader, %52, %37, %31, %25, %19, %53, %8, %4
@@ -2962,7 +2956,7 @@ define hidden ptr @SDL_CreateGPUComputePipeline_REAL(ptr noundef readonly captur
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef zeroext i1 @FormatHasAlpha(i32 noundef %0) unnamed_addr #8 {
+define internal fastcc noundef zeroext i1 @FormatHasAlpha(i32 noundef %0) unnamed_addr #7 {
   switch i32 %0, label %2 [
     i32 75, label %3
     i32 76, label %3
@@ -3049,7 +3043,7 @@ define hidden ptr @SDL_CreateGPUSampler_REAL(ptr noundef readonly captures(addre
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %16
 
 6:                                                ; preds = %2
@@ -3057,7 +3051,7 @@ define hidden ptr @SDL_CreateGPUSampler_REAL(ptr noundef readonly captures(addre
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.11) #7
+  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.11) #6
   br label %16
 
 10:                                               ; preds = %6
@@ -3065,7 +3059,7 @@ define hidden ptr @SDL_CreateGPUSampler_REAL(ptr noundef readonly captures(addre
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call ptr %12(ptr noundef %14, ptr noundef nonnull %1) #7
+  %15 = tail call ptr %12(ptr noundef %14, ptr noundef nonnull %1) #6
   br label %16
 
 16:                                               ; preds = %10, %8, %4
@@ -3079,7 +3073,7 @@ define hidden ptr @SDL_CreateGPUShader_REAL(ptr noundef readonly captures(addres
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %.thread
 
 6:                                                ; preds = %2
@@ -3087,7 +3081,7 @@ define hidden ptr @SDL_CreateGPUShader_REAL(ptr noundef readonly captures(addres
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.11) #7
+  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.11) #6
   br label %.thread
 
 10:                                               ; preds = %6
@@ -3103,7 +3097,7 @@ define hidden ptr @SDL_CreateGPUShader_REAL(ptr noundef readonly captures(addres
   br i1 %17, label %.preheader, label %20
 
 .preheader:                                       ; preds = %14, %.preheader
-  %18 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUShader_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_CreateGPUShader_REAL, ptr noundef nonnull @.str.8, i32 noundef 1069) #7
+  %18 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUShader_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_CreateGPUShader_REAL, ptr noundef nonnull @.str.8, i32 noundef 1069) #6
   switch i32 %18, label %.thread [
     i32 0, label %.preheader
     i32 1, label %19
@@ -3121,7 +3115,7 @@ define hidden ptr @SDL_CreateGPUShader_REAL(ptr noundef readonly captures(addres
   br i1 %.not, label %.preheader30, label %26
 
 .preheader30:                                     ; preds = %20, %.preheader30
-  %24 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUShader_REAL.sdl_assert_data.101, ptr noundef nonnull @__func__.SDL_CreateGPUShader_REAL, ptr noundef nonnull @.str.8, i32 noundef 1073) #7
+  %24 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUShader_REAL.sdl_assert_data.101, ptr noundef nonnull @__func__.SDL_CreateGPUShader_REAL, ptr noundef nonnull @.str.8, i32 noundef 1073) #6
   switch i32 %24, label %.thread [
     i32 0, label %.preheader30
     i32 1, label %25
@@ -3136,7 +3130,7 @@ define hidden ptr @SDL_CreateGPUShader_REAL(ptr noundef readonly captures(addres
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call ptr %28(ptr noundef %30, ptr noundef nonnull %1) #7
+  %31 = tail call ptr %28(ptr noundef %30, ptr noundef nonnull %1) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader30, %.preheader, %25, %19, %26, %8, %4
@@ -3150,7 +3144,7 @@ define hidden ptr @SDL_CreateGPUTexture_REAL(ptr noundef readonly captures(addre
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %.thread360
 
 6:                                                ; preds = %2
@@ -3158,7 +3152,7 @@ define hidden ptr @SDL_CreateGPUTexture_REAL(ptr noundef readonly captures(addre
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.11) #7
+  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.11) #6
   br label %.thread360
 
 10:                                               ; preds = %6
@@ -3175,7 +3169,7 @@ define hidden ptr @SDL_CreateGPUTexture_REAL(ptr noundef readonly captures(addre
   br i1 %or.cond, label %.preheader, label %20
 
 .preheader:                                       ; preds = %14, %.preheader
-  %18 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1100) #7
+  %18 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1100) #6
   switch i32 %18, label %.thread360 [
     i32 0, label %.preheader
     i32 1, label %19
@@ -3207,7 +3201,7 @@ define hidden ptr @SDL_CreateGPUTexture_REAL(ptr noundef readonly captures(addre
   br label %32
 
 32:                                               ; preds = %.preheader409, %32
-  %33 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.103, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1103) #7
+  %33 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.103, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1103) #6
   switch i32 %33, label %.thread256 [
     i32 0, label %32
     i32 1, label %34
@@ -3225,7 +3219,7 @@ define hidden ptr @SDL_CreateGPUTexture_REAL(ptr noundef readonly captures(addre
   br i1 %37, label %.preheader389, label %.thread260
 
 .preheader389:                                    ; preds = %.thread256, %.preheader389
-  %38 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.106, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1107) #7
+  %38 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.106, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1107) #6
   switch i32 %38, label %.thread260 [
     i32 0, label %.preheader389
     i32 1, label %39
@@ -3244,7 +3238,7 @@ define hidden ptr @SDL_CreateGPUTexture_REAL(ptr noundef readonly captures(addre
   br i1 %or.cond206.not, label %.preheader388, label %.thread264
 
 .preheader388:                                    ; preds = %.thread260, %.preheader388
-  %43 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.109, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1111) #7
+  %43 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.109, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1111) #6
   switch i32 %43, label %.thread264 [
     i32 0, label %.preheader388
     i32 1, label %44
@@ -3268,7 +3262,7 @@ define hidden ptr @SDL_CreateGPUTexture_REAL(ptr noundef readonly captures(addre
   br i1 %.not188, label %.thread268, label %.preheader387
 
 .preheader387:                                    ; preds = %47, %.preheader387
-  %50 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.112, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1119) #7
+  %50 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.112, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1119) #6
   switch i32 %50, label %.thread268 [
     i32 0, label %.preheader387
     i32 1, label %51
@@ -3292,7 +3286,7 @@ define hidden ptr @SDL_CreateGPUTexture_REAL(ptr noundef readonly captures(addre
   br i1 %.not189, label %thread-pre-split, label %.preheader386
 
 .preheader386:                                    ; preds = %53, %.preheader386
-  %56 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.115, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1123) #7
+  %56 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.115, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1123) #6
   switch i32 %56, label %thread-pre-split [
     i32 0, label %.preheader386
     i32 1, label %57
@@ -3332,7 +3326,7 @@ thread-pre-split:                                 ; preds = %.preheader386, %57,
   br i1 %.not190, label %IsIntegerFormat.exit, label %.preheader385
 
 .preheader385:                                    ; preds = %60, %.preheader385
-  %63 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.118, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1127) #7
+  %63 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.118, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1127) #6
   switch i32 %63, label %IsIntegerFormat.exit [
     i32 0, label %.preheader385
     i32 1, label %64
@@ -3360,7 +3354,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   br i1 %.not199, label %72, label %.preheader373
 
 .preheader373:                                    ; preds = %66, %.preheader373
-  %70 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.121, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1134) #7
+  %70 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.121, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1134) #6
   switch i32 %70, label %.thread281 [
     i32 0, label %.preheader373
     i32 1, label %71
@@ -3389,7 +3383,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   br label %78
 
 78:                                               ; preds = %.preheader404, %78
-  %79 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.124, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1138) #7
+  %79 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.124, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1138) #6
   switch i32 %79, label %.thread286 [
     i32 0, label %78
     i32 1, label %80
@@ -3407,7 +3401,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   br i1 %.not200, label %.thread290, label %.preheader372
 
 .preheader372:                                    ; preds = %.thread286, %.preheader372
-  %83 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.127, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1142) #7
+  %83 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.127, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1142) #6
   switch i32 %83, label %.thread290 [
     i32 0, label %.preheader372
     i32 1, label %84
@@ -3424,7 +3418,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   br i1 %.not201, label %.thread294, label %.preheader371
 
 .preheader371:                                    ; preds = %.thread290, %.preheader371
-  %86 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.130, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1146) #7
+  %86 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.130, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1146) #6
   switch i32 %86, label %.thread294 [
     i32 0, label %.preheader371
     i32 1, label %87
@@ -3442,7 +3436,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   br i1 %90, label %182, label %.preheader369
 
 .preheader369:                                    ; preds = %.thread294, %.preheader369
-  %91 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.133, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1150) #7
+  %91 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.133, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1150) #6
   switch i32 %91, label %.thread360 [
     i32 0, label %.preheader369
     i32 1, label %92
@@ -3460,7 +3454,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   br i1 %.not196, label %99, label %.preheader378
 
 .preheader378:                                    ; preds = %93, %.preheader378
-  %97 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.136, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1156) #7
+  %97 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.136, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1156) #6
   switch i32 %97, label %.thread302 [
     i32 0, label %.preheader378
     i32 1, label %98
@@ -3489,7 +3483,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   br label %105
 
 105:                                              ; preds = %.preheader406, %105
-  %106 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.139, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1160) #7
+  %106 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.139, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1160) #6
   switch i32 %106, label %.thread307 [
     i32 0, label %105
     i32 1, label %107
@@ -3508,7 +3502,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   br i1 %.not197, label %.thread311, label %.preheader377
 
 .preheader377:                                    ; preds = %.thread307, %.preheader377
-  %111 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.142, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1164) #7
+  %111 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.142, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1164) #6
   switch i32 %111, label %.thread311 [
     i32 0, label %.preheader377
     i32 1, label %112
@@ -3525,7 +3519,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   br i1 %.not198, label %.thread315, label %.preheader376
 
 .preheader376:                                    ; preds = %.thread311, %.preheader376
-  %114 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.145, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1168) #7
+  %114 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.145, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1168) #6
   switch i32 %114, label %.thread315 [
     i32 0, label %.preheader376
     i32 1, label %115
@@ -3543,7 +3537,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   br i1 %118, label %182, label %.preheader374
 
 .preheader374:                                    ; preds = %.thread315, %.preheader374
-  %119 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.148, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1172) #7
+  %119 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.148, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1172) #6
   switch i32 %119, label %.thread360 [
     i32 0, label %.preheader374
     i32 1, label %120
@@ -3574,7 +3568,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   br label %132
 
 132:                                              ; preds = %.preheader408, %132
-  %133 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.151, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1178) #7
+  %133 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.151, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1178) #6
   switch i32 %133, label %.thread323 [
     i32 0, label %132
     i32 1, label %134
@@ -3592,7 +3586,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   br i1 %.not194, label %.thread327, label %.preheader382
 
 .preheader382:                                    ; preds = %.thread323, %.preheader382
-  %137 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.154, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1182) #7
+  %137 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.154, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1182) #6
   switch i32 %137, label %.thread327 [
     i32 0, label %.preheader382
     i32 1, label %138
@@ -3609,7 +3603,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   br i1 %.not195, label %.thread331, label %.preheader381
 
 .preheader381:                                    ; preds = %.thread327, %.preheader381
-  %140 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.157, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1186) #7
+  %140 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.157, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1186) #6
   switch i32 %140, label %.thread331 [
     i32 0, label %.preheader381
     i32 1, label %141
@@ -3627,7 +3621,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   br i1 %144, label %182, label %.preheader379
 
 .preheader379:                                    ; preds = %.thread331, %.preheader379
-  %145 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.160, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1190) #7
+  %145 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.160, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1190) #6
   switch i32 %145, label %.thread360 [
     i32 0, label %.preheader379
     i32 1, label %146
@@ -3644,7 +3638,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   br i1 %.not191, label %.thread339, label %.preheader384
 
 .preheader384:                                    ; preds = %147, %.preheader384
-  %150 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.163, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1197) #7
+  %150 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.163, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1197) #6
   switch i32 %150, label %.thread339 [
     i32 0, label %.preheader384
     i32 1, label %151
@@ -3661,7 +3655,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   br i1 %.not192, label %.thread349, label %.preheader383
 
 .preheader383:                                    ; preds = %.thread339, %.preheader383
-  %153 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.166, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1201) #7
+  %153 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.166, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1201) #6
   switch i32 %153, label %.thread343 [
     i32 0, label %.preheader383
     i32 1, label %154
@@ -3683,7 +3677,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   br i1 %157, label %.preheader368, label %.thread349
 
 .preheader368:                                    ; preds = %155, %.preheader368
-  %158 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.169, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1206) #7
+  %158 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.169, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1206) #6
   switch i32 %158, label %.thread349 [
     i32 0, label %.preheader368
     i32 1, label %159
@@ -3705,7 +3699,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   br i1 %or.cond20.i, label %.preheader.i, label %167
 
 .preheader.i:                                     ; preds = %.thread349, %.preheader.i
-  %165 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_GPUTextureSupportsFormat_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_GPUTextureSupportsFormat_REAL, ptr noundef nonnull @.str.8, i32 noundef 839) #7
+  %165 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_GPUTextureSupportsFormat_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_GPUTextureSupportsFormat_REAL, ptr noundef nonnull @.str.8, i32 noundef 839) #6
   switch i32 %165, label %.preheader366.preheader [
     i32 0, label %.preheader.i
     i32 1, label %166
@@ -3732,14 +3726,14 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %178 = load ptr, ptr %177, align 8
-  %179 = tail call zeroext i1 %176(ptr noundef %178, i32 noundef %160, i32 noundef 0, i32 noundef %161) #7
+  %179 = tail call zeroext i1 %176(ptr noundef %178, i32 noundef %160, i32 noundef 0, i32 noundef %161) #6
   br i1 %179, label %182, label %.preheader366.preheader
 
 .preheader366.preheader:                          ; preds = %.preheader.i, %169, %166, %174
   br label %.preheader366
 
 .preheader366:                                    ; preds = %.preheader366.preheader, %.preheader366
-  %180 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.172, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1210) #7
+  %180 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.172, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1210) #6
   switch i32 %180, label %.thread360 [
     i32 0, label %.preheader366
     i32 1, label %181
@@ -3758,7 +3752,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
   %185 = load ptr, ptr %184, align 8
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %187 = load ptr, ptr %186, align 8
-  %188 = tail call ptr %185(ptr noundef %187, ptr noundef nonnull %1) #7
+  %188 = tail call ptr %185(ptr noundef %187, ptr noundef nonnull %1) #6
   br label %.thread360
 
 .thread360:                                       ; preds = %.preheader379, %.preheader374, %.preheader369, %.preheader366, %.preheader, %181, %146, %120, %92, %19, %182, %183, %8, %4
@@ -3772,7 +3766,7 @@ define hidden ptr @SDL_CreateGPUBuffer_REAL(ptr noundef readonly captures(addres
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %22
 
 6:                                                ; preds = %2
@@ -3780,13 +3774,13 @@ define hidden ptr @SDL_CreateGPUBuffer_REAL(ptr noundef readonly captures(addres
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.11) #7
+  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.11) #6
   br label %22
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 4
-  %13 = tail call ptr @SDL_GetStringProperty_REAL(i32 noundef %12, ptr noundef nonnull @.str.174, ptr noundef null) #7
+  %13 = tail call ptr @SDL_GetStringProperty_REAL(i32 noundef %12, ptr noundef nonnull @.str.174, ptr noundef null) #6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 664
@@ -3794,7 +3788,7 @@ define hidden ptr @SDL_CreateGPUBuffer_REAL(ptr noundef readonly captures(addres
   %18 = load i32, ptr %1, align 4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = tail call ptr %15(ptr noundef %17, i32 noundef %18, i32 noundef %20, ptr noundef %13) #7
+  %21 = tail call ptr %15(ptr noundef %17, i32 noundef %18, i32 noundef %20, ptr noundef %13) #6
   br label %22
 
 22:                                               ; preds = %10, %8, %4
@@ -3802,7 +3796,7 @@ define hidden ptr @SDL_CreateGPUBuffer_REAL(ptr noundef readonly captures(addres
   ret ptr %.0
 }
 
-declare ptr @SDL_GetStringProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_GetStringProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_CreateGPUTransferBuffer_REAL(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -3810,7 +3804,7 @@ define hidden ptr @SDL_CreateGPUTransferBuffer_REAL(ptr noundef readonly capture
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %22
 
 6:                                                ; preds = %2
@@ -3818,13 +3812,13 @@ define hidden ptr @SDL_CreateGPUTransferBuffer_REAL(ptr noundef readonly capture
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.11) #7
+  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.11) #6
   br label %22
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 4
-  %13 = tail call ptr @SDL_GetStringProperty_REAL(i32 noundef %12, ptr noundef nonnull @.str.175, ptr noundef null) #7
+  %13 = tail call ptr @SDL_GetStringProperty_REAL(i32 noundef %12, ptr noundef nonnull @.str.175, ptr noundef null) #6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 664
@@ -3832,7 +3826,7 @@ define hidden ptr @SDL_CreateGPUTransferBuffer_REAL(ptr noundef readonly capture
   %18 = load i32, ptr %1, align 4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = tail call ptr %15(ptr noundef %17, i32 noundef %18, i32 noundef %20, ptr noundef %13) #7
+  %21 = tail call ptr %15(ptr noundef %17, i32 noundef %18, i32 noundef %20, ptr noundef %13) #6
   br label %22
 
 22:                                               ; preds = %10, %8, %4
@@ -3846,7 +3840,7 @@ define hidden void @SDL_SetGPUBufferName_REAL(ptr noundef readonly captures(addr
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %20
 
 7:                                                ; preds = %3
@@ -3854,7 +3848,7 @@ define hidden void @SDL_SetGPUBufferName_REAL(ptr noundef readonly captures(addr
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.176) #7
+  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.176) #6
   br label %20
 
 11:                                               ; preds = %7
@@ -3862,7 +3856,7 @@ define hidden void @SDL_SetGPUBufferName_REAL(ptr noundef readonly captures(addr
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
-  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.177) #7
+  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.177) #6
   br label %15
 
 15:                                               ; preds = %13, %11
@@ -3870,7 +3864,7 @@ define hidden void @SDL_SetGPUBufferName_REAL(ptr noundef readonly captures(addr
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %19 = load ptr, ptr %18, align 8
-  tail call void %17(ptr noundef %19, ptr noundef nonnull %1, ptr noundef %2) #7
+  tail call void %17(ptr noundef %19, ptr noundef nonnull %1, ptr noundef %2) #6
   br label %20
 
 20:                                               ; preds = %15, %9, %5
@@ -3883,7 +3877,7 @@ define hidden void @SDL_SetGPUTextureName_REAL(ptr noundef readonly captures(add
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %20
 
 7:                                                ; preds = %3
@@ -3891,7 +3885,7 @@ define hidden void @SDL_SetGPUTextureName_REAL(ptr noundef readonly captures(add
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.178) #7
+  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.178) #6
   br label %20
 
 11:                                               ; preds = %7
@@ -3899,7 +3893,7 @@ define hidden void @SDL_SetGPUTextureName_REAL(ptr noundef readonly captures(add
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
-  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.177) #7
+  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.177) #6
   br label %15
 
 15:                                               ; preds = %13, %11
@@ -3907,7 +3901,7 @@ define hidden void @SDL_SetGPUTextureName_REAL(ptr noundef readonly captures(add
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %19 = load ptr, ptr %18, align 8
-  tail call void %17(ptr noundef %19, ptr noundef nonnull %1, ptr noundef %2) #7
+  tail call void %17(ptr noundef %19, ptr noundef nonnull %1, ptr noundef %2) #6
   br label %20
 
 20:                                               ; preds = %15, %9, %5
@@ -3920,7 +3914,7 @@ define hidden void @SDL_InsertGPUDebugLabel_REAL(ptr noundef %0, ptr noundef %1)
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #6
   br label %.thread
 
 6:                                                ; preds = %2
@@ -3928,7 +3922,7 @@ define hidden void @SDL_InsertGPUDebugLabel_REAL(ptr noundef %0, ptr noundef %1)
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.177) #7
+  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.177) #6
   br label %.thread
 
 10:                                               ; preds = %6
@@ -3945,7 +3939,7 @@ define hidden void @SDL_InsertGPUDebugLabel_REAL(ptr noundef %0, ptr noundef %1)
   br i1 %18, label %.preheader, label %21
 
 .preheader:                                       ; preds = %15, %.preheader
-  %19 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_InsertGPUDebugLabel_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_InsertGPUDebugLabel_REAL, ptr noundef nonnull @.str.8, i32 noundef 1319) #7
+  %19 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_InsertGPUDebugLabel_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_InsertGPUDebugLabel_REAL, ptr noundef nonnull @.str.8, i32 noundef 1319) #6
   switch i32 %19, label %.thread [
     i32 0, label %.preheader
     i32 1, label %20
@@ -3958,7 +3952,7 @@ define hidden void @SDL_InsertGPUDebugLabel_REAL(ptr noundef %0, ptr noundef %1)
 21:                                               ; preds = %15, %10
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %23 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef nonnull %0, ptr noundef nonnull %1) #7
+  tail call void %23(ptr noundef nonnull %0, ptr noundef nonnull %1) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %20, %21, %8, %4
@@ -3971,7 +3965,7 @@ define hidden void @SDL_PushGPUDebugGroup_REAL(ptr noundef %0, ptr noundef %1) l
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #6
   br label %.thread
 
 6:                                                ; preds = %2
@@ -3979,7 +3973,7 @@ define hidden void @SDL_PushGPUDebugGroup_REAL(ptr noundef %0, ptr noundef %1) l
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.182) #7
+  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.182) #6
   br label %.thread
 
 10:                                               ; preds = %6
@@ -3996,7 +3990,7 @@ define hidden void @SDL_PushGPUDebugGroup_REAL(ptr noundef %0, ptr noundef %1) l
   br i1 %18, label %.preheader, label %21
 
 .preheader:                                       ; preds = %15, %.preheader
-  %19 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_PushGPUDebugGroup_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_PushGPUDebugGroup_REAL, ptr noundef nonnull @.str.8, i32 noundef 1341) #7
+  %19 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_PushGPUDebugGroup_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_PushGPUDebugGroup_REAL, ptr noundef nonnull @.str.8, i32 noundef 1341) #6
   switch i32 %19, label %.thread [
     i32 0, label %.preheader
     i32 1, label %20
@@ -4009,7 +4003,7 @@ define hidden void @SDL_PushGPUDebugGroup_REAL(ptr noundef %0, ptr noundef %1) l
 21:                                               ; preds = %15, %10
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %23 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef nonnull %0, ptr noundef nonnull %1) #7
+  tail call void %23(ptr noundef nonnull %0, ptr noundef nonnull %1) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %20, %21, %8, %4
@@ -4022,7 +4016,7 @@ define hidden void @SDL_PopGPUDebugGroup_REAL(ptr noundef %0) local_unnamed_addr
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #7
+  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #6
   br label %.thread
 
 5:                                                ; preds = %1
@@ -4039,7 +4033,7 @@ define hidden void @SDL_PopGPUDebugGroup_REAL(ptr noundef %0) local_unnamed_addr
   br i1 %13, label %.preheader, label %16
 
 .preheader:                                       ; preds = %10, %.preheader
-  %14 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_PopGPUDebugGroup_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_PopGPUDebugGroup_REAL, ptr noundef nonnull @.str.8, i32 noundef 1358) #7
+  %14 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_PopGPUDebugGroup_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_PopGPUDebugGroup_REAL, ptr noundef nonnull @.str.8, i32 noundef 1358) #6
   switch i32 %14, label %.thread [
     i32 0, label %.preheader
     i32 1, label %15
@@ -4052,7 +4046,7 @@ define hidden void @SDL_PopGPUDebugGroup_REAL(ptr noundef %0) local_unnamed_addr
 16:                                               ; preds = %10, %5
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef nonnull %0) #7
+  tail call void %18(ptr noundef nonnull %0) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %15, %16, %3
@@ -4065,7 +4059,7 @@ define hidden void @SDL_ReleaseGPUTexture_REAL(ptr noundef readonly captures(add
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %13
 
 6:                                                ; preds = %2
@@ -4077,7 +4071,7 @@ define hidden void @SDL_ReleaseGPUTexture_REAL(ptr noundef readonly captures(add
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %12 = load ptr, ptr %11, align 8
-  tail call void %10(ptr noundef %12, ptr noundef nonnull %1) #7
+  tail call void %10(ptr noundef %12, ptr noundef nonnull %1) #6
   br label %13
 
 13:                                               ; preds = %6, %8, %4
@@ -4090,7 +4084,7 @@ define hidden void @SDL_ReleaseGPUSampler_REAL(ptr noundef readonly captures(add
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %13
 
 6:                                                ; preds = %2
@@ -4102,7 +4096,7 @@ define hidden void @SDL_ReleaseGPUSampler_REAL(ptr noundef readonly captures(add
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %12 = load ptr, ptr %11, align 8
-  tail call void %10(ptr noundef %12, ptr noundef nonnull %1) #7
+  tail call void %10(ptr noundef %12, ptr noundef nonnull %1) #6
   br label %13
 
 13:                                               ; preds = %6, %8, %4
@@ -4115,7 +4109,7 @@ define hidden void @SDL_ReleaseGPUBuffer_REAL(ptr noundef readonly captures(addr
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %13
 
 6:                                                ; preds = %2
@@ -4127,7 +4121,7 @@ define hidden void @SDL_ReleaseGPUBuffer_REAL(ptr noundef readonly captures(addr
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %12 = load ptr, ptr %11, align 8
-  tail call void %10(ptr noundef %12, ptr noundef nonnull %1) #7
+  tail call void %10(ptr noundef %12, ptr noundef nonnull %1) #6
   br label %13
 
 13:                                               ; preds = %6, %8, %4
@@ -4140,7 +4134,7 @@ define hidden void @SDL_ReleaseGPUTransferBuffer_REAL(ptr noundef readonly captu
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %13
 
 6:                                                ; preds = %2
@@ -4152,7 +4146,7 @@ define hidden void @SDL_ReleaseGPUTransferBuffer_REAL(ptr noundef readonly captu
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %12 = load ptr, ptr %11, align 8
-  tail call void %10(ptr noundef %12, ptr noundef nonnull %1) #7
+  tail call void %10(ptr noundef %12, ptr noundef nonnull %1) #6
   br label %13
 
 13:                                               ; preds = %6, %8, %4
@@ -4165,7 +4159,7 @@ define hidden void @SDL_ReleaseGPUShader_REAL(ptr noundef readonly captures(addr
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %13
 
 6:                                                ; preds = %2
@@ -4177,7 +4171,7 @@ define hidden void @SDL_ReleaseGPUShader_REAL(ptr noundef readonly captures(addr
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %12 = load ptr, ptr %11, align 8
-  tail call void %10(ptr noundef %12, ptr noundef nonnull %1) #7
+  tail call void %10(ptr noundef %12, ptr noundef nonnull %1) #6
   br label %13
 
 13:                                               ; preds = %6, %8, %4
@@ -4190,7 +4184,7 @@ define hidden void @SDL_ReleaseGPUComputePipeline_REAL(ptr noundef readonly capt
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %13
 
 6:                                                ; preds = %2
@@ -4202,7 +4196,7 @@ define hidden void @SDL_ReleaseGPUComputePipeline_REAL(ptr noundef readonly capt
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %12 = load ptr, ptr %11, align 8
-  tail call void %10(ptr noundef %12, ptr noundef nonnull %1) #7
+  tail call void %10(ptr noundef %12, ptr noundef nonnull %1) #6
   br label %13
 
 13:                                               ; preds = %6, %8, %4
@@ -4215,7 +4209,7 @@ define hidden void @SDL_ReleaseGPUGraphicsPipeline_REAL(ptr noundef readonly cap
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %13
 
 6:                                                ; preds = %2
@@ -4227,7 +4221,7 @@ define hidden void @SDL_ReleaseGPUGraphicsPipeline_REAL(ptr noundef readonly cap
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %12 = load ptr, ptr %11, align 8
-  tail call void %10(ptr noundef %12, ptr noundef nonnull %1) #7
+  tail call void %10(ptr noundef %12, ptr noundef nonnull %1) #6
   br label %13
 
 13:                                               ; preds = %6, %8, %4
@@ -4240,7 +4234,7 @@ define hidden ptr @SDL_AcquireGPUCommandBuffer_REAL(ptr noundef %0) local_unname
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %23
 
 5:                                                ; preds = %1
@@ -4248,7 +4242,7 @@ define hidden ptr @SDL_AcquireGPUCommandBuffer_REAL(ptr noundef %0) local_unname
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call ptr %7(ptr noundef %9) #7
+  %10 = tail call ptr %7(ptr noundef %9) #6
   %11 = icmp eq ptr %10, null
   br i1 %11, label %23, label %12
 
@@ -4287,7 +4281,7 @@ define hidden void @SDL_PushGPUVertexUniformData_REAL(ptr noundef %0, i32 nounde
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #7
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #6
   br label %.thread
 
 8:                                                ; preds = %4
@@ -4295,7 +4289,7 @@ define hidden void @SDL_PushGPUVertexUniformData_REAL(ptr noundef %0, i32 nounde
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.183) #7
+  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.183) #6
   br label %.thread
 
 12:                                               ; preds = %8
@@ -4312,7 +4306,7 @@ define hidden void @SDL_PushGPUVertexUniformData_REAL(ptr noundef %0, i32 nounde
   br i1 %20, label %.preheader, label %23
 
 .preheader:                                       ; preds = %17, %.preheader
-  %21 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_PushGPUVertexUniformData_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_PushGPUVertexUniformData_REAL, ptr noundef nonnull @.str.8, i32 noundef 1516) #7
+  %21 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_PushGPUVertexUniformData_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_PushGPUVertexUniformData_REAL, ptr noundef nonnull @.str.8, i32 noundef 1516) #6
   switch i32 %21, label %.thread [
     i32 0, label %.preheader
     i32 1, label %22
@@ -4325,7 +4319,7 @@ define hidden void @SDL_PushGPUVertexUniformData_REAL(ptr noundef %0, i32 nounde
 23:                                               ; preds = %17, %12
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 280
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3) #7
+  tail call void %25(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %22, %23, %10, %6
@@ -4338,7 +4332,7 @@ define hidden void @SDL_PushGPUComputeUniformData_REAL(ptr noundef %0, i32 nound
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #7
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #6
   br label %.thread
 
 8:                                                ; preds = %4
@@ -4346,7 +4340,7 @@ define hidden void @SDL_PushGPUComputeUniformData_REAL(ptr noundef %0, i32 nound
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.183) #7
+  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.183) #6
   br label %.thread
 
 12:                                               ; preds = %8
@@ -4363,7 +4357,7 @@ define hidden void @SDL_PushGPUComputeUniformData_REAL(ptr noundef %0, i32 nound
   br i1 %20, label %.preheader, label %23
 
 .preheader:                                       ; preds = %17, %.preheader
-  %21 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_PushGPUComputeUniformData_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_PushGPUComputeUniformData_REAL, ptr noundef nonnull @.str.8, i32 noundef 1568) #7
+  %21 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_PushGPUComputeUniformData_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_PushGPUComputeUniformData_REAL, ptr noundef nonnull @.str.8, i32 noundef 1568) #6
   switch i32 %21, label %.thread [
     i32 0, label %.preheader
     i32 1, label %22
@@ -4376,7 +4370,7 @@ define hidden void @SDL_PushGPUComputeUniformData_REAL(ptr noundef %0, i32 nound
 23:                                               ; preds = %17, %12
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 376
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3) #7
+  tail call void %25(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %22, %23, %10, %6
@@ -4389,7 +4383,7 @@ define hidden void @SDL_SetGPUScissor_REAL(ptr noundef readonly captures(address
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
   br label %.thread
 
 6:                                                ; preds = %2
@@ -4397,7 +4391,7 @@ define hidden void @SDL_SetGPUScissor_REAL(ptr noundef readonly captures(address
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.230) #7
+  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.230) #6
   br label %.thread
 
 10:                                               ; preds = %6
@@ -4415,7 +4409,7 @@ define hidden void @SDL_SetGPUScissor_REAL(ptr noundef readonly captures(address
   br i1 %19, label %22, label %.preheader
 
 .preheader:                                       ; preds = %16, %.preheader
-  %20 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SetGPUScissor_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_SetGPUScissor_REAL, ptr noundef nonnull @.str.8, i32 noundef 1754) #7
+  %20 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SetGPUScissor_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_SetGPUScissor_REAL, ptr noundef nonnull @.str.8, i32 noundef 1754) #6
   switch i32 %20, label %.thread [
     i32 0, label %.preheader
     i32 1, label %21
@@ -4428,7 +4422,7 @@ define hidden void @SDL_SetGPUScissor_REAL(ptr noundef readonly captures(address
 22:                                               ; preds = %16, %10
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 192
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull %11, ptr noundef nonnull %1) #7
+  tail call void %24(ptr noundef nonnull %11, ptr noundef nonnull %1) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %21, %22, %8, %4
@@ -4436,12 +4430,12 @@ define hidden void @SDL_SetGPUScissor_REAL(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @SDL_SetGPUBlendConstants_REAL(ptr noundef readonly captures(address_is_null) %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #9 {
+define hidden void @SDL_SetGPUBlendConstants_REAL(ptr noundef readonly captures(address_is_null) %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #8 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #7
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
   br label %.thread
 
 7:                                                ; preds = %3
@@ -4459,7 +4453,7 @@ define hidden void @SDL_SetGPUBlendConstants_REAL(ptr noundef readonly captures(
   br i1 %16, label %19, label %.preheader
 
 .preheader:                                       ; preds = %13, %.preheader
-  %17 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SetGPUBlendConstants_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_SetGPUBlendConstants_REAL, ptr noundef nonnull @.str.8, i32 noundef 1772) #7
+  %17 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SetGPUBlendConstants_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_SetGPUBlendConstants_REAL, ptr noundef nonnull @.str.8, i32 noundef 1772) #6
   switch i32 %17, label %.thread [
     i32 0, label %.preheader
     i32 1, label %18
@@ -4472,7 +4466,7 @@ define hidden void @SDL_SetGPUBlendConstants_REAL(ptr noundef readonly captures(
 19:                                               ; preds = %13, %7
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 200
   %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef nonnull %8, <2 x float> %1, <2 x float> %2) #7
+  tail call void %21(ptr noundef nonnull %8, <2 x float> %1, <2 x float> %2) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %18, %19, %5
@@ -4485,7 +4479,7 @@ define hidden void @SDL_SetGPUStencilReference_REAL(ptr noundef readonly capture
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
   br label %.thread
 
 6:                                                ; preds = %2
@@ -4503,7 +4497,7 @@ define hidden void @SDL_SetGPUStencilReference_REAL(ptr noundef readonly capture
   br i1 %15, label %18, label %.preheader
 
 .preheader:                                       ; preds = %12, %.preheader
-  %16 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SetGPUStencilReference_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_SetGPUStencilReference_REAL, ptr noundef nonnull @.str.8, i32 noundef 1790) #7
+  %16 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SetGPUStencilReference_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_SetGPUStencilReference_REAL, ptr noundef nonnull @.str.8, i32 noundef 1790) #6
   switch i32 %16, label %.thread [
     i32 0, label %.preheader
     i32 1, label %17
@@ -4516,7 +4510,7 @@ define hidden void @SDL_SetGPUStencilReference_REAL(ptr noundef readonly capture
 18:                                               ; preds = %12, %6
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 208
   %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef nonnull %7, i8 noundef zeroext %1) #7
+  tail call void %20(ptr noundef nonnull %7, i8 noundef zeroext %1) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %17, %18, %4
@@ -4529,7 +4523,7 @@ define hidden void @SDL_BindGPUVertexBuffers_REAL(ptr noundef readonly captures(
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #7
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
   br label %.thread
 
 8:                                                ; preds = %4
@@ -4539,7 +4533,7 @@ define hidden void @SDL_BindGPUVertexBuffers_REAL(ptr noundef readonly captures(
   br i1 %or.cond, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.231) #7
+  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.231) #6
   br label %.thread
 
 13:                                               ; preds = %8
@@ -4557,7 +4551,7 @@ define hidden void @SDL_BindGPUVertexBuffers_REAL(ptr noundef readonly captures(
   br i1 %22, label %25, label %.preheader
 
 .preheader:                                       ; preds = %19, %.preheader
-  %23 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexBuffers_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUVertexBuffers_REAL, ptr noundef nonnull @.str.8, i32 noundef 1814) #7
+  %23 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexBuffers_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUVertexBuffers_REAL, ptr noundef nonnull @.str.8, i32 noundef 1814) #6
   switch i32 %23, label %.thread [
     i32 0, label %.preheader
     i32 1, label %24
@@ -4570,7 +4564,7 @@ define hidden void @SDL_BindGPUVertexBuffers_REAL(ptr noundef readonly captures(
 25:                                               ; preds = %19, %13
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 216
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull %14, i32 noundef %1, ptr noundef %2, i32 noundef %3) #7
+  tail call void %27(ptr noundef nonnull %14, i32 noundef %1, ptr noundef %2, i32 noundef %3) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %24, %25, %11, %6
@@ -4583,7 +4577,7 @@ define hidden void @SDL_BindGPUIndexBuffer_REAL(ptr noundef readonly captures(ad
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #7
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
   br label %.thread
 
 7:                                                ; preds = %3
@@ -4591,7 +4585,7 @@ define hidden void @SDL_BindGPUIndexBuffer_REAL(ptr noundef readonly captures(ad
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.232) #7
+  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.232) #6
   br label %.thread
 
 11:                                               ; preds = %7
@@ -4609,7 +4603,7 @@ define hidden void @SDL_BindGPUIndexBuffer_REAL(ptr noundef readonly captures(ad
   br i1 %20, label %23, label %.preheader
 
 .preheader:                                       ; preds = %17, %.preheader
-  %21 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUIndexBuffer_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUIndexBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 1839) #7
+  %21 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUIndexBuffer_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUIndexBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 1839) #6
   switch i32 %21, label %.thread [
     i32 0, label %.preheader
     i32 1, label %22
@@ -4622,7 +4616,7 @@ define hidden void @SDL_BindGPUIndexBuffer_REAL(ptr noundef readonly captures(ad
 23:                                               ; preds = %17, %11
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 224
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull %12, ptr noundef nonnull %1, i32 noundef %2) #7
+  tail call void %25(ptr noundef nonnull %12, ptr noundef nonnull %1, i32 noundef %2) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %22, %23, %9, %5
@@ -4635,7 +4629,7 @@ define hidden void @SDL_BindGPUVertexSamplers_REAL(ptr noundef readonly captures
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #7
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
   br label %.thread
 
 8:                                                ; preds = %4
@@ -4645,7 +4639,7 @@ define hidden void @SDL_BindGPUVertexSamplers_REAL(ptr noundef readonly captures
   br i1 %or.cond, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.233) #7
+  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.233) #6
   br label %.thread
 
 13:                                               ; preds = %8
@@ -4663,7 +4657,7 @@ define hidden void @SDL_BindGPUVertexSamplers_REAL(ptr noundef readonly captures
   br i1 %22, label %25, label %.preheader65
 
 .preheader65:                                     ; preds = %19, %.preheader65
-  %23 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexSamplers_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUVertexSamplers_REAL, ptr noundef nonnull @.str.8, i32 noundef 1864) #7
+  %23 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexSamplers_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUVertexSamplers_REAL, ptr noundef nonnull @.str.8, i32 noundef 1864) #6
   switch i32 %23, label %.thread [
     i32 0, label %.preheader65
     i32 1, label %24
@@ -4708,7 +4702,7 @@ define hidden void @SDL_BindGPUVertexSamplers_REAL(ptr noundef readonly captures
   br i1 %37, label %.preheader62.us, label %.thread53.us
 
 .preheader62.us:                                  ; preds = %33, %.preheader62.us
-  %38 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexSamplers_REAL.sdl_assert_data.235, ptr noundef nonnull @__func__.SDL_BindGPUVertexSamplers_REAL, ptr noundef nonnull @.str.8, i32 noundef 1868) #7
+  %38 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexSamplers_REAL.sdl_assert_data.235, ptr noundef nonnull @__func__.SDL_BindGPUVertexSamplers_REAL, ptr noundef nonnull @.str.8, i32 noundef 1868) #6
   switch i32 %38, label %.thread53.us [
     i32 0, label %.preheader62.us
     i32 1, label %39
@@ -4761,7 +4755,7 @@ define hidden void @SDL_BindGPUVertexSamplers_REAL(ptr noundef readonly captures
   br i1 %50, label %.preheader, label %.thread57
 
 .preheader:                                       ; preds = %47, %.preheader
-  %51 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexSamplers_REAL.sdl_assert_data.238, ptr noundef nonnull @__func__.SDL_BindGPUVertexSamplers_REAL, ptr noundef nonnull @.str.8, i32 noundef 1868) #7
+  %51 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexSamplers_REAL.sdl_assert_data.238, ptr noundef nonnull @__func__.SDL_BindGPUVertexSamplers_REAL, ptr noundef nonnull @.str.8, i32 noundef 1868) #6
   switch i32 %51, label %.thread57 [
     i32 0, label %.preheader
     i32 1, label %52
@@ -4781,7 +4775,7 @@ define hidden void @SDL_BindGPUVertexSamplers_REAL(ptr noundef readonly captures
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 232
   %56 = load ptr, ptr %55, align 8
-  tail call void %56(ptr noundef nonnull %53, i32 noundef %1, ptr noundef %2, i32 noundef %3) #7
+  tail call void %56(ptr noundef nonnull %53, i32 noundef %1, ptr noundef %2, i32 noundef %3) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader65, %24, %.loopexit, %11, %6
@@ -4794,7 +4788,7 @@ define hidden void @SDL_BindGPUVertexStorageTextures_REAL(ptr noundef readonly c
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #7
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
   br label %.thread
 
 8:                                                ; preds = %4
@@ -4804,7 +4798,7 @@ define hidden void @SDL_BindGPUVertexStorageTextures_REAL(ptr noundef readonly c
   br i1 %or.cond, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.240) #7
+  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.240) #6
   br label %.thread
 
 13:                                               ; preds = %8
@@ -4850,7 +4844,7 @@ define hidden void @SDL_BindGPUVertexStorageTextures_REAL(ptr noundef readonly c
   br i1 %31, label %.preheader61.us, label %.thread52.us
 
 .preheader61.us:                                  ; preds = %27, %.preheader61.us
-  %32 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexStorageTextures_REAL.sdl_assert_data.242, ptr noundef nonnull @__func__.SDL_BindGPUVertexStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 1896) #7
+  %32 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexStorageTextures_REAL.sdl_assert_data.242, ptr noundef nonnull @__func__.SDL_BindGPUVertexStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 1896) #6
   switch i32 %32, label %.thread52.us [
     i32 0, label %.preheader61.us
     i32 1, label %33
@@ -4873,7 +4867,7 @@ define hidden void @SDL_BindGPUVertexStorageTextures_REAL(ptr noundef readonly c
   br i1 %36, label %.preheader62.us, label %.preheader60, !llvm.loop !22
 
 .preheader64:                                     ; preds = %19, %.preheader64
-  %37 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexStorageTextures_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUVertexStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 1895) #7
+  %37 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexStorageTextures_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUVertexStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 1895) #6
   switch i32 %37, label %.thread [
     i32 0, label %.preheader64
     i32 1, label %38
@@ -4914,7 +4908,7 @@ define hidden void @SDL_BindGPUVertexStorageTextures_REAL(ptr noundef readonly c
   br i1 %46, label %.preheader, label %.thread56
 
 .preheader:                                       ; preds = %43, %.preheader
-  %47 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexStorageTextures_REAL.sdl_assert_data.245, ptr noundef nonnull @__func__.SDL_BindGPUVertexStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 1896) #7
+  %47 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexStorageTextures_REAL.sdl_assert_data.245, ptr noundef nonnull @__func__.SDL_BindGPUVertexStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 1896) #6
   switch i32 %47, label %.thread56 [
     i32 0, label %.preheader
     i32 1, label %48
@@ -4934,7 +4928,7 @@ define hidden void @SDL_BindGPUVertexStorageTextures_REAL(ptr noundef readonly c
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 240
   %52 = load ptr, ptr %51, align 8
-  tail call void %52(ptr noundef nonnull %49, i32 noundef %1, ptr noundef %2, i32 noundef %3) #7
+  tail call void %52(ptr noundef nonnull %49, i32 noundef %1, ptr noundef %2, i32 noundef %3) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader64, %38, %.loopexit, %11, %6
@@ -4947,7 +4941,7 @@ define hidden void @SDL_BindGPUVertexStorageBuffers_REAL(ptr noundef readonly ca
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #7
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
   br label %.thread
 
 8:                                                ; preds = %4
@@ -4957,7 +4951,7 @@ define hidden void @SDL_BindGPUVertexStorageBuffers_REAL(ptr noundef readonly ca
   br i1 %or.cond, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.247) #7
+  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.247) #6
   br label %.thread
 
 13:                                               ; preds = %8
@@ -4975,7 +4969,7 @@ define hidden void @SDL_BindGPUVertexStorageBuffers_REAL(ptr noundef readonly ca
   br i1 %22, label %25, label %.preheader
 
 .preheader:                                       ; preds = %19, %.preheader
-  %23 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexStorageBuffers_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUVertexStorageBuffers_REAL, ptr noundef nonnull @.str.8, i32 noundef 1922) #7
+  %23 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexStorageBuffers_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUVertexStorageBuffers_REAL, ptr noundef nonnull @.str.8, i32 noundef 1922) #6
   switch i32 %23, label %.thread [
     i32 0, label %.preheader
     i32 1, label %24
@@ -4988,7 +4982,7 @@ define hidden void @SDL_BindGPUVertexStorageBuffers_REAL(ptr noundef readonly ca
 25:                                               ; preds = %19, %13
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 248
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull %14, i32 noundef %1, ptr noundef %2, i32 noundef %3) #7
+  tail call void %27(ptr noundef nonnull %14, i32 noundef %1, ptr noundef %2, i32 noundef %3) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %24, %25, %11, %6
@@ -5001,7 +4995,7 @@ define hidden void @SDL_BindGPUFragmentStorageTextures_REAL(ptr noundef readonly
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #7
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
   br label %.thread
 
 8:                                                ; preds = %4
@@ -5011,7 +5005,7 @@ define hidden void @SDL_BindGPUFragmentStorageTextures_REAL(ptr noundef readonly
   br i1 %or.cond, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.240) #7
+  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.240) #6
   br label %.thread
 
 13:                                               ; preds = %8
@@ -5057,7 +5051,7 @@ define hidden void @SDL_BindGPUFragmentStorageTextures_REAL(ptr noundef readonly
   br i1 %31, label %.preheader61.us, label %.thread52.us
 
 .preheader61.us:                                  ; preds = %27, %.preheader61.us
-  %32 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUFragmentStorageTextures_REAL.sdl_assert_data.250, ptr noundef nonnull @__func__.SDL_BindGPUFragmentStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 1980) #7
+  %32 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUFragmentStorageTextures_REAL.sdl_assert_data.250, ptr noundef nonnull @__func__.SDL_BindGPUFragmentStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 1980) #6
   switch i32 %32, label %.thread52.us [
     i32 0, label %.preheader61.us
     i32 1, label %33
@@ -5080,7 +5074,7 @@ define hidden void @SDL_BindGPUFragmentStorageTextures_REAL(ptr noundef readonly
   br i1 %36, label %.preheader62.us, label %.preheader60, !llvm.loop !25
 
 .preheader64:                                     ; preds = %19, %.preheader64
-  %37 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUFragmentStorageTextures_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUFragmentStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 1979) #7
+  %37 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUFragmentStorageTextures_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUFragmentStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 1979) #6
   switch i32 %37, label %.thread [
     i32 0, label %.preheader64
     i32 1, label %38
@@ -5121,7 +5115,7 @@ define hidden void @SDL_BindGPUFragmentStorageTextures_REAL(ptr noundef readonly
   br i1 %46, label %.preheader, label %.thread56
 
 .preheader:                                       ; preds = %43, %.preheader
-  %47 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUFragmentStorageTextures_REAL.sdl_assert_data.251, ptr noundef nonnull @__func__.SDL_BindGPUFragmentStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 1980) #7
+  %47 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUFragmentStorageTextures_REAL.sdl_assert_data.251, ptr noundef nonnull @__func__.SDL_BindGPUFragmentStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 1980) #6
   switch i32 %47, label %.thread56 [
     i32 0, label %.preheader
     i32 1, label %48
@@ -5141,7 +5135,7 @@ define hidden void @SDL_BindGPUFragmentStorageTextures_REAL(ptr noundef readonly
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 264
   %52 = load ptr, ptr %51, align 8
-  tail call void %52(ptr noundef nonnull %49, i32 noundef %1, ptr noundef %2, i32 noundef %3) #7
+  tail call void %52(ptr noundef nonnull %49, i32 noundef %1, ptr noundef %2, i32 noundef %3) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader64, %38, %.loopexit, %11, %6
@@ -5154,7 +5148,7 @@ define hidden void @SDL_BindGPUFragmentStorageBuffers_REAL(ptr noundef readonly 
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #7
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
   br label %.thread
 
 8:                                                ; preds = %4
@@ -5164,7 +5158,7 @@ define hidden void @SDL_BindGPUFragmentStorageBuffers_REAL(ptr noundef readonly 
   br i1 %or.cond, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.247) #7
+  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.247) #6
   br label %.thread
 
 13:                                               ; preds = %8
@@ -5182,7 +5176,7 @@ define hidden void @SDL_BindGPUFragmentStorageBuffers_REAL(ptr noundef readonly 
   br i1 %22, label %25, label %.preheader
 
 .preheader:                                       ; preds = %19, %.preheader
-  %23 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUFragmentStorageBuffers_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUFragmentStorageBuffers_REAL, ptr noundef nonnull @.str.8, i32 noundef 2006) #7
+  %23 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUFragmentStorageBuffers_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUFragmentStorageBuffers_REAL, ptr noundef nonnull @.str.8, i32 noundef 2006) #6
   switch i32 %23, label %.thread [
     i32 0, label %.preheader
     i32 1, label %24
@@ -5195,7 +5189,7 @@ define hidden void @SDL_BindGPUFragmentStorageBuffers_REAL(ptr noundef readonly 
 25:                                               ; preds = %19, %13
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 272
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull %14, i32 noundef %1, ptr noundef %2, i32 noundef %3) #7
+  tail call void %27(ptr noundef nonnull %14, i32 noundef %1, ptr noundef %2, i32 noundef %3) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %24, %25, %11, %6
@@ -5208,7 +5202,7 @@ define hidden void @SDL_DrawGPUIndexedPrimitives_REAL(ptr noundef readonly captu
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #7
+  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
   br label %.thread
 
 10:                                               ; preds = %6
@@ -5226,7 +5220,7 @@ define hidden void @SDL_DrawGPUIndexedPrimitives_REAL(ptr noundef readonly captu
   br i1 %19, label %22, label %.preheader28
 
 .preheader28:                                     ; preds = %16, %.preheader28
-  %20 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUIndexedPrimitives_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DrawGPUIndexedPrimitives_REAL, ptr noundef nonnull @.str.8, i32 noundef 2030) #7
+  %20 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUIndexedPrimitives_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DrawGPUIndexedPrimitives_REAL, ptr noundef nonnull @.str.8, i32 noundef 2030) #6
   switch i32 %20, label %.thread [
     i32 0, label %.preheader28
     i32 1, label %21
@@ -5243,7 +5237,7 @@ define hidden void @SDL_DrawGPUIndexedPrimitives_REAL(ptr noundef readonly captu
   br i1 %25, label %28, label %.preheader
 
 .preheader:                                       ; preds = %22, %.preheader
-  %26 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUIndexedPrimitives_REAL.sdl_assert_data.253, ptr noundef nonnull @__func__.SDL_DrawGPUIndexedPrimitives_REAL, ptr noundef nonnull @.str.8, i32 noundef 2031) #7
+  %26 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUIndexedPrimitives_REAL.sdl_assert_data.253, ptr noundef nonnull @__func__.SDL_DrawGPUIndexedPrimitives_REAL, ptr noundef nonnull @.str.8, i32 noundef 2031) #6
   switch i32 %26, label %.thread [
     i32 0, label %.preheader
     i32 1, label %27
@@ -5256,7 +5250,7 @@ define hidden void @SDL_DrawGPUIndexedPrimitives_REAL(ptr noundef readonly captu
 28:                                               ; preds = %22, %10
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 296
   %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull %11, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7
+  tail call void %30(ptr noundef nonnull %11, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader28, %.preheader, %27, %21, %28, %8
@@ -5269,7 +5263,7 @@ define hidden void @SDL_DrawGPUPrimitivesIndirect_REAL(ptr noundef readonly capt
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #7
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
   br label %.thread
 
 8:                                                ; preds = %4
@@ -5277,7 +5271,7 @@ define hidden void @SDL_DrawGPUPrimitivesIndirect_REAL(ptr noundef readonly capt
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.176) #7
+  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.176) #6
   br label %.thread
 
 12:                                               ; preds = %8
@@ -5295,7 +5289,7 @@ define hidden void @SDL_DrawGPUPrimitivesIndirect_REAL(ptr noundef readonly capt
   br i1 %21, label %24, label %.preheader28
 
 .preheader28:                                     ; preds = %18, %.preheader28
-  %22 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUPrimitivesIndirect_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DrawGPUPrimitivesIndirect_REAL, ptr noundef nonnull @.str.8, i32 noundef 2084) #7
+  %22 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUPrimitivesIndirect_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DrawGPUPrimitivesIndirect_REAL, ptr noundef nonnull @.str.8, i32 noundef 2084) #6
   switch i32 %22, label %.thread [
     i32 0, label %.preheader28
     i32 1, label %23
@@ -5312,7 +5306,7 @@ define hidden void @SDL_DrawGPUPrimitivesIndirect_REAL(ptr noundef readonly capt
   br i1 %27, label %30, label %.preheader
 
 .preheader:                                       ; preds = %24, %.preheader
-  %28 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUPrimitivesIndirect_REAL.sdl_assert_data.256, ptr noundef nonnull @__func__.SDL_DrawGPUPrimitivesIndirect_REAL, ptr noundef nonnull @.str.8, i32 noundef 2085) #7
+  %28 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUPrimitivesIndirect_REAL.sdl_assert_data.256, ptr noundef nonnull @__func__.SDL_DrawGPUPrimitivesIndirect_REAL, ptr noundef nonnull @.str.8, i32 noundef 2085) #6
   switch i32 %28, label %.thread [
     i32 0, label %.preheader
     i32 1, label %29
@@ -5325,7 +5319,7 @@ define hidden void @SDL_DrawGPUPrimitivesIndirect_REAL(ptr noundef readonly capt
 30:                                               ; preds = %24, %12
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 312
   %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull %13, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3) #7
+  tail call void %32(ptr noundef nonnull %13, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader28, %.preheader, %29, %23, %30, %10, %6
@@ -5338,7 +5332,7 @@ define hidden void @SDL_DrawGPUIndexedPrimitivesIndirect_REAL(ptr noundef readon
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #7
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.225) #6
   br label %.thread
 
 8:                                                ; preds = %4
@@ -5346,7 +5340,7 @@ define hidden void @SDL_DrawGPUIndexedPrimitivesIndirect_REAL(ptr noundef readon
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.176) #7
+  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.176) #6
   br label %.thread
 
 12:                                               ; preds = %8
@@ -5364,7 +5358,7 @@ define hidden void @SDL_DrawGPUIndexedPrimitivesIndirect_REAL(ptr noundef readon
   br i1 %21, label %24, label %.preheader28
 
 .preheader28:                                     ; preds = %18, %.preheader28
-  %22 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUIndexedPrimitivesIndirect_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DrawGPUIndexedPrimitivesIndirect_REAL, ptr noundef nonnull @.str.8, i32 noundef 2111) #7
+  %22 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUIndexedPrimitivesIndirect_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DrawGPUIndexedPrimitivesIndirect_REAL, ptr noundef nonnull @.str.8, i32 noundef 2111) #6
   switch i32 %22, label %.thread [
     i32 0, label %.preheader28
     i32 1, label %23
@@ -5381,7 +5375,7 @@ define hidden void @SDL_DrawGPUIndexedPrimitivesIndirect_REAL(ptr noundef readon
   br i1 %27, label %30, label %.preheader
 
 .preheader:                                       ; preds = %24, %.preheader
-  %28 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUIndexedPrimitivesIndirect_REAL.sdl_assert_data.257, ptr noundef nonnull @__func__.SDL_DrawGPUIndexedPrimitivesIndirect_REAL, ptr noundef nonnull @.str.8, i32 noundef 2112) #7
+  %28 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DrawGPUIndexedPrimitivesIndirect_REAL.sdl_assert_data.257, ptr noundef nonnull @__func__.SDL_DrawGPUIndexedPrimitivesIndirect_REAL, ptr noundef nonnull @.str.8, i32 noundef 2112) #6
   switch i32 %28, label %.thread [
     i32 0, label %.preheader
     i32 1, label %29
@@ -5394,7 +5388,7 @@ define hidden void @SDL_DrawGPUIndexedPrimitivesIndirect_REAL(ptr noundef readon
 30:                                               ; preds = %24, %12
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 320
   %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull %13, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3) #7
+  tail call void %32(ptr noundef nonnull %13, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader28, %.preheader, %29, %23, %30, %10, %6
@@ -5407,7 +5401,7 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #7
+  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #6
   br label %.critedge
 
 9:                                                ; preds = %5
@@ -5417,7 +5411,7 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
   br i1 %or.cond, label %12, label %14
 
 12:                                               ; preds = %9
-  %13 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.258) #7
+  %13 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.258) #6
   br label %.critedge
 
 14:                                               ; preds = %9
@@ -5427,7 +5421,7 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
   br i1 %or.cond4, label %17, label %19
 
 17:                                               ; preds = %14
-  %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.259) #7
+  %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.259) #6
   br label %.critedge
 
 19:                                               ; preds = %14
@@ -5435,7 +5429,7 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.260) #7
+  %22 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.260) #6
   br label %.critedge
 
 23:                                               ; preds = %19
@@ -5443,7 +5437,7 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %23
-  %26 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.261) #7
+  %26 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.261) #6
   br label %.critedge
 
 27:                                               ; preds = %23
@@ -5460,7 +5454,7 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
   br i1 %35, label %.preheader, label %38
 
 .preheader:                                       ; preds = %32, %.preheader
-  %36 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPUComputePass_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BeginGPUComputePass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2182) #7
+  %36 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPUComputePass_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BeginGPUComputePass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2182) #6
   switch i32 %36, label %.critedge [
     i32 0, label %.preheader
     i32 1, label %37
@@ -5500,7 +5494,7 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
   br label %.lr.ph
 
 50:                                               ; preds = %.preheader124, %50
-  %51 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPUComputePass_REAL.sdl_assert_data.263, ptr noundef nonnull @__func__.SDL_BeginGPUComputePass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2183) #7
+  %51 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPUComputePass_REAL.sdl_assert_data.263, ptr noundef nonnull @__func__.SDL_BeginGPUComputePass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2183) #6
   switch i32 %51, label %.critedge [
     i32 0, label %50
     i32 1, label %52
@@ -5526,7 +5520,7 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
   br i1 %or.cond74, label %.preheader102, label %61
 
 .preheader102:                                    ; preds = %.lr.ph, %.preheader102
-  %59 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPUComputePass_REAL.sdl_assert_data.266, ptr noundef nonnull @__func__.SDL_BeginGPUComputePass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2188) #7
+  %59 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPUComputePass_REAL.sdl_assert_data.266, ptr noundef nonnull @__func__.SDL_BeginGPUComputePass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2188) #6
   switch i32 %59, label %.critedge [
     i32 0, label %.preheader102
     i32 1, label %60
@@ -5545,7 +5539,7 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
   br i1 %.not69, label %68, label %.preheader106
 
 .preheader106:                                    ; preds = %61, %.preheader106
-  %66 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPUComputePass_REAL.sdl_assert_data.269, ptr noundef nonnull @__func__.SDL_BeginGPUComputePass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2193) #7
+  %66 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPUComputePass_REAL.sdl_assert_data.269, ptr noundef nonnull @__func__.SDL_BeginGPUComputePass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2193) #6
   switch i32 %66, label %.critedge [
     i32 0, label %.preheader106
     i32 1, label %67
@@ -5564,7 +5558,7 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
   br i1 %.not70, label %53, label %.preheader104
 
 .preheader104:                                    ; preds = %68, %.preheader104
-  %73 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPUComputePass_REAL.sdl_assert_data.272, ptr noundef nonnull @__func__.SDL_BeginGPUComputePass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2198) #7
+  %73 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPUComputePass_REAL.sdl_assert_data.272, ptr noundef nonnull @__func__.SDL_BeginGPUComputePass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2198) #6
   switch i32 %73, label %.critedge [
     i32 0, label %.preheader104
     i32 1, label %74
@@ -5577,7 +5571,7 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
 .critedge81:                                      ; preds = %53, %.preheader108, %27
   %75 = getelementptr inbounds nuw i8, ptr %28, i64 336
   %76 = load ptr, ptr %75, align 8
-  tail call void %76(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #7
+  tail call void %76(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #6
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i8 1, ptr %78, align 8
@@ -5594,7 +5588,7 @@ define hidden void @SDL_BindGPUComputePipeline_REAL(ptr noundef readonly capture
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.274) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.274) #6
   br label %.thread
 
 6:                                                ; preds = %2
@@ -5602,7 +5596,7 @@ define hidden void @SDL_BindGPUComputePipeline_REAL(ptr noundef readonly capture
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.275) #7
+  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.275) #6
   br label %.thread
 
 10:                                               ; preds = %6
@@ -5620,7 +5614,7 @@ define hidden void @SDL_BindGPUComputePipeline_REAL(ptr noundef readonly capture
   br i1 %19, label %22, label %.preheader
 
 .preheader:                                       ; preds = %16, %.preheader
-  %20 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUComputePipeline_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUComputePipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 2234) #7
+  %20 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUComputePipeline_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUComputePipeline_REAL, ptr noundef nonnull @.str.8, i32 noundef 2234) #6
   switch i32 %20, label %.thread [
     i32 0, label %.preheader
     i32 1, label %21
@@ -5633,7 +5627,7 @@ define hidden void @SDL_BindGPUComputePipeline_REAL(ptr noundef readonly capture
 22:                                               ; preds = %16, %10
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 344
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull %11, ptr noundef nonnull %1) #7
+  tail call void %24(ptr noundef nonnull %11, ptr noundef nonnull %1) #6
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   store i8 1, ptr %26, align 8
@@ -5649,7 +5643,7 @@ define hidden void @SDL_BindGPUComputeSamplers_REAL(ptr noundef readonly capture
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.274) #7
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.274) #6
   br label %.thread
 
 8:                                                ; preds = %4
@@ -5659,7 +5653,7 @@ define hidden void @SDL_BindGPUComputeSamplers_REAL(ptr noundef readonly capture
   br i1 %or.cond, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.233) #7
+  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.233) #6
   br label %.thread
 
 13:                                               ; preds = %8
@@ -5677,7 +5671,7 @@ define hidden void @SDL_BindGPUComputeSamplers_REAL(ptr noundef readonly capture
   br i1 %22, label %25, label %.preheader
 
 .preheader:                                       ; preds = %19, %.preheader
-  %23 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUComputeSamplers_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUComputeSamplers_REAL, ptr noundef nonnull @.str.8, i32 noundef 2261) #7
+  %23 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUComputeSamplers_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUComputeSamplers_REAL, ptr noundef nonnull @.str.8, i32 noundef 2261) #6
   switch i32 %23, label %.thread [
     i32 0, label %.preheader
     i32 1, label %24
@@ -5690,7 +5684,7 @@ define hidden void @SDL_BindGPUComputeSamplers_REAL(ptr noundef readonly capture
 25:                                               ; preds = %19, %13
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 352
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull %14, i32 noundef %1, ptr noundef %2, i32 noundef %3) #7
+  tail call void %27(ptr noundef nonnull %14, i32 noundef %1, ptr noundef %2, i32 noundef %3) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %24, %25, %11, %6
@@ -5703,7 +5697,7 @@ define hidden void @SDL_BindGPUComputeStorageTextures_REAL(ptr noundef readonly 
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.274) #7
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.274) #6
   br label %.thread
 
 8:                                                ; preds = %4
@@ -5713,7 +5707,7 @@ define hidden void @SDL_BindGPUComputeStorageTextures_REAL(ptr noundef readonly 
   br i1 %or.cond, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.240) #7
+  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.240) #6
   br label %.thread
 
 13:                                               ; preds = %8
@@ -5731,7 +5725,7 @@ define hidden void @SDL_BindGPUComputeStorageTextures_REAL(ptr noundef readonly 
   br i1 %22, label %25, label %.preheader
 
 .preheader:                                       ; preds = %19, %.preheader
-  %23 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUComputeStorageTextures_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUComputeStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 2287) #7
+  %23 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUComputeStorageTextures_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUComputeStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 2287) #6
   switch i32 %23, label %.thread [
     i32 0, label %.preheader
     i32 1, label %24
@@ -5744,7 +5738,7 @@ define hidden void @SDL_BindGPUComputeStorageTextures_REAL(ptr noundef readonly 
 25:                                               ; preds = %19, %13
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 360
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull %14, i32 noundef %1, ptr noundef %2, i32 noundef %3) #7
+  tail call void %27(ptr noundef nonnull %14, i32 noundef %1, ptr noundef %2, i32 noundef %3) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %24, %25, %11, %6
@@ -5757,7 +5751,7 @@ define hidden void @SDL_BindGPUComputeStorageBuffers_REAL(ptr noundef readonly c
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.274) #7
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.274) #6
   br label %.thread
 
 8:                                                ; preds = %4
@@ -5767,7 +5761,7 @@ define hidden void @SDL_BindGPUComputeStorageBuffers_REAL(ptr noundef readonly c
   br i1 %or.cond, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.247) #7
+  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.247) #6
   br label %.thread
 
 13:                                               ; preds = %8
@@ -5785,7 +5779,7 @@ define hidden void @SDL_BindGPUComputeStorageBuffers_REAL(ptr noundef readonly c
   br i1 %22, label %25, label %.preheader
 
 .preheader:                                       ; preds = %19, %.preheader
-  %23 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUComputeStorageBuffers_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUComputeStorageBuffers_REAL, ptr noundef nonnull @.str.8, i32 noundef 2313) #7
+  %23 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUComputeStorageBuffers_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUComputeStorageBuffers_REAL, ptr noundef nonnull @.str.8, i32 noundef 2313) #6
   switch i32 %23, label %.thread [
     i32 0, label %.preheader
     i32 1, label %24
@@ -5798,7 +5792,7 @@ define hidden void @SDL_BindGPUComputeStorageBuffers_REAL(ptr noundef readonly c
 25:                                               ; preds = %19, %13
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 368
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull %14, i32 noundef %1, ptr noundef %2, i32 noundef %3) #7
+  tail call void %27(ptr noundef nonnull %14, i32 noundef %1, ptr noundef %2, i32 noundef %3) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %24, %25, %11, %6
@@ -5811,7 +5805,7 @@ define hidden void @SDL_DispatchGPUCompute_REAL(ptr noundef readonly captures(ad
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.274) #7
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.274) #6
   br label %.thread
 
 8:                                                ; preds = %4
@@ -5829,7 +5823,7 @@ define hidden void @SDL_DispatchGPUCompute_REAL(ptr noundef readonly captures(ad
   br i1 %17, label %20, label %.preheader26
 
 .preheader26:                                     ; preds = %14, %.preheader26
-  %18 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DispatchGPUCompute_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DispatchGPUCompute_REAL, ptr noundef nonnull @.str.8, i32 noundef 2335) #7
+  %18 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DispatchGPUCompute_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DispatchGPUCompute_REAL, ptr noundef nonnull @.str.8, i32 noundef 2335) #6
   switch i32 %18, label %.thread [
     i32 0, label %.preheader26
     i32 1, label %19
@@ -5846,7 +5840,7 @@ define hidden void @SDL_DispatchGPUCompute_REAL(ptr noundef readonly captures(ad
   br i1 %23, label %26, label %.preheader
 
 .preheader:                                       ; preds = %20, %.preheader
-  %24 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DispatchGPUCompute_REAL.sdl_assert_data.279, ptr noundef nonnull @__func__.SDL_DispatchGPUCompute_REAL, ptr noundef nonnull @.str.8, i32 noundef 2336) #7
+  %24 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DispatchGPUCompute_REAL.sdl_assert_data.279, ptr noundef nonnull @__func__.SDL_DispatchGPUCompute_REAL, ptr noundef nonnull @.str.8, i32 noundef 2336) #6
   switch i32 %24, label %.thread [
     i32 0, label %.preheader
     i32 1, label %25
@@ -5859,7 +5853,7 @@ define hidden void @SDL_DispatchGPUCompute_REAL(ptr noundef readonly captures(ad
 26:                                               ; preds = %20, %8
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 384
   %28 = load ptr, ptr %27, align 8
-  tail call void %28(ptr noundef nonnull %9, i32 noundef %1, i32 noundef %2, i32 noundef %3) #7
+  tail call void %28(ptr noundef nonnull %9, i32 noundef %1, i32 noundef %2, i32 noundef %3) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader26, %.preheader, %25, %19, %26, %6
@@ -5872,7 +5866,7 @@ define hidden void @SDL_DispatchGPUComputeIndirect_REAL(ptr noundef readonly cap
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.274) #7
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.274) #6
   br label %.thread
 
 7:                                                ; preds = %3
@@ -5890,7 +5884,7 @@ define hidden void @SDL_DispatchGPUComputeIndirect_REAL(ptr noundef readonly cap
   br i1 %16, label %19, label %.preheader25
 
 .preheader25:                                     ; preds = %13, %.preheader25
-  %17 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DispatchGPUComputeIndirect_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DispatchGPUComputeIndirect_REAL, ptr noundef nonnull @.str.8, i32 noundef 2357) #7
+  %17 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DispatchGPUComputeIndirect_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DispatchGPUComputeIndirect_REAL, ptr noundef nonnull @.str.8, i32 noundef 2357) #6
   switch i32 %17, label %.thread [
     i32 0, label %.preheader25
     i32 1, label %18
@@ -5907,7 +5901,7 @@ define hidden void @SDL_DispatchGPUComputeIndirect_REAL(ptr noundef readonly cap
   br i1 %22, label %25, label %.preheader
 
 .preheader:                                       ; preds = %19, %.preheader
-  %23 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DispatchGPUComputeIndirect_REAL.sdl_assert_data.281, ptr noundef nonnull @__func__.SDL_DispatchGPUComputeIndirect_REAL, ptr noundef nonnull @.str.8, i32 noundef 2358) #7
+  %23 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DispatchGPUComputeIndirect_REAL.sdl_assert_data.281, ptr noundef nonnull @__func__.SDL_DispatchGPUComputeIndirect_REAL, ptr noundef nonnull @.str.8, i32 noundef 2358) #6
   switch i32 %23, label %.thread [
     i32 0, label %.preheader
     i32 1, label %24
@@ -5920,7 +5914,7 @@ define hidden void @SDL_DispatchGPUComputeIndirect_REAL(ptr noundef readonly cap
 25:                                               ; preds = %19, %7
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 392
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull %8, ptr noundef %1, i32 noundef %2) #7
+  tail call void %27(ptr noundef nonnull %8, ptr noundef %1, i32 noundef %2) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader25, %.preheader, %24, %18, %25, %5
@@ -5933,7 +5927,7 @@ define hidden void @SDL_EndGPUComputePass_REAL(ptr noundef readonly captures(add
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.274) #7
+  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.274) #6
   br label %.thread
 
 5:                                                ; preds = %1
@@ -5951,7 +5945,7 @@ define hidden void @SDL_EndGPUComputePass_REAL(ptr noundef readonly captures(add
   br i1 %14, label %17, label %.preheader
 
 .preheader:                                       ; preds = %11, %.preheader
-  %15 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_EndGPUComputePass_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_EndGPUComputePass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2378) #7
+  %15 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_EndGPUComputePass_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_EndGPUComputePass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2378) #6
   switch i32 %15, label %.thread [
     i32 0, label %.preheader
     i32 1, label %16
@@ -5964,7 +5958,7 @@ define hidden void @SDL_EndGPUComputePass_REAL(ptr noundef readonly captures(add
 17:                                               ; preds = %11, %5
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 400
   %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef nonnull %6) #7
+  tail call void %19(ptr noundef nonnull %6) #6
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 88
   store i8 0, ptr %21, align 8
@@ -5982,7 +5976,7 @@ define hidden ptr @SDL_MapGPUTransferBuffer_REAL(ptr noundef readonly captures(a
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %17
 
 7:                                                ; preds = %3
@@ -5990,7 +5984,7 @@ define hidden ptr @SDL_MapGPUTransferBuffer_REAL(ptr noundef readonly captures(a
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.282) #7
+  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.282) #6
   br label %17
 
 11:                                               ; preds = %7
@@ -5998,7 +5992,7 @@ define hidden ptr @SDL_MapGPUTransferBuffer_REAL(ptr noundef readonly captures(a
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call ptr %13(ptr noundef %15, ptr noundef nonnull %1, i1 noundef zeroext %2) #7
+  %16 = tail call ptr %13(ptr noundef %15, ptr noundef nonnull %1, i1 noundef zeroext %2) #6
   br label %17
 
 17:                                               ; preds = %11, %9, %5
@@ -6012,7 +6006,7 @@ define hidden void @SDL_UnmapGPUTransferBuffer_REAL(ptr noundef readonly capture
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %15
 
 6:                                                ; preds = %2
@@ -6020,7 +6014,7 @@ define hidden void @SDL_UnmapGPUTransferBuffer_REAL(ptr noundef readonly capture
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.282) #7
+  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.282) #6
   br label %15
 
 10:                                               ; preds = %6
@@ -6028,7 +6022,7 @@ define hidden void @SDL_UnmapGPUTransferBuffer_REAL(ptr noundef readonly capture
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %14 = load ptr, ptr %13, align 8
-  tail call void %12(ptr noundef %14, ptr noundef nonnull %1) #7
+  tail call void %12(ptr noundef %14, ptr noundef nonnull %1) #6
   br label %15
 
 15:                                               ; preds = %10, %8, %4
@@ -6041,7 +6035,7 @@ define hidden ptr @SDL_BeginGPUCopyPass_REAL(ptr noundef %0) local_unnamed_addr 
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #7
+  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #6
   br label %.thread
 
 5:                                                ; preds = %1
@@ -6058,7 +6052,7 @@ define hidden ptr @SDL_BeginGPUCopyPass_REAL(ptr noundef %0) local_unnamed_addr 
   br i1 %13, label %.preheader, label %16
 
 .preheader:                                       ; preds = %10, %.preheader
-  %14 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPUCopyPass_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BeginGPUCopyPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2436) #7
+  %14 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPUCopyPass_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BeginGPUCopyPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2436) #6
   switch i32 %14, label %.thread [
     i32 0, label %.preheader
     i32 1, label %15
@@ -6090,7 +6084,7 @@ define hidden ptr @SDL_BeginGPUCopyPass_REAL(ptr noundef %0) local_unnamed_addr 
   br label %28
 
 28:                                               ; preds = %.preheader34, %28
-  %29 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPUCopyPass_REAL.sdl_assert_data.284, ptr noundef nonnull @__func__.SDL_BeginGPUCopyPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2437) #7
+  %29 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPUCopyPass_REAL.sdl_assert_data.284, ptr noundef nonnull @__func__.SDL_BeginGPUCopyPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2437) #6
   switch i32 %29, label %.thread [
     i32 0, label %28
     i32 1, label %30
@@ -6103,7 +6097,7 @@ define hidden ptr @SDL_BeginGPUCopyPass_REAL(ptr noundef %0) local_unnamed_addr 
 31:                                               ; preds = %24, %5
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 424
   %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef nonnull %0) #7
+  tail call void %33(ptr noundef nonnull %0) #6
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i8 1, ptr %35, align 8
@@ -6120,7 +6114,7 @@ define hidden void @SDL_UploadToGPUTexture_REAL(ptr noundef readonly captures(ad
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.286) #7
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.286) #6
   br label %.thread
 
 8:                                                ; preds = %4
@@ -6128,7 +6122,7 @@ define hidden void @SDL_UploadToGPUTexture_REAL(ptr noundef readonly captures(ad
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.287) #7
+  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.287) #6
   br label %.thread
 
 12:                                               ; preds = %8
@@ -6136,7 +6130,7 @@ define hidden void @SDL_UploadToGPUTexture_REAL(ptr noundef readonly captures(ad
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
-  %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.288) #7
+  %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.288) #6
   br label %.thread
 
 16:                                               ; preds = %12
@@ -6154,7 +6148,7 @@ define hidden void @SDL_UploadToGPUTexture_REAL(ptr noundef readonly captures(ad
   br i1 %25, label %28, label %.preheader43
 
 .preheader43:                                     ; preds = %22, %.preheader43
-  %26 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_UploadToGPUTexture_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_UploadToGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2468) #7
+  %26 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_UploadToGPUTexture_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_UploadToGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2468) #6
   switch i32 %26, label %.thread [
     i32 0, label %.preheader43
     i32 1, label %27
@@ -6170,7 +6164,7 @@ define hidden void @SDL_UploadToGPUTexture_REAL(ptr noundef readonly captures(ad
   br i1 %30, label %.preheader, label %33
 
 .preheader:                                       ; preds = %28, %.preheader
-  %31 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_UploadToGPUTexture_REAL.sdl_assert_data.292, ptr noundef nonnull @__func__.SDL_UploadToGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2470) #7
+  %31 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_UploadToGPUTexture_REAL.sdl_assert_data.292, ptr noundef nonnull @__func__.SDL_UploadToGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2470) #6
   switch i32 %31, label %.thread [
     i32 0, label %.preheader
     i32 1, label %32
@@ -6186,7 +6180,7 @@ define hidden void @SDL_UploadToGPUTexture_REAL(ptr noundef readonly captures(ad
   br i1 %35, label %.preheader41, label %38
 
 .preheader41:                                     ; preds = %33, %.preheader41
-  %36 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_UploadToGPUTexture_REAL.sdl_assert_data.295, ptr noundef nonnull @__func__.SDL_UploadToGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2474) #7
+  %36 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_UploadToGPUTexture_REAL.sdl_assert_data.295, ptr noundef nonnull @__func__.SDL_UploadToGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2474) #6
   switch i32 %36, label %.thread [
     i32 0, label %.preheader41
     i32 1, label %37
@@ -6199,7 +6193,7 @@ define hidden void @SDL_UploadToGPUTexture_REAL(ptr noundef readonly captures(ad
 38:                                               ; preds = %33, %16
   %39 = getelementptr inbounds nuw i8, ptr %18, i64 432
   %40 = load ptr, ptr %39, align 8
-  tail call void %40(ptr noundef nonnull %17, ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext %3) #7
+  tail call void %40(ptr noundef nonnull %17, ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext %3) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader43, %.preheader41, %.preheader, %37, %32, %27, %38, %14, %10, %6
@@ -6212,7 +6206,7 @@ define hidden void @SDL_UploadToGPUBuffer_REAL(ptr noundef readonly captures(add
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.286) #7
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.286) #6
   br label %.thread
 
 8:                                                ; preds = %4
@@ -6220,7 +6214,7 @@ define hidden void @SDL_UploadToGPUBuffer_REAL(ptr noundef readonly captures(add
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.287) #7
+  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.287) #6
   br label %.thread
 
 12:                                               ; preds = %8
@@ -6228,7 +6222,7 @@ define hidden void @SDL_UploadToGPUBuffer_REAL(ptr noundef readonly captures(add
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
-  %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.288) #7
+  %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.288) #6
   br label %.thread
 
 16:                                               ; preds = %12
@@ -6246,7 +6240,7 @@ define hidden void @SDL_UploadToGPUBuffer_REAL(ptr noundef readonly captures(add
   br i1 %25, label %28, label %.preheader43
 
 .preheader43:                                     ; preds = %22, %.preheader43
-  %26 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_UploadToGPUBuffer_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_UploadToGPUBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2506) #7
+  %26 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_UploadToGPUBuffer_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_UploadToGPUBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2506) #6
   switch i32 %26, label %.thread [
     i32 0, label %.preheader43
     i32 1, label %27
@@ -6262,7 +6256,7 @@ define hidden void @SDL_UploadToGPUBuffer_REAL(ptr noundef readonly captures(add
   br i1 %30, label %.preheader, label %33
 
 .preheader:                                       ; preds = %28, %.preheader
-  %31 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_UploadToGPUBuffer_REAL.sdl_assert_data.297, ptr noundef nonnull @__func__.SDL_UploadToGPUBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2508) #7
+  %31 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_UploadToGPUBuffer_REAL.sdl_assert_data.297, ptr noundef nonnull @__func__.SDL_UploadToGPUBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2508) #6
   switch i32 %31, label %.thread [
     i32 0, label %.preheader
     i32 1, label %32
@@ -6278,7 +6272,7 @@ define hidden void @SDL_UploadToGPUBuffer_REAL(ptr noundef readonly captures(add
   br i1 %35, label %.preheader41, label %38
 
 .preheader41:                                     ; preds = %33, %.preheader41
-  %36 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_UploadToGPUBuffer_REAL.sdl_assert_data.299, ptr noundef nonnull @__func__.SDL_UploadToGPUBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2512) #7
+  %36 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_UploadToGPUBuffer_REAL.sdl_assert_data.299, ptr noundef nonnull @__func__.SDL_UploadToGPUBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2512) #6
   switch i32 %36, label %.thread [
     i32 0, label %.preheader41
     i32 1, label %37
@@ -6291,7 +6285,7 @@ define hidden void @SDL_UploadToGPUBuffer_REAL(ptr noundef readonly captures(add
 38:                                               ; preds = %33, %16
   %39 = getelementptr inbounds nuw i8, ptr %18, i64 440
   %40 = load ptr, ptr %39, align 8
-  tail call void %40(ptr noundef nonnull %17, ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext %3) #7
+  tail call void %40(ptr noundef nonnull %17, ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext %3) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader43, %.preheader41, %.preheader, %37, %32, %27, %38, %14, %10, %6
@@ -6304,7 +6298,7 @@ define hidden void @SDL_CopyGPUTextureToTexture_REAL(ptr noundef readonly captur
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.286) #7
+  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.286) #6
   br label %.thread
 
 11:                                               ; preds = %7
@@ -6312,7 +6306,7 @@ define hidden void @SDL_CopyGPUTextureToTexture_REAL(ptr noundef readonly captur
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
-  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.287) #7
+  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.287) #6
   br label %.thread
 
 15:                                               ; preds = %11
@@ -6320,7 +6314,7 @@ define hidden void @SDL_CopyGPUTextureToTexture_REAL(ptr noundef readonly captur
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15
-  %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.288) #7
+  %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.288) #6
   br label %.thread
 
 19:                                               ; preds = %15
@@ -6338,7 +6332,7 @@ define hidden void @SDL_CopyGPUTextureToTexture_REAL(ptr noundef readonly captur
   br i1 %28, label %31, label %.preheader69
 
 .preheader69:                                     ; preds = %25, %.preheader69
-  %29 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CopyGPUTextureToTexture_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_CopyGPUTextureToTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2547) #7
+  %29 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CopyGPUTextureToTexture_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_CopyGPUTextureToTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2547) #6
   switch i32 %29, label %.thread [
     i32 0, label %.preheader69
     i32 1, label %30
@@ -6354,7 +6348,7 @@ define hidden void @SDL_CopyGPUTextureToTexture_REAL(ptr noundef readonly captur
   br i1 %33, label %.preheader, label %36
 
 .preheader:                                       ; preds = %31, %.preheader
-  %34 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CopyGPUTextureToTexture_REAL.sdl_assert_data.302, ptr noundef nonnull @__func__.SDL_CopyGPUTextureToTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2549) #7
+  %34 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CopyGPUTextureToTexture_REAL.sdl_assert_data.302, ptr noundef nonnull @__func__.SDL_CopyGPUTextureToTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2549) #6
   switch i32 %34, label %.thread [
     i32 0, label %.preheader
     i32 1, label %35
@@ -6370,7 +6364,7 @@ define hidden void @SDL_CopyGPUTextureToTexture_REAL(ptr noundef readonly captur
   br i1 %38, label %.preheader65, label %41
 
 .preheader65:                                     ; preds = %36, %.preheader65
-  %39 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CopyGPUTextureToTexture_REAL.sdl_assert_data.304, ptr noundef nonnull @__func__.SDL_CopyGPUTextureToTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2553) #7
+  %39 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CopyGPUTextureToTexture_REAL.sdl_assert_data.304, ptr noundef nonnull @__func__.SDL_CopyGPUTextureToTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2553) #6
   switch i32 %39, label %.thread [
     i32 0, label %.preheader65
     i32 1, label %40
@@ -6389,7 +6383,7 @@ define hidden void @SDL_CopyGPUTextureToTexture_REAL(ptr noundef readonly captur
   br i1 %.not.not, label %.thread63, label %.preheader67
 
 .preheader67:                                     ; preds = %41, %.preheader67
-  %46 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CopyGPUTextureToTexture_REAL.sdl_assert_data.306, ptr noundef nonnull @__func__.SDL_CopyGPUTextureToTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2560) #7
+  %46 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CopyGPUTextureToTexture_REAL.sdl_assert_data.306, ptr noundef nonnull @__func__.SDL_CopyGPUTextureToTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2560) #6
   switch i32 %46, label %.thread [
     i32 0, label %.preheader67
     i32 1, label %47
@@ -6402,7 +6396,7 @@ define hidden void @SDL_CopyGPUTextureToTexture_REAL(ptr noundef readonly captur
 .thread63:                                        ; preds = %41, %19
   %48 = getelementptr inbounds nuw i8, ptr %21, i64 448
   %49 = load ptr, ptr %48, align 8
-  tail call void %49(ptr noundef nonnull %20, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) #7
+  tail call void %49(ptr noundef nonnull %20, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader69, %.preheader67, %.preheader65, %.preheader, %47, %40, %35, %30, %.thread63, %17, %13, %9
@@ -6415,7 +6409,7 @@ define hidden void @SDL_CopyGPUBufferToBuffer_REAL(ptr noundef readonly captures
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.286) #7
+  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.286) #6
   br label %.thread
 
 9:                                                ; preds = %5
@@ -6423,7 +6417,7 @@ define hidden void @SDL_CopyGPUBufferToBuffer_REAL(ptr noundef readonly captures
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.287) #7
+  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.287) #6
   br label %.thread
 
 13:                                               ; preds = %9
@@ -6431,7 +6425,7 @@ define hidden void @SDL_CopyGPUBufferToBuffer_REAL(ptr noundef readonly captures
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.288) #7
+  %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.288) #6
   br label %.thread
 
 17:                                               ; preds = %13
@@ -6449,7 +6443,7 @@ define hidden void @SDL_CopyGPUBufferToBuffer_REAL(ptr noundef readonly captures
   br i1 %26, label %29, label %.preheader44
 
 .preheader44:                                     ; preds = %23, %.preheader44
-  %27 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CopyGPUBufferToBuffer_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_CopyGPUBufferToBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2596) #7
+  %27 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CopyGPUBufferToBuffer_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_CopyGPUBufferToBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2596) #6
   switch i32 %27, label %.thread [
     i32 0, label %.preheader44
     i32 1, label %28
@@ -6465,7 +6459,7 @@ define hidden void @SDL_CopyGPUBufferToBuffer_REAL(ptr noundef readonly captures
   br i1 %31, label %.preheader, label %34
 
 .preheader:                                       ; preds = %29, %.preheader
-  %32 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CopyGPUBufferToBuffer_REAL.sdl_assert_data.309, ptr noundef nonnull @__func__.SDL_CopyGPUBufferToBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2598) #7
+  %32 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CopyGPUBufferToBuffer_REAL.sdl_assert_data.309, ptr noundef nonnull @__func__.SDL_CopyGPUBufferToBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2598) #6
   switch i32 %32, label %.thread [
     i32 0, label %.preheader
     i32 1, label %33
@@ -6481,7 +6475,7 @@ define hidden void @SDL_CopyGPUBufferToBuffer_REAL(ptr noundef readonly captures
   br i1 %36, label %.preheader42, label %39
 
 .preheader42:                                     ; preds = %34, %.preheader42
-  %37 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CopyGPUBufferToBuffer_REAL.sdl_assert_data.311, ptr noundef nonnull @__func__.SDL_CopyGPUBufferToBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2602) #7
+  %37 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CopyGPUBufferToBuffer_REAL.sdl_assert_data.311, ptr noundef nonnull @__func__.SDL_CopyGPUBufferToBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2602) #6
   switch i32 %37, label %.thread [
     i32 0, label %.preheader42
     i32 1, label %38
@@ -6494,7 +6488,7 @@ define hidden void @SDL_CopyGPUBufferToBuffer_REAL(ptr noundef readonly captures
 39:                                               ; preds = %34, %17
   %40 = getelementptr inbounds nuw i8, ptr %19, i64 456
   %41 = load ptr, ptr %40, align 8
-  tail call void %41(ptr noundef nonnull %18, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i1 noundef zeroext %4) #7
+  tail call void %41(ptr noundef nonnull %18, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i1 noundef zeroext %4) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader44, %.preheader42, %.preheader, %38, %33, %28, %39, %15, %11, %7
@@ -6507,7 +6501,7 @@ define hidden void @SDL_DownloadFromGPUTexture_REAL(ptr noundef readonly capture
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.286) #7
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.286) #6
   br label %.thread
 
 7:                                                ; preds = %3
@@ -6515,7 +6509,7 @@ define hidden void @SDL_DownloadFromGPUTexture_REAL(ptr noundef readonly capture
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.287) #7
+  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.287) #6
   br label %.thread
 
 11:                                               ; preds = %7
@@ -6523,7 +6517,7 @@ define hidden void @SDL_DownloadFromGPUTexture_REAL(ptr noundef readonly capture
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
-  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.288) #7
+  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.288) #6
   br label %.thread
 
 15:                                               ; preds = %11
@@ -6541,7 +6535,7 @@ define hidden void @SDL_DownloadFromGPUTexture_REAL(ptr noundef readonly capture
   br i1 %24, label %27, label %.preheader42
 
 .preheader42:                                     ; preds = %21, %.preheader42
-  %25 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DownloadFromGPUTexture_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DownloadFromGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2634) #7
+  %25 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DownloadFromGPUTexture_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DownloadFromGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2634) #6
   switch i32 %25, label %.thread [
     i32 0, label %.preheader42
     i32 1, label %26
@@ -6557,7 +6551,7 @@ define hidden void @SDL_DownloadFromGPUTexture_REAL(ptr noundef readonly capture
   br i1 %29, label %.preheader, label %32
 
 .preheader:                                       ; preds = %27, %.preheader
-  %30 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DownloadFromGPUTexture_REAL.sdl_assert_data.312, ptr noundef nonnull @__func__.SDL_DownloadFromGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2636) #7
+  %30 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DownloadFromGPUTexture_REAL.sdl_assert_data.312, ptr noundef nonnull @__func__.SDL_DownloadFromGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2636) #6
   switch i32 %30, label %.thread [
     i32 0, label %.preheader
     i32 1, label %31
@@ -6573,7 +6567,7 @@ define hidden void @SDL_DownloadFromGPUTexture_REAL(ptr noundef readonly capture
   br i1 %34, label %.preheader40, label %37
 
 .preheader40:                                     ; preds = %32, %.preheader40
-  %35 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DownloadFromGPUTexture_REAL.sdl_assert_data.314, ptr noundef nonnull @__func__.SDL_DownloadFromGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2640) #7
+  %35 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DownloadFromGPUTexture_REAL.sdl_assert_data.314, ptr noundef nonnull @__func__.SDL_DownloadFromGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2640) #6
   switch i32 %35, label %.thread [
     i32 0, label %.preheader40
     i32 1, label %36
@@ -6586,7 +6580,7 @@ define hidden void @SDL_DownloadFromGPUTexture_REAL(ptr noundef readonly capture
 37:                                               ; preds = %32, %15
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 472
   %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull %16, ptr noundef nonnull %1, ptr noundef nonnull %2) #7
+  tail call void %39(ptr noundef nonnull %16, ptr noundef nonnull %1, ptr noundef nonnull %2) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader42, %.preheader40, %.preheader, %36, %31, %26, %37, %13, %9, %5
@@ -6599,7 +6593,7 @@ define hidden void @SDL_DownloadFromGPUBuffer_REAL(ptr noundef readonly captures
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.286) #7
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.286) #6
   br label %.thread
 
 7:                                                ; preds = %3
@@ -6607,7 +6601,7 @@ define hidden void @SDL_DownloadFromGPUBuffer_REAL(ptr noundef readonly captures
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.287) #7
+  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.287) #6
   br label %.thread
 
 11:                                               ; preds = %7
@@ -6615,7 +6609,7 @@ define hidden void @SDL_DownloadFromGPUBuffer_REAL(ptr noundef readonly captures
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
-  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.288) #7
+  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.288) #6
   br label %.thread
 
 15:                                               ; preds = %11
@@ -6633,7 +6627,7 @@ define hidden void @SDL_DownloadFromGPUBuffer_REAL(ptr noundef readonly captures
   br i1 %24, label %27, label %.preheader42
 
 .preheader42:                                     ; preds = %21, %.preheader42
-  %25 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DownloadFromGPUBuffer_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DownloadFromGPUBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2670) #7
+  %25 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DownloadFromGPUBuffer_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_DownloadFromGPUBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2670) #6
   switch i32 %25, label %.thread [
     i32 0, label %.preheader42
     i32 1, label %26
@@ -6649,7 +6643,7 @@ define hidden void @SDL_DownloadFromGPUBuffer_REAL(ptr noundef readonly captures
   br i1 %29, label %.preheader, label %32
 
 .preheader:                                       ; preds = %27, %.preheader
-  %30 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DownloadFromGPUBuffer_REAL.sdl_assert_data.316, ptr noundef nonnull @__func__.SDL_DownloadFromGPUBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2672) #7
+  %30 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DownloadFromGPUBuffer_REAL.sdl_assert_data.316, ptr noundef nonnull @__func__.SDL_DownloadFromGPUBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2672) #6
   switch i32 %30, label %.thread [
     i32 0, label %.preheader
     i32 1, label %31
@@ -6665,7 +6659,7 @@ define hidden void @SDL_DownloadFromGPUBuffer_REAL(ptr noundef readonly captures
   br i1 %34, label %.preheader40, label %37
 
 .preheader40:                                     ; preds = %32, %.preheader40
-  %35 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DownloadFromGPUBuffer_REAL.sdl_assert_data.317, ptr noundef nonnull @__func__.SDL_DownloadFromGPUBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2676) #7
+  %35 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_DownloadFromGPUBuffer_REAL.sdl_assert_data.317, ptr noundef nonnull @__func__.SDL_DownloadFromGPUBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 2676) #6
   switch i32 %35, label %.thread [
     i32 0, label %.preheader40
     i32 1, label %36
@@ -6678,7 +6672,7 @@ define hidden void @SDL_DownloadFromGPUBuffer_REAL(ptr noundef readonly captures
 37:                                               ; preds = %32, %15
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 480
   %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull %16, ptr noundef nonnull %1, ptr noundef nonnull %2) #7
+  tail call void %39(ptr noundef nonnull %16, ptr noundef nonnull %1, ptr noundef nonnull %2) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader42, %.preheader40, %.preheader, %36, %31, %26, %37, %13, %9, %5
@@ -6691,7 +6685,7 @@ define hidden void @SDL_EndGPUCopyPass_REAL(ptr noundef readonly captures(addres
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.286) #7
+  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.286) #6
   br label %.thread
 
 5:                                                ; preds = %1
@@ -6709,7 +6703,7 @@ define hidden void @SDL_EndGPUCopyPass_REAL(ptr noundef readonly captures(addres
   br i1 %14, label %17, label %.preheader
 
 .preheader:                                       ; preds = %11, %.preheader
-  %15 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_EndGPUCopyPass_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_EndGPUCopyPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2696) #7
+  %15 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_EndGPUCopyPass_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_EndGPUCopyPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 2696) #6
   switch i32 %15, label %.thread [
     i32 0, label %.preheader
     i32 1, label %16
@@ -6722,7 +6716,7 @@ define hidden void @SDL_EndGPUCopyPass_REAL(ptr noundef readonly captures(addres
 17:                                               ; preds = %11, %5
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 488
   %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef nonnull %6) #7
+  tail call void %19(ptr noundef nonnull %6) #6
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 112
   store i8 0, ptr %21, align 8
@@ -6738,7 +6732,7 @@ define hidden void @SDL_GenerateMipmapsForGPUTexture_REAL(ptr noundef %0, ptr no
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #6
   br label %.thread
 
 6:                                                ; preds = %2
@@ -6746,7 +6740,7 @@ define hidden void @SDL_GenerateMipmapsForGPUTexture_REAL(ptr noundef %0, ptr no
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.178) #7
+  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.178) #6
   br label %.thread
 
 10:                                               ; preds = %6
@@ -6763,7 +6757,7 @@ define hidden void @SDL_GenerateMipmapsForGPUTexture_REAL(ptr noundef %0, ptr no
   br i1 %18, label %.preheader, label %21
 
 .preheader:                                       ; preds = %15, %.preheader
-  %19 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_GenerateMipmapsForGPUTexture_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_GenerateMipmapsForGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2719) #7
+  %19 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_GenerateMipmapsForGPUTexture_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_GenerateMipmapsForGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2719) #6
   switch i32 %19, label %.thread [
     i32 0, label %.preheader
     i32 1, label %20
@@ -6795,7 +6789,7 @@ define hidden void @SDL_GenerateMipmapsForGPUTexture_REAL(ptr noundef %0, ptr no
   br label %33
 
 33:                                               ; preds = %.preheader78, %33
-  %34 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_GenerateMipmapsForGPUTexture_REAL.sdl_assert_data.319, ptr noundef nonnull @__func__.SDL_GenerateMipmapsForGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2720) #7
+  %34 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_GenerateMipmapsForGPUTexture_REAL.sdl_assert_data.319, ptr noundef nonnull @__func__.SDL_GenerateMipmapsForGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2720) #6
   switch i32 %34, label %.thread [
     i32 0, label %33
     i32 1, label %35
@@ -6812,7 +6806,7 @@ define hidden void @SDL_GenerateMipmapsForGPUTexture_REAL(ptr noundef %0, ptr no
   br i1 %39, label %.preheader65, label %42
 
 .preheader65:                                     ; preds = %36, %.preheader65
-  %40 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_GenerateMipmapsForGPUTexture_REAL.sdl_assert_data.322, ptr noundef nonnull @__func__.SDL_GenerateMipmapsForGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2724) #7
+  %40 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_GenerateMipmapsForGPUTexture_REAL.sdl_assert_data.322, ptr noundef nonnull @__func__.SDL_GenerateMipmapsForGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2724) #6
   switch i32 %40, label %.thread [
     i32 0, label %.preheader65
     i32 1, label %41
@@ -6830,7 +6824,7 @@ define hidden void @SDL_GenerateMipmapsForGPUTexture_REAL(ptr noundef %0, ptr no
   br i1 %or.cond.not, label %48, label %.preheader67
 
 .preheader67:                                     ; preds = %42, %.preheader67
-  %46 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_GenerateMipmapsForGPUTexture_REAL.sdl_assert_data.325, ptr noundef nonnull @__func__.SDL_GenerateMipmapsForGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2729) #7
+  %46 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_GenerateMipmapsForGPUTexture_REAL.sdl_assert_data.325, ptr noundef nonnull @__func__.SDL_GenerateMipmapsForGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2729) #6
   switch i32 %46, label %.thread [
     i32 0, label %.preheader67
     i32 1, label %47
@@ -6848,7 +6842,7 @@ define hidden void @SDL_GenerateMipmapsForGPUTexture_REAL(ptr noundef %0, ptr no
 50:                                               ; preds = %48, %10
   %51 = getelementptr inbounds nuw i8, ptr %11, i64 464
   %52 = load ptr, ptr %51, align 8
-  tail call void %52(ptr noundef nonnull %0, ptr noundef nonnull %1) #7
+  tail call void %52(ptr noundef nonnull %0, ptr noundef nonnull %1) #6
   %53 = load ptr, ptr %0, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 684
   %55 = load i8, ptr %54, align 4, !range !5, !noundef !6
@@ -6870,7 +6864,7 @@ define hidden void @SDL_BlitGPUTexture_REAL(ptr noundef %0, ptr noundef %1) loca
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #6
   br label %.thread
 
 6:                                                ; preds = %2
@@ -6878,7 +6872,7 @@ define hidden void @SDL_BlitGPUTexture_REAL(ptr noundef %0, ptr noundef %1) loca
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.327) #7
+  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.327) #6
   br label %.thread
 
 10:                                               ; preds = %6
@@ -6895,7 +6889,7 @@ define hidden void @SDL_BlitGPUTexture_REAL(ptr noundef %0, ptr noundef %1) loca
   br i1 %18, label %.preheader, label %21
 
 .preheader:                                       ; preds = %15, %.preheader
-  %19 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2761) #7
+  %19 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2761) #6
   switch i32 %19, label %.thread [
     i32 0, label %.preheader
     i32 1, label %20
@@ -6927,7 +6921,7 @@ define hidden void @SDL_BlitGPUTexture_REAL(ptr noundef %0, ptr noundef %1) loca
   br label %33
 
 33:                                               ; preds = %.preheader146, %33
-  %34 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.329, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2762) #7
+  %34 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.329, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2762) #6
   switch i32 %34, label %.thread [
     i32 0, label %33
     i32 1, label %35
@@ -6945,7 +6939,7 @@ define hidden void @SDL_BlitGPUTexture_REAL(ptr noundef %0, ptr noundef %1) loca
   br i1 %40, label %.preheader125, label %43
 
 .preheader125:                                    ; preds = %36, %.preheader125
-  %41 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.332, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2770) #7
+  %41 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.332, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2770) #6
   switch i32 %41, label %.thread [
     i32 0, label %.preheader125
     i32 1, label %42
@@ -6960,7 +6954,7 @@ define hidden void @SDL_BlitGPUTexture_REAL(ptr noundef %0, ptr noundef %1) loca
   br i1 %44, label %.preheader127, label %47
 
 .preheader127:                                    ; preds = %43, %.preheader127
-  %45 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.335, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2774) #7
+  %45 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.335, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2774) #6
   switch i32 %45, label %.thread [
     i32 0, label %.preheader127
     i32 1, label %46
@@ -6977,7 +6971,7 @@ define hidden void @SDL_BlitGPUTexture_REAL(ptr noundef %0, ptr noundef %1) loca
   br i1 %.not, label %.preheader133, label %.thread101
 
 .preheader133:                                    ; preds = %47, %.preheader133
-  %50 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.338, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2778) #7
+  %50 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.338, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2778) #6
   switch i32 %50, label %.thread101 [
     i32 0, label %.preheader133
     i32 1, label %51
@@ -6995,7 +6989,7 @@ define hidden void @SDL_BlitGPUTexture_REAL(ptr noundef %0, ptr noundef %1) loca
   br i1 %55, label %.preheader132, label %.thread105
 
 .preheader132:                                    ; preds = %.thread101, %.preheader132
-  %56 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.341, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2782) #7
+  %56 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.341, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2782) #6
   switch i32 %56, label %.thread105 [
     i32 0, label %.preheader132
     i32 1, label %57
@@ -7014,7 +7008,7 @@ define hidden void @SDL_BlitGPUTexture_REAL(ptr noundef %0, ptr noundef %1) loca
   br i1 %61, label %.preheader131, label %.thread109
 
 .preheader131:                                    ; preds = %.thread105, %.preheader131
-  %62 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.344, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2786) #7
+  %62 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.344, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2786) #6
   switch i32 %62, label %.thread109 [
     i32 0, label %.preheader131
     i32 1, label %63
@@ -7033,7 +7027,7 @@ define hidden void @SDL_BlitGPUTexture_REAL(ptr noundef %0, ptr noundef %1) loca
   br i1 %switch.i, label %.preheader130, label %.thread113
 
 .preheader130:                                    ; preds = %.thread109, %.preheader130
-  %66 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.347, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2790) #7
+  %66 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.347, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2790) #6
   switch i32 %66, label %.thread113 [
     i32 0, label %.preheader130
     i32 1, label %67
@@ -7072,7 +7066,7 @@ define hidden void @SDL_BlitGPUTexture_REAL(ptr noundef %0, ptr noundef %1) loca
   br label %83
 
 83:                                               ; preds = %.preheader150, %83
-  %84 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.350, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2794) #7
+  %84 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BlitGPUTexture_REAL.sdl_assert_data.350, ptr noundef nonnull @__func__.SDL_BlitGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2794) #6
   switch i32 %84, label %.thread [
     i32 0, label %83
     i32 1, label %85
@@ -7093,7 +7087,7 @@ define hidden void @SDL_BlitGPUTexture_REAL(ptr noundef %0, ptr noundef %1) loca
   %88 = phi ptr [ %.pre, %._crit_edge ], [ %11, %10 ]
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 496
   %90 = load ptr, ptr %89, align 8
-  tail call void %90(ptr noundef nonnull %0, ptr noundef nonnull %1) #7
+  tail call void %90(ptr noundef nonnull %0, ptr noundef nonnull %1) #6
   br label %.thread
 
 .thread:                                          ; preds = %83, %.preheader127, %.preheader125, %33, %.preheader, %85, %46, %42, %35, %20, %86, %87, %8, %4
@@ -7106,7 +7100,7 @@ define hidden zeroext i1 @SDL_WindowSupportsGPUSwapchainComposition_REAL(ptr nou
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %.thread
 
 7:                                                ; preds = %3
@@ -7114,7 +7108,7 @@ define hidden zeroext i1 @SDL_WindowSupportsGPUSwapchainComposition_REAL(ptr nou
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.352) #7
+  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.352) #6
   br label %.thread
 
 11:                                               ; preds = %7
@@ -7126,7 +7120,7 @@ define hidden zeroext i1 @SDL_WindowSupportsGPUSwapchainComposition_REAL(ptr nou
   br i1 %or.cond, label %.preheader, label %18
 
 .preheader:                                       ; preds = %11, %.preheader
-  %16 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_WindowSupportsGPUSwapchainComposition_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_WindowSupportsGPUSwapchainComposition_REAL, ptr noundef nonnull @.str.8, i32 noundef 2822) #7
+  %16 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_WindowSupportsGPUSwapchainComposition_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_WindowSupportsGPUSwapchainComposition_REAL, ptr noundef nonnull @.str.8, i32 noundef 2822) #6
   switch i32 %16, label %.thread [
     i32 0, label %.preheader
     i32 1, label %17
@@ -7141,7 +7135,7 @@ define hidden zeroext i1 @SDL_WindowSupportsGPUSwapchainComposition_REAL(ptr nou
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call zeroext i1 %20(ptr noundef %22, ptr noundef nonnull %1, i32 noundef %2) #7
+  %23 = tail call zeroext i1 %20(ptr noundef %22, ptr noundef nonnull %1, i32 noundef %2) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %17, %18, %9, %5
@@ -7155,7 +7149,7 @@ define hidden zeroext i1 @SDL_WindowSupportsGPUPresentMode_REAL(ptr noundef read
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %.thread
 
 7:                                                ; preds = %3
@@ -7163,7 +7157,7 @@ define hidden zeroext i1 @SDL_WindowSupportsGPUPresentMode_REAL(ptr noundef read
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.352) #7
+  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.352) #6
   br label %.thread
 
 11:                                               ; preds = %7
@@ -7175,7 +7169,7 @@ define hidden zeroext i1 @SDL_WindowSupportsGPUPresentMode_REAL(ptr noundef read
   br i1 %or.cond, label %.preheader, label %18
 
 .preheader:                                       ; preds = %11, %.preheader
-  %16 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_WindowSupportsGPUPresentMode_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_WindowSupportsGPUPresentMode_REAL, ptr noundef nonnull @.str.8, i32 noundef 2843) #7
+  %16 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_WindowSupportsGPUPresentMode_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_WindowSupportsGPUPresentMode_REAL, ptr noundef nonnull @.str.8, i32 noundef 2843) #6
   switch i32 %16, label %.thread [
     i32 0, label %.preheader
     i32 1, label %17
@@ -7190,7 +7184,7 @@ define hidden zeroext i1 @SDL_WindowSupportsGPUPresentMode_REAL(ptr noundef read
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call zeroext i1 %20(ptr noundef %22, ptr noundef nonnull %1, i32 noundef %2) #7
+  %23 = tail call zeroext i1 %20(ptr noundef %22, ptr noundef nonnull %1, i32 noundef %2) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %17, %18, %9, %5
@@ -7204,7 +7198,7 @@ define hidden zeroext i1 @SDL_ClaimWindowForGPUDevice_REAL(ptr noundef readonly 
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %22
 
 6:                                                ; preds = %2
@@ -7212,7 +7206,7 @@ define hidden zeroext i1 @SDL_ClaimWindowForGPUDevice_REAL(ptr noundef readonly 
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.352) #7
+  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.352) #6
   br label %22
 
 10:                                               ; preds = %6
@@ -7223,7 +7217,7 @@ define hidden zeroext i1 @SDL_ClaimWindowForGPUDevice_REAL(ptr noundef readonly 
   br i1 %.not, label %16, label %14
 
 14:                                               ; preds = %10
-  %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.357) #7
+  %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.357) #6
   br label %22
 
 16:                                               ; preds = %10
@@ -7231,7 +7225,7 @@ define hidden zeroext i1 @SDL_ClaimWindowForGPUDevice_REAL(ptr noundef readonly 
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call zeroext i1 %18(ptr noundef %20, ptr noundef nonnull %1) #7
+  %21 = tail call zeroext i1 %18(ptr noundef %20, ptr noundef nonnull %1) #6
   br label %22
 
 22:                                               ; preds = %16, %14, %8, %4
@@ -7245,7 +7239,7 @@ define hidden void @SDL_ReleaseWindowFromGPUDevice_REAL(ptr noundef readonly cap
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %15
 
 6:                                                ; preds = %2
@@ -7253,7 +7247,7 @@ define hidden void @SDL_ReleaseWindowFromGPUDevice_REAL(ptr noundef readonly cap
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.352) #7
+  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.352) #6
   br label %15
 
 10:                                               ; preds = %6
@@ -7261,7 +7255,7 @@ define hidden void @SDL_ReleaseWindowFromGPUDevice_REAL(ptr noundef readonly cap
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %14 = load ptr, ptr %13, align 8
-  tail call void %12(ptr noundef %14, ptr noundef nonnull %1) #7
+  tail call void %12(ptr noundef %14, ptr noundef nonnull %1) #6
   br label %15
 
 15:                                               ; preds = %10, %8, %4
@@ -7274,7 +7268,7 @@ define hidden zeroext i1 @SDL_SetGPUSwapchainParameters_REAL(ptr noundef readonl
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %.thread
 
 8:                                                ; preds = %4
@@ -7282,7 +7276,7 @@ define hidden zeroext i1 @SDL_SetGPUSwapchainParameters_REAL(ptr noundef readonl
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.352) #7
+  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.352) #6
   br label %.thread
 
 12:                                               ; preds = %8
@@ -7296,7 +7290,7 @@ define hidden zeroext i1 @SDL_SetGPUSwapchainParameters_REAL(ptr noundef readonl
   br i1 %17, label %.preheader, label %20
 
 .preheader:                                       ; preds = %16, %.preheader
-  %18 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SetGPUSwapchainParameters_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_SetGPUSwapchainParameters_REAL, ptr noundef nonnull @.str.8, i32 noundef 2898) #7
+  %18 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SetGPUSwapchainParameters_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_SetGPUSwapchainParameters_REAL, ptr noundef nonnull @.str.8, i32 noundef 2898) #6
   switch i32 %18, label %.thread [
     i32 0, label %.preheader
     i32 1, label %19
@@ -7311,7 +7305,7 @@ define hidden zeroext i1 @SDL_SetGPUSwapchainParameters_REAL(ptr noundef readonl
   br i1 %21, label %.preheader35, label %24
 
 .preheader35:                                     ; preds = %20, %.preheader35
-  %22 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SetGPUSwapchainParameters_REAL.sdl_assert_data.358, ptr noundef nonnull @__func__.SDL_SetGPUSwapchainParameters_REAL, ptr noundef nonnull @.str.8, i32 noundef 2899) #7
+  %22 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SetGPUSwapchainParameters_REAL.sdl_assert_data.358, ptr noundef nonnull @__func__.SDL_SetGPUSwapchainParameters_REAL, ptr noundef nonnull @.str.8, i32 noundef 2899) #6
   switch i32 %22, label %.thread [
     i32 0, label %.preheader35
     i32 1, label %23
@@ -7326,7 +7320,7 @@ define hidden zeroext i1 @SDL_SetGPUSwapchainParameters_REAL(ptr noundef readonl
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call zeroext i1 %26(ptr noundef %28, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3) #7
+  %29 = tail call zeroext i1 %26(ptr noundef %28, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader35, %.preheader, %23, %19, %24, %10, %6
@@ -7340,7 +7334,7 @@ define hidden zeroext i1 @SDL_SetGPUAllowedFramesInFlight_REAL(ptr noundef reado
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %21
 
 6:                                                ; preds = %2
@@ -7353,7 +7347,7 @@ define hidden zeroext i1 @SDL_SetGPUAllowedFramesInFlight_REAL(ptr noundef reado
   br i1 %or.cond17, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %6, %.preheader
-  %11 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SetGPUAllowedFramesInFlight_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_SetGPUAllowedFramesInFlight_REAL, ptr noundef nonnull @.str.8, i32 noundef 2918) #7
+  %11 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SetGPUAllowedFramesInFlight_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_SetGPUAllowedFramesInFlight_REAL, ptr noundef nonnull @.str.8, i32 noundef 2918) #6
   switch i32 %11, label %.thread [
     i32 0, label %.preheader
     i32 1, label %12
@@ -7371,7 +7365,7 @@ define hidden zeroext i1 @SDL_SetGPUAllowedFramesInFlight_REAL(ptr noundef reado
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call zeroext i1 %17(ptr noundef %19, i32 noundef %15) #7
+  %20 = tail call zeroext i1 %17(ptr noundef %19, i32 noundef %15) #6
   br label %21
 
 21:                                               ; preds = %.thread, %4
@@ -7385,7 +7379,7 @@ define hidden i32 @SDL_GetGPUSwapchainTextureFormat_REAL(ptr noundef readonly ca
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %16
 
 6:                                                ; preds = %2
@@ -7393,7 +7387,7 @@ define hidden i32 @SDL_GetGPUSwapchainTextureFormat_REAL(ptr noundef readonly ca
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.352) #7
+  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.352) #6
   br label %16
 
 10:                                               ; preds = %6
@@ -7401,7 +7395,7 @@ define hidden i32 @SDL_GetGPUSwapchainTextureFormat_REAL(ptr noundef readonly ca
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %12(ptr noundef %14, ptr noundef nonnull %1) #7
+  %15 = tail call i32 %12(ptr noundef %14, ptr noundef nonnull %1) #6
   br label %16
 
 16:                                               ; preds = %10, %8, %4
@@ -7415,7 +7409,7 @@ define hidden zeroext i1 @SDL_AcquireGPUSwapchainTexture_REAL(ptr noundef %0, pt
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #7
+  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #6
   br label %.thread
 
 9:                                                ; preds = %5
@@ -7423,7 +7417,7 @@ define hidden zeroext i1 @SDL_AcquireGPUSwapchainTexture_REAL(ptr noundef %0, pt
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.352) #7
+  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.352) #6
   br label %.thread
 
 13:                                               ; preds = %9
@@ -7431,7 +7425,7 @@ define hidden zeroext i1 @SDL_AcquireGPUSwapchainTexture_REAL(ptr noundef %0, pt
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.361) #7
+  %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.361) #6
   br label %.thread
 
 17:                                               ; preds = %13
@@ -7448,7 +7442,7 @@ define hidden zeroext i1 @SDL_AcquireGPUSwapchainTexture_REAL(ptr noundef %0, pt
   br i1 %25, label %.preheader, label %28
 
 .preheader:                                       ; preds = %22, %.preheader
-  %26 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_AcquireGPUSwapchainTexture_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_AcquireGPUSwapchainTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2963) #7
+  %26 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_AcquireGPUSwapchainTexture_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_AcquireGPUSwapchainTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2963) #6
   switch i32 %26, label %.thread [
     i32 0, label %.preheader
     i32 1, label %27
@@ -7480,7 +7474,7 @@ define hidden zeroext i1 @SDL_AcquireGPUSwapchainTexture_REAL(ptr noundef %0, pt
   br label %40
 
 40:                                               ; preds = %.preheader43, %40
-  %41 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_AcquireGPUSwapchainTexture_REAL.sdl_assert_data.363, ptr noundef nonnull @__func__.SDL_AcquireGPUSwapchainTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2964) #7
+  %41 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_AcquireGPUSwapchainTexture_REAL.sdl_assert_data.363, ptr noundef nonnull @__func__.SDL_AcquireGPUSwapchainTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 2964) #6
   switch i32 %41, label %.thread [
     i32 0, label %40
     i32 1, label %42
@@ -7493,7 +7487,7 @@ define hidden zeroext i1 @SDL_AcquireGPUSwapchainTexture_REAL(ptr noundef %0, pt
 43:                                               ; preds = %36, %17
   %44 = getelementptr inbounds nuw i8, ptr %18, i64 568
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call zeroext i1 %45(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4) #7
+  %46 = tail call zeroext i1 %45(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4) #6
   %47 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %.thread, label %48
@@ -7514,7 +7508,7 @@ define hidden zeroext i1 @SDL_WaitForGPUSwapchain_REAL(ptr noundef readonly capt
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %16
 
 6:                                                ; preds = %2
@@ -7522,7 +7516,7 @@ define hidden zeroext i1 @SDL_WaitForGPUSwapchain_REAL(ptr noundef readonly capt
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.352) #7
+  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.352) #6
   br label %16
 
 10:                                               ; preds = %6
@@ -7530,7 +7524,7 @@ define hidden zeroext i1 @SDL_WaitForGPUSwapchain_REAL(ptr noundef readonly capt
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call zeroext i1 %12(ptr noundef %14, ptr noundef nonnull %1) #7
+  %15 = tail call zeroext i1 %12(ptr noundef %14, ptr noundef nonnull %1) #6
   br label %16
 
 16:                                               ; preds = %10, %8, %4
@@ -7544,7 +7538,7 @@ define hidden zeroext i1 @SDL_WaitAndAcquireGPUSwapchainTexture_REAL(ptr noundef
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #7
+  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #6
   br label %.thread
 
 9:                                                ; preds = %5
@@ -7552,7 +7546,7 @@ define hidden zeroext i1 @SDL_WaitAndAcquireGPUSwapchainTexture_REAL(ptr noundef
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.352) #7
+  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.352) #6
   br label %.thread
 
 13:                                               ; preds = %9
@@ -7560,7 +7554,7 @@ define hidden zeroext i1 @SDL_WaitAndAcquireGPUSwapchainTexture_REAL(ptr noundef
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.361) #7
+  %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.361) #6
   br label %.thread
 
 17:                                               ; preds = %13
@@ -7577,7 +7571,7 @@ define hidden zeroext i1 @SDL_WaitAndAcquireGPUSwapchainTexture_REAL(ptr noundef
   br i1 %25, label %.preheader, label %28
 
 .preheader:                                       ; preds = %22, %.preheader
-  %26 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_WaitAndAcquireGPUSwapchainTexture_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_WaitAndAcquireGPUSwapchainTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 3016) #7
+  %26 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_WaitAndAcquireGPUSwapchainTexture_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_WaitAndAcquireGPUSwapchainTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 3016) #6
   switch i32 %26, label %.thread [
     i32 0, label %.preheader
     i32 1, label %27
@@ -7609,7 +7603,7 @@ define hidden zeroext i1 @SDL_WaitAndAcquireGPUSwapchainTexture_REAL(ptr noundef
   br label %40
 
 40:                                               ; preds = %.preheader43, %40
-  %41 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_WaitAndAcquireGPUSwapchainTexture_REAL.sdl_assert_data.365, ptr noundef nonnull @__func__.SDL_WaitAndAcquireGPUSwapchainTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 3017) #7
+  %41 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_WaitAndAcquireGPUSwapchainTexture_REAL.sdl_assert_data.365, ptr noundef nonnull @__func__.SDL_WaitAndAcquireGPUSwapchainTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 3017) #6
   switch i32 %41, label %.thread [
     i32 0, label %40
     i32 1, label %42
@@ -7622,7 +7616,7 @@ define hidden zeroext i1 @SDL_WaitAndAcquireGPUSwapchainTexture_REAL(ptr noundef
 43:                                               ; preds = %36, %17
   %44 = getelementptr inbounds nuw i8, ptr %18, i64 584
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call zeroext i1 %45(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4) #7
+  %46 = tail call zeroext i1 %45(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4) #6
   %47 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %.thread, label %48
@@ -7643,7 +7637,7 @@ define hidden zeroext i1 @SDL_SubmitGPUCommandBuffer_REAL(ptr noundef %0) local_
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #7
+  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #6
   br label %.thread
 
 5:                                                ; preds = %1
@@ -7660,7 +7654,7 @@ define hidden zeroext i1 @SDL_SubmitGPUCommandBuffer_REAL(ptr noundef %0) local_
   br i1 %13, label %.preheader, label %16
 
 .preheader:                                       ; preds = %10, %.preheader
-  %14 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SubmitGPUCommandBuffer_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_SubmitGPUCommandBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 3045) #7
+  %14 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SubmitGPUCommandBuffer_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_SubmitGPUCommandBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 3045) #6
   switch i32 %14, label %.thread [
     i32 0, label %.preheader
     i32 1, label %15
@@ -7692,7 +7686,7 @@ define hidden zeroext i1 @SDL_SubmitGPUCommandBuffer_REAL(ptr noundef %0) local_
   br label %28
 
 28:                                               ; preds = %.preheader33, %28
-  %29 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SubmitGPUCommandBuffer_REAL.sdl_assert_data.367, ptr noundef nonnull @__func__.SDL_SubmitGPUCommandBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 3050) #7
+  %29 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SubmitGPUCommandBuffer_REAL.sdl_assert_data.367, ptr noundef nonnull @__func__.SDL_SubmitGPUCommandBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 3050) #6
   switch i32 %29, label %.thread [
     i32 0, label %28
     i32 1, label %30
@@ -7707,7 +7701,7 @@ define hidden zeroext i1 @SDL_SubmitGPUCommandBuffer_REAL(ptr noundef %0) local_
   store i8 1, ptr %32, align 1
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 592
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call zeroext i1 %34(ptr noundef nonnull %0) #7
+  %35 = tail call zeroext i1 %34(ptr noundef nonnull %0) #6
   br label %.thread
 
 .thread:                                          ; preds = %28, %.preheader, %30, %15, %31, %3
@@ -7721,7 +7715,7 @@ define hidden ptr @SDL_SubmitGPUCommandBufferAndAcquireFence_REAL(ptr noundef %0
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #7
+  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #6
   br label %.thread
 
 5:                                                ; preds = %1
@@ -7738,7 +7732,7 @@ define hidden ptr @SDL_SubmitGPUCommandBufferAndAcquireFence_REAL(ptr noundef %0
   br i1 %13, label %.preheader, label %16
 
 .preheader:                                       ; preds = %10, %.preheader
-  %14 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SubmitGPUCommandBufferAndAcquireFence_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_SubmitGPUCommandBufferAndAcquireFence_REAL, ptr noundef nonnull @.str.8, i32 noundef 3072) #7
+  %14 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SubmitGPUCommandBufferAndAcquireFence_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_SubmitGPUCommandBufferAndAcquireFence_REAL, ptr noundef nonnull @.str.8, i32 noundef 3072) #6
   switch i32 %14, label %.thread [
     i32 0, label %.preheader
     i32 1, label %15
@@ -7770,7 +7764,7 @@ define hidden ptr @SDL_SubmitGPUCommandBufferAndAcquireFence_REAL(ptr noundef %0
   br label %28
 
 28:                                               ; preds = %.preheader33, %28
-  %29 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SubmitGPUCommandBufferAndAcquireFence_REAL.sdl_assert_data.369, ptr noundef nonnull @__func__.SDL_SubmitGPUCommandBufferAndAcquireFence_REAL, ptr noundef nonnull @.str.8, i32 noundef 3077) #7
+  %29 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_SubmitGPUCommandBufferAndAcquireFence_REAL.sdl_assert_data.369, ptr noundef nonnull @__func__.SDL_SubmitGPUCommandBufferAndAcquireFence_REAL, ptr noundef nonnull @.str.8, i32 noundef 3077) #6
   switch i32 %29, label %.thread [
     i32 0, label %28
     i32 1, label %30
@@ -7785,7 +7779,7 @@ define hidden ptr @SDL_SubmitGPUCommandBufferAndAcquireFence_REAL(ptr noundef %0
   store i8 1, ptr %32, align 1
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 600
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call ptr %34(ptr noundef nonnull %0) #7
+  %35 = tail call ptr %34(ptr noundef nonnull %0) #6
   br label %.thread
 
 .thread:                                          ; preds = %28, %.preheader, %30, %15, %31, %3
@@ -7799,7 +7793,7 @@ define hidden zeroext i1 @SDL_CancelGPUCommandBuffer_REAL(ptr noundef %0) local_
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #7
+  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.179) #6
   br label %.thread
 
 5:                                                ; preds = %1
@@ -7816,7 +7810,7 @@ define hidden zeroext i1 @SDL_CancelGPUCommandBuffer_REAL(ptr noundef %0) local_
   br i1 %13, label %.preheader, label %16
 
 .preheader:                                       ; preds = %10, %.preheader
-  %14 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CancelGPUCommandBuffer_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_CancelGPUCommandBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 3100) #7
+  %14 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CancelGPUCommandBuffer_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_CancelGPUCommandBuffer_REAL, ptr noundef nonnull @.str.8, i32 noundef 3100) #6
   switch i32 %14, label %.thread [
     i32 0, label %.preheader
     i32 1, label %15
@@ -7829,7 +7823,7 @@ define hidden zeroext i1 @SDL_CancelGPUCommandBuffer_REAL(ptr noundef %0) local_
 16:                                               ; preds = %10, %5
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 608
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call zeroext i1 %18(ptr noundef nonnull %0) #7
+  %19 = tail call zeroext i1 %18(ptr noundef nonnull %0) #6
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %15, %16, %3
@@ -7843,7 +7837,7 @@ define hidden zeroext i1 @SDL_WaitForGPUIdle_REAL(ptr noundef readonly captures(
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %11
 
 5:                                                ; preds = %1
@@ -7851,7 +7845,7 @@ define hidden zeroext i1 @SDL_WaitForGPUIdle_REAL(ptr noundef readonly captures(
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call zeroext i1 %7(ptr noundef %9) #7
+  %10 = tail call zeroext i1 %7(ptr noundef %9) #6
   br label %11
 
 11:                                               ; preds = %5, %3
@@ -7865,7 +7859,7 @@ define hidden zeroext i1 @SDL_WaitForGPUFences_REAL(ptr noundef readonly capture
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %19
 
 8:                                                ; preds = %4
@@ -7875,7 +7869,7 @@ define hidden zeroext i1 @SDL_WaitForGPUFences_REAL(ptr noundef readonly capture
   br i1 %or.cond, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.372) #7
+  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.372) #6
   br label %19
 
 13:                                               ; preds = %8
@@ -7883,7 +7877,7 @@ define hidden zeroext i1 @SDL_WaitForGPUFences_REAL(ptr noundef readonly capture
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call zeroext i1 %15(ptr noundef %17, i1 noundef zeroext %1, ptr noundef %2, i32 noundef %3) #7
+  %18 = tail call zeroext i1 %15(ptr noundef %17, i1 noundef zeroext %1, ptr noundef %2, i32 noundef %3) #6
   br label %19
 
 19:                                               ; preds = %13, %11, %6
@@ -7897,7 +7891,7 @@ define hidden zeroext i1 @SDL_QueryGPUFence_REAL(ptr noundef readonly captures(a
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %16
 
 6:                                                ; preds = %2
@@ -7905,7 +7899,7 @@ define hidden zeroext i1 @SDL_QueryGPUFence_REAL(ptr noundef readonly captures(a
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.373) #7
+  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.373) #6
   br label %16
 
 10:                                               ; preds = %6
@@ -7913,7 +7907,7 @@ define hidden zeroext i1 @SDL_QueryGPUFence_REAL(ptr noundef readonly captures(a
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call zeroext i1 %12(ptr noundef %14, ptr noundef nonnull %1) #7
+  %15 = tail call zeroext i1 %12(ptr noundef %14, ptr noundef nonnull %1) #6
   br label %16
 
 16:                                               ; preds = %10, %8, %4
@@ -7927,7 +7921,7 @@ define hidden void @SDL_ReleaseGPUFence_REAL(ptr noundef readonly captures(addre
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %13
 
 6:                                                ; preds = %2
@@ -7939,7 +7933,7 @@ define hidden void @SDL_ReleaseGPUFence_REAL(ptr noundef readonly captures(addre
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %12 = load ptr, ptr %11, align 8
-  tail call void %10(ptr noundef %12, ptr noundef nonnull %1) #7
+  tail call void %10(ptr noundef %12, ptr noundef nonnull %1) #6
   br label %13
 
 13:                                               ; preds = %6, %8, %4
@@ -7982,13 +7976,13 @@ define hidden i32 @SDL_CalculateGPUTextureFormatSize_REAL(i32 noundef %0, i32 no
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 13) i32 @Texture_GetBlockWidth(i32 noundef %0) unnamed_addr #10 {
+define internal fastcc range(i32 0, 13) i32 @Texture_GetBlockWidth(i32 noundef %0) unnamed_addr #9 {
   %switch.tableidx = add i32 %0, -1
   %2 = icmp ult i32 %switch.tableidx, 104
   br i1 %2, label %switch.lookup, label %.preheader
 
 .preheader:                                       ; preds = %1, %.preheader
-  %3 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @Texture_GetBlockWidth.sdl_assert_data, ptr noundef nonnull @__func__.Texture_GetBlockWidth, ptr noundef nonnull @.str.386, i32 noundef 224) #7
+  %3 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @Texture_GetBlockWidth.sdl_assert_data, ptr noundef nonnull @__func__.Texture_GetBlockWidth, ptr noundef nonnull @.str.386, i32 noundef 224) #6
   switch i32 %3, label %.thread [
     i32 0, label %.preheader
     i32 1, label %4
@@ -8010,13 +8004,13 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 13) i32 @Texture_GetBlockHeight(i32 noundef %0) unnamed_addr #10 {
+define internal fastcc range(i32 0, 13) i32 @Texture_GetBlockHeight(i32 noundef %0) unnamed_addr #9 {
   %switch.tableidx = add i32 %0, -1
   %2 = icmp ult i32 %switch.tableidx, 104
   br i1 %2, label %switch.lookup, label %.preheader
 
 .preheader:                                       ; preds = %1, %.preheader
-  %3 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @Texture_GetBlockHeight.sdl_assert_data, ptr noundef nonnull @__func__.Texture_GetBlockHeight, ptr noundef nonnull @.str.386, i32 noundef 345) #7
+  %3 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @Texture_GetBlockHeight.sdl_assert_data, ptr noundef nonnull @__func__.Texture_GetBlockHeight, ptr noundef nonnull @.str.386, i32 noundef 345) #6
   switch i32 %3, label %.thread [
     i32 0, label %.preheader
     i32 1, label %4
@@ -8037,30 +8031,36 @@ switch.lookup:                                    ; preds = %1
   ret i32 %.05
 }
 
-declare zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_SetStringProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_SetStringProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @SDL_GetVideoDevice() local_unnamed_addr #3
+declare ptr @SDL_GetVideoDevice() local_unnamed_addr #2
 
-declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SDL_strcasecmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_strcasecmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind allocsize(1) }
 

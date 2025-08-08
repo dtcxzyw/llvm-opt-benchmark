@@ -27,9 +27,9 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef ptr @ZSTDMT_createCCtx_advanced(i32 noundef %0, ptr noundef readonly byval(%struct.ZSTD_customMem) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.ZSTD_customMem, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = add i32 %0, 2
   store i32 %6, ptr %4, align 4, !tbaa !3
   %7 = icmp eq i32 %0, 0
@@ -159,8 +159,8 @@ ZSTDMT_createSeqPool.exit.i:                      ; preds = %49, %35
 
 ZSTDMT_createCCtx_advanced_internal.exit:         ; preds = %3, %8, %ZSTD_customCalloc.exit.i, %ZSTDMT_createSeqPool.exit.i, %77
   %.0.i = phi ptr [ null, %77 ], [ null, %3 ], [ null, %8 ], [ null, %ZSTD_customCalloc.exit.i ], [ %.0.i47.i, %ZSTDMT_createSeqPool.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0.i
 }
 
@@ -341,12 +341,12 @@ define internal fastcc void @ZSTDMT_releaseAllJobResources(ptr noundef captures(
 
 5:                                                ; preds = %1, %ZSTDMT_releaseBuffer.exit
   %.019 = phi i32 [ 0, %1 ], [ %42, %ZSTDMT_releaseBuffer.exit ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.01)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.01)
   %6 = load ptr, ptr %3, align 8, !tbaa !35
   %7 = zext i32 %.019 to i64
   %8 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %6, i64 %7, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !49
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %9 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %6, i64 %7, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false), !tbaa.struct !51
   %10 = load ptr, ptr %4, align 8, !tbaa !37
@@ -406,8 +406,8 @@ ZSTDMT_releaseBuffer.exit:                        ; preds = %5, %23, %33, %35
   %40 = load ptr, ptr %3, align 8, !tbaa !35
   %41 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %40, i64 %7, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0, i64 48, i1 false), !tbaa.struct !51
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.01)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.01)
   %42 = add i32 %.019, 1
   %43 = load i32, ptr %2, align 8, !tbaa !36
   %.not = icmp ugt i32 %42, %43
@@ -727,24 +727,18 @@ define void @ZSTDMT_updateCParams_whileCompressing(ptr noundef captures(none) in
   %7 = load i32, ptr %6, align 4, !tbaa !71
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %7, ptr %8, align 4, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @ZSTD_getCParamsFromCCtxParams(ptr dead_on_unwind nonnull writable sret(%struct.ZSTD_compressionParameters) align 4 %3, ptr noundef %1, i64 noundef -1, i64 noundef 0, i32 noundef 0) #14
   store i32 %5, ptr %3, align 4, !tbaa !73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false), !tbaa.struct !74
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @ZSTD_getCParamsFromCCtxParams(ptr dead_on_unwind writable sret(%struct.ZSTD_compressionParameters) align 4, ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define void @ZSTDMT_getFrameProgression(ptr dead_on_unwind noalias writable writeonly sret(%struct.ZSTD_frameProgression) align 8 captures(none) initializes((32, 36)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -835,10 +829,10 @@ define void @ZSTDMT_getFrameProgression(ptr dead_on_unwind noalias writable writ
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTDMT_toFlushNow(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -908,7 +902,7 @@ define range(i64 -64, 1) i64 @ZSTDMT_initCStream_internal(ptr noundef %0, ptr no
   br i1 %.not.i, label %24, label %ZSTDMT_resize.exit.thread
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %25 = add i32 %16, 2
   store i32 %25, ptr %12, align 4, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 3024
@@ -973,11 +967,11 @@ ZSTDMT_freeJobsTable.exit.i.i:                    ; preds = %43, %42, %30
   br label %49
 
 ZSTDMT_expandJobsTable.exit.i:                    ; preds = %ZSTDMT_freeJobsTable.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %ZSTDMT_resize.exit.thread
 
 49:                                               ; preds = %46, %24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !37
   %52 = shl i32 %16, 1
@@ -992,7 +986,7 @@ ZSTDMT_expandJobsTable.exit.i:                    ; preds = %ZSTDMT_freeJobsTabl
   br i1 %.not.i.i, label %58, label %ZSTDMT_expandBufferPool.exit.thread30.i
 
 58:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %59 = getelementptr inbounds nuw i8, ptr %51, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %59, i64 24, i1 false), !tbaa.struct !11
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 40
@@ -1003,7 +997,7 @@ ZSTDMT_expandJobsTable.exit.i:                    ; preds = %ZSTDMT_freeJobsTabl
   br i1 %63, label %ZSTDMT_expandBufferPool.exit.thread32.i, label %ZSTDMT_expandBufferPool.exit.i
 
 ZSTDMT_expandBufferPool.exit.thread32.i:          ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store ptr null, ptr %50, align 8, !tbaa !37
   br label %ZSTDMT_resize.exit.thread
 
@@ -1012,7 +1006,7 @@ ZSTDMT_expandBufferPool.exit.i:                   ; preds = %58
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 40
   store i64 %61, ptr %65, align 8, !tbaa !39
   %66 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %62) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %ZSTDMT_expandBufferPool.exit.thread30.i
 
 ZSTDMT_expandBufferPool.exit.thread30.i:          ; preds = %ZSTDMT_expandBufferPool.exit.i, %55
@@ -1030,12 +1024,12 @@ ZSTDMT_expandBufferPool.exit.thread30.i:          ; preds = %ZSTDMT_expandBuffer
   br i1 %.not.i24.i, label %ZSTDMT_expandCCtxPool.exit.i, label %ZSTDMT_expandCCtxPool.exit.thread34.i
 
 ZSTDMT_expandCCtxPool.exit.i:                     ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %73, i64 24, i1 false), !tbaa.struct !11
   tail call fastcc void @ZSTDMT_freeCCtxPool(ptr noundef nonnull %68)
   %74 = tail call fastcc ptr @ZSTDMT_createCCtxPool(i32 noundef %16, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %10)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store ptr %74, ptr %67, align 8, !tbaa !38
   %75 = icmp eq ptr %74, null
   br i1 %75, label %ZSTDMT_resize.exit.thread, label %ZSTDMT_expandCCtxPool.exit.thread34.i
@@ -1053,7 +1047,7 @@ ZSTDMT_expandCCtxPool.exit.thread34.i:            ; preds = %ZSTDMT_expandCCtxPo
   br i1 %.not.i.i26.i, label %82, label %ZSTDMT_resize.exit
 
 82:                                               ; preds = %79
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %83 = getelementptr inbounds nuw i8, ptr %77, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %83, i64 24, i1 false), !tbaa.struct !11
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 40
@@ -1064,7 +1058,7 @@ ZSTDMT_expandCCtxPool.exit.thread34.i:            ; preds = %ZSTDMT_expandCCtxPo
   br i1 %87, label %ZSTDMT_expandSeqPool.exit.thread39.i, label %ZSTDMT_expandSeqPool.exit.i
 
 ZSTDMT_expandSeqPool.exit.thread39.i:             ; preds = %82
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr null, ptr %76, align 8, !tbaa !42
   br label %ZSTDMT_resize.exit.thread
 
@@ -1073,7 +1067,7 @@ ZSTDMT_expandSeqPool.exit.i:                      ; preds = %82
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 40
   store i64 %85, ptr %89, align 8, !tbaa !39
   %90 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %86) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ZSTDMT_resize.exit
 
 ZSTDMT_resize.exit:                               ; preds = %79, %ZSTDMT_expandSeqPool.exit.i
@@ -1176,10 +1170,10 @@ ZSTDMT_waitForAllJobsCompleted.exit:              ; preds = %._crit_edge.i, %103
 147:                                              ; preds = %142
   %148 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 3072
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %13, ptr noundef nonnull align 4 dereferenceable(28) %148, i64 28, i1 false), !tbaa.struct !74
   %150 = tail call ptr @ZSTD_createCDict_advanced(ptr noundef nonnull %1, i64 noundef %2, i32 noundef 0, i32 noundef %3, ptr noundef nonnull byval(%struct.ZSTD_compressionParameters) align 8 %13, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %149) #14
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store ptr %150, ptr %144, align 8, !tbaa !47
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 3104
   store ptr %150, ptr %151, align 8, !tbaa !96
@@ -1478,10 +1472,10 @@ ZSTD_customMalloc.exit:                           ; preds = %291, %294
 
 311:                                              ; preds = %307
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 3072
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %14, ptr noundef nonnull align 4 dereferenceable(28) %158, i64 28, i1 false), !tbaa.struct !74
   %313 = tail call ptr @ZSTD_createCDict_advanced(ptr noundef nonnull %1, i64 noundef %2, i32 noundef 1, i32 noundef %3, ptr noundef nonnull byval(%struct.ZSTD_compressionParameters) align 8 %14, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %312) #14
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   store ptr %313, ptr %144, align 8, !tbaa !47
   store ptr %313, ptr %306, align 8, !tbaa !96
   %314 = icmp eq ptr %313, null
@@ -1495,7 +1489,7 @@ ZSTD_customMalloc.exit:                           ; preds = %291, %294
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %318 = load ptr, ptr %317, align 8, !tbaa !42
   %319 = load i64, ptr %234, align 8, !tbaa !103
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %8, ptr noundef nonnull align 8 dereferenceable(224) %5, i64 224, i1 false)
   %320 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %321 = load i32, ptr %320, align 8, !tbaa !100
@@ -1750,7 +1744,7 @@ ZSTD_window_update.exit.i:                        ; preds = %423, %412
   br label %441
 
 ZSTDMT_serialState_reset.exit.thread:             ; preds = %390, %.thread.i
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %ZSTDMT_resize.exit.thread
 
 441:                                              ; preds = %439, %333
@@ -1759,7 +1753,7 @@ ZSTDMT_serialState_reset.exit.thread:             ; preds = %390, %.thread.i
   %443 = and i64 %319, 4294967295
   %444 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store i64 %443, ptr %444, align 8, !tbaa !128
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %ZSTDMT_resize.exit.thread
 
 ZSTDMT_resize.exit.thread:                        ; preds = %ZSTDMT_expandCCtxPool.exit.thread34.i, %ZSTDMT_expandBufferPool.exit.thread30.i, %49, %ZSTDMT_expandSeqPool.exit.thread39.i, %ZSTDMT_expandBufferPool.exit.thread32.i, %ZSTDMT_expandCCtxPool.exit.i, %20, %ZSTDMT_expandJobsTable.exit.i, %441, %ZSTDMT_serialState_reset.exit.thread, %298, %311, %147
@@ -1772,7 +1766,7 @@ declare ptr @ZSTD_createCDict_advanced(ptr noundef, i64 noundef, i32 noundef, i3
 declare i64 @ZSTD_compressBound(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ZSTDMT_nextInputSizeHint(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define i64 @ZSTDMT_nextInputSizeHint(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load i64, ptr %2, align 8, !tbaa !103
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -3059,31 +3053,31 @@ ZSTD_customFree.exit:                             ; preds = %11, %10, %ZSTD_cust
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 declare i64 @ZSTD_CCtxParams_setParameter(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 declare ptr @ZSTD_createCCtx_advanced(ptr noundef byval(%struct.ZSTD_customMem) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #4
+declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_destroy(ptr noundef) local_unnamed_addr #4
+declare i32 @pthread_cond_destroy(ptr noundef) local_unnamed_addr #3
 
 declare i64 @ZSTD_freeCCtx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare i64 @ZSTD_sizeof_CCtx(ptr noundef) local_unnamed_addr #1
 
@@ -3094,10 +3088,10 @@ declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @ZSTD_cycleLog(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 declare void @ZSTD_ldm_adjustParameters(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3108,7 +3102,7 @@ declare i64 @ZSTD_ldm_getMaxNbSeq(ptr noundef byval(%struct.ldmParams_t) align 8
 declare void @ZSTD_ldm_fillHashTable(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @POOL_tryAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3116,7 +3110,7 @@ declare i32 @POOL_tryAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 define internal void @ZSTDMT_compressionJob(ptr noundef %0) #0 {
   %2 = alloca %struct.ZSTD_CCtx_params_s, align 8
   %3 = alloca %struct.RawSeqStore_t, align 8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %2, ptr noundef nonnull align 8 dereferenceable(224) %4, i64 224, i1 false), !tbaa.struct !94
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -3146,7 +3140,7 @@ define internal void @ZSTDMT_compressionJob(ptr noundef %0) #0 {
 
 ZSTDMT_getCCtx.exit:                              ; preds = %10, %18
   %.0.i = phi ptr [ %16, %10 ], [ %21, %18 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %23 = load ptr, ptr %22, align 8, !tbaa !145
   tail call void @llvm.experimental.noalias.scope.decl(metadata !160)
@@ -3718,8 +3712,8 @@ ZSTDMT_releaseCCtx.exit:                          ; preds = %ZSTDMT_releaseSeq.e
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %346 = call i32 @pthread_cond_signal(ptr noundef nonnull %345) #14
   %347 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %339) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -3814,7 +3808,7 @@ declare i64 @ZSTD_compressContinue_public(ptr noundef, ptr noundef, i64 noundef,
 declare void @ZSTD_invalidateRepCodes(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #4
+declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #3
 
 declare i64 @ZSTD_compressEnd_public(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -3825,12 +3819,18 @@ declare i64 @ZSTD_ldm_generateSequences(ptr noundef, ptr noundef, ptr noundef, p
 declare i32 @ZSTD_XXH64_update(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_broadcast(ptr noundef) local_unnamed_addr #4
+declare i32 @pthread_cond_broadcast(ptr noundef) local_unnamed_addr #3
 
 declare void @ZSTD_referenceExternalSequences(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @ZSTD_XXH64_digest(ptr noundef captures(none)) local_unnamed_addr #11
+declare i64 @ZSTD_XXH64_digest(ptr noundef captures(none)) local_unnamed_addr #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12
@@ -3849,16 +3849,16 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #14 = { nounwind }

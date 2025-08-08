@@ -187,18 +187,18 @@ define hidden void @_ZN13G1CodeRootSet3addEP7nmethod(ptr noundef nonnull readonl
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i8 0, ptr %6, align 1
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %13 = load ptr, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = call noundef zeroext i1 @_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE19internal_insert_getIN22G1CodeRootSetHashTable15HashTableLookUpEZNS2_6insertIS5_EEbP6ThreadRT_RKP7nmethodPbSF_E3NOPEEbS8_SA_SE_RT0_SF_SF_(ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %6, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %9
@@ -219,9 +219,9 @@ define hidden void @_ZN13G1CodeRootSet3addEP7nmethod(ptr noundef nonnull readonl
   br label %_ZN22G1CodeRootSetHashTable6insertEP7nmethod.exit
 
 _ZN22G1CodeRootSetHashTable6insertEP7nmethod.exit: ; preds = %18, %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %26
 
 26:                                               ; preds = %_ZN22G1CodeRootSetHashTable6insertEP7nmethod.exit, %2
@@ -289,9 +289,9 @@ define hidden void @_ZN13G1CodeRootSetC2Ev(ptr noundef nonnull writeonly align 8
 _ZN22G1CodeRootSetHashTableC2Ev.exit:             ; preds = %1, %24
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 160
   store volatile i64 0, ptr %29, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN22G1CodeRootSetHashTable5cleanIZNS_5clearEvEUlPP7nmethodE_EEvRT_(ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr %3, ptr %0, align 8
   ret void
 }
@@ -317,14 +317,14 @@ define hidden noundef zeroext i1 @_ZN13G1CodeRootSet6removeEP7nmethod(ptr nounde
   %3 = alloca %struct.anon.22, align 1
   %4 = alloca %"class.G1CodeRootSetHashTable::HashTableLookUp", align 8
   %5 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = call noundef zeroext i1 @_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE15internal_removeIN22G1CodeRootSetHashTable15HashTableLookUpEZNS2_6removeIS5_EEbP6ThreadRT_EUt_EEbS8_SA_RT0_(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %9, label %10, label %_ZN22G1CodeRootSetHashTable6removeEP7nmethod.exit
 
 10:                                               ; preds = %2
@@ -333,7 +333,7 @@ define hidden noundef zeroext i1 @_ZN13G1CodeRootSet6removeEP7nmethod(ptr nounde
   br label %_ZN22G1CodeRootSetHashTable6removeEP7nmethod.exit
 
 _ZN22G1CodeRootSetHashTable6removeEP7nmethod.exit: ; preds = %2, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %9
 }
 
@@ -341,9 +341,9 @@ _ZN22G1CodeRootSetHashTable6removeEP7nmethod.exit: ; preds = %2, %10
 define hidden void @_ZN13G1CodeRootSet11bulk_removeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %class.anon, align 1
   %3 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN22G1CodeRootSetHashTable5cleanIZNS_11bulk_removeEvEUlPP7nmethodE_EEvRT_(ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -455,9 +455,9 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE3getIN22G1Co
 define hidden void @_ZN13G1CodeRootSet5clearEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %class.anon.25, align 1
   %3 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN22G1CodeRootSetHashTable5cleanIZNS_5clearEvEUlPP7nmethodE_EEvRT_(ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -544,8 +544,8 @@ define hidden void @_ZNK13G1CodeRootSet11nmethods_doEP14NMethodClosure(ptr nound
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.28, align 8
   %5 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %7 = load volatile i64, ptr %6, align 8
@@ -559,8 +559,8 @@ define hidden void @_ZNK13G1CodeRootSet11nmethods_doEP14NMethodClosure(ptr nound
   br label %_ZN22G1CodeRootSetHashTable20iterate_at_safepointEP14NMethodClosure.exit
 
 _ZN22G1CodeRootSetHashTable20iterate_at_safepointEP14NMethodClosure.exit: ; preds = %2, %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3566,10 +3566,10 @@ declare i64 @llvm.umax.i64(i64, i64) #10
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

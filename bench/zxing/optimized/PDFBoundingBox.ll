@@ -191,14 +191,8 @@ define void @_ZN5ZXing6Pdf41711BoundingBox21calculateMinMaxValuesEv(ptr noundef 
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox5MergeERKNS_8NullableIS1_EES5_RS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(128) %2) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox5MergeERKNS_8NullableIS1_EES5_RS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(128) %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"class.ZXing::Pdf417::BoundingBox", align 8
   %5 = load i8, ptr %0, align 8, !tbaa !23, !range !11, !noundef !12
   %6 = trunc nuw i8 %5 to i1
@@ -218,7 +212,7 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox5MergeERKNS_8NullableIS1
   br label %104
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5ZXing6Pdf41711BoundingBoxC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %4)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !13
@@ -379,7 +373,7 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox5MergeERKNS_8NullableIS1
 
 _ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread: ; preds = %..thread21_crit_edge.i, %28, %23, %70
   %.0.i17 = phi i1 [ true, %70 ], [ false, %23 ], [ false, %28 ], [ false, %..thread21_crit_edge.i ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %104
 
 104:                                              ; preds = %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread, %11, %7
@@ -393,7 +387,7 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox14AddMissingRowsERKS1_ii
   %.sroa.6 = alloca [7 x i8], align 1
   %.sroa.750 = alloca [7 x i8], align 1
   %.sroa.7 = alloca [7 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.669)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.669)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.067.0.copyload = load i8, ptr %6, align 8
   %.sroa.669.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -402,7 +396,7 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox14AddMissingRowsERKS1_ii
   %.sroa.671.0.copyload = load double, ptr %.sroa.671.0..sroa_idx, align 8
   %.sroa.774.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.774.0.copyload = load double, ptr %.sroa.774.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.058.0.copyload = load i8, ptr %7, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 33
@@ -411,7 +405,7 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox14AddMissingRowsERKS1_ii
   %.sroa.661.0.copyload = load double, ptr %.sroa.661.0..sroa_idx, align 8
   %.sroa.764.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.764.0.copyload = load double, ptr %.sroa.764.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.750)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.750)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.sroa.048.0.copyload = load i8, ptr %8, align 8
   %.sroa.750.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 57
@@ -420,7 +414,7 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox14AddMissingRowsERKS1_ii
   %.sroa.752.0.copyload = load double, ptr %.sroa.752.0..sroa_idx, align 8
   %.sroa.855.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.855.0.copyload = load double, ptr %.sroa.855.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.sroa.040.0.copyload = load i8, ptr %9, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 81
@@ -555,12 +549,18 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox14AddMissingRowsERKS1_ii
 
 _ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit: ; preds = %40, %42, %47
   %.0.i = phi i1 [ true, %47 ], [ false, %40 ], [ false, %42 ]
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.750)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.669)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.750)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.669)
   ret i1 %.0.i
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
@@ -574,11 +574,10 @@ declare i32 @llvm.smin.i32(i32, i32) #5
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2}

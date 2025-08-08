@@ -316,13 +316,13 @@ if.end:                                           ; preds = %if.then, %entry
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 8
   %9 = extractvalue { ptr, i64 } %call12, 1
   store i64 %9, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i), !noalias !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i.i), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i), !noalias !7
   store ptr %ref.tmp11, ptr %ref.tmp.i.i, align 8, !alias.scope !10, !noalias !13
   store ptr %node.addr, ptr %ref.tmp2.i.i, align 8, !alias.scope !16, !noalias !13
   call void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE13insert_uniqueIS7_JRKSt21piecewise_construct_tSt5tupleIJOS7_EESN_IJRS9_EEEEESD_INS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EEbERKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.3") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i), !noalias !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i.i), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i), !noalias !7
   %it.sroa.0.0.copyload = load ptr, ptr %ref.tmp, align 8
   %it.sroa.4.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %it.sroa.4.0.copyload = load i32, ptr %it.sroa.4.0.ref.tmp.sroa_idx, align 8
@@ -534,13 +534,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store ptr %5, ptr %ref.tmp5, align 8
   %6 = extractvalue { ptr, i64 } %call6, 1
   store i64 %6, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i), !noalias !21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i.i), !noalias !21
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !21
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i), !noalias !21
   store ptr %ref.tmp5, ptr %ref.tmp.i.i, align 8, !alias.scope !24, !noalias !27
   store ptr %node.addr, ptr %ref.tmp2.i.i, align 8, !alias.scope !30, !noalias !27
   call void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE13insert_uniqueIS7_JRKSt21piecewise_construct_tSt5tupleIJOS7_EESN_IJRS9_EEEEESD_INS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EEbERKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.3") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(32) %call.sink7.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i), !noalias !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i.i), !noalias !21
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !21
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i), !noalias !21
   %7 = load ptr, ptr %node.addr, align 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %node.addr, align 8
@@ -3824,10 +3824,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #16

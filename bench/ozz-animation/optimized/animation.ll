@@ -529,16 +529,10 @@ _ZN3ozz9fill_spanIfEENS_4spanIT_EERNS1_IhEEm.exit:
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
-
 declare noundef ptr @_ZN3ozz6memory17default_allocatorEv() local_unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3ozz9animation9Animation4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %0) local_unnamed_addr #9 align 2 {
+define dso_local noundef i64 @_ZNK3ozz9animation9Animation4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -614,7 +608,7 @@ define dso_local void @_ZNK3ozz9animation9Animation4SaveERNS_2io8OArchiveE(ptr n
   %19 = alloca i32, align 4
   %20 = alloca float, align 4
   %21 = load float, ptr %0, align 8, !tbaa !64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
   %24 = trunc nuw i8 %23 to i1
@@ -628,10 +622,10 @@ define dso_local void @_ZNK3ozz9animation9Animation4SaveERNS_2io8OArchiveE(ptr n
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = call noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %20, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %35 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
   %36 = trunc nuw i8 %35 to i1
   %.sroa.0.0.insert.insert.i = call i32 @llvm.bswap.i32(i32 %34)
@@ -642,7 +636,7 @@ define dso_local void @_ZNK3ozz9animation9Animation4SaveERNS_2io8OArchiveE(ptr n
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = call noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull %19, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !63
   %.not = icmp eq ptr %43, null
@@ -655,7 +649,7 @@ define dso_local void @_ZNK3ozz9animation9Animation4SaveERNS_2io8OArchiveE(ptr n
 46:                                               ; preds = %2, %44
   %47 = phi i64 [ %45, %44 ], [ 0, %2 ]
   %48 = trunc i64 %47 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %49 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
   %50 = trunc nuw i8 %49 to i1
   %.sroa.0.0.insert.insert.i47 = call i32 @llvm.bswap.i32(i32 %48)
@@ -666,12 +660,12 @@ define dso_local void @_ZNK3ozz9animation9Animation4SaveERNS_2io8OArchiveE(ptr n
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = call noundef i64 %54(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull %18, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %58 = load i64, ptr %57, align 8, !tbaa !20
   %59 = trunc i64 %58 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %60 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
   %61 = trunc nuw i8 %60 to i1
   %.sroa.0.0.insert.insert.i49 = call i32 @llvm.bswap.i32(i32 %59)
@@ -682,12 +676,12 @@ define dso_local void @_ZNK3ozz9animation9Animation4SaveERNS_2io8OArchiveE(ptr n
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8
   %66 = call noundef i64 %65(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull %17, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %69 = load i64, ptr %68, align 8, !tbaa !40
   %70 = trunc i64 %69 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %71 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
   %72 = trunc nuw i8 %71 to i1
   %.sroa.0.0.insert.insert.i51 = call i32 @llvm.bswap.i32(i32 %70)
@@ -698,12 +692,12 @@ define dso_local void @_ZNK3ozz9animation9Animation4SaveERNS_2io8OArchiveE(ptr n
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8
   %77 = call noundef i64 %76(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull %16, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %80 = load i64, ptr %79, align 8, !tbaa !45
   %81 = trunc i64 %80 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %82 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
   %83 = trunc nuw i8 %82 to i1
   %.sroa.0.0.insert.insert.i53 = call i32 @llvm.bswap.i32(i32 %81)
@@ -714,12 +708,12 @@ define dso_local void @_ZNK3ozz9animation9Animation4SaveERNS_2io8OArchiveE(ptr n
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8
   %88 = call noundef i64 %87(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef nonnull %15, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %91 = load i64, ptr %90, align 8, !tbaa !40
   %92 = trunc i64 %91 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %93 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
   %94 = trunc nuw i8 %93 to i1
   %.sroa.0.0.insert.insert.i55 = call i32 @llvm.bswap.i32(i32 %92)
@@ -730,12 +724,12 @@ define dso_local void @_ZNK3ozz9animation9Animation4SaveERNS_2io8OArchiveE(ptr n
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8
   %99 = call noundef i64 %98(ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef nonnull %14, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %102 = load i64, ptr %101, align 8, !tbaa !27
   %103 = trunc i64 %102 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %104 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
   %105 = trunc nuw i8 %104 to i1
   %.sroa.0.0.insert.insert.i57 = call i32 @llvm.bswap.i32(i32 %103)
@@ -746,11 +740,11 @@ define dso_local void @_ZNK3ozz9animation9Animation4SaveERNS_2io8OArchiveE(ptr n
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load ptr, ptr %108, align 8
   %110 = call noundef i64 %109(ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull %13, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %112 = load i64, ptr %111, align 8, !tbaa !33
   %113 = trunc i64 %112 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %114 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
   %115 = trunc nuw i8 %114 to i1
   %.sroa.0.0.insert.insert.i59 = call i32 @llvm.bswap.i32(i32 %113)
@@ -761,12 +755,12 @@ define dso_local void @_ZNK3ozz9animation9Animation4SaveERNS_2io8OArchiveE(ptr n
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load ptr, ptr %118, align 8
   %120 = call noundef i64 %119(ptr noundef nonnull align 8 dereferenceable(8) %116, ptr noundef nonnull %12, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %123 = load i64, ptr %122, align 8, !tbaa !27
   %124 = trunc i64 %123 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %125 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
   %126 = trunc nuw i8 %125 to i1
   %.sroa.0.0.insert.insert.i61 = call i32 @llvm.bswap.i32(i32 %124)
@@ -777,11 +771,11 @@ define dso_local void @_ZNK3ozz9animation9Animation4SaveERNS_2io8OArchiveE(ptr n
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %130 = load ptr, ptr %129, align 8
   %131 = call noundef i64 %130(ptr noundef nonnull align 8 dereferenceable(8) %127, ptr noundef nonnull %11, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %133 = load i64, ptr %132, align 8, !tbaa !33
   %134 = trunc i64 %133 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %135 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
   %136 = trunc nuw i8 %135 to i1
   %.sroa.0.0.insert.insert.i63 = call i32 @llvm.bswap.i32(i32 %134)
@@ -792,12 +786,12 @@ define dso_local void @_ZNK3ozz9animation9Animation4SaveERNS_2io8OArchiveE(ptr n
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %140 = load ptr, ptr %139, align 8
   %141 = call noundef i64 %140(ptr noundef nonnull align 8 dereferenceable(8) %137, ptr noundef nonnull %10, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %144 = load i64, ptr %143, align 8, !tbaa !27
   %145 = trunc i64 %144 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %146 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
   %147 = trunc nuw i8 %146 to i1
   %.sroa.0.0.insert.insert.i65 = call i32 @llvm.bswap.i32(i32 %145)
@@ -808,11 +802,11 @@ define dso_local void @_ZNK3ozz9animation9Animation4SaveERNS_2io8OArchiveE(ptr n
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %151 = load ptr, ptr %150, align 8
   %152 = call noundef i64 %151(ptr noundef nonnull align 8 dereferenceable(8) %148, ptr noundef nonnull %9, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %154 = load i64, ptr %153, align 8, !tbaa !33
   %155 = trunc i64 %154 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %156 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
   %157 = trunc nuw i8 %156 to i1
   %.sroa.0.0.insert.insert.i67 = call i32 @llvm.bswap.i32(i32 %155)
@@ -823,7 +817,7 @@ define dso_local void @_ZNK3ozz9animation9Animation4SaveERNS_2io8OArchiveE(ptr n
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %161 = load ptr, ptr %160, align 8
   %162 = call noundef i64 %161(ptr noundef nonnull align 8 dereferenceable(8) %158, ptr noundef nonnull %8, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %163 = load ptr, ptr %42, align 8, !tbaa !63
   %164 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
   %165 = trunc nuw i8 %164 to i1
@@ -837,14 +831,14 @@ define dso_local void @_ZNK3ozz9animation9Animation4SaveERNS_2io8OArchiveE(ptr n
   %.0.i5.i.i = phi i64 [ %173, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %166 = getelementptr inbounds nuw i8, ptr %163, i64 %.0.i5.i.i
   %167 = load i8, ptr %166, align 1, !tbaa !73
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 %167, ptr %7, align 1, !tbaa !73
   %168 = load ptr, ptr %1, align 8, !tbaa !71
   %169 = load ptr, ptr %168, align 8, !tbaa !48
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %171 = load ptr, ptr %170, align 8
   %172 = call noundef i64 %171(ptr noundef nonnull align 8 dereferenceable(8) %168, ptr noundef nonnull %7, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %173 = add nuw i64 %.0.i5.i.i, 1
   %exitcond.not = icmp eq i64 %173, %47
   br i1 %exitcond.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIcEEEEvRKT_.exit, label %.lr.ph.i.i, !llvm.loop !74
@@ -872,7 +866,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIcEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   %.0.i5.i.i72 = phi i64 [ %194, %.lr.ph.i.i71 ], [ 0, %.preheader.i.i69 ]
   %182 = getelementptr inbounds nuw float, ptr %.sroa.05.0.copyload, i64 %.0.i5.i.i72
   %183 = load float, ptr %182, align 4, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %184 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
   %185 = trunc nuw i8 %184 to i1
   %186 = bitcast float %183 to i32
@@ -885,7 +879,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIcEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
   %192 = load ptr, ptr %191, align 8
   %193 = call noundef i64 %192(ptr noundef nonnull align 8 dereferenceable(8) %189, ptr noundef nonnull %6, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %194 = add nuw i64 %.0.i5.i.i72, 1
   %exitcond109.not = icmp eq i64 %194, %.sroa.26.0.copyload
   br i1 %exitcond109.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit, label %.lr.ph.i.i71, !llvm.loop !76
@@ -916,7 +910,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   %.0.i5.i.i.i.i.i = phi i64 [ %214, %.lr.ph.i.i.i.i.i ], [ 0, %.preheader.i.i.i.i.i ]
   %205 = getelementptr inbounds nuw i16, ptr %.sroa.03.0.copyload, i64 %.0.i5.i.i.i.i.i
   %206 = load i16, ptr %205, align 2, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %207 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
   %208 = trunc nuw i8 %207 to i1
   %.sroa.0.0.insert.insert.i.i.i.i.i.i = call i16 @llvm.bswap.i16(i16 %206)
@@ -927,7 +921,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 16
   %212 = load ptr, ptr %211, align 8
   %213 = call noundef i64 %212(ptr noundef nonnull align 8 dereferenceable(8) %209, ptr noundef nonnull %5, i64 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %214 = add nuw i64 %.0.i5.i.i.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %214, %202
   br i1 %exitcond.not.i.i.i, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRKT_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !79
@@ -958,7 +952,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEv
   %.0.i5.i.i.i.i.i76 = phi i64 [ %234, %.lr.ph.i.i.i.i.i75 ], [ 0, %.preheader.i.i.i.i.i73 ]
   %225 = getelementptr inbounds nuw i16, ptr %.sroa.01.0.copyload, i64 %.0.i5.i.i.i.i.i76
   %226 = load i16, ptr %225, align 2, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %227 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
   %228 = trunc nuw i8 %227 to i1
   %.sroa.0.0.insert.insert.i.i.i.i.i.i77 = call i16 @llvm.bswap.i16(i16 %226)
@@ -969,7 +963,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEv
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 16
   %232 = load ptr, ptr %231, align 8
   %233 = call noundef i64 %232(ptr noundef nonnull align 8 dereferenceable(8) %229, ptr noundef nonnull %4, i64 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %234 = add nuw i64 %.0.i5.i.i.i.i.i76, 1
   %exitcond.not.i.i.i79 = icmp eq i64 %234, %222
   br i1 %exitcond.not.i.i.i79, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRKT_.exit, label %.lr.ph.i.i.i.i.i75, !llvm.loop !79
@@ -1000,7 +994,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal13QuaternionKeyE
   %.0.i5.i.i.i.i.i83 = phi i64 [ %254, %.lr.ph.i.i.i.i.i82 ], [ 0, %.preheader.i.i.i.i.i80 ]
   %245 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload, i64 %.0.i5.i.i.i.i.i83
   %246 = load i16, ptr %245, align 2, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %247 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
   %248 = trunc nuw i8 %247 to i1
   %.sroa.0.0.insert.insert.i.i.i.i.i.i84 = call i16 @llvm.bswap.i16(i16 %246)
@@ -1011,7 +1005,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal13QuaternionKeyE
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 16
   %252 = load ptr, ptr %251, align 8
   %253 = call noundef i64 %252(ptr noundef nonnull align 8 dereferenceable(8) %249, ptr noundef nonnull %3, i64 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %254 = add nuw i64 %.0.i5.i.i.i.i.i83, 1
   %exitcond.not.i.i.i86 = icmp eq i64 %254, %242
   br i1 %exitcond.not.i.i.i86, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRKT_.exit87, label %.lr.ph.i.i.i.i.i82, !llvm.loop !79
@@ -1030,7 +1024,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEv
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3ozz9animation9Animation4LoadERNS_2io8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
@@ -1061,7 +1055,7 @@ define dso_local void @_ZN3ozz9animation9Animation4LoadERNS_2io8IArchiveEj(ptr n
   br i1 %.not, label %52, label %25
 
 25:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @_ZN3ozz3log3ErrC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %17)
   %26 = load ptr, ptr %17, align 8, !tbaa !80
   %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str, i64 noundef 30)
@@ -1126,19 +1120,19 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc60, %40
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc62
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %17) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %270
 
 50:                                               ; preds = %.noexc62, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i, %.noexc60, %43, %37, %_ZNSolsEj.exit, %_ZN3ozz3log6LoggerlsIA31_cEERSoRKT_.exit, %25
   %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %17) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   resume { ptr, i32 } %51
 
 52:                                               ; preds = %3
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %54 = load ptr, ptr %1, align 8, !tbaa !101
   %55 = load ptr, ptr %54, align 8, !tbaa !48
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
@@ -1151,8 +1145,8 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc62
   %.1.insert.insert15.i = call i32 @llvm.bswap.i32(i32 %62)
   %.v.i = select i1 %61, i32 %.1.insert.insert15.i, i32 %62
   store i32 %.v.i, ptr %0, align 8, !tbaa !8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %63 = load ptr, ptr %1, align 8, !tbaa !101
   %64 = load ptr, ptr %63, align 8, !tbaa !48
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
@@ -1163,9 +1157,9 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc62
   %70 = load i32, ptr %15, align 4
   %.sroa.0.0.insert.insert.i = call i32 @llvm.bswap.i32(i32 %70)
   %71 = select i1 %69, i32 %.sroa.0.0.insert.insert.i, i32 %70
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   store i32 %71, ptr %53, align 4, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %72 = load ptr, ptr %1, align 8, !tbaa !101
   %73 = load ptr, ptr %72, align 8, !tbaa !48
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -1176,8 +1170,8 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc62
   %79 = load i32, ptr %14, align 4
   %.sroa.0.0.insert.insert.i40 = call i32 @llvm.bswap.i32(i32 %79)
   %80 = select i1 %78, i32 %.sroa.0.0.insert.insert.i40, i32 %79
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %81 = load ptr, ptr %1, align 8, !tbaa !101
   %82 = load ptr, ptr %81, align 8, !tbaa !48
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -1188,8 +1182,8 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc62
   %88 = load i32, ptr %13, align 4
   %.sroa.0.0.insert.insert.i41 = call i32 @llvm.bswap.i32(i32 %88)
   %89 = select i1 %87, i32 %.sroa.0.0.insert.insert.i41, i32 %88
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %90 = load ptr, ptr %1, align 8, !tbaa !101
   %91 = load ptr, ptr %90, align 8, !tbaa !48
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
@@ -1200,8 +1194,8 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc62
   %97 = load i32, ptr %12, align 4
   %.sroa.0.0.insert.insert.i42 = call i32 @llvm.bswap.i32(i32 %97)
   %98 = select i1 %96, i32 %.sroa.0.0.insert.insert.i42, i32 %97
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %99 = load ptr, ptr %1, align 8, !tbaa !101
   %100 = load ptr, ptr %99, align 8, !tbaa !48
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -1212,8 +1206,8 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc62
   %106 = load i32, ptr %11, align 4
   %.sroa.0.0.insert.insert.i43 = call i32 @llvm.bswap.i32(i32 %106)
   %107 = select i1 %105, i32 %.sroa.0.0.insert.insert.i43, i32 %106
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %108 = load ptr, ptr %1, align 8, !tbaa !101
   %109 = load ptr, ptr %108, align 8, !tbaa !48
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
@@ -1224,8 +1218,8 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc62
   %115 = load i32, ptr %10, align 4
   %.sroa.0.0.insert.insert.i44 = call i32 @llvm.bswap.i32(i32 %115)
   %116 = select i1 %114, i32 %.sroa.0.0.insert.insert.i44, i32 %115
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %117 = load ptr, ptr %1, align 8, !tbaa !101
   %118 = load ptr, ptr %117, align 8, !tbaa !48
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
@@ -1236,8 +1230,8 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc62
   %124 = load i32, ptr %9, align 4
   %.sroa.0.0.insert.insert.i45 = call i32 @llvm.bswap.i32(i32 %124)
   %125 = select i1 %123, i32 %.sroa.0.0.insert.insert.i45, i32 %124
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %126 = load ptr, ptr %1, align 8, !tbaa !101
   %127 = load ptr, ptr %126, align 8, !tbaa !48
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
@@ -1248,8 +1242,8 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc62
   %133 = load i32, ptr %8, align 4
   %.sroa.0.0.insert.insert.i46 = call i32 @llvm.bswap.i32(i32 %133)
   %134 = select i1 %132, i32 %.sroa.0.0.insert.insert.i46, i32 %133
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %135 = load ptr, ptr %1, align 8, !tbaa !101
   %136 = load ptr, ptr %135, align 8, !tbaa !48
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
@@ -1260,8 +1254,8 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc62
   %142 = load i32, ptr %7, align 4
   %.sroa.0.0.insert.insert.i47 = call i32 @llvm.bswap.i32(i32 %142)
   %143 = select i1 %141, i32 %.sroa.0.0.insert.insert.i47, i32 %142
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %144 = load ptr, ptr %1, align 8, !tbaa !101
   %145 = load ptr, ptr %144, align 8, !tbaa !48
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
@@ -1272,8 +1266,8 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc62
   %151 = load i32, ptr %6, align 4
   %.sroa.0.0.insert.insert.i48 = call i32 @llvm.bswap.i32(i32 %151)
   %152 = select i1 %150, i32 %.sroa.0.0.insert.insert.i48, i32 %151
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %153 = load ptr, ptr %1, align 8, !tbaa !101
   %154 = load ptr, ptr %153, align 8, !tbaa !48
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
@@ -1284,8 +1278,8 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc62
   %160 = load i32, ptr %5, align 4
   %.sroa.0.0.insert.insert.i49 = call i32 @llvm.bswap.i32(i32 %160)
   %161 = select i1 %159, i32 %.sroa.0.0.insert.insert.i49, i32 %160
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %162 = load ptr, ptr %1, align 8, !tbaa !101
   %163 = load ptr, ptr %162, align 8, !tbaa !48
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
@@ -1296,8 +1290,8 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc62
   %169 = load i32, ptr %4, align 4
   %.sroa.0.0.insert.insert.i50 = call i32 @llvm.bswap.i32(i32 %169)
   %170 = select i1 %168, i32 %.sroa.0.0.insert.insert.i50, i32 %169
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %18) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %171 = zext i32 %80 to i64
   store i64 %171, ptr %18, align 8, !tbaa !53
   %172 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -1476,7 +1470,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal13QuaternionKey
   br i1 %269, label %.lr.ph.i.i.i.i.i57, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit59, !llvm.loop !107
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit59: ; preds = %.lr.ph.i.i.i.i.i57, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRT_.exit
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %18) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %270
 
 270:                                              ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit59, %_ZNSolsEPFRSoS_E.exit
@@ -1523,14 +1517,14 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation9Animation14T
   %.0.i5.i.i = phi i64 [ %21, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.copyload, i64 %.0.i5.i.i
   %15 = load i8, ptr %14, align 1, !tbaa !73
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 %15, ptr %8, align 1, !tbaa !73
   %16 = load ptr, ptr %0, align 8, !tbaa !71
   %17 = load ptr, ptr %16, align 8, !tbaa !48
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %8, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %21 = add nuw i64 %.0.i5.i.i, 1
   %exitcond.not = icmp eq i64 %21, %.sroa.26.0.copyload
   br i1 %exitcond.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit, label %.lr.ph.i.i, !llvm.loop !108
@@ -1560,7 +1554,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   %.0.i5.i.i29 = phi i64 [ %40, %.lr.ph.i.i28 ], [ 0, %.preheader.i.i26 ]
   %31 = getelementptr inbounds nuw i16, ptr %.sroa.03.0.copyload, i64 %.0.i5.i.i29
   %32 = load i16, ptr %31, align 2, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %33 = load i8, ptr %9, align 8, !tbaa !65, !range !69, !noundef !70
   %34 = trunc nuw i8 %33 to i1
   %.sroa.0.0.insert.insert.i.i.i = call i16 @llvm.bswap.i16(i16 %32)
@@ -1571,7 +1565,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = call noundef i64 %38(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull %7, i64 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %40 = add nuw i64 %.0.i5.i.i29, 1
   %exitcond67.not = icmp eq i64 %40, %.sroa.24.0.copyload
   br i1 %exitcond67.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayItEEEEvRKT_.exit, label %.lr.ph.i.i28, !llvm.loop !109
@@ -1602,14 +1596,14 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayItEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   %.0.i5.i.i33 = phi i64 [ %58, %.lr.ph.i.i32 ], [ 0, %.preheader.i.i30 ]
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 %.0.i5.i.i33
   %52 = load i8, ptr %51, align 1, !tbaa !73
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %52, ptr %6, align 1, !tbaa !73
   %53 = load ptr, ptr %0, align 8, !tbaa !71
   %54 = load ptr, ptr %53, align 8, !tbaa !48
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
   %57 = call noundef i64 %56(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull %6, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %58 = add nuw i64 %.0.i5.i.i33, 1
   %exitcond68.not = icmp eq i64 %58, %.sroa.22.0.copyload
   br i1 %exitcond68.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit34, label %.lr.ph.i.i32, !llvm.loop !108
@@ -1639,7 +1633,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit34: ; preds = %.lr.ph.i
   %.0.i5.i.i38 = phi i64 [ %77, %.lr.ph.i.i37 ], [ 0, %.preheader.i.i35 ]
   %68 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload, i64 %.0.i5.i.i38
   %69 = load i32, ptr %68, align 4, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %70 = load i8, ptr %9, align 8, !tbaa !65, !range !69, !noundef !70
   %71 = trunc nuw i8 %70 to i1
   %.sroa.0.0.insert.insert.i.i.i39 = call i32 @llvm.bswap.i32(i32 %69)
@@ -1650,7 +1644,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit34: ; preds = %.lr.ph.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = call noundef i64 %75(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull %5, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %77 = add nuw i64 %.0.i5.i.i38, 1
   %exitcond69.not = icmp eq i64 %77, %.sroa.2.0.copyload
   br i1 %exitcond69.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIjEEEEvRKT_.exit, label %.lr.ph.i.i37, !llvm.loop !110
@@ -1667,7 +1661,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit34: ; preds = %.lr.ph.i
 _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIjEEEEvRKT_.exit: ; preds = %.lr.ph.i.i37, %.preheader.i.i35, %78
   %85 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %86 = load float, ptr %85, align 8, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %87 = load i8, ptr %9, align 8, !tbaa !65, !range !69, !noundef !70
   %88 = trunc nuw i8 %87 to i1
   %89 = bitcast float %86 to i32
@@ -1680,7 +1674,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIjEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load ptr, ptr %94, align 8
   %96 = call noundef i64 %95(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull %4, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %97 = add nuw i64 %.066, 1
   %exitcond70.not = icmp eq i64 %97, %2
   br i1 %exitcond70.not, label %._crit_edge, label %10, !llvm.loop !111
@@ -1695,7 +1689,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #11
+declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #10
 
 declare void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570)) local_unnamed_addr #0
 
@@ -1797,7 +1791,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayItEEEEvRT_.exit: ; preds = %.lr.ph.i.i
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIjEEEEvRT_.exit: ; preds = %.lr.ph.i.i27, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayItEEEEvRT_.exit
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %55 = load ptr, ptr %0, align 8, !tbaa !101
   %56 = load ptr, ptr %55, align 8, !tbaa !48
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -1809,18 +1803,24 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIjEEEEvRT_.exit: ; preds = %.lr.ph.i.i
   %.1.insert.insert15.i = call i32 @llvm.bswap.i32(i32 %62)
   %.v.i = select i1 %61, i32 %.1.insert.insert15.i, i32 %62
   store i32 %.v.i, ptr %54, align 4, !tbaa !8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %63 = add nuw i64 %.048, 1
   %exitcond.not = icmp eq i64 %63, %2
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !113
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_animation.cc() #12 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_animation.cc() #11 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
@@ -1839,11 +1839,11 @@ attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no
 attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { cold nofree noreturn }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { noreturn nounwind }

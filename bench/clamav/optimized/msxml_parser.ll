@@ -48,8 +48,8 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @cli_msxml_parse_document(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.msxml_ctx, align 8
   %8 = alloca %struct.msxml_ictx, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %0, null
   %.033.sroa.gep34 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br i1 %.not, label %.loopexit50, label %9
@@ -207,18 +207,15 @@ define i32 @cli_msxml_parse_document(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .loopexit50:                                      ; preds = %38, %.thread, %61, %6, %56
   %.031 = phi i32 [ %58, %56 ], [ 2, %6 ], [ 0, %61 ], [ %spec.store.select, %.thread ], [ 21, %38 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.031
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-declare void @xmlTextReaderSetErrorHandler(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @xmlTextReaderSetErrorHandler(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @msxml_error_handler(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
@@ -241,9 +238,9 @@ switch.lookup:                                    ; preds = %4
   ret void
 }
 
-declare i32 @xmlTextReaderRead(ptr noundef) local_unnamed_addr #3
+declare i32 @xmlTextReaderRead(ptr noundef) local_unnamed_addr #2
 
-declare i32 @cli_json_timeout_cycle_check(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @cli_json_timeout_cycle_check(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @msxml_parse_element(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -256,7 +253,7 @@ define internal fastcc i32 @msxml_parse_element(ptr noundef nonnull readonly cap
   %11 = alloca ptr, align 8
   %12 = alloca i64, align 8
   %13 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !32
   %16 = load ptr, ptr %15, align 8, !tbaa !3
@@ -431,7 +428,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   br i1 %.not255, label %100, label %92
 
 92:                                               ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !39
   %93 = call i32 @json_object_object_get_ex(ptr noundef nonnull %88, ptr noundef nonnull @.str.18, ptr noundef nonnull %6) #8
   %.not256 = icmp eq i32 %93, 0
@@ -446,7 +443,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 98:                                               ; preds = %92, %94
   %.sink373 = phi i32 [ %97, %94 ], [ 1, %92 ]
   %99 = call i32 @cli_jsonint(ptr noundef nonnull %88, ptr noundef nonnull @.str.18, i32 noundef %.sink373) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load i32, ptr %68, align 8, !tbaa !37
   br label %100
 
@@ -679,10 +676,10 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   br i1 %.not277, label %219, label %182
 
 182:                                              ; preds = %180
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %7, ptr %8, align 8, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %183 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %173) #9
   %184 = load ptr, ptr %153, align 8, !tbaa !45
   %185 = call i32 @cli_gentempfd(ptr noundef %184, ptr noundef nonnull %8, ptr noundef nonnull %9) #8
@@ -742,18 +739,18 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 
 .thread307:                                       ; preds = %186, %200
   %.10.ph = phi i32 [ 14, %200 ], [ %185, %186 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge296
 
 217:                                              ; preds = %202, %214
   %218 = load ptr, ptr %8, align 8, !tbaa !44
   call void @free(ptr noundef %218) #8
   %.not281 = icmp eq i32 %208, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not281, label %._crit_edge352, label %.critedge296
 
 ._crit_edge352:                                   ; preds = %217
@@ -767,11 +764,11 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   br i1 %.not283, label %266, label %222
 
 222:                                              ; preds = %219
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %10, ptr %11, align 8, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %223 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %173) #9
   %224 = call ptr @cl_base64_decode(ptr noundef nonnull %173, i64 noundef %223, ptr noundef null, ptr noundef nonnull %12, i32 noundef 0) #8
   %.not284 = icmp eq ptr %224, null
@@ -859,25 +856,25 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   br i1 %.not288, label %.thread314, label %.thread311
 
 .thread314:                                       ; preds = %263
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %266
 
 .thread311:                                       ; preds = %263, %232, %248, %227, %228
   %.12.ph = phi i32 [ 22, %228 ], [ 27, %227 ], [ 14, %248 ], [ %231, %232 ], [ %254, %263 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge296
 
 265:                                              ; preds = %225
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.backedge
 
 .backedge:                                        ; preds = %265, %297, %283, %279, %266, %170
@@ -1003,57 +1000,54 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 
 .critedge296:                                     ; preds = %276, %175, %170, %168, %165, %217, %293, %111, %83, %.thread311, %.thread307, %103, %303, %34, %34, %34, %143, %145, %.critedge, %132, %127, %109, %85, %71, %31, %27, %25, %105, %43, %302, %301, %296, %295, %292, %289, %286, %285, %282, %281, %269, %268, %159, %158, %148, %147, %74, %73, %45, %30, %29
   %.1 = phi i32 [ 27, %29 ], [ 22, %30 ], [ %26, %25 ], [ 27, %73 ], [ 22, %74 ], [ 27, %147 ], [ 22, %148 ], [ 27, %158 ], [ 22, %159 ], [ 27, %301 ], [ 22, %302 ], [ 27, %268 ], [ 22, %269 ], [ 27, %281 ], [ 22, %282 ], [ 27, %285 ], [ 22, %286 ], [ 26, %292 ], [ 27, %295 ], [ 22, %296 ], [ 27, %289 ], [ 20, %105 ], [ 27, %45 ], [ %44, %43 ], [ 0, %27 ], [ 27, %31 ], [ 0, %71 ], [ 20, %85 ], [ 27, %109 ], [ 27, %127 ], [ 27, %132 ], [ 27, %.critedge ], [ 0, %145 ], [ 27, %143 ], [ 0, %34 ], [ 0, %34 ], [ 0, %34 ], [ 0, %303 ], [ 20, %103 ], [ %.10.ph, %.thread307 ], [ %.12.ph, %.thread311 ], [ 20, %83 ], [ 27, %111 ], [ 0, %293 ], [ %278, %276 ], [ %176, %175 ], [ %171, %170 ], [ 27, %168 ], [ 21, %165 ], [ %208, %217 ]
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
 
-declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #3
+declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #3
+declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @cli_json_parse_error(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @cli_json_parse_error(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @xmlTextReaderLocatorLineNumber(ptr noundef) local_unnamed_addr #2
 
-declare i32 @xmlTextReaderLocatorLineNumber(ptr noundef) local_unnamed_addr #3
-
-declare ptr @xmlTextReaderLocatorBaseURI(ptr noundef) local_unnamed_addr #3
+declare ptr @xmlTextReaderLocatorBaseURI(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
-declare i32 @xmlTextReaderNext(ptr noundef) local_unnamed_addr #3
+declare i32 @xmlTextReaderNext(ptr noundef) local_unnamed_addr #2
 
-declare i32 @xmlTextReaderNodeType(ptr noundef) local_unnamed_addr #3
+declare i32 @xmlTextReaderNodeType(ptr noundef) local_unnamed_addr #2
 
-declare ptr @xmlTextReaderConstLocalName(ptr noundef) local_unnamed_addr #3
+declare ptr @xmlTextReaderConstLocalName(ptr noundef) local_unnamed_addr #2
 
-declare ptr @xmlTextReaderConstValue(ptr noundef) local_unnamed_addr #3
+declare ptr @xmlTextReaderConstValue(ptr noundef) local_unnamed_addr #2
 
-declare i32 @xmlStrlen(ptr noundef) local_unnamed_addr #3
+declare i32 @xmlStrlen(ptr noundef) local_unnamed_addr #2
 
-declare ptr @cli_jsonobj(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @cli_jsonobj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @json_object_object_get_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @json_object_object_get_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @cli_jsonint(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @cli_jsonint(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @json_object_get_int(ptr noundef) local_unnamed_addr #3
+declare i32 @json_object_get_int(ptr noundef) local_unnamed_addr #2
 
-declare ptr @cli_jsonarray(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @cli_jsonarray(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @xmlTextReaderHasAttributes(ptr noundef) local_unnamed_addr #3
+declare i32 @xmlTextReaderHasAttributes(ptr noundef) local_unnamed_addr #2
 
-declare i32 @xmlTextReaderMoveToNextAttribute(ptr noundef) local_unnamed_addr #3
+declare i32 @xmlTextReaderMoveToNextAttribute(ptr noundef) local_unnamed_addr #2
 
-declare i32 @cli_jsonstr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @cli_jsonstr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @xmlTextReaderMoveToFirstAttribute(ptr noundef) local_unnamed_addr #3
+declare i32 @xmlTextReaderMoveToFirstAttribute(ptr noundef) local_unnamed_addr #2
 
-declare i32 @xmlTextReaderMoveToElement(ptr noundef) local_unnamed_addr #3
+declare i32 @xmlTextReaderMoveToElement(ptr noundef) local_unnamed_addr #2
 
-declare i32 @xmlTextReaderIsEmptyElement(ptr noundef) local_unnamed_addr #3
+declare i32 @xmlTextReaderIsEmptyElement(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 21) i32 @msxml_parse_value(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
@@ -1065,7 +1059,7 @@ define internal fastcc range(i32 0, 21) i32 @msxml_parse_value(ptr noundef nonnu
 6:                                                ; preds = %2
   %7 = tail call i32 @xmlStrlen(ptr noundef %1) #8
   %8 = sext i32 %7 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !44
   %9 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 10) #8
   %10 = load ptr, ptr %3, align 8, !tbaa !44
@@ -1076,12 +1070,12 @@ define internal fastcc range(i32 0, 21) i32 @msxml_parse_value(ptr noundef nonnu
 12:                                               ; preds = %6
   %13 = trunc i64 %9 to i32
   %14 = and i32 %13, 65535
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = tail call ptr @json_object_new_int(i32 noundef %14) #8
   br label %26
 
 16:                                               ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = tail call i32 @xmlStrcmp(ptr noundef %1, ptr noundef nonnull @.str.30) #8
   %.not16 = icmp eq i32 %17, 0
   br i1 %.not16, label %18, label %20
@@ -1122,46 +1116,52 @@ define internal fastcc range(i32 0, 21) i32 @msxml_parse_value(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
-declare i32 @cli_gentempfd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @cli_gentempfd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @cli_writen(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @cli_writen(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @close(i32 noundef) local_unnamed_addr #3
+declare i32 @close(i32 noundef) local_unnamed_addr #2
 
-declare i32 @cli_unlink(ptr noundef) local_unnamed_addr #3
+declare i32 @cli_unlink(ptr noundef) local_unnamed_addr #2
 
-declare ptr @cl_base64_decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @cl_base64_decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @cli_magic_scan_desc(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @cli_magic_scan_desc(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @xmlStrcmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @xmlStrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
-declare ptr @json_object_new_int(i32 noundef) local_unnamed_addr #3
+declare ptr @json_object_new_int(i32 noundef) local_unnamed_addr #2
 
-declare ptr @json_object_new_boolean(i32 noundef) local_unnamed_addr #3
+declare ptr @json_object_new_boolean(i32 noundef) local_unnamed_addr #2
 
-declare ptr @json_object_new_string(ptr noundef) local_unnamed_addr #3
+declare ptr @json_object_new_string(ptr noundef) local_unnamed_addr #2
 
-declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @json_object_array_add(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @json_object_array_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 

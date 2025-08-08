@@ -2062,7 +2062,7 @@ define dso_local void @compile() local_unnamed_addr #0 {
   br label %21
 
 21:                                               ; preds = %19, %0
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 288), align 8
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %execute_scripts.exit, label %23
@@ -2138,7 +2138,7 @@ define dso_local void @compile() local_unnamed_addr #0 {
   br label %execute_scripts.exit
 
 execute_scripts.exit:                             ; preds = %21, %23, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 376), align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 344), align 8
   store i8 0, ptr @asm_target, align 8
@@ -2188,7 +2188,7 @@ execute_scripts.exit:                             ; preds = %21, %23, %._crit_ed
   %70 = load ptr, ptr @type_int, align 8
   call fastcc void @setup_int_define(ptr noundef nonnull @.str.82, i64 noundef %69, ptr noundef %70)
   %71 = load i16, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 232), align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 65, ptr %13, align 4
   %72 = and i16 %71, 2
   %73 = icmp ne i16 %72, 0
@@ -2204,9 +2204,9 @@ execute_scripts.exit:                             ; preds = %21, %23, %._crit_ed
   unreachable
 
 setup_bool_define.exit:                           ; preds = %.lr.ph.preheader.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %79 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 272), align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 65, ptr %12, align 4
   %80 = trunc i8 %79 to i1
   %81 = call ptr @symtab_add(ptr noundef nonnull @.str.84, i32 noundef 19, i32 noundef 1094096179, ptr noundef nonnull %12) #20
@@ -2221,9 +2221,9 @@ setup_bool_define.exit:                           ; preds = %.lr.ph.preheader.i.
   unreachable
 
 setup_bool_define.exit37:                         ; preds = %setup_bool_define.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %86 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 281), align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 65, ptr %11, align 4
   %87 = trunc i8 %86 to i1
   %88 = call ptr @symtab_add(ptr noundef nonnull @.str.85, i32 noundef 23, i32 noundef 1133530026, ptr noundef nonnull %11) #20
@@ -2238,9 +2238,9 @@ setup_bool_define.exit37:                         ; preds = %setup_bool_define.e
   unreachable
 
 setup_bool_define.exit49:                         ; preds = %setup_bool_define.exit37
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %93 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 275), align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 65, ptr %10, align 4
   %94 = trunc i8 %93 to i1
   %95 = call ptr @symtab_add(ptr noundef nonnull @.str.86, i32 noundef 23, i32 noundef -883736419, ptr noundef nonnull %10) #20
@@ -2255,9 +2255,9 @@ setup_bool_define.exit49:                         ; preds = %setup_bool_define.e
   unreachable
 
 setup_bool_define.exit61:                         ; preds = %setup_bool_define.exit49
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %100 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 276), align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 65, ptr %9, align 4
   %101 = trunc i8 %100 to i1
   %102 = call ptr @symtab_add(ptr noundef nonnull @.str.87, i32 noundef 22, i32 noundef -2132986831, ptr noundef nonnull %9) #20
@@ -2272,7 +2272,7 @@ setup_bool_define.exit61:                         ; preds = %setup_bool_define.e
   unreachable
 
 setup_bool_define.exit73:                         ; preds = %setup_bool_define.exit61
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %107 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
   %108 = zext i32 %107 to i64
   %109 = load ptr, ptr @type_int, align 8
@@ -2282,7 +2282,7 @@ setup_bool_define.exit73:                         ; preds = %setup_bool_define.e
   %112 = load ptr, ptr @type_int, align 8
   call fastcc void @setup_int_define(ptr noundef nonnull @.str.89, i64 noundef %111, ptr noundef %112)
   %113 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 208), align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 65, ptr %8, align 4
   %114 = icmp ne i32 %113, 0
   %115 = call ptr @symtab_add(ptr noundef nonnull @.str.90, i32 noundef 23, i32 noundef 892986649, ptr noundef nonnull %8) #20
@@ -2297,7 +2297,7 @@ setup_bool_define.exit73:                         ; preds = %setup_bool_define.e
   unreachable
 
 setup_bool_define.exit85:                         ; preds = %setup_bool_define.exit73
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %120 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 184), align 8
   %121 = sext i32 %120 to i64
   %122 = load ptr, ptr @type_int, align 8
@@ -2311,7 +2311,7 @@ setup_bool_define.exit85:                         ; preds = %setup_bool_define.e
   %128 = load ptr, ptr @type_int, align 8
   call fastcc void @setup_int_define(ptr noundef nonnull @.str.93, i64 noundef %127, ptr noundef %128)
   %129 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 336), align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 65, ptr %7, align 4
   %130 = icmp ne i32 %129, 0
   %131 = call ptr @symtab_add(ptr noundef nonnull @.str.94, i32 noundef 18, i32 noundef -1795396162, ptr noundef nonnull %7) #20
@@ -2326,9 +2326,9 @@ setup_bool_define.exit85:                         ; preds = %setup_bool_define.e
   unreachable
 
 setup_bool_define.exit97:                         ; preds = %setup_bool_define.exit85
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %136 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 216), align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 65, ptr %6, align 4
   %137 = icmp eq i32 %136, 2
   %138 = call ptr @symtab_add(ptr noundef nonnull @.str.95, i32 noundef 13, i32 noundef 1303511430, ptr noundef nonnull %6) #20
@@ -2343,13 +2343,13 @@ setup_bool_define.exit97:                         ; preds = %setup_bool_define.e
   unreachable
 
 setup_bool_define.exit109:                        ; preds = %setup_bool_define.exit97
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %143 = load i32, ptr @llvm_version_major, align 4
   %144 = sext i32 %143 to i64
   %145 = load ptr, ptr @type_int, align 8
   call fastcc void @setup_int_define(ptr noundef nonnull @.str.96, i64 noundef %144, ptr noundef %145)
   %146 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 165), align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 65, ptr %5, align 4
   %147 = trunc i8 %146 to i1
   %148 = call ptr @symtab_add(ptr noundef nonnull @.str.97, i32 noundef 12, i32 noundef 282727948, ptr noundef nonnull %5) #20
@@ -2364,7 +2364,7 @@ setup_bool_define.exit109:                        ; preds = %setup_bool_define.e
   unreachable
 
 setup_bool_define.exit121:                        ; preds = %setup_bool_define.exit109
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %153 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 224), align 8
   %154 = icmp ult i32 %153, 25
   br i1 %154, label %switch.lookup, label %155
@@ -2380,7 +2380,7 @@ switch.lookup:                                    ; preds = %setup_bool_define.e
   %157 = load ptr, ptr @type_int, align 8
   call fastcc void @setup_int_define(ptr noundef nonnull @.str.98, i64 noundef %switch.load, ptr noundef %157)
   %158 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 166), align 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 65, ptr %4, align 4
   %159 = trunc i8 %158 to i1
   %160 = call ptr @symtab_add(ptr noundef nonnull @.str.99, i32 noundef 7, i32 noundef -111555973, ptr noundef nonnull %4) #20
@@ -2395,7 +2395,7 @@ switch.lookup:                                    ; preds = %setup_bool_define.e
   unreachable
 
 setup_bool_define.exit133:                        ; preds = %switch.lookup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @type_init_cint() #20
   %165 = call double @bench_mark() #20
   store double %165, ptr @compiler_init_time, align 8
@@ -2426,9 +2426,9 @@ setup_bool_define.exit133:                        ; preds = %switch.lookup
   br i1 %177, label %178, label %208
 
 178:                                              ; preds = %175
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %179 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 64), align 8
   %.not.i134 = icmp eq ptr %179, null
   br i1 %.not.i134, label %._crit_edge.i140, label %180
@@ -2909,7 +2909,7 @@ define dso_local zeroext i16 @global_context_register_section(ptr noundef %0) lo
   tail call void @scratch_buffer_clear() #20
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.101) #20
   tail call void @scratch_buffer_append(ptr noundef %0) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @scratch_buffer, i64 65536), align 4
   %.not.i.i = icmp eq i32 %3, 0
@@ -2934,7 +2934,7 @@ define dso_local zeroext i16 @global_context_register_section(ptr noundef %0) lo
 scratch_buffer_interned.exit:                     ; preds = %.lr.ph.i.i, %1
   %.06.lcssa.i.i = phi i32 [ -2128831035, %1 ], [ %8, %.lr.ph.i.i ]
   %9 = call ptr @symtab_add(ptr noundef nonnull @scratch_buffer, i32 noundef %3, i32 noundef %.06.lcssa.i.i, ptr noundef nonnull %2) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 524704), align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %._crit_edge, label %11
@@ -3471,10 +3471,10 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #17
 declare i32 @llvm.umin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18

@@ -34,13 +34,7 @@ define hidden range(i32 0, 2) i32 @ssl_record_sequence_update(ptr noundef captur
   ret i32 %.08
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @ssl_record_prefix_len(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -58,7 +52,7 @@ define hidden i64 @ssl_record_prefix_len(ptr noundef readonly captures(none) %0)
   ret i64 %10
 }
 
-declare i64 @SSL_AEAD_CTX_explicit_nonce_len(ptr noundef) local_unnamed_addr #2
+declare i64 @SSL_AEAD_CTX_explicit_nonce_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @ssl_seal_prefix_len(ptr noundef %0) local_unnamed_addr #0 {
@@ -121,7 +115,7 @@ ssl_needs_record_splitting.exit.thread:           ; preds = %12, %17, %20, %ssl_
   ret i64 %.08
 }
 
-declare i64 @ssl_cipher_get_record_split_len(ptr noundef) local_unnamed_addr #2
+declare i64 @ssl_cipher_get_record_split_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @ssl_max_seal_overhead(ptr noundef %0) local_unnamed_addr #0 {
@@ -179,7 +173,7 @@ ssl_needs_record_splitting.exit.thread:           ; preds = %12, %17, %20, %ssl_
   ret i64 %.06
 }
 
-declare i64 @SSL_AEAD_CTX_max_overhead(ptr noundef) local_unnamed_addr #2
+declare i64 @SSL_AEAD_CTX_max_overhead(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 4) i32 @tls_open_record(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, i64 noundef %6, ptr noundef %7, i64 noundef %8) local_unnamed_addr #0 {
@@ -189,11 +183,11 @@ define hidden range(i32 0, 4) i32 @tls_open_record(ptr noundef %0, ptr noundef w
   %13 = alloca i16, align 2
   %14 = alloca %struct.cbs_st, align 8
   %15 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @CBS_init(ptr noundef nonnull %10, ptr noundef %7, i64 noundef %8) #4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12) #4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %16 = call i32 @CBS_get_u8(ptr noundef nonnull %10, ptr noundef nonnull %11) #4
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %21, label %17
@@ -251,7 +245,7 @@ define hidden range(i32 0, 4) i32 @tls_open_record(ptr noundef %0, ptr noundef w
   br label %83
 
 36:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %37 = zext nneg i16 %33 to i64
   %38 = call i32 @CBS_get_bytes(ptr noundef nonnull %10, ptr noundef nonnull %14, i64 noundef %37) #4
   %.not36 = icmp eq i32 %38, 0
@@ -277,7 +271,7 @@ define hidden range(i32 0, 4) i32 @tls_open_record(ptr noundef %0, ptr noundef w
   br label %49
 
 49:                                               ; preds = %46, %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %50 = load ptr, ptr %23, align 8, !tbaa !40
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 264
   %52 = load ptr, ptr %51, align 8, !tbaa !41
@@ -347,41 +341,41 @@ define hidden range(i32 0, 4) i32 @tls_open_record(ptr noundef %0, ptr noundef w
 
 81:                                               ; preds = %77, %75, %66, %62, %58
   %.2 = phi i32 [ 3, %66 ], [ 3, %75 ], [ 0, %77 ], [ 3, %62 ], [ 3, %58 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %82
 
 82:                                               ; preds = %81, %39
   %.1 = phi i32 [ %.2, %81 ], [ 2, %39 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %83
 
 83:                                               ; preds = %82, %35, %31, %21
   %.0 = phi i32 [ 3, %31 ], [ 3, %35 ], [ %.1, %82 ], [ 2, %21 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
 
-declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @CBS_get_u8(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CBS_get_u8(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @CBS_get_u16(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CBS_get_u16(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @CBS_get_bytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @CBS_get_bytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @SSL_AEAD_CTX_open(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext, i16 noundef zeroext, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SSL_AEAD_CTX_open(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext, i16 noundef zeroext, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @CBS_data(ptr noundef) local_unnamed_addr #2
+declare ptr @CBS_data(ptr noundef) local_unnamed_addr #1
 
-declare i64 @CBS_len(ptr noundef) local_unnamed_addr #2
+declare i64 @CBS_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @tls_seal_record(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i64 noundef %3, i8 noundef zeroext %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !61
   %9 = icmp eq i8 %4, 23
   %10 = icmp ugt i64 %6, 1
@@ -467,7 +461,7 @@ ssl_needs_record_splitting.exit.thread:           ; preds = %11, %16, %19, %40, 
 
 .critedge:                                        ; preds = %33, %ssl_needs_record_splitting.exit.thread, %47, %32
   %.039 = phi i32 [ 0, %32 ], [ 1, %47 ], [ 0, %ssl_needs_record_splitting.exit.thread ], [ 0, %33 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.039
 }
 
@@ -512,7 +506,7 @@ define internal fastcc range(i32 0, 2) i32 @do_seal_record(ptr noundef %0, ptr n
   %28 = trunc i16 %.0 to i8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %28, ptr %29, align 1, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %30 = load ptr, ptr %20, align 8, !tbaa !40
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 272
   %32 = load ptr, ptr %31, align 8, !tbaa !55
@@ -577,7 +571,7 @@ ssl_record_sequence_update.exit:                  ; preds = %41
 
 60:                                               ; preds = %ssl_record_sequence_update.exit.thread, %48, %57, %17, %47
   %.1 = phi i32 [ 0, %47 ], [ 0, %17 ], [ 1, %57 ], [ 1, %48 ], [ 0, %ssl_record_sequence_update.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %61
 
 61:                                               ; preds = %60, %16, %10
@@ -619,9 +613,9 @@ define hidden void @ssl_set_read_state(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare void @SSL_AEAD_CTX_free(ptr noundef) local_unnamed_addr #2
+declare void @SSL_AEAD_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @ssl_set_write_state(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -661,16 +655,22 @@ define hidden void @ssl_set_write_state(ptr noundef readonly captures(none) %0, 
   ret void
 }
 
-declare zeroext i16 @ssl3_protocol_version(ptr noundef) local_unnamed_addr #2
+declare zeroext i16 @ssl3_protocol_version(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SSL_CIPHER_is_block_cipher(ptr noundef) local_unnamed_addr #2
+declare i32 @SSL_CIPHER_is_block_cipher(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SSL_AEAD_CTX_seal(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext, i16 noundef zeroext, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SSL_AEAD_CTX_seal(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext, i16 noundef zeroext, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

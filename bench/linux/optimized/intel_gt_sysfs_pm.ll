@@ -527,29 +527,23 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @is_object_gt(ptr noundef) local_unnamed_addr #3
+declare dso_local zeroext i1 @is_object_gt(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @intel_gt_perf_limit_reasons_reg(ptr noundef) #3
+declare dso_local i32 @intel_gt_perf_limit_reasons_reg(ptr noundef) #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @sysfs_create_files(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare dso_local i32 @sysfs_create_files(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @sysfs_create_group(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @sysfs_create_group(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @sysfs_merge_group(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @sysfs_merge_group(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @rc6_enable_show(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
@@ -569,10 +563,10 @@ define internal range(i64 -2147483648, 2147483648) i64 @rc6_enable_show(ptr noun
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @intel_gt_sysfs_get_drvdata(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local ptr @intel_gt_sysfs_get_drvdata(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @rc6_residency_ms_show(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
@@ -656,16 +650,16 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6_residency_ms_
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @kdev_minor_to_i915(ptr noundef) local_unnamed_addr #3
+declare dso_local ptr @kdev_minor_to_i915(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @intel_runtime_pm_get(ptr noundef) local_unnamed_addr #3
+declare dso_local i64 @intel_runtime_pm_get(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @intel_rc6_residency_us(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local i64 @intel_rc6_residency_us(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @intel_runtime_pm_put_unchecked(ptr noundef) local_unnamed_addr #3
+declare dso_local void @intel_runtime_pm_put_unchecked(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @rc6_enable_dev_show(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
@@ -995,7 +989,7 @@ act_freq_mhz_show_common.exit:                    ; preds = %19, %21
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @intel_rps_read_actual_frequency(ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @intel_rps_read_actual_frequency(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @cur_freq_mhz_show(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
@@ -1041,7 +1035,7 @@ cur_freq_mhz_show_common.exit:                    ; preds = %19, %21
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @intel_rps_get_requested_frequency(ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @intel_rps_get_requested_frequency(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @boost_freq_mhz_show(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
@@ -1093,12 +1087,12 @@ define internal i64 @boost_freq_mhz_store(ptr noundef %0, ptr noundef readonly c
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @intel_rps_get_boost_frequency(ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @intel_rps_get_boost_frequency(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i64 @boost_freq_mhz_store_common(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !11
   %6 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #5
   %7 = icmp eq i32 %6, 0
@@ -1154,15 +1148,15 @@ define internal fastcc i64 @boost_freq_mhz_store_common(ptr noundef %0, ptr noun
 
 35:                                               ; preds = %.thread, %28, %.thread4, %8
   %36 = phi i64 [ %9, %8 ], [ %3, %.thread ], [ %34, %28 ], [ %26, %.thread4 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %36
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @kstrtouint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @kstrtouint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @intel_rps_set_boost_frequency(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local i32 @intel_rps_set_boost_frequency(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @max_freq_mhz_show(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
@@ -1214,12 +1208,12 @@ define internal i64 @max_freq_mhz_store(ptr noundef %0, ptr noundef readonly cap
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @intel_rps_get_max_frequency(ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @intel_rps_get_max_frequency(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i64 @max_freq_mhz_store_common(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !11
   %6 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #5
   %7 = icmp eq i32 %6, 0
@@ -1275,12 +1269,12 @@ define internal fastcc i64 @max_freq_mhz_store_common(ptr noundef %0, ptr nounde
 
 35:                                               ; preds = %.thread, %28, %.thread4, %8
   %36 = phi i64 [ %9, %8 ], [ %3, %.thread ], [ %34, %28 ], [ %26, %.thread4 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %36
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @intel_rps_set_max_frequency(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local i32 @intel_rps_set_max_frequency(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @min_freq_mhz_show(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
@@ -1332,12 +1326,12 @@ define internal i64 @min_freq_mhz_store(ptr noundef %0, ptr noundef readonly cap
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @intel_rps_get_min_frequency(ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @intel_rps_get_min_frequency(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i64 @min_freq_mhz_store_common(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !11
   %6 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #5
   %7 = icmp eq i32 %6, 0
@@ -1393,12 +1387,12 @@ define internal fastcc i64 @min_freq_mhz_store_common(ptr noundef %0, ptr nounde
 
 35:                                               ; preds = %.thread, %28, %.thread4, %8
   %36 = phi i64 [ %9, %8 ], [ %3, %.thread ], [ %34, %28 ], [ %26, %.thread4 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %36
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @intel_rps_set_min_frequency(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local i32 @intel_rps_set_min_frequency(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @RP0_freq_mhz_show(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
@@ -1444,7 +1438,7 @@ RP0_freq_mhz_show_common.exit:                    ; preds = %19, %21
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @intel_rps_get_rp0_frequency(ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @intel_rps_get_rp0_frequency(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @RP1_freq_mhz_show(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
@@ -1490,7 +1484,7 @@ RP1_freq_mhz_show_common.exit:                    ; preds = %19, %21
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @intel_rps_get_rp1_frequency(ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @intel_rps_get_rp1_frequency(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @RPn_freq_mhz_show(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
@@ -1536,7 +1530,7 @@ RPn_freq_mhz_show_common.exit:                    ; preds = %19, %21
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @intel_rps_get_rpn_frequency(ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @intel_rps_get_rpn_frequency(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @vlv_rpe_freq_mhz_show(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
@@ -1588,7 +1582,7 @@ vlv_rpe_freq_mhz_show_common.exit:                ; preds = %22, %24
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @intel_gpu_freq(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local i32 @intel_gpu_freq(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @act_freq_mhz_dev_show(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
@@ -2018,7 +2012,7 @@ define internal i64 @rps_up_threshold_pct_store(ptr noundef %0, ptr noundef read
   %5 = alloca i8, align 1
   %6 = load ptr, ptr %1, align 8
   %7 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %6) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !annotation !11
   %8 = call i32 @kstrtou8(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #5
   %9 = icmp eq i32 %8, 0
@@ -2039,18 +2033,18 @@ define internal i64 @rps_up_threshold_pct_store(ptr noundef %0, ptr noundef read
 
 19:                                               ; preds = %12, %10
   %20 = phi i64 [ %11, %10 ], [ %18, %12 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %20
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i8 @intel_rps_get_up_threshold(ptr noundef) local_unnamed_addr #3
+declare dso_local zeroext i8 @intel_rps_get_up_threshold(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @kstrtou8(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @kstrtou8(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @intel_rps_set_up_threshold(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
+declare dso_local i32 @intel_rps_set_up_threshold(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @rps_down_threshold_pct_show(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
@@ -2069,7 +2063,7 @@ define internal i64 @rps_down_threshold_pct_store(ptr noundef %0, ptr noundef re
   %5 = alloca i8, align 1
   %6 = load ptr, ptr %1, align 8
   %7 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %6) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !annotation !11
   %8 = call i32 @kstrtou8(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #5
   %9 = icmp eq i32 %8, 0
@@ -2090,18 +2084,18 @@ define internal i64 @rps_down_threshold_pct_store(ptr noundef %0, ptr noundef re
 
 19:                                               ; preds = %12, %10
   %20 = phi i64 [ %11, %10 ], [ %18, %12 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %20
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i8 @intel_rps_get_down_threshold(ptr noundef) local_unnamed_addr #3
+declare dso_local zeroext i8 @intel_rps_get_down_threshold(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @intel_rps_set_down_threshold(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
+declare dso_local i32 @intel_rps_set_down_threshold(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @sysfs_create_file_ns(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @sysfs_create_file_ns(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @punit_req_freq_mhz_show(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
@@ -2115,7 +2109,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @punit_req_freq_mhz_show(
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @intel_rps_read_punit_req_frequency(ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @intel_rps_read_punit_req_frequency(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @slpc_ignore_eff_freq_show(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
@@ -2134,7 +2128,7 @@ define internal i64 @slpc_ignore_eff_freq_store(ptr noundef %0, ptr noundef read
   %5 = alloca i32, align 4
   %6 = load ptr, ptr %1, align 8
   %7 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %6) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !11
   %8 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #5
   %9 = icmp eq i32 %8, 0
@@ -2156,12 +2150,12 @@ define internal i64 @slpc_ignore_eff_freq_store(ptr noundef %0, ptr noundef read
 
 20:                                               ; preds = %12, %10
   %21 = phi i64 [ %11, %10 ], [ %19, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %21
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @intel_guc_slpc_set_ignore_eff_freq(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare dso_local i32 @intel_guc_slpc_set_ignore_eff_freq(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @throttle_reason_bool_show(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
@@ -2181,7 +2175,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @throttle_reason_bool_sho
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @rps_read_mask_mmio(ptr noundef, i32, i32 noundef) local_unnamed_addr #3
+declare dso_local zeroext i1 @rps_read_mask_mmio(ptr noundef, i32, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @media_freq_factor_show(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
@@ -2241,7 +2235,7 @@ define internal i64 @media_freq_factor_store(ptr noundef %0, ptr noundef readonl
   %6 = load ptr, ptr %1, align 8
   %7 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %6) #5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1504
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !11
   %9 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #5
   %10 = icmp eq i32 %9, 0
@@ -2296,15 +2290,15 @@ define internal i64 @media_freq_factor_store(ptr noundef %0, ptr noundef readonl
 
 .thread:                                          ; preds = %22, %31, %25, %14
   %34 = phi i64 [ %15, %14 ], [ %33, %31 ], [ -22, %25 ], [ -22, %22 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %34
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @intel_guc_slpc_set_media_ratio_mode(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local i32 @intel_guc_slpc_set_media_ratio_mode(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @___drm_dbg(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare dso_local void @___drm_dbg(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @freq_factor_scale_show(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
@@ -2318,7 +2312,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @media_RP0_freq_mhz_show(
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %1, align 8
   %6 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %5) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -2336,19 +2330,19 @@ define internal range(i64 -2147483648, 2147483648) i64 @media_RP0_freq_mhz_show(
 15:                                               ; preds = %11, %3
   %16 = phi i32 [ %14, %11 ], [ %9, %3 ]
   %17 = sext i32 %16 to i64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %17
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @snb_pcode_read_p(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @snb_pcode_read_p(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @media_RPn_freq_mhz_show(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %1, align 8
   %6 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %5) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -2366,7 +2360,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @media_RPn_freq_mhz_show(
 15:                                               ; preds = %11, %3
   %16 = phi i32 [ %14, %11 ], [ %9, %3 ]
   %17 = sext i32 %16 to i64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %17
 }
 
@@ -2417,16 +2411,22 @@ define internal range(i64 -2147483648, 2147483648) i64 @default_rps_down_thresho
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #4
+declare i32 @llvm.umax.i32(i32, i32) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #4
+declare i32 @llvm.umin.i32(i32, i32) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { cold nounwind }
 

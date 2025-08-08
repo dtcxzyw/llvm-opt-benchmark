@@ -21,7 +21,7 @@ declare hidden void @lj_lib_register(ptr noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_ffh_bit_tobit(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !8
@@ -30,14 +30,14 @@ define internal noundef i32 @lj_ffh_bit_tobit(ptr noundef %0) #0 {
   %7 = trunc i64 %6 to i32
   %8 = sitofp i32 %7 to double
   store double %8, ptr %5, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @lj_ffh_bit_bnot(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !4
   %3 = call i64 @lj_carith_check64(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #5
   %4 = load i32, ptr %2, align 4, !tbaa !4
@@ -64,14 +64,14 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_bnot(ptr noundef %0) #0 {
 
 17:                                               ; preds = %1, %5
   %18 = phi i32 [ 2, %5 ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @lj_ffh_bit_bswap(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !4
   %3 = call i64 @lj_carith_check64(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #5
   %4 = load i32, ptr %2, align 4, !tbaa !4
@@ -98,7 +98,7 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_bswap(ptr noundef %0) #0 {
 
 17:                                               ; preds = %1, %5
   %18 = phi i32 [ 2, %5 ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %18
 }
 
@@ -106,9 +106,9 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_bswap(ptr noundef %0) #0 {
 define internal range(i32 0, 3) i32 @lj_ffh_bit_lshift(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !4
   %4 = call i64 @lj_carith_check64(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #5
   %5 = call i64 @lj_carith_check64(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %3) #5
@@ -153,8 +153,8 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_lshift(ptr noundef %0) #0 {
 
 33:                                               ; preds = %30, %10
   %.0 = phi i32 [ 2, %10 ], [ 0, %30 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -162,7 +162,7 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_lshift(ptr noundef %0) #0 {
 define internal range(i32 0, 3) i32 @lj_ffh_bit_band(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !8
@@ -204,7 +204,7 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_band(ptr noundef %0) #0 {
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 10
   %32 = load i8, ptr %31, align 2, !tbaa !15
   %.fr38 = freeze i8 %32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %33 = icmp ult i8 %.fr38, 73
   br i1 %33, label %.split.us, label %.split
 
@@ -258,12 +258,12 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_band(ptr noundef %0) #0 {
   %55 = ptrtoint ptr %48 to i64
   %56 = or i64 %55, -1548112371908608
   store i64 %56, ptr %54, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %57
 
 57:                                               ; preds = %13, %.split31.us
   %.023 = phi i32 [ 2, %.split31.us ], [ 0, %13 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.023
 }
 
@@ -271,9 +271,9 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_band(ptr noundef %0) #0 {
 define internal noundef i32 @lj_cf_bit_tohex(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !4
   %4 = call i64 @lj_carith_check64(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -349,23 +349,17 @@ define internal noundef i32 @lj_cf_bit_tohex(ptr noundef %0) #0 {
   br label %56
 
 56:                                               ; preds = %54, %16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare hidden i64 @lj_carith_check64(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #3
+declare i64 @llvm.bswap.i64(i64) #2
 
 declare hidden i64 @lj_carith_shift64(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -377,6 +371,12 @@ declare hidden i32 @lj_gc_step(ptr noundef) local_unnamed_addr #1
 
 declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
 
@@ -385,8 +385,8 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

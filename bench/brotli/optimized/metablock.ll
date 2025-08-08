@@ -107,14 +107,8 @@ BrotliCalculateDistanceCodeLimit.exit:            ; preds = %15, %47
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliBuildMetaBlock(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6, ptr noundef %7, i64 noundef %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #2 {
+define hidden void @BrotliBuildMetaBlock(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6, ptr noundef %7, i64 noundef %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #1 {
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %.sroa.0234.0.copyload = load i32, ptr %12, align 8, !tbaa !15
   %.sroa.12242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 60
@@ -841,22 +835,22 @@ ClearHistogramsCommand.exit:                      ; preds = %.thread344, %ClearH
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare hidden ptr @BrotliAllocate(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare hidden ptr @BrotliAllocate(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare hidden void @BrotliFree(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare hidden void @BrotliFree(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare hidden void @BrotliSplitBlock(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare hidden void @BrotliSplitBlock(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare hidden void @BrotliBuildHistogramsWithContext(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i8 noundef zeroext, i8 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare hidden void @BrotliBuildHistogramsWithContext(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i8 noundef zeroext, i8 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare hidden void @BrotliClusterHistogramsLiteral(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare hidden void @BrotliClusterHistogramsLiteral(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare hidden void @BrotliClusterHistogramsDistance(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare hidden void @BrotliClusterHistogramsDistance(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliBuildMetaBlockGreedy(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, ptr noundef readonly captures(none) %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr noundef readonly captures(none) %9, i64 noundef %10, ptr noundef %11) local_unnamed_addr #2 {
+define hidden void @BrotliBuildMetaBlockGreedy(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, ptr noundef readonly captures(none) %6, i64 noundef %7, ptr noundef readonly captures(none) %8, ptr noundef readonly captures(none) %9, i64 noundef %10, ptr noundef %11) local_unnamed_addr #1 {
   %13 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef 12488) #10
   %14 = icmp eq i64 %7, 1
   %.not96 = icmp eq i64 %10, 0
@@ -1413,9 +1407,9 @@ BrotliBuildMetaBlockGreedyInternal.exit41:        ; preds = %290, %277, %BrotliB
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliOptimizeHistograms(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define hidden void @BrotliOptimizeHistograms(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca [704 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 704, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %5 = load i64, ptr %4, align 8, !tbaa !73
   %.not = icmp eq i64 %5, 0
@@ -1477,22 +1471,22 @@ define hidden void @BrotliOptimizeHistograms(i32 noundef %0, ptr noundef readonl
   br i1 %31, label %26, label %._crit_edge, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %26, %.preheader
-  call void @llvm.lifetime.end.p0(i64 704, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare hidden void @BrotliOptimizeHuffmanCountsForRle(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare hidden void @BrotliOptimizeHuffmanCountsForRle(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare hidden double @BrotliPopulationCostDistance(ptr noundef) local_unnamed_addr #4
+declare hidden double @BrotliPopulationCostDistance(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @InitBlockSplitterLiteral(ptr noundef %0, ptr noundef captures(none) initializes((0, 40), (48, 56), (2136, 2160), (2192, 2200)) %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef %5) unnamed_addr #2 {
+define internal fastcc void @InitBlockSplitterLiteral(ptr noundef %0, ptr noundef captures(none) initializes((0, 40), (48, 56), (2136, 2160), (2192, 2200)) %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef %5) unnamed_addr #1 {
   %7 = lshr i64 %2, 9
   %8 = add nuw nsw i64 %7, 1
   store i64 256, ptr %1, align 8, !tbaa !132
@@ -1607,7 +1601,7 @@ define internal fastcc void @InitBlockSplitterLiteral(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @InitBlockSplitterCommand(ptr noundef %0, ptr noundef captures(none) initializes((0, 40), (48, 56), (5720, 5744), (5776, 5784)) %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef %5) unnamed_addr #2 {
+define internal fastcc void @InitBlockSplitterCommand(ptr noundef %0, ptr noundef captures(none) initializes((0, 40), (48, 56), (5720, 5744), (5776, 5784)) %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef %5) unnamed_addr #1 {
   %7 = lshr i64 %2, 10
   %8 = add nuw nsw i64 %7, 1
   store i64 704, ptr %1, align 8, !tbaa !141
@@ -1722,7 +1716,7 @@ define internal fastcc void @InitBlockSplitterCommand(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @InitBlockSplitterDistance(ptr noundef %0, ptr noundef captures(none) initializes((0, 40), (48, 56), (4440, 4464), (4496, 4504)) %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef %5) unnamed_addr #2 {
+define internal fastcc void @InitBlockSplitterDistance(ptr noundef %0, ptr noundef captures(none) initializes((0, 40), (48, 56), (4440, 4464), (4496, 4504)) %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef %5) unnamed_addr #1 {
   %7 = lshr i64 %2, 9
   %8 = add nuw nsw i64 %7, 1
   store i64 64, ptr %1, align 8, !tbaa !151
@@ -1837,7 +1831,7 @@ define internal fastcc void @InitBlockSplitterDistance(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @BlockSplitterFinishBlockLiteral(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #7 {
+define internal fastcc void @BlockSplitterFinishBlockLiteral(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #6 {
   %.sroa.0181 = alloca double, align 16
   %.sroa.4 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
@@ -2086,10 +2080,10 @@ ShannonEntropy.exit140:                           ; preds = %119, %FastLog2.exit
   %.2.i139 = phi double [ %127, %FastLog2.exit159 ], [ %.124.i136, %119 ]
   %128 = fcmp olt double %.2.i139, %.pre174
   %.0.i127 = select i1 %128, double %.pre174, double %.2.i139
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0181)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0181)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 2160
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %131 = load i64, ptr %83, align 8, !tbaa !94
@@ -2387,10 +2381,10 @@ ShannonEntropy.exit:                              ; preds = %182, %FastLog2.exit
   br label %291
 
 291:                                              ; preds = %247, %286, %278, %233
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0181)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0181)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
   br label %292
 
 292:                                              ; preds = %81, %291, %80
@@ -2412,7 +2406,7 @@ ShannonEntropy.exit:                              ; preds = %182, %FastLog2.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ContextBlockSplitterFinishBlock(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
+define internal fastcc void @ContextBlockSplitterFinishBlock(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = alloca [13 x double], align 16
   %5 = alloca [26 x double], align 16
   %.sroa.0 = alloca double, align 16
@@ -2602,7 +2596,7 @@ ClearHistogramsLiteral.exit200:                   ; preds = %.lr.ph269, %90, %._
   br i1 %.not, label %357, label %98
 
 98:                                               ; preds = %97
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.mask = and i64 %9, 9223372036854775807
   %.not195 = icmp eq i64 %.mask, 0
   br i1 %.not195, label %101, label %.thread
@@ -2610,17 +2604,17 @@ ClearHistogramsLiteral.exit200:                   ; preds = %.lr.ph269, %90, %._
 .thread:                                          ; preds = %98
   %99 = mul i64 %9, 2080
   %100 = tail call ptr @BrotliAllocate(ptr noundef %1, i64 noundef %99) #10
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   store double 0.000000e+00, ptr %.sroa.0, align 16
   store double 0.000000e+00, ptr %.sroa.8, align 8
   br label %.lr.ph
 
 101:                                              ; preds = %98
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   store double 0.000000e+00, ptr %.sroa.0, align 16
   store double 0.000000e+00, ptr %.sroa.8, align 8
   %.not270 = icmp eq i64 %9, 0
@@ -3112,10 +3106,10 @@ ClearHistogramsLiteral.exit:                      ; preds = %.lr.ph262, %269, %.
 
 356:                                              ; preds = %._crit_edge255, %351, %._crit_edge251, %ClearHistogramsLiteral.exit
   tail call void @BrotliFree(ptr noundef %1, ptr noundef %224) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.8)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %357
 
 357:                                              ; preds = %97, %356, %ClearHistogramsLiteral.exit200
@@ -3138,7 +3132,7 @@ ClearHistogramsLiteral.exit:                      ; preds = %.lr.ph262, %269, %.
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @BlockSplitterFinishBlockCommand(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #7 {
+define internal fastcc void @BlockSplitterFinishBlockCommand(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #6 {
   %.sroa.0181 = alloca double, align 16
   %.sroa.4 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
@@ -3387,10 +3381,10 @@ ShannonEntropy.exit139:                           ; preds = %119, %FastLog2.exit
   %.2.i138 = phi double [ %127, %FastLog2.exit158 ], [ %.124.i135, %119 ]
   %128 = fcmp olt double %.2.i138, %.pre174
   %.0.i127 = select i1 %128, double %.pre174, double %.2.i138
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0181)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0181)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 5744
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %131 = load i64, ptr %83, align 8, !tbaa !87
@@ -3688,10 +3682,10 @@ ShannonEntropy.exit:                              ; preds = %182, %FastLog2.exit
   br label %291
 
 291:                                              ; preds = %247, %286, %278, %233
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0181)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0181)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
   br label %292
 
 292:                                              ; preds = %81, %291, %80
@@ -3713,7 +3707,7 @@ ShannonEntropy.exit:                              ; preds = %182, %FastLog2.exit
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @BlockSplitterFinishBlockDistance(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #7 {
+define internal fastcc void @BlockSplitterFinishBlockDistance(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #6 {
   %.sroa.0181 = alloca double, align 16
   %.sroa.4 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
@@ -3962,10 +3956,10 @@ ShannonEntropy.exit139:                           ; preds = %119, %FastLog2.exit
   %.2.i138 = phi double [ %127, %FastLog2.exit158 ], [ %.124.i135, %119 ]
   %128 = fcmp olt double %.2.i138, %.pre174
   %.0.i127 = select i1 %128, double %.pre174, double %.2.i138
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0181)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0181)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 4464
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %131 = load i64, ptr %83, align 8, !tbaa !101
@@ -4263,10 +4257,10 @@ ShannonEntropy.exit:                              ; preds = %182, %FastLog2.exit
   br label %291
 
 291:                                              ; preds = %247, %286, %278, %233
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0181)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0181)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
   br label %292
 
 292:                                              ; preds = %81, %291, %80
@@ -4288,10 +4282,16 @@ ShannonEntropy.exit:                              ; preds = %182, %FastLog2.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #6
+declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log2(double noundef) local_unnamed_addr #8
+declare double @log2(double noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
@@ -4300,14 +4300,14 @@ declare i64 @llvm.umin.i64(i64, i64) #9
 declare i64 @llvm.umax.i64(i64, i64) #9
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 

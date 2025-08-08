@@ -454,9 +454,9 @@ define void @_Z15PlayChunkCommoni(i32 noundef %0) local_unnamed_addr #3 {
 
 .lr.ph:                                           ; preds = %1, %_Z16PlaySingleCommonii.exit
   %8 = phi i64 [ %23, %_Z16PlaySingleCommonii.exit ], [ %5, %1 ]
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 420, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @playparam, i64 8), align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %sext = shl i64 %8, 32
@@ -483,9 +483,9 @@ define void @_Z15PlayChunkCommoni(i32 noundef %0) local_unnamed_addr #3 {
   br label %_Z16PlaySingleCommonii.exit
 
 _Z16PlaySingleCommonii.exit:                      ; preds = %18, %22
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 420, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %23 = tail call i64 @_ZN9Scheduler9GetNumberEi(ptr noundef nonnull align 8 dereferenceable(43416) @scheduler, i32 noundef %0)
   %24 = and i64 %23, 4294967295
   %25 = icmp eq i64 %24, 4294967295
@@ -890,10 +890,10 @@ declare void @llvm.assume(i1 noundef) #10
 declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11

@@ -375,9 +375,6 @@ define void @jpeg_copy_critical_parameters(ptr noundef readonly captures(none) %
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @jpeg_set_defaults(ptr noundef) local_unnamed_addr #1
 
 declare void @jpeg_set_colorspace(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -385,10 +382,7 @@ declare void @jpeg_set_colorspace(ptr noundef, i32 noundef) local_unnamed_addr #
 declare ptr @jpeg_alloc_quant_table(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @jinit_c_master_control(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -474,8 +468,8 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %11 = load i32, ptr %10, align 8, !tbaa !122
   %12 = add i32 %11, -1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 324
   %14 = load i32, ptr %13, align 4, !tbaa !120
   %15 = icmp sgt i32 %14, 0
@@ -785,8 +779,8 @@ start_iMCU_row.exit:                              ; preds = %139, %150, %153
 
 158:                                              ; preds = %start_iMCU_row.exit, %123
   %.070 = phi i32 [ 0, %123 ], [ 1, %start_iMCU_row.exit ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.070
 }
 
@@ -798,10 +792,16 @@ define internal range(i32 0, 2) i32 @compress_output_12(ptr noundef %0, ptr read
 
 declare void @jzero_far(ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

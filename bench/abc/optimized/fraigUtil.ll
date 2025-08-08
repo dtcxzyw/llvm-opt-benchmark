@@ -59,10 +59,7 @@ define ptr @Fraig_Dfs(ptr noundef captures(none) %0, i32 noundef %1) local_unnam
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @Fraig_NodeVecAlloc(i32 noundef) local_unnamed_addr #2
+declare ptr @Fraig_NodeVecAlloc(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Fraig_Dfs_rec(i32 %.128.val, ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
@@ -113,9 +110,6 @@ define internal fastcc void @Fraig_Dfs_rec(i32 %.128.val, ptr noundef %0, ptr no
 26:                                               ; preds = %3, %25
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Fraig_DfsOne(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -204,10 +198,10 @@ Fraig_Dfs.exit:                                   ; preds = %.lr.ph.i, %2
   ret i32 %26
 }
 
-declare void @Fraig_NodeVecFree(ptr noundef) local_unnamed_addr #2
+declare void @Fraig_NodeVecFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Fraig_CheckTfi(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Fraig_CheckTfi(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8, !tbaa !3
   %6 = add nsw i32 %5, 1
@@ -217,7 +211,7 @@ define range(i32 0, 2) i32 @Fraig_CheckTfi(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @Fraig_CheckTfi_rec(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @Fraig_CheckTfi_rec(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = icmp eq ptr %1, null
   br i1 %5, label %._crit_edge, label %.lr.ph
@@ -440,7 +434,7 @@ Fraig_Dfs.exit:                                   ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @Fraig_BitStringCountOnes(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+define i32 @Fraig_BitStringCountOnes(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = shl i32 %1, 2
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
@@ -601,12 +595,12 @@ Fraig_Dfs.exit:                                   ; preds = %.lr.ph.i, %1
   ret i32 1
 }
 
-declare i32 @Fraig_NodeIsVar(ptr noundef) local_unnamed_addr #2
+declare i32 @Fraig_NodeIsVar(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
-declare i32 @Fraig_NodeIsConst(ptr noundef) local_unnamed_addr #2
+declare i32 @Fraig_NodeIsConst(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Fraig_PrintNode(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -743,7 +737,7 @@ select.unfold._crit_edge.i30:                     ; preds = %select.unfold.i27, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Fraig_PrintBinary(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #6 {
+define void @Fraig_PrintBinary(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = sext i32 %2 to i64
   %5 = and i32 %2, 31
   %6 = lshr i64 %4, 5
@@ -809,7 +803,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, -2147483648) i32 @Fraig_GetMaxLevel(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define range(i32 0, -2147483648) i32 @Fraig_GetMaxLevel(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -933,7 +927,7 @@ define i32 @Fraig_MappingUpdateLevel_rec(ptr noundef %0, ptr noundef %1, i32 nou
   ret i32 %.0
 }
 
-declare i32 @Fraig_NodeIsAnd(ptr noundef) local_unnamed_addr #2
+declare i32 @Fraig_NodeIsAnd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Fraig_MappingSetChoiceLevels(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1271,7 +1265,7 @@ define range(i32 0, 2) i32 @Fraig_NodeIsMuxType(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Fraig_NodeIsExor(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Fraig_NodeIsExor(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !30
   %4 = ptrtoint ptr %3 to i64
@@ -1291,7 +1285,7 @@ define range(i32 0, 2) i32 @Fraig_NodeIsExor(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @Fraig_NodeRecognizeMux(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #9 {
+define ptr @Fraig_NodeRecognizeMux(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !30
   %6 = ptrtoint ptr %5 to i64
@@ -1665,7 +1659,7 @@ Fraig_NodeIsMuxType.exit:                         ; preds = %.lr.ph, %16, %20, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Fraig_NodeSimsContained(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @Fraig_NodeSimsContained(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %5 = load ptr, ptr %4, align 8, !tbaa !60
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 104
@@ -1764,9 +1758,9 @@ define i32 @Fraig_CountPis(ptr noundef readonly captures(none) %0, ptr noundef %
   ret i32 %.0.lcssa
 }
 
-declare i32 @Msat_IntVecReadSize(ptr noundef) local_unnamed_addr #2
+declare i32 @Msat_IntVecReadSize(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Msat_IntVecReadArray(ptr noundef) local_unnamed_addr #2
+declare ptr @Msat_IntVecReadArray(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @Fraig_ManPrintRefs(ptr noundef %0) local_unnamed_addr #0 {
@@ -1827,9 +1821,9 @@ Abc_Clock.exit:                                   ; preds = %29, %1
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !21
   %37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %.lcssa, i32 noundef %36)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %38 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %39 = load i32, ptr %35, align 4, !tbaa !21
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph87, label %._crit_edge
@@ -2007,9 +2001,9 @@ Fraig_NodeSimsContained.exit69.thread:            ; preds = %.lr.ph.i64, %.lr.ph
   ret i32 0
 }
 
-declare void @Fraig_NodeVecPush(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Fraig_NodeVecPush(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @Fraig_NodeIsImplification(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @Fraig_NodeIsImplification(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @Fraig_NodeIsInSupergate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2210,7 +2204,7 @@ Fraig_NodeIsMuxType.exit.thread22:                ; preds = %22, %29, %30, %75, 
   ret void
 }
 
-declare i32 @Fraig_NodeVecPushUnique(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Fraig_NodeVecPushUnique(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Fraig_CollectSupergate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -2220,7 +2214,7 @@ define noundef ptr @Fraig_CollectSupergate(ptr noundef %0, i32 noundef %1) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Fraig_ManIncrementTravId(ptr noundef captures(none) %0) local_unnamed_addr #10 {
+define void @Fraig_ManIncrementTravId(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %3 = load i32, ptr %2, align 4, !tbaa !72
   %4 = add nsw i32 %3, 1
@@ -2229,7 +2223,7 @@ define void @Fraig_ManIncrementTravId(ptr noundef captures(none) %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Fraig_NodeSetTravIdCurrent(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((20, 24)) %1) local_unnamed_addr #10 {
+define void @Fraig_NodeSetTravIdCurrent(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((20, 24)) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %4 = load i32, ptr %3, align 4, !tbaa !72
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -2238,7 +2232,7 @@ define void @Fraig_NodeSetTravIdCurrent(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Fraig_NodeIsTravIdCurrent(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @Fraig_NodeIsTravIdCurrent(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !73
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -2249,7 +2243,7 @@ define range(i32 0, 2) i32 @Fraig_NodeIsTravIdCurrent(ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Fraig_NodeIsTravIdPrevious(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @Fraig_NodeIsTravIdPrevious(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !73
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -2261,7 +2255,13 @@ define range(i32 0, 2) i32 @Fraig_NodeIsTravIdPrevious(ptr noundef readonly capt
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #12
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
@@ -2270,18 +2270,18 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 declare i32 @llvm.smax.i32(i32, i32) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nofree nounwind }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nounwind }

@@ -217,14 +217,8 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr noundef readonly captures(none
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #1 {
   %6 = icmp eq i32 %0, 0
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -429,8 +423,8 @@ define noundef i32 @H5VM_hyper_fill(i32 noundef %0, ptr noundef readonly capture
   %7 = alloca [33 x i64], align 16
   %8 = alloca [33 x i64], align 16
   %9 = alloca [33 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %8) #7
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not = icmp eq ptr %1, null
   %10 = zext i32 %0 to i64
   %11 = shl nuw nsw i64 %10, 3
@@ -493,7 +487,7 @@ H5VM__stride_optimize1.exit:                      ; preds = %H5VM__stride_optimi
   %.pre-phi = phi i64 [ %.pre, %H5VM__stride_optimize1.exit.loopexit ], [ %16, %.lr.ph.preheader.i ]
   %.014.lcssa = phi i32 [ %indvars.i29, %H5VM__stride_optimize1.exit.loopexit ], [ %0, %.lr.ph.preheader.i ]
   %.0.lcssa = phi i64 [ %24, %H5VM__stride_optimize1.exit.loopexit ], [ 1, %.lr.ph.preheader.i ]
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %34 = shl nuw nsw i64 %.pre-phi, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull readonly align 16 %8, i64 %34, i1 false)
   br label %.lr.ph.i.i
@@ -501,7 +495,7 @@ H5VM__stride_optimize1.exit:                      ; preds = %H5VM__stride_optimi
 .lr.ph45.thread.i:                                ; preds = %.lr.ph, %14
   %.1.ph = phi i64 [ 1, %14 ], [ %24, %.lr.ph ]
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 %15
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %36 = trunc i32 %5 to i8
   br label %.lr.ph45.split.i
 
@@ -568,22 +562,22 @@ H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
   br label %H5VM_stride_fill.exit
 
 H5VM_stride_fill.exit:                            ; preds = %._crit_edge.us.i, %H5VM_vector_reduce_product.exit.i, %.lr.ph45.split.i
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef i32 @H5VM_stride_fill(i32 noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [33 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %2, null
   %8 = zext i32 %0 to i64
   %9 = shl nuw nsw i64 %8, 3
@@ -664,7 +658,7 @@ H5VM_vector_reduce_product.exit:                  ; preds = %.lr.ph.i, %.split28
   br label %._crit_edge46
 
 ._crit_edge46:                                    ; preds = %._crit_edge.us, %.lr.ph45.split, %H5VM_vector_reduce_product.exit
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 0
 }
 
@@ -674,9 +668,9 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
   %10 = alloca [33 x i64], align 16
   %11 = alloca [33 x i64], align 16
   %12 = alloca [33 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %10) #7
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %11) #7
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.not = icmp eq ptr %1, null
   %13 = zext i32 %0 to i64
   %14 = shl nuw nsw i64 %13, 3
@@ -1194,7 +1188,7 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
   %.0127167.ph = phi i64 [ %.0127181, %250 ], [ %.0127181, %257 ], [ %.0127181, %268 ], [ %.0127181, %281 ], [ %.0127176, %221 ], [ %.0127176, %228 ], [ %.0127176, %239 ], [ %.0127169, %205 ], [ %.0127169, %212 ], [ %.1128.lcssa, %200 ], [ %.1128.lcssa, %.lr.ph.i.preheader ], [ %.1128.lcssa, %.lr.ph212 ], [ %.1128.lcssa, %.lr.ph.i ]
   %.1164.ph = phi i32 [ 4, %250 ], [ 3, %257 ], [ 2, %268 ], [ 1, %281 ], [ 3, %221 ], [ 2, %228 ], [ 1, %239 ], [ 2, %205 ], [ 1, %212 ], [ 1, %200 ], [ %0, %.lr.ph.i.preheader ], [ %294, %.lr.ph.i ], [ %.0163210, %.lr.ph212 ]
   %.1162.ph = phi i64 [ 1, %250 ], [ %259, %257 ], [ %271, %268 ], [ %284, %281 ], [ 1, %221 ], [ %230, %228 ], [ %242, %239 ], [ 1, %205 ], [ %214, %212 ], [ 1, %200 ], [ 1, %.lr.ph.i.preheader ], [ %301, %.lr.ph.i ], [ %292, %.lr.ph212 ]
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %317 = zext i32 %.1164.ph to i64
   %318 = shl nuw nsw i64 %317, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull readonly align 16 %10, i64 %318, i1 false)
@@ -1273,22 +1267,22 @@ H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
   %.1162 = phi i64 [ %316, %.critedge.sink.split.i ], [ 1, %._crit_edge ], [ %301, %298 ]
   %343 = getelementptr inbounds nuw i8, ptr %4, i64 %.0126170
   %344 = getelementptr inbounds nuw i8, ptr %7, i64 %.0127167
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %343, ptr readonly align 1 %344, i64 %.1162, i1 false)
   br label %H5VM_stride_copy.exit
 
 H5VM_stride_copy.exit:                            ; preds = %.lr.ph60.split.i, %._crit_edge.us.i, %H5VM_vector_reduce_product.exit.i, %.loopexit198
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %12) #7
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef i32 @H5VM_stride_copy(i32 noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca [33 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %34, label %9
 
@@ -1372,14 +1366,14 @@ H5VM_vector_reduce_product.exit:                  ; preds = %.lr.ph.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph60.split, %._crit_edge.us, %9, %H5VM_vector_reduce_product.exit, %34
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef i32 @H5VM_stride_copy_s(i32 noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca [33 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %34, label %9
 
@@ -1463,7 +1457,7 @@ H5VM_vector_reduce_product.exit:                  ; preds = %.lr.ph.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph60.split, %._crit_edge.us, %9, %H5VM_vector_reduce_product.exit, %34
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 0
 }
 
@@ -1531,7 +1525,7 @@ define void @H5VM_array_down(i32 noundef %0, ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @H5VM_array_offset_pre(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
+define i64 @H5VM_array_offset_pre(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1558,9 +1552,9 @@ define i64 @H5VM_array_offset_pre(i32 noundef %0, ptr noundef readonly captures(
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @H5VM_array_offset(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
+define i64 @H5VM_array_offset(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca [33 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.09.i = add i32 %0, -1
   %5 = icmp sgt i32 %.09.i, -1
   br i1 %5, label %.lr.ph.preheader.i, label %H5VM_array_down.exit
@@ -1604,7 +1598,7 @@ H5VM_array_down.exit:                             ; preds = %3
 
 H5VM_array_offset_pre.exit:                       ; preds = %.lr.ph.i6, %H5VM_array_down.exit
   %.0.lcssa.i = phi i64 [ 0, %H5VM_array_down.exit ], [ %16, %.lr.ph.i6 ]
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0.lcssa.i
 }
 
@@ -1638,7 +1632,7 @@ define noundef i32 @H5VM_array_calc_pre(i64 noundef %0, i32 noundef %1, ptr noun
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef i32 @H5VM_array_calc(i64 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [33 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.09.i = add i32 %1, -1
   %6 = icmp sgt i32 %.09.i, -1
   br i1 %6, label %.lr.ph.preheader.i, label %H5VM_array_down.exit
@@ -1681,16 +1675,16 @@ H5VM_array_down.exit:                             ; preds = %4
   br i1 %exitcond.not.i, label %H5VM_array_calc_pre.exit, label %.lr.ph.i8, !llvm.loop !28
 
 H5VM_array_calc_pre.exit:                         ; preds = %.lr.ph.i8, %H5VM_array_down.exit
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 0
 }
 
-declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @H5VM_chunk_index(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
+define i64 @H5VM_chunk_index(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca [33 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp eq i32 %0, 0
   br i1 %.not.i, label %H5VM_chunk_index_scaled.exit, label %.lr.ph.preheader.i
 
@@ -1727,7 +1721,7 @@ define i64 @H5VM_chunk_index(i32 noundef %0, ptr noundef readonly captures(none)
 
 H5VM_chunk_index_scaled.exit:                     ; preds = %.lr.ph.i.i, %4
   %.0.lcssa.i.i = phi i64 [ 0, %4 ], [ %18, %.lr.ph.i.i ]
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0.lcssa.i.i
 }
 
@@ -1804,7 +1798,7 @@ define void @H5VM_chunk_scaled(i32 noundef %0, ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5VM_opvv(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef %7, ptr noundef readonly captures(none) %8, ptr noundef %9) local_unnamed_addr #6 {
+define i64 @H5VM_opvv(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef %7, ptr noundef readonly captures(none) %8, ptr noundef %9) local_unnamed_addr #5 {
   %11 = load i64, ptr %1, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i64, ptr %2, i64 %11
   %13 = getelementptr inbounds nuw i64, ptr %3, i64 %11
@@ -2195,13 +2189,19 @@ define i64 @H5VM_memcpyvv(ptr noundef writeonly captures(none) %0, i64 noundef %
   ret i64 %82
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

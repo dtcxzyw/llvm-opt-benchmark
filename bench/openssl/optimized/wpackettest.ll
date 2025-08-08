@@ -169,9 +169,9 @@ define internal range(i32 0, 2) i32 @test_WPACKET_init() #0 {
   %1 = alloca %struct.wpacket_st, align 8
   %2 = alloca i64, align 8
   %3 = alloca [3 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr @buf, align 8, !tbaa !4
   %5 = call i32 @WPACKET_init(ptr noundef nonnull %1, ptr noundef %4) #4
   %6 = icmp ne i32 %5, 0
@@ -450,9 +450,9 @@ define internal range(i32 0, 2) i32 @test_WPACKET_init() #0 {
 
 172:                                              ; preds = %.sink.split, %169
   %.04 = phi i32 [ 1, %169 ], [ 0, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.04
 }
 
@@ -460,8 +460,8 @@ define internal range(i32 0, 2) i32 @test_WPACKET_init() #0 {
 define internal range(i32 0, 2) i32 @test_WPACKET_set_max_size() #0 {
   %1 = alloca %struct.wpacket_st, align 8
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @buf, align 8, !tbaa !4
   %4 = call i32 @WPACKET_init(ptr noundef nonnull %1, ptr noundef %3) #4
   %5 = icmp ne i32 %4, 0
@@ -606,8 +606,8 @@ define internal range(i32 0, 2) i32 @test_WPACKET_set_max_size() #0 {
 
 90:                                               ; preds = %.sink.split, %84
   %.0 = phi i32 [ 1, %84 ], [ 0, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -616,9 +616,9 @@ define internal range(i32 0, 2) i32 @test_WPACKET_start_sub_packet() #0 {
   %1 = alloca %struct.wpacket_st, align 8
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr @buf, align 8, !tbaa !4
   %5 = call i32 @WPACKET_init(ptr noundef nonnull %1, ptr noundef %4) #4
   %6 = icmp ne i32 %5, 0
@@ -1066,9 +1066,9 @@ define internal range(i32 0, 2) i32 @test_WPACKET_start_sub_packet() #0 {
 
 280:                                              ; preds = %.sink.split, %275
   %.0 = phi i32 [ 1, %275 ], [ 0, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -1076,8 +1076,8 @@ define internal range(i32 0, 2) i32 @test_WPACKET_start_sub_packet() #0 {
 define internal range(i32 0, 2) i32 @test_WPACKET_set_flags() #0 {
   %1 = alloca %struct.wpacket_st, align 8
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @buf, align 8, !tbaa !4
   %4 = call i32 @WPACKET_init(ptr noundef nonnull %1, ptr noundef %3) #4
   %5 = icmp ne i32 %4, 0
@@ -1378,8 +1378,8 @@ define internal range(i32 0, 2) i32 @test_WPACKET_set_flags() #0 {
 
 189:                                              ; preds = %.sink.split, %183
   %.0 = phi i32 [ 1, %183 ], [ 0, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -1388,9 +1388,9 @@ define internal range(i32 0, 2) i32 @test_WPACKET_allocate_bytes() #0 {
   %1 = alloca %struct.wpacket_st, align 8
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr @buf, align 8, !tbaa !4
   %5 = call i32 @WPACKET_init_len(ptr noundef nonnull %1, ptr noundef %4, i64 noundef 1) #4
   %6 = icmp ne i32 %5, 0
@@ -1490,9 +1490,9 @@ define internal range(i32 0, 2) i32 @test_WPACKET_allocate_bytes() #0 {
 
 63:                                               ; preds = %.sink.split, %57
   %.0 = phi i32 [ 1, %57 ], [ 0, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -1501,9 +1501,9 @@ define internal range(i32 0, 2) i32 @test_WPACKET_memcpy() #0 {
   %1 = alloca %struct.wpacket_st, align 8
   %2 = alloca i64, align 8
   %3 = alloca [2 x i8], align 2
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 -2, ptr %3, align 2
   %4 = load ptr, ptr @buf, align 8, !tbaa !4
   %5 = call i32 @WPACKET_init_len(ptr noundef nonnull %1, ptr noundef %4, i64 noundef 1) #4
@@ -1594,9 +1594,9 @@ define internal range(i32 0, 2) i32 @test_WPACKET_memcpy() #0 {
 
 57:                                               ; preds = %.sink.split, %51
   %.0 = phi i32 [ 1, %51 ], [ 0, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -1609,18 +1609,18 @@ define internal range(i32 0, 2) i32 @test_WPACKET_init_der() #0 {
   %5 = alloca [2 x i64], align 16
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 50462976, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 259, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(259) %4, i8 0, i64 259, i1 false)
   store i8 -126, ptr %4, align 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 1, ptr %8, align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = call i32 @WPACKET_init_der(ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef 1024) #4
   %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i32
@@ -1836,13 +1836,13 @@ define internal range(i32 0, 2) i32 @test_WPACKET_init_der() #0 {
 
 .loopexit:                                        ; preds = %93, %88, %129, %124, %82, %123, %81
   %.06 = phi i32 [ 0, %123 ], [ 0, %81 ], [ 0, %82 ], [ 0, %124 ], [ %spec.select, %129 ], [ 0, %88 ], [ 0, %93 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 259, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.06
 }
 
@@ -1852,10 +1852,10 @@ define internal range(i32 0, 2) i32 @test_WPACKET_quic() #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr @buf, align 8, !tbaa !4
   %6 = call i32 @WPACKET_init(ptr noundef nonnull %1, ptr noundef %5) #4
   %7 = icmp ne i32 %6, 0
@@ -2522,10 +2522,10 @@ define internal range(i32 0, 2) i32 @test_WPACKET_quic() #0 {
 421:                                              ; preds = %416, %405, %411, %271, %277, %282, %287, %290, %295, %300, %305, %308, %313, %318, %323, %326, %331, %336, %341, %346, %351, %354, %359, %364, %369, %374, %379, %384, %389, %394, %399, %250, %260, %265, %239, %245, %192, %198, %203, %208, %213, %218, %223, %228, %233, %145, %151, %156, %161, %166, %171, %176, %181, %186, %98, %104, %109, %114, %119, %124, %129, %134, %139, %51, %57, %62, %67, %72, %77, %82, %87, %92, %0, %10, %15, %20, %25, %30, %35, %40, %45
   %.0 = phi i32 [ 0, %45 ], [ 0, %40 ], [ 0, %35 ], [ 0, %30 ], [ 0, %25 ], [ 0, %20 ], [ 0, %15 ], [ 0, %10 ], [ 0, %0 ], [ 0, %92 ], [ 0, %87 ], [ 0, %82 ], [ 0, %77 ], [ 0, %72 ], [ 0, %67 ], [ 0, %62 ], [ 0, %57 ], [ 0, %51 ], [ 0, %139 ], [ 0, %134 ], [ 0, %129 ], [ 0, %124 ], [ 0, %119 ], [ 0, %114 ], [ 0, %109 ], [ 0, %104 ], [ 0, %98 ], [ 0, %186 ], [ 0, %181 ], [ 0, %176 ], [ 0, %171 ], [ 0, %166 ], [ 0, %161 ], [ 0, %156 ], [ 0, %151 ], [ 0, %145 ], [ 0, %233 ], [ 0, %228 ], [ 0, %223 ], [ 0, %218 ], [ 0, %213 ], [ 0, %208 ], [ 0, %203 ], [ 0, %198 ], [ 0, %192 ], [ 0, %245 ], [ 0, %239 ], [ 0, %265 ], [ 0, %260 ], [ 0, %250 ], [ 0, %399 ], [ 0, %394 ], [ 0, %389 ], [ 0, %384 ], [ 0, %379 ], [ 0, %374 ], [ 0, %369 ], [ 0, %364 ], [ 0, %359 ], [ 0, %354 ], [ 0, %351 ], [ 0, %346 ], [ 0, %341 ], [ 0, %336 ], [ 0, %331 ], [ 0, %326 ], [ 0, %323 ], [ 0, %318 ], [ 0, %313 ], [ 0, %308 ], [ 0, %305 ], [ 0, %300 ], [ 0, %295 ], [ 0, %290 ], [ 0, %287 ], [ 0, %282 ], [ 0, %277 ], [ 0, %271 ], [ 0, %411 ], [ 0, %405 ], [ %spec.select, %416 ]
   call void @WPACKET_cleanup(ptr noundef nonnull %1) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -2534,9 +2534,9 @@ define internal range(i32 0, 2) i32 @test_WPACKET_quic_vlint_random() #0 {
   %1 = alloca i64, align 8
   %2 = alloca [9 x i8], align 8
   %3 = alloca %struct.wpacket_st, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %5
 
@@ -2637,9 +2637,9 @@ PACKET_get_quic_vlint.exit:                       ; preds = %33, %35, %42
 51:                                               ; preds = %49, %PACKET_buf_init.exit, %PACKET_get_quic_vlint.exit, %47, %switch.lookup, %17, %22, %5
   %.010 = phi i32 [ 0, %5 ], [ 0, %22 ], [ 0, %17 ], [ 0, %switch.lookup ], [ 0, %47 ], [ 0, %PACKET_get_quic_vlint.exit ], [ 0, %PACKET_buf_init.exit ], [ 1, %49 ]
   call void @WPACKET_cleanup(ptr noundef nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.010
 }
 
@@ -2651,9 +2651,6 @@ define dso_local void @cleanup_tests() local_unnamed_addr #0 {
 }
 
 declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2676,9 +2673,6 @@ declare i32 @WPACKET_init_len(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @WPACKET_init_static_len(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @WPACKET_cleanup(ptr noundef) local_unnamed_addr #1
 
@@ -2705,7 +2699,7 @@ declare i32 @WPACKET_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare i32 @WPACKET_sub_memcpy__(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @WPACKET_init_der(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2729,10 +2723,16 @@ declare i32 @test_uint64_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef
 
 declare i64 @ossl_quic_vlint_decode_unchecked(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

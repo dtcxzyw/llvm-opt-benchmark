@@ -61,16 +61,10 @@ define range(i32 0, 2) i32 @ff_fmt_is_in(i32 noundef %0, ptr noundef readonly ca
   ret i32 %.05
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
-define ptr @ff_make_format_list(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define ptr @ff_make_format_list(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -122,20 +116,20 @@ define ptr @ff_make_format_list(ptr noundef readonly captures(address_is_null) %
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7, %.loopexit, %12
   %.011 = phi ptr [ null, %12 ], [ null, %.loopexit ], [ %6, %7 ], [ %6, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.011
 }
 
-declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #4
+declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #3
 
-declare ptr @av_malloc_array(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @av_malloc_array(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @av_freep(ptr noundef) local_unnamed_addr #4
+declare void @av_freep(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @ff_make_channel_layout_list(ptr noundef %0) local_unnamed_addr #3 {
+define ptr @ff_make_channel_layout_list(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader33
 
@@ -205,20 +199,20 @@ define ptr @ff_make_channel_layout_list(ptr noundef %0) local_unnamed_addr #3 {
 
 .thread:                                          ; preds = %12, %.thread.sink.split, %7, %.loopexit
   %.020 = phi ptr [ null, %.loopexit ], [ %6, %7 ], [ null, %.thread.sink.split ], [ %6, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.020
 }
 
-declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @av_channel_layout_copy(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @av_channel_layout_copy(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @av_channel_layout_uninit(ptr noundef) local_unnamed_addr #4
+declare void @av_channel_layout_uninit(ptr noundef) local_unnamed_addr #3
 
-declare void @av_free(ptr noundef) local_unnamed_addr #4
+declare void @av_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_add_format(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_add_format(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !23
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -321,10 +315,10 @@ ff_formats_unref.exit.thread:                     ; preds = %.thread.thread30.i,
   ret i32 %52
 }
 
-declare ptr @av_realloc_array(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @av_realloc_array(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @ff_formats_unref(ptr noundef captures(address) %0) local_unnamed_addr #3 {
+define void @ff_formats_unref(ptr noundef captures(address) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !23
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %32, label %.preheader
@@ -393,7 +387,7 @@ define void @ff_formats_unref(ptr noundef captures(address) %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @ff_add_channel_layout(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 -2147483648, 1) i32 @ff_add_channel_layout(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !33
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -451,7 +445,7 @@ define range(i32 -2147483648, 1) i32 @ff_add_channel_layout(ptr noundef captures
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ff_channel_layouts_unref(ptr noundef captures(address) %0) local_unnamed_addr #3 {
+define void @ff_channel_layouts_unref(ptr noundef captures(address) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !33
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %42, label %.preheader29
@@ -540,17 +534,17 @@ define void @ff_channel_layouts_unref(ptr noundef captures(address) %0) local_un
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @ff_make_formats_list_singleton(i32 noundef %0) local_unnamed_addr #3 {
+define ptr @ff_make_formats_list_singleton(i32 noundef %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
   %3 = alloca [2 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %0, ptr %3, align 4, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 -1, ptr %4, align 4, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %1, %.preheader.i
@@ -592,15 +586,15 @@ define ptr @ff_make_formats_list_singleton(i32 noundef %0) local_unnamed_addr #3
 
 ff_make_format_list.exit:                         ; preds = %.lr.ph.i.preheader, %.loopexit.loopexit.i, %8, %15
   %.011.i = phi ptr [ null, %15 ], [ null, %.loopexit.loopexit.i ], [ %7, %8 ], [ %7, %.lr.ph.i.preheader ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.011.i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ff_all_formats(i32 noundef %0) local_unnamed_addr #3 {
+define ptr @ff_all_formats(i32 noundef %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !23
   switch i32 %0, label %.loopexit [
     i32 0, label %4
@@ -635,14 +629,14 @@ define ptr @ff_all_formats(i32 noundef %0) local_unnamed_addr #3 {
 
 .loopexit:                                        ; preds = %.lr.ph, %1, %.preheader, %.critedge.loopexit, %4
   %.07 = phi ptr [ %5, %4 ], [ %.pre, %.critedge.loopexit ], [ null, %.preheader ], [ null, %1 ], [ null, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.07
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ff_formats_pixdesc_filter(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define noundef ptr @ff_formats_pixdesc_filter(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = or i32 %1, %0
   %.promoted = load ptr, ptr %3, align 8
   br label %5
@@ -793,23 +787,23 @@ define noundef ptr @ff_formats_pixdesc_filter(i32 noundef %0, i32 noundef %1) lo
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %51, %62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.fr
 }
 
-declare ptr @av_get_sample_fmt_name(i32 noundef) local_unnamed_addr #4
+declare ptr @av_get_sample_fmt_name(i32 noundef) local_unnamed_addr #3
 
-declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #4
+declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #3
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #6
+declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @ff_planar_sample_fmts() local_unnamed_addr #3 {
+define ptr @ff_planar_sample_fmts() local_unnamed_addr #2 {
   %1 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !23
   %2 = tail call i32 @av_get_bytes_per_sample(i32 noundef 0) #10
   %3 = icmp sgt i32 %2, 0
@@ -840,22 +834,22 @@ define ptr @ff_planar_sample_fmts() local_unnamed_addr #3 {
 
 .loopexit:                                        ; preds = %6, %0, %._crit_edge.loopexit
   %.04 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ null, %0 ], [ null, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %.04
 }
 
-declare i32 @av_get_bytes_per_sample(i32 noundef) local_unnamed_addr #4
+declare i32 @av_get_bytes_per_sample(i32 noundef) local_unnamed_addr #3
 
-declare i32 @av_sample_fmt_is_planar(i32 noundef) local_unnamed_addr #4
+declare i32 @av_sample_fmt_is_planar(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @ff_all_samplerates() local_unnamed_addr #3 {
+define noalias ptr @ff_all_samplerates() local_unnamed_addr #2 {
   %1 = tail call noalias ptr @av_mallocz(i64 noundef 32) #10
   ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @ff_all_channel_layouts() local_unnamed_addr #3 {
+define noalias ptr @ff_all_channel_layouts() local_unnamed_addr #2 {
   %1 = tail call noalias ptr @av_mallocz(i64 noundef 32) #10
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %2
@@ -870,7 +864,7 @@ define noalias ptr @ff_all_channel_layouts() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @ff_all_channel_counts() local_unnamed_addr #3 {
+define noalias ptr @ff_all_channel_counts() local_unnamed_addr #2 {
   %1 = tail call noalias ptr @av_mallocz(i64 noundef 32) #10
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %2
@@ -887,9 +881,9 @@ define noalias ptr @ff_all_channel_counts() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ff_all_color_spaces() local_unnamed_addr #3 {
+define ptr @ff_all_color_spaces() local_unnamed_addr #2 {
   %1 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !23
   %2 = call i32 @ff_add_format(ptr noundef nonnull %1, i64 noundef 2)
   %3 = icmp slt i32 %2, 0
@@ -917,14 +911,14 @@ define ptr @ff_all_color_spaces() local_unnamed_addr #3 {
 
 .loopexit:                                        ; preds = %5, %9, %0
   %.08 = phi ptr [ null, %0 ], [ %10, %9 ], [ null, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %.08
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ff_all_color_ranges() local_unnamed_addr #3 {
+define ptr @ff_all_color_ranges() local_unnamed_addr #2 {
   %1 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !23
   br label %2
 
@@ -940,12 +934,12 @@ define ptr @ff_all_color_ranges() local_unnamed_addr #3 {
 5:                                                ; preds = %2
   %6 = load ptr, ptr %1, align 8
   %spec.select = select i1 %4, ptr null, ptr %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %spec.select
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_channel_layouts_ref(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_channel_layouts_ref(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8, !tbaa !33
   %.not = icmp eq ptr %0, null
@@ -983,7 +977,7 @@ define range(i32 -12, 1) i32 @ff_channel_layouts_ref(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_formats_ref(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_formats_ref(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ff_formats_unref.exit, label %3
 
@@ -1029,10 +1023,10 @@ ff_formats_unref.exit:                            ; preds = %.preheader.i, %.thr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ff_channel_layouts_changeref(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #8 {
+define void @ff_channel_layouts_changeref(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8, !tbaa !33
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !46
@@ -1070,7 +1064,7 @@ define void @ff_channel_layouts_changeref(ptr noundef captures(address) %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ff_formats_changeref(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #8 {
+define void @ff_formats_changeref(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8, !tbaa !23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !41
@@ -1108,7 +1102,7 @@ define void @ff_formats_changeref(ptr noundef captures(address) %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_channel_layouts(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_channel_layouts(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1162,7 +1156,7 @@ define range(i32 -12, 1) i32 @ff_set_common_channel_layouts(ptr noundef readonly
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !33
   %29 = load ptr, ptr %9, align 8, !tbaa !47
   %30 = load i32, ptr %10, align 8, !tbaa !46
@@ -1181,13 +1175,13 @@ define range(i32 -12, 1) i32 @ff_set_common_channel_layouts(ptr noundef readonly
   %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %36
   store ptr %22, ptr %37, align 8, !tbaa !48
   store ptr %1, ptr %22, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load i32, ptr %6, align 8, !tbaa !68
   br label %.thread
 
 38:                                               ; preds = %28
   call void @ff_channel_layouts_unref(ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %71
 
 .thread:                                          ; preds = %16, %21, %24, %.thread54
@@ -1219,7 +1213,7 @@ define range(i32 -12, 1) i32 @ff_set_common_channel_layouts(ptr noundef readonly
   br i1 %53, label %54, label %.thread58
 
 54:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !33
   %55 = load ptr, ptr %14, align 8, !tbaa !47
   %56 = load i32, ptr %15, align 8, !tbaa !46
@@ -1238,13 +1232,13 @@ define range(i32 -12, 1) i32 @ff_set_common_channel_layouts(ptr noundef readonly
   %63 = getelementptr inbounds nuw ptr, ptr %59, i64 %62
   store ptr %48, ptr %63, align 8, !tbaa !48
   store ptr %1, ptr %48, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre75 = load i32, ptr %11, align 8, !tbaa !77
   br label %.thread58
 
 64:                                               ; preds = %54
   call void @ff_channel_layouts_unref(ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %71
 
 .thread58:                                        ; preds = %42, %47, %50, %.thread62
@@ -1270,14 +1264,14 @@ define range(i32 -12, 1) i32 @ff_set_common_channel_layouts(ptr noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_channel_layouts_from_list(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_channel_layouts_from_list(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call ptr @ff_make_channel_layout_list(ptr noundef %1)
   %4 = tail call i32 @ff_set_common_channel_layouts(ptr noundef %0, ptr noundef %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_all_channel_counts(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_all_channel_counts(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = tail call noalias ptr @av_mallocz(i64 noundef 32) #10
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %ff_all_channel_counts.exit, label %3
@@ -1295,7 +1289,7 @@ ff_all_channel_counts.exit:                       ; preds = %1, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_samplerates(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_samplerates(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread59, label %.preheader71
 
@@ -1470,9 +1464,9 @@ ff_formats_unref.exit:                            ; preds = %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_samplerates_from_list(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_samplerates_from_list(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
 
@@ -1524,20 +1518,20 @@ define range(i32 -12, 1) i32 @ff_set_common_samplerates_from_list(ptr noundef re
 
 ff_make_format_list.exit:                         ; preds = %.lr.ph.i, %.loopexit.i, %8, %13
   %.011.i = phi ptr [ null, %13 ], [ null, %.loopexit.i ], [ %7, %8 ], [ %7, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = call i32 @ff_set_common_samplerates(ptr noundef %0, ptr noundef %.011.i)
   ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_all_samplerates(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_all_samplerates(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = tail call noalias ptr @av_mallocz(i64 noundef 32) #10
   %3 = tail call i32 @ff_set_common_samplerates(ptr noundef %0, ptr noundef %2)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_color_spaces(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_color_spaces(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread59, label %.preheader71
 
@@ -1712,9 +1706,9 @@ ff_formats_unref.exit:                            ; preds = %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_color_spaces_from_list(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_color_spaces_from_list(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
 
@@ -1766,15 +1760,15 @@ define range(i32 -12, 1) i32 @ff_set_common_color_spaces_from_list(ptr noundef r
 
 ff_make_format_list.exit:                         ; preds = %.lr.ph.i, %.loopexit.i, %8, %13
   %.011.i = phi ptr [ null, %13 ], [ null, %.loopexit.i ], [ %7, %8 ], [ %7, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = call i32 @ff_set_common_color_spaces(ptr noundef %0, ptr noundef %.011.i)
   ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_all_color_spaces(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_all_color_spaces(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !23
   %3 = call i32 @ff_add_format(ptr noundef nonnull %2, i64 noundef 2)
   %4 = icmp slt i32 %3, 0
@@ -1802,13 +1796,13 @@ define range(i32 -12, 1) i32 @ff_set_common_all_color_spaces(ptr noundef readonl
 
 ff_all_color_spaces.exit:                         ; preds = %6, %1, %10
   %.08.i = phi ptr [ null, %1 ], [ %11, %10 ], [ null, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %12 = call i32 @ff_set_common_color_spaces(ptr noundef %0, ptr noundef %.08.i)
   ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_color_ranges(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_color_ranges(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread59, label %.preheader71
 
@@ -1983,9 +1977,9 @@ ff_formats_unref.exit:                            ; preds = %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_color_ranges_from_list(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_color_ranges_from_list(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
 
@@ -2037,15 +2031,15 @@ define range(i32 -12, 1) i32 @ff_set_common_color_ranges_from_list(ptr noundef r
 
 ff_make_format_list.exit:                         ; preds = %.lr.ph.i, %.loopexit.i, %8, %13
   %.011.i = phi ptr [ null, %13 ], [ null, %.loopexit.i ], [ %7, %8 ], [ %7, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = call i32 @ff_set_common_color_ranges(ptr noundef %0, ptr noundef %.011.i)
   ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_all_color_ranges(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_all_color_ranges(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !23
   br label %3
 
@@ -2061,13 +2055,13 @@ define range(i32 -12, 1) i32 @ff_set_common_all_color_ranges(ptr noundef readonl
 ff_all_color_ranges.exit:                         ; preds = %3
   %6 = load ptr, ptr %2, align 8
   %spec.select.i = select i1 %5, ptr null, ptr %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %7 = call i32 @ff_set_common_color_ranges(ptr noundef %0, ptr noundef %spec.select.i)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_formats(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_formats(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread57, label %.preheader69
 
@@ -2230,9 +2224,9 @@ ff_formats_unref.exit:                            ; preds = %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_formats_from_list(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_formats_from_list(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
 
@@ -2284,13 +2278,13 @@ define range(i32 -12, 1) i32 @ff_set_common_formats_from_list(ptr noundef readon
 
 ff_make_format_list.exit:                         ; preds = %.lr.ph.i, %.loopexit.i, %8, %13
   %.011.i = phi ptr [ null, %13 ], [ null, %.loopexit.i ], [ %7, %8 ], [ %7, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = call i32 @ff_set_common_formats(ptr noundef %0, ptr noundef %.011.i)
   ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_channel_layouts2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_channel_layouts2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2342,7 +2336,7 @@ define range(i32 -12, 1) i32 @ff_set_common_channel_layouts2(ptr noundef readonl
   br i1 %30, label %31, label %.thread
 
 31:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8, !tbaa !33
   %32 = load ptr, ptr %11, align 8, !tbaa !47
   %33 = load i32, ptr %12, align 8, !tbaa !46
@@ -2361,13 +2355,13 @@ define range(i32 -12, 1) i32 @ff_set_common_channel_layouts2(ptr noundef readonl
   %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %39
   store ptr %22, ptr %40, align 8, !tbaa !48
   store ptr %3, ptr %22, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load i32, ptr %8, align 8, !tbaa !68
   br label %.thread
 
 .thread59:                                        ; preds = %31
   call void @ff_channel_layouts_unref(ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %74
 
 .thread:                                          ; preds = %18, %24, %.thread56
@@ -2397,7 +2391,7 @@ define range(i32 -12, 1) i32 @ff_set_common_channel_layouts2(ptr noundef readonl
   br i1 %56, label %57, label %.thread65
 
 57:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %3, ptr %5, align 8, !tbaa !33
   %58 = load ptr, ptr %16, align 8, !tbaa !47
   %59 = load i32, ptr %17, align 8, !tbaa !46
@@ -2416,7 +2410,7 @@ define range(i32 -12, 1) i32 @ff_set_common_channel_layouts2(ptr noundef readonl
   %66 = getelementptr inbounds nuw ptr, ptr %62, i64 %65
   store ptr %48, ptr %66, align 8, !tbaa !48
   store ptr %3, ptr %48, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre87 = load i32, ptr %13, align 8, !tbaa !77
   br label %.thread65
 
@@ -2429,7 +2423,7 @@ define range(i32 -12, 1) i32 @ff_set_common_channel_layouts2(ptr noundef readonl
 
 70:                                               ; preds = %57
   call void @ff_channel_layouts_unref(ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %74
 
 ._crit_edge:                                      ; preds = %.thread65, %.preheader
@@ -2448,14 +2442,14 @@ define range(i32 -12, 1) i32 @ff_set_common_channel_layouts2(ptr noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_channel_layouts_from_list2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_channel_layouts_from_list2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = tail call ptr @ff_make_channel_layout_list(ptr noundef %3)
   %6 = tail call i32 @ff_set_common_channel_layouts2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_all_channel_counts2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_all_channel_counts2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = tail call noalias ptr @av_mallocz(i64 noundef 32) #10
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %ff_all_channel_counts.exit, label %5
@@ -2473,7 +2467,7 @@ ff_all_channel_counts.exit:                       ; preds = %3, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_samplerates2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_samplerates2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread64, label %.preheader83
 
@@ -2644,9 +2638,9 @@ ff_formats_unref.exit:                            ; preds = %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_samplerates_from_list2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_samplerates_from_list2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
 
@@ -2698,20 +2692,20 @@ define range(i32 -12, 1) i32 @ff_set_common_samplerates_from_list2(ptr noundef r
 
 ff_make_format_list.exit:                         ; preds = %.lr.ph.i, %.loopexit.i, %10, %15
   %.011.i = phi ptr [ null, %15 ], [ null, %.loopexit.i ], [ %9, %10 ], [ %9, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = call i32 @ff_set_common_samplerates2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.011.i)
   ret i32 %20
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_all_samplerates2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_all_samplerates2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = tail call noalias ptr @av_mallocz(i64 noundef 32) #10
   %5 = tail call i32 @ff_set_common_samplerates2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_color_spaces2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_color_spaces2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread64, label %.preheader83
 
@@ -2882,9 +2876,9 @@ ff_formats_unref.exit:                            ; preds = %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_color_spaces_from_list2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_color_spaces_from_list2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
 
@@ -2936,15 +2930,15 @@ define range(i32 -12, 1) i32 @ff_set_common_color_spaces_from_list2(ptr noundef 
 
 ff_make_format_list.exit:                         ; preds = %.lr.ph.i, %.loopexit.i, %10, %15
   %.011.i = phi ptr [ null, %15 ], [ null, %.loopexit.i ], [ %9, %10 ], [ %9, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = call i32 @ff_set_common_color_spaces2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.011.i)
   ret i32 %20
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_all_color_spaces2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_all_color_spaces2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !23
   %5 = call i32 @ff_add_format(ptr noundef nonnull %4, i64 noundef 2)
   %6 = icmp slt i32 %5, 0
@@ -2972,13 +2966,13 @@ define range(i32 -12, 1) i32 @ff_set_common_all_color_spaces2(ptr noundef readon
 
 ff_all_color_spaces.exit:                         ; preds = %8, %3, %12
   %.08.i = phi ptr [ null, %3 ], [ %13, %12 ], [ null, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %14 = call i32 @ff_set_common_color_spaces2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.08.i)
   ret i32 %14
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_color_ranges2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_color_ranges2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread64, label %.preheader83
 
@@ -3149,9 +3143,9 @@ ff_formats_unref.exit:                            ; preds = %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_color_ranges_from_list2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_color_ranges_from_list2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
 
@@ -3203,15 +3197,15 @@ define range(i32 -12, 1) i32 @ff_set_common_color_ranges_from_list2(ptr noundef 
 
 ff_make_format_list.exit:                         ; preds = %.lr.ph.i, %.loopexit.i, %10, %15
   %.011.i = phi ptr [ null, %15 ], [ null, %.loopexit.i ], [ %9, %10 ], [ %9, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = call i32 @ff_set_common_color_ranges2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.011.i)
   ret i32 %20
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_all_color_ranges2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_all_color_ranges2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !23
   br label %5
 
@@ -3227,13 +3221,13 @@ define range(i32 -12, 1) i32 @ff_set_common_all_color_ranges2(ptr noundef readon
 ff_all_color_ranges.exit:                         ; preds = %5
   %8 = load ptr, ptr %4, align 8
   %spec.select.i = select i1 %7, ptr null, ptr %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %9 = call i32 @ff_set_common_color_ranges2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %spec.select.i)
   ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_formats2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_formats2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread61, label %.preheader79
 
@@ -3382,9 +3376,9 @@ ff_formats_unref.exit:                            ; preds = %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_set_common_formats_from_list2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_set_common_formats_from_list2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
 
@@ -3436,13 +3430,13 @@ define range(i32 -12, 1) i32 @ff_set_common_formats_from_list2(ptr noundef reado
 
 ff_make_format_list.exit:                         ; preds = %.lr.ph.i, %.loopexit.i, %10, %15
   %.011.i = phi ptr [ null, %15 ], [ null, %.loopexit.i ], [ %9, %10 ], [ %9, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = call i32 @ff_set_common_formats2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.011.i)
   ret i32 %20
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_default_query_formats(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_default_query_formats(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -3466,7 +3460,7 @@ define range(i32 -12, 1) i32 @ff_default_query_formats(ptr noundef readonly capt
 15:                                               ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %17 = load ptr, ptr %16, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
 
@@ -3518,13 +3512,13 @@ define range(i32 -12, 1) i32 @ff_default_query_formats(ptr noundef readonly capt
 
 ff_make_format_list.exit:                         ; preds = %.lr.ph.i, %.loopexit.i, %22, %27
   %.011.i = phi ptr [ null, %27 ], [ null, %.loopexit.i ], [ %21, %22 ], [ %21, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %96
 
 32:                                               ; preds = %1
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %34 = load ptr, ptr %33, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not.i38 = icmp eq ptr %34, null
   br i1 %.not.i38, label %.loopexit.i44, label %.preheader.i39
 
@@ -3576,17 +3570,17 @@ ff_make_format_list.exit:                         ; preds = %.lr.ph.i, %.loopexi
 
 ff_make_format_list.exit53:                       ; preds = %.lr.ph.i49, %.loopexit.i44, %39, %44
   %.011.i52 = phi ptr [ null, %44 ], [ null, %.loopexit.i44 ], [ %38, %39 ], [ %38, %.lr.ph.i49 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %96
 
 49:                                               ; preds = %1
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %51 = load i32, ptr %50, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %51, ptr %8, align 4, !tbaa !19
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 -1, ptr %52, align 4, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %49
@@ -3628,18 +3622,18 @@ ff_make_format_list.exit53:                       ; preds = %.lr.ph.i49, %.loope
 
 ff_make_formats_list_singleton.exit:              ; preds = %.loopexit.loopexit.i.i, %56, %.lr.ph.i.preheader.i, %63
   %.011.i.i = phi ptr [ null, %63 ], [ null, %.loopexit.loopexit.i.i ], [ %55, %56 ], [ %55, %.lr.ph.i.preheader.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %96
 
 64:                                               ; preds = %1
   %65 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %66 = load i32, ptr %65, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %66, ptr %6, align 4, !tbaa !19
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 -1, ptr %67, align 4, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %.preheader.i.i54
 
 .preheader.i.i54:                                 ; preds = %.preheader.i.i54, %64
@@ -3681,8 +3675,8 @@ ff_make_formats_list_singleton.exit:              ; preds = %.loopexit.loopexit.
 
 ff_make_formats_list_singleton.exit64:            ; preds = %.loopexit.loopexit.i.i58, %71, %.lr.ph.i.preheader.i62, %78
   %.011.i.i63 = phi ptr [ null, %78 ], [ null, %.loopexit.loopexit.i.i58 ], [ %70, %71 ], [ %70, %.lr.ph.i.preheader.i62 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %96
 
 79:                                               ; preds = %1
@@ -3698,7 +3692,7 @@ ff_make_formats_list_singleton.exit64:            ; preds = %.loopexit.loopexit.
   br i1 %.not35, label %.thread, label %85
 
 .thread:                                          ; preds = %82
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %89
 
 85:                                               ; preds = %82, %79
@@ -3708,7 +3702,7 @@ ff_make_formats_list_singleton.exit64:            ; preds = %.loopexit.loopexit.
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !79
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 32
   %87 = load i32, ptr %.in, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !23
   switch i32 %87, label %ff_all_formats.exit [
     i32 0, label %89
@@ -3743,7 +3737,7 @@ ff_make_formats_list_singleton.exit64:            ; preds = %.loopexit.loopexit.
 
 ff_all_formats.exit:                              ; preds = %.lr.ph.i66, %85, %.preheader.i65, %89, %.critedge.loopexit.i
   %.07.i = phi ptr [ %90, %89 ], [ %.pre.i, %.critedge.loopexit.i ], [ null, %.preheader.i65 ], [ null, %85 ], [ null, %.lr.ph.i66 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %96
 
 96:                                               ; preds = %ff_all_formats.exit, %ff_make_formats_list_singleton.exit64, %ff_make_formats_list_singleton.exit, %ff_make_format_list.exit53, %ff_make_format_list.exit
@@ -3758,7 +3752,7 @@ ff_all_formats.exit:                              ; preds = %.lr.ph.i66, %85, %.
   br i1 %.not36, label %119, label %100
 
 100:                                              ; preds = %99
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !23
   %101 = call i32 @ff_add_format(ptr noundef nonnull %3, i64 noundef 2)
   %102 = icmp slt i32 %101, 0
@@ -3786,13 +3780,13 @@ ff_all_formats.exit:                              ; preds = %.lr.ph.i66, %85, %.
 
 ff_set_common_all_color_spaces.exit:              ; preds = %104, %100, %108
   %.08.i.i = phi ptr [ null, %100 ], [ %109, %108 ], [ null, %104 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %110 = call range(i32 -12, 1) i32 @ff_set_common_color_spaces(ptr noundef readonly %0, ptr noundef %.08.i.i)
   %111 = icmp slt i32 %110, 0
   br i1 %111, label %132, label %112
 
 112:                                              ; preds = %ff_set_common_all_color_spaces.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !23
   br label %113
 
@@ -3808,7 +3802,7 @@ ff_set_common_all_color_spaces.exit:              ; preds = %104, %100, %108
 ff_set_common_all_color_ranges.exit:              ; preds = %113
   %116 = load ptr, ptr %2, align 8
   %spec.select.i.i = select i1 %115, ptr null, ptr %116
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %117 = call range(i32 -12, 1) i32 @ff_set_common_color_ranges(ptr noundef readonly %0, ptr noundef %spec.select.i.i)
   %118 = icmp slt i32 %117, 0
   br i1 %118, label %132, label %119
@@ -3848,7 +3842,7 @@ ff_set_common_all_channel_counts.exit:            ; preds = %120, %122
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @ff_formats_check_pixel_formats(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define range(i32 -22, 1) i32 @ff_formats_check_pixel_formats(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %check_list.exit, label %3
 
@@ -3904,7 +3898,7 @@ check_list.exit:                                  ; preds = %.loopexit.i, %2, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @ff_formats_check_sample_formats(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define range(i32 -22, 1) i32 @ff_formats_check_sample_formats(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %check_list.exit, label %3
 
@@ -3960,7 +3954,7 @@ check_list.exit:                                  ; preds = %.loopexit.i, %2, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @ff_formats_check_sample_rates(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define range(i32 -22, 1) i32 @ff_formats_check_sample_rates(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %check_list.exit, label %3
 
@@ -4015,7 +4009,7 @@ check_list.exit:                                  ; preds = %.loopexit.i, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @ff_formats_check_color_spaces(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define range(i32 -22, 1) i32 @ff_formats_check_color_spaces(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %check_list.exit, label %.lr.ph
 
@@ -4093,7 +4087,7 @@ check_list.exit:                                  ; preds = %.loopexit.i, %2, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @ff_formats_check_color_ranges(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define range(i32 -22, 1) i32 @ff_formats_check_color_ranges(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %check_list.exit, label %3
 
@@ -4149,7 +4143,7 @@ check_list.exit:                                  ; preds = %.loopexit.i, %2, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @ff_formats_check_channel_layouts(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define range(i32 -22, 1) i32 @ff_formats_check_channel_layouts(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit30, label %3
 
@@ -4279,31 +4273,31 @@ layouts_compatible.exit.thread:                   ; preds = %30, %.thread24.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 2) i32 @merge_pix_fmts(ptr noundef %0, ptr noundef %1) #3 {
+define internal range(i32 -12, 2) i32 @merge_pix_fmts(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call fastcc i32 @merge_formats_internal(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 0)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 2) i32 @can_merge_pix_fmts(ptr noundef %0, ptr noundef %1) #3 {
+define internal range(i32 -12, 2) i32 @can_merge_pix_fmts(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call fastcc i32 @merge_formats_internal(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 2) i32 @merge_generic(ptr noundef %0, ptr noundef %1) #3 {
+define internal range(i32 -12, 2) i32 @merge_generic(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call fastcc i32 @merge_generic_internal(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 2) i32 @can_merge_generic(ptr noundef %0, ptr noundef %1) #3 {
+define internal range(i32 -12, 2) i32 @can_merge_generic(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call fastcc i32 @merge_generic_internal(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -12, 2) i32 @merge_formats_internal(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #3 {
+define internal fastcc range(i32 -12, 2) i32 @merge_formats_internal(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #2 {
   %5 = alloca ptr, align 8
   store ptr %1, ptr %5, align 8, !tbaa !23
   %6 = icmp eq ptr %0, %1
@@ -4536,7 +4530,7 @@ define internal fastcc range(i32 -12, 2) i32 @merge_formats_internal(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -12, 2) i32 @merge_generic_internal(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 {
+define internal fastcc range(i32 -12, 2) i32 @merge_generic_internal(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
   %4 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8, !tbaa !23
   %5 = icmp eq ptr %0, %1
@@ -4667,43 +4661,43 @@ define internal fastcc range(i32 -12, 2) i32 @merge_generic_internal(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 2) i32 @merge_channel_layouts(ptr noundef %0, ptr noundef %1) #3 {
+define internal range(i32 -12, 2) i32 @merge_channel_layouts(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call fastcc i32 @merge_channel_layouts_internal(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 2) i32 @can_merge_channel_layouts(ptr noundef %0, ptr noundef %1) #3 {
+define internal range(i32 -12, 2) i32 @can_merge_channel_layouts(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call fastcc i32 @merge_channel_layouts_internal(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 2) i32 @merge_samplerates(ptr noundef %0, ptr noundef %1) #3 {
+define internal range(i32 -12, 2) i32 @merge_samplerates(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call fastcc i32 @merge_samplerates_internal(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 2) i32 @can_merge_samplerates(ptr noundef %0, ptr noundef %1) #3 {
+define internal range(i32 -12, 2) i32 @can_merge_samplerates(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call fastcc i32 @merge_samplerates_internal(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 2) i32 @merge_sample_fmts(ptr noundef %0, ptr noundef %1) #3 {
+define internal range(i32 -12, 2) i32 @merge_sample_fmts(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call fastcc i32 @merge_formats_internal(ptr noundef %0, ptr noundef %1, i32 noundef 1, i32 noundef 0)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 2) i32 @can_merge_sample_fmts(ptr noundef %0, ptr noundef %1) #3 {
+define internal range(i32 -12, 2) i32 @can_merge_sample_fmts(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call fastcc i32 @merge_formats_internal(ptr noundef %0, ptr noundef %1, i32 noundef 1, i32 noundef 1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -12, 2) i32 @merge_channel_layouts_internal(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 {
+define internal fastcc range(i32 -12, 2) i32 @merge_channel_layouts_internal(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.AVChannelLayout, align 8
   store ptr %0, ptr %4, align 8, !tbaa !33
@@ -4940,7 +4934,7 @@ define internal fastcc range(i32 -12, 2) i32 @merge_channel_layouts_internal(ptr
   %.3134227.us.us = phi i32 [ %.4135.ph.us.us, %.loopexit182.us.us ], [ %.2133235.us, %.lr.ph228.us ]
   %116 = load ptr, ptr %115, align 8, !tbaa !38
   %117 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr %116, i64 %indvars.iv293
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %118 = call i32 @av_channel_layout_check(ptr noundef %117) #10
   %.not165.us.us = icmp eq i32 %118, 0
@@ -4968,7 +4962,7 @@ define internal fastcc range(i32 -12, 2) i32 @merge_channel_layouts_internal(ptr
 
 .loopexit182.us.us:                               ; preds = %141, %._crit_edge310, %124, %114
   %.4135.ph.us.us = phi i32 [ %.3134227.us.us, %114 ], [ %.3134227.us.us, %124 ], [ %.3134227.us.us, %._crit_edge310 ], [ %.6.us.us.us, %141 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %128 = load ptr, ptr %4, align 8, !tbaa !33
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
@@ -5095,7 +5089,7 @@ define internal fastcc range(i32 -12, 2) i32 @merge_channel_layouts_internal(ptr
   %191 = phi ptr [ %179, %.lr.ph228 ], [ %212, %.loopexit182 ]
   %192 = load ptr, ptr %191, align 8, !tbaa !38
   %193 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr %192, i64 %indvars.iv287
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %194 = call i32 @av_channel_layout_check(ptr noundef %193) #10
   %.not165 = icmp eq i32 %194, 0
@@ -5137,11 +5131,11 @@ define internal fastcc range(i32 -12, 2) i32 @merge_channel_layouts_internal(ptr
   br i1 %210, label %.lr.ph223, label %.loopexit182, !llvm.loop !148
 
 211:                                              ; preds = %.lr.ph223
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit180
 
 .loopexit182:                                     ; preds = %207, %._crit_edge308, %200, %190
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %212 = load ptr, ptr %4, align 8, !tbaa !33
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
@@ -5326,12 +5320,12 @@ define internal fastcc range(i32 -12, 2) i32 @merge_channel_layouts_internal(ptr
   ret i32 %.0124
 }
 
-declare i32 @av_channel_layout_compare(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @av_channel_layout_compare(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @av_channel_layout_check(ptr noundef) local_unnamed_addr #4
+declare i32 @av_channel_layout_check(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -12, 2) i32 @merge_samplerates_internal(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 {
+define internal fastcc range(i32 -12, 2) i32 @merge_samplerates_internal(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
   %4 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8, !tbaa !23
   %5 = icmp eq ptr %0, %1
@@ -5477,18 +5471,24 @@ define internal fastcc range(i32 -12, 2) i32 @merge_samplerates_internal(ptr nou
   ret i32 %.037
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind }
 attributes #11 = { noreturn nounwind }

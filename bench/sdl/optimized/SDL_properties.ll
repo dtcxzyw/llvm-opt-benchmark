@@ -56,13 +56,7 @@ declare i32 @SDL_HashID(ptr noundef, ptr noundef) #1
 
 declare zeroext i1 @SDL_KeyMatchID(ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @SDL_SetInitialized_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_QuitProperties() local_unnamed_addr #0 {
@@ -80,7 +74,7 @@ define hidden void @SDL_QuitProperties() local_unnamed_addr #0 {
   br i1 %.not, label %19, label %6
 
 6:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8
   %7 = load ptr, ptr @SDL_properties, align 8
   %8 = zext i32 %3 to i64
@@ -108,7 +102,7 @@ SDL_FreeProperties.exit.i:                        ; preds = %13, %11
   br label %SDL_DestroyProperties_REAL.exit
 
 SDL_DestroyProperties_REAL.exit:                  ; preds = %6, %SDL_FreeProperties.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %19
 
 19:                                               ; preds = %SDL_DestroyProperties_REAL.exit, %5
@@ -136,7 +130,7 @@ define hidden void @SDL_DestroyProperties_REAL(i32 noundef %0) local_unnamed_add
   br i1 %.not, label %17, label %3
 
 3:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %4 = load ptr, ptr @SDL_properties, align 8
   %5 = zext i32 %0 to i64
@@ -164,7 +158,7 @@ SDL_FreeProperties.exit:                          ; preds = %8, %10
   br label %16
 
 16:                                               ; preds = %SDL_FreeProperties.exit, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %17
 
 17:                                               ; preds = %16, %1
@@ -210,7 +204,7 @@ define hidden i32 @SDL_GetGlobalProperties_REAL() local_unnamed_addr #0 {
   br i1 %.not.i, label %SDL_DestroyProperties_REAL.exit, label %7
 
 7:                                                ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8
   %8 = load ptr, ptr @SDL_properties, align 8
   %9 = zext i32 %4 to i64
@@ -238,7 +232,7 @@ SDL_FreeProperties.exit.i:                        ; preds = %14, %12
   br label %20
 
 20:                                               ; preds = %SDL_FreeProperties.exit.i, %7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %SDL_DestroyProperties_REAL.exit
 
 SDL_DestroyProperties_REAL.exit:                  ; preds = %6, %20
@@ -320,7 +314,7 @@ SDL_FreeProperties.exit:                          ; preds = %15
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 declare ptr @SDL_CreateMutex_REAL() local_unnamed_addr #1
 
@@ -399,9 +393,9 @@ define hidden zeroext i1 @SDL_CopyProperties_REAL(i32 noundef %0, i32 noundef %1
   br label %49
 
 11:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %12 = load ptr, ptr @SDL_properties, align 8
   %13 = zext i32 %0 to i64
@@ -437,7 +431,7 @@ define hidden zeroext i1 @SDL_CopyProperties_REAL(i32 noundef %0, i32 noundef %1
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   call void @SDL_LockMutex_REAL(ptr noundef %33) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %34 = load ptr, ptr %4, align 8
   store ptr %34, ptr %5, align 8
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -449,7 +443,7 @@ define hidden zeroext i1 @SDL_CopyProperties_REAL(i32 noundef %0, i32 noundef %1
   %39 = call zeroext i1 @SDL_IterateHashTable(ptr noundef %38, ptr noundef nonnull @CopyOneProperty, ptr noundef nonnull %5) #6
   %40 = load i8, ptr %35, align 8, !range !5, !noundef !6
   %41 = trunc nuw i8 %40 to i1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %42 = load ptr, ptr %4, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
@@ -462,8 +456,8 @@ define hidden zeroext i1 @SDL_CopyProperties_REAL(i32 noundef %0, i32 noundef %1
 
 48:                                               ; preds = %27, %25, %17
   %.1 = phi i1 [ %41, %27 ], [ %26, %25 ], [ %18, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %49
 
 49:                                               ; preds = %48, %9, %6
@@ -478,7 +472,7 @@ declare zeroext i1 @SDL_FindInHashTable(ptr noundef, ptr noundef, ptr noundef) l
 declare void @SDL_LockMutex_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @CopyOneProperty(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
@@ -558,7 +552,7 @@ declare void @SDL_UnlockMutex_REAL(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_LockProperties_REAL(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %3, label %5
@@ -588,14 +582,14 @@ define hidden zeroext i1 @SDL_LockProperties_REAL(i32 noundef %0) local_unnamed_
 
 16:                                               ; preds = %13, %11, %3
   %.0 = phi i1 [ true, %13 ], [ %12, %11 ], [ %4, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_UnlockProperties_REAL(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %12, label %3
@@ -616,7 +610,7 @@ define hidden void @SDL_UnlockProperties_REAL(i32 noundef %0) local_unnamed_addr
   br label %12
 
 12:                                               ; preds = %3, %1, %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -680,7 +674,7 @@ define hidden zeroext i1 @SDL_ClearProperty_REAL(i32 noundef %0, ptr noundef %1)
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @SDL_PrivateSetProperty(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %5, label %23
@@ -926,7 +920,7 @@ SDL_FreePropertyWithCleanup.exit31:               ; preds = %50, %64
 
 110:                                              ; preds = %106, %SDL_FreePropertyWithCleanup.exit31, %SDL_FreePropertyWithCleanup.exit29, %SDL_FreePropertyWithCleanup.exit
   %.0 = phi i1 [ %.016, %106 ], [ %67, %SDL_FreePropertyWithCleanup.exit31 ], [ %43, %SDL_FreePropertyWithCleanup.exit29 ], [ %22, %SDL_FreePropertyWithCleanup.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -1138,7 +1132,7 @@ define hidden zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %0, ptr nounde
 define hidden zeroext i1 @SDL_HasProperty_REAL(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %.not.i = icmp eq i32 %0, 0
   %.not10.i = icmp eq ptr %1, null
@@ -1163,7 +1157,7 @@ define hidden zeroext i1 @SDL_HasProperty_REAL(i32 noundef %0, ptr noundef %1) l
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8
   call void @SDL_LockMutex_REAL(ptr noundef %15) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %16 = load ptr, ptr %3, align 8
   %17 = load ptr, ptr %16, align 8
@@ -1178,7 +1172,7 @@ define hidden zeroext i1 @SDL_HasProperty_REAL(i32 noundef %0, ptr noundef %1) l
 
 23:                                               ; preds = %19, %13
   %.0.i = phi i1 [ %22, %19 ], [ false, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %24 = load ptr, ptr %3, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
@@ -1187,7 +1181,7 @@ define hidden zeroext i1 @SDL_HasProperty_REAL(i32 noundef %0, ptr noundef %1) l
 
 SDL_GetPropertyType_REAL.exit:                    ; preds = %2, %5, %7, %23
   %.06.i = phi i1 [ %.0.i, %23 ], [ false, %2 ], [ false, %5 ], [ false, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.06.i
 }
 
@@ -1195,7 +1189,7 @@ SDL_GetPropertyType_REAL.exit:                    ; preds = %2, %5, %7, %23
 define hidden i32 @SDL_GetPropertyType_REAL(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %.not = icmp eq i32 %0, 0
   %.not10 = icmp eq ptr %1, null
@@ -1220,7 +1214,7 @@ define hidden i32 @SDL_GetPropertyType_REAL(i32 noundef %0, ptr noundef %1) loca
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8
   call void @SDL_LockMutex_REAL(ptr noundef %15) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %16 = load ptr, ptr %3, align 8
   %17 = load ptr, ptr %16, align 8
@@ -1234,7 +1228,7 @@ define hidden i32 @SDL_GetPropertyType_REAL(i32 noundef %0, ptr noundef %1) loca
 
 22:                                               ; preds = %19, %13
   %.0 = phi i32 [ %21, %19 ], [ 0, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %23 = load ptr, ptr %3, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
@@ -1243,7 +1237,7 @@ define hidden i32 @SDL_GetPropertyType_REAL(i32 noundef %0, ptr noundef %1) loca
 
 26:                                               ; preds = %7, %5, %2, %22
   %.06 = phi i32 [ %.0, %22 ], [ 0, %2 ], [ 0, %5 ], [ 0, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.06
 }
 
@@ -1251,7 +1245,7 @@ define hidden i32 @SDL_GetPropertyType_REAL(i32 noundef %0, ptr noundef %1) loca
 define hidden ptr @SDL_GetPointerProperty_REAL(i32 noundef %0, ptr noundef %1, ptr noundef readnone captures(ret: address, provenance) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %.not = icmp eq i32 %0, 0
   %.not14 = icmp eq ptr %1, null
@@ -1276,7 +1270,7 @@ define hidden ptr @SDL_GetPointerProperty_REAL(i32 noundef %0, ptr noundef %1, p
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @SDL_LockMutex_REAL(ptr noundef %16) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %17 = load ptr, ptr %4, align 8
   %18 = load ptr, ptr %17, align 8
@@ -1296,7 +1290,7 @@ define hidden ptr @SDL_GetPointerProperty_REAL(i32 noundef %0, ptr noundef %1, p
 
 27:                                               ; preds = %20, %24, %14
   %.0 = phi ptr [ %26, %24 ], [ %2, %20 ], [ %2, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %28 = load ptr, ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
@@ -1305,7 +1299,7 @@ define hidden ptr @SDL_GetPointerProperty_REAL(i32 noundef %0, ptr noundef %1, p
 
 31:                                               ; preds = %8, %6, %3, %27
   %.010 = phi ptr [ %.0, %27 ], [ %2, %3 ], [ %2, %6 ], [ %2, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.010
 }
 
@@ -1313,7 +1307,7 @@ define hidden ptr @SDL_GetPointerProperty_REAL(i32 noundef %0, ptr noundef %1, p
 define hidden ptr @SDL_GetStringProperty_REAL(i32 noundef %0, ptr noundef %1, ptr noundef readnone captures(ret: address, provenance) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %.not = icmp eq i32 %0, 0
   %.not18 = icmp eq ptr %1, null
@@ -1338,7 +1332,7 @@ define hidden ptr @SDL_GetStringProperty_REAL(i32 noundef %0, ptr noundef %1, pt
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @SDL_LockMutex_REAL(ptr noundef %16) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %17 = load ptr, ptr %4, align 8
   %18 = load ptr, ptr %17, align 8
@@ -1404,7 +1398,7 @@ define hidden ptr @SDL_GetStringProperty_REAL(i32 noundef %0, ptr noundef %1, pt
 
 52:                                               ; preds = %39, %29, %36, %26, %23, %47, %20, %14
   %.0 = phi ptr [ %2, %20 ], [ %25, %23 ], [ %51, %47 ], [ %2, %14 ], [ %28, %26 ], [ %spec.select, %29 ], [ %38, %36 ], [ %spec.select25, %39 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %53 = load ptr, ptr %4, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
@@ -1413,7 +1407,7 @@ define hidden ptr @SDL_GetStringProperty_REAL(i32 noundef %0, ptr noundef %1, pt
 
 56:                                               ; preds = %8, %6, %3, %52
   %.010 = phi ptr [ %.0, %52 ], [ %2, %3 ], [ %2, %6 ], [ %2, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.010
 }
 
@@ -1423,7 +1417,7 @@ declare i32 @SDL_asprintf_REAL(ptr noundef, ptr noundef, ...) local_unnamed_addr
 define hidden i64 @SDL_GetNumberProperty_REAL(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %.not = icmp eq i32 %0, 0
   %.not14 = icmp eq ptr %1, null
@@ -1448,7 +1442,7 @@ define hidden i64 @SDL_GetNumberProperty_REAL(i32 noundef %0, ptr noundef %1, i6
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @SDL_LockMutex_REAL(ptr noundef %16) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %17 = load ptr, ptr %4, align 8
   %18 = load ptr, ptr %17, align 8
@@ -1492,7 +1486,7 @@ define hidden i64 @SDL_GetNumberProperty_REAL(i32 noundef %0, ptr noundef %1, i6
 
 40:                                               ; preds = %23, %27, %30, %36, %20, %14
   %.0 = phi i64 [ %2, %20 ], [ %26, %23 ], [ %29, %27 ], [ %35, %30 ], [ %39, %36 ], [ %2, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %41 = load ptr, ptr %4, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
@@ -1501,7 +1495,7 @@ define hidden i64 @SDL_GetNumberProperty_REAL(i32 noundef %0, ptr noundef %1, i6
 
 44:                                               ; preds = %8, %6, %3, %40
   %.010 = phi i64 [ %.0, %40 ], [ %2, %3 ], [ %2, %6 ], [ %2, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.010
 }
 
@@ -1513,7 +1507,7 @@ declare double @SDL_round_REAL(double noundef) local_unnamed_addr #1
 define hidden float @SDL_GetFloatProperty_REAL(i32 noundef %0, ptr noundef %1, float noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %.not = icmp eq i32 %0, 0
   %.not14 = icmp eq ptr %1, null
@@ -1538,7 +1532,7 @@ define hidden float @SDL_GetFloatProperty_REAL(i32 noundef %0, ptr noundef %1, f
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @SDL_LockMutex_REAL(ptr noundef %16) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %17 = load ptr, ptr %4, align 8
   %18 = load ptr, ptr %17, align 8
@@ -1582,7 +1576,7 @@ define hidden float @SDL_GetFloatProperty_REAL(i32 noundef %0, ptr noundef %1, f
 
 40:                                               ; preds = %23, %28, %32, %35, %20, %14
   %.0 = phi float [ %2, %20 ], [ %27, %23 ], [ %31, %28 ], [ %34, %32 ], [ %39, %35 ], [ %2, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %41 = load ptr, ptr %4, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
@@ -1591,7 +1585,7 @@ define hidden float @SDL_GetFloatProperty_REAL(i32 noundef %0, ptr noundef %1, f
 
 44:                                               ; preds = %8, %6, %3, %40
   %.010 = phi float [ %.0, %40 ], [ %2, %3 ], [ %2, %6 ], [ %2, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %.010
 }
 
@@ -1601,7 +1595,7 @@ declare double @SDL_atof_REAL(ptr noundef) local_unnamed_addr #1
 define hidden zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %.not = icmp eq i32 %0, 0
   %.not15 = icmp eq ptr %1, null
@@ -1626,7 +1620,7 @@ define hidden zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef %0, ptr nounde
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @SDL_LockMutex_REAL(ptr noundef %16) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %17 = load ptr, ptr %4, align 8
   %18 = load ptr, ptr %17, align 8
@@ -1669,7 +1663,7 @@ define hidden zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef %0, ptr nounde
 
 39:                                               ; preds = %23, %27, %31, %35, %20, %14
   %.0 = phi i1 [ %2, %20 ], [ %26, %23 ], [ %30, %27 ], [ %34, %31 ], [ %38, %35 ], [ %2, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %40 = load ptr, ptr %4, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
@@ -1678,7 +1672,7 @@ define hidden zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef %0, ptr nounde
 
 43:                                               ; preds = %8, %6, %3, %39
   %.011 = phi i1 [ %.0, %39 ], [ %2, %3 ], [ %2, %6 ], [ %2, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.011
 }
 
@@ -1688,7 +1682,7 @@ declare zeroext i1 @SDL_GetStringBoolean(ptr noundef, i1 noundef zeroext) local_
 define hidden zeroext i1 @SDL_EnumerateProperties_REAL(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.EnumerateOnePropertyData, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %6, label %8
@@ -1722,7 +1716,7 @@ define hidden zeroext i1 @SDL_EnumerateProperties_REAL(i32 noundef %0, ptr nound
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %21 = load ptr, ptr %20, align 8
   call void @SDL_LockMutex_REAL(ptr noundef %21) #6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %22, align 8
@@ -1733,7 +1727,7 @@ define hidden zeroext i1 @SDL_EnumerateProperties_REAL(i32 noundef %0, ptr nound
   %25 = load ptr, ptr %4, align 8
   %26 = load ptr, ptr %25, align 8
   %27 = call zeroext i1 @SDL_IterateHashTable(ptr noundef %26, ptr noundef nonnull @EnumerateOneProperty, ptr noundef nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %28 = load ptr, ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
@@ -1742,7 +1736,7 @@ define hidden zeroext i1 @SDL_EnumerateProperties_REAL(i32 noundef %0, ptr nound
 
 31:                                               ; preds = %19, %17, %9, %6
   %.0 = phi i1 [ true, %19 ], [ %18, %17 ], [ %10, %9 ], [ %7, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -1769,7 +1763,7 @@ define internal void @SDL_DumpPropertiesCallback(ptr readnone captures(none) %0,
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %.not.i = icmp eq i32 %1, 0
   %.not10.i = icmp eq ptr %2, null
@@ -1794,7 +1788,7 @@ define internal void @SDL_DumpPropertiesCallback(ptr readnone captures(none) %0,
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load ptr, ptr %17, align 8
   call void @SDL_LockMutex_REAL(ptr noundef %18) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %19 = load ptr, ptr %6, align 8
   %20 = load ptr, ptr %19, align 8
@@ -1802,7 +1796,7 @@ define internal void @SDL_DumpPropertiesCallback(ptr readnone captures(none) %0,
   br i1 %21, label %SDL_GetPropertyType_REAL.exit, label %SDL_GetPropertyType_REAL.exit.thread23
 
 SDL_GetPropertyType_REAL.exit.thread23:           ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %22 = load ptr, ptr %6, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
@@ -1812,12 +1806,12 @@ SDL_GetPropertyType_REAL.exit.thread23:           ; preds = %16
 SDL_GetPropertyType_REAL.exit:                    ; preds = %16
   %25 = load ptr, ptr %7, align 8
   %26 = load i32, ptr %25, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %27 = load ptr, ptr %6, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   call void @SDL_UnlockMutex_REAL(ptr noundef %29) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   switch i32 %26, label %63 [
     i32 1, label %30
     i32 2, label %53
@@ -1827,7 +1821,7 @@ SDL_GetPropertyType_REAL.exit:                    ; preds = %16
   ]
 
 30:                                               ; preds = %SDL_GetPropertyType_REAL.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %31 = load i8, ptr %2, align 1
   %.not15.i = icmp eq i8 %31, 0
@@ -1844,7 +1838,7 @@ SDL_GetPropertyType_REAL.exit:                    ; preds = %16
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = load ptr, ptr %37, align 8
   call void @SDL_LockMutex_REAL(ptr noundef %38) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %39 = load ptr, ptr %4, align 8
   %40 = load ptr, ptr %39, align 8
@@ -1864,7 +1858,7 @@ SDL_GetPropertyType_REAL.exit:                    ; preds = %16
 
 49:                                               ; preds = %46, %42, %36
   %.0.i21 = phi ptr [ %48, %46 ], [ null, %42 ], [ null, %36 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %50 = load ptr, ptr %4, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
@@ -1873,7 +1867,7 @@ SDL_GetPropertyType_REAL.exit:                    ; preds = %16
 
 SDL_GetPointerProperty_REAL.exit:                 ; preds = %30, %32, %49
   %.010.i = phi ptr [ %.0.i21, %49 ], [ null, %30 ], [ null, %32 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ...) @SDL_Log_REAL(ptr noundef nonnull @.str.10, ptr noundef nonnull %2, ptr noundef %.010.i) #6
   br label %64
 
@@ -1900,7 +1894,7 @@ SDL_GetPointerProperty_REAL.exit:                 ; preds = %30, %32, %49
   br label %64
 
 .sink.split:                                      ; preds = %10, %8, %3, %SDL_GetPropertyType_REAL.exit.thread23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %63
 
 63:                                               ; preds = %.sink.split, %SDL_GetPropertyType_REAL.exit
@@ -1916,18 +1910,24 @@ declare zeroext i1 @SDL_RemoveFromHashTable(ptr noundef, ptr noundef) local_unna
 declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @SDL_DestroySurface_REAL(ptr noundef) local_unnamed_addr #1
 
 declare void @SDL_Log_REAL(ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind allocsize(0,1) }
 

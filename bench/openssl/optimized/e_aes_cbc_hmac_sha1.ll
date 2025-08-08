@@ -343,7 +343,7 @@ sha1_update.exit402:                              ; preds = %120, %.thread442
   br label %481
 
 143:                                              ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 52, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %144 = ptrtoint ptr %5 to i64
   %145 = add i64 %144, 31
   %146 = and i64 %145, -32
@@ -880,18 +880,18 @@ sha1_update.exit429:                              ; preds = %411, %.thread450
   br label %sha1_update.exit438.thread
 
 sha1_update.exit438.thread:                       ; preds = %478, %477
-  call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %481
 
 sha1_update.exit438.thread456:                    ; preds = %162, %169
-  call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %481
 
 sha1_update.exit438:                              ; preds = %426
   %.inv = icmp slt i32 %445, 1
   %narrow = select i1 %.inv, i1 %182, i1 false
   %480 = zext i1 %narrow to i32
-  call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %481
 
 481:                                              ; preds = %138, %._crit_edge, %sha1_update.exit438.thread, %sha1_update.exit438, %sha1_update.exit438.thread456, %19, %4
@@ -921,7 +921,7 @@ define internal i32 @aesni_cbc_hmac_sha1_ctrl(ptr noundef %0, i32 noundef %1, i3
   ]
 
 12:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   %13 = icmp sgt i32 %2, 64
   br i1 %13, label %14, label %48
@@ -1126,7 +1126,7 @@ sha1_update.exit135:                              ; preds = %sha1_update.exit135
 
 sha1_update.exit144:                              ; preds = %111, %113
   call void @OPENSSL_cleanse(ptr noundef nonnull %10, i64 noundef 64) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %510
 
 115:                                              ; preds = %4
@@ -1339,11 +1339,11 @@ sha1_update.exit153:                              ; preds = %151, %.thread170
   %246 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %247 = load i32, ptr %246, align 8, !tbaa !41
   %248 = lshr i32 %247, 2
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %7) #7
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %8) #7
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %249 = and i32 %247, -4
   %250 = shl i32 %248, 6
   %251 = call i32 @RAND_bytes(ptr noundef nonnull %9, i32 noundef %250) #7
@@ -1812,20 +1812,17 @@ sha1_update.exit153:                              ; preds = %151, %.thread170
 
 tls1_1_multi_block_encrypt.exit:                  ; preds = %240, %._crit_edge347.i
   %.0.i = phi i32 [ %.0304.lcssa.i, %._crit_edge347.i ], [ 0, %240 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %510
 
 510:                                              ; preds = %4, %230, %169, %183, %195, %202, %171, %sha1_update.exit153, %162, %115, %139, %tls1_1_multi_block_encrypt.exit, %165, %sha1_update.exit144
   %.0 = phi i32 [ 1, %sha1_update.exit144 ], [ %168, %165 ], [ %.0.i, %tls1_1_multi_block_encrypt.exit ], [ %161, %sha1_update.exit153 ], [ 20, %162 ], [ -1, %115 ], [ 0, %139 ], [ %238, %230 ], [ -1, %169 ], [ -1, %183 ], [ 0, %195 ], [ -1, %202 ], [ -1, %171 ], [ -1, %4 ]
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef) local_unnamed_addr #2
 
@@ -1844,10 +1841,7 @@ declare i32 @aesni_set_decrypt_key(ptr noundef, i32 noundef, ptr noundef) local_
 declare i32 @SHA1_Init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef) local_unnamed_addr #2
 
@@ -1921,7 +1915,7 @@ declare void @aesni_cbc_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr nound
 declare void @sha1_block_data_order(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @SHA1_Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1933,6 +1927,12 @@ declare void @sha1_multi_block(ptr noundef, ptr noundef, i32 noundef) local_unna
 
 declare void @aesni_multi_cbc_encrypt(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
 
@@ -1942,9 +1942,9 @@ declare i64 @llvm.umin.i64(i64, i64) #6
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind memory(none) }

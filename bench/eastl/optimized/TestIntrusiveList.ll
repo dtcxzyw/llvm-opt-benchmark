@@ -484,7 +484,7 @@ invoke.cont265:                                   ; preds = %if.then.i259, %_ZN5
   %call271 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call269, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 196, ptr noundef nonnull @.str.29)
   store ptr %ilist, ptr %mpPrev.i.i, align 8
   store ptr %ilist, ptr %ilist, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i, ptr noundef nonnull align 8 dereferenceable(16) %ilist, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ilist, ptr noundef nonnull align 8 dereferenceable(16) %ilist2, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ilist2, ptr noundef nonnull align 8 dereferenceable(16) %temp.i, i64 16, i1 false)
@@ -527,7 +527,7 @@ if.else28.i:                                      ; preds = %if.end.i
 
 _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit: ; preds = %if.then22.i, %if.else28.i
   %ilist.val35 = phi ptr [ %ilist.val351158, %if.then22.i ], [ %ilist.val35.pre, %if.else28.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i)
   store ptr %ilist.val35, ptr %agg.tmp273, align 8, !alias.scope !47
   store ptr %ilist, ptr %agg.tmp274, align 8, !alias.scope !50
   %call276 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp273, ptr noundef %agg.tmp274, i32 poison, ptr noundef nonnull @.str.30, i32 noundef -1)
@@ -845,7 +845,7 @@ for.cond.i397:                                    ; preds = %for.cond.i397, %inv
 
 invoke.cont524:                                   ; preds = %for.cond.i397
   %call528 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i.not.i400, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 268, ptr noundef nonnull @.str.51)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i408)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i408)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i408, ptr noundef nonnull align 8 dereferenceable(16) %ilist, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ilist, ptr noundef nonnull align 8 dereferenceable(16) %ilist2, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ilist2, ptr noundef nonnull align 8 dereferenceable(16) %temp.i408, i64 16, i1 false)
@@ -888,7 +888,7 @@ if.else28.i416:                                   ; preds = %if.end.i413
 
 _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit420: ; preds = %if.then22.i418, %if.else28.i416
   %ilist.val55 = phi ptr [ %ilist.val551161, %if.then22.i418 ], [ %ilist.val55.pre, %if.else28.i416 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i408)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i408)
   store ptr %ilist.val55, ptr %agg.tmp530, align 8, !alias.scope !136
   store ptr %ilist, ptr %agg.tmp531, align 8, !alias.scope !139
   %call533 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp530, ptr noundef %agg.tmp531, i32 poison, ptr noundef nonnull @.str.52, i32 noundef -1)
@@ -2164,10 +2164,10 @@ declare void @llvm.va_start.p0(ptr) #5
 declare void @llvm.va_end.p0(ptr) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_rv60_idct4x4_add(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %5
 
 5:                                                ; preds = %3, %5
@@ -148,7 +148,7 @@ define void @ff_rv60_idct4x4_add(ptr noundef readonly captures(none) %0, ptr nou
   br label %.preheader
 
 .loopexit:                                        ; preds = %.preheader.lver.orig, %.preheader
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 .preheader:                                       ; preds = %.preheader.ph, %.preheader
@@ -231,16 +231,10 @@ define void @ff_rv60_idct4x4_add(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %exitcond96.not, label %.loopexit, label %.preheader, !llvm.loop !13
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_rv60_idct8x8_add(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [64 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %5
 
 5:                                                ; preds = %3, %5
@@ -550,7 +544,7 @@ define void @ff_rv60_idct8x8_add(ptr noundef readonly captures(none) %0, ptr nou
   br label %.preheader
 
 .loopexit:                                        ; preds = %.preheader.lver.orig, %.preheader
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 .preheader:                                       ; preds = %.preheader.ph, %.preheader
@@ -734,7 +728,7 @@ define void @ff_rv60_idct8x8_add(ptr noundef readonly captures(none) %0, ptr nou
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_rv60_idct16x16_add(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [256 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %5
 
 5:                                                ; preds = %3, %5
@@ -1109,7 +1103,7 @@ define void @ff_rv60_idct16x16_add(ptr noundef readonly captures(none) %0, ptr n
   br label %.preheader
 
 302:                                              ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -1562,6 +1556,12 @@ define void @ff_rv60_idct16x16_add(ptr noundef readonly captures(none) %0, ptr n
   br i1 %exitcond645.not, label %302, label %.preheader, !llvm.loop !17
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #2
 
@@ -1571,7 +1571,6 @@ declare i32 @llvm.smin.i32(i32, i32) #2
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

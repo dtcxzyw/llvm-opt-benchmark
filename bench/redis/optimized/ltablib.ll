@@ -35,8 +35,8 @@ declare void @luaL_register(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 define internal noundef i32 @tconcat(ptr noundef %0) #0 {
   %2 = alloca %struct.luaL_Buffer, align 8
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8216, ptr nonnull %2) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call ptr @luaL_optlstring(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.10, ptr noundef nonnull %3) #3
   call void @luaL_checktype(ptr noundef %0, i32 noundef 1, i32 noundef 5) #3
   %5 = call i64 @luaL_optinteger(ptr noundef %0, i32 noundef 3, i64 noundef 1) #3
@@ -103,8 +103,8 @@ addfield.exit18:                                  ; preds = %._crit_edge.thread,
 
 29:                                               ; preds = %addfield.exit18, %._crit_edge
   call void @luaL_pushresult(ptr noundef nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 8216, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
@@ -321,9 +321,6 @@ define internal noundef i32 @sort(ptr noundef %0) #0 {
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @luaL_optlstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @luaL_checktype(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -341,9 +338,6 @@ declare void @luaL_buffinit(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @luaL_addlstring(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @luaL_pushresult(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @lua_rawgeti(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -585,6 +579,12 @@ define internal fastcc i32 @sort_comp(ptr noundef %0, i32 noundef range(i32 -3, 
 declare i32 @lua_toboolean(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @lua_lessthan(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

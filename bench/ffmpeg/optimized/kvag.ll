@@ -28,7 +28,7 @@ define internal range(i32 0, 52) i32 @kvag_probe(ptr noundef readonly captures(n
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @kvag_read_header(ptr noundef %0) #1 {
   %2 = alloca [14 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @avformat_new_stream(ptr noundef %0, ptr noundef null) #4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %42, label %4
@@ -91,7 +91,7 @@ define internal range(i32 -2147483648, 1) i32 @kvag_read_header(ptr noundef %0) 
 
 42:                                               ; preds = %9, %4, %1, %13
   %.0 = phi i32 [ 0, %13 ], [ -12, %1 ], [ %7, %4 ], [ -1094995529, %9 ]
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -152,7 +152,7 @@ define internal i32 @kvag_seek(ptr noundef readonly captures(none) %0, i32 %1, i
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @kvag_write_header(ptr noundef readonly captures(none) %0) #1 {
   %2 = alloca [14 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !46
   %5 = load ptr, ptr %4, align 8, !tbaa !47
@@ -174,7 +174,7 @@ define internal noundef i32 @kvag_write_header(ptr noundef readonly captures(non
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !12
   call void @avio_write(ptr noundef %18, ptr noundef nonnull %2, i32 noundef 14) #4
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }
 
@@ -241,9 +241,6 @@ define internal range(i32 -22, 1) i32 @kvag_write_init(ptr noundef %0) #1 {
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare ptr @avformat_new_stream(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @ffio_read_size(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -251,9 +248,6 @@ declare i32 @ffio_read_size(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare void @av_channel_layout_default(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare void @avpriv_set_pts_info(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @av_get_packet(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -264,6 +258,12 @@ declare void @avio_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_ad
 declare void @avio_wl32(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

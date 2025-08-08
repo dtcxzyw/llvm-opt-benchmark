@@ -734,7 +734,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv = trunc nuw nsw i64 %size to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %result.i)
   store volatile i64 0, ptr %result.i, align 8
   %cmp.i = icmp samesign ugt i64 %size, 3
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -776,7 +776,7 @@ if.then9.i:                                       ; preds = %if.end7.i
 
 _ZN8facebook5velox4bits15loadPartialWordEPKhi.exit: ; preds = %if.end7.i, %if.then9.i
   %3 = load volatile i64, ptr %result.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %result.i)
   %conv.i.i.i = and i64 %seed, 4294967295
   %4 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %conv.i.i.i, i64 %3)
   %shr = lshr i64 %3, 32
@@ -833,7 +833,7 @@ if.then27:                                        ; preds = %while.end
   %15 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %conv.i.i.i48, i64 %14)
   %add.ptr39 = getelementptr inbounds nuw i8, ptr %words.0.lcssa, i64 16
   %sub40 = add nsw i32 %toGo.0.lcssa, -16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %result.i50)
   store volatile i64 0, ptr %result.i50, align 8
   %cmp.i51 = icmp samesign ugt i32 %sub40, 3
   br i1 %cmp.i51, label %if.then.i67, label %if.end.i52
@@ -875,7 +875,7 @@ if.then9.i62:                                     ; preds = %if.end7.i57
 
 _ZN8facebook5velox4bits15loadPartialWordEPKhi.exit71: ; preds = %if.end7.i57, %if.then9.i62
   %19 = load volatile i64, ptr %result.i50, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %result.i50)
   %conv.i.i.i72 = and i64 %a2.0.lcssa, 4294967295
   %20 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %conv.i.i.i72, i64 %19)
   br label %if.end77
@@ -898,7 +898,7 @@ cond.true:                                        ; preds = %if.then46
 
 cond.false:                                       ; preds = %if.then46
   %sub56 = add nsw i32 %toGo.0.lcssa, -8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i76)
+  call void @llvm.lifetime.start.p0(ptr nonnull %result.i76)
   store volatile i64 0, ptr %result.i76, align 8
   %cmp.i77 = icmp samesign ugt i32 %sub56, 3
   br i1 %cmp.i77, label %if.then.i93, label %if.end.i78
@@ -940,7 +940,7 @@ if.then9.i88:                                     ; preds = %if.end7.i83
 
 _ZN8facebook5velox4bits15loadPartialWordEPKhi.exit97: ; preds = %if.end7.i83, %if.then9.i88
   %27 = load volatile i64, ptr %result.i76, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %result.i76)
   br label %cond.end
 
 cond.end:                                         ; preds = %_ZN8facebook5velox4bits15loadPartialWordEPKhi.exit97, %cond.true
@@ -962,7 +962,7 @@ cond.true66:                                      ; preds = %if.then63
   br label %cond.end70
 
 cond.false68:                                     ; preds = %if.then63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i100)
+  call void @llvm.lifetime.start.p0(ptr nonnull %result.i100)
   store volatile i64 0, ptr %result.i100, align 8
   %cmp.i101 = icmp samesign ugt i32 %toGo.0.lcssa, 3
   br i1 %cmp.i101, label %if.then.i117, label %if.end.i102
@@ -1004,7 +1004,7 @@ if.then9.i112:                                    ; preds = %if.end7.i107
 
 _ZN8facebook5velox4bits15loadPartialWordEPKhi.exit121: ; preds = %if.end7.i107, %if.then9.i112
   %33 = load volatile i64, ptr %result.i100, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i100)
+  call void @llvm.lifetime.end.p0(ptr nonnull %result.i100)
   br label %cond.end70
 
 cond.end70:                                       ; preds = %_ZN8facebook5velox4bits15loadPartialWordEPKhi.exit121, %cond.true66
@@ -1056,10 +1056,10 @@ declare i16 @llvm.fshr.i16(i16, i16, i16) #8
 declare i8 @llvm.fshr.i8(i8, i8, i8) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

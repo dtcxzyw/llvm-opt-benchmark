@@ -2529,7 +2529,7 @@ switch.lookup302:                                 ; preds = %559
   br label %target_setup_x86_abi.exit
 
 593:                                              ; preds = %os_target_signed_c_char_type.exit.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 56), align 8
   %594 = icmp eq i32 %475, 15
   %595 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
@@ -2544,8 +2544,8 @@ switch.lookup302:                                 ; preds = %559
   br i1 %.not.i107, label %602, label %636
 
 602:                                              ; preds = %593
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call fastcc void @x86_features_from_host(ptr noundef %3)
   call fastcc void @x86features_from_cpu(ptr noundef %4, i32 noundef 4)
   %.val.i.i = load i64, ptr %3, align 8
@@ -2612,8 +2612,8 @@ switch.lookup302:                                 ; preds = %559
 
 x64_cpu_default.exit.i:                           ; preds = %622, %616, %610, %602
   %.0.i.i = phi i32 [ 4, %602 ], [ 3, %610 ], [ 2, %616 ], [ %..i.i, %622 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %628 = load i8, ptr @debug_log, align 1
   %629 = trunc i8 %628 to i1
   br i1 %629, label %630, label %636
@@ -2728,7 +2728,7 @@ x64features_limit_from_capability.exit.i:         ; preds = %661, %x86_cpu_from_
 
 669:                                              ; preds = %666, %x64features_limit_from_capability.exit.i
   call void @scratch_buffer_clear() #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   switch i32 %.0.i108, label %default.unreachable.i [
     i32 7, label %670
@@ -2847,7 +2847,7 @@ x64features_contains.exit15.i.i:                  ; preds = %686, %683
   br i1 %exitcond.not.i.i, label %x86features_as_diff_to_scratch.exit.i, label %678, !llvm.loop !11
 
 x86features_as_diff_to_scratch.exit.i:            ; preds = %699
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %700 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
   %701 = and i32 %700, 65536
   %.not16.i = icmp eq i32 %701, 0
@@ -2911,7 +2911,7 @@ x86features_as_diff_to_scratch.exit.i:            ; preds = %699
   br label %target_setup_x64_abi.exit
 
 target_setup_x64_abi.exit:                        ; preds = %717, %.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %722 = icmp eq i32 %709, 15
   br i1 %722, label %723, label %724
 
@@ -4069,10 +4069,10 @@ declare i32 @llvm.umin.i32(i32, i32) #13
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -223,14 +223,8 @@ define dso_local noundef ptr @aclcopy(ptr noundef readonly captures(none) %0) lo
   ret ptr %12
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @aclconcat(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -969,7 +963,7 @@ aclitem_match.exit.thread:                        ; preds = %95, %aclitem_match.
   br i1 %.not44.i.us, label %224, label %.split.us
 
 .split.us:                                        ; preds = %216
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %220 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %220)
   %221 = tail call i32 @errcode(i32 noundef 16909442) #14
@@ -1031,14 +1025,14 @@ aclitem_match.exit.thread:                        ; preds = %95, %aclitem_match.
   br i1 %.not44.i, label %253, label %250
 
 250:                                              ; preds = %246
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %181, ptr %191, align 4
   %251 = load i32, ptr %242, align 8
   store i32 %251, ptr %6, align 8
   store i64 %193, ptr %194, align 8
   %252 = call ptr @aclupdate(ptr noundef nonnull %.038.i, ptr noundef nonnull %6, i32 noundef 2, i32 noundef %3, i32 noundef %4)
   tail call void @pfree(ptr noundef nonnull %.038.i) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.split
 
 253:                                              ; preds = %246, %.lr.ph116
@@ -1051,7 +1045,7 @@ recursive_revoke.exit:                            ; preds = %238, %253, %224, %2
   ret ptr %.2
 }
 
-declare void @pfree(ptr noundef) local_unnamed_addr #3
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @aclitemsort(ptr noundef %0) local_unnamed_addr #0 {
@@ -1094,10 +1088,10 @@ define dso_local void @aclitemsort(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @aclitemComparator(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
+define internal range(i32 -1, 2) i32 @aclitemComparator(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp ugt i32 %3, %4
@@ -1138,7 +1132,7 @@ define internal range(i32 -1, 2) i32 @aclitemComparator(ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @aclequal(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
+define dso_local zeroext i1 @aclequal(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %8, label %4
 
@@ -1232,8 +1226,8 @@ define dso_local i64 @aclitemin(ptr noundef captures(none) %0) local_unnamed_add
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @palloc(i64 noundef 16) #14
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #14
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = call fastcc ptr @getid(ptr noundef %6, ptr noundef %2, ptr noundef %8)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %124, label %12
@@ -1506,14 +1500,14 @@ aclparse.exit:                                    ; preds = %106, %115, %118
   %121 = or i64 %.053.lcssa.i, %.054.lcssa.i
   %122 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %121, ptr %122, align 8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %123 = load ptr, ptr %36, align 8
   br label %126
 
 124:                                              ; preds = %1, %18, %16, %22, %30, %28, %46, %44, %68, %66, %88, %86, %94, %103, %101, %112, %110
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %125, align 4
   br label %141
@@ -1552,18 +1546,18 @@ aclparse.exit:                                    ; preds = %106, %115, %118
   ret i64 %.0
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #6
+declare ptr @__ctype_b_loc() local_unnamed_addr #5
 
-declare zeroext i1 @errsave_start(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errsave_start(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #3
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @aclitemout(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -1816,14 +1810,14 @@ putid.exit57:                                     ; preds = %98, %99
   ret i64 %105
 }
 
-declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #3
+declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #2
 
-declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 0, 2) i64 @aclitem_eq(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define dso_local range(i64 0, 2) i64 @aclitem_eq(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1858,7 +1852,7 @@ define dso_local range(i64 0, 2) i64 @aclitem_eq(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 0, 4294967296) i64 @hash_aclitem(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define dso_local range(i64 0, 4294967296) i64 @hash_aclitem(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -2012,13 +2006,13 @@ define dso_local noundef ptr @acldefault(i32 noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #8
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @acldefault_sql(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -2143,7 +2137,7 @@ define internal fastcc void @check_acl(ptr noundef readonly captures(none) %0) u
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @aclnewowner(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -2695,10 +2689,10 @@ qunique.exit:                                     ; preds = %63, %._crit_edge, %
   ret i32 %.0
 }
 
-declare i32 @oid_cmp(ptr noundef, ptr noundef) #3
+declare i32 @oid_cmp(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @aclinsert(ptr noundef readnone captures(none) %0) local_unnamed_addr #9 {
+define dso_local noundef i64 @aclinsert(ptr noundef readnone captures(none) %0) local_unnamed_addr #8 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #14
@@ -2708,7 +2702,7 @@ define dso_local noundef i64 @aclinsert(ptr noundef readnone captures(none) %0) 
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @aclremove(ptr noundef readnone captures(none) %0) local_unnamed_addr #9 {
+define dso_local noundef i64 @aclremove(ptr noundef readnone captures(none) %0) local_unnamed_addr #8 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #14
@@ -2792,7 +2786,7 @@ define dso_local range(i64 0, 2) i64 @aclcontains(ptr noundef readonly captures(
   ret i64 %.0
 }
 
-declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #3
+declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @makeaclitem(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -2824,7 +2818,7 @@ define dso_local noundef i64 @makeaclitem(ptr noundef readonly captures(none) %0
   ret i64 %22
 }
 
-declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #3
+declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @convert_any_priv_string(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
@@ -3053,8 +3047,8 @@ define dso_local i64 @aclexplode(ptr noundef %0) local_unnamed_addr #0 {
 
 65:                                               ; preds = %54
   %66 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %67 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %68 = load i32, ptr %67, align 4
@@ -3157,8 +3151,8 @@ define dso_local i64 @aclexplode(ptr noundef %0) local_unnamed_addr #0 {
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 32
   store i32 1, ptr %108, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %113
 
 .thread61:                                        ; preds = %51, %43
@@ -3176,21 +3170,21 @@ define dso_local i64 @aclexplode(ptr noundef %0) local_unnamed_addr #0 {
   ret i64 %.3
 }
 
-declare ptr @init_MultiFuncCall(ptr noundef) local_unnamed_addr #3
+declare ptr @init_MultiFuncCall(ptr noundef) local_unnamed_addr #2
 
-declare ptr @CreateTemplateTupleDesc(i32 noundef) local_unnamed_addr #3
+declare ptr @CreateTemplateTupleDesc(i32 noundef) local_unnamed_addr #2
 
-declare void @TupleDescInitEntry(ptr noundef, i16 noundef signext, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @TupleDescInitEntry(ptr noundef, i16 noundef signext, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @BlessTupleDesc(ptr noundef) local_unnamed_addr #3
+declare ptr @BlessTupleDesc(ptr noundef) local_unnamed_addr #2
 
-declare ptr @per_MultiFuncCall(ptr noundef) local_unnamed_addr #3
+declare ptr @per_MultiFuncCall(ptr noundef) local_unnamed_addr #2
 
-declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #3
+declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #2
 
-declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @end_MultiFuncCall(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @end_MultiFuncCall(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @has_table_privilege_name_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -3259,7 +3253,7 @@ get_role_oid.exit:                                ; preds = %4, %1
   ret i32 %.0
 }
 
-declare i32 @pg_class_aclcheck(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @pg_class_aclcheck(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @has_table_privilege_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -3282,7 +3276,7 @@ define dso_local range(i64 0, 2) i64 @has_table_privilege_name(ptr noundef reado
   ret i64 %17
 }
 
-declare i32 @GetUserId() local_unnamed_addr #3
+declare i32 @GetUserId() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @has_table_privilege_name_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -3297,7 +3291,7 @@ define dso_local range(i64 0, 2) i64 @has_table_privilege_name_id(ptr noundef ca
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str.32) #17
   %14 = icmp eq i32 %13, 0
@@ -3336,11 +3330,11 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 
 30:                                               ; preds = %27, %25
   %.0 = phi i64 [ 0, %25 ], [ %29, %27 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
-declare i32 @pg_class_aclcheck_ext(i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @pg_class_aclcheck_ext(i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @has_table_privilege_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -3352,7 +3346,7 @@ define dso_local range(i64 0, 2) i64 @has_table_privilege_id(ptr noundef capture
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %10 = tail call i32 @GetUserId() #14
   %11 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %9, ptr noundef nonnull @convert_table_priv_string.table_priv_map)
@@ -3373,7 +3367,7 @@ define dso_local range(i64 0, 2) i64 @has_table_privilege_id(ptr noundef capture
 
 20:                                               ; preds = %17, %15
   %.0 = phi i64 [ 0, %15 ], [ %19, %17 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -3413,7 +3407,7 @@ define dso_local range(i64 0, 2) i64 @has_table_privilege_id_id(ptr noundef capt
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %13 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %12, ptr noundef nonnull @convert_table_priv_string.table_priv_map)
   %14 = call i32 @pg_class_aclcheck_ext(i32 noundef %8, i32 noundef %5, i64 noundef %13, ptr noundef nonnull %2) #14
@@ -3433,7 +3427,7 @@ define dso_local range(i64 0, 2) i64 @has_table_privilege_id_id(ptr noundef capt
 
 22:                                               ; preds = %19, %17
   %.0 = phi i64 [ 0, %17 ], [ %21, %19 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -3493,9 +3487,9 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
   ret i64 %34
 }
 
-declare signext i8 @get_rel_relkind(i32 noundef) local_unnamed_addr #3
+declare signext i8 @get_rel_relkind(i32 noundef) local_unnamed_addr #2
 
-declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #3
+declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @has_sequence_privilege_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -3545,7 +3539,7 @@ define dso_local range(i64 0, 2) i64 @has_sequence_privilege_name_id(ptr noundef
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str.32) #17
   %14 = icmp eq i32 %13, 0
@@ -3605,11 +3599,11 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 
 39:                                               ; preds = %36, %34, %23
   %.0 = phi i64 [ 0, %23 ], [ 0, %34 ], [ %38, %36 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
-declare ptr @get_rel_name(i32 noundef) local_unnamed_addr #3
+declare ptr @get_rel_name(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @has_sequence_privilege_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -3621,7 +3615,7 @@ define dso_local range(i64 0, 2) i64 @has_sequence_privilege_id(ptr noundef capt
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %10 = tail call i32 @GetUserId() #14
   %11 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %9, ptr noundef nonnull @convert_sequence_priv_string.sequence_priv_map)
@@ -3663,7 +3657,7 @@ define dso_local range(i64 0, 2) i64 @has_sequence_privilege_id(ptr noundef capt
 
 29:                                               ; preds = %26, %24, %13
   %.0 = phi i64 [ 0, %13 ], [ 0, %24 ], [ %28, %26 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -3716,7 +3710,7 @@ define dso_local range(i64 0, 2) i64 @has_sequence_privilege_id_id(ptr noundef c
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = tail call ptr @pg_detoast_datum_packed(ptr noundef %10) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %12 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %11, ptr noundef nonnull @convert_sequence_priv_string.sequence_priv_map)
   %13 = tail call signext i8 @get_rel_relkind(i32 noundef %7) #14
@@ -3758,7 +3752,7 @@ define dso_local range(i64 0, 2) i64 @has_sequence_privilege_id_id(ptr noundef c
 
 31:                                               ; preds = %28, %26, %14
   %.0 = phi i64 [ 0, %14 ], [ 0, %26 ], [ %30, %28 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -3813,7 +3807,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
   ret i64 %.0
 }
 
-declare i32 @pg_attribute_aclcheck_all(i32 noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @pg_attribute_aclcheck_all(i32 noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @has_any_column_privilege_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -3858,7 +3852,7 @@ define dso_local range(i64 0, 2) i64 @has_any_column_privilege_name_id(ptr nound
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str.32) #17
   %14 = icmp eq i32 %13, 0
@@ -3913,11 +3907,11 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 
 37:                                               ; preds = %34, %32, %26
   %.015 = phi i64 [ 0, %26 ], [ 0, %32 ], [ %36, %34 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.015
 }
 
-declare i32 @pg_attribute_aclcheck_all_ext(i32 noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @pg_attribute_aclcheck_all_ext(i32 noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @has_any_column_privilege_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -3929,7 +3923,7 @@ define dso_local range(i64 0, 2) i64 @has_any_column_privilege_id(ptr noundef ca
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %10 = tail call i32 @GetUserId() #14
   %11 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %9, ptr noundef nonnull @convert_column_priv_string.column_priv_map)
@@ -3966,7 +3960,7 @@ define dso_local range(i64 0, 2) i64 @has_any_column_privilege_id(ptr noundef ca
 
 27:                                               ; preds = %24, %22, %16
   %.013 = phi i64 [ 0, %16 ], [ 0, %22 ], [ %26, %24 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.013
 }
 
@@ -4015,7 +4009,7 @@ define dso_local range(i64 0, 2) i64 @has_any_column_privilege_id_id(ptr noundef
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %13 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %12, ptr noundef nonnull @convert_column_priv_string.column_priv_map)
   %14 = call i32 @pg_class_aclcheck_ext(i32 noundef %8, i32 noundef %5, i64 noundef %13, ptr noundef nonnull %2) #14
@@ -4051,7 +4045,7 @@ define dso_local range(i64 0, 2) i64 @has_any_column_privilege_id_id(ptr noundef
 
 29:                                               ; preds = %26, %24, %18
   %.014 = phi i64 [ 0, %18 ], [ 0, %24 ], [ %28, %26 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.014
 }
 
@@ -4097,7 +4091,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %20
   %28 = tail call i32 @RangeVarGetRelidExtended(ptr noundef %27, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null) #14
   %29 = tail call fastcc signext i16 @convert_column_name(i32 noundef %28, ptr noundef %13)
   %30 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %17, ptr noundef nonnull @convert_column_priv_string.column_priv_map)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %31 = icmp eq i16 %29, 0
   br i1 %31, label %column_privilege_check.exit.thread, label %32
@@ -4118,16 +4112,16 @@ get_role_oid_or_public.exit:                      ; preds = %1, %20
   br i1 %40, label %column_privilege_check.exit.thread20, label %column_privilege_check.exit
 
 column_privilege_check.exit.thread:               ; preds = %get_role_oid_or_public.exit, %35
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %42
 
 column_privilege_check.exit.thread20:             ; preds = %32, %38
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %44
 
 column_privilege_check.exit:                      ; preds = %38
   %41 = load i8, ptr %2, align 1, !range !30, !noundef !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq i8 %41, 0
   br i1 %.not, label %44, label %42
 
@@ -4231,7 +4225,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %19
   %26 = tail call ptr @makeRangeVarFromNameList(ptr noundef %25) #14
   %27 = tail call i32 @RangeVarGetRelidExtended(ptr noundef %26, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null) #14
   %28 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %16, ptr noundef nonnull @convert_column_priv_string.column_priv_map)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %29 = icmp eq i16 %12, 0
   br i1 %29, label %column_privilege_check.exit.thread, label %30
@@ -4252,16 +4246,16 @@ get_role_oid_or_public.exit:                      ; preds = %1, %19
   br i1 %38, label %column_privilege_check.exit.thread18, label %column_privilege_check.exit
 
 column_privilege_check.exit.thread:               ; preds = %get_role_oid_or_public.exit, %33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %40
 
 column_privilege_check.exit.thread18:             ; preds = %30, %36
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %42
 
 column_privilege_check.exit:                      ; preds = %36
   %39 = load i8, ptr %2, align 1, !range !30, !noundef !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq i8 %39, 0
   br i1 %.not, label %42, label %40
 
@@ -4313,7 +4307,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %19
   %.0.i = phi i32 [ 0, %1 ], [ %20, %19 ]
   %25 = tail call fastcc signext i16 @convert_column_name(i32 noundef %8, ptr noundef %12)
   %26 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %16, ptr noundef nonnull @convert_column_priv_string.column_priv_map)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %27 = icmp eq i16 %25, 0
   br i1 %27, label %column_privilege_check.exit.thread, label %28
@@ -4334,16 +4328,16 @@ get_role_oid_or_public.exit:                      ; preds = %1, %19
   br i1 %36, label %column_privilege_check.exit.thread19, label %column_privilege_check.exit
 
 column_privilege_check.exit.thread:               ; preds = %get_role_oid_or_public.exit, %31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %38
 
 column_privilege_check.exit.thread19:             ; preds = %28, %34
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %40
 
 column_privilege_check.exit:                      ; preds = %34
   %37 = load i8, ptr %2, align 1, !range !30, !noundef !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq i8 %37, 0
   br i1 %.not, label %40, label %38
 
@@ -4393,7 +4387,7 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_name_id_attnum(ptr no
 get_role_oid_or_public.exit:                      ; preds = %1, %18
   %.0.i = phi i32 [ 0, %1 ], [ %19, %18 ]
   %24 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %15, ptr noundef nonnull @convert_column_priv_string.column_priv_map)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %25 = icmp eq i16 %11, 0
   br i1 %25, label %column_privilege_check.exit.thread, label %26
@@ -4414,16 +4408,16 @@ get_role_oid_or_public.exit:                      ; preds = %1, %18
   br i1 %34, label %column_privilege_check.exit.thread17, label %column_privilege_check.exit
 
 column_privilege_check.exit.thread:               ; preds = %get_role_oid_or_public.exit, %29
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %36
 
 column_privilege_check.exit.thread17:             ; preds = %26, %32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %38
 
 column_privilege_check.exit:                      ; preds = %32
   %35 = load i8, ptr %2, align 1, !range !30, !noundef !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq i8 %35, 0
   br i1 %.not, label %38, label %36
 
@@ -4460,7 +4454,7 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_id_name_name(ptr noun
   %20 = tail call i32 @RangeVarGetRelidExtended(ptr noundef %19, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null) #14
   %21 = tail call fastcc signext i16 @convert_column_name(i32 noundef %20, ptr noundef %13)
   %22 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %17, ptr noundef nonnull @convert_column_priv_string.column_priv_map)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %23 = icmp eq i16 %21, 0
   br i1 %23, label %column_privilege_check.exit.thread, label %24
@@ -4481,16 +4475,16 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_id_name_name(ptr noun
   br i1 %32, label %column_privilege_check.exit.thread18, label %column_privilege_check.exit
 
 column_privilege_check.exit.thread:               ; preds = %1, %27
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %34
 
 column_privilege_check.exit.thread18:             ; preds = %24, %30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %36
 
 column_privilege_check.exit:                      ; preds = %30
   %33 = load i8, ptr %2, align 1, !range !30, !noundef !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq i8 %33, 0
   br i1 %.not, label %36, label %34
 
@@ -4525,7 +4519,7 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_id_name_attnum(ptr no
   %18 = tail call ptr @makeRangeVarFromNameList(ptr noundef %17) #14
   %19 = tail call i32 @RangeVarGetRelidExtended(ptr noundef %18, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null) #14
   %20 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %16, ptr noundef nonnull @convert_column_priv_string.column_priv_map)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %21 = icmp eq i16 %12, 0
   br i1 %21, label %column_privilege_check.exit.thread, label %22
@@ -4546,16 +4540,16 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_id_name_attnum(ptr no
   br i1 %30, label %column_privilege_check.exit.thread16, label %column_privilege_check.exit
 
 column_privilege_check.exit.thread:               ; preds = %1, %25
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %32
 
 column_privilege_check.exit.thread16:             ; preds = %22, %28
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %34
 
 column_privilege_check.exit:                      ; preds = %28
   %31 = load i8, ptr %2, align 1, !range !30, !noundef !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq i8 %31, 0
   br i1 %.not, label %34, label %32
 
@@ -4588,7 +4582,7 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_id_id_name(ptr nounde
   %16 = tail call ptr @pg_detoast_datum_packed(ptr noundef %15) #14
   %17 = tail call fastcc signext i16 @convert_column_name(i32 noundef %8, ptr noundef %12)
   %18 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %16, ptr noundef nonnull @convert_column_priv_string.column_priv_map)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %19 = icmp eq i16 %17, 0
   br i1 %19, label %column_privilege_check.exit.thread, label %20
@@ -4609,16 +4603,16 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_id_id_name(ptr nounde
   br i1 %28, label %column_privilege_check.exit.thread17, label %column_privilege_check.exit
 
 column_privilege_check.exit.thread:               ; preds = %1, %23
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %30
 
 column_privilege_check.exit.thread17:             ; preds = %20, %26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %32
 
 column_privilege_check.exit:                      ; preds = %26
   %29 = load i8, ptr %2, align 1, !range !30, !noundef !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq i8 %29, 0
   br i1 %.not, label %32, label %30
 
@@ -4649,7 +4643,7 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_id_id_attnum(ptr noun
   %14 = inttoptr i64 %13 to ptr
   %15 = tail call ptr @pg_detoast_datum_packed(ptr noundef %14) #14
   %16 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %15, ptr noundef nonnull @convert_column_priv_string.column_priv_map)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %17 = icmp eq i16 %11, 0
   br i1 %17, label %column_privilege_check.exit.thread, label %18
@@ -4670,16 +4664,16 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_id_id_attnum(ptr noun
   br i1 %26, label %column_privilege_check.exit.thread15, label %column_privilege_check.exit
 
 column_privilege_check.exit.thread:               ; preds = %1, %21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %28
 
 column_privilege_check.exit.thread15:             ; preds = %18, %24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %30
 
 column_privilege_check.exit:                      ; preds = %24
   %27 = load i8, ptr %2, align 1, !range !30, !noundef !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq i8 %27, 0
   br i1 %.not, label %30, label %28
 
@@ -4714,7 +4708,7 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_name_name(ptr noundef
   %18 = tail call i32 @RangeVarGetRelidExtended(ptr noundef %17, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null) #14
   %19 = tail call fastcc signext i16 @convert_column_name(i32 noundef %18, ptr noundef %10)
   %20 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %14, ptr noundef nonnull @convert_column_priv_string.column_priv_map)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %21 = icmp eq i16 %19, 0
   br i1 %21, label %column_privilege_check.exit.thread, label %22
@@ -4735,16 +4729,16 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_name_name(ptr noundef
   br i1 %30, label %column_privilege_check.exit.thread17, label %column_privilege_check.exit
 
 column_privilege_check.exit.thread:               ; preds = %1, %25
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %32
 
 column_privilege_check.exit.thread17:             ; preds = %22, %28
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %34
 
 column_privilege_check.exit:                      ; preds = %28
   %31 = load i8, ptr %2, align 1, !range !30, !noundef !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq i8 %31, 0
   br i1 %.not, label %34, label %32
 
@@ -4777,7 +4771,7 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_name_attnum(ptr nound
   %16 = tail call ptr @makeRangeVarFromNameList(ptr noundef %15) #14
   %17 = tail call i32 @RangeVarGetRelidExtended(ptr noundef %16, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null) #14
   %18 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %13, ptr noundef nonnull @convert_column_priv_string.column_priv_map)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %19 = icmp eq i16 %9, 0
   br i1 %19, label %column_privilege_check.exit.thread, label %20
@@ -4798,16 +4792,16 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_name_attnum(ptr nound
   br i1 %28, label %column_privilege_check.exit.thread15, label %column_privilege_check.exit
 
 column_privilege_check.exit.thread:               ; preds = %1, %23
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %30
 
 column_privilege_check.exit.thread15:             ; preds = %20, %26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %32
 
 column_privilege_check.exit:                      ; preds = %26
   %29 = load i8, ptr %2, align 1, !range !30, !noundef !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq i8 %29, 0
   br i1 %.not, label %32, label %30
 
@@ -4838,7 +4832,7 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_id_name(ptr noundef c
   %14 = tail call i32 @GetUserId() #14
   %15 = tail call fastcc signext i16 @convert_column_name(i32 noundef %5, ptr noundef %9)
   %16 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %13, ptr noundef nonnull @convert_column_priv_string.column_priv_map)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %17 = icmp eq i16 %15, 0
   br i1 %17, label %column_privilege_check.exit.thread, label %18
@@ -4859,16 +4853,16 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_id_name(ptr noundef c
   br i1 %26, label %column_privilege_check.exit.thread16, label %column_privilege_check.exit
 
 column_privilege_check.exit.thread:               ; preds = %1, %21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %28
 
 column_privilege_check.exit.thread16:             ; preds = %18, %24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %30
 
 column_privilege_check.exit:                      ; preds = %24
   %27 = load i8, ptr %2, align 1, !range !30, !noundef !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq i8 %27, 0
   br i1 %.not, label %30, label %28
 
@@ -4897,7 +4891,7 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_id_attnum(ptr noundef
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #14
   %13 = tail call i32 @GetUserId() #14
   %14 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %12, ptr noundef nonnull @convert_column_priv_string.column_priv_map)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %15 = icmp eq i16 %8, 0
   br i1 %15, label %column_privilege_check.exit.thread, label %16
@@ -4918,16 +4912,16 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_id_attnum(ptr noundef
   br i1 %24, label %column_privilege_check.exit.thread14, label %column_privilege_check.exit
 
 column_privilege_check.exit.thread:               ; preds = %1, %19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %26
 
 column_privilege_check.exit.thread14:             ; preds = %16, %22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %28
 
 column_privilege_check.exit:                      ; preds = %22
   %25 = load i8, ptr %2, align 1, !range !30, !noundef !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq i8 %25, 0
   br i1 %.not, label %28, label %26
 
@@ -4982,7 +4976,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
   ret i64 %26
 }
 
-declare i32 @object_aclcheck(i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @object_aclcheck(i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @has_database_privilege_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -5017,7 +5011,7 @@ define dso_local range(i64 0, 2) i64 @has_database_privilege_name_id(ptr noundef
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str.32) #17
   %14 = icmp eq i32 %13, 0
@@ -5056,11 +5050,11 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 
 30:                                               ; preds = %27, %25
   %.0 = phi i64 [ 0, %25 ], [ %29, %27 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
-declare i32 @object_aclcheck_ext(i32 noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @object_aclcheck_ext(i32 noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @has_database_privilege_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -5072,7 +5066,7 @@ define dso_local range(i64 0, 2) i64 @has_database_privilege_id(ptr noundef capt
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %10 = tail call i32 @GetUserId() #14
   %11 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %9, ptr noundef nonnull @convert_database_priv_string.database_priv_map)
@@ -5093,7 +5087,7 @@ define dso_local range(i64 0, 2) i64 @has_database_privilege_id(ptr noundef capt
 
 20:                                               ; preds = %17, %15
   %.0 = phi i64 [ 0, %15 ], [ %19, %17 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -5132,7 +5126,7 @@ define dso_local range(i64 0, 2) i64 @has_database_privilege_id_id(ptr noundef c
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %13 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %12, ptr noundef nonnull @convert_database_priv_string.database_priv_map)
   %14 = call i32 @object_aclcheck_ext(i32 noundef 1262, i32 noundef %8, i32 noundef %5, i64 noundef %13, ptr noundef nonnull %2) #14
@@ -5152,7 +5146,7 @@ define dso_local range(i64 0, 2) i64 @has_database_privilege_id_id(ptr noundef c
 
 22:                                               ; preds = %19, %17
   %.0 = phi i64 [ 0, %17 ], [ %21, %19 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -5230,7 +5224,7 @@ define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_name_id
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str.32) #17
   %14 = icmp eq i32 %13, 0
@@ -5269,7 +5263,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 
 30:                                               ; preds = %27, %25
   %.0 = phi i64 [ 0, %25 ], [ %29, %27 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -5283,7 +5277,7 @@ define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_id(ptr 
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %10 = tail call i32 @GetUserId() #14
   %11 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %9, ptr noundef nonnull @convert_foreign_data_wrapper_priv_string.foreign_data_wrapper_priv_map)
@@ -5304,7 +5298,7 @@ define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_id(ptr 
 
 20:                                               ; preds = %17, %15
   %.0 = phi i64 [ 0, %15 ], [ %19, %17 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -5343,7 +5337,7 @@ define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_id_id(p
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %13 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %12, ptr noundef nonnull @convert_foreign_data_wrapper_priv_string.foreign_data_wrapper_priv_map)
   %14 = call i32 @object_aclcheck_ext(i32 noundef 2328, i32 noundef %8, i32 noundef %5, i64 noundef %13, ptr noundef nonnull %2) #14
@@ -5363,7 +5357,7 @@ define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_id_id(p
 
 22:                                               ; preds = %19, %17
   %.0 = phi i64 [ 0, %17 ], [ %21, %19 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -5469,7 +5463,7 @@ define dso_local range(i64 0, 2) i64 @has_function_privilege_name_id(ptr noundef
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str.32) #17
   %14 = icmp eq i32 %13, 0
@@ -5508,7 +5502,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 
 30:                                               ; preds = %27, %25
   %.0 = phi i64 [ 0, %25 ], [ %29, %27 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -5522,7 +5516,7 @@ define dso_local range(i64 0, 2) i64 @has_function_privilege_id(ptr noundef capt
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %10 = tail call i32 @GetUserId() #14
   %11 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %9, ptr noundef nonnull @convert_function_priv_string.function_priv_map)
@@ -5543,7 +5537,7 @@ define dso_local range(i64 0, 2) i64 @has_function_privilege_id(ptr noundef capt
 
 20:                                               ; preds = %17, %15
   %.0 = phi i64 [ 0, %15 ], [ %19, %17 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -5596,7 +5590,7 @@ define dso_local range(i64 0, 2) i64 @has_function_privilege_id_id(ptr noundef c
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %13 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %12, ptr noundef nonnull @convert_function_priv_string.function_priv_map)
   %14 = call i32 @object_aclcheck_ext(i32 noundef 1255, i32 noundef %8, i32 noundef %5, i64 noundef %13, ptr noundef nonnull %2) #14
@@ -5616,7 +5610,7 @@ define dso_local range(i64 0, 2) i64 @has_function_privilege_id_id(ptr noundef c
 
 22:                                               ; preds = %19, %17
   %.0 = phi i64 [ 0, %17 ], [ %21, %19 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -5694,7 +5688,7 @@ define dso_local range(i64 0, 2) i64 @has_language_privilege_name_id(ptr noundef
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str.32) #17
   %14 = icmp eq i32 %13, 0
@@ -5733,7 +5727,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 
 30:                                               ; preds = %27, %25
   %.0 = phi i64 [ 0, %25 ], [ %29, %27 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -5747,7 +5741,7 @@ define dso_local range(i64 0, 2) i64 @has_language_privilege_id(ptr noundef capt
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %10 = tail call i32 @GetUserId() #14
   %11 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %9, ptr noundef nonnull @convert_language_priv_string.language_priv_map)
@@ -5768,7 +5762,7 @@ define dso_local range(i64 0, 2) i64 @has_language_privilege_id(ptr noundef capt
 
 20:                                               ; preds = %17, %15
   %.0 = phi i64 [ 0, %15 ], [ %19, %17 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -5807,7 +5801,7 @@ define dso_local range(i64 0, 2) i64 @has_language_privilege_id_id(ptr noundef c
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %13 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %12, ptr noundef nonnull @convert_language_priv_string.language_priv_map)
   %14 = call i32 @object_aclcheck_ext(i32 noundef 2612, i32 noundef %8, i32 noundef %5, i64 noundef %13, ptr noundef nonnull %2) #14
@@ -5827,7 +5821,7 @@ define dso_local range(i64 0, 2) i64 @has_language_privilege_id_id(ptr noundef c
 
 22:                                               ; preds = %19, %17
   %.0 = phi i64 [ 0, %17 ], [ %21, %19 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -5905,7 +5899,7 @@ define dso_local range(i64 0, 2) i64 @has_schema_privilege_name_id(ptr noundef c
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str.32) #17
   %14 = icmp eq i32 %13, 0
@@ -5944,7 +5938,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 
 30:                                               ; preds = %27, %25
   %.0 = phi i64 [ 0, %25 ], [ %29, %27 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -5958,7 +5952,7 @@ define dso_local range(i64 0, 2) i64 @has_schema_privilege_id(ptr noundef captur
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %10 = tail call i32 @GetUserId() #14
   %11 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %9, ptr noundef nonnull @convert_schema_priv_string.schema_priv_map)
@@ -5979,7 +5973,7 @@ define dso_local range(i64 0, 2) i64 @has_schema_privilege_id(ptr noundef captur
 
 20:                                               ; preds = %17, %15
   %.0 = phi i64 [ 0, %15 ], [ %19, %17 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -6018,7 +6012,7 @@ define dso_local range(i64 0, 2) i64 @has_schema_privilege_id_id(ptr noundef cap
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %13 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %12, ptr noundef nonnull @convert_schema_priv_string.schema_priv_map)
   %14 = call i32 @object_aclcheck_ext(i32 noundef 2615, i32 noundef %8, i32 noundef %5, i64 noundef %13, ptr noundef nonnull %2) #14
@@ -6038,7 +6032,7 @@ define dso_local range(i64 0, 2) i64 @has_schema_privilege_id_id(ptr noundef cap
 
 22:                                               ; preds = %19, %17
   %.0 = phi i64 [ 0, %17 ], [ %21, %19 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -6116,7 +6110,7 @@ define dso_local range(i64 0, 2) i64 @has_server_privilege_name_id(ptr noundef c
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str.32) #17
   %14 = icmp eq i32 %13, 0
@@ -6155,7 +6149,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 
 30:                                               ; preds = %27, %25
   %.0 = phi i64 [ 0, %25 ], [ %29, %27 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -6169,7 +6163,7 @@ define dso_local range(i64 0, 2) i64 @has_server_privilege_id(ptr noundef captur
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %10 = tail call i32 @GetUserId() #14
   %11 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %9, ptr noundef nonnull @convert_server_priv_string.server_priv_map)
@@ -6190,7 +6184,7 @@ define dso_local range(i64 0, 2) i64 @has_server_privilege_id(ptr noundef captur
 
 20:                                               ; preds = %17, %15
   %.0 = phi i64 [ 0, %15 ], [ %19, %17 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -6229,7 +6223,7 @@ define dso_local range(i64 0, 2) i64 @has_server_privilege_id_id(ptr noundef cap
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %13 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %12, ptr noundef nonnull @convert_server_priv_string.server_priv_map)
   %14 = call i32 @object_aclcheck_ext(i32 noundef 1417, i32 noundef %8, i32 noundef %5, i64 noundef %13, ptr noundef nonnull %2) #14
@@ -6249,7 +6243,7 @@ define dso_local range(i64 0, 2) i64 @has_server_privilege_id_id(ptr noundef cap
 
 22:                                               ; preds = %19, %17
   %.0 = phi i64 [ 0, %17 ], [ %21, %19 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -6327,7 +6321,7 @@ define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_name_id(ptr nound
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str.32) #17
   %14 = icmp eq i32 %13, 0
@@ -6366,7 +6360,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 
 30:                                               ; preds = %27, %25
   %.0 = phi i64 [ 0, %25 ], [ %29, %27 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -6380,7 +6374,7 @@ define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_id(ptr noundef ca
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %10 = tail call i32 @GetUserId() #14
   %11 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %9, ptr noundef nonnull @convert_tablespace_priv_string.tablespace_priv_map)
@@ -6401,7 +6395,7 @@ define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_id(ptr noundef ca
 
 20:                                               ; preds = %17, %15
   %.0 = phi i64 [ 0, %15 ], [ %19, %17 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -6440,7 +6434,7 @@ define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_id_id(ptr noundef
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %13 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %12, ptr noundef nonnull @convert_tablespace_priv_string.tablespace_priv_map)
   %14 = call i32 @object_aclcheck_ext(i32 noundef 1213, i32 noundef %8, i32 noundef %5, i64 noundef %13, ptr noundef nonnull %2) #14
@@ -6460,7 +6454,7 @@ define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_id_id(ptr noundef
 
 22:                                               ; preds = %19, %17
   %.0 = phi i64 [ 0, %17 ], [ %21, %19 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -6566,7 +6560,7 @@ define dso_local range(i64 0, 2) i64 @has_type_privilege_name_id(ptr noundef cap
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str.32) #17
   %14 = icmp eq i32 %13, 0
@@ -6605,7 +6599,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 
 30:                                               ; preds = %27, %25
   %.0 = phi i64 [ 0, %25 ], [ %29, %27 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -6619,7 +6613,7 @@ define dso_local range(i64 0, 2) i64 @has_type_privilege_id(ptr noundef captures
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %10 = tail call i32 @GetUserId() #14
   %11 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %9, ptr noundef nonnull @convert_type_priv_string.type_priv_map)
@@ -6640,7 +6634,7 @@ define dso_local range(i64 0, 2) i64 @has_type_privilege_id(ptr noundef captures
 
 20:                                               ; preds = %17, %15
   %.0 = phi i64 [ 0, %15 ], [ %19, %17 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -6693,7 +6687,7 @@ define dso_local range(i64 0, 2) i64 @has_type_privilege_id_id(ptr noundef captu
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %13 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %12, ptr noundef nonnull @convert_type_priv_string.type_priv_map)
   %14 = call i32 @object_aclcheck_ext(i32 noundef 1247, i32 noundef %8, i32 noundef %5, i64 noundef %13, ptr noundef nonnull %2) #14
@@ -6713,7 +6707,7 @@ define dso_local range(i64 0, 2) i64 @has_type_privilege_id_id(ptr noundef captu
 
 22:                                               ; preds = %19, %17
   %.0 = phi i64 [ 0, %17 ], [ %21, %19 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -7028,12 +7022,12 @@ define internal fastcc range(i32 0, 2) i32 @pg_role_aclcheck(i32 noundef %0, i32
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call zeroext i1 @superuser_arg(i32 noundef %1) #14
   br i1 %7, label %is_admin_of_role.exit.thread, label %8
 
 is_admin_of_role.exit.thread:                     ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %is_member_of_role.exit.thread
 
 8:                                                ; preds = %6
@@ -7041,14 +7035,14 @@ is_admin_of_role.exit.thread:                     ; preds = %6
   br i1 %9, label %is_admin_of_role.exit.thread20, label %is_admin_of_role.exit
 
 is_admin_of_role.exit.thread20:                   ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %12
 
 is_admin_of_role.exit:                            ; preds = %8
   %10 = call fastcc ptr @roles_is_member_of(i32 noundef %1, i32 noundef 0, i32 noundef %0, ptr noundef nonnull %4)
   %11 = load i32, ptr %4, align 4
   %.not25 = icmp eq i32 %11, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not25, label %12, label %is_member_of_role.exit.thread
 
 12:                                               ; preds = %is_admin_of_role.exit.thread20, %is_admin_of_role.exit, %3
@@ -7263,12 +7257,12 @@ define dso_local void @initialize_acl() local_unnamed_addr #0 {
   ret void
 }
 
-declare i32 @GetSysCacheHashValue(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @GetSysCacheHashValue(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @CacheRegisterSyscacheCallback(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @CacheRegisterSyscacheCallback(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @RoleMembershipCacheCallback(i64 %0, i32 noundef %1, i32 noundef %2) #10 {
+define internal void @RoleMembershipCacheCallback(i64 %0, i32 noundef %1, i32 noundef %2) #9 {
   %4 = icmp eq i32 %1, 21
   br i1 %4, label %5, label %9
 
@@ -7289,9 +7283,9 @@ define internal void @RoleMembershipCacheCallback(i64 %0, i32 noundef %1, i32 no
   ret void
 }
 
-declare zeroext i1 @superuser_arg(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @superuser_arg(i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @list_member_oid(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @list_member_oid(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef range(i32 0, 3) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
@@ -7445,7 +7439,7 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef range
   br i1 %80, label %81, label %111
 
 81:                                               ; preds = %73, %72, %77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %63, ptr %7, align 4
   %.not.i = icmp eq ptr %.1102122, null
   br i1 %.not.i, label %._crit_edge.i, label %82
@@ -7484,7 +7478,7 @@ list_length.exit.thread.i.thread:                 ; preds = %list_length.exit.i
 .critedge26.i:                                    ; preds = %list_length.exit.i
   %95 = load i32, ptr @work_mem, align 4
   %96 = call ptr @bloom_create(i64 noundef 10240, i32 noundef %95, i64 noundef 0) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %97 = load i32, ptr %90, align 4
   %98 = icmp sgt i32 %97, 0
@@ -7508,7 +7502,7 @@ list_length.exit.thread.i.thread:                 ; preds = %list_length.exit.i
   br i1 %106, label %100, label %.critedge.i, !llvm.loop !32
 
 .critedge.i:                                      ; preds = %100, %.critedge26.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %list_length.exit.thread.i
 
 list_length.exit.thread.i:                        ; preds = %.critedge.i, %88
@@ -7527,7 +7521,7 @@ list_length.exit.thread.i:                        ; preds = %.critedge.i, %88
 roles_list_append.exit:                           ; preds = %list_length.exit.thread.i.thread, %._crit_edge.i, %list_length.exit.thread.i, %109
   %.5 = phi ptr [ %.1102122, %._crit_edge.i ], [ null, %list_length.exit.thread.i ], [ %.4112, %109 ], [ null, %list_length.exit.thread.i.thread ]
   %.0.i = phi ptr [ %.1124, %._crit_edge.i ], [ %108, %list_length.exit.thread.i ], [ %110, %109 ], [ %94, %list_length.exit.thread.i.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %111
 
 111:                                              ; preds = %77, %73, %roles_list_append.exit
@@ -7548,7 +7542,7 @@ roles_list_append.exit:                           ; preds = %list_length.exit.th
   br i1 %or.cond5, label %116, label %146
 
 116:                                              ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 6171, ptr %5, align 4
   %.not.i78 = icmp eq ptr %.1102.lcssa, null
   br i1 %.not.i78, label %._crit_edge.i79, label %117
@@ -7587,7 +7581,7 @@ list_length.exit.thread.i84.thread:               ; preds = %list_length.exit.i8
 .critedge26.i87:                                  ; preds = %list_length.exit.i83
   %130 = load i32, ptr @work_mem, align 4
   %131 = call ptr @bloom_create(i64 noundef 10240, i32 noundef %130, i64 noundef 0) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %132 = load i32, ptr %125, align 4
   %133 = icmp sgt i32 %132, 0
@@ -7611,7 +7605,7 @@ list_length.exit.thread.i84.thread:               ; preds = %list_length.exit.i8
   br i1 %141, label %135, label %.critedge.i88, !llvm.loop !32
 
 .critedge.i88:                                    ; preds = %135, %.critedge26.i87
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %list_length.exit.thread.i84
 
 list_length.exit.thread.i84:                      ; preds = %.critedge.i88, %123
@@ -7630,7 +7624,7 @@ list_length.exit.thread.i84:                      ; preds = %.critedge.i88, %123
 roles_list_append.exit92:                         ; preds = %list_length.exit.thread.i84.thread, %._crit_edge.i79, %list_length.exit.thread.i84, %144
   %.7 = phi ptr [ %.1102.lcssa, %._crit_edge.i79 ], [ null, %list_length.exit.thread.i84 ], [ %.6121, %144 ], [ null, %list_length.exit.thread.i84.thread ]
   %.0.i86 = phi ptr [ %.1.lcssa, %._crit_edge.i79 ], [ %143, %list_length.exit.thread.i84 ], [ %145, %144 ], [ %129, %list_length.exit.thread.i84.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %146
 
 146:                                              ; preds = %roles_list_append.exit92, %._crit_edge
@@ -7713,7 +7707,7 @@ member_can_set_role.exit.thread:                  ; preds = %4, %2, %member_can_
   ret void
 }
 
-declare ptr @GetUserNameFromId(i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @GetUserNameFromId(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @is_member_of_role(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -7752,7 +7746,7 @@ define dso_local zeroext i1 @is_member_of_role_nosuper(i32 noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @is_admin_of_role(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call zeroext i1 @superuser_arg(i32 noundef %0) #14
   br i1 %4, label %11, label %5
 
@@ -7768,14 +7762,14 @@ define dso_local zeroext i1 @is_admin_of_role(i32 noundef %0, i32 noundef %1) lo
 
 11:                                               ; preds = %5, %2, %7
   %.0 = phi i1 [ %10, %7 ], [ true, %2 ], [ false, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @select_best_admin(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq i32 %0, %1
   br i1 %4, label %8, label %5
 
@@ -7786,7 +7780,7 @@ define dso_local i32 @select_best_admin(i32 noundef %0, i32 noundef %1) local_un
 
 8:                                                ; preds = %2, %5
   %.0 = phi i32 [ %7, %5 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -7952,10 +7946,10 @@ aclmask_direct.exit.thread.loopexit:              ; preds = %.lr.ph.split.split.
   ret void
 }
 
-declare i32 @GetSysCacheOid(i32 noundef, i16 noundef signext, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @GetSysCacheOid(i32 noundef, i16 noundef signext, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_rolespec_oid(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
@@ -8015,7 +8009,7 @@ get_role_oid.exit:                                ; preds = %5, %17, %15
   ret i32 %.0
 }
 
-declare i32 @GetSessionUserId() local_unnamed_addr #3
+declare i32 @GetSessionUserId() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local nonnull ptr @get_rolespec_tuple(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -8112,7 +8106,7 @@ define dso_local ptr @get_rolespec_name(ptr noundef readonly captures(none) %0) 
   ret ptr %9
 }
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #3
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @check_rolespec_name(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -8153,11 +8147,11 @@ define dso_local void @check_rolespec_name(ptr noundef readonly captures(address
   ret void
 }
 
-declare zeroext i1 @IsReservedName(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @IsReservedName(ptr noundef) local_unnamed_addr #2
 
-declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @getid(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
@@ -8275,77 +8269,83 @@ define internal fastcc noundef ptr @getid(ptr noundef readonly captures(ret: add
   ret ptr %.0
 }
 
-declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
 
-declare i64 @hash_bytes_uint32_extended(i32 noundef, i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #11
+declare i64 @hash_bytes_uint32_extended(i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #10
 
-declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
-declare i64 @HeapTupleHeaderGetDatum(ptr noundef) local_unnamed_addr #3
+declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @makeRangeVarFromNameList(ptr noundef) local_unnamed_addr #3
+declare i64 @HeapTupleHeaderGetDatum(ptr noundef) local_unnamed_addr #2
 
-declare ptr @textToQualifiedNameList(ptr noundef) local_unnamed_addr #3
+declare ptr @makeRangeVarFromNameList(ptr noundef) local_unnamed_addr #2
 
-declare i32 @RangeVarGetRelidExtended(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @textToQualifiedNameList(ptr noundef) local_unnamed_addr #2
 
-declare i32 @pg_attribute_aclcheck_ext(i32 noundef, i16 noundef signext, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @RangeVarGetRelidExtended(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @SearchSysCache2(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @pg_attribute_aclcheck_ext(i32 noundef, i16 noundef signext, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @get_database_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @SearchSysCache2(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @get_foreign_data_wrapper_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @get_database_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @get_foreign_data_wrapper_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i64 @regprocedurein(ptr noundef) #3
+declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @get_language_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i64 @regprocedurein(ptr noundef) #2
 
-declare i32 @get_namespace_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @get_language_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @get_foreign_server_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @get_namespace_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @get_tablespace_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @get_foreign_server_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i64 @regtypein(ptr noundef) #3
+declare i32 @get_tablespace_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @pg_parameter_aclcheck(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @regtypein(ptr noundef) #2
 
-declare ptr @GetActiveSnapshot() local_unnamed_addr #3
+declare i32 @pg_parameter_aclcheck(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @LargeObjectExistsWithSnapshot(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @GetActiveSnapshot() local_unnamed_addr #2
 
-declare i32 @pg_largeobject_aclcheck_snapshot(i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @LargeObjectExistsWithSnapshot(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #3
+declare i32 @pg_largeobject_aclcheck_snapshot(i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @SearchSysCacheList(i32 noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #2
 
-declare void @ReleaseCatCacheList(ptr noundef) local_unnamed_addr #3
+declare ptr @SearchSysCacheList(i32 noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @bloom_free(ptr noundef) local_unnamed_addr #3
+declare void @ReleaseCatCacheList(ptr noundef) local_unnamed_addr #2
 
-declare ptr @list_copy(ptr noundef) local_unnamed_addr #3
+declare void @bloom_free(ptr noundef) local_unnamed_addr #2
 
-declare void @list_free(ptr noundef) local_unnamed_addr #3
+declare ptr @list_copy(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @bloom_lacks_element(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @list_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @bloom_create(i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare zeroext i1 @bloom_lacks_element(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @bloom_add_element(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @bloom_create(i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @bloom_add_element(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
@@ -8354,17 +8354,17 @@ declare void @llvm.assume(i1 noundef) #12
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #14 = { nounwind }

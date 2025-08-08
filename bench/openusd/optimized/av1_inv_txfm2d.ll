@@ -643,8 +643,8 @@ set_flip_cfg.exit.i:
   %45 = zext i8 %41 to i64
   %46 = getelementptr inbounds nuw [12 x i8], ptr @av1_txfm_stage_num_list, i64 0, i64 %45
   %47 = load i8, ptr %46, align 1
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %48 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide, i64 0, i64 %17
   %49 = load i32, ptr %48, align 4
   %50 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high, i64 0, i64 %17
@@ -1032,8 +1032,8 @@ highbd_clip_pixel_add.exit158.i:                  ; preds = %197, %195, %193
   br i1 %exitcond244.not.i, label %inv_txfm2d_add_c.exit, label %147, !llvm.loop !25
 
 inv_txfm2d_add_c.exit:                            ; preds = %.loopexit.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -1260,10 +1260,10 @@ declare i64 @llvm.smin.i64(i64, i64) #7
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #7

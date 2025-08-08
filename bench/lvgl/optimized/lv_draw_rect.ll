@@ -52,18 +52,12 @@ define void @lv_draw_rect_dsc_init(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i24 @lv_color_white() local_unnamed_addr #2
+declare i24 @lv_color_white() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i24 @lv_color_black() local_unnamed_addr #2
+declare i24 @lv_color_black() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_fill_dsc_init(ptr noundef %0) local_unnamed_addr #0 {
@@ -76,7 +70,7 @@ define void @lv_draw_fill_dsc_init(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_draw_task_get_fill_dsc(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @lv_draw_task_get_fill_dsc(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !26
   %4 = icmp eq i32 %3, 1
@@ -108,7 +102,7 @@ define void @lv_draw_border_dsc_init(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_draw_task_get_border_dsc(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @lv_draw_task_get_border_dsc(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !26
   %4 = icmp eq i32 %3, 2
@@ -135,7 +129,7 @@ define void @lv_draw_box_shadow_dsc_init(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_draw_task_get_box_shadow_dsc(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @lv_draw_task_get_box_shadow_dsc(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !26
   %4 = icmp eq i32 %3, 3
@@ -350,7 +344,7 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   br i1 %35, label %114, label %162
 
 114:                                              ; preds = %113
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !62
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %116 = load i32, ptr %115, align 4, !tbaa !43
@@ -433,7 +427,7 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   %161 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store i32 1, ptr %161, align 8, !tbaa !26
   call void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef %147) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %162
 
 162:                                              ; preds = %149, %113
@@ -443,7 +437,7 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %165 = load ptr, ptr %164, align 8, !tbaa !42
   %166 = call i32 @lv_image_src_get_type(ptr noundef %165) #5
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %or.cond = icmp ult i32 %166, 2
   br i1 %or.cond, label %167, label %171
 
@@ -469,7 +463,7 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   br label %190
 
 177:                                              ; preds = %172
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !63
   %178 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %178, align 4, !tbaa !64
@@ -487,7 +481,7 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   store i32 %188, ptr %185, align 4, !tbaa !66
   call void @lv_area_align(ptr noundef %2, ptr noundef nonnull %6, i32 noundef 9, i32 noundef 0, i32 noundef 0) #5
   %189 = call ptr @lv_draw_add_task(ptr noundef %0, ptr noundef nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %190
 
 190:                                              ; preds = %177, %175
@@ -541,12 +535,12 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   br label %241
 
 217:                                              ; preds = %171
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %218 = load ptr, ptr %164, align 8, !tbaa !42
   %219 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %220 = load ptr, ptr %219, align 8, !tbaa !17
   call void @lv_text_get_size(ptr noundef nonnull %7, ptr noundef %218, ptr noundef %220, i32 noundef 0, i32 noundef 0, i32 noundef 536870911, i32 noundef 0) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !63
   %221 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %221, align 4, !tbaa !64
@@ -587,12 +581,12 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   %240 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store i32 5, ptr %240, align 8, !tbaa !26
   call void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef %229) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %241
 
 241:                                              ; preds = %167, %192, %231, %171
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %242
 
 242:                                              ; preds = %241, %162
@@ -644,7 +638,7 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   br i1 %.0206, label %268, label %304
 
 268:                                              ; preds = %267
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !62
   %269 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %270 = load i32, ptr %269, align 8, !tbaa !44
@@ -704,42 +698,48 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   %303 = getelementptr inbounds nuw i8, ptr %274, i64 8
   store i32 2, ptr %303, align 8, !tbaa !26
   call void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef nonnull %274) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %304
 
 304:                                              ; preds = %290, %267
   ret void
 }
 
-declare ptr @lv_draw_add_task(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_draw_add_task(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #2
+declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #1
 
-declare void @lv_area_increase(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_area_increase(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_area_move(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_area_move(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_draw_finalize_task_creation(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_finalize_task_creation(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_image_src_get_type(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_image_src_get_type(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_image_decoder_get_info(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_image_decoder_get_info(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_area_align(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_area_align(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_draw_image_dsc_init(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_image_dsc_init(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_text_get_size(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_text_get_size(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_draw_label_dsc_init(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_label_dsc_init(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #2
+declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

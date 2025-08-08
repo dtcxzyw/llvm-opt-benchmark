@@ -46,7 +46,7 @@ define internal range(i32 0, 2) i32 @tdes_wrap_cipher(ptr noundef %0, ptr nounde
   br i1 %.not12.i, label %51, label %21
 
 21:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %22 = add nuw nsw i64 %5, 8
   %23 = add nuw nsw i64 %5, 16
   %24 = icmp eq ptr %1, null
@@ -95,13 +95,13 @@ define internal range(i32 0, 2) i32 @tdes_wrap_cipher(ptr noundef %0, ptr nounde
 
 des_ede3_wrap.exit.i:                             ; preds = %39, %30, %27, %25
   %.0.i.i = phi i32 [ %26, %25 ], [ %50, %39 ], [ 0, %27 ], [ 0, %30 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %tdes_wrap_cipher_internal.exit
 
 51:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %52 = icmp samesign ult i64 %5, 24
   br i1 %52, label %des_ede3_unwrap.exit.i, label %53
 
@@ -183,9 +183,9 @@ select.unfold.i.i:                                ; preds = %92, %70
 
 des_ede3_unwrap.exit.i:                           ; preds = %97, %select.unfold.i.i, %55, %51
   %.040.i.i = phi i32 [ %57, %55 ], [ -1, %51 ], [ -1, %97 ], [ %.0.i14.i, %select.unfold.i.i ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %tdes_wrap_cipher_internal.exit
 
 tdes_wrap_cipher_internal.exit:                   ; preds = %des_ede3_wrap.exit.i, %des_ede3_unwrap.exit.i
@@ -258,9 +258,6 @@ declare i32 @ossl_cipher_generic_set_ctx_params(ptr noundef, ptr noundef) #0
 
 declare ptr @ossl_cipher_generic_settable_ctx_params(ptr noundef, ptr noundef) #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @ossl_prov_is_running() local_unnamed_addr #0
 
 declare void @ERR_new() local_unnamed_addr #0
@@ -269,11 +266,8 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @ossl_sha1(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -291,10 +285,16 @@ declare ptr @ossl_prov_cipher_hw_tdes_wrap_cbc() local_unnamed_addr #0
 
 declare i32 @ossl_cipher_generic_get_params(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

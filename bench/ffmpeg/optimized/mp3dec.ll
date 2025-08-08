@@ -74,7 +74,7 @@ define internal range(i32 0, 52) i32 @mp3_read_probe(ptr noundef readonly captur
   %.072114 = phi ptr [ %.075117, %.preheader ], [ %47, %46 ]
   %.079113 = phi i32 [ 0, %.preheader ], [ %42, %46 ]
   %.082112 = phi i32 [ 0, %.preheader ], [ %48, %46 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %18 = load i32, ptr %.072114, align 1, !tbaa !12
   %19 = call i32 @llvm.bswap.i32(i32 %18)
   %20 = call i32 @avpriv_mpegaudio_decode_header(ptr noundef nonnull %2, i32 noundef %19) #6
@@ -128,12 +128,12 @@ define internal range(i32 0, 52) i32 @mp3_read_probe(ptr noundef readonly captur
 .thread:                                          ; preds = %17, %._crit_edge, %44
   %.284.ph = phi i32 [ %45, %44 ], [ %.082112, %._crit_edge ], [ %.082112, %17 ]
   %.281.ph = phi i32 [ %42, %44 ], [ %.079113, %._crit_edge ], [ %.079113, %17 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 46:                                               ; preds = %._crit_edge.thread
   %47 = getelementptr inbounds i8, ptr %.072114, i64 %23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %48 = add nuw nsw i32 %.082112, 1
   %49 = icmp ult ptr %47, %9
   br i1 %49, label %17, label %.loopexit, !llvm.loop !18
@@ -283,7 +283,7 @@ define internal i32 @mp3_read_header(ptr noundef initializes((192, 200)) %0) #0 
 
 35:                                               ; preds = %32, %27
   %36 = phi ptr [ %.pre, %32 ], [ %28, %27 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %37 = load ptr, ptr %8, align 8, !tbaa !20
   tail call void @ffio_init_checksum(ptr noundef %36, ptr noundef nonnull @ff_crcA001_update, i64 noundef 0) #6
   %38 = load ptr, ptr %20, align 8, !tbaa !64
@@ -322,7 +322,7 @@ define internal i32 @mp3_read_header(ptr noundef initializes((192, 200)) %0) #0 
   %58 = trunc i64 %57 to i32
   %59 = getelementptr inbounds nuw i8, ptr %37, i64 40
   store i32 %58, ptr %59, align 8, !tbaa !76
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %60 = load ptr, ptr %8, align 8, !tbaa !20
   %61 = load ptr, ptr %20, align 8, !tbaa !64
   %62 = call i64 @avio_size(ptr noundef %61) #6
@@ -634,7 +634,7 @@ read_xing_toc.exit.i.i:                           ; preds = %.split.i.i.i, %150,
   br label %mp3_parse_info_tag.exit.i
 
 mp3_parse_info_tag.exit.i:                        ; preds = %235, %217, %47
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %239 = load ptr, ptr %8, align 8, !tbaa !20
   %240 = load ptr, ptr %20, align 8, !tbaa !64
   %241 = add nsw i64 %23, 36
@@ -721,11 +721,11 @@ mp3_parse_vbri_tag.exit.i:                        ; preds = %250, %246, %mp3_par
   br label %mp3_parse_vbr_tags.exit.thread
 
 mp3_parse_vbr_tags.exit.thread:                   ; preds = %267, %283, %286, %262
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %296
 
 293:                                              ; preds = %260, %42, %35
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %294 = load ptr, ptr %20, align 8, !tbaa !64
   %295 = call i64 @avio_seek(ptr noundef %294, i64 noundef %23, i32 noundef 0) #6
   br label %296
@@ -752,8 +752,8 @@ mp3_parse_vbr_tags.exit.thread:                   ; preds = %267, %283, %286, %2
   %308 = load ptr, ptr %20, align 8, !tbaa !64
   %309 = add nsw i64 %306, %indvars.iv
   %310 = call i64 @avio_seek(ptr noundef %308, i64 noundef %309, i32 noundef 0) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %311 = icmp slt i64 %310, 0
   br i1 %311, label %check.exit.thread, label %312
 
@@ -787,14 +787,14 @@ mp3_parse_vbr_tags.exit.thread:                   ; preds = %267, %283, %286, %2
 
 check.exit.thread:                                ; preds = %307, %312, %315, %326
   %.0.i79.ph = phi i32 [ -1, %326 ], [ -1, %315 ], [ -2, %312 ], [ -2, %307 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %360
 
 check.exit:                                       ; preds = %326
   %329 = load i32, ptr %5, align 4, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %330 = icmp sgt i32 %329, 0
   br i1 %330, label %331, label %360
 
@@ -803,8 +803,8 @@ check.exit:                                       ; preds = %326
   %333 = zext nneg i32 %329 to i64
   %334 = add nsw i64 %309, %333
   %335 = call i64 @avio_seek(ptr noundef %332, i64 noundef %334, i32 noundef 0) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %336 = icmp slt i64 %335, 0
   br i1 %336, label %check.exit87.thread, label %337
 
@@ -837,14 +837,14 @@ check.exit:                                       ; preds = %326
   br i1 %353, label %check.exit87.thread, label %check.exit87
 
 check.exit87.thread:                              ; preds = %331, %337, %340, %351
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %362
 
 check.exit87:                                     ; preds = %351
   %354 = load i32, ptr %3, align 4, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %355 = icmp sgt i32 %354, -1
   br i1 %355, label %356, label %362
 
@@ -967,7 +967,7 @@ define internal i32 @mp3_seek(ptr noundef %0, i32 %1, i64 noundef %2, i32 nounde
   %7 = alloca %struct.AVIndexEntry, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !82
   %12 = load ptr, ptr %11, align 8, !tbaa !83
@@ -1102,8 +1102,8 @@ define internal i32 @mp3_seek(ptr noundef %0, i32 %1, i64 noundef %2, i32 nounde
   %.05296.i = phi i32 [ %119, %117 ], [ 0, %.preheader87.i ]
   %82 = load ptr, ptr %68, align 8, !tbaa !64
   %83 = call i64 @avio_seek(ptr noundef %82, i64 noundef %.05097.i, i32 noundef 0) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %84 = icmp slt i64 %83, 0
   br i1 %84, label %check.exit.thread.i, label %85
 
@@ -1137,15 +1137,15 @@ define internal i32 @mp3_seek(ptr noundef %0, i32 %1, i64 noundef %2, i32 nounde
 
 check.exit.thread.i:                              ; preds = %99, %88, %85, %.preheader.i
   %.0.i.ph.i = phi i32 [ -1, %99 ], [ -1, %88 ], [ -2, %85 ], [ -2, %.preheader.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %102 = sext i32 %.0.i.ph.i to i64
   br label %106
 
 check.exit.i:                                     ; preds = %99
   %103 = load i32, ptr %6, align 4, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %104 = sext i32 %103 to i64
   %105 = icmp slt i32 %103, 0
   br i1 %105, label %106, label %108
@@ -1256,19 +1256,13 @@ mp3_sync.exit.thread:                             ; preds = %.thread83.i, %65, %
 
 .critedge:                                        ; preds = %36, %40, %48, %.thread, %151, %mp3_sync.exit.thread
   %.1 = phi i32 [ %128, %mp3_sync.exit.thread ], [ 0, %151 ], [ -1, %36 ], [ -1, %.thread ], [ -1, %48 ], [ %41, %40 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1
 }
 
 declare ptr @av_default_item_name(ptr noundef) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @avpriv_mpegaudio_decode_header(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @ff_id3v2_match(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1299,15 +1293,15 @@ declare i64 @ff_crcA001_update(i64 noundef, ptr noundef, i32 noundef) #1
 declare i32 @avio_rb32(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_rescale_q(i64 noundef, i64, i64) local_unnamed_addr #3
+declare i64 @av_rescale_q(i64 noundef, i64, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_rescale(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @av_rescale(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 declare i64 @avio_skip(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @avio_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1330,6 +1324,12 @@ declare i32 @av_get_packet(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare i32 @av_index_search_timestamp(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @avpriv_update_cur_dts(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #5
@@ -1357,9 +1357,9 @@ declare i64 @llvm.umax.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(none) }

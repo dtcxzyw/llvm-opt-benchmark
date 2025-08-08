@@ -6734,8 +6734,8 @@ extend_span_with_token.exit107.i:                 ; preds = %143, %142
   br label %parse_def_type.exit
 
 158:                                              ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @advance(ptr noundef nonnull %0) #8
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %160 = load ptr, ptr %159, align 8
@@ -6871,12 +6871,12 @@ extend_span_with_token.exit107.i:                 ; preds = %143, %142
 
 parse_def_attribute.exit:                         ; preds = %169, %176, %181, %189, %195, %200, %205, %220, %225, %229
   %.062.i = phi ptr [ %172, %169 ], [ %163, %229 ], [ %228, %225 ], [ %221, %220 ], [ %208, %205 ], [ %201, %200 ], [ %198, %195 ], [ %192, %189 ], [ %184, %181 ], [ %177, %176 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %parse_def_type.exit
 
 230:                                              ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @advance(ptr noundef nonnull %0) #8
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %232 = load i32, ptr %231, align 8
@@ -7203,7 +7203,7 @@ extend_span_with_token.exit.i11:                  ; preds = %375, %374
 
 parse_def_ident.exit:                             ; preds = %247, %261, %268, %278, %288, %293, %298, %305, %309, %.loopexit.i, %367, %386, %389
   %.079.i = phi ptr [ %248, %247 ], [ %264, %261 ], [ %291, %288 ], [ %295, %293 ], [ %302, %298 ], [ %308, %305 ], [ %311, %309 ], [ %254, %389 ], [ %388, %386 ], [ %368, %367 ], [ %363, %.loopexit.i ], [ %279, %278 ], [ %271, %268 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %parse_def_type.exit
 
 parse_def_type.exit:                              ; preds = %157, %154, %135, %118, %105, %102, %71, %67, %60, %31, %27, %25, %19, %parse_def_ident.exit, %parse_def_attribute.exit
@@ -8160,9 +8160,9 @@ define internal fastcc ptr @parse_macro_declaration(ptr noundef %0, i32 noundef 
   br label %113
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 19
@@ -8274,17 +8274,17 @@ define internal fastcc ptr @parse_macro_declaration(ptr noundef %0, i32 noundef 
   br label %78
 
 78:                                               ; preds = %19, %.critedge.i, %45, %54, %60, %74
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %79 = load ptr, ptr @poisoned_decl, align 8
   br label %113
 
 80:                                               ; preds = %70
   call void @advance(ptr noundef nonnull %0) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %81 = call fastcc zeroext i1 @parse_attributes_for_global(ptr noundef nonnull %0, ptr noundef nonnull %6)
   br i1 %81, label %84, label %82
 
@@ -9668,10 +9668,10 @@ declare zeroext i1 @parse_arg_list(ptr noundef, ptr noundef, i32 noundef, ptr no
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7

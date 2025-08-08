@@ -36,14 +36,8 @@ define hidden void @DfilterInit(ptr noundef initializes((8, 12)) %0) local_unnam
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @DfilterAlloc(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define hidden ptr @DfilterAlloc(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call ptr %0(i64 noundef 1632)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3
@@ -66,7 +60,7 @@ define hidden ptr @DfilterAlloc(ptr noundef readonly captures(none) %0) local_un
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @DfilterFinalize(ptr noundef captures(address) %0) local_unnamed_addr #2 {
+define hidden void @DfilterFinalize(ptr noundef captures(address) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %0, align 8
   %4 = icmp ugt ptr %3, %2
@@ -89,7 +83,7 @@ define hidden void @DfilterFinalize(ptr noundef captures(address) %0) local_unna
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @DfilterFree(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define hidden void @DfilterFree(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %15, label %4
 
@@ -120,13 +114,13 @@ DfilterFinalize.exit:                             ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @Dfilter(ptr noundef captures(address) initializes((16, 24)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define hidden void @Dfilter(ptr noundef captures(address) initializes((16, 24)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %union.YYMINORTYPE, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %10, align 8
   %11 = icmp eq i32 %1, 0
@@ -521,7 +515,7 @@ resolve_unparsed.exit56:                          ; preds = %126, %140
   br label %resolve_unparsed.exit54
 
 resolve_unparsed.exit54:                          ; preds = %152, %166
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %167 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %168 = load ptr, ptr %167, align 8
@@ -549,7 +543,7 @@ resolve_unparsed.exit54:                          ; preds = %152, %166
   call void @stnode_merge_location(ptr noundef %154, ptr noundef %180, ptr noundef %181)
   %182 = load ptr, ptr %167, align 8
   call void @stnode_free(ptr noundef %182)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %183 = getelementptr i8, ptr %65, i64 -8
   %184 = load ptr, ptr %183, align 8
   call void @stnode_free(ptr noundef %184)
@@ -877,7 +871,7 @@ resolve_unparsed.exit:                            ; preds = %237, %251
   br label %568
 
 366:                                              ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %367 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %368 = load ptr, ptr %367, align 8
   store ptr %368, ptr %6, align 8
@@ -911,7 +905,7 @@ resolve_unparsed.exit:                            ; preds = %237, %251
   %383 = load ptr, ptr %378, align 8
   %384 = load ptr, ptr %367, align 8
   call void @stnode_merge_location(ptr noundef %381, ptr noundef %383, ptr noundef %384)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %381, ptr %378, align 8
   br label %568
 
@@ -1079,7 +1073,7 @@ resolve_unparsed.exit:                            ; preds = %237, %251
   br label %568
 
 488:                                              ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %489 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %490 = load ptr, ptr %489, align 8
@@ -1104,12 +1098,12 @@ resolve_unparsed.exit:                            ; preds = %237, %251
   %502 = call ptr @g_slist_append(ptr noundef null, ptr noundef %492)
   %503 = load ptr, ptr %489, align 8
   call void @stnode_free(ptr noundef %503)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %502, ptr %489, align 8
   br label %568
 
 504:                                              ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %505 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %506 = load ptr, ptr %505, align 8
@@ -1136,7 +1130,7 @@ resolve_unparsed.exit:                            ; preds = %237, %251
   %520 = call ptr @g_slist_append(ptr noundef %519, ptr noundef %508)
   %521 = load ptr, ptr %505, align 8
   call void @stnode_free(ptr noundef %521)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %522 = getelementptr i8, ptr %65, i64 -8
   %523 = load ptr, ptr %522, align 8
   call void @stnode_free(ptr noundef %523)
@@ -1370,12 +1364,12 @@ yy_parse_failed.exit:                             ; preds = %.lr.ph.i44, %634
   br label %646
 
 646:                                              ; preds = %.thread57, %yy_shift.exit, %yy_parse_failed.exit, %yy_syntax_error.exit, %616
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @yy_destructor(i8 noundef zeroext %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 {
+define internal fastcc void @yy_destructor(i8 noundef zeroext %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   switch i8 %0, label %13 [
     i8 1, label %3
     i8 2, label %3
@@ -1474,124 +1468,129 @@ define internal fastcc void @yy_destructor(i8 noundef zeroext %0, ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define hidden noundef i32 @DfilterFallback(i32 noundef %0) local_unnamed_addr #3 {
+define hidden noundef i32 @DfilterFallback(i32 noundef %0) local_unnamed_addr #2 {
   ret i32 0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @sttype_oper_set2(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @sttype_oper_set2(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @stnode_merge_location(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @stnode_merge_location(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @stnode_new(i32 noundef, ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #4
+declare ptr @stnode_new(i32 noundef, ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @stnode_dup(ptr noundef) local_unnamed_addr #4
+declare ptr @stnode_dup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @sttype_oper_set1(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @sttype_oper_set1(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @stnode_free(ptr noundef) local_unnamed_addr #4
+declare void @stnode_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @sttype_field_set_range(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @sttype_field_set_range(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_slist_free(ptr noundef) local_unnamed_addr #4
+declare void @g_slist_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @drange_node_from_str(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @drange_node_from_str(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @stnode_token(ptr noundef) local_unnamed_addr #4
+declare ptr @stnode_token(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dfilter_fail(ptr noundef, i32 noundef, i64, i64, ptr noundef, ...) local_unnamed_addr #4
+declare void @dfilter_fail(ptr noundef, i32 noundef, i64, i64, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare { i64, i64 } @stnode_location(ptr noundef) local_unnamed_addr #4
+declare { i64, i64 } @stnode_location(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_free(ptr noundef) local_unnamed_addr #4
+declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @sttype_field_set_range1(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @sttype_field_set_range1(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @sttype_field_set_raw(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare void @sttype_field_set_raw(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @sttype_oper_set_op(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @sttype_oper_set_op(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @sttype_oper_set2_args(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @sttype_oper_set2_args(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @stnode_type_id(ptr noundef) local_unnamed_addr #4
+declare i32 @stnode_type_id(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @sttype_oper_get(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @sttype_oper_get(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @stnode_new_empty(i32 noundef) local_unnamed_addr #4
+declare ptr @stnode_new_empty(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @sttype_test_set_match(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @sttype_test_set_match(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_slist_concat(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @g_slist_concat(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @sttype_slice_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @sttype_slice_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @sttype_function_set_params(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @sttype_function_set_params(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @dfilter_resolve_unparsed(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @dfilter_resolve_unparsed(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @stnode_replace(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @stnode_replace(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @sttype_field_hfinfo(ptr noundef) local_unnamed_addr #4
+declare ptr @sttype_field_hfinfo(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #4
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @sttype_field_set_drange(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @sttype_field_set_drange(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @sttype_field_drange_steal(ptr noundef) local_unnamed_addr #4
+declare ptr @sttype_field_drange_steal(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @sttype_field_raw(ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @sttype_field_raw(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @df_func_lookup(ptr noundef) local_unnamed_addr #4
+declare ptr @df_func_lookup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @drange_node_free_list(ptr noundef) local_unnamed_addr #4
+declare void @drange_node_free_list(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @st_funcparams_free(ptr noundef) local_unnamed_addr #4
+declare void @st_funcparams_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @set_nodelist_free(ptr noundef) local_unnamed_addr #4
+declare void @set_nodelist_free(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
+attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

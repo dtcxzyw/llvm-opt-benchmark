@@ -56,11 +56,11 @@ define internal range(i32 0, 2) i32 @kat_test() #0 {
   %2 = alloca [32 x i8], align 16
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call fastcc i32 @do_encrypt(ptr noundef null, ptr noundef %2, ptr noundef %3, ptr noundef %1, ptr noundef %4)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %17, label %6
@@ -86,10 +86,10 @@ define internal range(i32 0, 2) i32 @kat_test() #0 {
 
 17:                                               ; preds = %14, %10, %6, %0
   %18 = phi i32 [ 0, %10 ], [ 0, %6 ], [ 0, %0 ], [ %16, %14 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %18
 }
 
@@ -135,12 +135,12 @@ define internal range(i32 0, 2) i32 @ivgen_test() #0 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call fastcc i32 @do_encrypt(ptr noundef nonnull %1, ptr noundef %3, ptr noundef %4, ptr noundef %2, ptr noundef %5)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %11, label %7
@@ -153,23 +153,20 @@ define internal range(i32 0, 2) i32 @ivgen_test() #0 {
 
 11:                                               ; preds = %7, %0
   %12 = phi i32 [ 0, %0 ], [ %10, %7 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %12
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @do_encrypt(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 16, ptr %4, align 4, !tbaa !4
   %8 = tail call ptr @EVP_CIPHER_CTX_new() #3
   %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 47, ptr noundef nonnull @.str.8, ptr noundef %8) #3
@@ -252,8 +249,8 @@ define internal fastcc range(i32 0, 2) i32 @do_encrypt(ptr noundef %0, ptr nound
 55:                                               ; preds = %50, %40, %37, %32, %27, %22, %16, %10, %5
   %56 = phi i32 [ 0, %40 ], [ 0, %37 ], [ 0, %32 ], [ 0, %27 ], [ 0, %22 ], [ 0, %16 ], [ 0, %10 ], [ 0, %5 ], [ %54, %50 ]
   call void @EVP_CIPHER_CTX_free(ptr noundef %8) #3
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %56
 }
 
@@ -265,10 +262,10 @@ define internal fastcc range(i32 0, 2) i32 @do_decrypt(ptr noundef %0, ptr nound
   %7 = alloca i32, align 4
   %8 = alloca [32 x i8], align 16
   %9 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = tail call ptr @EVP_CIPHER_CTX_new() #3
   %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 75, ptr noundef nonnull @.str.8, ptr noundef %10) #3
   %.not = icmp eq i32 %11, 0
@@ -340,15 +337,12 @@ define internal fastcc range(i32 0, 2) i32 @do_decrypt(ptr noundef %0, ptr nound
 52:                                               ; preds = %46, %41, %36, %31, %26, %23, %18, %12, %5
   %53 = phi i32 [ 0, %41 ], [ 0, %36 ], [ 0, %31 ], [ 0, %26 ], [ 0, %23 ], [ 0, %18 ], [ 0, %12 ], [ 0, %5 ], [ %51, %46 ]
   call void @EVP_CIPHER_CTX_free(ptr noundef %10) #3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %53
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -385,6 +379,12 @@ declare ptr @EVP_aes_192_gcm() local_unnamed_addr #1
 declare i32 @test_int_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @EVP_CIPHER_CTX_set_key_length(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1373,7 +1373,7 @@ define internal void @_ZL25_SCSUToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL16_SCSUFromUnicodeP25UConverterFromUnicodeArgsP10UErrorCode(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) #2 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !57
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -2388,7 +2388,7 @@ _ZL16getDynamicOffsetjPj.exit414.thread444:       ; preds = %480, %469, %460, %_
   store i32 %.4, ptr %28, align 4, !tbaa !24
   store ptr %.7295, ptr %8, align 8, !tbaa !59
   store ptr %.7286, ptr %12, align 8, !tbaa !61
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 531:                                              ; preds = %324, %_ZL9getWindowPKjj.exit376.thread, %529, %_ZL16getDynamicOffsetjPj.exit414.thread444, %_ZL16useDynamicWindowP8SCSUDataa.exit427, %_ZL16useDynamicWindowP8SCSUDataa.exit406, %379, %_ZL16useDynamicWindowP8SCSUDataa.exit388, %334, %296, %294, %268, %258, %_ZL24isInOffsetWindowOrDirectjj.exit.thread, %_ZL16useDynamicWindowP8SCSUDataa.exit365, %193, %187, %_ZL16getDynamicOffsetjPj.exit.thread432, %_ZL16useDynamicWindowP8SCSUDataa.exit347, %_ZL16useDynamicWindowP8SCSUDataa.exit, %56
@@ -2526,7 +2526,7 @@ default.unreachable637:                           ; preds = %532
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL27_SCSUFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) #2 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !57
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3617,7 +3617,7 @@ _ZL16getDynamicOffsetjPj.exit515.thread545:       ; preds = %506, %495, %486, %_
   store ptr %.7387, ptr %8, align 8, !tbaa !59
   store ptr %.7367, ptr %12, align 8, !tbaa !61
   store ptr %.10, ptr %20, align 8, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 557:                                              ; preds = %349, %_ZL9getWindowPKjj.exit477.thread, %555, %_ZL16getDynamicOffsetjPj.exit515.thread545, %_ZL16useDynamicWindowP8SCSUDataa.exit528, %_ZL16useDynamicWindowP8SCSUDataa.exit507, %404, %_ZL16useDynamicWindowP8SCSUDataa.exit489, %359, %319, %317, %291, %281, %_ZL24isInOffsetWindowOrDirectjj.exit.thread, %_ZL16useDynamicWindowP8SCSUDataa.exit466, %216, %210, %204, %_ZL16useDynamicWindowP8SCSUDataa.exit448, %_ZL16useDynamicWindowP8SCSUDataa.exit, %65
@@ -3891,22 +3891,16 @@ define internal noundef ptr @_ZL14_SCSUSafeClonePK10UConverterPvPiP10UErrorCode(
 
 declare void @ucnv_getCompleteUnicodeSet_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #5
 
 declare void @uprv_free_77(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL16useDynamicWindowP8SCSUDataa(ptr noundef captures(none) %0, i8 noundef signext %1) unnamed_addr #8 {
+define internal fastcc void @_ZL16useDynamicWindowP8SCSUDataa(ptr noundef captures(none) %0, i8 noundef signext %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 75
   %4 = load i8, ptr %3, align 1, !tbaa !23
   %5 = sext i8 %4 to i32
@@ -3956,7 +3950,7 @@ define internal fastcc void @_ZL16useDynamicWindowP8SCSUDataa(ptr noundef captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc noundef range(i32 -1, 1024) i32 @_ZL16getDynamicOffsetjPj(i32 noundef range(i32 -2147483648, 2090869760) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #9 {
+define internal fastcc noundef range(i32 -1, 1024) i32 @_ZL16getDynamicOffsetjPj(i32 noundef range(i32 -2147483648, 2090869760) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #8 {
   br label %3
 
 3:                                                ; preds = %2, %11
@@ -4017,18 +4011,23 @@ define internal fastcc noundef range(i32 -1, 1024) i32 @_ZL16getDynamicOffsetjPj
   ret i32 %.023
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { allocsize(0) }
-attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -167,8 +167,8 @@ define hidden i32 @mbedtls_lmots_calculate_public_key_candidate(ptr noundef %0, 
   %17 = alloca i64, align 8
   %18 = alloca [34 x i8], align 16
   %19 = alloca [34 x [32 x i8]], align 16
-  call void @llvm.lifetime.start.p0(i64 34, ptr nonnull %18) #10
-  call void @llvm.lifetime.start.p0(i64 1088, ptr nonnull %19) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %20 = icmp eq ptr %1, null
   %21 = icmp ne i64 %2, 0
   %or.cond = and i1 %20, %21
@@ -188,9 +188,9 @@ define hidden i32 @mbedtls_lmots_calculate_public_key_candidate(ptr noundef %0, 
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %16) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %16, i8 0, i64 232, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %31 = call i32 @psa_hash_setup(ptr noundef nonnull %16, i32 noundef 33554441) #10
   %.not.i = icmp eq i32 %31, 0
   br i1 %.not.i, label %32, label %create_digit_array_with_checksum.exit
@@ -263,8 +263,8 @@ create_digit_array_with_checksum.exit:            ; preds = %29, %32, %34, %37, 
   %.0.i = phi i32 [ %31, %29 ], [ %33, %32 ], [ %36, %34 ], [ %38, %37 ], [ %43, %39 ], [ %45, %44 ], [ %50, %46 ], [ 0, %lmots_checksum_calculate.exit.i ]
   %61 = call i32 @psa_hash_abort(ptr noundef nonnull %16) #10
   %62 = call i32 @psa_status_to_mbedtls(i32 noundef %.0.i, ptr noundef nonnull @psa_to_lms_errors, i64 noundef 3, ptr noundef nonnull @psa_generic_status_to_mbedtls) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #10
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %16) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %.not31 = icmp eq i32 %62, 0
   br i1 %.not31, label %63, label %136
 
@@ -273,12 +273,12 @@ create_digit_array_with_checksum.exit:            ; preds = %29, %32, %34, %37, 
   %65 = icmp eq i32 %64, 4
   %66 = select i1 %65, i64 36, i64 4
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 %66
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #10
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %13, i8 0, i64 232, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   br i1 %65, label %.lr.ph8.i, label %hash_digit_array.exit
 
 .lr.ph8.i:                                        ; preds = %63
@@ -374,18 +374,18 @@ hash_digit_array.exit:                            ; preds = %._crit_edge.i, %77,
   %107 = call i32 @psa_hash_abort(ptr noundef nonnull %13) #10
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %15, i64 noundef 32) #10
   %108 = call i32 @psa_status_to_mbedtls(i32 noundef %.2.i, ptr noundef nonnull @psa_to_lms_errors, i64 noundef 3, ptr noundef nonnull @psa_generic_status_to_mbedtls) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #10
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %13) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #10
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not32 = icmp eq i32 %108, 0
   br i1 %.not32, label %109, label %136
 
 109:                                              ; preds = %hash_digit_array.exit
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %9, i8 0, i64 232, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %110 = call i32 @psa_hash_setup(ptr noundef nonnull %9, i32 noundef 33554441) #10
   %.not.i38 = icmp eq i32 %110, 0
   br i1 %.not.i38, label %111, label %128
@@ -430,8 +430,8 @@ hash_digit_array.exit:                            ; preds = %._crit_edge.i, %77,
 public_key_from_hashed_digit_array.exit:          ; preds = %123, %128
   %.1.i = phi i32 [ %.0.i39, %128 ], [ 0, %123 ]
   %130 = call i32 @psa_status_to_mbedtls(i32 noundef %.1.i, ptr noundef nonnull @psa_to_lms_errors, i64 noundef 3, ptr noundef nonnull @psa_generic_status_to_mbedtls) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not33 = icmp eq i32 %130, 0
   br i1 %.not33, label %131, label %136
 
@@ -448,21 +448,15 @@ public_key_from_hashed_digit_array.exit:          ; preds = %123, %128
 
 136:                                              ; preds = %131, %132, %public_key_from_hashed_digit_array.exit, %hash_digit_array.exit, %create_digit_array_with_checksum.exit, %22, %8
   %.0 = phi i32 [ -17, %8 ], [ -17, %22 ], [ %62, %create_digit_array_with_checksum.exit ], [ %108, %hash_digit_array.exit ], [ %130, %public_key_from_hashed_digit_array.exit ], [ 0, %132 ], [ 0, %131 ]
-  call void @llvm.lifetime.end.p0(i64 1088, ptr nonnull %19) #10
-  call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %18) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -21, 1) i32 @mbedtls_lmots_verify(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #3 {
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %1, null
   %8 = icmp ne i64 %2, 0
   %or.cond = and i1 %7, %8
@@ -503,7 +497,7 @@ define hidden range(i32 -21, 1) i32 @mbedtls_lmots_verify(ptr noundef %0, ptr no
 
 22:                                               ; preds = %20, %18, %17, %15, %12, %9, %5
   %.0 = phi i32 [ -17, %5 ], [ -17, %9 ], [ -17, %12 ], [ -21, %15 ], [ -21, %17 ], [ -21, %18 ], [ %., %20 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -521,6 +515,12 @@ declare i32 @psa_hash_abort(ptr noundef) local_unnamed_addr #4
 declare i32 @psa_status_to_mbedtls(i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 declare i32 @psa_generic_status_to_mbedtls(i32 noundef) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9

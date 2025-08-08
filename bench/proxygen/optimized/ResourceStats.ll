@@ -1299,7 +1299,7 @@ while.body.i:                                     ; preds = %_ZZN5folly10rcu_dom
   %node.04.i = phi ptr [ %5, %while.body.lr.ph.i ], [ %6, %_ZZN5folly10rcu_domain11synchronizeEvENKUlPNS_6detail21ThreadCachedListsBase4NodeEE_clES4_.exit.i ]
   %next_.i = getelementptr inbounds nuw i8, ptr %node.04.i, i64 64
   %6 = load ptr, ptr %next_.i, align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %7 = load ptr, ptr %executor_.i.i, align 8
   store ptr null, ptr %agg.tmp.i.i, align 16
   %call_2.i.i.i = getelementptr inbounds nuw i8, ptr %node.04.i, i64 48
@@ -1345,7 +1345,7 @@ if.end.i.i6.i.i:                                  ; preds = %lpad.i.i
   br label %terminate.lpad.body
 
 _ZZN5folly10rcu_domain11synchronizeEvENKUlPNS_6detail21ThreadCachedListsBase4NodeEE_clES4_.exit.i: ; preds = %if.end.i.i2.i.i, %invoke.cont.i.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   %cmp.not.i = icmp eq ptr %6, null
   br i1 %cmp.not.i, label %return, label %while.body.i, !llvm.loop !11
 
@@ -1622,7 +1622,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit: ; 
 
 if.end29:                                         ; preds = %if.end18, %if.else, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
   %new_state.0 = phi i32 [ %or.i, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit ], [ %9, %if.else ], [ %9, %if.end18 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %converted.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %converted.i)
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %absTime, align 8
   store i64 %retval.sroa.0.0.copyload.i.i.i.i, ptr %converted.i, align 8
   %cmp.i.i.i = icmp eq i64 %retval.sroa.0.0.copyload.i.i.i.i, 9223372036854775807
@@ -1631,7 +1631,7 @@ if.end29:                                         ; preds = %if.end18, %if.else,
           to label %invoke.cont34 unwind label %terminate.lpad.split
 
 invoke.cont34:                                    ; preds = %if.end29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %converted.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %converted.i)
   %cmp36 = icmp eq i32 %13, 3
   br i1 %cmp36, label %return, label %for.inc
 
@@ -3183,8 +3183,8 @@ while.end.i:                                      ; preds = %_ZN5folly18threadlo
   br i1 %tobool.i, label %cond.true9.i, label %cond.false11.i
 
 cond.true9.i:                                     ; preds = %while.end.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr2.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i.i)
   store ptr %14, ptr %__args.addr.i.i, align 8
   store i32 0, ptr %__args.addr2.i.i, align 4
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -3206,8 +3206,8 @@ _ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i: ; preds = %c
           to label %.noexc19 unwind label %lpad
 
 .noexc19:                                         ; preds = %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr2.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i.i)
   br label %invoke.cont2
 
 cond.false11.i:                                   ; preds = %while.end.i
@@ -3486,8 +3486,8 @@ while.end.i:                                      ; preds = %_ZN5folly18threadlo
   br i1 %tobool.i, label %cond.true9.i, label %cond.false11.i
 
 cond.true9.i:                                     ; preds = %while.end.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr2.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i.i)
   store ptr %12, ptr %__args.addr.i.i, align 8
   store i32 0, ptr %__args.addr2.i.i, align 4
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -3509,8 +3509,8 @@ _ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i: ; preds = %c
           to label %.noexc14 unwind label %if.then.i45
 
 .noexc14:                                         ; preds = %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr2.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i.i)
   br label %invoke.cont2
 
 cond.false11.i:                                   ; preds = %while.end.i
@@ -3793,10 +3793,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 declare i32 @llvm.usub.sat.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #19

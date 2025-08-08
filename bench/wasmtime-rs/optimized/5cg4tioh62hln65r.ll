@@ -47,8 +47,7 @@ define void @"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..c
 10:                                               ; preds = %2
   %11 = load i64, ptr %5, align 8, !noundef !3
   %12 = add i64 %11, 1
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 8, i64 16, i64 %12)
   %13 = load i64, ptr %4, align 8, !range !4, !noundef !3
   %14 = icmp eq i64 %13, 0
@@ -74,11 +73,11 @@ define void @"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..c
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i: ; preds = %23, %15
   %.pn.i = phi { i64, i64 } [ %24, %23 ], [ %16, %15 ]
   %.sroa.4.023.ph.i = extractvalue { i64, i64 } %.pn.i, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %27
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.i: ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %25 = getelementptr inbounds i8, ptr %22, i64 %21
   br label %27
 
@@ -88,7 +87,6 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.i: 
 27:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i
   %.sroa.4.0 = phi i64 [ %.sroa.4.023.ph.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i ], [ %11, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.i ]
   %.sroa.02.0 = phi ptr [ null, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i ], [ %25, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   %28 = icmp ne ptr %.sroa.02.0, null
   call void @llvm.assume(i1 %28)
   %29 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
@@ -135,8 +133,7 @@ define void @"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..c
 10:                                               ; preds = %2
   %11 = load i64, ptr %5, align 8, !noundef !3
   %12 = add i64 %11, 1
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 2, i64 16, i64 %12)
   %13 = load i64, ptr %4, align 8, !range !4, !noundef !3
   %14 = icmp eq i64 %13, 0
@@ -162,11 +159,11 @@ define void @"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..c
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i: ; preds = %23, %15
   %.pn.i = phi { i64, i64 } [ %24, %23 ], [ %16, %15 ]
   %.sroa.4.023.ph.i = extractvalue { i64, i64 } %.pn.i, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %27
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.i: ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %25 = getelementptr inbounds i8, ptr %22, i64 %21
   br label %27
 
@@ -176,7 +173,6 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.i: 
 27:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i
   %.sroa.4.0 = phi i64 [ %.sroa.4.023.ph.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i ], [ %11, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.i ]
   %.sroa.02.0 = phi ptr [ null, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i ], [ %25, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   %28 = icmp ne ptr %.sroa.02.0, null
   call void @llvm.assume(i1 %28)
   %29 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
@@ -223,8 +219,7 @@ define void @"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..c
 10:                                               ; preds = %2
   %11 = load i64, ptr %5, align 8, !noundef !3
   %12 = add i64 %11, 1
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 6, i64 16, i64 %12)
   %13 = load i64, ptr %4, align 8, !range !4, !noundef !3
   %14 = icmp eq i64 %13, 0
@@ -250,11 +245,11 @@ define void @"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..c
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i: ; preds = %23, %15
   %.pn.i = phi { i64, i64 } [ %24, %23 ], [ %16, %15 ]
   %.sroa.4.023.ph.i = extractvalue { i64, i64 } %.pn.i, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %27
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.i: ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %25 = getelementptr inbounds i8, ptr %22, i64 %21
   br label %27
 
@@ -264,7 +259,6 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.i: 
 27:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i
   %.sroa.4.0 = phi i64 [ %.sroa.4.023.ph.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i ], [ %11, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.i ]
   %.sroa.02.0 = phi ptr [ null, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i ], [ %25, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   %28 = icmp ne ptr %.sroa.02.0, null
   call void @llvm.assume(i1 %28)
   %29 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
@@ -311,8 +305,7 @@ define void @"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..c
 10:                                               ; preds = %2
   %11 = load i64, ptr %5, align 8, !noundef !3
   %12 = add i64 %11, 1
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 16, i64 16, i64 %12)
   %13 = load i64, ptr %4, align 8, !range !4, !noundef !3
   %14 = icmp eq i64 %13, 0
@@ -338,11 +331,11 @@ define void @"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..c
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i: ; preds = %23, %15
   %.pn.i = phi { i64, i64 } [ %24, %23 ], [ %16, %15 ]
   %.sroa.4.023.ph.i = extractvalue { i64, i64 } %.pn.i, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %27
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.i: ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %25 = getelementptr inbounds i8, ptr %22, i64 %21
   br label %27
 
@@ -352,7 +345,6 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.i: 
 27:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i
   %.sroa.4.0 = phi i64 [ %.sroa.4.023.ph.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i ], [ %11, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.i ]
   %.sroa.02.0 = phi ptr [ null, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i ], [ %25, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   %28 = icmp ne ptr %.sroa.02.0, null
   call void @llvm.assume(i1 %28)
   %29 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
@@ -515,8 +507,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   br i1 %6, label %32, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = tail call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %8)
   %10 = extractvalue { i64, i64 } %9, 0
@@ -553,8 +545,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   %27 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %28 = sub nsw i64 0, %26
   %29 = getelementptr inbounds { i16, { i16, i8, [1 x i8] } }, ptr %27, i64 %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = load i64, ptr %4, align 8, !noundef !3
   %31 = add i64 %30, -1
   store i64 %31, ptr %4, align 8
@@ -575,8 +567,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   br i1 %6, label %32, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = tail call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %8)
   %10 = extractvalue { i64, i64 } %9, 0
@@ -613,8 +605,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   %27 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %28 = sub nsw i64 0, %26
   %29 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i64 }, ptr %27, i64 %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = load i64, ptr %4, align 8, !noundef !3
   %31 = add i64 %30, -1
   store i64 %31, ptr %4, align 8
@@ -635,8 +627,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   br i1 %6, label %32, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = tail call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %8)
   %10 = extractvalue { i64, i64 } %9, 0
@@ -673,8 +665,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   %27 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %28 = sub nsw i64 0, %26
   %29 = getelementptr inbounds i64, ptr %27, i64 %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = load i64, ptr %4, align 8, !noundef !3
   %31 = add i64 %30, -1
   store i64 %31, ptr %4, align 8
@@ -695,8 +687,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   br i1 %6, label %32, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = tail call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %8)
   %10 = extractvalue { i64, i64 } %9, 0
@@ -733,8 +725,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   %27 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %28 = sub nsw i64 0, %26
   %29 = getelementptr inbounds { i64, i64 }, ptr %27, i64 %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = load i64, ptr %4, align 8, !noundef !3
   %31 = add i64 %30, -1
   store i64 %31, ptr %4, align 8
@@ -755,8 +747,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   br i1 %6, label %32, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = tail call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %8)
   %10 = extractvalue { i64, i64 } %9, 0
@@ -793,8 +785,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   %27 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %28 = sub nsw i64 0, %26
   %29 = getelementptr inbounds i16, ptr %27, i64 %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = load i64, ptr %4, align 8, !noundef !3
   %31 = add i64 %30, -1
   store i64 %31, ptr %4, align 8
@@ -815,8 +807,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   br i1 %6, label %32, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = tail call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %8)
   %10 = extractvalue { i64, i64 } %9, 0
@@ -853,8 +845,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   %27 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %28 = sub nsw i64 0, %26
   %29 = getelementptr inbounds { i64, i16, [3 x i16] }, ptr %27, i64 %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = load i64, ptr %4, align 8, !noundef !3
   %31 = add i64 %30, -1
   store i64 %31, ptr %4, align 8
@@ -875,8 +867,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   br i1 %6, label %32, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = tail call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %8)
   %10 = extractvalue { i64, i64 } %9, 0
@@ -913,8 +905,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   %27 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %28 = sub nsw i64 0, %26
   %29 = getelementptr inbounds { { i8, [47 x i8] }, i16, [7 x i16] }, ptr %27, i64 %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = load i64, ptr %4, align 8, !noundef !3
   %31 = add i64 %30, -1
   store i64 %31, ptr %4, align 8
@@ -935,8 +927,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   br i1 %6, label %32, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = tail call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %8)
   %10 = extractvalue { i64, i64 } %9, 0
@@ -973,8 +965,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   %27 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %28 = sub nsw i64 0, %26
   %29 = getelementptr inbounds { { i64, i64 }, i64 }, ptr %27, i64 %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = load i64, ptr %4, align 8, !noundef !3
   %31 = add i64 %30, -1
   store i64 %31, ptr %4, align 8
@@ -995,8 +987,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   br i1 %6, label %32, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = tail call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %8)
   %10 = extractvalue { i64, i64 } %9, 0
@@ -1033,8 +1025,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   %27 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %28 = sub nsw i64 0, %26
   %29 = getelementptr inbounds { { i64, i64, i64, i64 }, {} }, ptr %27, i64 %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = load i64, ptr %4, align 8, !noundef !3
   %31 = add i64 %30, -1
   store i64 %31, ptr %4, align 8
@@ -1055,8 +1047,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   br i1 %6, label %32, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = tail call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %8)
   %10 = extractvalue { i64, i64 } %9, 0
@@ -1093,8 +1085,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   %27 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %28 = sub nsw i64 0, %26
   %29 = getelementptr inbounds { i64, { { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, i32, [1 x i32] } }, ptr %27, i64 %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = load i64, ptr %4, align 8, !noundef !3
   %31 = add i64 %30, -1
   store i64 %31, ptr %4, align 8
@@ -1115,8 +1107,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   br i1 %6, label %32, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = tail call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %8)
   %10 = extractvalue { i64, i64 } %9, 0
@@ -1153,8 +1145,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   %27 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %28 = sub nsw i64 0, %26
   %29 = getelementptr inbounds { i16, [7 x i16], { i8, [31 x i8] } }, ptr %27, i64 %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = load i64, ptr %4, align 8, !noundef !3
   %31 = add i64 %30, -1
   store i64 %31, ptr %4, align 8
@@ -1175,8 +1167,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   br i1 %6, label %32, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = tail call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %8)
   %10 = extractvalue { i64, i64 } %9, 0
@@ -1213,8 +1205,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   %27 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %28 = sub nsw i64 0, %26
   %29 = getelementptr inbounds { { i64, i64, i64, i64 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, ptr %27, i64 %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = load i64, ptr %4, align 8, !noundef !3
   %31 = add i64 %30, -1
   store i64 %31, ptr %4, align 8
@@ -1235,8 +1227,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   br i1 %6, label %32, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = tail call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %8)
   %10 = extractvalue { i64, i64 } %9, 0
@@ -1273,8 +1265,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   %27 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %28 = sub nsw i64 0, %26
   %29 = getelementptr inbounds { { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 } }, ptr %27, i64 %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = load i64, ptr %4, align 8, !noundef !3
   %31 = add i64 %30, -1
   store i64 %31, ptr %4, align 8
@@ -1295,8 +1287,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   br i1 %6, label %32, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = tail call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %8)
   %10 = extractvalue { i64, i64 } %9, 0
@@ -1333,8 +1325,8 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   %27 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %28 = sub nsw i64 0, %26
   %29 = getelementptr inbounds { i64, i64 }, ptr %27, i64 %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = load i64, ptr %4, align 8, !noundef !3
   %31 = add i64 %30, -1
   store i64 %31, ptr %4, align 8
@@ -1356,8 +1348,8 @@ define void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core
   br i1 %8, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbe1faecf8e0e48dcE.exit.thread", label %9
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %11 = tail call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %10)
   %12 = extractvalue { i64, i64 } %11, 0
@@ -1394,8 +1386,8 @@ define void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core
   %29 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %30 = sub nsw i64 0, %28
   %31 = getelementptr inbounds { { i64, i64, i64, i64 }, {} }, ptr %29, i64 %30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = load i64, ptr %6, align 8, !noundef !3
   %33 = add i64 %32, -1
   store i64 %33, ptr %6, align 8
@@ -1421,8 +1413,8 @@ define void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core
   br i1 %8, label %35, label %9
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %11 = tail call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %10)
   %12 = extractvalue { i64, i64 } %11, 0
@@ -1459,8 +1451,8 @@ define void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core
   %29 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %30 = sub nsw i64 0, %28
   %31 = getelementptr inbounds { i64, { { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, i32, [1 x i32] } }, ptr %29, i64 %30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = load i64, ptr %6, align 8, !noundef !3
   %33 = add i64 %32, -1
   store i64 %33, ptr %6, align 8
@@ -1488,8 +1480,8 @@ define void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core
   br i1 %8, label %35, label %9
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %11 = tail call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %10)
   %12 = extractvalue { i64, i64 } %11, 0
@@ -1526,8 +1518,8 @@ define void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core
   %29 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %30 = sub nsw i64 0, %28
   %31 = getelementptr inbounds { { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 } }, ptr %29, i64 %30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = load i64, ptr %6, align 8, !noundef !3
   %33 = add i64 %32, -1
   store i64 %33, ptr %6, align 8
@@ -1553,8 +1545,8 @@ define void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..i
   %7 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN4core9core_arch3x864sse214_mm_load_si12817h305b66212b51bf96E(ptr nonnull sret(<2 x i64>) align 16 %6, ptr nonnull %7)
           to label %.noexc unwind label %41
 
@@ -1565,13 +1557,13 @@ define void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..i
           to label %12 unwind label %41
 
 12:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load i64, ptr %13, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = icmp eq i64 %16, 0
@@ -1616,7 +1608,7 @@ define void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..i
   %37 = xor i16 %36, -1
   %38 = getelementptr i8, ptr %7, i64 %9
   %39 = getelementptr i8, ptr %38, i64 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %7, ptr %40, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1632,7 +1624,7 @@ define void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..i
   store i64 %.sroa.3.sroa.0.0.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.3.sroa.2.0.i.i, ptr %.sroa.3.0..sroa_idx.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 .body:                                            ; preds = %20, %41
@@ -1661,8 +1653,8 @@ define void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..i
   %7 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN4core9core_arch3x864sse214_mm_load_si12817h305b66212b51bf96E(ptr nonnull sret(<2 x i64>) align 16 %6, ptr nonnull %7)
           to label %.noexc unwind label %41
 
@@ -1673,13 +1665,13 @@ define void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..i
           to label %12 unwind label %41
 
 12:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load i64, ptr %13, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = icmp eq i64 %16, 0
@@ -1724,7 +1716,7 @@ define void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..i
   %37 = xor i16 %36, -1
   %38 = getelementptr i8, ptr %7, i64 %9
   %39 = getelementptr i8, ptr %38, i64 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %7, ptr %40, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1740,7 +1732,7 @@ define void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..i
   store i64 %.sroa.3.sroa.0.0.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.3.sroa.2.0.i.i, ptr %.sroa.3.0..sroa_idx.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 .body:                                            ; preds = %20, %41
@@ -1769,8 +1761,8 @@ define void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..i
   %7 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN4core9core_arch3x864sse214_mm_load_si12817h305b66212b51bf96E(ptr nonnull sret(<2 x i64>) align 16 %6, ptr nonnull %7)
           to label %.noexc unwind label %41
 
@@ -1781,13 +1773,13 @@ define void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..i
           to label %12 unwind label %41
 
 12:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load i64, ptr %13, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = icmp eq i64 %16, 0
@@ -1832,7 +1824,7 @@ define void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..i
   %37 = xor i16 %36, -1
   %38 = getelementptr i8, ptr %7, i64 %9
   %39 = getelementptr i8, ptr %38, i64 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %7, ptr %40, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1848,7 +1840,7 @@ define void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..i
   store i64 %.sroa.3.sroa.0.0.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.3.sroa.2.0.i.i, ptr %.sroa.3.0..sroa_idx.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 .body:                                            ; preds = %20, %41
@@ -1908,8 +1900,8 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h04fadcdd2436e3b6E
   %11 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr i8, ptr %11, i64 %13
   %15 = getelementptr i8, ptr %14, i64 1
   call void @_ZN4core9core_arch3x864sse214_mm_load_si12817h305b66212b51bf96E(ptr nonnull sret(<2 x i64>) align 16 %5, ptr nonnull %11)
@@ -1919,8 +1911,8 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h04fadcdd2436e3b6E
   %18 = trunc i32 %17 to i16
   %19 = xor i16 %18, -1
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %21 = load i64, ptr %7, align 8, !noundef !3
   store ptr %11, ptr %6, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1935,8 +1927,8 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h04fadcdd2436e3b6E
   br i1 %22, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he19a3ec5319ec9f9E.exit.thread", label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %.loopexit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %.sroa.0.sroa.4.0..sroa_idx)
   %24 = extractvalue { i64, i64 } %23, 0
   %25 = icmp eq i64 %24, 1
@@ -1968,8 +1960,8 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h04fadcdd2436e3b6E
   %39 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
   %40 = sub nsw i64 0, %38
   %41 = getelementptr inbounds { { i64, i64, i64, i64 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, ptr %39, i64 %40
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %42 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !noundef !3
   %43 = add i64 %42, -1
   store i64 %43, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1999,8 +1991,8 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h1213b567abc314ecE
   %11 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr i8, ptr %11, i64 %13
   %15 = getelementptr i8, ptr %14, i64 1
   call void @_ZN4core9core_arch3x864sse214_mm_load_si12817h305b66212b51bf96E(ptr nonnull sret(<2 x i64>) align 16 %5, ptr nonnull %11)
@@ -2010,8 +2002,8 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h1213b567abc314ecE
   %18 = trunc i32 %17 to i16
   %19 = xor i16 %18, -1
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %21 = load i64, ptr %7, align 8, !noundef !3
   store ptr %11, ptr %6, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2026,8 +2018,8 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h1213b567abc314ecE
   br i1 %22, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1774cf402b5a51a4E.exit.thread", label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %.loopexit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %.sroa.0.sroa.4.0..sroa_idx)
   %24 = extractvalue { i64, i64 } %23, 0
   %25 = icmp eq i64 %24, 1
@@ -2059,8 +2051,8 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h1213b567abc314ecE
   %39 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
   %40 = sub nsw i64 0, %38
   %41 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i64 }, ptr %39, i64 %40
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %42 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !noundef !3
   %43 = add i64 %42, -1
   store i64 %43, ptr %.sroa.2.0..sroa_idx, align 8
@@ -2100,8 +2092,8 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h3512c92705ebb8f1E
   %11 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr i8, ptr %11, i64 %13
   %15 = getelementptr i8, ptr %14, i64 1
   call void @_ZN4core9core_arch3x864sse214_mm_load_si12817h305b66212b51bf96E(ptr nonnull sret(<2 x i64>) align 16 %5, ptr nonnull %11)
@@ -2111,8 +2103,8 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h3512c92705ebb8f1E
   %18 = trunc i32 %17 to i16
   %19 = xor i16 %18, -1
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %21 = load i64, ptr %7, align 8, !noundef !3
   store ptr %11, ptr %6, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2127,8 +2119,8 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h3512c92705ebb8f1E
   br i1 %22, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h849d55a249855438E.exit.thread", label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %.loopexit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %.sroa.0.sroa.4.0..sroa_idx)
   %24 = extractvalue { i64, i64 } %23, 0
   %25 = icmp eq i64 %24, 1
@@ -2160,8 +2152,8 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h3512c92705ebb8f1E
   %39 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
   %40 = sub nsw i64 0, %38
   %41 = getelementptr inbounds { { i8, [47 x i8] }, i16, [7 x i16] }, ptr %39, i64 %40
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %42 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !noundef !3
   %43 = add i64 %42, -1
   store i64 %43, ptr %.sroa.2.0..sroa_idx, align 8
@@ -2196,8 +2188,8 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h4f2fef8b9d053d6bE
   %11 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr i8, ptr %11, i64 %13
   %15 = getelementptr i8, ptr %14, i64 1
   call void @_ZN4core9core_arch3x864sse214_mm_load_si12817h305b66212b51bf96E(ptr nonnull sret(<2 x i64>) align 16 %5, ptr nonnull %11)
@@ -2207,8 +2199,8 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h4f2fef8b9d053d6bE
   %18 = trunc i32 %17 to i16
   %19 = xor i16 %18, -1
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %21 = load i64, ptr %7, align 8, !noundef !3
   store ptr %11, ptr %6, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2223,8 +2215,8 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h4f2fef8b9d053d6bE
   br i1 %22, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd85becb86e790879E.exit.thread", label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %.loopexit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %.sroa.0.sroa.4.0..sroa_idx)
   %24 = extractvalue { i64, i64 } %23, 0
   %25 = icmp eq i64 %24, 1
@@ -2256,8 +2248,8 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h4f2fef8b9d053d6bE
   %39 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
   %40 = sub nsw i64 0, %38
   %41 = getelementptr inbounds { i64, { { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, i32, [1 x i32] } }, ptr %39, i64 %40
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %42 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !noundef !3
   %43 = add i64 %42, -1
   store i64 %43, ptr %.sroa.2.0..sroa_idx, align 8
@@ -2297,8 +2289,8 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h5d047951cfd228c8E
   %11 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr i8, ptr %11, i64 %13
   %15 = getelementptr i8, ptr %14, i64 1
   call void @_ZN4core9core_arch3x864sse214_mm_load_si12817h305b66212b51bf96E(ptr nonnull sret(<2 x i64>) align 16 %5, ptr nonnull %11)
@@ -2308,8 +2300,8 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h5d047951cfd228c8E
   %18 = trunc i32 %17 to i16
   %19 = xor i16 %18, -1
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %21 = load i64, ptr %7, align 8, !noundef !3
   store ptr %11, ptr %6, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2324,8 +2316,8 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h5d047951cfd228c8E
   br i1 %22, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hed321e30a51c1b3bE.exit.thread", label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %.loopexit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %.sroa.0.sroa.4.0..sroa_idx)
   %24 = extractvalue { i64, i64 } %23, 0
   %25 = icmp eq i64 %24, 1
@@ -2357,8 +2349,8 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h5d047951cfd228c8E
   %39 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
   %40 = sub nsw i64 0, %38
   %41 = getelementptr inbounds { { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 } }, ptr %39, i64 %40
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %42 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !noundef !3
   %43 = add i64 %42, -1
   store i64 %43, ptr %.sroa.2.0..sroa_idx, align 8
@@ -2414,7 +2406,7 @@ define void @_ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0c
 
 18:                                               ; preds = %14, %.thread.i
   %.sroa.46.050.i = phi i64 [ %.sroa.46.049.i, %.thread.i ], [ %.sroa.46.0.i, %14 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %8, i64 %3, i64 %4, i64 %.sroa.46.050.i)
   %19 = load i64, ptr %8, align 8, !range !4, !noundef !3
   %20 = icmp eq i64 %19, 0
@@ -2441,11 +2433,11 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   %.pn.i = phi { i64, i64 } [ %30, %29 ], [ %22, %21 ]
   %.sroa.4.0.ph.i = extractvalue { i64, i64 } %.pn.i, 0
   %.sroa.9.0.ph.i = extractvalue { i64, i64 } %.pn.i, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h2ea8eff150384654E.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h2ea8eff150384654E.exit: ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %31 = add i64 %.sroa.46.050.i, -1
   %32 = icmp ult i64 %31, 8
   %33 = lshr i64 %.sroa.46.050.i, 3
@@ -2503,7 +2495,7 @@ define void @"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closu
   %10 = load i64, ptr %9, align 8, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = add i64 %5, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, i64 %10, i64 %12, i64 %13)
   %14 = load i64, ptr %3, align 8, !range !4, !noundef !3
@@ -2517,7 +2509,7 @@ define void @"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closu
   %21 = sub nsw i64 0, %19
   %22 = getelementptr inbounds i8, ptr %20, i64 %21
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr nonnull align 1 %8, ptr nonnull %22, i64 %14, i64 %17)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %23
 
 23:                                               ; preds = %2, %7
@@ -2611,7 +2603,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h20349c0b159185
 
 9:                                                ; preds = %4
   tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h4f2fef8b9d053d6bE(ptr nonnull align 8 %0)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = load i64, ptr %6, align 8, !noundef !3
   %11 = add i64 %10, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 %2, i64 %3, i64 %11)
@@ -2626,7 +2618,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h20349c0b159185
   %19 = sub nsw i64 0, %17
   %20 = getelementptr inbounds i8, ptr %18, i64 %19
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr align 1 %1, ptr nonnull %20, i64 %12, i64 %15)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %21
 
 21:                                               ; preds = %4, %9
@@ -2643,7 +2635,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h205e46cc6510d8
 
 9:                                                ; preds = %4
   tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h5d047951cfd228c8E(ptr nonnull align 8 %0)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = load i64, ptr %6, align 8, !noundef !3
   %11 = add i64 %10, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 %2, i64 %3, i64 %11)
@@ -2658,7 +2650,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h205e46cc6510d8
   %19 = sub nsw i64 0, %17
   %20 = getelementptr inbounds i8, ptr %18, i64 %19
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr align 1 %1, ptr nonnull %20, i64 %12, i64 %15)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %21
 
 21:                                               ; preds = %4, %9
@@ -2674,7 +2666,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h263b648be223b6
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = add i64 %7, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 %2, i64 %3, i64 %10)
   %11 = load i64, ptr %5, align 8, !range !4, !noundef !3
@@ -2688,7 +2680,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h263b648be223b6
   %18 = sub nsw i64 0, %16
   %19 = getelementptr inbounds i8, ptr %17, i64 %18
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr align 1 %1, ptr nonnull %19, i64 %11, i64 %14)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
 
 20:                                               ; preds = %4, %9
@@ -2704,7 +2696,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h28eaa58afc6771
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = add i64 %7, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 %2, i64 %3, i64 %10)
   %11 = load i64, ptr %5, align 8, !range !4, !noundef !3
@@ -2718,7 +2710,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h28eaa58afc6771
   %18 = sub nsw i64 0, %16
   %19 = getelementptr inbounds i8, ptr %17, i64 %18
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr align 1 %1, ptr nonnull %19, i64 %11, i64 %14)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
 
 20:                                               ; preds = %4, %9
@@ -2734,7 +2726,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h4937ce68dfec9d
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = add i64 %7, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 %2, i64 %3, i64 %10)
   %11 = load i64, ptr %5, align 8, !range !4, !noundef !3
@@ -2748,7 +2740,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h4937ce68dfec9d
   %18 = sub nsw i64 0, %16
   %19 = getelementptr inbounds i8, ptr %17, i64 %18
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr align 1 %1, ptr nonnull %19, i64 %11, i64 %14)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
 
 20:                                               ; preds = %4, %9
@@ -2764,7 +2756,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h4f539a16170b37
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = add i64 %7, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 %2, i64 %3, i64 %10)
   %11 = load i64, ptr %5, align 8, !range !4, !noundef !3
@@ -2778,7 +2770,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h4f539a16170b37
   %18 = sub nsw i64 0, %16
   %19 = getelementptr inbounds i8, ptr %17, i64 %18
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr align 1 %1, ptr nonnull %19, i64 %11, i64 %14)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
 
 20:                                               ; preds = %4, %9
@@ -2795,7 +2787,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h64bd3caa400049
 
 9:                                                ; preds = %4
   tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h04fadcdd2436e3b6E(ptr nonnull align 8 %0)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = load i64, ptr %6, align 8, !noundef !3
   %11 = add i64 %10, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 %2, i64 %3, i64 %11)
@@ -2810,7 +2802,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h64bd3caa400049
   %19 = sub nsw i64 0, %17
   %20 = getelementptr inbounds i8, ptr %18, i64 %19
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr align 1 %1, ptr nonnull %20, i64 %12, i64 %15)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %21
 
 21:                                               ; preds = %4, %9
@@ -2826,7 +2818,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h762eb3590b10d3
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = add i64 %7, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 %2, i64 %3, i64 %10)
   %11 = load i64, ptr %5, align 8, !range !4, !noundef !3
@@ -2840,7 +2832,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h762eb3590b10d3
   %18 = sub nsw i64 0, %16
   %19 = getelementptr inbounds i8, ptr %17, i64 %18
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr align 1 %1, ptr nonnull %19, i64 %11, i64 %14)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
 
 20:                                               ; preds = %4, %9
@@ -2856,7 +2848,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h8b445f8910d2df
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = add i64 %7, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 %2, i64 %3, i64 %10)
   %11 = load i64, ptr %5, align 8, !range !4, !noundef !3
@@ -2870,7 +2862,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h8b445f8910d2df
   %18 = sub nsw i64 0, %16
   %19 = getelementptr inbounds i8, ptr %17, i64 %18
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr align 1 %1, ptr nonnull %19, i64 %11, i64 %14)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
 
 20:                                               ; preds = %4, %9
@@ -2887,7 +2879,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9d59fe6576651a
 
 9:                                                ; preds = %4
   tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h1213b567abc314ecE(ptr nonnull align 8 %0)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = load i64, ptr %6, align 8, !noundef !3
   %11 = add i64 %10, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 %2, i64 %3, i64 %11)
@@ -2902,7 +2894,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9d59fe6576651a
   %19 = sub nsw i64 0, %17
   %20 = getelementptr inbounds i8, ptr %18, i64 %19
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr align 1 %1, ptr nonnull %20, i64 %12, i64 %15)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %21
 
 21:                                               ; preds = %4, %9
@@ -2918,7 +2910,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hcf0a78321aa59a
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = add i64 %7, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 %2, i64 %3, i64 %10)
   %11 = load i64, ptr %5, align 8, !range !4, !noundef !3
@@ -2932,7 +2924,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hcf0a78321aa59a
   %18 = sub nsw i64 0, %16
   %19 = getelementptr inbounds i8, ptr %17, i64 %18
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr align 1 %1, ptr nonnull %19, i64 %11, i64 %14)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
 
 20:                                               ; preds = %4, %9
@@ -2948,7 +2940,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17he2086092012df1
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = add i64 %7, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 %2, i64 %3, i64 %10)
   %11 = load i64, ptr %5, align 8, !range !4, !noundef !3
@@ -2962,7 +2954,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17he2086092012df1
   %18 = sub nsw i64 0, %16
   %19 = getelementptr inbounds i8, ptr %17, i64 %18
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr align 1 %1, ptr nonnull %19, i64 %11, i64 %14)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
 
 20:                                               ; preds = %4, %9
@@ -2979,7 +2971,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hef694f64a63256
 
 9:                                                ; preds = %4
   tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h3512c92705ebb8f1E(ptr nonnull align 8 %0)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = load i64, ptr %6, align 8, !noundef !3
   %11 = add i64 %10, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 %2, i64 %3, i64 %11)
@@ -2994,7 +2986,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hef694f64a63256
   %19 = sub nsw i64 0, %17
   %20 = getelementptr inbounds i8, ptr %18, i64 %19
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr align 1 %1, ptr nonnull %20, i64 %12, i64 %15)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %21
 
 21:                                               ; preds = %4, %9
@@ -3010,7 +3002,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hffbfa777fff55d
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = add i64 %7, 1
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 %2, i64 %3, i64 %10)
   %11 = load i64, ptr %5, align 8, !range !4, !noundef !3
@@ -3024,7 +3016,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hffbfa777fff55d
   %18 = sub nsw i64 0, %16
   %19 = getelementptr inbounds i8, ptr %17, i64 %18
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr align 1 %1, ptr nonnull %19, i64 %11, i64 %14)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
 
 20:                                               ; preds = %4, %9
@@ -3119,7 +3111,7 @@ define void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h2ea8eff1
 
 18:                                               ; preds = %.thread, %14
   %.sroa.46.050 = phi i64 [ %.sroa.46.049, %.thread ], [ %.sroa.46.0, %14 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %7, i64 %2, i64 %3, i64 %.sroa.46.050)
   %19 = load i64, ptr %7, align 8, !range !4, !noundef !3
   %20 = icmp eq i64 %19, 0
@@ -3146,7 +3138,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   %.pn = phi { i64, i64 } [ %30, %29 ], [ %22, %21 ]
   %.sroa.4.0.ph = extractvalue { i64, i64 } %.pn, 0
   %.sroa.9.0.ph = extractvalue { i64, i64 } %.pn, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.4.0.ph, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3155,7 +3147,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   br label %42
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit: ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %33 = add i64 %.sroa.46.050, -1
   %34 = icmp ult i64 %33, 8
   %35 = lshr i64 %.sroa.46.050, 3
@@ -3556,8 +3548,8 @@ define void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h4bb01bb123fca
   ret void
 
 9:                                                ; preds = %.preheader, %.loopexit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %7)
   %11 = extractvalue { i64, i64 } %10, 0
   %12 = icmp eq i64 %11, 1
@@ -3589,8 +3581,8 @@ define void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h4bb01bb123fca
   %26 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %27 = sub nsw i64 0, %25
   %28 = getelementptr inbounds { i64, { { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, i32, [1 x i32] } }, ptr %26, i64 %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %29 = load i64, ptr %4, align 8, !noundef !3
   %30 = add i64 %29, -1
   store i64 %30, ptr %4, align 8
@@ -3619,8 +3611,8 @@ define void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h5d68e1e8aa443
   ret void
 
 9:                                                ; preds = %.preheader, %.loopexit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5668129f08166eeE"(ptr nonnull align 2 %7)
   %11 = extractvalue { i64, i64 } %10, 0
   %12 = icmp eq i64 %11, 1
@@ -3652,8 +3644,8 @@ define void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h5d68e1e8aa443
   %26 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %27 = sub nsw i64 0, %25
   %28 = getelementptr inbounds { { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 } }, ptr %26, i64 %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %29 = load i64, ptr %4, align 8, !noundef !3
   %30 = add i64 %29, -1
   store i64 %30, ptr %4, align 8
@@ -5293,7 +5285,7 @@ define void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17h767a8ac
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca { { ptr, i64, i64, i64 }, {}, {} }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !3
   %8 = icmp eq i64 %7, 0
@@ -5336,7 +5328,7 @@ define void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17h767a8ac
   %.sroa.3.sroa.0.0.i = phi i64 [ %17, %13 ], [ undef, %3 ]
   %.sroa.3.sroa.2.0.i = phi ptr [ %22, %13 ], [ undef, %3 ]
   %.sroa.0.0.i = phi i64 [ %14, %13 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
@@ -5352,7 +5344,7 @@ define void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17h7b3bda7
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca { { ptr, i64, i64, i64 }, {}, {} }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !3
   %8 = icmp eq i64 %7, 0
@@ -5395,7 +5387,7 @@ define void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17h7b3bda7
   %.sroa.3.sroa.0.0.i = phi i64 [ %17, %13 ], [ undef, %3 ]
   %.sroa.3.sroa.2.0.i = phi ptr [ %22, %13 ], [ undef, %3 ]
   %.sroa.0.0.i = phi i64 [ %14, %13 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
@@ -5411,7 +5403,7 @@ define void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17hde8e1e4
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca { { ptr, i64, i64, i64 }, {}, {} }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !3
   %8 = icmp eq i64 %7, 0
@@ -5454,7 +5446,7 @@ define void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17hde8e1e4
   %.sroa.3.sroa.0.0.i = phi i64 [ %17, %13 ], [ undef, %3 ]
   %.sroa.3.sroa.2.0.i = phi ptr [ %22, %13 ], [ undef, %3 ]
   %.sroa.0.0.i = phi i64 [ %14, %13 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
@@ -5507,8 +5499,8 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 32:                                               ; preds = %24
   %33 = add nuw i64 %.0.i, 1
   %34 = call i64 @_ZN4core3cmp6max_by17hac55e3f40a8c04acE(i64 %19, i64 %33)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %_ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit, label %36
 
@@ -5531,7 +5523,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 
 44:                                               ; preds = %40, %.thread.i.i
   %.sroa.46.050.i.i = phi i64 [ %.sroa.46.049.i.i, %.thread.i.i ], [ %.sroa.46.0.i.i, %40 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 6, i64 16, i64 %.sroa.46.050.i.i)
   %45 = load i64, ptr %5, align 8, !range !4, !noundef !3
   %46 = icmp eq i64 %45, 0
@@ -5558,11 +5550,11 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   %.pn.i.i = phi { i64, i64 } [ %56, %55 ], [ %48, %47 ]
   %.sroa.4.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 0
   %.sroa.9.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h2ea8eff150384654E.exit.i: ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = add i64 %.sroa.46.050.i.i, -1
   %58 = icmp ult i64 %57, 8
   %59 = lshr i64 %.sroa.46.050.i.i, 3
@@ -5590,8 +5582,8 @@ _ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit: ; pre
   store i64 %.sroa.8.i.i.sroa.5.0, ptr %.sroa.420.i.i.sroa.5.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
   %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 0, ptr %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %63 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   invoke void @_ZN4core9core_arch3x864sse214_mm_load_si12817h305b66212b51bf96E(ptr nonnull sret(<2 x i64>) align 16 %9, ptr nonnull %63)
           to label %.noexc.i unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -5606,8 +5598,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %66 = trunc i32 %65 to i16
   %67 = xor i16 %66, -1
   %68 = load i64, ptr %15, align 8, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %63, ptr %10, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -5639,8 +5631,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
           to label %108 unwind label %106
 
 .lr.ph:                                           ; preds = %_ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.i, %99
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %70
 
 70:                                               ; preds = %.noexc2, %.lr.ph
@@ -5691,8 +5683,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %87 = extractvalue { i64, i64 } %71, 1
   %88 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !3
   %89 = add i64 %88, %87
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %90 = load i64, ptr %.sroa.58.0..sroa_idx, align 8, !noundef !3
   %91 = add i64 %90, -1
   store i64 %91, ptr %.sroa.58.0..sroa_idx, align 8
@@ -5738,8 +5730,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
 _ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i: ; preds = %40, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i, %97
   %.sroa.3.0.i.i = phi i64 [ undef, %97 ], [ %.sroa.46.0.i.i, %40 ], [ %.sroa.9.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
   %.sroa.0.0.i.i = phi i64 [ -9223372036854775807, %97 ], [ %42, %40 ], [ %.sroa.4.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17hf596856e771c6e51E.exit
 
 109:                                              ; preds = %24
@@ -5796,8 +5788,8 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 32:                                               ; preds = %24
   %33 = add nuw i64 %.0.i, 1
   %34 = call i64 @_ZN4core3cmp6max_by17hac55e3f40a8c04acE(i64 %19, i64 %33)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %_ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit, label %36
 
@@ -5820,7 +5812,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 
 44:                                               ; preds = %40, %.thread.i.i
   %.sroa.46.050.i.i = phi i64 [ %.sroa.46.049.i.i, %.thread.i.i ], [ %.sroa.46.0.i.i, %40 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 48, i64 16, i64 %.sroa.46.050.i.i)
   %45 = load i64, ptr %5, align 8, !range !4, !noundef !3
   %46 = icmp eq i64 %45, 0
@@ -5847,11 +5839,11 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   %.pn.i.i = phi { i64, i64 } [ %56, %55 ], [ %48, %47 ]
   %.sroa.4.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 0
   %.sroa.9.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h2ea8eff150384654E.exit.i: ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = add i64 %.sroa.46.050.i.i, -1
   %58 = icmp ult i64 %57, 8
   %59 = lshr i64 %.sroa.46.050.i.i, 3
@@ -5879,8 +5871,8 @@ _ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit: ; pre
   store i64 %.sroa.8.i.i.sroa.5.0, ptr %.sroa.420.i.i.sroa.5.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
   %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 0, ptr %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %63 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   invoke void @_ZN4core9core_arch3x864sse214_mm_load_si12817h305b66212b51bf96E(ptr nonnull sret(<2 x i64>) align 16 %9, ptr nonnull %63)
           to label %.noexc.i unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -5895,8 +5887,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %66 = trunc i32 %65 to i16
   %67 = xor i16 %66, -1
   %68 = load i64, ptr %15, align 8, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %63, ptr %10, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -5928,8 +5920,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
           to label %108 unwind label %106
 
 .lr.ph:                                           ; preds = %_ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.i, %99
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %70
 
 70:                                               ; preds = %.noexc2, %.lr.ph
@@ -5980,8 +5972,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %87 = extractvalue { i64, i64 } %71, 1
   %88 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !3
   %89 = add i64 %88, %87
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %90 = load i64, ptr %.sroa.58.0..sroa_idx, align 8, !noundef !3
   %91 = add i64 %90, -1
   store i64 %91, ptr %.sroa.58.0..sroa_idx, align 8
@@ -6027,8 +6019,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
 _ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i: ; preds = %40, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i, %97
   %.sroa.3.0.i.i = phi i64 [ undef, %97 ], [ %.sroa.46.0.i.i, %40 ], [ %.sroa.9.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
   %.sroa.0.0.i.i = phi i64 [ -9223372036854775807, %97 ], [ %42, %40 ], [ %.sroa.4.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17hf596856e771c6e51E.exit
 
 109:                                              ; preds = %24
@@ -6085,8 +6077,8 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 32:                                               ; preds = %24
   %33 = add nuw i64 %.0.i, 1
   %34 = call i64 @_ZN4core3cmp6max_by17hac55e3f40a8c04acE(i64 %19, i64 %33)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %_ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit, label %36
 
@@ -6109,7 +6101,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 
 44:                                               ; preds = %40, %.thread.i.i
   %.sroa.46.050.i.i = phi i64 [ %.sroa.46.049.i.i, %.thread.i.i ], [ %.sroa.46.0.i.i, %40 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 16, i64 16, i64 %.sroa.46.050.i.i)
   %45 = load i64, ptr %5, align 8, !range !4, !noundef !3
   %46 = icmp eq i64 %45, 0
@@ -6136,11 +6128,11 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   %.pn.i.i = phi { i64, i64 } [ %56, %55 ], [ %48, %47 ]
   %.sroa.4.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 0
   %.sroa.9.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h2ea8eff150384654E.exit.i: ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = add i64 %.sroa.46.050.i.i, -1
   %58 = icmp ult i64 %57, 8
   %59 = lshr i64 %.sroa.46.050.i.i, 3
@@ -6168,8 +6160,8 @@ _ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit: ; pre
   store i64 %.sroa.8.i.i.sroa.5.0, ptr %.sroa.420.i.i.sroa.5.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
   %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 0, ptr %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %63 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   invoke void @_ZN4core9core_arch3x864sse214_mm_load_si12817h305b66212b51bf96E(ptr nonnull sret(<2 x i64>) align 16 %9, ptr nonnull %63)
           to label %.noexc.i unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -6184,8 +6176,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %66 = trunc i32 %65 to i16
   %67 = xor i16 %66, -1
   %68 = load i64, ptr %15, align 8, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %63, ptr %10, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -6217,8 +6209,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
           to label %108 unwind label %106
 
 .lr.ph:                                           ; preds = %_ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.i, %99
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %70
 
 70:                                               ; preds = %.noexc2, %.lr.ph
@@ -6269,8 +6261,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %87 = extractvalue { i64, i64 } %71, 1
   %88 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !3
   %89 = add i64 %88, %87
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %90 = load i64, ptr %.sroa.58.0..sroa_idx, align 8, !noundef !3
   %91 = add i64 %90, -1
   store i64 %91, ptr %.sroa.58.0..sroa_idx, align 8
@@ -6316,8 +6308,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
 _ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i: ; preds = %40, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i, %97
   %.sroa.3.0.i.i = phi i64 [ undef, %97 ], [ %.sroa.46.0.i.i, %40 ], [ %.sroa.9.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
   %.sroa.0.0.i.i = phi i64 [ -9223372036854775807, %97 ], [ %42, %40 ], [ %.sroa.4.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17hf596856e771c6e51E.exit
 
 109:                                              ; preds = %24
@@ -6374,8 +6366,8 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 32:                                               ; preds = %24
   %33 = add nuw i64 %.0.i, 1
   %34 = call i64 @_ZN4core3cmp6max_by17hac55e3f40a8c04acE(i64 %19, i64 %33)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %_ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit, label %36
 
@@ -6398,7 +6390,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 
 44:                                               ; preds = %40, %.thread.i.i
   %.sroa.46.050.i.i = phi i64 [ %.sroa.46.049.i.i, %.thread.i.i ], [ %.sroa.46.0.i.i, %40 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 80, i64 16, i64 %.sroa.46.050.i.i)
   %45 = load i64, ptr %5, align 8, !range !4, !noundef !3
   %46 = icmp eq i64 %45, 0
@@ -6425,11 +6417,11 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   %.pn.i.i = phi { i64, i64 } [ %56, %55 ], [ %48, %47 ]
   %.sroa.4.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 0
   %.sroa.9.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h2ea8eff150384654E.exit.i: ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = add i64 %.sroa.46.050.i.i, -1
   %58 = icmp ult i64 %57, 8
   %59 = lshr i64 %.sroa.46.050.i.i, 3
@@ -6457,8 +6449,8 @@ _ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit: ; pre
   store i64 %.sroa.8.i.i.sroa.5.0, ptr %.sroa.420.i.i.sroa.5.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
   %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 0, ptr %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %63 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   invoke void @_ZN4core9core_arch3x864sse214_mm_load_si12817h305b66212b51bf96E(ptr nonnull sret(<2 x i64>) align 16 %9, ptr nonnull %63)
           to label %.noexc.i unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -6473,8 +6465,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %66 = trunc i32 %65 to i16
   %67 = xor i16 %66, -1
   %68 = load i64, ptr %15, align 8, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %63, ptr %10, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -6506,8 +6498,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
           to label %108 unwind label %106
 
 .lr.ph:                                           ; preds = %_ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.i, %99
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %70
 
 70:                                               ; preds = %.noexc2, %.lr.ph
@@ -6558,8 +6550,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %87 = extractvalue { i64, i64 } %71, 1
   %88 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !3
   %89 = add i64 %88, %87
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %90 = load i64, ptr %.sroa.58.0..sroa_idx, align 8, !noundef !3
   %91 = add i64 %90, -1
   store i64 %91, ptr %.sroa.58.0..sroa_idx, align 8
@@ -6605,8 +6597,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
 _ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i: ; preds = %40, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i, %97
   %.sroa.3.0.i.i = phi i64 [ undef, %97 ], [ %.sroa.46.0.i.i, %40 ], [ %.sroa.9.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
   %.sroa.0.0.i.i = phi i64 [ -9223372036854775807, %97 ], [ %42, %40 ], [ %.sroa.4.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17hf596856e771c6e51E.exit
 
 109:                                              ; preds = %24
@@ -6663,8 +6655,8 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 32:                                               ; preds = %24
   %33 = add nuw i64 %.0.i, 1
   %34 = call i64 @_ZN4core3cmp6max_by17hac55e3f40a8c04acE(i64 %19, i64 %33)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %_ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit, label %36
 
@@ -6687,7 +6679,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 
 44:                                               ; preds = %40, %.thread.i.i
   %.sroa.46.050.i.i = phi i64 [ %.sroa.46.049.i.i, %.thread.i.i ], [ %.sroa.46.0.i.i, %40 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 32, i64 16, i64 %.sroa.46.050.i.i)
   %45 = load i64, ptr %5, align 8, !range !4, !noundef !3
   %46 = icmp eq i64 %45, 0
@@ -6714,11 +6706,11 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   %.pn.i.i = phi { i64, i64 } [ %56, %55 ], [ %48, %47 ]
   %.sroa.4.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 0
   %.sroa.9.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h2ea8eff150384654E.exit.i: ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = add i64 %.sroa.46.050.i.i, -1
   %58 = icmp ult i64 %57, 8
   %59 = lshr i64 %.sroa.46.050.i.i, 3
@@ -6746,8 +6738,8 @@ _ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit: ; pre
   store i64 %.sroa.8.i.i.sroa.5.0, ptr %.sroa.420.i.i.sroa.5.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
   %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 0, ptr %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %63 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   invoke void @_ZN4core9core_arch3x864sse214_mm_load_si12817h305b66212b51bf96E(ptr nonnull sret(<2 x i64>) align 16 %9, ptr nonnull %63)
           to label %.noexc.i unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -6762,8 +6754,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %66 = trunc i32 %65 to i16
   %67 = xor i16 %66, -1
   %68 = load i64, ptr %15, align 8, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %63, ptr %10, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -6795,8 +6787,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
           to label %108 unwind label %106
 
 .lr.ph:                                           ; preds = %_ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.i, %99
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %70
 
 70:                                               ; preds = %.noexc2, %.lr.ph
@@ -6847,8 +6839,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %87 = extractvalue { i64, i64 } %71, 1
   %88 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !3
   %89 = add i64 %88, %87
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %90 = load i64, ptr %.sroa.58.0..sroa_idx, align 8, !noundef !3
   %91 = add i64 %90, -1
   store i64 %91, ptr %.sroa.58.0..sroa_idx, align 8
@@ -6894,8 +6886,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
 _ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i: ; preds = %40, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i, %97
   %.sroa.3.0.i.i = phi i64 [ undef, %97 ], [ %.sroa.46.0.i.i, %40 ], [ %.sroa.9.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
   %.sroa.0.0.i.i = phi i64 [ -9223372036854775807, %97 ], [ %42, %40 ], [ %.sroa.4.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17hf596856e771c6e51E.exit
 
 109:                                              ; preds = %24
@@ -6952,8 +6944,8 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 32:                                               ; preds = %24
   %33 = add nuw i64 %.0.i, 1
   %34 = call i64 @_ZN4core3cmp6max_by17hac55e3f40a8c04acE(i64 %19, i64 %33)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %_ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit, label %36
 
@@ -6976,7 +6968,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 
 44:                                               ; preds = %40, %.thread.i.i
   %.sroa.46.050.i.i = phi i64 [ %.sroa.46.049.i.i, %.thread.i.i ], [ %.sroa.46.0.i.i, %40 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 2, i64 16, i64 %.sroa.46.050.i.i)
   %45 = load i64, ptr %5, align 8, !range !4, !noundef !3
   %46 = icmp eq i64 %45, 0
@@ -7003,11 +6995,11 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   %.pn.i.i = phi { i64, i64 } [ %56, %55 ], [ %48, %47 ]
   %.sroa.4.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 0
   %.sroa.9.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h2ea8eff150384654E.exit.i: ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = add i64 %.sroa.46.050.i.i, -1
   %58 = icmp ult i64 %57, 8
   %59 = lshr i64 %.sroa.46.050.i.i, 3
@@ -7035,8 +7027,8 @@ _ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit: ; pre
   store i64 %.sroa.8.i.i.sroa.5.0, ptr %.sroa.420.i.i.sroa.5.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
   %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 0, ptr %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %63 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   invoke void @_ZN4core9core_arch3x864sse214_mm_load_si12817h305b66212b51bf96E(ptr nonnull sret(<2 x i64>) align 16 %9, ptr nonnull %63)
           to label %.noexc.i unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -7051,8 +7043,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %66 = trunc i32 %65 to i16
   %67 = xor i16 %66, -1
   %68 = load i64, ptr %15, align 8, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %63, ptr %10, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -7084,8 +7076,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
           to label %109 unwind label %107
 
 .lr.ph:                                           ; preds = %_ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.i, %99
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %70
 
 70:                                               ; preds = %.noexc2, %.lr.ph
@@ -7136,8 +7128,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %87 = extractvalue { i64, i64 } %71, 1
   %88 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !3
   %89 = add i64 %88, %87
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %90 = load i64, ptr %.sroa.58.0..sroa_idx, align 8, !noundef !3
   %91 = add i64 %90, -1
   store i64 %91, ptr %.sroa.58.0..sroa_idx, align 8
@@ -7184,8 +7176,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
 _ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i: ; preds = %40, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i, %97
   %.sroa.3.0.i.i = phi i64 [ undef, %97 ], [ %.sroa.46.0.i.i, %40 ], [ %.sroa.9.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
   %.sroa.0.0.i.i = phi i64 [ -9223372036854775807, %97 ], [ %42, %40 ], [ %.sroa.4.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17hf596856e771c6e51E.exit
 
 110:                                              ; preds = %24
@@ -7242,8 +7234,8 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 32:                                               ; preds = %24
   %33 = add nuw i64 %.0.i, 1
   %34 = call i64 @_ZN4core3cmp6max_by17hac55e3f40a8c04acE(i64 %19, i64 %33)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %_ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit, label %36
 
@@ -7266,7 +7258,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 
 44:                                               ; preds = %40, %.thread.i.i
   %.sroa.46.050.i.i = phi i64 [ %.sroa.46.049.i.i, %.thread.i.i ], [ %.sroa.46.0.i.i, %40 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 64, i64 16, i64 %.sroa.46.050.i.i)
   %45 = load i64, ptr %5, align 8, !range !4, !noundef !3
   %46 = icmp eq i64 %45, 0
@@ -7293,11 +7285,11 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   %.pn.i.i = phi { i64, i64 } [ %56, %55 ], [ %48, %47 ]
   %.sroa.4.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 0
   %.sroa.9.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h2ea8eff150384654E.exit.i: ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = add i64 %.sroa.46.050.i.i, -1
   %58 = icmp ult i64 %57, 8
   %59 = lshr i64 %.sroa.46.050.i.i, 3
@@ -7325,8 +7317,8 @@ _ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit: ; pre
   store i64 %.sroa.8.i.i.sroa.5.0, ptr %.sroa.420.i.i.sroa.5.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
   %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 0, ptr %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %63 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   invoke void @_ZN4core9core_arch3x864sse214_mm_load_si12817h305b66212b51bf96E(ptr nonnull sret(<2 x i64>) align 16 %9, ptr nonnull %63)
           to label %.noexc.i unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -7341,8 +7333,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %66 = trunc i32 %65 to i16
   %67 = xor i16 %66, -1
   %68 = load i64, ptr %15, align 8, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %63, ptr %10, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -7374,8 +7366,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
           to label %108 unwind label %106
 
 .lr.ph:                                           ; preds = %_ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.i, %99
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %70
 
 70:                                               ; preds = %.noexc2, %.lr.ph
@@ -7426,8 +7418,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %87 = extractvalue { i64, i64 } %71, 1
   %88 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !3
   %89 = add i64 %88, %87
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %90 = load i64, ptr %.sroa.58.0..sroa_idx, align 8, !noundef !3
   %91 = add i64 %90, -1
   store i64 %91, ptr %.sroa.58.0..sroa_idx, align 8
@@ -7473,8 +7465,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
 _ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i: ; preds = %40, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i, %97
   %.sroa.3.0.i.i = phi i64 [ undef, %97 ], [ %.sroa.46.0.i.i, %40 ], [ %.sroa.9.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
   %.sroa.0.0.i.i = phi i64 [ -9223372036854775807, %97 ], [ %42, %40 ], [ %.sroa.4.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17hf596856e771c6e51E.exit
 
 109:                                              ; preds = %24
@@ -7531,8 +7523,8 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 32:                                               ; preds = %24
   %33 = add nuw i64 %.0.i, 1
   %34 = call i64 @_ZN4core3cmp6max_by17hac55e3f40a8c04acE(i64 %19, i64 %33)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %_ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit, label %36
 
@@ -7555,7 +7547,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 
 44:                                               ; preds = %40, %.thread.i.i
   %.sroa.46.050.i.i = phi i64 [ %.sroa.46.049.i.i, %.thread.i.i ], [ %.sroa.46.0.i.i, %40 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 16, i64 16, i64 %.sroa.46.050.i.i)
   %45 = load i64, ptr %5, align 8, !range !4, !noundef !3
   %46 = icmp eq i64 %45, 0
@@ -7582,11 +7574,11 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   %.pn.i.i = phi { i64, i64 } [ %56, %55 ], [ %48, %47 ]
   %.sroa.4.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 0
   %.sroa.9.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h2ea8eff150384654E.exit.i: ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = add i64 %.sroa.46.050.i.i, -1
   %58 = icmp ult i64 %57, 8
   %59 = lshr i64 %.sroa.46.050.i.i, 3
@@ -7614,8 +7606,8 @@ _ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit: ; pre
   store i64 %.sroa.8.i.i.sroa.5.0, ptr %.sroa.420.i.i.sroa.5.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
   %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 0, ptr %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %63 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   invoke void @_ZN4core9core_arch3x864sse214_mm_load_si12817h305b66212b51bf96E(ptr nonnull sret(<2 x i64>) align 16 %9, ptr nonnull %63)
           to label %.noexc.i unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -7630,8 +7622,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %66 = trunc i32 %65 to i16
   %67 = xor i16 %66, -1
   %68 = load i64, ptr %15, align 8, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %63, ptr %10, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -7663,8 +7655,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
           to label %108 unwind label %106
 
 .lr.ph:                                           ; preds = %_ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.i, %99
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %70
 
 70:                                               ; preds = %.noexc2, %.lr.ph
@@ -7715,8 +7707,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %87 = extractvalue { i64, i64 } %71, 1
   %88 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !3
   %89 = add i64 %88, %87
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %90 = load i64, ptr %.sroa.58.0..sroa_idx, align 8, !noundef !3
   %91 = add i64 %90, -1
   store i64 %91, ptr %.sroa.58.0..sroa_idx, align 8
@@ -7762,8 +7754,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
 _ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i: ; preds = %40, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i, %97
   %.sroa.3.0.i.i = phi i64 [ undef, %97 ], [ %.sroa.46.0.i.i, %40 ], [ %.sroa.9.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
   %.sroa.0.0.i.i = phi i64 [ -9223372036854775807, %97 ], [ %42, %40 ], [ %.sroa.4.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17hf596856e771c6e51E.exit
 
 109:                                              ; preds = %24
@@ -7820,8 +7812,8 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 32:                                               ; preds = %24
   %33 = add nuw i64 %.0.i, 1
   %34 = call i64 @_ZN4core3cmp6max_by17hac55e3f40a8c04acE(i64 %19, i64 %33)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %_ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit, label %36
 
@@ -7844,7 +7836,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 
 44:                                               ; preds = %40, %.thread.i.i
   %.sroa.46.050.i.i = phi i64 [ %.sroa.46.049.i.i, %.thread.i.i ], [ %.sroa.46.0.i.i, %40 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 8, i64 16, i64 %.sroa.46.050.i.i)
   %45 = load i64, ptr %5, align 8, !range !4, !noundef !3
   %46 = icmp eq i64 %45, 0
@@ -7871,11 +7863,11 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   %.pn.i.i = phi { i64, i64 } [ %56, %55 ], [ %48, %47 ]
   %.sroa.4.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 0
   %.sroa.9.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h2ea8eff150384654E.exit.i: ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = add i64 %.sroa.46.050.i.i, -1
   %58 = icmp ult i64 %57, 8
   %59 = lshr i64 %.sroa.46.050.i.i, 3
@@ -7903,8 +7895,8 @@ _ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit: ; pre
   store i64 %.sroa.8.i.i.sroa.5.0, ptr %.sroa.420.i.i.sroa.5.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
   %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 0, ptr %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %63 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   invoke void @_ZN4core9core_arch3x864sse214_mm_load_si12817h305b66212b51bf96E(ptr nonnull sret(<2 x i64>) align 16 %9, ptr nonnull %63)
           to label %.noexc.i unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -7919,8 +7911,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %66 = trunc i32 %65 to i16
   %67 = xor i16 %66, -1
   %68 = load i64, ptr %15, align 8, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %63, ptr %10, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -7952,8 +7944,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
           to label %109 unwind label %107
 
 .lr.ph:                                           ; preds = %_ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.i, %99
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %70
 
 70:                                               ; preds = %.noexc2, %.lr.ph
@@ -8004,8 +7996,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %87 = extractvalue { i64, i64 } %71, 1
   %88 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !3
   %89 = add i64 %88, %87
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %90 = load i64, ptr %.sroa.58.0..sroa_idx, align 8, !noundef !3
   %91 = add i64 %90, -1
   store i64 %91, ptr %.sroa.58.0..sroa_idx, align 8
@@ -8052,8 +8044,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
 _ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i: ; preds = %40, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i, %97
   %.sroa.3.0.i.i = phi i64 [ undef, %97 ], [ %.sroa.46.0.i.i, %40 ], [ %.sroa.9.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
   %.sroa.0.0.i.i = phi i64 [ -9223372036854775807, %97 ], [ %42, %40 ], [ %.sroa.4.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17hf596856e771c6e51E.exit
 
 110:                                              ; preds = %24
@@ -8110,8 +8102,8 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 32:                                               ; preds = %24
   %33 = add nuw i64 %.0.i, 1
   %34 = call i64 @_ZN4core3cmp6max_by17hac55e3f40a8c04acE(i64 %19, i64 %33)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %_ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit, label %36
 
@@ -8134,7 +8126,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 
 44:                                               ; preds = %40, %.thread.i.i
   %.sroa.46.050.i.i = phi i64 [ %.sroa.46.049.i.i, %.thread.i.i ], [ %.sroa.46.0.i.i, %40 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 16, i64 16, i64 %.sroa.46.050.i.i)
   %45 = load i64, ptr %5, align 8, !range !4, !noundef !3
   %46 = icmp eq i64 %45, 0
@@ -8161,11 +8153,11 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   %.pn.i.i = phi { i64, i64 } [ %56, %55 ], [ %48, %47 ]
   %.sroa.4.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 0
   %.sroa.9.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h2ea8eff150384654E.exit.i: ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = add i64 %.sroa.46.050.i.i, -1
   %58 = icmp ult i64 %57, 8
   %59 = lshr i64 %.sroa.46.050.i.i, 3
@@ -8193,8 +8185,8 @@ _ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit: ; pre
   store i64 %.sroa.8.i.i.sroa.5.0, ptr %.sroa.420.i.i.sroa.5.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
   %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 0, ptr %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %63 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   invoke void @_ZN4core9core_arch3x864sse214_mm_load_si12817h305b66212b51bf96E(ptr nonnull sret(<2 x i64>) align 16 %9, ptr nonnull %63)
           to label %.noexc.i unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -8209,8 +8201,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %66 = trunc i32 %65 to i16
   %67 = xor i16 %66, -1
   %68 = load i64, ptr %15, align 8, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %63, ptr %10, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -8242,8 +8234,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
           to label %108 unwind label %106
 
 .lr.ph:                                           ; preds = %_ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.i, %99
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %70
 
 70:                                               ; preds = %.noexc2, %.lr.ph
@@ -8294,8 +8286,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %87 = extractvalue { i64, i64 } %71, 1
   %88 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !3
   %89 = add i64 %88, %87
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %90 = load i64, ptr %.sroa.58.0..sroa_idx, align 8, !noundef !3
   %91 = add i64 %90, -1
   store i64 %91, ptr %.sroa.58.0..sroa_idx, align 8
@@ -8341,8 +8333,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
 _ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i: ; preds = %40, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i, %97
   %.sroa.3.0.i.i = phi i64 [ undef, %97 ], [ %.sroa.46.0.i.i, %40 ], [ %.sroa.9.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
   %.sroa.0.0.i.i = phi i64 [ -9223372036854775807, %97 ], [ %42, %40 ], [ %.sroa.4.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17hf596856e771c6e51E.exit
 
 109:                                              ; preds = %24
@@ -8399,8 +8391,8 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 32:                                               ; preds = %24
   %33 = add nuw i64 %.0.i, 1
   %34 = call i64 @_ZN4core3cmp6max_by17hac55e3f40a8c04acE(i64 %19, i64 %33)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %_ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit, label %36
 
@@ -8423,7 +8415,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 
 44:                                               ; preds = %40, %.thread.i.i
   %.sroa.46.050.i.i = phi i64 [ %.sroa.46.049.i.i, %.thread.i.i ], [ %.sroa.46.0.i.i, %40 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 24, i64 16, i64 %.sroa.46.050.i.i)
   %45 = load i64, ptr %5, align 8, !range !4, !noundef !3
   %46 = icmp eq i64 %45, 0
@@ -8450,11 +8442,11 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   %.pn.i.i = phi { i64, i64 } [ %56, %55 ], [ %48, %47 ]
   %.sroa.4.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 0
   %.sroa.9.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h2ea8eff150384654E.exit.i: ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = add i64 %.sroa.46.050.i.i, -1
   %58 = icmp ult i64 %57, 8
   %59 = lshr i64 %.sroa.46.050.i.i, 3
@@ -8482,8 +8474,8 @@ _ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit: ; pre
   store i64 %.sroa.8.i.i.sroa.5.0, ptr %.sroa.420.i.i.sroa.5.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
   %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 0, ptr %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %63 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   invoke void @_ZN4core9core_arch3x864sse214_mm_load_si12817h305b66212b51bf96E(ptr nonnull sret(<2 x i64>) align 16 %9, ptr nonnull %63)
           to label %.noexc.i unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -8498,8 +8490,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %66 = trunc i32 %65 to i16
   %67 = xor i16 %66, -1
   %68 = load i64, ptr %15, align 8, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %63, ptr %10, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -8531,8 +8523,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
           to label %108 unwind label %106
 
 .lr.ph:                                           ; preds = %_ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.i, %99
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %70
 
 70:                                               ; preds = %.noexc2, %.lr.ph
@@ -8583,8 +8575,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %87 = extractvalue { i64, i64 } %71, 1
   %88 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !3
   %89 = add i64 %88, %87
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %90 = load i64, ptr %.sroa.58.0..sroa_idx, align 8, !noundef !3
   %91 = add i64 %90, -1
   store i64 %91, ptr %.sroa.58.0..sroa_idx, align 8
@@ -8630,8 +8622,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
 _ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i: ; preds = %40, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i, %97
   %.sroa.3.0.i.i = phi i64 [ undef, %97 ], [ %.sroa.46.0.i.i, %40 ], [ %.sroa.9.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
   %.sroa.0.0.i.i = phi i64 [ -9223372036854775807, %97 ], [ %42, %40 ], [ %.sroa.4.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17hf596856e771c6e51E.exit
 
 109:                                              ; preds = %24
@@ -8688,8 +8680,8 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 32:                                               ; preds = %24
   %33 = add nuw i64 %.0.i, 1
   %34 = call i64 @_ZN4core3cmp6max_by17hac55e3f40a8c04acE(i64 %19, i64 %33)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %_ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit, label %36
 
@@ -8712,7 +8704,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 
 44:                                               ; preds = %40, %.thread.i.i
   %.sroa.46.050.i.i = phi i64 [ %.sroa.46.049.i.i, %.thread.i.i ], [ %.sroa.46.0.i.i, %40 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 56, i64 16, i64 %.sroa.46.050.i.i)
   %45 = load i64, ptr %5, align 8, !range !4, !noundef !3
   %46 = icmp eq i64 %45, 0
@@ -8739,11 +8731,11 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   %.pn.i.i = phi { i64, i64 } [ %56, %55 ], [ %48, %47 ]
   %.sroa.4.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 0
   %.sroa.9.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h2ea8eff150384654E.exit.i: ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = add i64 %.sroa.46.050.i.i, -1
   %58 = icmp ult i64 %57, 8
   %59 = lshr i64 %.sroa.46.050.i.i, 3
@@ -8771,8 +8763,8 @@ _ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit: ; pre
   store i64 %.sroa.8.i.i.sroa.5.0, ptr %.sroa.420.i.i.sroa.5.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
   %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 0, ptr %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %63 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   invoke void @_ZN4core9core_arch3x864sse214_mm_load_si12817h305b66212b51bf96E(ptr nonnull sret(<2 x i64>) align 16 %9, ptr nonnull %63)
           to label %.noexc.i unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -8787,8 +8779,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %66 = trunc i32 %65 to i16
   %67 = xor i16 %66, -1
   %68 = load i64, ptr %15, align 8, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %63, ptr %10, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -8820,8 +8812,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
           to label %108 unwind label %106
 
 .lr.ph:                                           ; preds = %_ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.i, %99
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %70
 
 70:                                               ; preds = %.noexc2, %.lr.ph
@@ -8872,8 +8864,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %87 = extractvalue { i64, i64 } %71, 1
   %88 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !3
   %89 = add i64 %88, %87
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %90 = load i64, ptr %.sroa.58.0..sroa_idx, align 8, !noundef !3
   %91 = add i64 %90, -1
   store i64 %91, ptr %.sroa.58.0..sroa_idx, align 8
@@ -8919,8 +8911,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
 _ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i: ; preds = %40, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i, %97
   %.sroa.3.0.i.i = phi i64 [ undef, %97 ], [ %.sroa.46.0.i.i, %40 ], [ %.sroa.9.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
   %.sroa.0.0.i.i = phi i64 [ -9223372036854775807, %97 ], [ %42, %40 ], [ %.sroa.4.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17hf596856e771c6e51E.exit
 
 109:                                              ; preds = %24
@@ -8977,8 +8969,8 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 32:                                               ; preds = %24
   %33 = add nuw i64 %.0.i, 1
   %34 = call i64 @_ZN4core3cmp6max_by17hac55e3f40a8c04acE(i64 %19, i64 %33)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %_ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit, label %36
 
@@ -9001,7 +8993,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 
 44:                                               ; preds = %40, %.thread.i.i
   %.sroa.46.050.i.i = phi i64 [ %.sroa.46.049.i.i, %.thread.i.i ], [ %.sroa.46.0.i.i, %40 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 32, i64 16, i64 %.sroa.46.050.i.i)
   %45 = load i64, ptr %5, align 8, !range !4, !noundef !3
   %46 = icmp eq i64 %45, 0
@@ -9028,11 +9020,11 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   %.pn.i.i = phi { i64, i64 } [ %56, %55 ], [ %48, %47 ]
   %.sroa.4.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 0
   %.sroa.9.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h2ea8eff150384654E.exit.i: ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = add i64 %.sroa.46.050.i.i, -1
   %58 = icmp ult i64 %57, 8
   %59 = lshr i64 %.sroa.46.050.i.i, 3
@@ -9060,8 +9052,8 @@ _ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit: ; pre
   store i64 %.sroa.8.i.i.sroa.5.0, ptr %.sroa.420.i.i.sroa.5.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
   %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 0, ptr %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %63 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   invoke void @_ZN4core9core_arch3x864sse214_mm_load_si12817h305b66212b51bf96E(ptr nonnull sret(<2 x i64>) align 16 %9, ptr nonnull %63)
           to label %.noexc.i unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -9076,8 +9068,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %66 = trunc i32 %65 to i16
   %67 = xor i16 %66, -1
   %68 = load i64, ptr %15, align 8, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %63, ptr %10, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -9109,8 +9101,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
           to label %108 unwind label %106
 
 .lr.ph:                                           ; preds = %_ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.i, %99
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %70
 
 70:                                               ; preds = %.noexc2, %.lr.ph
@@ -9161,8 +9153,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %87 = extractvalue { i64, i64 } %71, 1
   %88 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !3
   %89 = add i64 %88, %87
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %90 = load i64, ptr %.sroa.58.0..sroa_idx, align 8, !noundef !3
   %91 = add i64 %90, -1
   store i64 %91, ptr %.sroa.58.0..sroa_idx, align 8
@@ -9208,8 +9200,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
 _ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i: ; preds = %40, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i, %97
   %.sroa.3.0.i.i = phi i64 [ undef, %97 ], [ %.sroa.46.0.i.i, %40 ], [ %.sroa.9.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
   %.sroa.0.0.i.i = phi i64 [ -9223372036854775807, %97 ], [ %42, %40 ], [ %.sroa.4.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17hf596856e771c6e51E.exit
 
 109:                                              ; preds = %24
@@ -9266,8 +9258,8 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 32:                                               ; preds = %24
   %33 = add nuw i64 %.0.i, 1
   %34 = call i64 @_ZN4core3cmp6max_by17hac55e3f40a8c04acE(i64 %19, i64 %33)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %_ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit, label %36
 
@@ -9290,7 +9282,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 
 44:                                               ; preds = %40, %.thread.i.i
   %.sroa.46.050.i.i = phi i64 [ %.sroa.46.049.i.i, %.thread.i.i ], [ %.sroa.46.0.i.i, %40 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 352, i64 16, i64 %.sroa.46.050.i.i)
   %45 = load i64, ptr %5, align 8, !range !4, !noundef !3
   %46 = icmp eq i64 %45, 0
@@ -9317,11 +9309,11 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   %.pn.i.i = phi { i64, i64 } [ %56, %55 ], [ %48, %47 ]
   %.sroa.4.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 0
   %.sroa.9.0.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h2ea8eff150384654E.exit.i: ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = add i64 %.sroa.46.050.i.i, -1
   %58 = icmp ult i64 %57, 8
   %59 = lshr i64 %.sroa.46.050.i.i, 3
@@ -9349,8 +9341,8 @@ _ZN9hashbrown3raw13RawTableInner14prepare_resize17h9f1c1ec2e7d3df0cE.exit: ; pre
   store i64 %.sroa.8.i.i.sroa.5.0, ptr %.sroa.420.i.i.sroa.5.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
   %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 0, ptr %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %63 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   invoke void @_ZN4core9core_arch3x864sse214_mm_load_si12817h305b66212b51bf96E(ptr nonnull sret(<2 x i64>) align 16 %9, ptr nonnull %63)
           to label %.noexc.i unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -9365,8 +9357,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %66 = trunc i32 %65 to i16
   %67 = xor i16 %66, -1
   %68 = load i64, ptr %15, align 8, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %63, ptr %10, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -9398,8 +9390,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
           to label %108 unwind label %106
 
 .lr.ph:                                           ; preds = %_ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.i, %99
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %70
 
 70:                                               ; preds = %.noexc2, %.lr.ph
@@ -9450,8 +9442,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %87 = extractvalue { i64, i64 } %71, 1
   %88 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !3
   %89 = add i64 %88, %87
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %90 = load i64, ptr %.sroa.58.0..sroa_idx, align 8, !noundef !3
   %91 = add i64 %90, -1
   store i64 %91, ptr %.sroa.58.0..sroa_idx, align 8
@@ -9497,8 +9489,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
 _ZN9hashbrown3raw13RawTableInner12resize_inner17hf527812c1e50afadE.exit.i: ; preds = %40, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i, %97
   %.sroa.3.0.i.i = phi i64 [ undef, %97 ], [ %.sroa.46.0.i.i, %40 ], [ %.sroa.9.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
   %.sroa.0.0.i.i = phi i64 [ -9223372036854775807, %97 ], [ %42, %40 ], [ %.sroa.4.0.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17hf596856e771c6e51E.exit
 
 109:                                              ; preds = %24
@@ -9830,7 +9822,7 @@ define void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h87729f
 define void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized17h3af6156e7256a126E"(ptr writeonly sret({ ptr, [3 x i64] }) align 8 captures(none) initializes((0, 24)) %0, i64 %1, i1 zeroext %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca { i64, [2 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 6, i64 16, i64 %1)
   %6 = load i64, ptr %5, align 8, !range !4, !noundef !3
   %7 = icmp eq i64 %6, 0
@@ -9857,7 +9849,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   %.pn = phi { i64, i64 } [ %17, %16 ], [ %9, %8 ]
   %.sroa.4.023.ph = extractvalue { i64, i64 } %.pn, 0
   %.sroa.9.0.ph = extractvalue { i64, i64 } %.pn, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.4.023.ph, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9866,7 +9858,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   br label %25
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit: ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = add i64 %1, -1
   %21 = icmp ult i64 %20, 8
   %22 = lshr i64 %1, 3
@@ -9890,7 +9882,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit: ; 
 define void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized17h52bbddfcea75848eE"(ptr writeonly sret({ ptr, [3 x i64] }) align 8 captures(none) initializes((0, 24)) %0, i64 %1, i1 zeroext %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca { i64, [2 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 8, i64 16, i64 %1)
   %6 = load i64, ptr %5, align 8, !range !4, !noundef !3
   %7 = icmp eq i64 %6, 0
@@ -9917,7 +9909,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   %.pn = phi { i64, i64 } [ %17, %16 ], [ %9, %8 ]
   %.sroa.4.023.ph = extractvalue { i64, i64 } %.pn, 0
   %.sroa.9.0.ph = extractvalue { i64, i64 } %.pn, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.4.023.ph, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9926,7 +9918,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   br label %25
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit: ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = add i64 %1, -1
   %21 = icmp ult i64 %20, 8
   %22 = lshr i64 %1, 3
@@ -9950,7 +9942,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit: ; 
 define void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized17h670c5fa2007ceb07E"(ptr writeonly sret({ ptr, [3 x i64] }) align 8 captures(none) initializes((0, 24)) %0, i64 %1, i1 zeroext %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca { i64, [2 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 16, i64 16, i64 %1)
   %6 = load i64, ptr %5, align 8, !range !4, !noundef !3
   %7 = icmp eq i64 %6, 0
@@ -9977,7 +9969,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   %.pn = phi { i64, i64 } [ %17, %16 ], [ %9, %8 ]
   %.sroa.4.023.ph = extractvalue { i64, i64 } %.pn, 0
   %.sroa.9.0.ph = extractvalue { i64, i64 } %.pn, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.4.023.ph, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9986,7 +9978,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   br label %25
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit: ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = add i64 %1, -1
   %21 = icmp ult i64 %20, 8
   %22 = lshr i64 %1, 3
@@ -10010,7 +10002,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit: ; 
 define void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized17hfd8539ba4f3de479E"(ptr writeonly sret({ ptr, [3 x i64] }) align 8 captures(none) initializes((0, 24)) %0, i64 %1, i1 zeroext %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca { i64, [2 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, i64 2, i64 16, i64 %1)
   %6 = load i64, ptr %5, align 8, !range !4, !noundef !3
   %7 = icmp eq i64 %6, 0
@@ -10037,7 +10029,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   %.pn = phi { i64, i64 } [ %17, %16 ], [ %9, %8 ]
   %.sroa.4.023.ph = extractvalue { i64, i64 } %.pn, 0
   %.sroa.9.0.ph = extractvalue { i64, i64 } %.pn, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.4.023.ph, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10046,7 +10038,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit.thr
   br label %25
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit: ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = add i64 %1, -1
   %21 = icmp ult i64 %20, 8
   %22 = lshr i64 %1, 3
@@ -10667,18 +10659,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h0f7185ff8000ea1eE"(
   %15 = alloca i16, align 2
   %16 = alloca ptr, align 8
   store ptr %2, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %17 = lshr i64 %1, 57
   %18 = trunc nuw nsw i64 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10725,18 +10717,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h0f7185ff8000ea1eE"(
   br i1 %.not.i, label %47, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %53
 
 38:                                               ; preds = %29
@@ -10756,18 +10748,18 @@ _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; 
   br label %21
 
 50:                                               ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %51 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %52 = getelementptr inbounds { i16, { i16, i8, [1 x i8] } }, ptr %51, i64 %43
   br label %53
@@ -10793,18 +10785,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h1763eb6dab7a05d0E"(
   %15 = alloca i16, align 2
   %16 = alloca ptr, align 8
   store ptr %2, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %17 = lshr i64 %1, 57
   %18 = trunc nuw nsw i64 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10851,18 +10843,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h1763eb6dab7a05d0E"(
   br i1 %.not.i, label %47, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %53
 
 38:                                               ; preds = %29
@@ -10882,18 +10874,18 @@ _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; 
   br label %21
 
 50:                                               ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %51 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %52 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i64 }, ptr %51, i64 %43
   br label %53
@@ -10919,18 +10911,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h306ef2f0a207a783E"(
   %15 = alloca i16, align 2
   %16 = alloca ptr, align 8
   store ptr %2, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %17 = lshr i64 %1, 57
   %18 = trunc nuw nsw i64 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10977,18 +10969,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h306ef2f0a207a783E"(
   br i1 %.not.i, label %47, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %53
 
 38:                                               ; preds = %29
@@ -11008,18 +11000,18 @@ _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; 
   br label %21
 
 50:                                               ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %51 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %52 = getelementptr inbounds { { i64, i64 }, i64 }, ptr %51, i64 %43
   br label %53
@@ -11045,18 +11037,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h33bd27633482b152E"(
   %15 = alloca i16, align 2
   %16 = alloca ptr, align 8
   store ptr %2, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %17 = lshr i64 %1, 57
   %18 = trunc nuw nsw i64 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11103,18 +11095,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h33bd27633482b152E"(
   br i1 %.not.i, label %47, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %53
 
 38:                                               ; preds = %29
@@ -11134,18 +11126,18 @@ _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; 
   br label %21
 
 50:                                               ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %51 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %52 = getelementptr inbounds { i64, i64 }, ptr %51, i64 %43
   br label %53
@@ -11171,18 +11163,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h40ac6353cba526a7E"(
   %15 = alloca i16, align 2
   %16 = alloca ptr, align 8
   store ptr %2, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %17 = lshr i64 %1, 57
   %18 = trunc nuw nsw i64 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11229,18 +11221,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h40ac6353cba526a7E"(
   br i1 %.not.i, label %47, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %53
 
 38:                                               ; preds = %29
@@ -11260,18 +11252,18 @@ _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; 
   br label %21
 
 50:                                               ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %51 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %52 = getelementptr inbounds { { i64, i64, i64, i64 }, {} }, ptr %51, i64 %43
   br label %53
@@ -11297,18 +11289,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h44222e13eee543dbE"(
   %15 = alloca i16, align 2
   %16 = alloca ptr, align 8
   store ptr %2, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %17 = lshr i64 %1, 57
   %18 = trunc nuw nsw i64 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11355,18 +11347,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h44222e13eee543dbE"(
   br i1 %.not.i, label %47, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %53
 
 38:                                               ; preds = %29
@@ -11386,18 +11378,18 @@ _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; 
   br label %21
 
 50:                                               ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %51 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %52 = getelementptr inbounds { i16, [7 x i16], { i8, [31 x i8] } }, ptr %51, i64 %43
   br label %53
@@ -11423,18 +11415,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h6d32dd7b894cd93fE"(
   %15 = alloca i16, align 2
   %16 = alloca ptr, align 8
   store ptr %2, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %17 = lshr i64 %1, 57
   %18 = trunc nuw nsw i64 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11481,18 +11473,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h6d32dd7b894cd93fE"(
   br i1 %.not.i, label %47, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %53
 
 38:                                               ; preds = %29
@@ -11512,18 +11504,18 @@ _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; 
   br label %21
 
 50:                                               ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %51 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %52 = getelementptr inbounds { { i8, [47 x i8] }, i16, [7 x i16] }, ptr %51, i64 %43
   br label %53
@@ -11549,18 +11541,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h9b3dd9028e6b1238E"(
   %15 = alloca i16, align 2
   %16 = alloca ptr, align 8
   store ptr %2, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %17 = lshr i64 %1, 57
   %18 = trunc nuw nsw i64 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11607,18 +11599,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h9b3dd9028e6b1238E"(
   br i1 %.not.i, label %47, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %53
 
 38:                                               ; preds = %29
@@ -11638,18 +11630,18 @@ _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; 
   br label %21
 
 50:                                               ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %51 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %52 = getelementptr inbounds { i64, i64 }, ptr %51, i64 %43
   br label %53
@@ -11675,18 +11667,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17ha4f5cf30a6c098c4E"(
   %15 = alloca i16, align 2
   %16 = alloca ptr, align 8
   store ptr %2, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %17 = lshr i64 %1, 57
   %18 = trunc nuw nsw i64 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11733,18 +11725,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17ha4f5cf30a6c098c4E"(
   br i1 %.not.i, label %47, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %53
 
 38:                                               ; preds = %29
@@ -11764,18 +11756,18 @@ _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; 
   br label %21
 
 50:                                               ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %51 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %52 = getelementptr inbounds { { i64, i64 }, i64 }, ptr %51, i64 %43
   br label %53
@@ -11801,18 +11793,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17ha746db73d855222aE"(
   %15 = alloca i16, align 2
   %16 = alloca ptr, align 8
   store ptr %2, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %17 = lshr i64 %1, 57
   %18 = trunc nuw nsw i64 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11859,18 +11851,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17ha746db73d855222aE"(
   br i1 %.not.i, label %47, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %53
 
 38:                                               ; preds = %29
@@ -11890,18 +11882,18 @@ _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; 
   br label %21
 
 50:                                               ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %51 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %52 = getelementptr inbounds { { i64, i64, i64, i64 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, ptr %51, i64 %43
   br label %53
@@ -11927,18 +11919,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hb51cff35773f1f61E"(
   %15 = alloca i16, align 2
   %16 = alloca ptr, align 8
   store ptr %2, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %17 = lshr i64 %1, 57
   %18 = trunc nuw nsw i64 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11985,18 +11977,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hb51cff35773f1f61E"(
   br i1 %.not.i, label %47, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %53
 
 38:                                               ; preds = %29
@@ -12016,18 +12008,18 @@ _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; 
   br label %21
 
 50:                                               ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %51 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %52 = getelementptr inbounds { i64, { { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, i32, [1 x i32] } }, ptr %51, i64 %43
   br label %53
@@ -12053,18 +12045,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hbfb315b118f80fbbE"(
   %15 = alloca i16, align 2
   %16 = alloca ptr, align 8
   store ptr %2, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %17 = lshr i64 %1, 57
   %18 = trunc nuw nsw i64 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12111,18 +12103,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hbfb315b118f80fbbE"(
   br i1 %.not.i, label %47, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %53
 
 38:                                               ; preds = %29
@@ -12142,18 +12134,18 @@ _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; 
   br label %21
 
 50:                                               ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %51 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %52 = getelementptr inbounds { { i64, i64, i64, i64 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, ptr %51, i64 %43
   br label %53
@@ -12179,18 +12171,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hc17014f6caf4cb2aE"(
   %15 = alloca i16, align 2
   %16 = alloca ptr, align 8
   store ptr %2, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %17 = lshr i64 %1, 57
   %18 = trunc nuw nsw i64 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12237,18 +12229,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hc17014f6caf4cb2aE"(
   br i1 %.not.i, label %47, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %53
 
 38:                                               ; preds = %29
@@ -12268,18 +12260,18 @@ _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; 
   br label %21
 
 50:                                               ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %51 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %52 = getelementptr inbounds i16, ptr %51, i64 %43
   br label %53
@@ -12305,18 +12297,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hd6cffa5a47164c85E"(
   %15 = alloca i16, align 2
   %16 = alloca ptr, align 8
   store ptr %2, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %17 = lshr i64 %1, 57
   %18 = trunc nuw nsw i64 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12363,18 +12355,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hd6cffa5a47164c85E"(
   br i1 %.not.i, label %47, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %53
 
 38:                                               ; preds = %29
@@ -12394,18 +12386,18 @@ _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; 
   br label %21
 
 50:                                               ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %51 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %52 = getelementptr inbounds { { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 } }, ptr %51, i64 %43
   br label %53
@@ -12431,18 +12423,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hf6d210a70578f838E"(
   %15 = alloca i16, align 2
   %16 = alloca ptr, align 8
   store ptr %2, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %17 = lshr i64 %1, 57
   %18 = trunc nuw nsw i64 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12489,18 +12481,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hf6d210a70578f838E"(
   br i1 %.not.i, label %47, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %53
 
 38:                                               ; preds = %29
@@ -12520,18 +12512,18 @@ _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; 
   br label %21
 
 50:                                               ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %51 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %52 = getelementptr inbounds { i16, [7 x i16], { i8, [31 x i8] } }, ptr %51, i64 %43
   br label %53
@@ -12557,18 +12549,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hfff55c572edc57ddE"(
   %15 = alloca i16, align 2
   %16 = alloca ptr, align 8
   store ptr %2, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %17 = lshr i64 %1, 57
   %18 = trunc nuw nsw i64 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12615,18 +12607,18 @@ define ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hfff55c572edc57ddE"(
   br i1 %.not.i, label %47, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %53
 
 38:                                               ; preds = %29
@@ -12646,18 +12638,18 @@ _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.exit.thread: ; 
   br label %21
 
 50:                                               ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %51 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %52 = getelementptr inbounds { i64, i16, [3 x i16] }, ptr %51, i64 %43
   br label %53
@@ -13542,10 +13534,10 @@ declare zeroext i1 @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
 declare zeroext i1 @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17hd6ccd10b84a997c7E"(ptr align 8, ptr align 8) unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #15

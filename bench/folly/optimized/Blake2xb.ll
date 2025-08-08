@@ -299,25 +299,19 @@ define internal fastcc void @_ZN5folly6crypto12_GLOBAL__N_119initStateFromParams
   resume { ptr, i32 } %25
 
 26:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr align 1 %2, i64 %19, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 %19
   %28 = sub nuw nsw i64 128, %19
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %27, i8 0, i64 %28, i1 false)
   %29 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 128)
   call void @sodium_memzero(ptr noundef nonnull %5, i64 noundef 128)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %30
 
 30:                                               ; preds = %26, %6
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare i32 @crypto_generichash_blake2b_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -473,7 +467,7 @@ define void @_ZN5folly6crypto8Blake2xb6finishENS_5RangeIPhEE(ptr noundef nonnull
   br label %78
 
 38:                                               ; preds = %26, %22
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %40 = call i32 @crypto_generichash_blake2b_final(ptr noundef nonnull %39, ptr noundef nonnull %4, i64 noundef 64)
   %.not17 = icmp eq i32 %40, 0
@@ -570,14 +564,14 @@ define void @_ZN5folly6crypto8Blake2xb6finishENS_5RangeIPhEE(ptr noundef nonnull
 
 ._crit_edge:                                      ; preds = %74, %46
   store i8 1, ptr %14, align 2, !tbaa !28
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 77:                                               ; preds = %64, %72, %44
   %.sink = phi ptr [ %62, %64 ], [ %70, %72 ], [ %42, %44 ]
   %.pn22 = phi { ptr, i32 } [ %65, %64 ], [ %73, %72 ], [ %45, %44 ]
   call void @__cxa_free_exception(ptr nonnull %.sink) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %78
 
 78:                                               ; preds = %77, %36, %20, %11
@@ -586,6 +580,12 @@ define void @_ZN5folly6crypto8Blake2xb6finishENS_5RangeIPhEE(ptr noundef nonnull
 }
 
 declare i32 @crypto_generichash_blake2b_final(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9

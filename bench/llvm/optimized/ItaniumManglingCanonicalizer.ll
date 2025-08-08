@@ -1272,7 +1272,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm28ItaniumManglingCanonical
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 808
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 937
   store i8 1, ptr %15, align 1, !tbaa !63
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %0, ptr %12, align 8, !tbaa !76
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %11, ptr %16, align 8, !tbaa !80
@@ -1310,14 +1310,14 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm28ItaniumManglingCanonical
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 944
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %.fca.0.extract3, ptr %9, align 8
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %.fca.0.extract, ptr %31, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E11try_emplaceIJS4_EEESt4pairINS_16DenseMapIteratorIS4_S4_S6_S9_Lb0EEEbEOS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.216") align 8 %10, ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %31)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %37
 
 32:                                               ; preds = %27, %25
@@ -1326,24 +1326,21 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm28ItaniumManglingCanonical
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 944
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %.fca.0.extract, ptr %7, align 8
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.fca.0.extract3, ptr %36, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E11try_emplaceIJS4_EEESt4pairINS_16DenseMapIteratorIS4_S4_S6_S9_Lb0EEEbEOS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.216") align 8 %8, ptr noundef nonnull align 1 dereferenceable(1) %35, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %36)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %37
 
 37:                                               ; preds = %29, %34, %32, %23, %19, %6
   %.0 = phi i32 [ 2, %6 ], [ 3, %19 ], [ 0, %23 ], [ 1, %32 ], [ 0, %34 ], [ 0, %29 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal fastcc { ptr, i8 } @"_ZZN4llvm28ItaniumManglingCanonicalizer14addEquivalenceENS0_12FragmentKindENS_9StringRefES2_ENK3$_0clES2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr %1, i64 %2) unnamed_addr #2 align 2 {
@@ -1442,10 +1439,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread14: ; preds = %25, %_ZNK4llvm9St
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i64 @_ZN4llvm28ItaniumManglingCanonicalizer12canonicalizeENS_9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
@@ -1562,7 +1556,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 44:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i
   %45 = load i8, ptr %10, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %46, ptr %5, align 8, !tbaa !59
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1570,7 +1564,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 32, ptr %48, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_viewIcSt11char_traitsIcEEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 noundef zeroext 1, ptr noundef nonnull %36, i64 %41, ptr nonnull %.val8.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %50 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i.i = icmp eq ptr %50, null
@@ -1636,7 +1630,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 82:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i, %51
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %73, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i ], [ %52, %51 ], [ null, %.critedge.i.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %83 = load ptr, ptr %5, align 8, !tbaa !59
   %84 = icmp eq ptr %83, %46
   br i1 %84, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9DotSuffixEJRPNS3_4NodeESt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i.i, label %85
@@ -1646,7 +1640,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9DotSuffixEJRPNS3_4NodeESt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9DotSuffixEJRPNS3_4NodeESt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i.i: ; preds = %85, %82
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not.i.i.i.i.i.i, label %86, label %87
 
 86:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9DotSuffixEJRPNS3_4NodeESt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i.i
@@ -1849,12 +1843,12 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E5parseEb.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit13.thread36: ; preds = %4, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread33, %_ZNK4llvm9StringRef11starts_withES0_.exit7.thread34, %_ZNK4llvm9StringRef11starts_withES0_.exit10.thread35, %_ZNK4llvm9StringRef11starts_withES0_.exit13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %2, ptr %7, align 8, !tbaa !114
   %171 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %171, align 8, !tbaa !115
   %172 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(16) %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E5parseEb.exit
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E5parseEb.exit: ; preds = %.thread71.i, %168, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit43.i, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E11parseNumberEb.exit.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i33.i, %138, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit27.i, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_9DotSuffixEJRPNS0_4NodeESt17basic_string_viewIcSt11char_traitsIcEEEEESA_DpOT0_.exit.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i, %38, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.i, %_ZNK4llvm9StringRef11starts_withES0_.exit13.thread36
@@ -1870,14 +1864,14 @@ define dso_local noundef i64 @_ZN4llvm28ItaniumManglingCanonicalizer6lookupENS_9
   ret i64 %5
 }
 
-declare void @_ZN4llvm14FoldingSetBaseC2Ej(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) unnamed_addr #6
+declare void @_ZN4llvm14FoldingSetBaseC2Ej(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) unnamed_addr #5
 
-declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) local_unnamed_addr #5
 
-declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
+declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN4llvm14FoldingSetBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #7
+declare void @_ZN4llvm14FoldingSetBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 comdat align 2 {
@@ -1959,7 +1953,7 @@ _ZN4llvm11SmallVectorIPvLj4EED2Ev.exit:           ; preds = %_ZN4llvm11SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA4_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(4) %1) unnamed_addr #0 align 2 {
@@ -1968,7 +1962,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1976,7 +1970,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 1 dereferenceable(4) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -2041,7 +2035,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.013.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA4_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %47
@@ -2051,7 +2045,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA4_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA4_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA4_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -2144,7 +2138,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %8 = alloca %"class.std::basic_string_view", align 8
   %9 = alloca %"class.std::basic_string_view", align 8
   %10 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !11
   %.val95 = load ptr, ptr %0, align 8, !tbaa !86
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2355,7 +2349,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %81 = load i8, ptr %80, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %82 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %82, ptr %3, align 8, !tbaa !59
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2363,7 +2357,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %84, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull @.str.16)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %86 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i = icmp eq ptr %86, null
@@ -2427,7 +2421,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 117:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %87
   %.sroa.04.0.i.i.i.i.i = phi ptr [ %109, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %88, %87 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %118 = load ptr, ptr %3, align 8, !tbaa !59
   %119 = icmp eq ptr %118, %82
   br i1 %119, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA19_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %120
@@ -2437,7 +2431,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA19_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA19_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i: ; preds = %120, %117
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i.i, label %121, label %123
 
 121:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA19_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
@@ -2559,7 +2553,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
 185:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
   %186 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %186, ptr %0, align 8, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i.not.i.i = icmp eq ptr %.val96, %186
   br i1 %.not.i.not.i.i, label %.critedge70, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i
 
@@ -2646,7 +2640,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 221:                                              ; preds = %219, %.critedge
   %storemerge = phi ptr [ %218, %.critedge ], [ %220, %219 ]
   store ptr %storemerge, ptr %5, align 8, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %thread-pre-split
 
 222:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
@@ -2729,7 +2723,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 247:                                              ; preds = %237, %242
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %248 = tail call fastcc { i64, ptr } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E11parseNumberEb(ptr noundef nonnull align 8 dereferenceable(1464) %0, i1 noundef zeroext false)
   %249 = extractvalue { i64, ptr } %248, 0
   store i64 %249, ptr %7, align 8
@@ -2737,7 +2731,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %251 = extractvalue { i64, ptr } %248, 1
   store ptr %251, ptr %250, align 8
   %252 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(16) %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not67 = icmp eq ptr %252, null
   br i1 %.not67, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit, label %253
 
@@ -2978,7 +2972,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %.not.i227.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit229.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit229
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit229.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit226
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %348
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit229: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit226
@@ -2986,7 +2980,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %341 = sext i8 %340 to i32
   %isdigittmp = add nsw i32 %341, -48
   %isdigit = icmp ult i32 %isdigittmp, 10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %isdigit, label %342, label %348
 
 342:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit229
@@ -3005,7 +2999,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 350:                                              ; preds = %348, %342
   %351 = phi ptr [ %347, %342 ], [ %349, %348 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not65 = icmp eq ptr %351, null
   br i1 %.not65, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit, label %352
 
@@ -3057,7 +3051,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit235: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %376 = icmp eq i8 %224, 107
   %377 = select i1 %376, ptr @.str.59, ptr @.str.60
   %378 = select i1 %376, i64 5, i64 15
@@ -3076,7 +3070,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 384:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit235, %382
   %.10 = phi ptr [ %383, %382 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit235 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 385:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199
@@ -3131,7 +3125,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %isdigit.i, label %405, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit271.thread
 
 405:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit271
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %406 = tail call fastcc { i64, ptr } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E11parseNumberEb(ptr noundef nonnull align 8 dereferenceable(1464) %0, i1 noundef zeroext false)
   %407 = extractvalue { i64, ptr } %406, 0
   store i64 %407, ptr %2, align 8
@@ -3139,7 +3133,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %409 = extractvalue { i64, ptr } %406, 1
   store ptr %409, ptr %408, align 8
   %410 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(16) %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not.i237 = icmp eq ptr %410, null
   br i1 %.not.i237, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E14parseArrayTypeEv.exit, label %411
 
@@ -3348,7 +3342,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit255.thread
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit255.thread: ; preds = %487, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit255
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 1, !tbaa !121
   %490 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E17parseUnscopedNameEPNS6_9NameStateEPb(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef null, ptr noundef %10)
   store ptr %490, ptr %5, align 8, !tbaa !11
@@ -3381,7 +3375,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %or.cond, label %499, label %.critedge89.thread360
 
 .critedge89.thread360:                            ; preds = %494
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 499:                                              ; preds = %494
@@ -3400,17 +3394,17 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 .critedge89.thread340:                            ; preds = %502
   %504 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeESB_EEESA_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr nonnull %503)
   store ptr %504, ptr %5, align 8, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %thread-pre-split
 
 .critedge89.thread:                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit255.thread, %502
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 .critedge89:                                      ; preds = %..critedge89_crit_edge, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit258
   %505 = phi i8 [ %.pre354, %..critedge89_crit_edge ], [ %.pre355, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit258 ]
   %506 = trunc nuw i8 %505 to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %506, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit, label %thread-pre-split.thread
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit, %1, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit255
@@ -3497,12 +3491,12 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 .critedge70:                                      ; preds = %185, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i, %211, %214, %207, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E19parseBareSourceNameEv.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit214, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199, %222, %thread-pre-split, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %.critedge89.thread360, %352, %355, %296, %253, %256, %482, %477, %472, %467, %462, %457, %392, %.critedge89.thread, %358, %350, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223.thread, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit217.thread, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208.thread, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205.thread, %259, %247, %162, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i, %123, %121, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit249.thread, %325, %327, %329, %331, %333, %335, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223, %308, %310, %312, %314, %316, %318, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit217, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit211, %284, %286, %288, %290, %292, %294, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208, %267, %269, %271, %273, %275, %277, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205, %.critedge70, %.critedge89, %385, %384, %373, %370, %367, %364, %361, %244, %234, %231, %228, %225, %182, %179, %176, %173, %170, %167, %164, %74, %71, %68, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38
   %.0 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ], [ %61, %59 ], [ %64, %62 ], [ %67, %65 ], [ %70, %68 ], [ %73, %71 ], [ %76, %74 ], [ %166, %164 ], [ %169, %167 ], [ %172, %170 ], [ %175, %173 ], [ %178, %176 ], [ %181, %179 ], [ %184, %182 ], [ %227, %225 ], [ %230, %228 ], [ %233, %231 ], [ %236, %234 ], [ %246, %244 ], [ %363, %361 ], [ %366, %364 ], [ %369, %367 ], [ %372, %370 ], [ %375, %373 ], [ %.10, %384 ], [ %387, %385 ], [ %490, %.critedge89 ], [ null, %.critedge70 ], [ %268, %267 ], [ %270, %269 ], [ %272, %271 ], [ %274, %273 ], [ %276, %275 ], [ %278, %277 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205 ], [ %285, %284 ], [ %287, %286 ], [ %289, %288 ], [ %291, %290 ], [ %293, %292 ], [ %295, %294 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit211 ], [ %309, %308 ], [ %311, %310 ], [ %313, %312 ], [ %315, %314 ], [ %317, %316 ], [ %319, %318 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit217 ], [ %326, %325 ], [ %328, %327 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit249.thread ], [ %.sroa.04.0.i.i.i.i.i, %121 ], [ %spec.select.i.i.i.i, %162 ], [ %spec.select.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i ], [ null, %123 ], [ %261, %259 ], [ null, %247 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205.thread ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208.thread ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit217.thread ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223.thread ], [ %360, %358 ], [ null, %350 ], [ null, %.critedge89.thread ], [ null, %392 ], [ null, %457 ], [ null, %462 ], [ null, %467 ], [ null, %472 ], [ null, %477 ], [ null, %482 ], [ null, %256 ], [ null, %253 ], [ null, %296 ], [ null, %355 ], [ null, %352 ], [ %490, %.critedge89.thread360 ], [ %.pre358, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit ], [ null, %thread-pre-split ], [ null, %222 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit214 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -3627,7 +3621,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 41:                                               ; preds = %.sink.split, %38, %.thread144, %36, %34
   %42 = phi ptr [ %39, %38 ], [ %28, %.thread144 ], [ %37, %36 ], [ %35, %34 ], [ %.ph, %.sink.split ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !11
   %43 = icmp ne ptr %1, null
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -3876,7 +3870,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
 
 .thread115:                                       ; preds = %90, %95, %66, %69, %98, %79, %64, %61, %141, %137, %134
   %.232.i = phi ptr [ %50, %141 ], [ null, %137 ], [ null, %134 ], [ null, %61 ], [ null, %64 ], [ null, %79 ], [ null, %98 ], [ null, %69 ], [ null, %66 ], [ null, %95 ], [ null, %90 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseNestedNameEPNS6_9NameStateE.exit
 
 143:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
@@ -3922,7 +3916,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseNestedNameEPNS6_9NameStateE.exit
 
 164:                                              ; preds = %155, %153
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E18SaveTemplateParamsC2EPS6_(ptr noundef nonnull align 8 dereferenceable(152) %3, ptr noundef nonnull align 8 dereferenceable(1464) %0)
   %165 = load ptr, ptr %0, align 8, !tbaa !86
   %166 = load ptr, ptr %6, align 8, !tbaa !87
@@ -3975,11 +3969,11 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit77.thread: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit77.thread.sink.split, %170, %175, %182, %178
   %.3.i = phi ptr [ null, %178 ], [ null, %182 ], [ null, %175 ], [ null, %170 ], [ %189, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit77.thread.sink.split ]
   call fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E18SaveTemplateParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %3) #22
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseNestedNameEPNS6_9NameStateE.exit
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit21.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit, %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %190 = ptrtoint ptr %.val11 to i64
   %191 = ptrtoint ptr %.val to i64
   %192 = sub i64 %190, %191
@@ -4146,7 +4140,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 .critedge:                                        ; preds = %201, %207, %195, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit29.thread, %245, %251, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E17parseUnscopedNameEPNS6_9NameStateEPb.exit
   %.1 = phi ptr [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E17parseUnscopedNameEPNS6_9NameStateEPb.exit ], [ %252, %251 ], [ null, %245 ], [ %spec.select, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit29.thread ], [ null, %195 ], [ null, %207 ], [ null, %201 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseNestedNameEPNS6_9NameStateE.exit
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseNestedNameEPNS6_9NameStateE.exit: ; preds = %147, %150, %158, %162, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit77.thread, %143, %.thread115, %.critedge
@@ -4167,7 +4161,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = alloca %"class.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::SaveTemplateParams", align 8
   %11 = alloca %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::NameState", align 8
   %12 = alloca %"class.llvm::itanium_demangle::NodeArray", align 8
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E18SaveTemplateParamsC2EPS6_(ptr noundef nonnull align 8 dereferenceable(152) %10, ptr noundef %0)
   %.val = load ptr, ptr %0, align 8, !tbaa !86
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4352,7 +4346,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %97, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit, label %98
 
 98:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit124
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %99 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E13parseEncodingEb(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   store ptr %99, ptr %8, align 8, !tbaa !11
   %100 = icmp eq ptr %99, null
@@ -4371,7 +4365,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 106:                                              ; preds = %104, %102, %98
   %.12.i = phi ptr [ %103, %102 ], [ %105, %104 ], [ null, %98 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit133: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
@@ -4398,7 +4392,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %116 = load i8, ptr %115, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %117, ptr %2, align 8, !tbaa !59
   %118 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4406,7 +4400,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %119, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeEEEEvRNS3_16FoldingSetNodeIDENS5_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 21, ptr noundef nonnull @.str.284, ptr noundef nonnull %111)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %121 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %120, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i100 = icmp eq ptr %121, null
@@ -4472,7 +4466,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 153:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i116, %.critedge.i.i.i.i.i114, %122
   %.sroa.04.0.i.i.i.i.i101 = phi ptr [ %144, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i116 ], [ %123, %122 ], [ null, %.critedge.i.i.i.i.i114 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %154 = load ptr, ptr %2, align 8, !tbaa !59
   %155 = icmp eq ptr %154, %117
   br i1 %155, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA20_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i, label %156
@@ -4482,7 +4476,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA20_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA20_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i: ; preds = %156, %153
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i.i100, label %157, label %159
 
 157:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA20_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i
@@ -4629,7 +4623,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 221:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121
   %222 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %222, ptr %0, align 8, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !131
   %223 = call fastcc noundef zeroext i1 @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E18parseModuleNameOptERPNS0_10ModuleNameE(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
   %224 = load ptr, ptr %9, align 8
@@ -4642,7 +4636,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %229 = load i8, ptr %228, align 1, !tbaa !63, !range !84, !noundef !85
   %230 = trunc nuw i8 %229 to i1
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %231 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %231, ptr %4, align 8, !tbaa !59
   %232 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4698,7 +4692,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle10ModuleNameEEEEvRNS
   %258 = load i32, ptr %232, align 8, !tbaa !60
   %259 = add i32 %258, 1
   store i32 %259, ptr %232, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %261 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %260, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i78 = icmp eq ptr %261, null
@@ -4763,7 +4757,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 292:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i92, %.critedge.i.i.i.i.i90, %262
   %.sroa.04.0.i.i.i.i.i = phi ptr [ %283, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i92 ], [ %263, %262 ], [ null, %.critedge.i.i.i.i.i90 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %293 = load ptr, ptr %4, align 8, !tbaa !59
   %294 = icmp eq ptr %293, %231
   br i1 %294, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA24_KcRPNS3_10ModuleNameEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %295
@@ -4773,7 +4767,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA24_KcRPNS3_10ModuleNameEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA24_KcRPNS3_10ModuleNameEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i: ; preds = %295, %292
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not.i.i.i.i.i78, label %296, label %298
 
 296:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA24_KcRPNS3_10ModuleNameEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
@@ -4852,11 +4846,11 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA24_KcRPNS0_10ModuleNameEEEEPNS0_4NodeEDpOT0_.exit: ; preds = %337, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i87, %298, %296, %221
   %.16.i = phi ptr [ null, %221 ], [ %.sroa.04.0.i.i.i.i.i, %296 ], [ %spec.select.i.i.i.i88, %337 ], [ %spec.select.i.i.i.i88, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i87 ], [ null, %298 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit55.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit, %1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %.val40 = load ptr, ptr %339, align 8, !tbaa !24
   %340 = getelementptr inbounds nuw i8, ptr %0, i64 728
@@ -5092,7 +5086,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 457:                                              ; preds = %454, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
   %.0144 = phi ptr [ %455, %454 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %458 = load ptr, ptr %0, align 8, !tbaa !86
   %459 = load ptr, ptr %13, align 8, !tbaa !87
@@ -5155,12 +5149,12 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 501:                                              ; preds = %494
   %502 = load i8, ptr %476, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %477, ptr %6, align 8, !tbaa !59
   store i32 0, ptr %478, align 8, !tbaa !60
   store i32 32, ptr %479, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 noundef zeroext 87, ptr noundef nonnull %492)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %503 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %480, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i = icmp eq ptr %503, null
   br i1 %.not.i.i.i.i.i, label %.critedge.i.i.i.i.i, label %504
@@ -5219,7 +5213,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 532:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %504
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %524, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %505, %504 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %533 = load ptr, ptr %6, align 8, !tbaa !59
   %534 = icmp eq ptr %533, %477
   br i1 %534, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle23ExplicitObjectParameterEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %535
@@ -5229,7 +5223,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle23ExplicitObjectParameterEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle23ExplicitObjectParameterEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %535, %532
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not.i.i.i.i.i, label %536, label %537
 
 536:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle23ExplicitObjectParameterEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -5423,23 +5417,23 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 .critedge31:                                      ; preds = %537, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit, %491, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit77.thread, %610
   %.11 = phi ptr [ %615, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit77.thread ], [ null, %610 ], [ null, %491 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit ], [ null, %537 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.critedge29
 
 .critedge29:                                      ; preds = %378, %415, %.lr.ph.i, %.lr.ph4.i, %.lr.ph.split.i, %444, %454, %.critedge31, %.loopexit, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit55.thread
   %.1 = phi ptr [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit55.thread ], [ %350, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i ], [ %350, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i ], [ %350, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i ], [ %350, %.loopexit ], [ null, %444 ], [ %.11, %.critedge31 ], [ null, %454 ], [ null, %.lr.ph.split.i ], [ null, %.lr.ph4.i ], [ null, %.lr.ph.i ], [ null, %415 ], [ null, %378 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit133, %69, %72, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA24_KcRPNS0_10ModuleNameEEEEPNS0_4NodeEDpOT0_.exit, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121, %106, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit124, %54, %51, %25, %21, %31, %27, %37, %33, %43, %39, %49, %45, %59, %56, %75, %79, %65, %61, %85, %81, %91, %87, %198, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i110, %159, %157, %109, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit96, %219, %200, %.critedge29
   %.0 = phi ptr [ %.1, %.critedge29 ], [ %.16.i, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA24_KcRPNS0_10ModuleNameEEEEPNS0_4NodeEDpOT0_.exit ], [ null, %54 ], [ null, %51 ], [ %.12.i, %106 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit124 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121 ], [ %26, %25 ], [ null, %21 ], [ %32, %31 ], [ null, %27 ], [ %38, %37 ], [ null, %33 ], [ %44, %43 ], [ null, %39 ], [ %50, %49 ], [ null, %45 ], [ %60, %59 ], [ null, %56 ], [ null, %61 ], [ null, %65 ], [ %80, %79 ], [ null, %75 ], [ %86, %85 ], [ null, %81 ], [ %92, %91 ], [ null, %87 ], [ null, %109 ], [ %.sroa.04.0.i.i.i.i.i101, %157 ], [ %spec.select.i.i.i.i112, %198 ], [ %spec.select.i.i.i.i112, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i110 ], [ null, %159 ], [ null, %200 ], [ %220, %219 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit96 ], [ null, %72 ], [ null, %69 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit133 ]
   call fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E18SaveTemplateParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %10) #22
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1) unnamed_addr #0 {
@@ -5504,14 +5498,14 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_tra
   ret void
 }
 
-declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
+declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
-declare void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144), ptr, i64) local_unnamed_addr #6
+declare void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144), ptr, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
-declare noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #6
+declare noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE14GetNodeProfileEPKNS_14FoldingSetBaseEPNS5_4NodeERNS_16FoldingSetNodeIDE(ptr readnone captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(144) %2) #0 align 2 {
@@ -6218,7 +6212,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetN
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle13NodeArrayNodeEEEvPKT_(ptr %.0.val, ptr readonly captures(address) %.16.val, i64 %.24.val) unnamed_addr #0 align 2 {
   %1 = alloca %"struct.(anonymous namespace)::FoldingSetNodeIDBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %.0.val, ptr %1, align 8, !tbaa !259
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !60
@@ -6266,7 +6260,7 @@ _ZNK4llvm16itanium_demangle13NodeArrayNode5matchIN12_GLOBAL__N_119ProfileSpecifi
   %26 = add i32 %25, 1
   store i32 %26, ptr %2, align 8, !tbaa !60
   call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr readonly %.16.val, i64 %.24.val)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -6574,7 +6568,7 @@ _ZNK4llvm16itanium_demangle8QualType5matchIN12_GLOBAL__N_119ProfileSpecificNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle12EnableIfAttrEEEvPKT_(ptr %.0.val, ptr readonly captures(address) %.16.val, i64 %.24.val) unnamed_addr #0 align 2 {
   %1 = alloca %"struct.(anonymous namespace)::FoldingSetNodeIDBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %.0.val, ptr %1, align 8, !tbaa !259
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !60
@@ -6622,7 +6616,7 @@ _ZNK4llvm16itanium_demangle12EnableIfAttr5matchIN12_GLOBAL__N_119ProfileSpecific
   %26 = add i32 %25, 1
   store i32 %26, ptr %2, align 8, !tbaa !60
   call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr readonly %.16.val, i64 %.24.val)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -6922,7 +6916,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_de
   %9 = load i8, ptr %8, align 4, !tbaa !267
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !268
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %.0.val, ptr %2, align 8, !tbaa !259
   %12 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !60
@@ -7148,14 +7142,14 @@ _ZNK4llvm16itanium_demangle12FunctionType5matchIN12_GLOBAL__N_119ProfileSpecific
   %133 = load i32, ptr %12, align 8, !tbaa !60
   %134 = add i32 %133, 1
   store i32 %134, ptr %12, align 8, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle20DynamicExceptionSpecEEEvPKT_(ptr %.0.val, ptr readonly captures(address) %.16.val, i64 %.24.val) unnamed_addr #0 align 2 {
   %1 = alloca %"struct.(anonymous namespace)::FoldingSetNodeIDBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %.0.val, ptr %1, align 8, !tbaa !259
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !60
@@ -7203,7 +7197,7 @@ _ZNK4llvm16itanium_demangle20DynamicExceptionSpec5matchIN12_GLOBAL__N_119Profile
   %26 = add i32 %25, 1
   store i32 %26, ptr %2, align 8, !tbaa !60
   call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr readonly %.16.val, i64 %.24.val)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -7226,7 +7220,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_de
   %13 = load i32, ptr %12, align 8, !tbaa !274
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %15 = load i8, ptr %14, align 4, !tbaa !275
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %.0.val, ptr %2, align 8, !tbaa !259
   %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !60
@@ -7544,7 +7538,7 @@ _ZNK4llvm16itanium_demangle16FunctionEncoding5matchIN12_GLOBAL__N_119ProfileSpec
   %189 = load i32, ptr %16, align 8, !tbaa !60
   %190 = add i32 %189, 1
   store i32 %190, ptr %16, align 8, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -7806,7 +7800,7 @@ _ZNK4llvm16itanium_demangle10BitIntType5matchIN12_GLOBAL__N_119ProfileSpecificNo
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle13ParameterPackEEEvPKT_(ptr %.0.val, ptr readonly captures(address) %.16.val, i64 %.24.val) unnamed_addr #0 align 2 {
   %1 = alloca %"struct.(anonymous namespace)::FoldingSetNodeIDBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %.0.val, ptr %1, align 8, !tbaa !259
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !60
@@ -7854,14 +7848,14 @@ _ZNK4llvm16itanium_demangle13ParameterPack5matchIN12_GLOBAL__N_119ProfileSpecifi
   %26 = add i32 %25, 1
   store i32 %26, ptr %2, align 8, !tbaa !60
   call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr readonly %.16.val, i64 %.24.val)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle20TemplateArgumentPackEEEvPKT_(ptr %.0.val, ptr readonly captures(address) %.16.val, i64 %.24.val) unnamed_addr #0 align 2 {
   %1 = alloca %"struct.(anonymous namespace)::FoldingSetNodeIDBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %.0.val, ptr %1, align 8, !tbaa !259
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !60
@@ -7909,7 +7903,7 @@ _ZNK4llvm16itanium_demangle20TemplateArgumentPack5matchIN12_GLOBAL__N_119Profile
   %26 = add i32 %25, 1
   store i32 %26, ptr %2, align 8, !tbaa !60
   call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr readonly %.16.val, i64 %.24.val)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -8120,7 +8114,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_de
   %.sroa.04.0.copyload.i = load i64, ptr %9, align 8, !tbaa !108
   %.sroa.2.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.2.0.copyload6.i = load ptr, ptr %.sroa.2.0..sroa_idx5.i, align 8, !tbaa !109
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %.0.val, ptr %2, align 8, !tbaa !259
   %10 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !60
@@ -8275,14 +8269,14 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   br label %_ZNK4llvm16itanium_demangle15ClosureTypeName5matchIN12_GLOBAL__N_119ProfileSpecificNodeIS1_EEEEvT_.exit
 
 _ZNK4llvm16itanium_demangle15ClosureTypeName5matchIN12_GLOBAL__N_119ProfileSpecificNodeIS1_EEEEvT_.exit: ; preds = %90, %91
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle21StructuredBindingNameEEEvPKT_(ptr %.0.val, ptr readonly captures(address) %.16.val, i64 %.24.val) unnamed_addr #0 align 2 {
   %1 = alloca %"struct.(anonymous namespace)::FoldingSetNodeIDBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %.0.val, ptr %1, align 8, !tbaa !259
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !60
@@ -8330,7 +8324,7 @@ _ZNK4llvm16itanium_demangle21StructuredBindingName5matchIN12_GLOBAL__N_119Profil
   %26 = add i32 %25, 1
   store i32 %26, ptr %2, align 8, !tbaa !60
   call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr readonly %.16.val, i64 %.24.val)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -8989,7 +8983,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_de
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i8, ptr %9, align 8, !tbaa !301, !range !84, !noundef !85
   %11 = zext nneg i8 %10 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %.0.val, ptr %2, align 8, !tbaa !259
   %12 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !60
@@ -9184,7 +9178,7 @@ _ZNK4llvm16itanium_demangle13SubobjectExpr5matchIN12_GLOBAL__N_119ProfileSpecifi
   %113 = load i32, ptr %12, align 8, !tbaa !60
   %114 = add i32 %113, 1
   store i32 %114, ptr %12, align 8, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -9579,7 +9573,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_de
   %11 = shl i16 %10, 10
   %12 = ashr exact i16 %11, 10
   %13 = sext i16 %12 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %.0.val, ptr %2, align 8, !tbaa !259
   %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !60
@@ -9759,7 +9753,7 @@ _ZNK4llvm16itanium_demangle8CallExpr5matchIN12_GLOBAL__N_119ProfileSpecificNodeI
   %109 = load i32, ptr %14, align 8, !tbaa !60
   %110 = add i32 %109, 1
   store i32 %110, ptr %14, align 8, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -9840,7 +9834,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_de
   %8 = shl i16 %7, 10
   %9 = ashr exact i16 %8, 10
   %10 = sext i16 %9 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %.0.val, ptr %2, align 8, !tbaa !259
   %11 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !60
@@ -9978,7 +9972,7 @@ _ZNK4llvm16itanium_demangle14ConversionExpr5matchIN12_GLOBAL__N_119ProfileSpecif
   %84 = load i32, ptr %11, align 8, !tbaa !60
   %85 = add i32 %84, 1
   store i32 %85, ptr %11, align 8, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -10202,7 +10196,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_de
   %.sroa.0.0.copyload.i = load ptr, ptr %5, align 8, !tbaa !144
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !108
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %.0.val, ptr %2, align 8, !tbaa !259
   %6 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !60
@@ -10296,7 +10290,7 @@ _ZNK4llvm16itanium_demangle12InitListExpr5matchIN12_GLOBAL__N_119ProfileSpecific
   %56 = add i32 %55, 1
   store i32 %56, ptr %6, align 8, !tbaa !60
   call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -10998,7 +10992,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_de
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8, !tbaa !144
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !108
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %.0.val, ptr %2, align 8, !tbaa !259
   %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !60
@@ -11047,7 +11041,7 @@ _ZNK4llvm16itanium_demangle12RequiresExpr5matchIN12_GLOBAL__N_119ProfileSpecific
   store i32 %29, ptr %5, align 8, !tbaa !60
   call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.sroa.01.0.copyload.i, i64 %.sroa.22.0.copyload.i)
   call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -12695,7 +12689,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %"struct.(anonymous namespace)::FoldingSetNodeIDBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !259
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !60
@@ -12836,14 +12830,14 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %83 = load i32, ptr %7, align 8, !tbaa !60
   %84 = add i32 %83, 1
   store i32 %84, ptr %7, align 8, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEPNS2_4NodeEEEEvRNS1_16FoldingSetNodeIDENS4_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %"struct.(anonymous namespace)::FoldingSetNodeIDBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8, !tbaa !259
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !60
@@ -12938,7 +12932,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %56 = load i32, ptr %6, align 8, !tbaa !60
   %57 = add i32 %56, 1
   store i32 %57, ptr %6, align 8, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -13238,7 +13232,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4PrecE
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEPNS2_4NodeES3_bbNS4_4PrecEEEEvRNS1_16FoldingSetNodeIDENS4_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef %3, ptr readonly captures(address) %.0.val, i64 %.8.val, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca %"struct.(anonymous namespace)::FoldingSetNodeIDBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %0, ptr %8, align 8, !tbaa !259
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !60
@@ -13464,7 +13458,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4PrecE
   %129 = load i32, ptr %9, align 8, !tbaa !60
   %130 = add i32 %129, 1
   store i32 %130, ptr %9, align 8, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -13920,7 +13914,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_tra
   ret void
 }
 
-declare noundef zeroext i1 @_ZNK4llvm16FoldingSetNodeIDeqERKS0_(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #6
+declare noundef zeroext i1 @_ZNK4llvm16FoldingSetNodeIDeqERKS0_(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 comdat {
@@ -14372,7 +14366,7 @@ define linkonce_odr hidden noundef i64 @_ZN4llvm7hashing6detail10hash_shortEPKcm
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1, i64 noundef %2, i8 %3) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1, i64 noundef %2, i8 %3) local_unnamed_addr #10 comdat align 2 {
   %5 = zext nneg i8 %3 to i64
   %6 = shl nuw i64 1, %5
   %7 = add i64 %6, -1
@@ -14569,12 +14563,12 @@ define linkonce_odr hidden { i64, ptr } @_ZNK4llvm16itanium_demangle4Node11getBa
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #13
+declare void @abort() local_unnamed_addr #12
 
-declare void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #6
+declare void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E17parseFunctionTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0) unnamed_addr #0 align 2 {
@@ -14686,7 +14680,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i33: ; preds = %_ZNSt11char_tra
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %56 = load i8, ptr %55, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %57, ptr %8, align 8, !tbaa !59
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -14694,7 +14688,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i33: ; preds = %_ZNSt11char_tra
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 32, ptr %59, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %8, i8 noundef zeroext 17, ptr noundef nonnull %44)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %61 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i = icmp eq ptr %61, null
@@ -14756,7 +14750,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 92:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %62
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %84, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %63, %62 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %93 = load ptr, ptr %8, align 8, !tbaa !59
   %94 = icmp eq ptr %93, %57
   br i1 %94, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12NoexceptSpecEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %95
@@ -14766,7 +14760,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12NoexceptSpecEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12NoexceptSpecEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %95, %92
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not.i.i.i.i.i, label %96, label %98
 
 96:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12NoexceptSpecEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -14999,21 +14993,21 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store ptr %216, ptr %143, align 8, !tbaa !9
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %218 = load i8, ptr %217, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %219 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %219, ptr %6, align 8, !tbaa !59
   %220 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %221 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 32, ptr %221, align 4, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !259
   store i32 18, ptr %219, align 8
   %222 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %222, align 4
   store i32 2, ptr %220, align 8, !tbaa !60
   call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr readonly %.0.i.i.i.i.i, i64 %214)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %224 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %223, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i50 = icmp eq ptr %224, null
@@ -15075,7 +15069,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 253:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i66, %.critedge.i.i.i.i.i64, %225
   %.sroa.0.0.i.i.i.i.i51 = phi ptr [ %245, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i66 ], [ %226, %225 ], [ null, %.critedge.i.i.i.i.i64 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %254 = load ptr, ptr %6, align 8, !tbaa !59
   %255 = icmp eq ptr %254, %219
   br i1 %255, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20DynamicExceptionSpecEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %256
@@ -15085,7 +15079,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20DynamicExceptionSpecEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20DynamicExceptionSpecEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i: ; preds = %256, %253
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not.i.i.i.i.i50, label %257, label %259
 
 257:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20DynamicExceptionSpecEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
@@ -15394,13 +15388,13 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %403 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %404 = load i8, ptr %403, align 1, !tbaa !63, !range !84, !noundef !85
   %405 = trunc nuw i8 %404 to i1
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %406 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %406, ptr %3, align 8, !tbaa !59
   %407 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %408 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %408, align 4, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8, !tbaa !259
   store i32 16, ptr %406, align 8
   %409 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -15536,8 +15530,8 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayENS
   %476 = load i32, ptr %407, align 8, !tbaa !60
   %477 = add i32 %476, 1
   store i32 %477, ptr %407, align 8, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %478 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %479 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %478, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i106 = icmp eq ptr %479, null
@@ -15606,7 +15600,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 511:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i121, %.critedge.i.i.i.i.i119, %480
   %.sroa.0.0.i.i.i.i.i107 = phi ptr [ %499, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i121 ], [ %481, %480 ], [ null, %.critedge.i.i.i.i.i119 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %512 = load ptr, ptr %3, align 8, !tbaa !59
   %513 = icmp eq ptr %512, %406
   br i1 %513, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12FunctionTypeEJRPNS3_4NodeERNS3_9NodeArrayERNS3_10QualifiersERNS3_15FunctionRefQualES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %514
@@ -15616,7 +15610,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12FunctionTypeEJRPNS3_4NodeERNS3_9NodeArrayERNS3_10QualifiersERNS3_15FunctionRefQualES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12FunctionTypeEJRPNS3_4NodeERNS3_9NodeArrayERNS3_10QualifiersERNS3_15FunctionRefQualES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %514, %511
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i.i106, label %515, label %517
 
 515:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12FunctionTypeEJRPNS3_4NodeERNS3_9NodeArrayERNS3_10QualifiersERNS3_15FunctionRefQualES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -15838,7 +15832,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %60 = load i8, ptr %59, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %61, ptr %6, align 8, !tbaa !59
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -15846,7 +15840,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 32, ptr %63, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_viewIcSt11char_traitsIcEEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 noundef zeroext 11, ptr noundef nonnull %55, i64 %47, ptr nonnull %48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %65 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i = icmp eq ptr %65, null
@@ -15912,7 +15906,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 97:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %66
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %88, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %67, %66 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %98 = load ptr, ptr %6, align 8, !tbaa !59
   %99 = icmp eq ptr %98, %61
   br i1 %99, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13ObjCProtoNameEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %100
@@ -15922,7 +15916,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13ObjCProtoNameEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13ObjCProtoNameEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %100, %97
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not.i.i.i.i.i, label %101, label %103
 
 101:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13ObjCProtoNameEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -16024,7 +16018,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_tra
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %154 = load i8, ptr %153, align 1, !tbaa !63, !range !84, !noundef !85
   %155 = trunc nuw i8 %154 to i1
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %156 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %156, ptr %4, align 8, !tbaa !59
   %157 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -16083,7 +16077,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   %185 = load i32, ptr %157, align 8, !tbaa !60
   %186 = add i32 %185, 1
   store i32 %186, ptr %157, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %188 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %187, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i33 = icmp eq ptr %188, null
@@ -16150,7 +16144,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 220:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i48, %.critedge.i.i.i.i.i46, %189
   %.sroa.0.0.i.i.i.i.i34 = phi ptr [ %210, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i48 ], [ %190, %189 ], [ null, %.critedge.i.i.i.i.i46 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %221 = load ptr, ptr %4, align 8, !tbaa !59
   %222 = icmp eq ptr %221, %156
   br i1 %222, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle17VendorExtQualTypeEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %223
@@ -16160,7 +16154,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle17VendorExtQualTypeEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle17VendorExtQualTypeEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %223, %220
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not.i.i.i.i.i33, label %224, label %226
 
 224:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle17VendorExtQualTypeEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -16295,7 +16289,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %290 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %292 = load i8, ptr %291, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %293 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %293, ptr %2, align 8, !tbaa !59
   %294 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -16312,7 +16306,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %300 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 0, ptr %300, align 4
   store i32 6, ptr %294, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %302 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %301, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i54 = icmp eq ptr %302, null
@@ -16379,7 +16373,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 337:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i70, %.critedge.i.i.i.i.i68, %303
   %.sroa.0.0.i.i.i.i.i55 = phi ptr [ %325, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i70 ], [ %304, %303 ], [ null, %.critedge.i.i.i.i.i68 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %338 = load ptr, ptr %2, align 8, !tbaa !59
   %339 = icmp eq ptr %338, %293
   br i1 %339, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8QualTypeEJRPNS3_4NodeERNS3_10QualifiersEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %340
@@ -16389,7 +16383,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8QualTypeEJRPNS3_4NodeERNS3_10QualifiersEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8QualTypeEJRPNS3_4NodeERNS3_10QualifiersEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %340, %337
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i.i54, label %341, label %343
 
 341:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8QualTypeEJRPNS3_4NodeERNS3_10QualifiersEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -16478,7 +16472,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -16486,7 +16480,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 1 dereferenceable(5) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -16551,7 +16545,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.013.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA5_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %47
@@ -16561,7 +16555,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA5_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA5_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA5_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -16650,7 +16644,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -16658,7 +16652,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 1 dereferenceable(8) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -16723,7 +16717,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.013.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA8_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %47
@@ -16733,7 +16727,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA8_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA8_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA8_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -16822,7 +16816,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -16830,7 +16824,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 1 dereferenceable(12) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -16895,7 +16889,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.013.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA12_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %47
@@ -16905,7 +16899,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA12_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA12_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA12_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -16994,7 +16988,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -17002,7 +16996,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 1 dereferenceable(14) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -17067,7 +17061,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.013.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA14_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %47
@@ -17077,7 +17071,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA14_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA14_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA14_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -17166,7 +17160,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -17174,7 +17168,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 1 dereferenceable(6) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -17239,7 +17233,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.013.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA6_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %47
@@ -17249,7 +17243,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA6_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA6_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA6_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -17338,7 +17332,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -17346,7 +17340,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 1 dereferenceable(15) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -17411,7 +17405,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.013.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA15_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %47
@@ -17421,7 +17415,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA15_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA15_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA15_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -17510,7 +17504,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -17518,7 +17512,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 1 dereferenceable(13) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -17583,7 +17577,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.013.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA13_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %47
@@ -17593,7 +17587,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA13_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA13_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA13_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -17682,7 +17676,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -17690,7 +17684,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 1 dereferenceable(10) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -17755,7 +17749,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.013.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA10_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %47
@@ -17765,7 +17759,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA10_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA10_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA10_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -17854,7 +17848,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -17862,7 +17856,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 1 dereferenceable(9) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -17927,7 +17921,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.013.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA9_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %47
@@ -17937,7 +17931,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA9_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA9_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA9_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -18026,7 +18020,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -18034,7 +18028,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 1 dereferenceable(18) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -18099,7 +18093,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.013.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA18_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %47
@@ -18109,7 +18103,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA18_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA18_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA18_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -18198,7 +18192,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -18206,7 +18200,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 1 dereferenceable(7) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -18271,7 +18265,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.013.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA7_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %47
@@ -18281,7 +18275,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA7_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA7_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA7_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -18370,7 +18364,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -18378,7 +18372,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 1 dereferenceable(11) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -18443,7 +18437,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.013.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA11_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %47
@@ -18453,7 +18447,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA11_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA11_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA11_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -18542,7 +18536,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -18553,7 +18547,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %.sroa.26.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.26.0.copyload.i.i.i.i = load ptr, ptr %.sroa.26.0..sroa_idx.i.i.i.i, align 8, !tbaa !109
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llvm16itanium_demangle4NodeEEEEvRNS5_16FoldingSetNodeIDENS7_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 noundef zeroext 7, i64 %.sroa.05.0.copyload.i.i.i.i, ptr %.sroa.26.0.copyload.i.i.i.i, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -18621,7 +18615,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.0.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15TransformedTypeEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeEEEESt4pairISB_bEbDpOT0_.exit.i.i.i, label %47
@@ -18631,7 +18625,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15TransformedTypeEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeEEEESt4pairISB_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15TransformedTypeEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeEEEESt4pairISB_bEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15TransformedTypeEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeEEEESt4pairISB_bEbDpOT0_.exit.i.i.i
@@ -18720,7 +18714,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -18731,7 +18725,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %.sroa.26.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.26.0.copyload.i.i.i.i = load ptr, ptr %.sroa.26.0..sroa_idx.i.i.i.i, align 8, !tbaa !109
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN4llvm16FoldingSetNodeIDENS5_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 noundef zeroext 8, i64 %.sroa.05.0.copyload.i.i.i.i, ptr %.sroa.26.0.copyload.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -18797,7 +18791,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 43:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.0.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %44 = load ptr, ptr %3, align 8, !tbaa !59
   %45 = icmp eq ptr %44, %8
   br i1 %45, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %46
@@ -18807,7 +18801,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %46, %43
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %47, label %49
 
 47:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -18896,7 +18890,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -18904,7 +18898,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 1 dereferenceable(16) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -18969,7 +18963,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.013.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA16_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %47
@@ -18979,7 +18973,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA16_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA16_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA16_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -19068,7 +19062,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -19079,7 +19073,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %.sroa.26.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.26.0.copyload.i.i.i.i = load ptr, ptr %.sroa.26.0..sroa_idx.i.i.i.i, align 8, !tbaa !109
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN4llvm16FoldingSetNodeIDENS5_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 noundef zeroext 8, i64 %.sroa.05.0.copyload.i.i.i.i, ptr %.sroa.26.0.copyload.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -19145,7 +19139,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 43:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.0.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %44 = load ptr, ptr %3, align 8, !tbaa !59
   %45 = icmp eq ptr %44, %8
   br i1 %45, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %46
@@ -19155,7 +19149,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %46, %43
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %47, label %49
 
 47:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -19238,7 +19232,7 @@ _ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8Name
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc { i64, ptr } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E11parseNumberEb(ptr noundef nonnull align 8 captures(none) dereferenceable(1464) %0, i1 noundef zeroext %1) unnamed_addr #14 align 2 {
+define internal fastcc { i64, ptr } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E11parseNumberEb(ptr noundef nonnull align 8 captures(none) dereferenceable(1464) %0, i1 noundef zeroext %1) unnamed_addr #13 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !86
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -19304,7 +19298,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -19312,7 +19306,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 31, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -19374,7 +19368,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 42:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %43 = load ptr, ptr %2, align 8, !tbaa !59
   %44 = icmp eq ptr %43, %7
   br i1 %44, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12BinaryFPTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %45
@@ -19384,7 +19378,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12BinaryFPTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12BinaryFPTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %45, %42
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %46, label %48
 
 46:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12BinaryFPTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -19473,7 +19467,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -19481,7 +19475,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 1 dereferenceable(22) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -19546,7 +19540,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.013.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA22_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %47
@@ -19556,7 +19550,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA22_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA22_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA22_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -19645,7 +19639,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -19653,7 +19647,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 1 dereferenceable(21) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -19718,7 +19712,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.013.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA21_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %47
@@ -19728,7 +19722,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA21_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA21_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA21_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -19817,7 +19811,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -19825,7 +19819,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 1 dereferenceable(27) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -19890,7 +19884,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.013.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA27_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %47
@@ -19900,7 +19894,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA27_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA27_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA27_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -19989,7 +19983,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -19997,7 +19991,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 1 dereferenceable(17) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -20062,7 +20056,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.013.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA17_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %47
@@ -20072,7 +20066,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA17_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA17_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA17_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -20161,7 +20155,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -20169,7 +20163,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 1 dereferenceable(26) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -20234,7 +20228,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.013.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA26_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %47
@@ -20244,7 +20238,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA26_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA26_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA26_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -20340,7 +20334,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = load ptr, ptr %0, align 8, !tbaa !86
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !87
@@ -20427,7 +20421,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 47:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E12OperatorInfoneEPKc.exit.i
   %48 = getelementptr inbounds nuw i8, ptr %25, i64 2
   store ptr %48, ptr %0, align 8, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %49 = getelementptr i8, ptr %43, i64 2
   %.val111 = load i8, ptr %49, align 2, !tbaa !356
   %50 = getelementptr i8, ptr %43, i64 8
@@ -20873,7 +20867,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %279 = load i8, ptr %278, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %280 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %280, ptr %6, align 8, !tbaa !59
   %281 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -20881,7 +20875,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %282 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 32, ptr %282, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEbbNS3_4PrecEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull %269, i1 noundef zeroext %21, i1 noundef zeroext %273, i32 noundef %276)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %284 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %283, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i213 = icmp eq ptr %284, null
@@ -20950,7 +20944,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 320:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %285
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %307, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %286, %285 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %321 = load ptr, ptr %6, align 8, !tbaa !59
   %322 = icmp eq ptr %321, %280
   br i1 %322, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10DeleteExprEJRPNS3_4NodeERbbNS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %323
@@ -20960,7 +20954,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10DeleteExprEJRPNS3_4NodeERbbNS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10DeleteExprEJRPNS3_4NodeERbbNS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %323, %320
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not.i.i.i.i.i213, label %324, label %326
 
 324:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10DeleteExprEJRPNS3_4NodeERbbNS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -21334,7 +21328,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
 .thread392:                                       ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit231, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit227
   %.0.i223510 = phi i1 [ false, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit231 ], [ %443, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit227 ]
   %514 = phi ptr [ %513, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit231 ], [ %483, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit227 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %515 = load ptr, ptr %432, align 8, !tbaa !3
   %516 = getelementptr inbounds i8, ptr %515, i64 %438
   %517 = ptrtoint ptr %514 to i64
@@ -21399,7 +21393,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 549:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit238, %544
   %.22 = phi ptr [ %548, %544 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit238 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
 550:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
@@ -21468,7 +21462,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %587 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %589 = load i8, ptr %588, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %590 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %590, ptr %4, align 8, !tbaa !59
   %591 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -21476,7 +21470,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %592 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 32, ptr %592, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llvm16itanium_demangle4NodeENS7_4PrecEEEEvRNS5_16FoldingSetNodeIDENS7_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %4, i8 noundef zeroext 60, i64 %.sroa.0.0.i, ptr nonnull %.sroa.7.0.i, ptr noundef nonnull %583, i32 noundef %586)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %593 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %594 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %593, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i239 = icmp eq ptr %594, null
@@ -21547,7 +21541,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 630:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i254, %.critedge.i.i.i.i.i252, %595
   %.sroa.0.0.i.i.i.i.i240 = phi ptr [ %617, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i254 ], [ %596, %595 ], [ null, %.critedge.i.i.i.i.i252 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %631 = load ptr, ptr %4, align 8, !tbaa !59
   %632 = icmp eq ptr %631, %590
   br i1 %632, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeENSA_4PrecEEEESt4pairISB_bEbDpOT0_.exit.i.i.i.i, label %633
@@ -21557,7 +21551,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeENSA_4PrecEEEESt4pairISB_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeENSA_4PrecEEEESt4pairISB_bEbDpOT0_.exit.i.i.i.i: ; preds = %633, %630
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not.i.i.i.i.i239, label %634, label %636
 
 634:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeENSA_4PrecEEEESt4pairISB_bEbDpOT0_.exit.i.i.i.i
@@ -21639,7 +21633,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit: ; preds = %453, %387, %142, %223, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit224.split.thread, %.split448, %250, %582, %634, %636, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i249, %675, %564, %567, %570, %550, %559, %556, %553, %426, %549, %367, %416, %268, %324, %326, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i, %365, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit, %.split450.us, %114, %117, %120, %103, %106, %109, %98, %95, %91, %86, %78, %74, %63, %72, %69, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
   %.0 = phi ptr [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit ], [ null, %63 ], [ %73, %72 ], [ null, %69 ], [ %81, %78 ], [ null, %74 ], [ %94, %91 ], [ null, %86 ], [ %102, %98 ], [ null, %95 ], [ null, %103 ], [ %113, %109 ], [ null, %106 ], [ null, %114 ], [ %124, %120 ], [ null, %117 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit ], [ %267, %.split450.us ], [ null, %268 ], [ %.sroa.0.0.i.i.i.i.i, %324 ], [ %spec.select.i.i.i.i, %365 ], [ %spec.select.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i ], [ null, %326 ], [ null, %367 ], [ %425, %416 ], [ null, %426 ], [ %.22, %549 ], [ null, %550 ], [ null, %553 ], [ %563, %559 ], [ null, %556 ], [ null, %564 ], [ %574, %570 ], [ null, %567 ], [ null, %582 ], [ %.sroa.0.0.i.i.i.i.i240, %634 ], [ %spec.select.i.i.i.i250, %675 ], [ %spec.select.i.i.i.i250, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i249 ], [ null, %636 ], [ null, %250 ], [ null, %.split448 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit224.split.thread ], [ null, %223 ], [ null, %142 ], [ null, %387 ], [ null, %453 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge83
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit: ; preds = %42, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E12OperatorInfoneEPKc.exit.i
@@ -21837,7 +21831,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %750 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %751 = load i8, ptr %750, align 1, !tbaa !63, !range !84, !noundef !85
   %752 = trunc nuw i8 %751 to i1
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %753 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %753, ptr %2, align 8, !tbaa !59
   %754 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -21953,7 +21947,7 @@ _ZN12_GLOBAL__N_111profileCtorIJbSt17basic_string_viewIcSt11char_traitsIcEEPN4ll
   %810 = load i32, ptr %754, align 8, !tbaa !60
   %811 = add i32 %810, 1
   store i32 %811, ptr %754, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %812 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %813 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %812, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i.i = icmp eq ptr %813, null
@@ -22022,7 +22016,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 846:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i, %814
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %835, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i ], [ %815, %814 ], [ null, %.critedge.i.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %847 = load ptr, ptr %2, align 8, !tbaa !59
   %848 = icmp eq ptr %847, %753
   br i1 %848, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8FoldExprEJRbSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeESC_EEESt4pairISB_bEbDpOT0_.exit.i.i.i.i.i, label %849
@@ -22032,7 +22026,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8FoldExprEJRbSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeESC_EEESt4pairISB_bEbDpOT0_.exit.i.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8FoldExprEJRbSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeESC_EEESt4pairISB_bEbDpOT0_.exit.i.i.i.i.i: ; preds = %849, %846
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i.i.i, label %850, label %852
 
 850:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8FoldExprEJRbSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeESC_EEESt4pairISB_bEbDpOT0_.exit.i.i.i.i.i
@@ -22365,7 +22359,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %1012, label %1016, label %1013
 
 1013:                                             ; preds = %1010, %1007
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %1014 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseTemplateArgEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   store ptr %1014, ptr %11, align 8, !tbaa !11
   %.not71 = icmp eq ptr %1014, null
@@ -22373,7 +22367,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 1015:                                             ; preds = %1013
   call void @_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(280) %999, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.pre693 = load ptr, ptr %0, align 8, !tbaa !86
   %.pre694 = load ptr, ptr %15, align 8, !tbaa !87
   br label %1007, !llvm.loop !365
@@ -22393,7 +22387,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %.critedge83
 
 .critedge85:                                      ; preds = %1013
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.critedge83
 
 1024:                                             ; preds = %995
@@ -22431,7 +22425,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %1044, label %1048, label %1045
 
 1045:                                             ; preds = %1042, %1039
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %1046 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseBracedExprEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   store ptr %1046, ptr %12, align 8, !tbaa !11
   %.not69 = icmp eq ptr %1046, null
@@ -22439,7 +22433,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 1047:                                             ; preds = %1045
   call void @_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(280) %1031, ptr noundef nonnull align 8 dereferenceable(8) %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1039, !llvm.loop !366
 
 1048:                                             ; preds = %1042
@@ -22452,7 +22446,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %.critedge83
 
 .critedge87:                                      ; preds = %1045
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.critedge83
 
 1054:                                             ; preds = %1024
@@ -22493,7 +22487,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %.not67, label %.critedge83, label %1070
 
 1070:                                             ; preds = %1068
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8, !tbaa !11
   %1071 = load ptr, ptr %1069, align 8, !tbaa !103
   %1072 = getelementptr inbounds nuw i8, ptr %1071, i64 56
@@ -22656,7 +22650,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
 
 .critedge89:                                      ; preds = %1115, %1098, %1144
   %.47 = phi ptr [ %1149, %1144 ], [ null, %1098 ], [ null, %1115 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.critedge83
 
 .thread705:                                       ; preds = %.thread, %.thread704
@@ -22665,7 +22659,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
 
 .critedge83:                                      ; preds = %912, %891, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.i, %852, %850, %733, %.critedge.i, %724, %721, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E12OperatorInfoneEPKc.exit.i.i, %716, %695, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i, %690, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit272.thread, %1, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit, %.critedge89, %1068, %1065, %1061, %1026, %.critedge87, %1048, %1022, %1016, %993, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit296.thread, %989, %986, %978, %974, %962, %958, %.critedge85, %941, %.thread705, %1056, %969, %966, %953, %688, %680, %678, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
   %.29 = phi ptr [ %.0, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit ], [ %679, %678 ], [ %681, %680 ], [ %689, %688 ], [ %955, %953 ], [ %967, %966 ], [ %971, %969 ], [ %1058, %1056 ], [ %1150, %.thread705 ], [ %946, %941 ], [ null, %.critedge85 ], [ %963, %962 ], [ null, %958 ], [ %979, %978 ], [ null, %974 ], [ %990, %989 ], [ null, %986 ], [ %994, %993 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit296.thread ], [ %1023, %1022 ], [ null, %1016 ], [ null, %1026 ], [ %1053, %1048 ], [ null, %.critedge87 ], [ %1066, %1065 ], [ null, %1061 ], [ %.47, %.critedge89 ], [ null, %1068 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ null, %1 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i ], [ null, %724 ], [ null, %.critedge.i ], [ null, %733 ], [ %.sroa.0.0.i.i.i.i.i.i, %850 ], [ %spec.select.i.i.i.i.i, %891 ], [ %spec.select.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.i ], [ null, %852 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit272.thread ], [ null, %690 ], [ null, %695 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E12OperatorInfoneEPKc.exit.i.i ], [ null, %716 ], [ null, %721 ], [ null, %912 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.29
 }
 
@@ -22676,7 +22670,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -22694,7 +22688,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 0, ptr %15, align 4
   store i32 6, ptr %8, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %17 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %17, null
@@ -22758,7 +22752,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 49:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %18
   %.sroa.0.0.i.i.i.i = phi ptr [ %40, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %19, %18 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %50 = load ptr, ptr %2, align 8, !tbaa !59
   %51 = icmp eq ptr %50, %7
   br i1 %51, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10BitIntTypeEJRPNS3_4NodeERbEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %52
@@ -22768,7 +22762,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10BitIntTypeEJRPNS3_4NodeERbEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10BitIntTypeEJRPNS3_4NodeERbEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %52, %49
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %53, label %55
 
 53:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10BitIntTypeEJRPNS3_4NodeERbEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -22857,7 +22851,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -22868,7 +22862,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %.sroa.26.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.26.0.copyload.i.i.i.i = load ptr, ptr %.sroa.26.0..sroa_idx.i.i.i.i, align 8, !tbaa !109
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_viewIcSt11char_traitsIcEEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 noundef zeroext 5, ptr noundef %.0.val, i64 %.sroa.05.0.copyload.i.i.i.i, ptr %.sroa.26.0.copyload.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -22936,7 +22930,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.0.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %47
@@ -22946,7 +22940,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -23083,7 +23077,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %30 = load i8, ptr %29, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %31, ptr %2, align 8, !tbaa !59
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -23091,7 +23085,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %33, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeEEEEvRNS3_16FoldingSetNodeIDENS5_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 60, ptr noundef nonnull @.str.241, ptr noundef nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %35 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i = icmp eq ptr %35, null
@@ -23159,7 +23153,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 68:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %36
   %.sroa.04.0.i.i.i.i.i = phi ptr [ %58, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %37, %36 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %69 = load ptr, ptr %2, align 8, !tbaa !59
   %70 = icmp eq ptr %69, %31
   br i1 %70, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRA9_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i, label %71
@@ -23169,7 +23163,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRA9_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRA9_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i: ; preds = %71, %68
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i.i, label %72, label %74
 
 72:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRA9_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i
@@ -23288,8 +23282,8 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %19, label %.lr.ph.i.preheader, label %46
 
 .lr.ph.i.preheader:                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %22
@@ -23317,7 +23311,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %15, ptr %25, align 8
   %26 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %26, ptr %4, align 8, !tbaa !11
   %.not4 = icmp eq ptr %26, null
   br i1 %.not4, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit.thread, label %27
@@ -23361,7 +23355,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit.thread: ; preds = %27, %30, %44, %41, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E11parseNumberEb.exit, %38
   %.1 = phi ptr [ %40, %38 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E11parseNumberEb.exit ], [ %45, %44 ], [ null, %41 ], [ null, %30 ], [ null, %27 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_10VectorTypeEJRPNS0_4NodeEDnEEESA_DpOT0_.exit
 
 46:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit15
@@ -23406,7 +23400,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %66 = load i8, ptr %65, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %67, ptr %2, align 8, !tbaa !59
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -23423,7 +23417,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 0, ptr %74, align 4
   store i32 6, ptr %68, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %76 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i = icmp eq ptr %76, null
@@ -23487,7 +23481,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 108:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %77
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %99, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %78, %77 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %109 = load ptr, ptr %2, align 8, !tbaa !59
   %110 = icmp eq ptr %109, %67
   br i1 %110, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10VectorTypeEJRPNS3_4NodeEDnEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %111
@@ -23497,7 +23491,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10VectorTypeEJRPNS3_4NodeEDnEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10VectorTypeEJRPNS3_4NodeEDnEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %111, %108
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i.i, label %112, label %114
 
 112:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10VectorTypeEJRPNS3_4NodeEDnEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -23586,7 +23580,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -23594,7 +23588,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 42, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -23656,7 +23650,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 42:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %43 = load ptr, ptr %2, align 8, !tbaa !59
   %44 = icmp eq ptr %43, %7
   br i1 %44, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle22ParameterPackExpansionEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %45
@@ -23666,7 +23660,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle22ParameterPackExpansionEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle22ParameterPackExpansionEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %45, %42
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %46, label %48
 
 46:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle22ParameterPackExpansionEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -23793,7 +23787,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i7: ; preds = %_ZNSt11char_trai
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %22 = load i8, ptr %21, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %23, ptr %2, align 8, !tbaa !59
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -23801,7 +23795,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i7: ; preds = %_ZNSt11char_trai
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %25, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llvm16itanium_demangle4NodeEEEEvRNS5_16FoldingSetNodeIDENS7_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 6, i64 %.sroa.021.0, ptr nonnull %.sroa.9.0, ptr noundef nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %27 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i = icmp eq ptr %27, null
@@ -23867,7 +23861,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 59:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %28
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %50, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %29, %28 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %60 = load ptr, ptr %2, align 8, !tbaa !59
   %61 = icmp eq ptr %60, %23
   br i1 %61, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle22ElaboratedTypeSpefTypeEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeEEEESt4pairISB_bEbDpOT0_.exit.i.i.i.i, label %62
@@ -23877,7 +23871,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle22ElaboratedTypeSpefTypeEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeEEEESt4pairISB_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle22ElaboratedTypeSpefTypeEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeEEEESt4pairISB_bEbDpOT0_.exit.i.i.i.i: ; preds = %62, %59
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i.i, label %63, label %65
 
 63:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle22ElaboratedTypeSpefTypeEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeEEEESt4pairISB_bEbDpOT0_.exit.i.i.i.i
@@ -24094,7 +24088,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %51, label %52, label %58
 
 52:                                               ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %53 = ptrtoint ptr %.pn to i64
   %54 = ptrtoint ptr %4 to i64
   %55 = sub i64 %53, %54
@@ -24102,7 +24096,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %56, align 8, !tbaa !115
   %57 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(16) %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit.thread
 
 58:                                               ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit23
@@ -24266,10 +24260,10 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE
   br i1 %148, label %149, label %150
 
 149:                                              ; preds = %147
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !22
   call void @_ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(56) %124, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %150
 
 150:                                              ; preds = %149, %147
@@ -24566,17 +24560,17 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %.sroa.2.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %95, i64 24
   %.sroa.2.0.copyload.i.us = load i64, ptr %.sroa.2.0..sroa_idx.i.us, align 8, !tbaa !108
   %126 = load i8, ptr %71, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %72, ptr %6, align 8, !tbaa !59
   store i32 32, ptr %74, align 4, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !259
   store i32 40, ptr %72, align 8
   store i32 0, ptr %75, align 4
   store i32 2, ptr %73, align 8, !tbaa !60
   call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr readonly %.sroa.0.0.copyload.i.us, i64 %.sroa.2.0.copyload.i.us)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %127 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i.us = icmp eq ptr %127, null
   br i1 %.not.i.i.i.i.i.us, label %.critedge.i.i.i.i.i.us, label %128
@@ -24626,7 +24620,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 150:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.us, %.critedge.i.i.i.i.i.us, %128
   %.sroa.0.0.i.i.i.i.i.us = phi ptr [ %148, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.us ], [ %129, %128 ], [ null, %.critedge.i.i.i.i.i.us ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %151 = load ptr, ptr %6, align 8, !tbaa !59
   %152 = icmp eq ptr %151, %72
   br i1 %152, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13ParameterPackEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.us, label %153
@@ -24636,7 +24630,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13ParameterPackEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.us
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13ParameterPackEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.us: ; preds = %153, %150
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not.i.i.i.i.i.us, label %190, label %154
 
 154:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13ParameterPackEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.us
@@ -24987,7 +24981,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 %295
   store ptr %323, ptr %296, align 8, !tbaa !9
   %324 = load i8, ptr %293, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %325 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %325, ptr %3, align 8, !tbaa !59
   %326 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -24995,7 +24989,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %327 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %327, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEPNS2_4NodeEEEEvRNS1_16FoldingSetNodeIDENS4_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr %.0.i.i.i.i.i, i64 %321, ptr noundef %.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %328 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %292, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i39 = icmp eq ptr %328, null
   br i1 %.not.i.i.i.i.i39, label %.critedge.i.i.i.i.i52, label %329
@@ -25058,7 +25052,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 358:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i54, %.critedge.i.i.i.i.i52, %329
   %.sroa.0.0.i.i.i.i.i40 = phi ptr [ %349, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i54 ], [ %330, %329 ], [ null, %.critedge.i.i.i.i.i52 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %359 = load ptr, ptr %3, align 8, !tbaa !59
   %360 = icmp eq ptr %359, %325
   br i1 %360, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12TemplateArgsEJNS3_9NodeArrayERPNS3_4NodeEEEESt4pairIS7_bEbDpOT0_.exit.i.i.i.i, label %361
@@ -25068,7 +25062,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12TemplateArgsEJNS3_9NodeArrayERPNS3_4NodeEEEESt4pairIS7_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12TemplateArgsEJNS3_9NodeArrayERPNS3_4NodeEEEESt4pairIS7_bEbDpOT0_.exit.i.i.i.i: ; preds = %361, %358
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i.i39, label %362, label %363
 
 362:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12TemplateArgsEJNS3_9NodeArrayERPNS3_4NodeEEEESt4pairIS7_bEbDpOT0_.exit.i.i.i.i
@@ -25151,7 +25145,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -25160,7 +25154,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   store i32 32, ptr %10, align 4, !tbaa !61
   %11 = load ptr, ptr %1, align 8, !tbaa !11
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 noundef zeroext 45, ptr noundef %11, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %13 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %13, null
@@ -25225,7 +25219,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 46:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %14
   %.sroa.0.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %15, %14 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %47 = load ptr, ptr %3, align 8, !tbaa !59
   %48 = icmp eq ptr %47, %8
   br i1 %48, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20NameWithTemplateArgsEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %49
@@ -25235,7 +25229,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20NameWithTemplateArgsEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20NameWithTemplateArgsEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %49, %46
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %50, label %52
 
 50:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20NameWithTemplateArgsEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -25324,7 +25318,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -25332,7 +25326,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 12, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -25398,7 +25392,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 46:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %47 = load ptr, ptr %2, align 8, !tbaa !59
   %48 = icmp eq ptr %47, %7
   br i1 %48, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11PointerTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %49
@@ -25408,7 +25402,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11PointerTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11PointerTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %49, %46
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %50, label %52
 
 50:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11PointerTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -25497,7 +25491,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -25515,7 +25509,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 %14, ptr %15, align 4
   store i32 6, ptr %8, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %17 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %17, null
@@ -25585,7 +25579,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 54:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %18
   %.sroa.0.0.i.i.i.i = phi ptr [ %40, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %19, %18 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %55 = load ptr, ptr %2, align 8, !tbaa !59
   %56 = icmp eq ptr %55, %7
   br i1 %56, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13ReferenceTypeEJRPNS3_4NodeENS3_13ReferenceKindEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %57
@@ -25595,7 +25589,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13ReferenceTypeEJRPNS3_4NodeENS3_13ReferenceKindEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13ReferenceTypeEJRPNS3_4NodeENS3_13ReferenceKindEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %57, %54
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %58, label %60
 
 58:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13ReferenceTypeEJRPNS3_4NodeENS3_13ReferenceKindEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -25684,7 +25678,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -25692,7 +25686,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEPKcEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef %.0.val, ptr noundef nonnull @.str.62)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -25758,7 +25752,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 43:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.04.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %44 = load ptr, ptr %2, align 8, !tbaa !59
   %45 = icmp eq ptr %44, %7
   br i1 %45, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA9_KcEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %46
@@ -25768,7 +25762,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA9_KcEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA9_KcEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %46, %43
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %47, label %49
 
 47:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA9_KcEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -25857,7 +25851,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -25865,7 +25859,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEPKcEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef %.0.val, ptr noundef nonnull @.str.63)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -25931,7 +25925,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 43:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.04.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %44 = load ptr, ptr %2, align 8, !tbaa !59
   %45 = icmp eq ptr %44, %7
   br i1 %45, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA11_KcEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %46
@@ -25941,7 +25935,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA11_KcEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA11_KcEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %46, %43
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %47, label %49
 
 47:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA11_KcEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -26588,7 +26582,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle20DynamicExceptionSpe
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle12FunctionType19hasRHSComponentSlowERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #0 comdat align 2 {
@@ -27821,7 +27815,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
   %8 = trunc nuw i8 %7 to i1
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %9, ptr %3, align 8, !tbaa !59
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -27891,7 +27885,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   %38 = load i32, ptr %10, align 8, !tbaa !60
   %39 = add i32 %38, 1
   store i32 %39, ptr %10, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %41 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %41, null
@@ -27961,7 +27955,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 75:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %42
   %.sroa.0.0.i.i.i.i = phi ptr [ %63, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %43, %42 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %76 = load ptr, ptr %3, align 8, !tbaa !59
   %77 = icmp eq ptr %76, %9
   br i1 %77, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11PostfixExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEENS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %78
@@ -27971,7 +27965,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11PostfixExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEENS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11PostfixExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEENS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %78, %75
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %79, label %81
 
 79:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11PostfixExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEENS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -28060,7 +28054,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -28081,7 +28075,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store i32 %16, ptr %17, align 4
   store i32 8, ptr %8, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %19 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %19, null
@@ -28148,7 +28142,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 54:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %20
   %.sroa.0.0.i.i.i.i = phi ptr [ %42, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %21, %20 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %55 = load ptr, ptr %2, align 8, !tbaa !59
   %56 = icmp eq ptr %55, %7
   br i1 %56, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle18ArraySubscriptExprEJRPNS3_4NodeES7_NS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %57
@@ -28158,7 +28152,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle18ArraySubscriptExprEJRPNS3_4NodeES7_NS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle18ArraySubscriptExprEJRPNS3_4NodeES7_NS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %57, %54
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %58, label %60
 
 58:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle18ArraySubscriptExprEJRPNS3_4NodeES7_NS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -28247,7 +28241,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -28258,7 +28252,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %.sroa.26.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.26.0.copyload.i.i.i.i = load ptr, ptr %.sroa.26.0..sroa_idx.i.i.i.i, align 8, !tbaa !109
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_viewIcSt11char_traitsIcEES4_NS3_4PrecEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 noundef zeroext 58, ptr noundef %.0.val, i64 %.sroa.05.0.copyload.i.i.i.i, ptr %.sroa.26.0.copyload.i.i.i.i, ptr noundef %.0.val1, i32 noundef %.0.val3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -28331,7 +28325,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 48:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.0.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %49 = load ptr, ptr %3, align 8, !tbaa !59
   %50 = icmp eq ptr %49, %8
   br i1 %50, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10MemberExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_NS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %51
@@ -28341,7 +28335,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10MemberExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_NS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10MemberExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_NS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %51, %48
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %52, label %54
 
 52:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10MemberExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_NS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -28430,7 +28424,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -28441,7 +28435,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %12 = trunc nuw i8 %11 to i1
   %13 = trunc nuw i8 %.0.val7 to i1
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEPNS2_4NodeES3_bbNS4_4PrecEEEEvRNS1_16FoldingSetNodeIDENS4_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr %.0.val, i64 %.8.val, ptr noundef %.0.val1, ptr %.0.val3, i64 %.8.val5, i1 noundef zeroext %12, i1 noundef zeroext %13, i32 noundef %.0.val9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %15, null
@@ -28519,7 +28513,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 54:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %16
   %.sroa.031.0.i.i.i.i = phi ptr [ %38, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %17, %16 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %55 = load ptr, ptr %3, align 8, !tbaa !59
   %56 = icmp eq ptr %55, %8
   br i1 %56, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle7NewExprEJRNS3_9NodeArrayERPNS3_4NodeES6_RbbNS7_4PrecEEEESt4pairIS8_bEbDpOT0_.exit.i.i.i, label %57
@@ -28529,7 +28523,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle7NewExprEJRNS3_9NodeArrayERPNS3_4NodeES6_RbbNS7_4PrecEEEESt4pairIS8_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle7NewExprEJRNS3_9NodeArrayERPNS3_4NodeES6_RbbNS7_4PrecEEEESt4pairIS8_bEbDpOT0_.exit.i.i.i: ; preds = %57, %54
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %58, label %60
 
 58:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle7NewExprEJRNS3_9NodeArrayERPNS3_4NodeES6_RbbNS7_4PrecEEEESt4pairIS8_bEbDpOT0_.exit.i.i.i
@@ -28620,14 +28614,14 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
   %8 = trunc nuw i8 %7 to i1
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %9, ptr %3, align 8, !tbaa !59
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %11, align 4, !tbaa !61
   %12 = zext nneg i8 %.0.val3 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8, !tbaa !259
   store i32 63, ptr %9, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -28719,8 +28713,8 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayEbN
   %56 = load i32, ptr %10, align 8, !tbaa !60
   %57 = add i32 %56, 1
   store i32 %57, ptr %10, align 8, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %59 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %59, null
@@ -28790,7 +28784,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 94:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %60
   %.sroa.0.0.i.i.i.i = phi ptr [ %81, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %61, %60 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %95 = load ptr, ptr %3, align 8, !tbaa !59
   %96 = icmp eq ptr %95, %9
   br i1 %96, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8CallExprEJRPNS3_4NodeENS3_9NodeArrayEbNS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %97
@@ -28800,7 +28794,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8CallExprEJRPNS3_4NodeENS3_9NodeArrayEbNS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8CallExprEJRPNS3_4NodeENS3_9NodeArrayEbNS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %97, %94
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %98, label %100
 
 98:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8CallExprEJRPNS3_4NodeENS3_9NodeArrayEbNS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -28891,7 +28885,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %8 = load i8, ptr %7, align 1, !tbaa !63, !range !84, !noundef !85
   %9 = trunc nuw i8 %8 to i1
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %10, ptr %4, align 8, !tbaa !59
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -28900,7 +28894,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %.sroa.05.0.copyload.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !144
   %.sroa.26.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.26.0.copyload.i.i.i.i = load i64, ptr %.sroa.26.0..sroa_idx.i.i.i.i, align 8, !tbaa !108
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8, !tbaa !259
   store i32 68, ptr %10, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -28952,8 +28946,8 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayENS
   %36 = load i32, ptr %11, align 8, !tbaa !60
   %37 = add i32 %36, 1
   store i32 %37, ptr %11, align 8, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %39 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %39, null
@@ -29023,7 +29017,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 73:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %40
   %.sroa.0.0.i.i.i.i = phi ptr [ %61, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %41, %40 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %74 = load ptr, ptr %4, align 8, !tbaa !59
   %75 = icmp eq ptr %74, %10
   br i1 %75, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle14ConversionExprEJRPNS3_4NodeERNS3_9NodeArrayENS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %76
@@ -29033,7 +29027,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle14ConversionExprEJRPNS3_4NodeERNS3_9NodeArrayENS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle14ConversionExprEJRPNS3_4NodeERNS3_9NodeArrayENS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %76, %73
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not.i.i.i.i, label %77, label %79
 
 77:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle14ConversionExprEJRPNS3_4NodeERNS3_9NodeArrayENS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -29122,7 +29116,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -29146,7 +29140,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 %18, ptr %19, align 4
   store i32 10, ptr %8, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %21 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %21, null
@@ -29215,7 +29209,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 57:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %22
   %.sroa.0.0.i.i.i.i = phi ptr [ %44, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %23, %22 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %58 = load ptr, ptr %2, align 8, !tbaa !59
   %59 = icmp eq ptr %58, %7
   br i1 %59, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15ConditionalExprEJRPNS3_4NodeES7_S7_NS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %60
@@ -29225,7 +29219,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15ConditionalExprEJRPNS3_4NodeES7_S7_NS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15ConditionalExprEJRPNS3_4NodeES7_S7_NS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %60, %57
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %61, label %63
 
 61:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15ConditionalExprEJRPNS3_4NodeES7_S7_NS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -29315,7 +29309,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
   %8 = trunc nuw i8 %7 to i1
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %9, ptr %3, align 8, !tbaa !59
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -29470,7 +29464,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llv
   %84 = load i32, ptr %10, align 8, !tbaa !60
   %85 = add i32 %84, 1
   store i32 %85, ptr %10, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %87 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %87, null
@@ -29542,7 +29536,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 122:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %88
   %.sroa.0.0.i.i.i.i = phi ptr [ %109, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %89, %88 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %123 = load ptr, ptr %3, align 8, !tbaa !59
   %124 = icmp eq ptr %123, %9
   br i1 %124, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8CastExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeESC_NSA_4PrecEEEESt4pairISB_bEbDpOT0_.exit.i.i.i, label %125
@@ -29552,7 +29546,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8CastExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeESC_NSA_4PrecEEEESt4pairISB_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8CastExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeESC_NSA_4PrecEEEESt4pairISB_bEbDpOT0_.exit.i.i.i: ; preds = %125, %122
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %126, label %128
 
 126:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8CastExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeESC_NSA_4PrecEEEESt4pairISB_bEbDpOT0_.exit.i.i.i
@@ -29845,7 +29839,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %24
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %92 = load i8, ptr %91, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %93, ptr %6, align 8, !tbaa !59
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -29853,7 +29847,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %24
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 32, ptr %95, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN4llvm16FoldingSetNodeIDENS5_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 noundef zeroext 78, i64 8, ptr nonnull %75)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %97 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i.i = icmp eq ptr %97, null
@@ -29917,7 +29911,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 128:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i, %98
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %120, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i ], [ %99, %98 ], [ null, %.critedge.i.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %129 = load ptr, ptr %6, align 8, !tbaa !59
   %130 = icmp eq ptr %129, %93
   br i1 %130, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FloatLiteralImplIfEEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.i, label %131
@@ -29927,7 +29921,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FloatLiteralImplIfEEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FloatLiteralImplIfEEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.i: ; preds = %131, %128
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not.i.i.i.i.i.i, label %132, label %134
 
 132:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FloatLiteralImplIfEEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.i
@@ -30048,7 +30042,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %193 = load i8, ptr %192, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %194 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %194, ptr %4, align 8, !tbaa !59
   %195 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -30056,7 +30050,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %196 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 32, ptr %196, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN4llvm16FoldingSetNodeIDENS5_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %4, i8 noundef zeroext 79, i64 16, ptr nonnull %176)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %198 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %197, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i.i32 = icmp eq ptr %198, null
@@ -30120,7 +30114,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 229:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i47, %.critedge.i.i.i.i.i.i45, %199
   %.sroa.0.0.i.i.i.i.i.i33 = phi ptr [ %221, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i47 ], [ %200, %199 ], [ null, %.critedge.i.i.i.i.i.i45 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %230 = load ptr, ptr %4, align 8, !tbaa !59
   %231 = icmp eq ptr %230, %194
   br i1 %231, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FloatLiteralImplIdEEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.i, label %232
@@ -30130,7 +30124,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FloatLiteralImplIdEEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FloatLiteralImplIdEEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.i: ; preds = %232, %229
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not.i.i.i.i.i.i32, label %233, label %235
 
 233:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FloatLiteralImplIdEEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.i
@@ -30251,7 +30245,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %294 = load i8, ptr %293, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %295 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %295, ptr %2, align 8, !tbaa !59
   %296 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -30259,7 +30253,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %297 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %297, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN4llvm16FoldingSetNodeIDENS5_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 80, i64 20, ptr nonnull %277)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %299 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %298, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i.i63 = icmp eq ptr %299, null
@@ -30323,7 +30317,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 330:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i78, %.critedge.i.i.i.i.i.i76, %300
   %.sroa.0.0.i.i.i.i.i.i64 = phi ptr [ %322, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i78 ], [ %301, %300 ], [ null, %.critedge.i.i.i.i.i.i76 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %331 = load ptr, ptr %2, align 8, !tbaa !59
   %332 = icmp eq ptr %331, %295
   br i1 %332, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FloatLiteralImplIeEEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.i, label %333
@@ -30333,7 +30327,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FloatLiteralImplIeEEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FloatLiteralImplIeEEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.i: ; preds = %333, %330
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i.i.i63, label %334, label %336
 
 334:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FloatLiteralImplIeEEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.i
@@ -30543,7 +30537,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %435, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parseFloatingLiteralIfEEPNS0_4NodeEv.exit, label %436
 
 436:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.thread
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %437 = load ptr, ptr %0, align 8, !tbaa !86
   %438 = load ptr, ptr %10, align 8
   %.not.i.i175.not = icmp eq ptr %437, %438
@@ -30612,7 +30606,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit111.thread: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit.i, %445, %458, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E11parseNumberEb.exit, %461
   %.5 = phi ptr [ %463, %461 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E11parseNumberEb.exit ], [ null, %458 ], [ null, %445 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parseFloatingLiteralIfEEPNS0_4NodeEv.exit
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parseFloatingLiteralIfEEPNS0_4NodeEv.exit: ; preds = %.critedge.i52, %.critedge.i21, %.critedge.i, %24, %30, %425, %428, %420, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit99, %414, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i92, %403, %394, %397, %383, %386, %380, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i81, %377, %1, %12, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit111.thread, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.thread, %431, %423, %400, %391, %389, %375, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.i73, %336, %334, %287, %.critedge24.i61, %276, %274, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.i42, %235, %233, %186, %.critedge24.i30, %175, %173, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.i, %134, %132, %85, %.critedge24.i, %74, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit105, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit, %417, %71, %68, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35, %32, %27, %21
@@ -30975,7 +30969,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %or.cond.not.i, label %28, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15BracedRangeExprEJRPNS0_4NodeESB_SB_EEESA_DpOT0_.exit
 
 28:                                               ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %24, ptr %4, align 8, !tbaa !114
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %20, ptr %29, align 8, !tbaa !115
@@ -30999,7 +30993,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, %34
   %.1.i = phi ptr [ %33, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ], [ %35, %34 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %36 = icmp eq ptr %.1.i, null
   br i1 %36, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15BracedRangeExprEJRPNS0_4NodeESB_SB_EEESA_DpOT0_.exit, label %37
 
@@ -31049,7 +31043,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %64 = load i8, ptr %63, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %65, ptr %2, align 8, !tbaa !59
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -31068,7 +31062,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 %73, ptr %74, align 8
   store i32 8, ptr %66, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %76 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i = icmp eq ptr %76, null
@@ -31134,7 +31128,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 109:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %77
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %99, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %78, %77 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %110 = load ptr, ptr %2, align 8, !tbaa !59
   %111 = icmp eq ptr %110, %65
   br i1 %111, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15BracedRangeExprEJRPNS3_4NodeES7_S7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %112
@@ -31144,7 +31138,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15BracedRangeExprEJRPNS3_4NodeES7_S7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15BracedRangeExprEJRPNS3_4NodeES7_S7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %112, %109
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i.i, label %113, label %115
 
 113:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15BracedRangeExprEJRPNS3_4NodeES7_S7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -31238,13 +31232,13 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8, !tbaa !259
   store i32 70, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -31255,8 +31249,8 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   store i32 0, ptr %13, align 4
   store i32 4, ptr %9, align 8, !tbaa !60
   call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.0.val, i64 %.8.val)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %15, null
@@ -31322,7 +31316,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 47:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %16
   %.sroa.0.0.i.i.i.i = phi ptr [ %38, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %17, %16 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %48 = load ptr, ptr %3, align 8, !tbaa !59
   %49 = icmp eq ptr %48, %8
   br i1 %49, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12InitListExprEJDnNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %50
@@ -31332,7 +31326,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12InitListExprEJDnNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12InitListExprEJDnNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %50, %47
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %51, label %53
 
 51:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12InitListExprEJDnNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -31497,7 +31491,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %36 = load i8, ptr %35, align 1, !tbaa !63, !range !84, !noundef !85
   %37 = trunc nuw i8 %36 to i1
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %38, ptr %2, align 8, !tbaa !59
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -31566,7 +31560,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_St17basic_stri
   %68 = load i32, ptr %39, align 8, !tbaa !60
   %69 = add i32 %68, 1
   store i32 %69, ptr %39, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %71 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i = icmp eq ptr %71, null
@@ -31633,7 +31627,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 103:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %72
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %93, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %73, %72 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %104 = load ptr, ptr %2, align 8, !tbaa !59
   %105 = icmp eq ptr %104, %38
   br i1 %105, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle29PointerToMemberConversionExprEJRPNS3_4NodeES7_RSt17basic_string_viewIcSt11char_traitsIcEERNS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %106
@@ -31643,7 +31637,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle29PointerToMemberConversionExprEJRPNS3_4NodeES7_RSt17basic_string_viewIcSt11char_traitsIcEERNS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle29PointerToMemberConversionExprEJRPNS3_4NodeES7_RSt17basic_string_viewIcSt11char_traitsIcEERNS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %106, %103
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i.i, label %107, label %109
 
 107:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle29PointerToMemberConversionExprEJRPNS3_4NodeES7_RSt17basic_string_viewIcSt11char_traitsIcEERNS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -31733,7 +31727,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
   %7 = trunc nuw i8 %6 to i1
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %8, ptr %2, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -31830,7 +31824,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeENS5_4PrecEEEEv
   %56 = load i32, ptr %9, align 8, !tbaa !60
   %57 = add i32 %56, 1
   store i32 %57, ptr %9, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %59 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %59, null
@@ -31900,7 +31894,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 94:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %60
   %.sroa.04.0.i.i.i.i = phi ptr [ %81, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %61, %60 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %95 = load ptr, ptr %2, align 8, !tbaa !59
   %96 = icmp eq ptr %95, %8
   br i1 %96, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRA10_KcRPNS3_4NodeENS8_4PrecEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %97
@@ -31910,7 +31904,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRA10_KcRPNS3_4NodeENS8_4PrecEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRA10_KcRPNS3_4NodeENS8_4PrecEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i: ; preds = %97, %94
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %98, label %100
 
 98:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRA10_KcRPNS3_4NodeENS8_4PrecEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
@@ -32271,7 +32265,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 .critedge32:                                      ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit50, %149, %152
   %.0135 = phi ptr [ %154, %152 ], [ null, %149 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit50 ]
   %156 = load i8, ptr %107, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %108, ptr %9, align 8, !tbaa !59
   store i32 32, ptr %110, align 4, !tbaa !61
   %157 = zext nneg i8 %.0.i49 to i32
@@ -32284,7 +32278,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %159 = ptrtoint ptr %.0135 to i64
   store i64 %159, ptr %115, align 8
   store i32 8, ptr %109, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %160 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i54 = icmp eq ptr %160, null
   br i1 %.not.i.i.i.i.i54, label %.critedge.i.i.i.i.i, label %161
@@ -32347,7 +32341,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 191:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %161
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %181, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %162, %161 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %192 = load ptr, ptr %9, align 8, !tbaa !59
   %193 = icmp eq ptr %192, %108
   br i1 %193, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15ExprRequirementEJRPNS3_4NodeERbS7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %194
@@ -32357,7 +32351,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15ExprRequirementEJRPNS3_4NodeERbS7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15ExprRequirementEJRPNS3_4NodeERbS7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %194, %191
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not.i.i.i.i.i54, label %195, label %196
 
 195:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15ExprRequirementEJRPNS3_4NodeERbS7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -32442,12 +32436,12 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
 
 238:                                              ; preds = %235
   %239 = load i8, ptr %107, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %125, ptr %7, align 8, !tbaa !59
   store i32 0, ptr %126, align 8, !tbaa !60
   store i32 32, ptr %127, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %7, i8 noundef zeroext 85, ptr noundef nonnull %237)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %240 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i59 = icmp eq ptr %240, null
   br i1 %.not.i.i.i.i.i59, label %.critedge.i.i.i.i.i72, label %241
@@ -32506,7 +32500,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 269:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i74, %.critedge.i.i.i.i.i72, %241
   %.sroa.0.0.i.i.i.i.i60 = phi ptr [ %261, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i74 ], [ %242, %241 ], [ null, %.critedge.i.i.i.i.i72 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %270 = load ptr, ptr %7, align 8, !tbaa !59
   %271 = icmp eq ptr %270, %125
   br i1 %271, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15TypeRequirementEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %272
@@ -32516,7 +32510,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15TypeRequirementEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15TypeRequirementEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %272, %269
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not.i.i.i.i.i59, label %273, label %274
 
 273:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15TypeRequirementEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -32601,12 +32595,12 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
 
 316:                                              ; preds = %313
   %317 = load i8, ptr %107, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %128, ptr %5, align 8, !tbaa !59
   store i32 0, ptr %129, align 8, !tbaa !60
   store i32 32, ptr %130, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 noundef zeroext 86, ptr noundef nonnull %315)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %318 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i79 = icmp eq ptr %318, null
   br i1 %.not.i.i.i.i.i79, label %.critedge.i.i.i.i.i93, label %319
@@ -32665,7 +32659,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 347:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i95, %.critedge.i.i.i.i.i93, %319
   %.sroa.0.0.i.i.i.i.i80 = phi ptr [ %339, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i95 ], [ %320, %319 ], [ null, %.critedge.i.i.i.i.i93 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %348 = load ptr, ptr %5, align 8, !tbaa !59
   %349 = icmp eq ptr %348, %128
   br i1 %349, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle17NestedRequirementEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %350
@@ -32675,7 +32669,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle17NestedRequirementEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle17NestedRequirementEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %350, %347
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not.i.i.i.i.i79, label %351, label %352
 
 351:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle17NestedRequirementEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -32873,13 +32867,13 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %447 = getelementptr inbounds nuw i8, ptr %446, i64 %105
   store ptr %447, ptr %102, align 8, !tbaa !9
   %448 = load i8, ptr %107, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %449 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %449, ptr %3, align 8, !tbaa !59
   %450 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %451 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %451, align 4, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8, !tbaa !259
   store i32 83, ptr %449, align 8
   %452 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -32887,8 +32881,8 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i32 2, ptr %450, align 8, !tbaa !60
   call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.sroa.0133.1, i64 %.sroa.6.1)
   call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.0.i.i.i.i.i106, i64 %445)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %453 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i111 = icmp eq ptr %453, null
   br i1 %.not.i.i.i.i.i111, label %.critedge.i.i.i.i.i124, label %454
@@ -32953,7 +32947,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 483:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i126, %.critedge.i.i.i.i.i124, %454
   %.sroa.0.0.i.i.i.i.i112 = phi ptr [ %474, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i126 ], [ %455, %454 ], [ null, %.critedge.i.i.i.i.i124 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %484 = load ptr, ptr %3, align 8, !tbaa !59
   %485 = icmp eq ptr %484, %449
   br i1 %485, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12RequiresExprEJRNS3_9NodeArrayES5_EEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %486
@@ -32963,7 +32957,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12RequiresExprEJRNS3_9NodeArrayES5_EEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12RequiresExprEJRNS3_9NodeArrayES5_EEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i: ; preds = %486, %483
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i.i111, label %487, label %488
 
 487:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12RequiresExprEJRNS3_9NodeArrayES5_EEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
@@ -33137,7 +33131,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %47 = phi ptr [ %89, %43 ], [ %12, %.lr.ph ]
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 1
   store ptr %48, ptr %0, align 8, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %49 = icmp eq ptr %47, %48
   br i1 %49, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E11parseNumberEb.exit27, label %50
 
@@ -33175,7 +33169,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i64 %.sroa.0.0.i16, ptr %5, align 8
   store ptr %.sroa.3.0.i17, ptr %38, align 8
   %60 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not5.not = icmp eq ptr %60, null
   br i1 %.not5.not, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13SubobjectExprEJRPNS0_4NodeESB_RSt17basic_string_viewIcSt11char_traitsIcEENS0_9NodeArrayERbEEESA_DpOT0_.exit, label %61
 
@@ -33328,14 +33322,14 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %133 = load i8, ptr %132, align 1, !tbaa !63, !range !84, !noundef !85
   %134 = trunc nuw i8 %133 to i1
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %135 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %135, ptr %3, align 8, !tbaa !59
   %136 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %137 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %137, align 4, !tbaa !61
   %138 = zext nneg i8 %.0.i29 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8, !tbaa !259
   store i32 59, ptr %135, align 8
   %139 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -33401,8 +33395,8 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_St17basic_stri
   %166 = load i32, ptr %136, align 8, !tbaa !60
   %167 = add i32 %166, 1
   store i32 %167, ptr %136, align 8, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %169 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %168, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i35 = icmp eq ptr %169, null
@@ -33473,7 +33467,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 201:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %170
   %.sroa.026.0.i.i.i.i.i = phi ptr [ %189, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %171, %170 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %202 = load ptr, ptr %3, align 8, !tbaa !59
   %203 = icmp eq ptr %202, %135
   br i1 %203, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13SubobjectExprEJRPNS3_4NodeES7_RSt17basic_string_viewIcSt11char_traitsIcEENS3_9NodeArrayERbEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %204
@@ -33483,7 +33477,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13SubobjectExprEJRPNS3_4NodeES7_RSt17basic_string_viewIcSt11char_traitsIcEENS3_9NodeArrayERbEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13SubobjectExprEJRPNS3_4NodeES7_RSt17basic_string_viewIcSt11char_traitsIcEENS3_9NodeArrayERbEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %204, %201
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i.i35, label %205, label %207
 
 205:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13SubobjectExprEJRPNS3_4NodeES7_RSt17basic_string_viewIcSt11char_traitsIcEENS3_9NodeArrayERbEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -33572,7 +33566,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -33580,7 +33574,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 62, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -33642,7 +33636,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 42:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %43 = load ptr, ptr %2, align 8, !tbaa !59
   %44 = icmp eq ptr %43, %7
   br i1 %44, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19SizeofParamPackExprEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %45
@@ -33652,7 +33646,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19SizeofParamPackExprEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19SizeofParamPackExprEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %45, %42
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %46, label %48
 
 46:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19SizeofParamPackExprEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -33741,7 +33735,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -33749,7 +33743,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeEEEEvRNS3_16FoldingSetNodeIDENS5_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 60, ptr noundef nonnull @.str.92, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -33817,7 +33811,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.04.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %45 = load ptr, ptr %2, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %7
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRA11_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %47
@@ -33827,7 +33821,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRA11_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRA11_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRA11_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
@@ -34106,21 +34100,21 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store ptr %103, ptr %30, align 8, !tbaa !9
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %105 = load i8, ptr %104, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %106, ptr %5, align 8, !tbaa !59
   %107 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 32, ptr %108, align 4, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !259
   store i32 41, ptr %106, align 8
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %109, align 4
   store i32 2, ptr %107, align 8, !tbaa !60
   call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr readonly %.0.i.i.i.i.i, i64 %101)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %111 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i28 = icmp eq ptr %111, null
@@ -34182,7 +34176,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 140:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %112
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %132, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %113, %112 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %141 = load ptr, ptr %5, align 8, !tbaa !59
   %142 = icmp eq ptr %141, %106
   br i1 %142, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20TemplateArgumentPackEJRNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %143
@@ -34192,7 +34186,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20TemplateArgumentPackEJRNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20TemplateArgumentPackEJRNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i: ; preds = %143, %140
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not.i.i.i.i.i28, label %144, label %146
 
 144:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20TemplateArgumentPackEJRNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
@@ -34349,7 +34343,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %224 = load i8, ptr %223, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %225 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %225, ptr %2, align 8, !tbaa !59
   %226 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -34357,7 +34351,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %227 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %227, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 34, ptr noundef nonnull %218, ptr noundef nonnull %220)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %229 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %228, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i36 = icmp eq ptr %229, null
@@ -34421,7 +34415,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 261:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i51, %.critedge.i.i.i.i.i49, %230
   %.sroa.0.0.i.i.i.i.i37 = phi ptr [ %252, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i51 ], [ %231, %230 ], [ null, %.critedge.i.i.i.i.i49 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %262 = load ptr, ptr %2, align 8, !tbaa !59
   %263 = icmp eq ptr %262, %225
   br i1 %263, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle25TemplateParamQualifiedArgEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %264
@@ -34431,7 +34425,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle25TemplateParamQualifiedArgEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle25TemplateParamQualifiedArgEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %264, %261
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i.i36, label %265, label %267
 
 265:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle25TemplateParamQualifiedArgEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -34525,21 +34519,21 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8, !tbaa !259
   store i32 0, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 0, ptr %11, align 4
   store i32 2, ptr %9, align 8, !tbaa !60
   call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.0.val, i64 %.8.val)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %13 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %13, null
@@ -34603,7 +34597,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %14
   %.sroa.0.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %15, %14 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13NodeArrayNodeEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %47
@@ -34613,7 +34607,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13NodeArrayNodeEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13NodeArrayNodeEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13NodeArrayNodeEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -34703,13 +34697,13 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8, !tbaa !259
   store i32 70, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -34719,8 +34713,8 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   store i64 %12, ptr %13, align 8
   store i32 4, ptr %9, align 8, !tbaa !60
   call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.0.val1, i64 %.8.val)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %15, null
@@ -34786,7 +34780,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 47:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %16
   %.sroa.0.0.i.i.i.i = phi ptr [ %38, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %17, %16 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %48 = load ptr, ptr %3, align 8, !tbaa !59
   %49 = icmp eq ptr %48, %8
   br i1 %49, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12InitListExprEJRPNS3_4NodeENS3_9NodeArrayEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %50
@@ -34796,7 +34790,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12InitListExprEJRPNS3_4NodeENS3_9NodeArrayEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12InitListExprEJRPNS3_4NodeENS3_9NodeArrayEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %50, %47
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %51, label %53
 
 51:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12InitListExprEJRPNS3_4NodeENS3_9NodeArrayEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -34885,7 +34879,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -34893,7 +34887,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 72, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -34955,7 +34949,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 42:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %43 = load ptr, ptr %2, align 8, !tbaa !59
   %44 = icmp eq ptr %43, %7
   br i1 %44, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9ThrowExprEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %45
@@ -34965,7 +34959,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9ThrowExprEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9ThrowExprEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %45, %42
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %46, label %48
 
 46:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9ThrowExprEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -35093,7 +35087,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %or.cond.not, label %18, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.thread
 
 18:                                               ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %13, ptr %2, align 8, !tbaa !114
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %9, ptr %19, align 8, !tbaa !115
@@ -35117,7 +35111,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
 
 26:                                               ; preds = %24, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
   %.1 = phi ptr [ %23, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ %25, %24 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.thread
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.thread: ; preds = %1, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit, %26
@@ -35132,7 +35126,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !11
   %8 = load ptr, ptr %0, align 8, !tbaa !86
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -35193,7 +35187,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %32, label %38, label %33
 
 33:                                               ; preds = %30, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %34 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E13parseSimpleIdEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   store ptr %34, ptr %4, align 8, !tbaa !11
   %35 = icmp eq ptr %34, null
@@ -35203,13 +35197,13 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %37 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13QualifiedNameEJRPNS0_4NodeESB_EEESA_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   store ptr %37, ptr %3, align 8, !tbaa !11
   %.not18.not = icmp eq ptr %37, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not18.not, label %.critedge, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.thread, !llvm.loop !380
 
 38:                                               ; preds = %30
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store ptr %39, ptr %0, align 8, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %40 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E23parseBaseUnresolvedNameEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   store ptr %40, ptr %5, align 8, !tbaa !11
   %41 = icmp eq ptr %40, null
@@ -35221,7 +35215,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 44:                                               ; preds = %38, %42
   %.5 = phi ptr [ %43, %42 ], [ null, %38 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 45:                                               ; preds = %2
@@ -35257,7 +35251,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %isdigit, label %.preheader, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit46.thread
 
 .preheader:                                       ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit46
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %56 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E13parseSimpleIdEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   store ptr %56, ptr %6, align 8, !tbaa !11
   %57 = icmp eq ptr %56, null
@@ -35270,14 +35264,14 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %58 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13QualifiedNameEJRPNS0_4NodeESB_EEESA_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6)
   store ptr %58, ptr %3, align 8, !tbaa !11
   %.not16.not.us = icmp eq ptr %58, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not16.not.us, label %.critedge, label %.lr.ph104
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %59 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_19GlobalQualifiedNameEJRPNS0_4NodeEEEESA_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr nonnull %56)
   store ptr %59, ptr %3, align 8, !tbaa !11
   %.not16.not.us103 = icmp eq ptr %59, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not16.not.us103, label %.critedge, label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %.lr.ph.split.us, %.critedge92
@@ -35292,7 +35286,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %64, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit49.thread, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit49.us
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit49.us: ; preds = %62, %.lr.ph104
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %65 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E13parseSimpleIdEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   store ptr %65, ptr %6, align 8, !tbaa !11
   %66 = icmp eq ptr %65, null
@@ -35308,12 +35302,12 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %70 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13QualifiedNameEJRPNS0_4NodeESB_EEESA_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6)
   store ptr %70, ptr %3, align 8, !tbaa !11
   %.not16.not = icmp eq ptr %70, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not16.not, label %.critedge, label %71
 
 .thread:                                          ; preds = %.lr.ph.split
   store ptr %67, ptr %3, align 8, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %71
 
 71:                                               ; preds = %.thread, %69
@@ -35335,7 +35329,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit52.thread
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit49: ; preds = %71, %75
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %79 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E13parseSimpleIdEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   store ptr %79, ptr %6, align 8, !tbaa !11
   %80 = icmp eq ptr %79, null
@@ -35370,7 +35364,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %.not.not, label %.critedge, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit52.thread
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit52.thread: ; preds = %83, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit49.thread, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit52, %89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %91 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E23parseBaseUnresolvedNameEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   store ptr %91, ptr %7, align 8, !tbaa !11
   %92 = icmp eq ptr %91, null
@@ -35382,20 +35376,20 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 95:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit52.thread, %93
   %.9 = phi ptr [ %94, %93 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit52.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
 .critedge21:                                      ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 .critedge24:                                      ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit49, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit49.us, %.preheader
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
 .critedge:                                        ; preds = %36, %69, %.critedge92, %.lr.ph.split.us, %47, %86, %23, %50, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit46.thread, %.critedge24, %.critedge21, %16, %26, %89, %95, %44
   %.010 = phi ptr [ %.5, %44 ], [ null, %26 ], [ %.9, %95 ], [ null, %89 ], [ null, %16 ], [ null, %.critedge21 ], [ %48, %47 ], [ null, %.critedge24 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit46.thread ], [ %51, %50 ], [ null, %23 ], [ null, %86 ], [ null, %.lr.ph.split.us ], [ null, %.critedge92 ], [ null, %69 ], [ null, %36 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.010
 }
 
@@ -35406,7 +35400,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -35414,7 +35408,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_viewIcSt11char_traitsIcEES4_NS3_4PrecEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 54, ptr noundef %.0.val, i64 %.0.val1, ptr %.8.val, ptr noundef %.0.val3, i32 noundef %.0.val5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -35485,7 +35479,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 47:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %48 = load ptr, ptr %2, align 8, !tbaa !59
   %49 = icmp eq ptr %48, %7
   br i1 %49, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10BinaryExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_RNS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %50
@@ -35495,7 +35489,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10BinaryExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_RNS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10BinaryExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_RNS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %50, %47
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %51, label %53
 
 51:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10BinaryExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_RNS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -36054,7 +36048,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -36062,7 +36056,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llvm16itanium_demangle4NodeENS7_4PrecEEEEvRNS5_16FoldingSetNodeIDENS7_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 66, i64 %.0.val, ptr %.8.val, ptr noundef %.0.val1, i32 noundef %.0.val3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -36131,7 +36125,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 46:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %47 = load ptr, ptr %2, align 8, !tbaa !59
   %48 = icmp eq ptr %47, %7
   br i1 %48, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10PrefixExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeERNSA_4PrecEEEESt4pairISB_bEbDpOT0_.exit.i.i.i, label %49
@@ -36141,7 +36135,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10PrefixExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeERNSA_4PrecEEEESt4pairISB_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10PrefixExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeERNSA_4PrecEEEESt4pairISB_bEbDpOT0_.exit.i.i.i: ; preds = %49, %46
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %50, label %52
 
 50:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10PrefixExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeERNSA_4PrecEEEESt4pairISB_bEbDpOT0_.exit.i.i.i
@@ -38280,7 +38274,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %34 = load i8, ptr %33, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %35, ptr %4, align 8, !tbaa !59
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -38288,7 +38282,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 32, ptr %37, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEES4_EEEvRN4llvm16FoldingSetNodeIDENS5_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 %1, ptr %2, i64 %25, ptr %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %39 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i = icmp eq ptr %39, null
@@ -38356,7 +38350,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 71:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %40
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %62, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %41, %40 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %72 = load ptr, ptr %4, align 8, !tbaa !59
   %73 = icmp eq ptr %72, %35
   br i1 %73, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle14IntegerLiteralEJRSt17basic_string_viewIcSt11char_traitsIcEES9_EEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %74
@@ -38366,7 +38360,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle14IntegerLiteralEJRSt17basic_string_viewIcSt11char_traitsIcEES9_EEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle14IntegerLiteralEJRSt17basic_string_viewIcSt11char_traitsIcEES9_EEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i: ; preds = %74, %71
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not.i.i.i.i.i, label %75, label %77
 
 75:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle14IntegerLiteralEJRSt17basic_string_viewIcSt11char_traitsIcEES9_EEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
@@ -38455,7 +38449,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -38470,7 +38464,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %12, ptr %13, align 4
   store i32 4, ptr %8, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %15, null
@@ -38534,7 +38528,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 48:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %16
   %.sroa.0.0.i.i.i.i = phi ptr [ %38, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %17, %16 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %49 = load ptr, ptr %2, align 8, !tbaa !59
   %50 = icmp eq ptr %49, %7
   br i1 %50, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8BoolExprEJiEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %51
@@ -38544,7 +38538,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8BoolExprEJiEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8BoolExprEJiEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %51, %48
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %52, label %54
 
 52:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8BoolExprEJiEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -38633,7 +38627,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -38641,7 +38635,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 74, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -38703,7 +38697,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 42:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %43 = load ptr, ptr %2, align 8, !tbaa !59
   %44 = icmp eq ptr %43, %7
   br i1 %44, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13StringLiteralEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %45
@@ -38713,7 +38707,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13StringLiteralEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13StringLiteralEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %45, %42
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %46, label %48
 
 46:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13StringLiteralEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -38883,7 +38877,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %42 = load i8, ptr %41, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %43, ptr %3, align 8, !tbaa !59
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -38891,7 +38885,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %45, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN4llvm16FoldingSetNodeIDENS5_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 noundef zeroext 51, i64 %.sroa.0.0.i, ptr %.sroa.3.0.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %47 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i = icmp eq ptr %47, null
@@ -38955,7 +38949,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 78:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %48
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %70, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %49, %48 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %79 = load ptr, ptr %3, align 8, !tbaa !59
   %80 = icmp eq ptr %79, %43
   br i1 %80, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15UnnamedTypeNameEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %81
@@ -38965,7 +38959,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15UnnamedTypeNameEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15UnnamedTypeNameEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i: ; preds = %81, %78
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i.i, label %82, label %84
 
 82:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15UnnamedTypeNameEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
@@ -39061,7 +39055,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i29: ; preds = %_ZNSt11char_tra
   %136 = ashr exact i64 %135, 3
   %137 = load i64, ptr %128, align 8, !tbaa !108
   store i64 %136, ptr %128, align 8, !tbaa !108
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8, !tbaa !383
   %138 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %136, ptr %138, align 8, !tbaa !386
@@ -39274,7 +39268,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %.pre-phi = phi i64 [ %.pre155, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E19isTemplateParamDeclEv.exit.thread.loopexit ], [ %170, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E23ScopedTemplateParamListC2EPS6_.exit ]
   %227 = phi ptr [ %226, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E19isTemplateParamDeclEv.exit.thread.loopexit ], [ %168, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E23ScopedTemplateParamListC2EPS6_.exit ]
   %228 = phi ptr [ %.pre, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E19isTemplateParamDeclEv.exit.thread.loopexit ], [ %169, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E23ScopedTemplateParamListC2EPS6_.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %229 = getelementptr inbounds i8, ptr %228, i64 %172
   %230 = ptrtoint ptr %229 to i64
   %231 = sub i64 %.pre-phi, %230
@@ -39560,7 +39554,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 354:                                              ; preds = %351
   %355 = getelementptr inbounds nuw i8, ptr %350, i64 1
   store ptr %355, ptr %0, align 8, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %356 = icmp eq ptr %349, %355
   br i1 %356, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E11parseNumberEb.exit82, label %357
 
@@ -39616,12 +39610,12 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit85.thread: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E11parseNumberEb.exit82, %370, %373
   %.9 = phi ptr [ %375, %373 ], [ null, %370 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E11parseNumberEb.exit82 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge16
 
 .critedge16:                                      ; preds = %.critedge140.backedge, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit61, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit45, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit64.thread, %351, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit85.thread, %343, %268
   %.5 = phi ptr [ null, %268 ], [ %.9, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit85.thread ], [ null, %343 ], [ null, %351 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit64.thread ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit45 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit61 ], [ null, %.critedge140.backedge ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge14
 
 .critedge14:                                      ; preds = %197, %.critedge16
@@ -39642,7 +39636,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E23ScopedTemplateParamListD2Ev.exit
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E23ScopedTemplateParamListD2Ev.exit: ; preds = %.critedge14, %384
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i64 %137, ptr %128, align 8, !tbaa !108
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15UnnamedTypeNameEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_.exit
 
@@ -39706,7 +39700,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -39714,7 +39708,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 75, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -39776,7 +39770,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 42:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %43 = load ptr, ptr %2, align 8, !tbaa !59
   %44 = icmp eq ptr %43, %7
   br i1 %44, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10LambdaExprEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %45
@@ -39786,7 +39780,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10LambdaExprEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10LambdaExprEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %45, %42
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %46, label %48
 
 46:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10LambdaExprEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -39875,7 +39869,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -39886,7 +39880,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %.sroa.26.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.26.0.copyload.i.i.i.i = load ptr, ptr %.sroa.26.0..sroa_idx.i.i.i.i, align 8, !tbaa !109
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_viewIcSt11char_traitsIcEEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 noundef zeroext 76, ptr noundef %.0.val, i64 %.sroa.05.0.copyload.i.i.i.i, ptr %.sroa.26.0.copyload.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -39954,7 +39948,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.0.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11EnumLiteralEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %47
@@ -39964,7 +39958,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11EnumLiteralEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11EnumLiteralEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11EnumLiteralEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -40424,7 +40418,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FloatLiteralImplIf
   br i1 %7, label %8, label %47
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !115
   br label %11
@@ -40472,7 +40466,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FloatLiteralImplIf
   br i1 %exitcond.not, label %_ZSt7reverseIPcEvT_S1_.exit, label %.lr.ph.i.i, !llvm.loop !390
 
 _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %25 = load float, ptr %3, align 4, !tbaa !91
   %26 = fpext float %25 to double
@@ -40520,8 +40514,8 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   br label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZSt7reverseIPcEvT_S1_.exit, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %47
 
 47:                                               ; preds = %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit, %2
@@ -40535,7 +40529,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle16FloatLiteralImplIfE
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #15
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FloatLiteralImplIdE9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #0 comdat align 2 {
@@ -40547,7 +40541,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FloatLiteralImplId
   br i1 %7, label %8, label %46
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !115
   br label %11
@@ -40595,7 +40589,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FloatLiteralImplId
   br i1 %exitcond.not, label %_ZSt7reverseIPcEvT_S1_.exit, label %.lr.ph.i.i, !llvm.loop !390
 
 _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %21
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %25 = load double, ptr %3, align 8, !tbaa !91
   %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 32, ptr noundef nonnull @.str.175, double noundef %25) #22
@@ -40642,8 +40636,8 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   br label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZSt7reverseIPcEvT_S1_.exit, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %46
 
 46:                                               ; preds = %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit, %2
@@ -40666,7 +40660,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FloatLiteralImplIe
   br i1 %7, label %8, label %46
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !115
   br label %11
@@ -40714,7 +40708,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FloatLiteralImplIe
   br i1 %exitcond.not, label %_ZSt7reverseIPcEvT_S1_.exit, label %.lr.ph.i.i, !llvm.loop !390
 
 _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %21
-  call void @llvm.lifetime.start.p0(i64 42, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(42) %4, i8 0, i64 42, i1 false)
   %25 = load x86_fp80, ptr %3, align 16, !tbaa !91
   %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 42, ptr noundef nonnull @.str.176, x86_fp80 noundef %25) #22
@@ -40761,8 +40755,8 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   br label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZSt7reverseIPcEvT_S1_.exit, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i
-  call void @llvm.lifetime.end.p0(i64 42, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %46
 
 46:                                               ; preds = %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit, %2
@@ -40912,7 +40906,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %2
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %27 = load i8, ptr %26, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %28, ptr %9, align 8, !tbaa !59
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -40920,7 +40914,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %2
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 32, ptr %30, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %9, i8 noundef zeroext 35, ptr noundef nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %32 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i = icmp eq ptr %32, null
@@ -40982,7 +40976,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 63:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %33
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %55, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %34, %33 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %64 = load ptr, ptr %9, align 8, !tbaa !59
   %65 = icmp eq ptr %64, %28
   br i1 %65, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21TypeTemplateParamDeclEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %66
@@ -40992,7 +40986,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21TypeTemplateParamDeclEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21TypeTemplateParamDeclEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %66, %63
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not.i.i.i.i.i, label %67, label %69
 
 67:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21TypeTemplateParamDeclEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -41093,7 +41087,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i28: ; preds = %_ZNSt11char_tra
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %121 = load i8, ptr %120, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %122 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %122, ptr %7, align 8, !tbaa !59
   %123 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -41101,7 +41095,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i28: ; preds = %_ZNSt11char_tra
   %124 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 32, ptr %124, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %7, i8 noundef zeroext 36, ptr noundef nonnull %115, ptr noundef nonnull %117)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %126 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %125, ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i33 = icmp eq ptr %126, null
@@ -41165,7 +41159,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 158:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i48, %.critedge.i.i.i.i.i46, %127
   %.sroa.0.0.i.i.i.i.i34 = phi ptr [ %149, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i48 ], [ %128, %127 ], [ null, %.critedge.i.i.i.i.i46 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %159 = load ptr, ptr %7, align 8, !tbaa !59
   %160 = icmp eq ptr %159, %122
   br i1 %160, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle32ConstrainedTypeTemplateParamDeclEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %161
@@ -41175,7 +41169,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle32ConstrainedTypeTemplateParamDeclEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle32ConstrainedTypeTemplateParamDeclEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %161, %158
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not.i.i.i.i.i33, label %162, label %164
 
 162:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle32ConstrainedTypeTemplateParamDeclEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -41278,7 +41272,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i50: ; preds = %_ZNSt11char_tra
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %214 = load i8, ptr %213, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %215 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %215, ptr %5, align 8, !tbaa !59
   %216 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -41286,7 +41280,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i50: ; preds = %_ZNSt11char_tra
   %217 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 32, ptr %217, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 noundef zeroext 37, ptr noundef nonnull %208, ptr noundef nonnull %210)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %219 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %218, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i55 = icmp eq ptr %219, null
@@ -41350,7 +41344,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 251:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i71, %.critedge.i.i.i.i.i69, %220
   %.sroa.0.0.i.i.i.i.i56 = phi ptr [ %242, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i71 ], [ %221, %220 ], [ null, %.critedge.i.i.i.i.i69 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %252 = load ptr, ptr %5, align 8, !tbaa !59
   %253 = icmp eq ptr %252, %215
   br i1 %253, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle24NonTypeTemplateParamDeclEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %254
@@ -41360,7 +41354,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle24NonTypeTemplateParamDeclEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle24NonTypeTemplateParamDeclEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %254, %251
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not.i.i.i.i.i55, label %255, label %257
 
 255:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle24NonTypeTemplateParamDeclEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -41457,7 +41451,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i73: ; preds = %_ZNSt11char_tra
   %307 = ptrtoint ptr %305 to i64
   %308 = ptrtoint ptr %306 to i64
   %309 = sub i64 %307, %308
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %0, ptr %12, align 8, !tbaa !383
   %310 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 664
@@ -41704,7 +41698,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store ptr %428, ptr %304, align 8, !tbaa !9
   %429 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %430 = load i8, ptr %429, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %431 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %431, ptr %3, align 8, !tbaa !59
   %432 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -41712,7 +41706,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %433 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %433, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %301, ptr %.0.i.i.i.i.i, i64 %426, ptr noundef %.1125)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %434 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %435 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %434, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i87 = icmp eq ptr %435, null
@@ -41778,7 +41772,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 466:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i102, %.critedge.i.i.i.i.i100, %436
   %.sroa.0.0.i.i.i.i.i88 = phi ptr [ %456, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i102 ], [ %437, %436 ], [ null, %.critedge.i.i.i.i.i100 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %467 = load ptr, ptr %3, align 8, !tbaa !59
   %468 = icmp eq ptr %467, %431
   br i1 %468, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle25TemplateTemplateParamDeclEJRPNS3_4NodeERNS3_9NodeArrayES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %469
@@ -41788,7 +41782,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle25TemplateTemplateParamDeclEJRPNS3_4NodeERNS3_9NodeArrayES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle25TemplateTemplateParamDeclEJRPNS3_4NodeERNS3_9NodeArrayES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %469, %466
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i.i87, label %470, label %472
 
 470:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle25TemplateTemplateParamDeclEJRPNS3_4NodeERNS3_9NodeArrayES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -41883,7 +41877,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E23ScopedTemplateParamListD2Ev.exit
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E23ScopedTemplateParamListD2Ev.exit: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_25TemplateTemplateParamDeclEJRPNS0_4NodeERNS0_9NodeArrayESB_EEESA_DpOT0_.exit, %521
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_21TypeTemplateParamDeclEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i104: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i73
@@ -41917,7 +41911,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %10 = load i8, ptr %9, align 1, !tbaa !63, !range !84, !noundef !85
   %11 = trunc nuw i8 %10 to i1
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %12, ptr %6, align 8, !tbaa !59
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -41929,7 +41923,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %.sroa.0.0.copyload28.i.i.i.i = load i64, ptr %2, align 8, !tbaa !108
   %.sroa.2.0..sroa_idx29.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload30.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx29.i.i.i.i, align 8, !tbaa !109
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !259
   store i32 52, ptr %12, align 8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 20
@@ -42039,8 +42033,8 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   br label %_ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEPNS2_4NodeES3_S5_St17basic_string_viewIcSt11char_traitsIcEEEEEvRNS1_16FoldingSetNodeIDENS4_4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEPNS2_4NodeES3_S5_St17basic_string_viewIcSt11char_traitsIcEEEEEvRNS1_16FoldingSetNodeIDENS4_4KindEDpT_.exit.i.i.i.i: ; preds = %68, %67
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %70 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %70, null
@@ -42087,7 +42081,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   %92 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 8
   %.sroa.01.0.copyload.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !144
   %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.28.0..sroa_idx.i.i.i.i, align 8, !tbaa !108
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false)
   %93 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
   store i8 52, ptr %93, align 8, !tbaa !98
@@ -42111,14 +42105,14 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   store ptr %.0.val3, ptr %101, align 8, !tbaa !282
   %102 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !393
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %103 = load ptr, ptr %7, align 8, !tbaa !80
   call void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull %.0.i.i.i.i.i.i, ptr noundef %103, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   br label %104
 
 104:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %71
   %.sroa.033.0.i.i.i.i = phi ptr [ %92, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %72, %71 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %105 = load ptr, ptr %6, align 8, !tbaa !59
   %106 = icmp eq ptr %105, %12
   br i1 %106, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15ClosureTypeNameEJRNS3_9NodeArrayERPNS3_4NodeES6_S9_RSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS8_bEbDpOT0_.exit.i.i.i, label %107
@@ -42128,7 +42122,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15ClosureTypeNameEJRNS3_9NodeArrayERPNS3_4NodeES6_S9_RSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS8_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15ClosureTypeNameEJRNS3_9NodeArrayERPNS3_4NodeES6_S9_RSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS8_bEbDpOT0_.exit.i.i.i: ; preds = %107, %104
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not.i.i.i.i, label %108, label %110
 
 108:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15ClosureTypeNameEJRNS3_9NodeArrayERPNS3_4NodeES6_S9_RSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS8_bEbDpOT0_.exit.i.i.i
@@ -42400,10 +42394,10 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveE
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #9
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal fastcc noundef ptr @_ZZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E22parseTemplateParamDeclEPNS0_14PODSmallVectorIPNS0_4NodeELm8EEEENKUlNS0_17TemplateParamKindEE_clESC_(ptr %.0.val, ptr readonly captures(none) %.8.val, i32 noundef range(i32 0, 3) %0) unnamed_addr #2 align 2 {
@@ -42418,7 +42412,7 @@ define internal fastcc noundef ptr @_ZZN4llvm16itanium_demangle22AbstractManglin
   %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 808
   %10 = getelementptr inbounds nuw i8, ptr %.0.val, i64 937
   %11 = load i8, ptr %10, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %12, ptr %2, align 8, !tbaa !59
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -42426,7 +42420,7 @@ define internal fastcc noundef ptr @_ZZN4llvm16itanium_demangle22AbstractManglin
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %14, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle17TemplateParamKindEjEEEvRNS1_16FoldingSetNodeIDENS2_4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %0, i32 noundef %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 904
   %16 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i = icmp eq ptr %16, null
@@ -42490,7 +42484,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 48:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %17
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %39, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %18, %17 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %49 = load ptr, ptr %2, align 8, !tbaa !59
   %50 = icmp eq ptr %49, %12
   br i1 %50, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle26SyntheticTemplateParamNameEJRNS3_17TemplateParamKindERjEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %51
@@ -42500,7 +42494,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle26SyntheticTemplateParamNameEJRNS3_17TemplateParamKindERjEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle26SyntheticTemplateParamNameEJRNS3_17TemplateParamKindERjEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i: ; preds = %51, %48
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i.i, label %52, label %54
 
 52:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle26SyntheticTemplateParamNameEJRNS3_17TemplateParamKindERjEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
@@ -42663,7 +42657,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -42671,7 +42665,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 39, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -42733,7 +42727,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 42:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %43 = load ptr, ptr %2, align 8, !tbaa !59
   %44 = icmp eq ptr %43, %7
   br i1 %44, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21TemplateParamPackDeclEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %45
@@ -42743,7 +42737,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21TemplateParamPackDeclEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21TemplateParamPackDeclEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %45, %42
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %46, label %48
 
 46:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21TemplateParamPackDeclEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -42959,7 +42953,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
 62:                                               ; preds = %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit
   %63 = add i32 %61, -1
   %64 = zext i32 %63 to i64
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %65
 
 65:                                               ; preds = %65, %62
@@ -43020,7 +43014,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i.i: ; preds = %._ZN4ll
   br label %_ZN4llvm16itanium_demangle12OutputBufferlsEj.exit
 
 _ZN4llvm16itanium_demangle12OutputBufferlsEj.exit: ; preds = %70, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %89
 
 89:                                               ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsEj.exit, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -44510,7 +44504,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -44518,7 +44512,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN4llvm16FoldingSetNodeIDENS5_16itanium_demangle4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 67, i64 %.0.val, ptr %.8.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -44582,7 +44576,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 42:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %43 = load ptr, ptr %2, align 8, !tbaa !59
   %44 = icmp eq ptr %43, %7
   br i1 %44, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13FunctionParamEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %45
@@ -44592,7 +44586,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13FunctionParamEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13FunctionParamEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %45, %42
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %46, label %48
 
 46:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13FunctionParamEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -44766,7 +44760,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle13FunctionParamD0Ev(p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle8FoldExpr9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca %class.anon.153, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !395
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %4, align 8, !tbaa !397
@@ -45145,7 +45139,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %147, %._
   store i64 %.pre-phi.i.i62, ptr %8, align 8, !tbaa !349
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 %160
   store i8 41, ptr %162, align 1, !tbaa !91
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -45200,7 +45194,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %1, %._ZN4l
   store i64 %.pre-phi.i.i, ptr %9, align 8, !tbaa !349
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %21
   store i8 40, ptr %23, align 1, !tbaa !91
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !329
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -45225,7 +45219,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %1, %._ZN4l
   br label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit
 
 _ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit, %31
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %35 = load ptr, ptr %0, align 8, !tbaa !400
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load i32, ptr %36, align 8, !tbaa !372
@@ -45432,7 +45426,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -45453,7 +45447,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store i32 0, ptr %17, align 4
   store i32 8, ptr %8, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %19 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %19, null
@@ -45519,7 +45513,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 52:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %20
   %.sroa.0.0.i.i.i.i = phi ptr [ %42, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %21, %20 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %53 = load ptr, ptr %2, align 8, !tbaa !59
   %54 = icmp eq ptr %53, %7
   br i1 %54, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10BracedExprEJRPNS3_4NodeES7_bEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %55
@@ -45529,7 +45523,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10BracedExprEJRPNS3_4NodeES7_bEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10BracedExprEJRPNS3_4NodeES7_bEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %55, %52
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %56, label %58
 
 56:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10BracedExprEJRPNS3_4NodeES7_bEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -47709,7 +47703,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %_ZN4llvm16
   store i64 %.pre-phi.i.i, ptr %4, align 8, !tbaa !349
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %33
   store i8 40, ptr %35, align 1, !tbaa !91
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !243
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -47756,7 +47750,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %_ZN4llvm
   store i64 %.pre-phi.i.i6, ptr %4, align 8, !tbaa !349
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 %53
   store i8 41, ptr %55, align 1, !tbaa !91
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -48316,7 +48310,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E13parseSimpleIdEv(ptr noundef nonnull align 8 dereferenceable(1464) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.std::basic_string_view", align 8
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.val10.i.i = load ptr, ptr %0, align 8, !tbaa !86
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val11.i.i = load ptr, ptr %4, align 8, !tbaa !87
@@ -48360,7 +48354,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %or.cond.not.i, label %19, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.thread
 
 19:                                               ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %14, ptr %2, align 8, !tbaa !114
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %10, ptr %20, align 8, !tbaa !115
@@ -48384,7 +48378,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, %25
   %.1.i = phi ptr [ %24, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ], [ %26, %25 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr %.1.i, ptr %3, align 8, !tbaa !11
   %27 = icmp eq ptr %.1.i, null
   br i1 %27, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.thread, label %28
@@ -48411,7 +48405,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.thread: ; preds = %1, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i, %28, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit, %34, %31, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit
   %.0 = phi ptr [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit ], [ %35, %34 ], [ null, %31 ], [ %.1.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit ], [ %.1.i, %28 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i ], [ null, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -48422,7 +48416,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %8 = load i8, ptr %7, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %9, ptr %4, align 8, !tbaa !59
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -48432,7 +48426,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %12 = load ptr, ptr %1, align 8, !tbaa !11
   %13 = load ptr, ptr %2, align 8, !tbaa !11
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %4, i8 noundef zeroext 23, ptr noundef %12, ptr noundef %13)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %15, null
@@ -48498,7 +48492,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 49:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %16
   %.sroa.0.0.i.i.i.i = phi ptr [ %38, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %17, %16 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %50 = load ptr, ptr %4, align 8, !tbaa !59
   %51 = icmp eq ptr %50, %9
   br i1 %51, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13QualifiedNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %52
@@ -48508,7 +48502,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13QualifiedNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13QualifiedNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %52, %49
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not.i.i.i.i, label %53, label %55
 
 53:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13QualifiedNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -48654,7 +48648,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %27 = load i8, ptr %26, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %28, ptr %2, align 8, !tbaa !59
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -48662,7 +48656,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %30, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 50, ptr noundef nonnull %storemerge.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %32 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i = icmp eq ptr %32, null
@@ -48724,7 +48718,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 63:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %33
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %55, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %34, %33 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %64 = load ptr, ptr %2, align 8, !tbaa !59
   %65 = icmp eq ptr %64, %28
   br i1 %65, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8DtorNameEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %66
@@ -48734,7 +48728,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8DtorNameEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8DtorNameEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %66, %63
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i.i, label %67, label %69
 
 67:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8DtorNameEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -48822,7 +48816,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit11
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit11: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.thread, %1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i7, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %112 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E17parseOperatorNameEPNS6_9NameStateE(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef null)
   store ptr %112, ptr %4, align 8, !tbaa !11
   %113 = icmp eq ptr %112, null
@@ -48850,7 +48844,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit14.thread: ; preds = %114, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit14, %120, %117, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit11
   %.1 = phi ptr [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit11 ], [ %121, %120 ], [ null, %117 ], [ %112, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit14 ], [ %112, %114 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E19parseDestructorNameEv.exit
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E19parseDestructorNameEv.exit: ; preds = %22, %67, %69, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i, %108, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit14.thread, %11
@@ -48865,7 +48859,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -48873,7 +48867,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 46, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -48935,7 +48929,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 42:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %43 = load ptr, ptr %2, align 8, !tbaa !59
   %44 = icmp eq ptr %43, %7
   br i1 %44, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19GlobalQualifiedNameEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %45
@@ -48945,7 +48939,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19GlobalQualifiedNameEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19GlobalQualifiedNameEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %45, %42
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %46, label %48
 
 46:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19GlobalQualifiedNameEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -49089,7 +49083,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %24 = load i8, ptr %23, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %25, ptr %2, align 8, !tbaa !59
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -49097,7 +49091,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %27, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle14SpecialSubKindEEEEvRNS1_16FoldingSetNodeIDENS2_4Node4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 48, i32 noundef %.036)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %29 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i = icmp eq ptr %29, null
@@ -49159,7 +49153,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 60:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %30
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %52, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %31, %30 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %61 = load ptr, ptr %2, align 8, !tbaa !59
   %62 = icmp eq ptr %61, %25
   br i1 %62, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19SpecialSubstitutionEJRNS3_14SpecialSubKindEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %63
@@ -49169,7 +49163,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19SpecialSubstitutionEJRNS3_14SpecialSubKindEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19SpecialSubstitutionEJRNS3_14SpecialSubKindEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i: ; preds = %63, %60
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i.i, label %64, label %66
 
 64:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19SpecialSubstitutionEJRNS3_14SpecialSubKindEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
@@ -49495,12 +49489,12 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 44:                                               ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E19parseBareSourceNameEv.exit
   %45 = load i8, ptr %7, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %8, ptr %3, align 8, !tbaa !59
   store i32 0, ptr %9, align 8, !tbaa !60
   store i32 32, ptr %10, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_viewIcSt11char_traitsIcEEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 noundef zeroext 9, ptr noundef %.05, i64 %37, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %46 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i.i.i.i, label %.critedge.i.i.i.i.i, label %47
@@ -49566,7 +49560,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 79:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %47
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %67, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %48, %47 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %80 = load ptr, ptr %3, align 8, !tbaa !59
   %81 = icmp eq ptr %80, %8
   br i1 %81, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10AbiTagAttrEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %82
@@ -49576,7 +49570,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10AbiTagAttrEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10AbiTagAttrEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %82, %79
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i.i, label %83, label %84
 
 83:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10AbiTagAttrEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -50391,7 +50385,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %60, label %61, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15LiteralOperatorEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
 61:                                               ; preds = %58, %56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %62 = getelementptr i8, ptr %30, i64 8
   %.val25 = load ptr, ptr %62, align 8, !tbaa !358
   %63 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val25) #22
@@ -50399,7 +50393,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.val25, ptr %64, align 8
   %65 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(16) %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15LiteralOperatorEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E12OperatorInfoneEPKc.exit.i, %29
@@ -50449,7 +50443,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %or.cond.not.i, label %82, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15LiteralOperatorEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
 82:                                               ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %78, ptr %6, align 8, !tbaa !114
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %74, ptr %83, align 8, !tbaa !115
@@ -50473,7 +50467,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i30, %88
   %.1.i = phi ptr [ %87, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i30 ], [ %89, %88 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %90 = icmp eq ptr %.1.i, null
   br i1 %90, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15LiteralOperatorEJRPNS0_4NodeEEEESA_DpOT0_.exit, label %91
 
@@ -50481,7 +50475,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %94 = load i8, ptr %93, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %95, ptr %4, align 8, !tbaa !59
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -50489,7 +50483,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %97 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 32, ptr %97, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %4, i8 noundef zeroext 20, ptr noundef nonnull %.1.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %99 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i = icmp eq ptr %99, null
@@ -50551,7 +50545,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 130:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %100
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %122, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %101, %100 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %131 = load ptr, ptr %4, align 8, !tbaa !59
   %132 = icmp eq ptr %131, %95
   br i1 %132, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15LiteralOperatorEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %133
@@ -50561,7 +50555,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15LiteralOperatorEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15LiteralOperatorEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %133, %130
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not.i.i.i.i.i, label %134, label %136
 
 134:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15LiteralOperatorEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -50701,7 +50695,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %or.cond.not.i50, label %199, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15LiteralOperatorEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
 199:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i49
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %195, ptr %3, align 8, !tbaa !114
   %200 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %191, ptr %200, align 8, !tbaa !115
@@ -50725,7 +50719,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit57: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i55, %205
   %.1.i54 = phi ptr [ %204, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i55 ], [ %206, %205 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %207 = icmp eq ptr %.1.i54, null
   br i1 %207, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15LiteralOperatorEJRPNS0_4NodeEEEESA_DpOT0_.exit, label %208
 
@@ -50797,7 +50791,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -50805,7 +50799,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 4, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -50867,7 +50861,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 42:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %43 = load ptr, ptr %2, align 8, !tbaa !59
   %44 = icmp eq ptr %43, %7
   br i1 %44, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle22ConversionOperatorTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %45
@@ -50877,7 +50871,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle22ConversionOperatorTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle22ConversionOperatorTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %45, %42
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %46, label %48
 
 46:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle22ConversionOperatorTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -51403,7 +51397,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -51412,7 +51406,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   store i32 32, ptr %10, align 4, !tbaa !61
   %11 = load ptr, ptr %1, align 8, !tbaa !11
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 noundef zeroext 30, ptr noundef %11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %13 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %13, null
@@ -51475,7 +51469,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 45:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %14
   %.sroa.0.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %15, %14 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %46 = load ptr, ptr %3, align 8, !tbaa !59
   %47 = icmp eq ptr %46, %8
   br i1 %47, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15PixelVectorTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %48
@@ -51485,7 +51479,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15PixelVectorTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15PixelVectorTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %48, %45
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %49, label %51
 
 49:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15PixelVectorTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -51574,7 +51568,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -51582,7 +51576,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 29, ptr noundef %.0.val, ptr noundef %.0.val1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -51646,7 +51640,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 43:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %44 = load ptr, ptr %2, align 8, !tbaa !59
   %45 = icmp eq ptr %44, %7
   br i1 %45, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10VectorTypeEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %46
@@ -51656,7 +51650,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10VectorTypeEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10VectorTypeEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %46, %43
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %47, label %49
 
 47:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10VectorTypeEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -51967,7 +51961,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -51975,7 +51969,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 15, ptr noundef %.0.val, ptr noundef %.0.val1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -52039,7 +52033,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 43:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %44 = load ptr, ptr %2, align 8, !tbaa !59
   %45 = icmp eq ptr %44, %7
   br i1 %45, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9ArrayTypeEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %46
@@ -52049,7 +52043,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9ArrayTypeEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9ArrayTypeEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %46, %43
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %47, label %49
 
 47:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9ArrayTypeEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -53090,7 +53084,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -53098,7 +53092,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 14, ptr noundef %.0.val, ptr noundef %.0.val1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -53166,7 +53160,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 47:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %48 = load ptr, ptr %2, align 8, !tbaa !59
   %49 = icmp eq ptr %48, %7
   br i1 %49, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19PointerToMemberTypeEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %50
@@ -53176,7 +53170,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19PointerToMemberTypeEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19PointerToMemberTypeEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %50, %47
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %51, label %53
 
 51:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19PointerToMemberTypeEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -55621,7 +55615,7 @@ define linkonce_odr hidden { i32, ptr } @_ZNK4llvm16itanium_demangle13ReferenceT
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %4, align 8, !tbaa !407
   %7 = load ptr, ptr %5, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.ptr2.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %.ptr2.i, ptr %3, align 8, !tbaa !408
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -55743,7 +55737,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EE9push_backERKS4_.exi
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EED2Ev.exit
 
 _ZN4llvm16itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EED2Ev.exit: ; preds = %._crit_edge, %68
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.0.1.ph, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.5.1.ph, 1
   ret { i32, ptr } %.fca.1.insert
@@ -55963,7 +55957,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %or.cond.not.i, label %51, label %.critedge23
 
 51:                                               ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 %47, ptr %15, align 8, !tbaa !114
   %52 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %43, ptr %52, align 8, !tbaa !115
@@ -55987,7 +55981,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
 
 59:                                               ; preds = %57, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i
   %.1.i = phi ptr [ %56, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ], [ %58, %57 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit48: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit44
@@ -56065,7 +56059,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %or.cond.not.i64, label %91, label %.critedge23
 
 91:                                               ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i63
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 %86, ptr %14, align 8, !tbaa !114
   store ptr %82, ptr %74, align 8, !tbaa !115
   %92 = getelementptr inbounds nuw i8, ptr %82, i64 %86
@@ -56088,7 +56082,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit71: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i69, %96
   %.1.i68 = phi ptr [ %95, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i69 ], [ %97, %96 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.not20.not = icmp eq ptr %.1.i68, null
   br i1 %.not20.not, label %.critedge23, label %98
 
@@ -56214,21 +56208,21 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store ptr %160, ptr %68, align 8, !tbaa !9
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %162 = load i8, ptr %161, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %163 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %163, ptr %12, align 8, !tbaa !59
   %164 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %165 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 32, ptr %165, align 4, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %12, ptr %11, align 8, !tbaa !259
   store i32 53, ptr %163, align 8
   %166 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %166, align 4
   store i32 2, ptr %164, align 8, !tbaa !60
   call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr readonly %.0.i.i.i.i.i, i64 %158)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %168 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %167, ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i76 = icmp eq ptr %168, null
@@ -56290,7 +56284,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 197:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %169
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %189, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %170, %169 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %198 = load ptr, ptr %12, align 8, !tbaa !59
   %199 = icmp eq ptr %198, %163
   br i1 %199, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21StructuredBindingNameEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %200
@@ -56300,7 +56294,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21StructuredBindingNameEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21StructuredBindingNameEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i: ; preds = %200, %197
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %.not.i.i.i.i.i76, label %201, label %203
 
 201:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21StructuredBindingNameEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
@@ -56537,7 +56531,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %305 = load i8, ptr %304, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %306 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %306, ptr %9, align 8, !tbaa !59
   %307 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -56545,7 +56539,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %308 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 32, ptr %308, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle10ModuleNameEPNS2_4NodeEEEEvRNS1_16FoldingSetNodeIDENS5_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull %300, ptr noundef nonnull %.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %310 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %309, ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i86 = icmp eq ptr %310, null
@@ -56609,7 +56603,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 342:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i101, %.critedge.i.i.i.i.i99, %311
   %.sroa.0.0.i.i.i.i.i87 = phi ptr [ %333, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i101 ], [ %312, %311 ], [ null, %.critedge.i.i.i.i.i99 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %343 = load ptr, ptr %9, align 8, !tbaa !59
   %344 = icmp eq ptr %343, %306
   br i1 %344, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12ModuleEntityEJRPNS3_10ModuleNameERPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i, label %345
@@ -56619,7 +56613,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12ModuleEntityEJRPNS3_10ModuleNameERPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12ModuleEntityEJRPNS3_10ModuleNameERPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i: ; preds = %345, %342
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not.i.i.i.i.i86, label %346, label %348
 
 346:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12ModuleEntityEJRPNS3_10ModuleNameERPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i
@@ -56711,7 +56705,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %393 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %394 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %395 = load i8, ptr %394, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %396 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %396, ptr %7, align 8, !tbaa !59
   %397 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -56719,7 +56713,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %398 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 32, ptr %398, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %7, i8 noundef zeroext 25, ptr noundef %298, ptr noundef nonnull %390)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %399 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %400 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %399, ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i103 = icmp eq ptr %400, null
@@ -56783,7 +56777,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 432:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i119, %.critedge.i.i.i.i.i117, %401
   %.sroa.0.0.i.i.i.i.i104 = phi ptr [ %423, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i119 ], [ %402, %401 ], [ null, %.critedge.i.i.i.i.i117 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %433 = load ptr, ptr %7, align 8, !tbaa !59
   %434 = icmp eq ptr %433, %396
   br i1 %434, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20MemberLikeFriendNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %435
@@ -56793,7 +56787,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20MemberLikeFriendNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20MemberLikeFriendNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %435, %432
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not.i.i.i.i.i103, label %436, label %438
 
 436:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20MemberLikeFriendNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -56879,7 +56873,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %481 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %482 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %483 = load i8, ptr %482, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %484 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %484, ptr %5, align 8, !tbaa !59
   %485 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -56887,7 +56881,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %486 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 32, ptr %486, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 noundef zeroext 24, ptr noundef nonnull %298, ptr noundef nonnull %390)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %487 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %488 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %487, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i121 = icmp eq ptr %488, null
@@ -56951,7 +56945,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 520:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i137, %.critedge.i.i.i.i.i135, %489
   %.sroa.0.0.i.i.i.i.i122 = phi ptr [ %511, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i137 ], [ %490, %489 ], [ null, %.critedge.i.i.i.i.i135 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %521 = load ptr, ptr %5, align 8, !tbaa !59
   %522 = icmp eq ptr %521, %484
   br i1 %522, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10NestedNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %523
@@ -56961,7 +56955,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10NestedNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10NestedNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %523, %520
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not.i.i.i.i.i121, label %524, label %526
 
 524:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10NestedNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
@@ -57143,7 +57137,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %or.cond.not.i, label %55, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit.thread
 
 55:                                               ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %50, ptr %5, align 8, !tbaa !114
   store ptr %46, ptr %9, align 8, !tbaa !115
   %56 = getelementptr inbounds nuw i8, ptr %46, i64 %50
@@ -57166,19 +57160,19 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, %60
   %.1.i = phi ptr [ %59, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ], [ %61, %60 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq ptr %.1.i, null
   br i1 %.not, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit.thread, label %62
 
 62:                                               ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit
   %63 = load i8, ptr %11, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %12, ptr %3, align 8, !tbaa !59
   store i32 0, ptr %13, align 8, !tbaa !60
   store i32 32, ptr %14, align 4, !tbaa !61
   %64 = load ptr, ptr %1, align 8, !tbaa !131
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle10ModuleNameEPNS2_4NodeEbEEEvRNS1_16FoldingSetNodeIDENS5_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef %64, ptr noundef nonnull %.1.i, i1 noundef zeroext %.0.i8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %65 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i.i = icmp eq ptr %65, null
   br i1 %.not.i.i.i.i.i, label %.critedge.i.i.i.i.i, label %66
@@ -57242,7 +57236,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 97:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %66
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %86, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %67, %66 ], [ null, %.critedge.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %98 = load ptr, ptr %3, align 8, !tbaa !59
   %99 = icmp eq ptr %98, %12
   br i1 %99, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10ModuleNameEJRPS4_RPNS3_4NodeERbEEESt4pairIS8_bEbDpOT0_.exit.i.i.i.i, label %100
@@ -57252,7 +57246,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10ModuleNameEJRPS4_RPNS3_4NodeERbEEESt4pairIS8_bEbDpOT0_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10ModuleNameEJRPS4_RPNS3_4NodeERbEEESt4pairIS8_bEbDpOT0_.exit.i.i.i.i: ; preds = %100, %97
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i.i, label %101, label %102
 
 101:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10ModuleNameEJRPS4_RPNS3_4NodeERbEEESt4pairIS8_bEbDpOT0_.exit.i.i.i.i
@@ -57661,7 +57655,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -57674,7 +57668,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %11, ptr %12, align 8
   store i32 4, ptr %8, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %14 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %14, null
@@ -57738,7 +57732,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 47:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %15
   %.sroa.0.0.i.i.i.i = phi ptr [ %37, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %16, %15 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %48 = load ptr, ptr %2, align 8, !tbaa !59
   %49 = icmp eq ptr %48, %7
   br i1 %49, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle27ExpandedSpecialSubstitutionEJPNS3_19SpecialSubstitutionEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %50
@@ -57748,7 +57742,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle27ExpandedSpecialSubstitutionEJPNS3_19SpecialSubstitutionEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle27ExpandedSpecialSubstitutionEJPNS3_19SpecialSubstitutionEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %50, %47
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %51, label %53
 
 51:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle27ExpandedSpecialSubstitutionEJPNS3_19SpecialSubstitutionEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -57837,7 +57831,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -57861,7 +57855,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 44
   store i32 %19, ptr %20, align 4
   store i32 8, ptr %9, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %22 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %22, null
@@ -57928,7 +57922,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 56:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %23
   %.sroa.0.0.i.i.i.i = phi ptr [ %45, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %24, %23 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %57 = load ptr, ptr %3, align 8, !tbaa !59
   %58 = icmp eq ptr %57, %8
   br i1 %58, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12CtorDtorNameEJRPNS3_4NodeEbRiEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %59
@@ -57938,7 +57932,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12CtorDtorNameEJRPNS3_4NodeEbRiEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12CtorDtorNameEJRPNS3_4NodeEbRiEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %59, %56
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %60, label %62
 
 60:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12CtorDtorNameEJRPNS3_4NodeEbRiEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -58416,7 +58410,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle10NestedNameD0Ev(ptr 
   ret void
 }
 
-declare noundef ptr @_ZN4llvm16itanium_demangle19parse_discriminatorEPKcS2_(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare noundef ptr @_ZN4llvm16itanium_demangle19parse_discriminatorEPKcS2_(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_9LocalNameEJRPNS0_4NodeESB_EEESA_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr %.0.val, ptr %.0.val1) unnamed_addr #0 align 2 {
@@ -58425,7 +58419,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -58433,7 +58427,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 26, ptr noundef %.0.val, ptr noundef %.0.val1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -58497,7 +58491,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 43:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %44 = load ptr, ptr %2, align 8, !tbaa !59
   %45 = icmp eq ptr %44, %7
   br i1 %45, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9LocalNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %46
@@ -58507,7 +58501,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9LocalNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9LocalNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %46, %43
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %47, label %49
 
 47:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9LocalNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -58590,7 +58584,7 @@ _ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle9Loca
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E18SaveTemplateParamsC2EPS6_(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0, ptr noundef nonnull %1) unnamed_addr #17 align 2 {
+define internal fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E18SaveTemplateParamsC2EPS6_(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0, ptr noundef nonnull %1) unnamed_addr #16 align 2 {
   store ptr %1, ptr %0, align 8, !tbaa !412
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.ptr2.i = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -58757,7 +58751,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEaSEOS4_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E18SaveTemplateParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #17 align 2 {
+define internal fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E18SaveTemplateParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %0, align 8, !tbaa !412
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 664
@@ -59062,21 +59056,21 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8, !tbaa !259
   store i32 10, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 0, ptr %11, align 4
   store i32 2, ptr %9, align 8, !tbaa !60
   call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.0.val, i64 %.8.val)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %13 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %13, null
@@ -59140,7 +59134,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %14
   %.sroa.0.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %15, %14 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = load ptr, ptr %3, align 8, !tbaa !59
   %46 = icmp eq ptr %45, %8
   br i1 %46, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12EnableIfAttrEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %47
@@ -59150,7 +59144,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12EnableIfAttrEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12EnableIfAttrEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i: ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %48, label %50
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12EnableIfAttrEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
@@ -59241,7 +59235,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %10 = load i8, ptr %9, align 1, !tbaa !63, !range !84, !noundef !85
   %11 = trunc nuw i8 %10 to i1
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %12, ptr %6, align 8, !tbaa !59
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -59252,7 +59246,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %.sroa.26.0.copyload.i.i.i.i = load i64, ptr %.sroa.26.0..sroa_idx.i.i.i.i, align 8, !tbaa !108
   %15 = load i32, ptr %2, align 4, !tbaa !415
   %16 = load i8, ptr %3, align 1, !tbaa !416
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !259
   store i32 19, ptr %12, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 20
@@ -59435,8 +59429,8 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_NS2_9NodeArray
   %110 = load i32, ptr %13, align 8, !tbaa !60
   %111 = add i32 %110, 1
   store i32 %111, ptr %13, align 8, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %113 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %113, null
@@ -59515,7 +59509,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 151:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %114
   %.sroa.0.0.i.i.i.i = phi ptr [ %135, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %115, %114 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %152 = load ptr, ptr %6, align 8, !tbaa !59
   %153 = icmp eq ptr %152, %12
   br i1 %153, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FunctionEncodingEJRPNS3_4NodeES7_RNS3_9NodeArrayES7_S7_RNS3_10QualifiersERNS3_15FunctionRefQualEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %154
@@ -59525,7 +59519,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FunctionEncodingEJRPNS3_4NodeES7_RNS3_9NodeArrayES7_S7_RNS3_10QualifiersERNS3_15FunctionRefQualEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FunctionEncodingEJRPNS3_4NodeES7_RNS3_9NodeArrayES7_S7_RNS3_10QualifiersERNS3_15FunctionRefQualEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %154, %151
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not.i.i.i.i, label %155, label %157
 
 155:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FunctionEncodingEJRPNS3_4NodeES7_RNS3_9NodeArrayES7_S7_RNS3_10QualifiersERNS3_15FunctionRefQualEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -59614,7 +59608,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -59622,7 +59616,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeEEEEvRNS3_16FoldingSetNodeIDENS5_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 21, ptr noundef nonnull @.str.274, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -59688,7 +59682,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 43:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.04.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %44 = load ptr, ptr %2, align 8, !tbaa !59
   %45 = icmp eq ptr %44, %7
   br i1 %45, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA31_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %46
@@ -59698,7 +59692,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA31_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA31_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i: ; preds = %46, %43
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %47, label %49
 
 47:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA31_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
@@ -59787,7 +59781,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -59795,7 +59789,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeEEEEvRNS3_16FoldingSetNodeIDENS5_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 21, ptr noundef nonnull @.str.275, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -59861,7 +59855,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 43:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.04.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %44 = load ptr, ptr %2, align 8, !tbaa !59
   %45 = icmp eq ptr %44, %7
   br i1 %45, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA12_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %46
@@ -59871,7 +59865,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA12_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA12_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i: ; preds = %46, %43
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %47, label %49
 
 47:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA12_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
@@ -59960,7 +59954,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -59968,7 +59962,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeEEEEvRNS3_16FoldingSetNodeIDENS5_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 21, ptr noundef nonnull @.str.276, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -60034,7 +60028,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 43:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.04.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %44 = load ptr, ptr %2, align 8, !tbaa !59
   %45 = icmp eq ptr %44, %7
   br i1 %45, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA9_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %46
@@ -60044,7 +60038,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA9_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA9_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i: ; preds = %46, %43
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %47, label %49
 
 47:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA9_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
@@ -60133,7 +60127,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -60141,7 +60135,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeEEEEvRNS3_16FoldingSetNodeIDENS5_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 21, ptr noundef nonnull @.str.277, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -60207,7 +60201,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 43:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.04.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %44 = load ptr, ptr %2, align 8, !tbaa !59
   %45 = icmp eq ptr %44, %7
   br i1 %45, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA14_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %46
@@ -60217,7 +60211,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA14_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA14_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i: ; preds = %46, %43
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %47, label %49
 
 47:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA14_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
@@ -60306,7 +60300,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -60314,7 +60308,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeEEEEvRNS3_16FoldingSetNodeIDENS5_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 21, ptr noundef nonnull @.str.278, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -60380,7 +60374,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 43:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.04.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %44 = load ptr, ptr %2, align 8, !tbaa !59
   %45 = icmp eq ptr %44, %7
   br i1 %45, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA19_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %46
@@ -60390,7 +60384,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA19_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA19_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i: ; preds = %46, %43
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %47, label %49
 
 47:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA19_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
@@ -60473,7 +60467,7 @@ _ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11Spe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseCallOffsetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1464) %0) unnamed_addr #14 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseCallOffsetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1464) %0) unnamed_addr #13 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !86
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !87
@@ -60673,7 +60667,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -60681,7 +60675,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeEEEEvRNS3_16FoldingSetNodeIDENS5_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 21, ptr noundef nonnull @.str.279, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -60747,7 +60741,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 43:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.04.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %44 = load ptr, ptr %2, align 8, !tbaa !59
   %45 = icmp eq ptr %44, %7
   br i1 %45, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA27_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %46
@@ -60757,7 +60751,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA27_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA27_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i: ; preds = %46, %43
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %47, label %49
 
 47:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA27_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
@@ -60846,7 +60840,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -60854,7 +60848,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 22, ptr noundef %.0.val, ptr noundef %.0.val1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -60918,7 +60912,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 43:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %44 = load ptr, ptr %2, align 8, !tbaa !59
   %45 = icmp eq ptr %44, %7
   br i1 %45, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21CtorVtableSpecialNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %46
@@ -60928,7 +60922,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21CtorVtableSpecialNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21CtorVtableSpecialNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i: ; preds = %46, %43
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %47, label %49
 
 47:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21CtorVtableSpecialNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i
@@ -61017,7 +61011,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -61025,7 +61019,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %10, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeEEEEvRNS3_16FoldingSetNodeIDENS5_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 noundef zeroext 21, ptr noundef nonnull align 1 dereferenceable(34) %1, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -61092,7 +61086,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 45:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %13
   %.sroa.015.0.i.i.i.i = phi ptr [ %35, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %46 = load ptr, ptr %3, align 8, !tbaa !59
   %47 = icmp eq ptr %46, %8
   br i1 %47, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA34_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %48
@@ -61102,7 +61096,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA34_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA34_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i: ; preds = %48, %45
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %49, label %51
 
 49:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA34_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
@@ -61191,7 +61185,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -61199,7 +61193,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeEEEEvRNS3_16FoldingSetNodeIDENS5_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 21, ptr noundef nonnull @.str.281, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -61265,7 +61259,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 43:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.04.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %44 = load ptr, ptr %2, align 8, !tbaa !59
   %45 = icmp eq ptr %44, %7
   br i1 %45, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA41_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %46
@@ -61275,7 +61269,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA41_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA41_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i: ; preds = %46, %43
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %47, label %49
 
 47:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA41_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
@@ -61364,7 +61358,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -61373,7 +61367,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   store i32 32, ptr %10, align 4, !tbaa !61
   %11 = load ptr, ptr %1, align 8, !tbaa !11
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeEEEEvRNS3_16FoldingSetNodeIDENS5_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 noundef zeroext 21, ptr noundef nonnull @.str.282, ptr noundef %11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %13 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %13, null
@@ -61440,7 +61434,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 46:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %14
   %.sroa.04.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %15, %14 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %47 = load ptr, ptr %3, align 8, !tbaa !59
   %48 = icmp eq ptr %47, %8
   br i1 %48, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA18_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %49
@@ -61450,7 +61444,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA18_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA18_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i: ; preds = %49, %46
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.i.i, label %50, label %52
 
 50:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA18_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
@@ -61539,7 +61533,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -61547,7 +61541,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeEEEEvRNS3_16FoldingSetNodeIDENS5_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 21, ptr noundef nonnull @.str.283, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -61613,7 +61607,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 43:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.04.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %44 = load ptr, ptr %2, align 8, !tbaa !59
   %45 = icmp eq ptr %44, %7
   br i1 %45, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA22_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %46
@@ -61623,7 +61617,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA22_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA22_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i: ; preds = %46, %43
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %47, label %49
 
 47:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA22_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
@@ -61712,7 +61706,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %6 = load i8, ptr %5, align 1, !tbaa !63, !range !84, !noundef !85
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -61720,7 +61714,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32, ptr %9, align 4, !tbaa !61
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeEEEEvRNS3_16FoldingSetNodeIDENS5_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext 21, ptr noundef nonnull @.str.285, ptr noundef %.0.val)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %11 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -61786,7 +61780,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 43:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %.critedge.i.i.i.i, %12
   %.sroa.04.0.i.i.i.i = phi ptr [ %34, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %.critedge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %44 = load ptr, ptr %2, align 8, !tbaa !59
   %45 = icmp eq ptr %44, %7
   br i1 %45, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA25_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %46
@@ -61796,7 +61790,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA25_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA25_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i: ; preds = %46, %43
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i.i.i, label %47, label %49
 
 47:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA25_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
@@ -62912,7 +62906,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_1
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit: ; preds = %30, %4
   %.sink.i = phi ptr [ %31, %30 ], [ null, %4 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %.sink.i, ptr %5, align 8, !tbaa !418
   %41 = lshr i32 %6, 1
   %42 = shl i32 %41, 2
@@ -62964,7 +62958,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS
   br label %65
 
 65:                                               ; preds = %53, %61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %66 = load ptr, ptr %2, align 8, !tbaa !11
   store ptr %66, ptr %54, align 8, !tbaa !11
   %67 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -63090,7 +63084,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPNS_16itanium_demangle4
   br i1 %.not, label %43, label %23
 
 23:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %27
 
@@ -63138,7 +63132,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPNS_16itanium_demangle4
 
 42:                                               ; preds = %35, %25
   call void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E18moveFromOldBucketsEPS9_SC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %3, ptr noundef %.1)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %56
 
 43:                                               ; preds = %20
@@ -63435,6 +63429,12 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle9DotSuffixD0Ev(ptr no
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #18
 
@@ -63466,20 +63466,20 @@ attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no
 attributes #1 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

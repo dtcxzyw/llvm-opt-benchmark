@@ -18,7 +18,7 @@ define hidden i32 @confirmingTLSSet(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %9, label %22, label %10
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr inttoptr (i64 2576980377 to ptr), ptr %4, align 8
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 808
@@ -38,7 +38,7 @@ define hidden i32 @confirmingTLSSet(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %assertTLSValue.exit
 
 assertTLSValue.exit:                              ; preds = %10, %16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %22
 
 22:                                               ; preds = %3, %assertTLSValue.exit
@@ -95,7 +95,7 @@ define hidden zeroext range(i8 0, 2) i8 @tryToAcquireReentrancyToken(ptr noundef
   br i1 %or.cond.not, label %16, label %confirmingTLSSet.exit.thread
 
 16:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr inttoptr (i64 2576980377 to ptr), ptr %4, align 8
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 808
@@ -115,7 +115,7 @@ define hidden zeroext range(i8 0, 2) i8 @tryToAcquireReentrancyToken(ptr noundef
   br label %assertTLSValue.exit
 
 assertTLSValue.exit:                              ; preds = %16, %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 816
   %30 = load ptr, ptr %29, align 8
@@ -124,7 +124,7 @@ assertTLSValue.exit:                              ; preds = %16, %22
   br i1 %32, label %confirmingTLSSet.exit.thread, label %33
 
 33:                                               ; preds = %assertTLSValue.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr inttoptr (i64 2576980377 to ptr), ptr %3, align 8
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 808
@@ -144,7 +144,7 @@ assertTLSValue.exit:                              ; preds = %16, %22
   br label %45
 
 45:                                               ; preds = %39, %33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %46 = icmp eq i32 %31, 0
   %47 = zext i1 %46 to i8
   call void @JPLISAssertCondition(i8 noundef zeroext %47, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 134) #3
@@ -159,7 +159,7 @@ confirmingTLSSet.exit.thread:                     ; preds = %assertTLSValue.exit
 define hidden void @releaseReentrancyToken(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr inttoptr (i64 2576980377 to ptr), ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 808
@@ -179,7 +179,7 @@ define hidden void @releaseReentrancyToken(ptr noundef %0, ptr noundef %1) local
   br label %assertTLSValue.exit
 
 assertTLSValue.exit:                              ; preds = %2, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 816
   %18 = load ptr, ptr %17, align 8
@@ -188,7 +188,7 @@ assertTLSValue.exit:                              ; preds = %2, %10
   br i1 %20, label %confirmingTLSSet.exit.thread, label %21
 
 21:                                               ; preds = %assertTLSValue.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr inttoptr (i64 2576980377 to ptr), ptr %3, align 8
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 808
@@ -208,7 +208,7 @@ assertTLSValue.exit:                              ; preds = %2, %10
   br label %33
 
 33:                                               ; preds = %27, %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %34 = icmp eq i32 %19, 0
   %35 = zext i1 %34 to i8
   call void @JPLISAssertCondition(i8 noundef zeroext %35, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 163) #3
@@ -219,10 +219,10 @@ confirmingTLSSet.exit.thread:                     ; preds = %assertTLSValue.exit
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

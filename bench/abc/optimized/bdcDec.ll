@@ -19,7 +19,7 @@ define void @Bdc_SuppMinimize2(ptr noundef captures(none) %0, ptr noundef captur
   br i1 %.not, label %15, label %8
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #7
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %Abc_Clock.exit, label %11
@@ -35,7 +35,7 @@ define void @Bdc_SuppMinimize2(ptr noundef captures(none) %0, ptr noundef captur
 
 Abc_Clock.exit:                                   ; preds = %8, %11
   %.0.i.neg = phi i64 [ %.neg50, %11 ], [ 1, %8 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %Abc_Clock.exit, %2
@@ -173,7 +173,7 @@ Kit_TruthIsDisjoint.exit.thread:                  ; preds = %51, %30, %Kit_Truth
   br i1 %.not34, label %96, label %82
 
 82:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %83 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #7
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %Abc_Clock.exit46, label %85
@@ -189,7 +189,7 @@ Kit_TruthIsDisjoint.exit.thread:                  ; preds = %51, %30, %Kit_Truth
 
 Abc_Clock.exit46:                                 ; preds = %82, %85
   %.0.i45 = phi i64 [ %91, %85 ], [ -1, %82 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %92 = add i64 %.0.i45, %.0.neg
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %94 = load i64, ptr %93, align 8, !tbaa !34
@@ -201,15 +201,9 @@ Abc_Clock.exit46:                                 ; preds = %82, %85
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @Kit_TruthSupport(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @Kit_TruthSupport(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @Kit_TruthExistNew(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @Kit_TruthExistNew(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Bdc_SuppMinimize(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
@@ -222,7 +216,7 @@ define void @Bdc_SuppMinimize(ptr noundef captures(none) %0, ptr noundef capture
   br i1 %.not, label %15, label %8
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #7
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %Abc_Clock.exit, label %11
@@ -238,7 +232,7 @@ define void @Bdc_SuppMinimize(ptr noundef captures(none) %0, ptr noundef capture
 
 Abc_Clock.exit:                                   ; preds = %8, %11
   %.0.i.neg = phi i64 [ %.neg34, %11 ], [ 1, %8 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %Abc_Clock.exit, %2
@@ -307,7 +301,7 @@ Abc_Clock.exit:                                   ; preds = %8, %11
   br i1 %.not27, label %64, label %50
 
 50:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %51 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #7
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %Abc_Clock.exit32, label %53
@@ -323,7 +317,7 @@ Abc_Clock.exit:                                   ; preds = %8, %11
 
 Abc_Clock.exit32:                                 ; preds = %50, %53
   %.0.i31 = phi i64 [ %59, %53 ], [ -1, %50 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %60 = add i64 %.0.i31, %.0.neg
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %62 = load i64, ptr %61, align 8, !tbaa !34
@@ -335,11 +329,11 @@ Abc_Clock.exit32:                                 ; preds = %50, %53
   ret void
 }
 
-declare i32 @Kit_TruthVarInSupport(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @Kit_TruthVarInSupport(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @Kit_TruthVarIsVacuous(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @Kit_TruthVarIsVacuous(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @Kit_TruthExist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @Kit_TruthExist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Bdc_DecomposeUpdateRight(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
@@ -555,12 +549,12 @@ Kit_TruthIsConst0.exit:                           ; preds = %119, %select.unfold
   ret i32 %.0
 }
 
-declare void @Kit_TruthExistSet(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @Kit_TruthExistSet(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Bdc_DecomposeFindInitialVarSet(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !24
   %8 = icmp sgt i32 %7, 0
@@ -687,7 +681,7 @@ Kit_TruthIsDisjoint3.exit:                        ; preds = %52
 
 .loopexit:                                        ; preds = %._crit_edge, %4, %.preheader, %63
   %.033 = phi i32 [ 1, %63 ], [ 0, %.preheader ], [ 0, %4 ], [ 0, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.033
 }
 
@@ -904,7 +898,7 @@ Kit_TruthCopy.exit:                               ; preds = %Kit_TruthCopy.exit.
   ret i32 %.043
 }
 
-declare void @Kit_TruthForallNew(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @Kit_TruthForallNew(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @Bdc_DecomposeOr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 24)) %2, ptr noundef captures(none) initializes((0, 16)) %3) local_unnamed_addr #0 {
@@ -1469,17 +1463,17 @@ define range(i32 3, 7) i32 @Bdc_DecomposeStep(ptr noundef %0, ptr noundef captur
 
 49:                                               ; preds = %4
   %50 = load ptr, ptr %15, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %50, i64 24, i1 false), !tbaa.struct !64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !tbaa.struct !64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %51 = load ptr, ptr %18, align 8, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false), !tbaa.struct !64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !tbaa.struct !64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %140
 
 52:                                               ; preds = %4
@@ -1570,17 +1564,17 @@ define range(i32 3, 7) i32 @Bdc_DecomposeStep(ptr noundef %0, ptr noundef captur
   %100 = add nsw i32 %99, 1
   store i32 %100, ptr %98, align 8, !tbaa !67
   %101 = load ptr, ptr %15, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %101, i64 24, i1 false), !tbaa.struct !64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !tbaa.struct !64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %102 = load ptr, ptr %18, align 8, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %102, i64 24, i1 false), !tbaa.struct !64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !tbaa.struct !64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %140
 
 103:                                              ; preds = %90
@@ -1597,17 +1591,17 @@ define range(i32 3, 7) i32 @Bdc_DecomposeStep(ptr noundef %0, ptr noundef captur
   %111 = add nsw i32 %110, 1
   store i32 %111, ptr %109, align 4, !tbaa !68
   %112 = load ptr, ptr %21, align 8, !tbaa !62
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %112, i64 24, i1 false), !tbaa.struct !64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %112, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !tbaa.struct !64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %113 = load ptr, ptr %24, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %113, i64 24, i1 false), !tbaa.struct !64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !tbaa.struct !64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %140
 
 114:                                              ; preds = %103
@@ -1631,17 +1625,17 @@ define range(i32 3, 7) i32 @Bdc_DecomposeStep(ptr noundef %0, ptr noundef captur
   %125 = add nsw i32 %124, 1
   store i32 %125, ptr %123, align 8, !tbaa !67
   %126 = load ptr, ptr %15, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %126, i64 24, i1 false), !tbaa.struct !64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %126, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %127 = load ptr, ptr %18, align 8, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %127, i64 24, i1 false), !tbaa.struct !64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %140
 
 128:                                              ; preds = %114
@@ -1661,17 +1655,17 @@ define range(i32 3, 7) i32 @Bdc_DecomposeStep(ptr noundef %0, ptr noundef captur
   %137 = add nsw i32 %136, 1
   store i32 %137, ptr %135, align 4, !tbaa !68
   %138 = load ptr, ptr %21, align 8, !tbaa !62
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %138, i64 24, i1 false), !tbaa.struct !64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %138, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %139 = load ptr, ptr %24, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %139, i64 24, i1 false), !tbaa.struct !64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %139, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %140
 
 140:                                              ; preds = %134, %122, %105, %94, %49
@@ -1679,7 +1673,7 @@ define range(i32 3, 7) i32 @Bdc_DecomposeStep(ptr noundef %0, ptr noundef captur
   ret i32 %.085
 }
 
-declare ptr @Bdc_TableLookup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Bdc_TableLookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 2147483647) i32 @Bdc_DecomposeStepMux(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
@@ -1692,7 +1686,7 @@ define range(i32 -2147483648, 2147483647) i32 @Bdc_DecomposeStepMux(ptr noundef 
   br i1 %.not, label %17, label %10
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #7
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %Abc_Clock.exit, label %13
@@ -1708,7 +1702,7 @@ define range(i32 -2147483648, 2147483647) i32 @Bdc_DecomposeStepMux(ptr noundef 
 
 Abc_Clock.exit:                                   ; preds = %10, %13
   %.0.i.neg = phi i64 [ %.neg69, %13 ], [ 1, %10 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %17
 
 17:                                               ; preds = %Abc_Clock.exit, %4
@@ -1797,7 +1791,7 @@ Abc_Clock.exit:                                   ; preds = %10, %13
   br i1 %.not63, label %87, label %73
 
 73:                                               ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %74 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #7
   %75 = icmp slt i32 %74, 0
   br i1 %75, label %Abc_Clock.exit65, label %76
@@ -1813,7 +1807,7 @@ Abc_Clock.exit:                                   ; preds = %10, %13
 
 Abc_Clock.exit65:                                 ; preds = %73, %76
   %.0.i64 = phi i64 [ %82, %76 ], [ -1, %73 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %83 = add i64 %.0.i64, %.0.neg
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %85 = load i64, ptr %84, align 8, !tbaa !71
@@ -1825,9 +1819,9 @@ Abc_Clock.exit65:                                 ; preds = %73, %76
   ret i32 %.06167
 }
 
-declare void @Kit_TruthCofactor0New(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @Kit_TruthCofactor0New(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @Kit_TruthCofactor1New(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @Kit_TruthCofactor1New(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @Bdc_ManNodeVerify(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1898,7 +1892,7 @@ Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %s
   ret i32 %39
 }
 
-declare i32 @Bdc_TableCheckContainment(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Bdc_TableCheckContainment(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Bdc_ManCreateGate(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -2209,7 +2203,7 @@ Bdc_FunNew.exit.thread:                           ; preds = %4, %9, %Kit_TruthAn
   ret ptr %.050
 }
 
-declare void @Bdc_TableAdd(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Bdc_TableAdd(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @Bdc_ManDecompose_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2221,8 +2215,8 @@ define ptr @Bdc_ManDecompose_rec(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %8 = alloca %struct.timespec, align 8
   %9 = alloca %struct.Bdc_Isf_t_, align 8
   %10 = alloca %struct.Bdc_Isf_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load ptr, ptr %0, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !18
@@ -2230,7 +2224,7 @@ define ptr @Bdc_ManDecompose_rec(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %.not, label %24, label %14
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %15 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #7
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %Abc_Clock.exit, label %17
@@ -2246,7 +2240,7 @@ define ptr @Bdc_ManDecompose_rec(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 Abc_Clock.exit:                                   ; preds = %14, %17
   %.0.i = phi i64 [ %23, %17 ], [ -1, %14 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %24
 
 24:                                               ; preds = %Abc_Clock.exit, %2
@@ -2259,7 +2253,7 @@ Abc_Clock.exit:                                   ; preds = %14, %17
   br i1 %.not79, label %43, label %29
 
 29:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %30 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #7
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %Abc_Clock.exit87, label %32
@@ -2275,7 +2269,7 @@ Abc_Clock.exit:                                   ; preds = %14, %17
 
 Abc_Clock.exit87:                                 ; preds = %29, %32
   %.0.i86 = phi i64 [ %38, %32 ], [ -1, %29 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %39 = sub i64 %.0.i86, %.0
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %41 = load i64, ptr %40, align 8, !tbaa !82
@@ -2295,7 +2289,7 @@ Abc_Clock.exit87:                                 ; preds = %29, %32
   br i1 %.not81, label %58, label %48
 
 48:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #7
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %Abc_Clock.exit89, label %51
@@ -2311,7 +2305,7 @@ Abc_Clock.exit87:                                 ; preds = %29, %32
 
 Abc_Clock.exit89:                                 ; preds = %48, %51
   %.0.i88 = phi i64 [ %57, %51 ], [ -1, %48 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %58
 
 58:                                               ; preds = %Abc_Clock.exit89, %44
@@ -2324,7 +2318,7 @@ Abc_Clock.exit89:                                 ; preds = %48, %51
   br i1 %.not82, label %77, label %63
 
 63:                                               ; preds = %58
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %64 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #7
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %Abc_Clock.exit91, label %66
@@ -2340,7 +2334,7 @@ Abc_Clock.exit89:                                 ; preds = %48, %51
 
 Abc_Clock.exit91:                                 ; preds = %63, %66
   %.0.i90 = phi i64 [ %72, %66 ], [ -1, %63 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %73 = sub i64 %.0.i90, %.1
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %75 = load i64, ptr %74, align 8, !tbaa !83
@@ -2360,7 +2354,7 @@ Abc_Clock.exit91:                                 ; preds = %63, %66
   br i1 %.not84, label %93, label %83
 
 83:                                               ; preds = %79
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %84 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #7
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %Abc_Clock.exit93, label %86
@@ -2376,7 +2370,7 @@ Abc_Clock.exit91:                                 ; preds = %63, %66
 
 Abc_Clock.exit93:                                 ; preds = %83, %86
   %.0.i92 = phi i64 [ %92, %86 ], [ -1, %83 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %93
 
 93:                                               ; preds = %Abc_Clock.exit93, %79
@@ -2389,7 +2383,7 @@ Abc_Clock.exit93:                                 ; preds = %83, %86
   br i1 %.not85, label %112, label %98
 
 98:                                               ; preds = %93
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %99 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #7
   %100 = icmp slt i32 %99, 0
   br i1 %100, label %Abc_Clock.exit95, label %101
@@ -2405,7 +2399,7 @@ Abc_Clock.exit93:                                 ; preds = %83, %86
 
 Abc_Clock.exit95:                                 ; preds = %98, %101
   %.0.i94 = phi i64 [ %107, %101 ], [ -1, %98 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %108 = sub i64 %.0.i94, %.2
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %110 = load i64, ptr %109, align 8, !tbaa !71
@@ -2474,19 +2468,25 @@ Abc_Clock.exit95:                                 ; preds = %98, %101
 
 148:                                              ; preds = %132, %146, %143, %134, %120, %112, %43, %139
   %.069 = phi ptr [ %135, %139 ], [ %25, %43 ], [ null, %112 ], [ null, %120 ], [ null, %134 ], [ null, %143 ], [ %133, %132 ], [ %147, %146 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.069
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6
@@ -2498,11 +2498,11 @@ declare i32 @llvm.smax.i32(i32, i32) #6
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 

@@ -77,7 +77,7 @@ define internal range(i32 -2147483648, 1) i32 @remove_extradata(ptr noundef %0, 
   %30 = load ptr, ptr %29, align 8, !tbaa !26
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load i32, ptr %31, align 8, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds i8, ptr %30, i64 %33
   %35 = icmp sgt i32 %32, 0
@@ -117,7 +117,7 @@ define internal range(i32 -2147483648, 1) i32 @remove_extradata(ptr noundef %0, 
 
 av1_split.exit:                                   ; preds = %37, %46, %28, %.thread.i
   %.2.i = phi i32 [ %45, %.thread.i ], [ 0, %28 ], [ 0, %46 ], [ 0, %37 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %mpegvideo_split.exit
 
 51:                                               ; preds = %23, %23, %23, %23
@@ -127,7 +127,7 @@ av1_split.exit:                                   ; preds = %37, %46, %28, %.thr
   %55 = load i32, ptr %54, align 8, !tbaa !27
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds i8, ptr %53, i64 %56
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 -1, ptr %6, align 4, !tbaa !30
   br label %58
 
@@ -154,7 +154,7 @@ av1_split.exit:                                   ; preds = %37, %46, %28, %.thr
 
 mpeg4video_split.exit:                            ; preds = %58, %63
   %.0.i = phi i32 [ %68, %63 ], [ 0, %58 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %mpegvideo_split.exit
 
 69:                                               ; preds = %23
@@ -165,7 +165,7 @@ mpeg4video_split.exit:                            ; preds = %58, %63
   %74 = ptrtoint ptr %71 to i64
   %75 = sext i32 %73 to i64
   %76 = getelementptr inbounds i8, ptr %71, i64 %75
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 -1, ptr %5, align 4, !tbaa !30
   %77 = icmp sgt i32 %73, 0
   br i1 %77, label %.lr.ph.i33, label %h264_split.exit
@@ -249,7 +249,7 @@ mpeg4video_split.exit:                            ; preds = %58, %63
 
 h264_split.exit:                                  ; preds = %.lr.ph.i33, %106, %69, %.critedge.i
   %.0.i32 = phi i32 [ %105, %.critedge.i ], [ 0, %69 ], [ 0, %106 ], [ 0, %.lr.ph.i33 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %mpegvideo_split.exit
 
 108:                                              ; preds = %23
@@ -260,7 +260,7 @@ h264_split.exit:                                  ; preds = %.lr.ph.i33, %106, %
   %113 = ptrtoint ptr %110 to i64
   %114 = sext i32 %112 to i64
   %115 = getelementptr inbounds i8, ptr %110, i64 %114
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4, !tbaa !30
   %116 = icmp sgt i32 %112, 0
   br i1 %116, label %.lr.ph.i35, label %hevc_split.exit
@@ -352,7 +352,7 @@ h264_split.exit:                                  ; preds = %.lr.ph.i33, %106, %
 
 hevc_split.exit:                                  ; preds = %.lr.ph.i35, %146, %108, %.critedge.i41
   %.0.i34 = phi i32 [ %145, %.critedge.i41 ], [ 0, %108 ], [ 0, %146 ], [ 0, %.lr.ph.i35 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %mpegvideo_split.exit
 
 148:                                              ; preds = %23, %23
@@ -406,7 +406,7 @@ hevc_split.exit:                                  ; preds = %.lr.ph.i35, %146, %
   %172 = load i32, ptr %171, align 8, !tbaa !27
   %173 = sext i32 %172 to i64
   %174 = getelementptr inbounds i8, ptr %170, i64 %173
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -1, ptr %3, align 4, !tbaa !30
   %175 = icmp sgt i32 %172, 0
   br i1 %175, label %.lr.ph.i48, label %vc1_split.exit
@@ -444,7 +444,7 @@ hevc_split.exit:                                  ; preds = %.lr.ph.i35, %146, %
 
 vc1_split.exit:                                   ; preds = %189, %168, %183
   %.011.i = phi i32 [ %188, %183 ], [ 0, %168 ], [ 0, %189 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %mpegvideo_split.exit
 
 mpegvideo_split.exit:                             ; preds = %167, %164, %148, %23, %vc1_split.exit, %hevc_split.exit, %h264_split.exit, %mpeg4video_split.exit, %av1_split.exit
@@ -467,17 +467,17 @@ mpegvideo_split.exit:                             ; preds = %167, %164, %148, %2
 
 declare ptr @av_default_item_name(ptr noundef) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @ff_bsf_get_packet_ref(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @ff_av1_extract_obu(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @avpriv_find_start_code(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

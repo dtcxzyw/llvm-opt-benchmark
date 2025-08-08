@@ -143,7 +143,7 @@ define internal fastcc i32 @do_nftw(ptr noundef nonnull %0, ptr noundef readonly
 
 58:                                               ; preds = %.thread110
   %59 = trunc i64 %.079.lcssa to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %59, ptr %7, align 4
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %4, ptr %60, align 4
@@ -178,7 +178,7 @@ define internal fastcc i32 @do_nftw(ptr noundef nonnull %0, ptr noundef readonly
   br i1 %73, label %call_nftw.exit.thread, label %74
 
 call_nftw.exit.thread:                            ; preds = %72
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %136
 
 74:                                               ; preds = %72
@@ -188,7 +188,7 @@ call_nftw.exit.thread:                            ; preds = %72
 
 call_nftw.exit:                                   ; preds = %.thread.i, %74
   %.017.i = phi i32 [ %75, %74 ], [ %62, %.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not95 = icmp eq i32 %.017.i, 0
   br i1 %.not95, label %77, label %136
 
@@ -279,7 +279,7 @@ call_nftw.exit:                                   ; preds = %.thread.i, %74
 
 116:                                              ; preds = %115
   %117 = trunc i64 %.079.lcssa to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %117, ptr %6, align 4
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %4, ptr %118, align 4
@@ -314,7 +314,7 @@ call_nftw.exit:                                   ; preds = %.thread.i, %74
   br i1 %131, label %call_nftw.exit108.thread, label %132
 
 call_nftw.exit108.thread:                         ; preds = %130
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %136
 
 132:                                              ; preds = %130
@@ -324,7 +324,7 @@ call_nftw.exit108.thread:                         ; preds = %130
 
 call_nftw.exit108:                                ; preds = %.thread.i107, %132
   %.017.i106 = phi i32 [ %133, %132 ], [ %120, %.thread.i107 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not99 = icmp eq i32 %.017.i106, 0
   br i1 %.not99, label %135, label %136
 
@@ -360,10 +360,10 @@ declare i32 @chdir(ptr noundef) local_unnamed_addr #4
 declare i32 @lib_restoredir() local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

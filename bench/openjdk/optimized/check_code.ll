@@ -1949,7 +1949,7 @@ verify_opcode_operands.exit.i:                    ; preds = %814, %809, %800, %s
   br i1 %819, label %294, label %._crit_edge229.i, !llvm.loop !20
 
 ._crit_edge229.i:                                 ; preds = %verify_opcode_operands.exit.i, %.preheader.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %820 = load ptr, ptr %9, align 8
   %821 = load i32, ptr %14, align 4
   %822 = load ptr, ptr %224, align 8
@@ -2212,9 +2212,9 @@ pop_and_free.exit.i133.i:                         ; preds = %939, %938, %935
   br i1 %942, label %.lr.ph.i124.i, label %initialize_exception_table.exit.i, !llvm.loop !21
 
 initialize_exception_table.exit.i:                ; preds = %pop_and_free.exit.i133.i, %.preheader.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %943 = load ptr, ptr %9, align 8
   %944 = load ptr, ptr %221, align 8
   %945 = load i32, ptr %14, align 4
@@ -2401,8 +2401,8 @@ initialize_dataflow.exit.i:                       ; preds = %1021, %1018
   %1023 = load i8, ptr %1022, align 4
   %1024 = or i8 %1023, 1
   store i8 %1024, ptr %1022, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call fastcc void @run_dataflow(ptr noundef nonnull %9)
   %1025 = call i32 @JVM_GetMethodIxExceptionsCount(ptr noundef %239, ptr noundef %1, i32 noundef range(i32 0, 2147483647) %240) #20
   %1026 = sext i32 %1025 to i64
@@ -3812,13 +3812,13 @@ define internal fastcc void @run_dataflow(ptr noundef nonnull %0) unnamed_addr #
   br i1 %.not10.i.us, label %check_flags.exit.us, label %.split367.us
 
 check_flags.exit.us:                              ; preds = %73, %83, %93, %104, %54
-  call void @llvm.lifetime.start.p0(i64 257, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %108 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %57, i64 40
@@ -4665,13 +4665,13 @@ decrement_indirection.exit.i.us:                  ; preds = %451, %447
 pop_stack.exit.us:                                ; preds = %464, %.thread383.i.us, %443, %426, %decrement_indirection.exit375.i.us, %411, %408, %311, %308, %._crit_edge468.i.us, %._crit_edge.i.us
   store ptr %.0295.lcssa.i.us, ptr %15, align 8
   store i32 %.0296.lcssa.i.us, ptr %38, align 8
-  call void @llvm.lifetime.end.p0(i64 257, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %468 = load ptr, ptr %22, align 8
   %469 = getelementptr inbounds nuw %struct.instruction_data_type, ptr %468, i64 %indvars.iv
   %470 = load i32, ptr %469, align 8
@@ -5416,10 +5416,10 @@ update_registers.exit.us:                         ; preds = %490, %503, %..loope
   br i1 %810, label %update_flags.exit.thread.us, label %update_flags.exit.us
 
 update_flags.exit.us:                             ; preds = %update_registers.exit.us
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %811 = getelementptr inbounds nuw i8, ptr %804, i64 8
   %812 = load i32, ptr %811, align 8
   store i32 0, ptr %3, align 4
@@ -5611,10 +5611,10 @@ update_flags.exit.thread.us:                      ; preds = %update_registers.ex
   %886 = icmp eq i32 %885, 11
   %887 = zext i1 %886 to i16
   %spec.select.i44.us = or i16 %806, %887
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %888 = getelementptr inbounds nuw i8, ptr %804, i64 8
   %889 = load i32, ptr %888, align 8
   store i32 0, ptr %3, align 4
@@ -6026,15 +6026,15 @@ push_stack.exit.us:                               ; preds = %989, %1037, %985, %
   %.1101.i.us = phi ptr [ %.0100.lcssa.i.us, %._crit_edge.i49.us ], [ null, %985 ], [ %1022, %1037 ], [ %.0100.lcssa.i.us, %989 ]
   store i32 %.0.lcssa.i.us, ptr %38, align 8
   store ptr %.1101.i.us, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %1040 = icmp sgt i32 %.0.lcssa.i.us, %21
   br i1 %1040, label %.split511.us, label %1041
 
 1041:                                             ; preds = %push_stack.exit.us
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %1042 = load ptr, ptr %22, align 8
   %1043 = getelementptr inbounds nuw %struct.instruction_data_type, ptr %1042, i64 %indvars.iv
   %1044 = load i32, ptr %1043, align 8
@@ -6312,7 +6312,7 @@ push_stack.exit.us:                               ; preds = %989, %1037, %985, %
   br i1 %exitcond.not.i62.us, label %merge_into_successors.exit.us, label %1161, !llvm.loop !61
 
 merge_into_successors.exit.us:                    ; preds = %1165, %.preheader.i60.us
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %1166
 
 1166:                                             ; preds = %merge_into_successors.exit.us, %.preheader.us
@@ -8543,10 +8543,10 @@ declare i32 @llvm.bswap.i32(i32) #14
 declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #14

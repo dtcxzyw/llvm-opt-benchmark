@@ -53,7 +53,7 @@ define dso_local { ptr, i32 } @_ZN4absl10from_charsEPKcS1_RdNS_12chars_formatE(p
 
 26:                                               ; preds = %23, %23
   %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4absl16strings_internal10ParseFloatILi16EEENS0_11ParsedFloatEPKcS4_NS_12chars_formatE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::strings_internal::ParsedFloat") align 8 %7, ptr noundef nonnull %27, ptr noundef %1, i32 noundef %3)
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %29 = load ptr, ptr %28, align 8, !tbaa !7
@@ -179,14 +179,14 @@ _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatE
 _ZN4absl12_GLOBAL__N_112EncodeResultIdEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit.i: ; preds = %80, %78, %74, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i, %36, %34
   %.sroa.0137.0.i = phi ptr [ %24, %36 ], [ %0, %34 ], [ %29, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i ], [ %29, %74 ], [ %29, %78 ], [ %29, %80 ]
   %.sroa.6138.0.i = phi i32 [ 0, %36 ], [ 22, %34 ], [ 0, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i ], [ 34, %74 ], [ 34, %78 ], [ 0, %80 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIdEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
 89:                                               ; preds = %13
   br i1 %15, label %.thread.i, label %90
 
 90:                                               ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN4absl16strings_internal10ParseFloatILi16EEENS0_11ParsedFloatEPKcS4_NS_12chars_formatE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::strings_internal::ParsedFloat") align 8 %8, ptr noundef %.0.i, ptr noundef %1, i32 noundef %3)
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %92 = load ptr, ptr %91, align 8, !tbaa !7
@@ -202,7 +202,7 @@ _ZN4absl12_GLOBAL__N_112EncodeResultIdEEvRKNS0_15CalculatedFloatEbPNS_17from_cha
   ]
 
 97:                                               ; preds = %94
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %98 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %99 = load ptr, ptr %98, align 8, !tbaa !19
   %100 = icmp eq ptr %99, null
@@ -232,11 +232,11 @@ _ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i74.i:        ; preds = %_ZSt8__copy_nIPKclP
   br label %110
 
 110:                                              ; preds = %_ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i74.i, %101
-  %111 = call noundef double @nan(ptr noundef nonnull readonly %6) #10
+  %111 = call noundef double @nan(ptr noundef nonnull readonly %6) #9
   %112 = fneg double %111
   %113 = select i1 %.049.i, double %112, double %111
   store double %113, ptr %2, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN4absl12_GLOBAL__N_112EncodeResultIdEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit98.i
 
 114:                                              ; preds = %94
@@ -350,11 +350,11 @@ _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatE
 _ZN4absl12_GLOBAL__N_112EncodeResultIdEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit98.i: ; preds = %159, %157, %153, %119, %114, %110, %90
   %.sroa.0137.2.i = phi ptr [ %0, %90 ], [ %92, %153 ], [ %92, %157 ], [ %92, %159 ], [ %92, %110 ], [ %92, %114 ], [ %92, %119 ]
   %.sroa.6138.2.i = phi i32 [ 22, %90 ], [ 34, %153 ], [ 34, %157 ], [ 0, %159 ], [ 0, %110 ], [ 0, %114 ], [ 0, %119 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIdEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
 .thread.i:                                        ; preds = %89, %23, %20
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN4absl16strings_internal10ParseFloatILi10EEENS0_11ParsedFloatEPKcS4_NS_12chars_formatE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::strings_internal::ParsedFloat") align 8 %9, ptr noundef %.0.i, ptr noundef %1, i32 noundef %3)
   %168 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %169 = load ptr, ptr %168, align 8, !tbaa !7
@@ -370,7 +370,7 @@ _ZN4absl12_GLOBAL__N_112EncodeResultIdEEvRKNS0_15CalculatedFloatEbPNS_17from_cha
   ]
 
 174:                                              ; preds = %171
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %175 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %176 = load ptr, ptr %175, align 8, !tbaa !19
   %177 = icmp eq ptr %176, null
@@ -400,11 +400,11 @@ _ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i102.i:       ; preds = %_ZSt8__copy_nIPKclP
   br label %187
 
 187:                                              ; preds = %_ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i102.i, %178
-  %188 = call noundef double @nan(ptr noundef nonnull readonly %5) #10
+  %188 = call noundef double @nan(ptr noundef nonnull readonly %5) #9
   %189 = fneg double %188
   %190 = select i1 %.049.i, double %189, double %188
   store double %190, ptr %2, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4absl12_GLOBAL__N_112EncodeResultIdEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit130.i
 
 191:                                              ; preds = %171
@@ -776,7 +776,7 @@ _ZN4absl12_GLOBAL__N_126CalculateFromParsedDecimalIdEENS0_15CalculatedFloatERKNS
 _ZN4absl12_GLOBAL__N_112EncodeResultIdEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit130.i: ; preds = %342, %340, %335, %258, %208, %204, %196, %191, %187, %.thread.i
   %.sroa.0137.3.i = phi ptr [ %0, %.thread.i ], [ %169, %335 ], [ %169, %340 ], [ %169, %342 ], [ %169, %187 ], [ %169, %191 ], [ %169, %196 ], [ %169, %204 ], [ %169, %208 ], [ %169, %258 ]
   %.sroa.6138.3.i = phi i32 [ 22, %.thread.i ], [ 34, %335 ], [ 34, %340 ], [ 0, %342 ], [ 0, %187 ], [ 0, %191 ], [ 0, %196 ], [ 34, %204 ], [ 34, %208 ], [ 0, %258 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIdEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
 _ZN4absl12_GLOBAL__N_113FromCharsImplIdEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit: ; preds = %_ZN4absl12_GLOBAL__N_112EncodeResultIdEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit.i, %_ZN4absl12_GLOBAL__N_112EncodeResultIdEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit98.i, %_ZN4absl12_GLOBAL__N_112EncodeResultIdEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit130.i
@@ -831,7 +831,7 @@ define dso_local { ptr, i32 } @_ZN4absl10from_charsEPKcS1_RfNS_12chars_formatE(p
 
 26:                                               ; preds = %23, %23
   %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4absl16strings_internal10ParseFloatILi16EEENS0_11ParsedFloatEPKcS4_NS_12chars_formatE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::strings_internal::ParsedFloat") align 8 %7, ptr noundef nonnull %27, ptr noundef %1, i32 noundef %3)
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %29 = load ptr, ptr %28, align 8, !tbaa !7
@@ -957,14 +957,14 @@ _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatE
 _ZN4absl12_GLOBAL__N_112EncodeResultIfEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit.i: ; preds = %80, %78, %74, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i, %36, %34
   %.sroa.0137.0.i = phi ptr [ %24, %36 ], [ %0, %34 ], [ %29, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i ], [ %29, %74 ], [ %29, %78 ], [ %29, %80 ]
   %.sroa.6138.0.i = phi i32 [ 0, %36 ], [ 22, %34 ], [ 0, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i ], [ 34, %74 ], [ 34, %78 ], [ 0, %80 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
 89:                                               ; preds = %13
   br i1 %15, label %.thread.i, label %90
 
 90:                                               ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN4absl16strings_internal10ParseFloatILi16EEENS0_11ParsedFloatEPKcS4_NS_12chars_formatE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::strings_internal::ParsedFloat") align 8 %8, ptr noundef %.0.i, ptr noundef %1, i32 noundef %3)
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %92 = load ptr, ptr %91, align 8, !tbaa !7
@@ -980,7 +980,7 @@ _ZN4absl12_GLOBAL__N_112EncodeResultIfEEvRKNS0_15CalculatedFloatEbPNS_17from_cha
   ]
 
 97:                                               ; preds = %94
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %98 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %99 = load ptr, ptr %98, align 8, !tbaa !19
   %100 = icmp eq ptr %99, null
@@ -1010,11 +1010,11 @@ _ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i74.i:        ; preds = %_ZSt8__copy_nIPKclP
   br label %110
 
 110:                                              ; preds = %_ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i74.i, %101
-  %111 = call noundef float @nanf(ptr noundef nonnull readonly %6) #10
+  %111 = call noundef float @nanf(ptr noundef nonnull readonly %6) #9
   %112 = fneg float %111
   %113 = select i1 %.049.i, float %112, float %111
   store float %113, ptr %2, align 4, !tbaa !22
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN4absl12_GLOBAL__N_112EncodeResultIfEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit98.i
 
 114:                                              ; preds = %94
@@ -1128,11 +1128,11 @@ _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatE
 _ZN4absl12_GLOBAL__N_112EncodeResultIfEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit98.i: ; preds = %159, %157, %153, %119, %114, %110, %90
   %.sroa.0137.2.i = phi ptr [ %0, %90 ], [ %92, %153 ], [ %92, %157 ], [ %92, %159 ], [ %92, %110 ], [ %92, %114 ], [ %92, %119 ]
   %.sroa.6138.2.i = phi i32 [ 22, %90 ], [ 34, %153 ], [ 34, %157 ], [ 0, %159 ], [ 0, %110 ], [ 0, %114 ], [ 0, %119 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
 .thread.i:                                        ; preds = %89, %23, %20
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN4absl16strings_internal10ParseFloatILi10EEENS0_11ParsedFloatEPKcS4_NS_12chars_formatE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::strings_internal::ParsedFloat") align 8 %9, ptr noundef %.0.i, ptr noundef %1, i32 noundef %3)
   %168 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %169 = load ptr, ptr %168, align 8, !tbaa !7
@@ -1148,7 +1148,7 @@ _ZN4absl12_GLOBAL__N_112EncodeResultIfEEvRKNS0_15CalculatedFloatEbPNS_17from_cha
   ]
 
 174:                                              ; preds = %171
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %175 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %176 = load ptr, ptr %175, align 8, !tbaa !19
   %177 = icmp eq ptr %176, null
@@ -1178,11 +1178,11 @@ _ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i102.i:       ; preds = %_ZSt8__copy_nIPKclP
   br label %187
 
 187:                                              ; preds = %_ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i102.i, %178
-  %188 = call noundef float @nanf(ptr noundef nonnull readonly %5) #10
+  %188 = call noundef float @nanf(ptr noundef nonnull readonly %5) #9
   %189 = fneg float %188
   %190 = select i1 %.049.i, float %189, float %188
   store float %190, ptr %2, align 4, !tbaa !22
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4absl12_GLOBAL__N_112EncodeResultIfEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit130.i
 
 191:                                              ; preds = %171
@@ -1557,7 +1557,7 @@ _ZN4absl12_GLOBAL__N_126CalculateFromParsedDecimalIfEENS0_15CalculatedFloatERKNS
 _ZN4absl12_GLOBAL__N_112EncodeResultIfEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit130.i: ; preds = %345, %343, %338, %258, %208, %204, %196, %191, %187, %.thread.i
   %.sroa.0137.3.i = phi ptr [ %0, %.thread.i ], [ %169, %338 ], [ %169, %343 ], [ %169, %345 ], [ %169, %187 ], [ %169, %191 ], [ %169, %196 ], [ %169, %204 ], [ %169, %208 ], [ %169, %258 ]
   %.sroa.6138.3.i = phi i32 [ 22, %.thread.i ], [ 34, %338 ], [ 34, %343 ], [ 0, %345 ], [ 0, %187 ], [ 0, %191 ], [ 0, %196 ], [ 34, %204 ], [ 34, %208 ], [ 0, %258 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
 _ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit: ; preds = %_ZN4absl12_GLOBAL__N_112EncodeResultIfEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit.i, %_ZN4absl12_GLOBAL__N_112EncodeResultIfEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit98.i, %_ZN4absl12_GLOBAL__N_112EncodeResultIfEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit130.i
@@ -1568,26 +1568,20 @@ _ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12ch
   ret { ptr, i32 } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @_ZN4absl16strings_internal10ParseFloatILi16EEENS0_11ParsedFloatEPKcS4_NS_12chars_formatE(ptr dead_on_unwind writable sret(%"struct.absl::strings_internal::ParsedFloat") align 8, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @_ZN4absl16strings_internal10ParseFloatILi16EEENS0_11ParsedFloatEPKcS4_NS_12chars_formatE(ptr dead_on_unwind writable sret(%"struct.absl::strings_internal::ParsedFloat") align 8, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZN4absl16strings_internal10ParseFloatILi10EEENS0_11ParsedFloatEPKcS4_NS_12chars_formatE(ptr dead_on_unwind writable sret(%"struct.absl::strings_internal::ParsedFloat") align 8, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @_ZN4absl16strings_internal10ParseFloatILi10EEENS0_11ParsedFloatEPKcS4_NS_12chars_formatE(ptr dead_on_unwind writable sret(%"struct.absl::strings_internal::ParsedFloat") align 8, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare double @nan(ptr noundef captures(none)) local_unnamed_addr #4
+declare double @nan(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #5
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_111MustRoundUpEmiRKNS_16strings_internal11ParsedFloatE(i64 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 {
@@ -1595,7 +1589,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_111MustRoundUpEm
   %5 = alloca %"class.absl::strings_internal::BigUnsigned", align 4
   %6 = alloca %"class.absl::strings_internal::BigUnsigned", align 4
   %7 = alloca %"class.absl::strings_internal::BigUnsigned", align 4
-  call void @llvm.lifetime.start.p0(i64 340, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(340) %5, i8 0, i64 340, i1 false)
   %8 = call noundef i32 @_ZN4absl16strings_internal11BigUnsignedILi84EE17ReadFloatMantissaERKNS0_11ParsedFloatEi(ptr noundef nonnull align 4 dereferenceable(340) %5, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef 768)
   %9 = shl i64 %0, 1
@@ -1606,7 +1600,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_111MustRoundUpEm
 
 13:                                               ; preds = %3
   call void @_ZN4absl16strings_internal11BigUnsignedILi84EE22MultiplyByFiveToTheNthEi(ptr noundef nonnull align 4 dereferenceable(340) %5, i32 noundef %8)
-  call void @llvm.lifetime.start.p0(i64 340, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i = icmp ult i64 %9, 4294967296
   %14 = select i1 %.not.i, i32 1, i32 2
   store i32 %14, ptr %6, align 4, !tbaa !24
@@ -1880,14 +1874,14 @@ _ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit24.i: ; preds = %1
 
 _ZN4absl16strings_internal7CompareILi84ELi84EEEiRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit: ; preds = %124, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit24.i, %136
   %spec.select.i = phi i32 [ 1, %136 ], [ 0, %124 ], [ -1, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit24.i ]
-  call void @llvm.lifetime.end.p0(i64 340, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %288
 
 137:                                              ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 340, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %138 = sub nsw i32 0, %8
   call void @_ZN4absl16strings_internal11BigUnsignedILi84EE12FiveToTheNthEi(ptr dead_on_unwind nonnull writable sret(%"class.absl::strings_internal::BigUnsigned") align 4 %7, i32 noundef %138)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %10, ptr %4, align 8
   %139 = icmp ult i64 %9, 4294967296
   %140 = load i32, ptr %7, align 4, !tbaa !24
@@ -1949,7 +1943,7 @@ select.unfold.i.i:                                ; preds = %select.unfold.i.i, 
   br i1 %.not.i2.i, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEm.exit, label %select.unfold.i.i, !llvm.loop !31
 
 _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEm.exit: ; preds = %select.unfold.i.i, %141, %._crit_edge.i.i, %154, %158
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp slt i32 %8, %1
   br i1 %.not, label %215, label %162
 
@@ -2225,7 +2219,7 @@ _ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit24.i92: ; preds = 
 
 _ZN4absl16strings_internal7CompareILi84ELi84EEEiRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit96: ; preds = %275, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit24.i92, %287
   %spec.select.i95 = phi i32 [ 1, %287 ], [ 0, %275 ], [ -1, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit24.i92 ]
-  call void @llvm.lifetime.end.p0(i64 340, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %288
 
 288:                                              ; preds = %_ZN4absl16strings_internal7CompareILi84ELi84EEEiRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit96, %_ZN4absl16strings_internal7CompareILi84ELi84EEEiRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit
@@ -2244,24 +2238,30 @@ _ZN4absl16strings_internal7CompareILi84ELi84EEEiRKNS0_11BigUnsignedIXT_EEERKNS2_
 
 294:                                              ; preds = %290, %288, %291
   %.028 = phi i1 [ %293, %291 ], [ false, %288 ], [ true, %290 ]
-  call void @llvm.lifetime.end.p0(i64 340, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.028
 }
 
-declare noundef i32 @_ZN4absl16strings_internal11BigUnsignedILi84EE17ReadFloatMantissaERKNS0_11ParsedFloatEi(ptr noundef nonnull align 4 dereferenceable(340), ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) local_unnamed_addr #2
+declare noundef i32 @_ZN4absl16strings_internal11BigUnsignedILi84EE17ReadFloatMantissaERKNS0_11ParsedFloatEi(ptr noundef nonnull align 4 dereferenceable(340), ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZN4absl16strings_internal11BigUnsignedILi84EE22MultiplyByFiveToTheNthEi(ptr noundef nonnull align 4 dereferenceable(340), i32 noundef) local_unnamed_addr #0 align 2
 
-declare void @_ZN4absl16strings_internal11BigUnsignedILi84EE12FiveToTheNthEi(ptr dead_on_unwind writable sret(%"class.absl::strings_internal::BigUnsigned") align 4, i32 noundef) local_unnamed_addr #2
+declare void @_ZN4absl16strings_internal11BigUnsignedILi84EE12FiveToTheNthEi(ptr dead_on_unwind writable sret(%"class.absl::strings_internal::BigUnsigned") align 4, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare void @_ZN4absl16strings_internal11BigUnsignedILi84EE12MultiplyStepEiPKjii(ptr noundef nonnull align 4 dereferenceable(340), i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @_ZN4absl16strings_internal11BigUnsignedILi84EE12MultiplyStepEiPKjii(ptr noundef nonnull align 4 dereferenceable(340), i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare float @nanf(ptr noundef captures(none)) local_unnamed_addr #4
+declare float @nanf(ptr noundef captures(none)) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #7
@@ -2282,16 +2282,15 @@ declare i32 @llvm.smin.i32(i32, i32) #7
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #9 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

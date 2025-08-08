@@ -52,8 +52,8 @@ define hidden noundef zeroext i1 @SDL_Fcitx_Init() local_unnamed_addr #0 {
   store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @fcitx_client, i64 24), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @fcitx_client, i64 28), align 4
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @fcitx_client, i64 32), align 8
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = tail call i32 @getpid() #5
   %11 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %6, i64 noundef 1024, ptr noundef nonnull @.str.13, i32 noundef %10) #5
   %12 = call i64 @readlink(ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef 1023) #5
@@ -74,14 +74,14 @@ define hidden noundef zeroext i1 @SDL_Fcitx_Init() local_unnamed_addr #0 {
 GetAppName.exit.i:                                ; preds = %15, %0
   %.str.14.sink.i.i = phi ptr [ @.str.14, %0 ], [ %spec.select.i.i, %15 ]
   %20 = call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %.str.14.sink.i.i) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %21 = load ptr, ptr @fcitx_client, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %20, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @.str.15, ptr %2, align 8
   %.not.i15.i = icmp eq ptr %21, null
   br i1 %.not.i15.i, label %.sink.split.i, label %22
@@ -99,9 +99,9 @@ GetAppName.exit.i:                                ; preds = %15, %0
   br i1 %.not27.i.i, label %.sink.split.i, label %28
 
 28:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 224
   %30 = load ptr, ptr %29, align 8
   call void %30(ptr noundef nonnull %27, ptr noundef nonnull %3) #5
@@ -131,9 +131,9 @@ FcitxCreateInputContext.exit.thread2.i:           ; preds = %28
   %50 = getelementptr inbounds nuw i8, ptr %21, i64 312
   %51 = load ptr, ptr %50, align 8
   call void %51(ptr noundef nonnull %27) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.sink.split.i
 
 FcitxCreateInputContext.exit.i:                   ; preds = %28
@@ -146,16 +146,16 @@ FcitxCreateInputContext.exit.i:                   ; preds = %28
   call void %56(ptr noundef nonnull %49) #5
   %57 = load ptr, ptr %55, align 8
   call void %57(ptr noundef nonnull %27) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br i1 %.not29.i.not.i, label %58, label %59
 
 .sink.split.i:                                    ; preds = %FcitxCreateInputContext.exit.thread2.i, %24, %22, %GetAppName.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %58
 
 58:                                               ; preds = %.sink.split.i, %FcitxCreateInputContext.exit.i
@@ -190,7 +190,7 @@ FcitxCreateInputContext.exit.i:                   ; preds = %28
   br label %FcitxClientCreateIC.exit
 
 FcitxClientCreateIC.exit:                         ; preds = %59, %61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.not.i
 }
 
@@ -258,7 +258,7 @@ define hidden noundef zeroext i1 @SDL_Fcitx_ProcessKeyEvent(i32 noundef %0, i32 
   %9 = alloca i32, align 4
   store i32 %0, ptr %4, align 4
   store i32 %1, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = tail call zeroext i16 @SDL_GetModState_REAL() #5
   %11 = zext i16 %10 to i32
   %12 = and i32 %11, 3
@@ -288,13 +288,13 @@ define hidden noundef zeroext i1 @SDL_Fcitx_ProcessKeyEvent(i32 noundef %0, i32 
   %.6.i = or disjoint i32 %.5.i, %26
   %.7.i = or i32 %.6.i, %.3.i
   store i32 %.7.i, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %27 = xor i1 %2, true
   %28 = zext i1 %27 to i32
   store i32 %28, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @fcitx_client, i64 8), align 8
   %.not = icmp eq ptr %29, null
@@ -314,15 +314,12 @@ define hidden noundef zeroext i1 @SDL_Fcitx_ProcessKeyEvent(i32 noundef %0, i32 
 
 36:                                               ; preds = %30, %3, %34
   %.0 = phi i1 [ true, %34 ], [ false, %3 ], [ false, %30 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare zeroext i1 @SDL_DBus_CallMethod(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -333,9 +330,9 @@ define hidden void @SDL_Fcitx_UpdateTextInputArea(ptr noundef %0) local_unnamed_
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %54, label %7
@@ -359,7 +356,7 @@ define hidden void @SDL_Fcitx_UpdateTextInputArea(ptr noundef %0) local_unnamed_
   %19 = call ptr @SDL_GetPointerProperty_REAL(i32 noundef %18, ptr noundef nonnull @.str.7, ptr noundef null) #5
   %20 = call i64 @SDL_GetNumberProperty_REAL(i32 noundef %18, ptr noundef nonnull @.str.8, i64 noundef 0) #5
   %21 = call i64 @SDL_GetNumberProperty_REAL(i32 noundef %18, ptr noundef nonnull @.str.9, i64 noundef 0) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = icmp ne ptr %19, null
   %23 = icmp ne i64 %21, 0
   %or.cond = select i1 %22, i1 %23, i1 false
@@ -378,7 +375,7 @@ define hidden void @SDL_Fcitx_UpdateTextInputArea(ptr noundef %0) local_unnamed_
   br label %33
 
 33:                                               ; preds = %24, %7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @fcitx_client, i64 20), align 4
   %35 = icmp eq i32 %34, -1
   %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @fcitx_client, i64 24), align 8
@@ -393,16 +390,16 @@ define hidden void @SDL_Fcitx_UpdateTextInputArea(ptr noundef %0) local_unnamed_
   br i1 %or.cond39, label %42, label %45
 
 42:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %43 = call zeroext i1 @SDL_GetWindowSize_REAL(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @fcitx_client, i64 20), align 4
   %44 = load i32, ptr %6, align 4
   store i32 %44, ptr getelementptr inbounds nuw (i8, ptr @fcitx_client, i64 24), align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %45
 
 45:                                               ; preds = %42, %33
@@ -419,15 +416,12 @@ define hidden void @SDL_Fcitx_UpdateTextInputArea(ptr noundef %0) local_unnamed_
   br label %54
 
 54:                                               ; preds = %1, %45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 declare ptr @SDL_GetKeyboardFocus_REAL() local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare zeroext i1 @SDL_GetWindowPosition_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -481,8 +475,8 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr readnone captures(no
   br i1 %.not, label %23, label %16
 
 16:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %18 = load ptr, ptr %17, align 8
@@ -492,8 +486,8 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr readnone captures(no
   call void %21(ptr noundef nonnull %11, ptr noundef nonnull %12) #5
   %22 = load ptr, ptr %12, align 8
   call void @SDL_SendKeyboardText(ptr noundef %22) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %134
 
 23:                                               ; preds = %3
@@ -503,10 +497,10 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr readnone captures(no
   br i1 %.not16, label %134, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %28 = load ptr, ptr %27, align 8
   %29 = call i32 %28(ptr noundef %1, ptr noundef nonnull %7) #5
@@ -572,7 +566,7 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr readnone captures(no
   br i1 %or.cond.i, label %62, label %68
 
 62:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %63 = load ptr, ptr %40, align 8
   call void %63(ptr noundef nonnull %9, ptr noundef nonnull %10) #5
   %64 = load i32, ptr %10, align 4
@@ -584,7 +578,7 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr readnone captures(no
   %spec.select75.i = select i1 %66, i32 -1, i32 %67
   %.357.i = select i1 %.not70.i, i32 %.15580.i, i32 %spec.select.i
   %.3.i = select i1 %.not70.i, i32 %spec.select75.i, i32 -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %68
 
 68:                                               ; preds = %62, %55
@@ -675,25 +669,25 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr readnone captures(no
   br i1 %112, label %.lr.ph88.i, label %Fcitx_GetPreeditString.exit.thread31, !llvm.loop !6
 
 Fcitx_GetPreeditString.exit.thread:               ; preds = %26, %84, %._crit_edge.i, %34
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @SDL_SendEditingText(ptr noundef nonnull @.str.22, i32 noundef 0, i32 noundef 0) #5
   br label %132
 
 Fcitx_GetPreeditString.exit.thread31:             ; preds = %107, %87
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %113 = icmp eq i32 %.256.i, -1
   br i1 %113, label %114, label %128
 
 114:                                              ; preds = %Fcitx_GetPreeditString.exit.thread31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %115 = load ptr, ptr %27, align 8
   %116 = call i32 %115(ptr noundef %1, ptr noundef nonnull %5) #5
   %117 = load ptr, ptr %41, align 8
@@ -704,16 +698,16 @@ Fcitx_GetPreeditString.exit.thread31:             ; preds = %107, %87
   br i1 %.not.i18, label %Fcitx_GetPreeditCursorByte.exit, label %Fcitx_GetPreeditCursorByte.exit.thread
 
 Fcitx_GetPreeditCursorByte.exit.thread:           ; preds = %114
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %128
 
 Fcitx_GetPreeditCursorByte.exit:                  ; preds = %114
   %121 = load ptr, ptr %40, align 8
   call void %121(ptr noundef nonnull %5, ptr noundef nonnull %4) #5
   %122 = load i32, ptr %4, align 4
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %123 = icmp sgt i32 %122, -1
   br i1 %123, label %124, label %128
 
@@ -747,7 +741,7 @@ declare zeroext i1 @SDL_AddHintCallback_REAL(ptr noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal void @Fcitx_SetCapabilities(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -778,17 +772,17 @@ define internal void @Fcitx_SetCapabilities(ptr noundef readonly captures(none) 
   br label %16
 
 16:                                               ; preds = %4, %.critedge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #3
+declare i32 @getpid() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
+declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare ptr @SDL_strrchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -810,11 +804,17 @@ declare ptr @SDL_strstr_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare zeroext i16 @SDL_GetModState_REAL() local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

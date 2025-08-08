@@ -504,7 +504,7 @@ define hidden void @"_ZN14cranelift_isle9serialize13Decomposition17make_control_
   %4 = alloca { i8, [31 x i8] }, align 16
   %5 = load i64, ptr %2, align 8, !noundef !3
   %6 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr %6, align 8, !nonnull !3, !align !4, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !3
@@ -533,7 +533,7 @@ define hidden void @"_ZN14cranelift_isle9serialize13Decomposition17make_control_
 
 "_ZN14cranelift_isle9serialize13Decomposition17make_control_flow28_$u7b$$u7b$closure$u7d$$u7d$17h8b2ead75a35e22f0E.exit": ; preds = %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -654,7 +654,7 @@ define hidden zeroext i1 @"_ZN14cranelift_isle9serialize13Decomposition17best_co
 23:                                               ; preds = %12
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 %16, ptr %24, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = getelementptr inbounds i64, ptr %18, i64 %20
   store ptr %18, ptr %3, align 8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -735,7 +735,7 @@ define hidden zeroext i1 @"_ZN14cranelift_isle9serialize13Decomposition17best_co
 
 "_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hea11f12726b25874E.exit.i": ; preds = %.outer.backedge.i.i.i, %.loopexit.i.i.i, %23
   %.0.ph.lcssa34.i.i.i = phi i64 [ 0, %23 ], [ %.0.ph38.i.i.i, %.loopexit.i.i.i ], [ %.0.ph.be.i.i.i, %.outer.backedge.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %56 = icmp ne i64 %.0.ph.lcssa34.i.i.i, 0
   %57 = call i64 @_ZN14cranelift_isle9serialize16respect_priority17h48727fe3094c7d24E(ptr nonnull align 8 %21, ptr nonnull align 8 %18, i64 %20, i64 %.0.ph.lcssa34.i.i.i)
   store i64 %57, ptr %1, align 8
@@ -803,8 +803,8 @@ define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17ha0e3e0f02
 22:                                               ; preds = %.lr.ph52, %.loopexit
   %23 = phi ptr [ %20, %.lr.ph52 ], [ %21, %.loopexit ]
   %.val12 = load i64, ptr %23, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = load i64, ptr %15, align 8, !noundef !3
   %25 = icmp ult i64 %.val12, %24
   br i1 %25, label %26, label %31, !prof !7
@@ -835,16 +835,16 @@ default.unreachable:                              ; preds = %45
   call void @_ZN14cranelift_isle10trie_again4Rule14get_constraint17h863d3d5b43627294E(ptr nonnull sret({ i8, [31 x i8] }) align 16 %8, ptr nonnull align 8 %28, i16 %30)
   %33 = load i8, ptr %8, align 16, !range !10, !noundef !3
   %.not19 = icmp eq i8 %33, 4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not19, label %.preheader, label %.outer.backedge
 
 34:                                               ; preds = %26
   %35 = load i16, ptr %19, align 2, !noundef !3
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %37 = call zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$11in_same_set17hd3927dd440712909E"(ptr nonnull align 8 %36, i16 %30, i16 %35)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %37, label %.outer.backedge, label %.preheader
 
 .preheader:                                       ; preds = %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit", %32, %34
@@ -856,8 +856,8 @@ default.unreachable:                              ; preds = %45
   store i16 %30, ptr %7, align 2
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 120
   %40 = call zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hd84c7186cc6dcfacE"(ptr nonnull align 8 %39, ptr nonnull align 2 %7)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %40, label %.outer.backedge, label %.preheader
 
 .outer._crit_edge:                                ; preds = %.outer.backedge, %.loopexit, %4
@@ -873,8 +873,8 @@ default.unreachable:                              ; preds = %45
 .lr.ph:                                           ; preds = %.preheader, %.backedge
   %42 = phi ptr [ %59, %.backedge ], [ %38, %.preheader ]
   %.val15 = load i64, ptr %42, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %43 = load i64, ptr %15, align 8, !noundef !3
   %44 = icmp ult i64 %.val15, %43
   br i1 %44, label %45, label %50, !prof !7
@@ -898,24 +898,24 @@ default.unreachable:                              ; preds = %45
   call void @_ZN14cranelift_isle10trie_again4Rule14get_constraint17h863d3d5b43627294E(ptr nonnull sret({ i8, [31 x i8] }) align 16 %6, ptr nonnull align 8 %47, i16 %49)
   %52 = load i8, ptr %6, align 16, !range !10, !noundef !3
   %.not20 = icmp eq i8 %52, 4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not20, label %.backedge, label %60
 
 53:                                               ; preds = %45
   %54 = load i16, ptr %19, align 2, !noundef !3
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 72
   %56 = call zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$11in_same_set17hd3927dd440712909E"(ptr nonnull align 8 %55, i16 %49, i16 %54)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %56, label %60, label %.backedge
 
 "_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit18": ; preds = %45
   store i16 %49, ptr %5, align 2
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 120
   %58 = call zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hd84c7186cc6dcfacE"(ptr nonnull align 8 %57, ptr nonnull align 2 %5)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %58, label %60, label %.backedge
 
 .backedge:                                        ; preds = %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit18", %51, %53
@@ -1095,10 +1095,10 @@ define zeroext i1 @"_ZN14cranelift_isle9serialize12group_by_mut28_$u7b$$u7b$clos
   tail call void @llvm.assume(i1 %12)
   %.val = load i64, ptr %1, align 8, !noundef !3
   %.val2 = load i64, ptr %11, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %13 = load ptr, ptr %8, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = load ptr, ptr %13, align 8, !nonnull !3, !align !4, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !3
@@ -1127,9 +1127,9 @@ define zeroext i1 @"_ZN14cranelift_isle9serialize12group_by_mut28_$u7b$$u7b$clos
 
 "_ZN14cranelift_isle9serialize13Decomposition17make_control_flow28_$u7b$$u7b$closure$u7d$$u7d$17h8b2ead75a35e22f0E.exit.i": ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 16 dereferenceable(32) %5, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %29 = load ptr, ptr %8, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = load ptr, ptr %29, align 8, !nonnull !3, !align !4, !noundef !3
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8, !noundef !3
@@ -1158,10 +1158,10 @@ define zeroext i1 @"_ZN14cranelift_isle9serialize12group_by_mut28_$u7b$$u7b$clos
 
 "_ZN14cranelift_isle9serialize13Decomposition17make_control_flow28_$u7b$$u7b$closure$u7d$$u7d$17hebb0daa0d6467d2fE.exit": ; preds = %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = call zeroext i1 @"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE"(ptr nonnull align 16 %7, ptr nonnull align 16 %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %46 = xor i1 %45, true
   ret i1 %46
 
@@ -1306,10 +1306,10 @@ declare void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h48a
 declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

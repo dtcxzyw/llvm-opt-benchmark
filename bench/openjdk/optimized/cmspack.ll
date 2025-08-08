@@ -28,7 +28,7 @@ define hidden void @_cmsAllocFormattersPluginChunk(ptr noundef captures(none) %0
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %1, i64 72
   %.val = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.02.i = load ptr, ptr %.val, align 8
   %.not3.i = icmp eq ptr %.02.i, null
   br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i
@@ -76,7 +76,7 @@ define hidden void @_cmsAllocFormattersPluginChunk(ptr noundef captures(none) %0
   br label %DupFormatterFactoryList.exit
 
 DupFormatterFactoryList.exit:                     ; preds = %7, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
 
 23:                                               ; preds = %2
@@ -6806,10 +6806,10 @@ declare i32 @llvm.umin.i32(i32, i32) #7
 declare i16 @llvm.bswap.i16(i16) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

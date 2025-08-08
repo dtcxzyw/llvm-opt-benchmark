@@ -90,14 +90,8 @@ define hidden range(i32 1, -2147483648) i32 @SDL_powerof2(i32 noundef %0) local_
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define hidden i32 @SDL_CalculateGCD(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden i32 @SDL_CalculateGCD(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %tailrecurse._crit_edge, label %tailrecurse
 
@@ -114,7 +108,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @SDL_CalculateFraction(float noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 {
+define hidden void @SDL_CalculateFraction(float noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
   br label %4
 
 4:                                                ; preds = %3, %15
@@ -166,19 +160,19 @@ define hidden void @SDL_CalculateFraction(float noundef %0, ptr noundef writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @SDL_startswith(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden zeroext i1 @SDL_startswith(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call i64 @SDL_strlen_REAL(ptr noundef %1) #10
   %4 = tail call i32 @SDL_strncmp_REAL(ptr noundef %0, ptr noundef %1, i64 noundef %3) #10
   %5 = icmp eq i32 %4, 0
   ret i1 %5
 }
 
-declare i32 @SDL_strncmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @SDL_strncmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #5
+declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @SDL_endswith(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden noundef zeroext i1 @SDL_endswith(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -214,10 +208,10 @@ define hidden noundef zeroext i1 @SDL_endswith(ptr noundef %0, ptr noundef %1) l
   ret i1 %.0
 }
 
-declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @SDL_GetNextObjectID() local_unnamed_addr #4 {
+define hidden i32 @SDL_GetNextObjectID() local_unnamed_addr #3 {
   %1 = tail call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull @SDL_GetNextObjectID.last_id, i32 noundef 1) #10
   %2 = add i32 %1, 1
   %3 = icmp eq i32 %2, 0
@@ -233,10 +227,10 @@ define hidden i32 @SDL_GetNextObjectID() local_unnamed_addr #4 {
   ret i32 %.0
 }
 
-declare i32 @SDL_AddAtomicInt_REAL(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @SDL_AddAtomicInt_REAL(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @SDL_SetObjectValid(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
+define hidden void @SDL_SetObjectValid(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 {
   %4 = tail call zeroext i1 @SDL_ShouldInit_REAL(ptr noundef nonnull @SDL_objects_init) #10
   br i1 %4, label %5, label %8
 
@@ -265,9 +259,9 @@ define hidden void @SDL_SetObjectValid(ptr noundef %0, i32 noundef %1, i1 nounde
   ret void
 }
 
-declare zeroext i1 @SDL_ShouldInit_REAL(ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @SDL_ShouldInit_REAL(ptr noundef) local_unnamed_addr #4
 
-declare ptr @SDL_CreateHashTable(i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @SDL_CreateHashTable(i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef i32 @SDL_HashObject(ptr readnone captures(none) %0, ptr noundef %1) #0 {
@@ -282,20 +276,20 @@ define internal noundef zeroext i1 @SDL_KeyMatchObject(ptr readnone captures(non
   ret i1 %4
 }
 
-declare void @SDL_SetInitialized_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare void @SDL_SetInitialized_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-declare zeroext i1 @SDL_InsertIntoHashTable(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare zeroext i1 @SDL_InsertIntoHashTable(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-declare zeroext i1 @SDL_RemoveFromHashTable(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @SDL_RemoveFromHashTable(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @SDL_ObjectValid(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden zeroext i1 @SDL_ObjectValid(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr @SDL_objects, align 8
   %6 = call zeroext i1 @SDL_FindInHashTable(ptr noundef %5, ptr noundef nonnull %0, ptr noundef nonnull %3) #10
   %7 = load ptr, ptr %3, align 8
@@ -303,7 +297,7 @@ define hidden zeroext i1 @SDL_ObjectValid(ptr noundef %0, i32 noundef %1) local_
   %9 = trunc i64 %8 to i32
   %10 = icmp eq i32 %1, %9
   %.1 = select i1 %6, i1 %10, i1 false
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %11
 
 11:                                               ; preds = %2, %4
@@ -311,12 +305,12 @@ define hidden zeroext i1 @SDL_ObjectValid(ptr noundef %0, i32 noundef %1) local_
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_FindInHashTable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @SDL_FindInHashTable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @SDL_GetObjects(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define hidden i32 @SDL_GetObjects(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca %struct.GetOneObjectData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4
@@ -329,14 +323,14 @@ define hidden i32 @SDL_GetObjects(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %9 = load ptr, ptr @SDL_objects, align 8
   %10 = call zeroext i1 @SDL_IterateHashTable(ptr noundef %9, ptr noundef nonnull @GetOneObject, ptr noundef nonnull %4) #10
   %11 = load i32, ptr %8, align 4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %11
 }
 
-declare zeroext i1 @SDL_IterateHashTable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @SDL_IterateHashTable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @GetOneObject(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal noundef zeroext i1 @GetOneObject(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = ptrtoint ptr %3 to i64
   %6 = trunc i64 %5 to i32
   %7 = load i32, ptr %0, align 8
@@ -371,7 +365,7 @@ define internal noundef zeroext i1 @GetOneObject(ptr noundef captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @SDL_SetObjectsInvalid() local_unnamed_addr #4 {
+define hidden void @SDL_SetObjectsInvalid() local_unnamed_addr #3 {
   %1 = tail call zeroext i1 @SDL_ShouldQuit_REAL(ptr noundef nonnull @SDL_objects_init) #10
   br i1 %1, label %2, label %6
 
@@ -388,10 +382,10 @@ define hidden void @SDL_SetObjectsInvalid() local_unnamed_addr #4 {
   ret void
 }
 
-declare zeroext i1 @SDL_ShouldQuit_REAL(ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @SDL_ShouldQuit_REAL(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @LogOneLeakedObject(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #4 {
+define internal noundef zeroext i1 @LogOneLeakedObject(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #3 {
   %5 = ptrtoint ptr %3 to i64
   %6 = trunc i64 %5 to i32
   %switch.tableidx = add i32 %6, -1
@@ -410,10 +404,10 @@ switch.lookup:                                    ; preds = %4
   ret i1 true
 }
 
-declare void @SDL_DestroyHashTable(ptr noundef) local_unnamed_addr #5
+declare void @SDL_DestroyHashTable(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @SDL_URIToLocal(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
+define hidden i32 @SDL_URIToLocal(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = alloca [257 x i8], align 16
   %4 = tail call i32 @SDL_memcmp_REAL(ptr noundef %0, ptr noundef nonnull @.str, i64 noundef 6) #10
   %5 = icmp eq i32 %4, 0
@@ -455,7 +449,7 @@ define hidden i32 @SDL_URIToLocal(ptr noundef %0, ptr noundef writeonly captures
   %22 = ptrtoint ptr %20 to i64
   %23 = ptrtoint ptr %13 to i64
   %24 = sub i64 %22, %23
-  call void @llvm.lifetime.start.p0(i64 257, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = call i32 @gethostname(ptr noundef nonnull %3, i64 noundef 255) #10
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %.thread45
@@ -474,7 +468,7 @@ define hidden i32 @SDL_URIToLocal(ptr noundef %0, ptr noundef writeonly captures
 
 .thread59:                                        ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 1
-  call void @llvm.lifetime.end.p0(i64 257, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread51
 
 .thread45:                                        ; preds = %21, %27, %31
@@ -483,7 +477,7 @@ define hidden i32 @SDL_URIToLocal(ptr noundef %0, ptr noundef writeonly captures
   br i1 %36, label %37, label %.thread62
 
 .thread62:                                        ; preds = %.thread45
-  call void @llvm.lifetime.end.p0(i64 257, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %SDL_URIDecode.exit
 
 37:                                               ; preds = %.thread45
@@ -491,7 +485,7 @@ define hidden i32 @SDL_URIToLocal(ptr noundef %0, ptr noundef writeonly captures
   %39 = call i32 @SDL_strncasecmp_REAL(ptr noundef nonnull %38, ptr noundef nonnull @.str.2, i64 noundef %24) #10
   %40 = icmp eq i32 %39, 0
   %41 = getelementptr inbounds nuw i8, ptr %20, i64 1
-  call void @llvm.lifetime.end.p0(i64 257, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %40, label %.thread51, label %SDL_URIDecode.exit
 
 .thread51:                                        ; preds = %10, %12, %.thread59, %37
@@ -627,17 +621,17 @@ SDL_URIDecode.exit:                               ; preds = %19, %16, %._crit_ed
   ret i32 %.0
 }
 
-declare ptr @SDL_strstr_REAL(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @SDL_strstr_REAL(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @gethostname(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @gethostname(ptr noundef, i64 noundef) local_unnamed_addr #6
 
-declare i32 @SDL_strncasecmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @SDL_strncasecmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @SDL_GetPersistentString(ptr noundef %0) local_unnamed_addr #4 {
+define hidden ptr @SDL_GetPersistentString(ptr noundef %0) local_unnamed_addr #3 {
   %2 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %3
@@ -663,7 +657,7 @@ define hidden ptr @SDL_GetPersistentString(ptr noundef %0) local_unnamed_addr #4
 
 11:                                               ; preds = %9, %5
   %.015 = phi ptr [ %6, %5 ], [ %8, %9 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = call zeroext i1 @SDL_FindInHashTable(ptr noundef nonnull %.015, ptr noundef nonnull %0, ptr noundef nonnull %2) #10
   br i1 %12, label %._crit_edge, label %13
 
@@ -682,7 +676,7 @@ define hidden ptr @SDL_GetPersistentString(ptr noundef %0) local_unnamed_addr #4
 
 .critedge:                                        ; preds = %15, %._crit_edge, %13
   %.3 = phi ptr [ null, %13 ], [ %.pre, %._crit_edge ], [ %14, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %17
 
 17:                                               ; preds = %.critedge, %7, %3, %1
@@ -690,26 +684,26 @@ define hidden ptr @SDL_GetPersistentString(ptr noundef %0) local_unnamed_addr #4
   ret ptr %.0
 }
 
-declare ptr @SDL_GetTLS_REAL(ptr noundef) local_unnamed_addr #5
+declare ptr @SDL_GetTLS_REAL(ptr noundef) local_unnamed_addr #4
 
-declare i32 @SDL_HashString(ptr noundef, ptr noundef) #5
+declare i32 @SDL_HashString(ptr noundef, ptr noundef) #4
 
-declare zeroext i1 @SDL_KeyMatchString(ptr noundef, ptr noundef, ptr noundef) #5
+declare zeroext i1 @SDL_KeyMatchString(ptr noundef, ptr noundef, ptr noundef) #4
 
-declare void @SDL_DestroyHashValue(ptr noundef, ptr noundef, ptr noundef) #5
+declare void @SDL_DestroyHashValue(ptr noundef, ptr noundef, ptr noundef) #4
 
-declare zeroext i1 @SDL_SetTLS_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @SDL_SetTLS_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @SDL_FreePersistentStrings(ptr noundef %0) #4 {
+define internal void @SDL_FreePersistentStrings(ptr noundef %0) #3 {
   tail call void @SDL_DestroyHashTable(ptr noundef %0) #10
   ret void
 }
 
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #5
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @SDL_CreateDeviceName(i16 noundef zeroext %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define hidden noundef ptr @SDL_CreateDeviceName(i16 noundef zeroext %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %.not = icmp eq ptr %2, null
   %spec.store.select = select i1 %.not, ptr @.str.3, ptr %2
   br label %6
@@ -984,34 +978,40 @@ PrefixMatch.exit:                                 ; preds = %.lr.ph.i, %93
   ret ptr %.097
 }
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #5
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #4
 
-declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
-declare i32 @SDL_GetGamepadTypeFromVIDPID(i16 noundef zeroext, i16 noundef zeroext, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
+declare i32 @SDL_GetGamepadTypeFromVIDPID(i16 noundef zeroext, i16 noundef zeroext, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
-declare void @SDL_Log_REAL(ptr noundef, ...) local_unnamed_addr #5
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
-declare i32 @SDL_tolower_REAL(i32 noundef) local_unnamed_addr #5
+declare void @SDL_Log_REAL(ptr noundef, ...) local_unnamed_addr #4
+
+declare i32 @SDL_tolower_REAL(i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 

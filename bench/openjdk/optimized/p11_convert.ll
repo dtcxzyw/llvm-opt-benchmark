@@ -2051,7 +2051,7 @@ define hidden noundef ptr @jMechanismToCKMechanismPtr(ptr noundef %0, ptr nounde
   br i1 %18, label %39, label %20
 
 20:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 256
   %23 = load ptr, ptr %22, align 8
@@ -2085,7 +2085,7 @@ define hidden noundef ptr @jMechanismToCKMechanismPtr(ptr noundef %0, ptr nounde
 
 jMechParamToCKMechParamPtr.exit:                  ; preds = %26, %33, %35
   %37 = phi ptr [ %.pre.i, %26 ], [ %36, %35 ], [ %34, %33 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %37, ptr %38, align 8
   br label %39
@@ -3626,10 +3626,10 @@ define hidden void @copyBackPBEInitializationVector(ptr noundef %0, ptr noundef 
 declare i64 @llvm.umin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

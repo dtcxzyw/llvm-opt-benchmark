@@ -907,7 +907,7 @@ _ZN16OopMapCacheEntry17allocate_bit_maskEv.exit:  ; preds = %._ZN16OopMapCacheEn
   store i32 0, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 0, ptr %45, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN12methodHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %42) #17
   %46 = load ptr, ptr %3, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
@@ -915,7 +915,7 @@ _ZN16OopMapCacheEntry17allocate_bit_maskEv.exit:  ; preds = %._ZN16OopMapCacheEn
   %48 = and i32 %.sroa.0.0.copyload.i.i.i.i.i, 8
   %.not.i.i = icmp eq i32 %48, 0
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %49 = select i1 %.not.i.i, i32 1, i32 2
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 %49, ptr %50, align 4
@@ -2380,7 +2380,7 @@ define linkonce_odr hidden void @_ZN23NativeSignatureIterator7iterateEv(ptr noun
   %20 = load i64, ptr %18, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN17SignatureIterator15set_fingerprintEm(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %20) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN12methodHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   %22 = load ptr, ptr %2, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
@@ -2388,7 +2388,7 @@ define linkonce_odr hidden void @_ZN23NativeSignatureIterator7iterateEv(ptr noun
   %24 = and i32 %.sroa.0.0.copyload.i.i.i.i, 8
   %.not.i = icmp eq i32 %24, 0
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i, label %25, label %_ZN23NativeSignatureIterator7iterateEm.exit
 
 25:                                               ; preds = %1
@@ -2713,10 +2713,10 @@ declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr nound
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

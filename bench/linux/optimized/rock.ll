@@ -36,7 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @get_rock_ridge_filename(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.rock_state, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 872
@@ -172,8 +172,8 @@ define dso_local i32 @get_rock_ridge_filename(ptr noundef %0, ptr noundef writeo
 
 rock_check_overflow.exit:                         ; preds = %74
   %77 = zext i16 %65 to i32
-  %78 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #11
-  %79 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef range(i32 0, 65536) %77, i32 noundef %75, i32 noundef %.val18) #11
+  %78 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #10
+  %79 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef range(i32 0, 65536) %77, i32 noundef %75, i32 noundef %.val18) #10
   br label %.loopexit5
 
 80:                                               ; preds = %74
@@ -253,7 +253,7 @@ rock_check_overflow.exit:                         ; preds = %74
   br i1 %126, label %129, label %127
 
 127:                                              ; preds = %125
-  %128 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %122) #11
+  %128 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %122) #10
   br label %150
 
 129:                                              ; preds = %125
@@ -265,7 +265,7 @@ rock_check_overflow.exit:                         ; preds = %74
 133:                                              ; preds = %129
   %134 = getelementptr inbounds nuw i8, ptr %60, i64 5
   %135 = zext nneg i32 %130 to i64
-  %136 = tail call ptr @memchr(ptr noundef nonnull %134, i32 noundef 0, i64 noundef %135) #10
+  %136 = tail call ptr @memchr(ptr noundef nonnull %134, i32 noundef 0, i64 noundef %135) #11
   %137 = icmp eq ptr %136, null
   br i1 %137, label %143, label %138, !prof !5
 
@@ -318,32 +318,29 @@ rock_check_overflow.exit:                         ; preds = %74
 .loopexit5:                                       ; preds = %157, %96, %92, %87, %86, %80, %54, %rock_check_overflow.exit
   %161 = phi i32 [ -5, %rock_check_overflow.exit ], [ 0, %96 ], [ 0, %92 ], [ 0, %87 ], [ 0, %80 ], [ 0, %54 ], [ -1, %86 ], [ %160, %157 ]
   %162 = load ptr, ptr %4, align 8
-  tail call void @kfree(ptr noundef %162) #10
+  tail call void @kfree(ptr noundef %162) #11
   br label %.loopexit6
 
 .loopexit6:                                       ; preds = %157, %.loopexit5, %3
   %163 = phi i32 [ 0, %3 ], [ %161, %.loopexit5 ], [ %158, %157 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %163
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
+declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare dso_local ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @kfree(ptr noundef) local_unnamed_addr #6
+declare dso_local void @kfree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -12, 2) i32 @rock_continue(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
@@ -354,7 +351,7 @@ define internal fastcc noundef range(i32 -12, 2) i32 @rock_continue(ptr noundef 
   %6 = zext nneg i8 %5 to i32
   %7 = shl nuw i32 1, %6
   %8 = load ptr, ptr %0, align 8
-  tail call void @kfree(ptr noundef %8) #10
+  tail call void @kfree(ptr noundef %8) #11
   store ptr null, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %10 = load i32, ptr %9, align 4
@@ -374,7 +371,7 @@ define internal fastcc noundef range(i32 -12, 2) i32 @rock_continue(ptr noundef 
 ._crit_edge:                                      ; preds = %1, %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8
-  %20 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i32 noundef %19, i32 noundef %10, i32 noundef %.pre) #11
+  %20 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i32 noundef %19, i32 noundef %10, i32 noundef %.pre) #10
   br label %.thread
 
 21:                                               ; preds = %13
@@ -409,12 +406,12 @@ define internal fastcc noundef range(i32 -12, 2) i32 @rock_continue(ptr noundef 
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %43 = load i64, ptr %42, align 8
   %44 = trunc i64 %43 to i32
-  %45 = tail call ptr @__bread_gfp(ptr noundef %41, i64 noundef %39, i32 noundef %44, i32 noundef 8) #10
+  %45 = tail call ptr @__bread_gfp(ptr noundef %41, i64 noundef %39, i32 noundef %44, i32 noundef 8) #11
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %34
-  %48 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #11
+  %48 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #10
   br label %.thread
 
 49:                                               ; preds = %34
@@ -428,7 +425,7 @@ define internal fastcc noundef range(i32 -12, 2) i32 @rock_continue(ptr noundef 
   %57 = sext i32 %56 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr align 1 %55, i64 %57, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %45, i64 96
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %58, ptr nonnull elementtype(i32) %58) #10, !srcloc !9
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %58, ptr nonnull elementtype(i32) %58) #11, !srcloc !9
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %59, ptr %60, align 8
@@ -443,7 +440,7 @@ define internal fastcc noundef range(i32 -12, 2) i32 @rock_continue(ptr noundef 
 .thread:                                          ; preds = %29, %25, %47, %21, %._crit_edge
   %63 = phi i32 [ -5, %._crit_edge ], [ 1, %21 ], [ -5, %29 ], [ -12, %25 ], [ -5, %47 ]
   %64 = load ptr, ptr %0, align 8
-  tail call void @kfree(ptr noundef %64) #10
+  tail call void @kfree(ptr noundef %64) #11
   store ptr null, ptr %0, align 8
   br label %65
 
@@ -451,9 +448,6 @@ define internal fastcc noundef range(i32 -12, 2) i32 @rock_continue(ptr noundef 
   %66 = phi i32 [ %63, %.thread ], [ 0, %49 ]
   ret i32 %66
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @parse_rock_ridge_inode(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
@@ -489,7 +483,7 @@ define dso_local i32 @parse_rock_ridge_inode(ptr noundef %0, ptr noundef %1, i32
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @parse_rock_ridge_inode_internal(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.rock_state, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 872
@@ -645,8 +639,8 @@ define internal fastcc i32 @parse_rock_ridge_inode_internal(ptr noundef %0, ptr 
 
 rock_check_overflow.exit:                         ; preds = %92
   %95 = zext i16 %83 to i32
-  %96 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #11
-  %97 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef range(i32 0, 65536) %95, i32 noundef %93, i32 noundef %.val34) #11
+  %96 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #10
+  %97 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef range(i32 0, 65536) %95, i32 noundef %93, i32 noundef %.val34) #10
   br label %.loopexit11
 
 98:                                               ; preds = %92
@@ -725,7 +719,7 @@ rock_check_overflow.exit:                         ; preds = %92
   %140 = and i16 %139, -7
   %141 = or disjoint i16 %140, 2
   store i16 %141, ptr %138, align 4
-  %142 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6) #11
+  %142 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6) #10
   %143 = load i8, ptr %129, align 1
   %144 = icmp eq i8 %143, 0
   br i1 %144, label %.loopexit, label %145
@@ -739,7 +733,7 @@ rock_check_overflow.exit:                         ; preds = %92
   %149 = getelementptr [0 x i8], ptr %146, i64 0, i64 %148
   %150 = load i8, ptr %149, align 1
   %151 = zext i8 %150 to i32
-  %152 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, i32 noundef %151) #11
+  %152 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, i32 noundef %151) #10
   %153 = add nuw nsw i64 %148, 1
   %154 = load i8, ptr %129, align 1
   %155 = zext i8 %154 to i64
@@ -747,7 +741,7 @@ rock_check_overflow.exit:                         ; preds = %92
   br i1 %156, label %147, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %147, %134
-  %157 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8) #11
+  %157 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8) #10
   br label %372
 
 158:                                              ; preds = %104
@@ -757,7 +751,7 @@ rock_check_overflow.exit:                         ; preds = %92
   store i16 %161, ptr %1, align 8
   %162 = getelementptr inbounds nuw i8, ptr %78, i64 12
   %163 = load i32, ptr %162, align 1
-  tail call void @set_nlink(ptr noundef %1, i32 noundef %163) #10
+  tail call void @set_nlink(ptr noundef %1, i32 noundef %163) #11
   %164 = getelementptr inbounds nuw i8, ptr %78, i64 20
   %165 = load i32, ptr %164, align 1
   store i32 %165, ptr %57, align 4
@@ -799,7 +793,7 @@ rock_check_overflow.exit:                         ; preds = %92
 
 189:                                              ; preds = %184
   %190 = getelementptr inbounds nuw i8, ptr %78, i64 5
-  %191 = tail call i32 @iso_date(ptr noundef nonnull %190, i32 noundef 0) #10
+  %191 = tail call i32 @iso_date(ptr noundef nonnull %190, i32 noundef 0) #11
   %192 = sext i32 %191 to i64
   store i64 %192, ptr %63, align 8
   store i64 0, ptr %64, align 8
@@ -818,7 +812,7 @@ rock_check_overflow.exit:                         ; preds = %92
   %200 = add nuw nsw i32 %195, 1
   %201 = zext nneg i32 %195 to i64
   %202 = getelementptr [0 x %struct.stamp], ptr %199, i64 0, i64 %201
-  %203 = tail call i32 @iso_date(ptr noundef %202, i32 noundef 0) #10
+  %203 = tail call i32 @iso_date(ptr noundef %202, i32 noundef 0) #11
   %204 = sext i32 %203 to i64
   store i64 %204, ptr %65, align 8
   store i64 0, ptr %66, align 8
@@ -837,7 +831,7 @@ rock_check_overflow.exit:                         ; preds = %92
   %212 = add nuw nsw i32 %207, 1
   %213 = zext nneg i32 %207 to i64
   %214 = getelementptr [0 x %struct.stamp], ptr %211, i64 0, i64 %213
-  %215 = tail call i32 @iso_date(ptr noundef %214, i32 noundef 0) #10
+  %215 = tail call i32 @iso_date(ptr noundef %214, i32 noundef 0) #11
   %216 = sext i32 %215 to i64
   store i64 %216, ptr %61, align 8
   store i64 0, ptr %62, align 8
@@ -855,7 +849,7 @@ rock_check_overflow.exit:                         ; preds = %92
   %223 = getelementptr inbounds nuw i8, ptr %78, i64 5
   %224 = zext nneg i32 %219 to i64
   %225 = getelementptr [0 x %struct.stamp], ptr %223, i64 0, i64 %224
-  %226 = tail call i32 @iso_date(ptr noundef %225, i32 noundef 0) #10
+  %226 = tail call i32 @iso_date(ptr noundef %225, i32 noundef 0) #11
   %227 = sext i32 %226 to i64
   store i64 %227, ptr %63, align 8
   store i64 0, ptr %64, align 8
@@ -907,7 +901,7 @@ rock_check_overflow.exit:                         ; preds = %92
   br label %254
 
 252:                                              ; preds = %235
-  %253 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9) #11
+  %253 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9) #10
   br label %254
 
 254:                                              ; preds = %252, %249, %246, %240
@@ -979,14 +973,14 @@ rock_check_overflow.exit:                         ; preds = %92
   br label %372
 
 291:                                              ; preds = %104
-  %292 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10) #11
+  %292 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10) #10
   br label %.loopexit11
 
 293:                                              ; preds = %104
   br i1 %53, label %296, label %294
 
 294:                                              ; preds = %293
-  %295 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11) #11
+  %295 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11) #10
   br label %.loopexit11
 
 296:                                              ; preds = %293
@@ -1003,13 +997,13 @@ rock_check_overflow.exit:                         ; preds = %92
   br i1 %304, label %305, label %307
 
 305:                                              ; preds = %302
-  %306 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12) #11
+  %306 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12) #10
   br label %.loopexit11
 
 307:                                              ; preds = %302, %296
   store i32 %298, ptr %56, align 8
   %308 = load ptr, ptr %5, align 8
-  %309 = tail call ptr @__isofs_iget(ptr noundef %308, i64 noundef %299, i64 noundef 0, i32 noundef 1) #10
+  %309 = tail call ptr @__isofs_iget(ptr noundef %308, i64 noundef %299, i64 noundef 0, i32 noundef 1) #11
   %310 = icmp ugt ptr %309, inttoptr (i64 -4096 to ptr)
   br i1 %310, label %311, label %314
 
@@ -1023,7 +1017,7 @@ rock_check_overflow.exit:                         ; preds = %92
   store i16 %315, ptr %1, align 8
   %316 = getelementptr inbounds nuw i8, ptr %309, i64 72
   %317 = load i32, ptr %316, align 8
-  tail call void @set_nlink(ptr noundef %1, i32 noundef %317) #10
+  tail call void @set_nlink(ptr noundef %1, i32 noundef %317) #11
   %318 = getelementptr inbounds nuw i8, ptr %309, i64 4
   %319 = load i32, ptr %318, align 4
   store i32 %319, ptr %57, align 4
@@ -1057,7 +1051,7 @@ rock_check_overflow.exit:                         ; preds = %92
   %339 = load i64, ptr %338, align 8
   store i64 %337, ptr %65, align 8
   store i64 %339, ptr %66, align 8
-  tail call void @iput(ptr noundef %309) #10
+  tail call void @iput(ptr noundef %309) #11
   br label %372
 
 340:                                              ; preds = %104
@@ -1084,7 +1078,7 @@ rock_check_overflow.exit:                         ; preds = %92
 
 356:                                              ; preds = %352
   %357 = zext i8 %354 to i32
-  %358 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, i32 noundef %357) #11
+  %358 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, i32 noundef %357) #10
   br label %372
 
 359:                                              ; preds = %352
@@ -1105,7 +1099,7 @@ rock_check_overflow.exit:                         ; preds = %92
   %368 = zext nneg i16 %367 to i32
   %369 = and i16 %350, 255
   %370 = zext nneg i16 %369 to i32
-  %371 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, i32 noundef %370, i32 noundef %368) #11
+  %371 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, i32 noundef %370, i32 noundef %368) #10
   br label %372
 
 372:                                              ; preds = %366, %359, %356, %340, %314, %288, %222, %217, %181, %176, %158, %.loopexit, %121, %113, %104
@@ -1127,12 +1121,12 @@ rock_check_overflow.exit:                         ; preds = %92
 .loopexit11:                                      ; preds = %128, %109, %105, %98, %76, %rock_check_overflow.exit, %378, %311, %305, %294, %291
   %381 = phi i32 [ %313, %311 ], [ 0, %291 ], [ %380, %378 ], [ -5, %305 ], [ -5, %294 ], [ -5, %rock_check_overflow.exit ], [ 0, %76 ], [ 0, %98 ], [ 0, %105 ], [ 0, %109 ], [ 0, %128 ]
   %382 = load ptr, ptr %4, align 8
-  tail call void @kfree(ptr noundef %382) #10
+  tail call void @kfree(ptr noundef %382) #11
   br label %383
 
 383:                                              ; preds = %.loopexit11, %3
   %384 = phi i32 [ %381, %.loopexit11 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %384
 }
 
@@ -1155,7 +1149,7 @@ define internal noundef range(i32 -5, 1) i32 @rock_ridge_symlink_read_folio(ptr 
   %17 = inttoptr i64 %16 to ptr
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %19 = load i64, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 52
   %21 = load i16, ptr %20, align 4
   %22 = and i16 %21, 6
@@ -1171,7 +1165,7 @@ define internal noundef range(i32 -5, 1) i32 @rock_ridge_symlink_read_folio(ptr 
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 200
   %29 = load ptr, ptr %28, align 8
   %30 = trunc i64 %19 to i32
-  %31 = tail call ptr @__bread_gfp(ptr noundef %29, i64 noundef %27, i32 noundef %30, i32 noundef 8) #10
+  %31 = tail call ptr @__bread_gfp(ptr noundef %29, i64 noundef %27, i32 noundef %30, i32 noundef 8) #11
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.thread16, label %33
 
@@ -1297,8 +1291,8 @@ define internal noundef range(i32 -5, 1) i32 @rock_ridge_symlink_read_folio(ptr 
 
 rock_check_overflow.exit:                         ; preds = %96
   %99 = zext i16 %87 to i32
-  %100 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #11
-  %101 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef range(i32 0, 65536) %99, i32 noundef %97, i32 noundef %.val) #11
+  %100 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #10
+  %101 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef range(i32 0, 65536) %99, i32 noundef %97, i32 noundef %.val) #10
   br label %.thread15
 
 102:                                              ; preds = %96
@@ -1417,7 +1411,7 @@ rock_check_overflow.exit:                         ; preds = %96
 
 167:                                              ; preds = %136
   %168 = zext i8 %140 to i32
-  %169 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, i32 noundef %168) #11
+  %169 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, i32 noundef %168) #10
   br label %170
 
 170:                                              ; preds = %167, %162, %156, %149
@@ -1526,27 +1520,27 @@ thread-pre-split:                                 ; preds = %211, %122, %109, %.
   br i1 %227, label %232, label %228
 
 228:                                              ; preds = %224
-  tail call void @__brelse(ptr noundef nonnull %31) #10
+  tail call void @__brelse(ptr noundef nonnull %31) #11
   store i8 0, ptr %221, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1, i32 8, ptr elementtype(i8) %1) #10, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1, i32 8, ptr elementtype(i8) %1) #11, !srcloc !14
   br label %260
 
 .thread15:                                        ; preds = %193, %.thread13, %118, %114, %109, %102, %.preheader, %142, %154, %158, %165, %201, %rock_check_overflow.exit
   %229 = load ptr, ptr %3, align 8
-  tail call void @kfree(ptr noundef %229) #10
+  tail call void @kfree(ptr noundef %229) #11
   br label %232
 
 .thread16:                                        ; preds = %24
-  %230 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15) #11
+  %230 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15) #10
   br label %233
 
 .thread17:                                        ; preds = %33
-  %231 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16) #11
+  %231 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16) #10
   br label %232
 
 232:                                              ; preds = %224, %.thread15, %.thread17
-  tail call void @__brelse(ptr noundef nonnull %31) #10
+  tail call void @__brelse(ptr noundef nonnull %31) #11
   br label %233
 
 233:                                              ; preds = %.thread16, %232, %2
@@ -1562,7 +1556,7 @@ thread-pre-split:                                 ; preds = %211, %122, %109, %.
   br label %257
 
 241:                                              ; preds = %233
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #10
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #11
           to label %257 [label %242], !srcloc !15
 
 242:                                              ; preds = %241
@@ -1591,58 +1585,64 @@ thread-pre-split:                                 ; preds = %211, %122, %109, %.
 257:                                              ; preds = %256, %249, %241, %238
   %258 = phi ptr [ %240, %238 ], [ %255, %249 ], [ %1, %256 ], [ %1, %241 ]
   %259 = getelementptr i8, ptr %258, i64 1
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %259, i32 4, ptr elementtype(i8) %259) #10, !srcloc !14
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %259, i32 4, ptr elementtype(i8) %259) #11, !srcloc !14
   br label %260
 
 260:                                              ; preds = %257, %228
   %261 = phi i32 [ -5, %257 ], [ 0, %228 ]
-  tail call void @unlock_page(ptr noundef %1) #10
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #10
+  tail call void @unlock_page(ptr noundef %1) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %261
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #7
+declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @__bread_gfp(ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare dso_local ptr @__bread_gfp(ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @set_nlink(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare dso_local void @set_nlink(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @iso_date(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare dso_local i32 @iso_date(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @iput(ptr noundef) local_unnamed_addr #6
+declare dso_local void @iput(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @__isofs_iget(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
+declare dso_local ptr @__isofs_iget(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @unlock_page(ptr noundef) local_unnamed_addr #6
+declare dso_local void @unlock_page(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__brelse(ptr noundef) local_unnamed_addr #6
+declare dso_local void @__brelse(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+declare i32 @llvm.smax.i32(i32, i32) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #9
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
+attributes #10 = { cold nounwind }
+attributes #11 = { nounwind }
 attributes #12 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

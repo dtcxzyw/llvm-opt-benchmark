@@ -21,7 +21,7 @@ define i32 @nx_stat(ptr noundef %0, ptr noundef %1, i32 %2) local_unnamed_addr #
   br i1 %10, label %94, label %11
 
 11:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -59,7 +59,7 @@ define i32 @nx_stat(ptr noundef %0, ptr noundef %1, i32 %2) local_unnamed_addr #
   br label %90
 
 33:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, i8 0, i64 88, i1 false)
   %34 = load i16, ptr %20, align 2
   %35 = and i16 %34, 15
@@ -168,7 +168,7 @@ inode_stat.exit.i:                                ; preds = %85, %82, %74, %69, 
   %88 = load i16, ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i16 %88, ptr %89, align 4
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %90
 
 90:                                               ; preds = %inode_stat.exit.i, %30, %27, %24
@@ -187,7 +187,7 @@ inode_stat.exit.i:                                ; preds = %85, %82, %74, %69, 
   br label %stat_recursive.exit
 
 stat_recursive.exit:                              ; preds = %91, %93
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %94
 
 94:                                               ; preds = %8, %3, %stat_recursive.exit
@@ -357,10 +357,10 @@ declare void @inode_release(ptr noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

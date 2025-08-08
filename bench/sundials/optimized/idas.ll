@@ -279,13 +279,10 @@ define noundef ptr @IDACreate(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define void @IDAProcessError(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ...) local_unnamed_addr #0 {
   %7 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.va_start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %12, label %8
@@ -361,17 +358,17 @@ SUNHandleErrWithMsg.exit:                         ; preds = %.lr.ph.i, %31
 
 40:                                               ; preds = %SUNHandleErrWithMsg.exit, %19, %16
   call void @free(ptr noundef %13) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare double @SUNRpowerR(double noundef, double noundef) local_unnamed_addr #4
+declare double @SUNRpowerR(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDASensResDQ(i32 noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #0 {
@@ -768,15 +765,12 @@ IDAQuadSensRhs1InternalDQ.exit.thread:            ; preds = %90, %62, %70, %80, 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define range(i32 -22, 1) i32 @IDAInit(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %0, null
   br i1 %8, label %9, label %10
 
@@ -1219,12 +1213,12 @@ IDACheckNvector.exit.thread:                      ; preds = %19, %24, %28, %32, 
 
 218:                                              ; preds = %196, %194, %191, %181, %.loopexit, %IDACheckNvector.exit.thread, %18, %15, %12, %9
   %.0 = phi i32 [ -20, %9 ], [ -22, %12 ], [ -22, %15 ], [ -22, %18 ], [ -21, %181 ], [ -21, %191 ], [ -21, %194 ], [ 0, %196 ], [ -21, %.loopexit ], [ -22, %IDACheckNvector.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @IDAFreeVectors(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
@@ -1365,13 +1359,13 @@ define internal fastcc void @IDAFreeVectors(ptr noundef nonnull captures(none) %
   ret void
 }
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @SUNNonlinSol_Newton(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @SUNNonlinSol_Newton(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @IDASetNonlinearSolver(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @IDASetNonlinearSolver(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @SUNNonlinSolFree(ptr noundef) local_unnamed_addr #4
+declare i32 @SUNNonlinSolFree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -23, 1) i32 @IDAReInit(ptr noundef captures(address_is_null) %0, double noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -1665,9 +1659,9 @@ define range(i32 -23, 1) i32 @IDASVtolerances(ptr noundef captures(address_is_nu
   ret i32 %.0
 }
 
-declare double @N_VMin(ptr noundef) local_unnamed_addr #4
+declare double @N_VMin(ptr noundef) local_unnamed_addr #3
 
-declare ptr @N_VClone(ptr noundef) local_unnamed_addr #4
+declare ptr @N_VClone(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -23, 1) i32 @IDAWFtolerances(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1708,8 +1702,8 @@ define range(i32 -23, 1) i32 @IDAWFtolerances(ptr noundef captures(address_is_nu
 define range(i32 -28, 1) i32 @IDAQuadInit(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -1864,12 +1858,12 @@ define range(i32 -28, 1) i32 @IDAQuadInit(ptr noundef %0, ptr noundef %1, ptr no
 
 70:                                               ; preds = %.loopexit24, %64, %.loopexit, %7
   %.0 = phi i32 [ -20, %7 ], [ 0, %64 ], [ -21, %.loopexit ], [ -28, %.loopexit24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare i32 @N_VConstVectorArray(i32 noundef, double noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @N_VConstVectorArray(i32 noundef, double noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -30, 1) i32 @IDAQuadReInit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2642,7 +2636,7 @@ define range(i32 -28, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @IDASensFreeVectors(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
@@ -2774,13 +2768,13 @@ define internal fastcc void @IDASensFreeVectors(ptr noundef nonnull captures(non
   ret void
 }
 
-declare i32 @N_VScaleVectorArray(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @N_VScaleVectorArray(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @SUNNonlinSol_NewtonSens(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @SUNNonlinSol_NewtonSens(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @IDASetNonlinearSolverSensSim(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @IDASetNonlinearSolverSensSim(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @IDASetNonlinearSolverSensStg(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @IDASetNonlinearSolverSensStg(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -40, 1) i32 @IDASensReInit(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -2987,9 +2981,9 @@ define range(i32 -40, 1) i32 @IDASensReInit(ptr noundef %0, i32 noundef %1, ptr 
   ret i32 %.078
 }
 
-declare i32 @idaNlsInitSensSim(ptr noundef) local_unnamed_addr #4
+declare i32 @idaNlsInitSensSim(ptr noundef) local_unnamed_addr #3
 
-declare i32 @idaNlsInitSensStg(ptr noundef) local_unnamed_addr #4
+declare i32 @idaNlsInitSensStg(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -40, 1) i32 @IDASensSStolerances(ptr noundef captures(address_is_null) %0, double noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
@@ -3259,7 +3253,7 @@ define range(i32 -40, 1) i32 @IDASensSVtolerances(ptr noundef captures(address_i
   ret i32 %.0
 }
 
-declare ptr @N_VCloneVectorArray(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @N_VCloneVectorArray(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -40, 1) i32 @IDASensEEtolerances(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -5186,8 +5180,8 @@ IDAQuadSensWrmsNormUpdate.exit:                   ; preds = %.lr.ph.i.i436, %527
   br label %IDAStopTest2.exit.thread
 
 554:                                              ; preds = %541
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %555 = load i32, ptr %40, align 4, !tbaa !45
   %.not.i441 = icmp eq i32 %555, 0
   br i1 %.not.i441, label %.thread.i, label %556
@@ -5660,9 +5654,9 @@ IDASensPredict.exit.i:                            ; preds = %732, %728
   br label %739
 
 739:                                              ; preds = %IDASensPredict.exit.i, %IDAPredict.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !111
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8, !tbaa !111
   %740 = load i32, ptr %40, align 4, !tbaa !45
   %.not.i147.i = icmp eq i32 %740, 0
@@ -5903,13 +5897,13 @@ IDASensPredict.exit.i:                            ; preds = %732, %728
 
 IDANls.exit.thread.i:                             ; preds = %857, %851, %803, %789, %787
   %.0.i.ph.i = phi i32 [ -11, %851 ], [ %.1.i.i450, %803 ], [ 6, %789 ], [ -16, %787 ], [ 5, %857 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %select.unfold.i
 
 871:                                              ; preds = %849, %834, %832
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %872 = load ptr, ptr %355, align 8, !tbaa !114
   %873 = load ptr, ptr %305, align 8, !tbaa !90
   %874 = load i32, ptr %316, align 4, !tbaa !217
@@ -6320,8 +6314,8 @@ IDAQuadNls.exit.thread.i:                         ; preds = %IDAQuadTestError.ex
   br i1 %1083, label %IDAStep.exit.thread462, label %1084
 
 IDAStep.exit.thread462:                           ; preds = %1075
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
 1084:                                             ; preds = %1075
@@ -6355,9 +6349,9 @@ IDASensPredict.exit172.i:                         ; preds = %1089, %1085
   %1093 = load i32, ptr %319, align 8, !tbaa !167
   %1094 = load i32, ptr %325, align 8, !tbaa !223
   %1095 = call i32 @N_VLinearCombinationVectorArray(i32 noundef %1093, i32 noundef %1094, ptr noundef nonnull %342, ptr noundef nonnull %347, ptr noundef %1087) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !111
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !111
   %1096 = load ptr, ptr %385, align 8, !tbaa !254
   call void @N_VConst(double noundef 0.000000e+00, ptr noundef %1096) #14
@@ -6386,8 +6380,8 @@ IDASensNls.exit.thread.i:                         ; preds = %IDASensPredict.exit
   %1113 = load i64, ptr %391, align 8, !tbaa !180
   %1114 = add nsw i64 %1113, 1
   store i64 %1114, ptr %391, align 8, !tbaa !180
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %select.unfold301.i
 
 IDASensNls.exit.i:                                ; preds = %IDASensPredict.exit172.i
@@ -6402,8 +6396,8 @@ IDASensNls.exit.i:                                ; preds = %IDASensPredict.exit
   %1123 = load ptr, ptr %363, align 8, !tbaa !172
   %1124 = load ptr, ptr %365, align 8, !tbaa !174
   %1125 = call i32 @N_VLinearSumVectorArray(i32 noundef %1120, double noundef 1.000000e+00, ptr noundef %1121, double noundef %1122, ptr noundef %1123, ptr noundef %1124) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %1126 = load i32, ptr %318, align 8, !tbaa !51
   %.not334.i = icmp eq i32 %1126, 0
   br i1 %.not334.i, label %IDASensTestError.exit.i, label %1127
@@ -7602,14 +7596,14 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i333.i.i, 
 IDAStep.exit.thread:                              ; preds = %1683, %._crit_edge386.i.i
   %1723 = load ptr, ptr %355, align 8, !tbaa !114
   call void @N_VScale(double noundef %.186.i.i, ptr noundef %1723, ptr noundef %1723) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %1728
 
 IDAStep.exit:                                     ; preds = %select.unfold.i, %IDAQuadNls.exit.thread.i, %select.unfold301.i, %IDAQuadSensTestError.exit.thread.i
   %.0.i449 = phi i32 [ %1386, %IDAQuadSensTestError.exit.thread.i ], [ %1243, %select.unfold301.i ], [ %1071, %IDAQuadNls.exit.thread.i ], [ %944, %select.unfold.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not425 = icmp eq i32 %.0.i449, 0
   br i1 %.not425, label %1728, label %.loopexit
 
@@ -8200,7 +8194,7 @@ define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #6
+declare double @llvm.fabs.f64(double) #5
 
 ; Function Attrs: nounwind uwtable
 define double @IDAWrmsNorm(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -8309,7 +8303,7 @@ IDAQuadSensWrmsNorm.exit:                         ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #6
+declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -10, 1) i32 @IDARcheck1(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
@@ -10161,8 +10155,8 @@ define internal fastcc range(i32 -99, -2) i32 @IDAHandleFailure(ptr noundef nonn
 define range(i32 -28, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [6 x double], align 16
   %6 = alloca [6 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %0, null
   br i1 %7, label %8, label %9
 
@@ -10329,12 +10323,12 @@ define range(i32 -28, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 n
 
 93:                                               ; preds = %._crit_edge, %40, %18, %11, %8
   %.0 = phi i32 [ -20, %8 ], [ -27, %11 ], [ -25, %18 ], [ -26, %40 ], [ %., %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare i32 @N_VLinearCombination(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @N_VLinearCombination(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -30, 1) i32 @IDAGetQuad(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -10361,8 +10355,8 @@ define range(i32 -30, 1) i32 @IDAGetQuad(ptr noundef %0, ptr noundef writeonly c
 define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [6 x double], align 16
   %6 = alloca [6 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %0, null
   br i1 %7, label %8, label %9
 
@@ -10536,8 +10530,8 @@ define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i
 
 95:                                               ; preds = %._crit_edge, %40, %22, %15, %12, %8
   %.0 = phi i32 [ -20, %8 ], [ -30, %12 ], [ -27, %15 ], [ -25, %22 ], [ -26, %40 ], [ %., %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -10603,8 +10597,8 @@ define range(i32 -43, 1) i32 @IDAGetSens(ptr noundef readonly captures(address_i
 define range(i32 -43, 1) i32 @IDAGetSensDky1(ptr noundef readonly captures(address_is_null) %0, double noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [6 x double], align 16
   %7 = alloca [6 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %0, null
   br i1 %8, label %9, label %10
 
@@ -10817,8 +10811,8 @@ define range(i32 -43, 1) i32 @IDAGetSensDky1(ptr noundef readonly captures(addre
 
 116:                                              ; preds = %._crit_edge, %52, %30, %23, %17, %14, %9
   %.0 = phi i32 [ -20, %9 ], [ -40, %14 ], [ -27, %17 ], [ -43, %23 ], [ -25, %30 ], [ -26, %52 ], [ %., %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -10973,8 +10967,8 @@ define range(i32 -50, 1) i32 @IDAGetQuadSens(ptr noundef readonly captures(addre
 define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef readonly captures(address_is_null) %0, double noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [6 x double], align 16
   %7 = alloca [6 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %0, null
   br i1 %8, label %9, label %10
 
@@ -11197,8 +11191,8 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef readonly captures(a
 
 121:                                              ; preds = %._crit_edge, %57, %35, %28, %22, %19, %14, %9
   %.0 = phi i32 [ -20, %9 ], [ -40, %14 ], [ -50, %19 ], [ -27, %22 ], [ -43, %28 ], [ -25, %35 ], [ -26, %57 ], [ %., %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -11349,7 +11343,7 @@ define range(i32 -20, 1) i32 @IDAComputeY(ptr noundef readonly captures(address_
   ret i32 %.0
 }
 
-declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -20, 1) i32 @IDAComputeYp(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -11395,7 +11389,7 @@ define range(i32 -20, 1) i32 @IDAComputeYSens(ptr noundef readonly captures(addr
   ret i32 %.0
 }
 
-declare i32 @N_VLinearSumVectorArray(i32 noundef, double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @N_VLinearSumVectorArray(i32 noundef, double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -20, 1) i32 @IDAComputeYpSens(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -11847,17 +11841,17 @@ IDAQuadSensFreeVectors.exit:                      ; preds = %62, %65
   ret void
 }
 
-declare void @IDAAdjFree(ptr noundef) local_unnamed_addr #4
+declare void @IDAAdjFree(ptr noundef) local_unnamed_addr #3
 
-declare void @N_VDestroy(ptr noundef) local_unnamed_addr #4
+declare void @N_VDestroy(ptr noundef) local_unnamed_addr #3
 
-declare i32 @N_VConstrMask(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @N_VConstrMask(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @idaNlsInit(ptr noundef) local_unnamed_addr #4
+declare i32 @idaNlsInit(ptr noundef) local_unnamed_addr #3
 
-declare double @N_VWrmsNormMask(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare double @N_VWrmsNormMask(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define double @IDASensWrmsNorm(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -11909,32 +11903,32 @@ define double @IDASensWrmsNorm(ptr noundef readonly captures(none) %0, ptr nound
   ret double %.0.lcssa
 }
 
-declare i32 @N_VWrmsNormMaskVectorArray(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @N_VWrmsNormMaskVectorArray(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @N_VWrmsNormVectorArray(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @N_VWrmsNormVectorArray(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #7
+declare void @llvm.va_start.p0(ptr) #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #8
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #7
+declare void @llvm.va_end.p0(ptr) #6
 
-declare void @SUNGlobalFallbackErrHandler(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ...) local_unnamed_addr #4
+declare void @SUNGlobalFallbackErrHandler(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ...) local_unnamed_addr #3
 
-declare i32 @SUNLogger_QueueMsg(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @SUNLogger_QueueMsg(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @SUNContext_GetLastError(ptr noundef) local_unnamed_addr #4
+declare i32 @SUNContext_GetLastError(ptr noundef) local_unnamed_addr #3
 
-declare void @N_VDestroyVectorArray(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @N_VDestroyVectorArray(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @N_VAbs(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @N_VAbs(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @N_VAddConst(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #4
+declare void @N_VAddConst(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @N_VInv(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @N_VInv(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @IDARestore(ptr noundef nonnull initializes((1272, 1280)) %0, double noundef %1) unnamed_addr #0 {
@@ -12397,34 +12391,40 @@ switch.lookup:                                    ; preds = %30
   ret i32 %.0
 }
 
-declare i32 @N_VLinearCombinationVectorArray(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @N_VLinearCombinationVectorArray(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #4
+declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @SUNNonlinSolSetup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @SUNNonlinSolSetup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @SUNNonlinSolSolve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @SUNNonlinSolSolve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @SUNNonlinSolGetNumIters(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @SUNNonlinSolGetNumIters(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @SUNNonlinSolGetNumConvFails(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @SUNNonlinSolGetNumConvFails(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @N_VCompare(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @N_VCompare(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @N_VProd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @N_VProd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @N_VDiv(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @N_VDiv(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare double @N_VMinQuotient(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare double @N_VMinQuotient(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #9
+declare double @sqrt(double noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
@@ -12445,16 +12445,16 @@ declare i64 @llvm.smin.i64(i64, i64) #11
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -351,33 +351,33 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %33, %41
   %46 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv(ptr noundef nonnull align 8 dereferenceable(144) %43) #16
   %47 = tail call noundef ptr @_ZNK5clang12FunctionDecl29getTemplateSpecializationArgsEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #16
   %48 = tail call noundef ptr @_ZNK5clang12FunctionDecl28getDescribedFunctionTemplateEv(ptr noundef nonnull align 8 dereferenceable(168) %46) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !55
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = load i32, ptr %47, align 8, !tbaa !56
   %51 = zext i32 %50 to i64
   %52 = call noundef ptr @_ZN5clang20FunctionTemplateDecl18findSpecializationEN4llvm8ArrayRefINS_16TemplateArgumentEEERPv(ptr noundef nonnull align 8 dereferenceable(88) %48, ptr nonnull %49, i64 %51, ptr noundef nonnull align 8 dereferenceable(8) %6) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %53
 
 53:                                               ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit, %45, %31, %25
   %.084 = phi i1 [ false, %31 ], [ false, %25 ], [ true, %45 ], [ true, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ]
   %.081 = phi ptr [ %1, %31 ], [ %1, %25 ], [ %52, %45 ], [ %1, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %54, ptr %7, align 8, !tbaa !58
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %55, align 8, !tbaa !60
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 8, ptr %56, align 4, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %57, ptr %8, align 8, !tbaa !58
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %58, align 8, !tbaa !60
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 8, ptr %59, align 4, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, i8 0, i64 20, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %.081, i64 48
   %.sroa.0.0.copyload.i.i = load i64, ptr %60, align 8, !tbaa !62
@@ -629,9 +629,9 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit127:    ; preds = %183, %192
   %195 = getelementptr inbounds i8, ptr %.0.i.i.i.i126, i64 -64
   %196 = select i1 %194, ptr null, ptr %195
   %197 = call noundef ptr @_ZN5clang6interp7Program17getOrCreateRecordEPKNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(328) %185, ptr noundef %196) #16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %10, i8 0, i64 20, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %198 = call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %153) #16
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i128 = load i64, ptr %199, align 8
@@ -696,7 +696,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12Den
 
 223:                                              ; preds = %.lr.ph, %_ZN4llvm16DenseMapIteratorIPKN5clang9ValueDeclEPNS1_9FieldDeclENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EELb0EEppEv.exit
   %.sroa.0178.0221 = phi ptr [ %.pn14.i, %.lr.ph ], [ %.sroa.0178.2, %_ZN4llvm16DenseMapIteratorIPKN5clang9ValueDeclEPNS1_9FieldDeclENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EELb0EEppEv.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0178.0221, i64 16, i1 false)
   %224 = call noundef zeroext i1 @_ZNK5clang13CXXMethodDecl8isStaticEv(ptr noundef nonnull align 8 dereferenceable(168) %.081) #16
   br i1 %224, label %.critedge109, label %225
@@ -726,7 +726,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12Den
   store i32 %229, ptr %243, align 4, !tbaa !131
   %.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %243, i64 4
   store i8 %242, ptr %.sroa.430.0..sroa_idx, align 4, !tbaa !132
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %244 = getelementptr inbounds nuw i8, ptr %.sroa.0178.0221, i64 16
   %.not5.i3.i = icmp eq ptr %244, %.pn12.i
   br i1 %.not5.i3.i, label %_ZN4llvm16DenseMapIteratorIPKN5clang9ValueDeclEPNS1_9FieldDeclENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EELb0EEppEv.exit, label %.lr.ph.i4.i
@@ -786,13 +786,13 @@ _ZN4llvm16DenseMapIteratorIPKN5clang9ValueDeclEPNS1_9FieldDeclENS_12DenseMapInfo
   br label %269
 
 269:                                              ; preds = %.critedge107, %248
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %270 = load ptr, ptr %10, align 8, !tbaa !119
   %271 = load i32, ptr %211, align 8, !tbaa !120
   %272 = zext i32 %271 to i64
   %273 = shl nuw nsw i64 %272, 4
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %270, i64 noundef %273, i64 noundef 8) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge111
 
 .critedge111:                                     ; preds = %163, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i, %269, %_ZN5clang20isLambdaCallOperatorEPKNS_13CXXMethodDeclE.exit, %.critedge
@@ -817,14 +817,14 @@ _ZN4llvm16DenseMapIteratorIPKN5clang9ValueDeclEPNS1_9FieldDeclENS_12DenseMapInfo
   br label %291
 
 .critedge109:                                     ; preds = %223
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %284 = load ptr, ptr %10, align 8, !tbaa !119
   %285 = load i32, ptr %211, align 8, !tbaa !120
   %286 = zext i32 %285 to i64
   %287 = shl nuw nsw i64 %286, 4
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %284, i64 noundef %287, i64 noundef 8) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %488
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8PrimTypeELb1EE9push_backES3_.exit148, %.critedge111
@@ -848,7 +848,7 @@ _ZN4llvm16DenseMapIteratorIPKN5clang9ValueDeclEPNS1_9FieldDeclENS_12DenseMapInfo
   %.not214 = icmp eq i64 %296, 0
   %.0.i141 = select i1 %.not214, i32 13, i32 %.sroa.0166.0.extract.trunc
   %297 = load ptr, ptr %280, align 8, !tbaa !115
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %298 = ptrtoint ptr %292 to i64
   %299 = and i64 %298, -3
   store i64 %299, ptr %13, align 8, !tbaa !62
@@ -883,24 +883,24 @@ _ZN4llvm16DenseMapIteratorIPKN5clang9ValueDeclEPNS1_9FieldDeclENS_12DenseMapInfo
 _ZN5clang6interp7Program16createDescriptorERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbbb.exit: ; preds = %314, %317
   %.0.i.i.i.i.i142 = phi ptr [ %316, %314 ], [ %318, %317 ]
   call void @_ZN5clang6interp10DescriptorC1ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbbb(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i.i142, ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef %.0.i141, i64 0, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %.3223, ptr %14, align 8, !tbaa !151
   store i32 %.0.i141, ptr %281, align 8
   store ptr %.0.i.i.i.i.i142, ptr %.sroa.4160.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIN5clang6interp8PrimTypeEPNS4_10DescriptorEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS8_EEEEjS8_SA_SD_E11try_emplaceIJS8_EEES2_INS_16DenseMapIteratorIjS8_SA_SD_Lb0EEEbEOjDpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.152") align 8 %15, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(16) %281)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %292, ptr %16, align 8, !tbaa !155
   %.sroa.0.0.insert.ext = zext i32 %.3223 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %296, %.sroa.0.0.insert.ext
   store i64 %.sroa.0.0.insert.insert, ptr %283, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang11ParmVarDeclENS2_6interp11ParamOffsetENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS5_S7_S9_SC_Lb0EEEbEOS5_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.159") align 8 %17, ptr noundef nonnull align 1 dereferenceable(1) %282, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(8) %283)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %319 = load i32, ptr %58, align 8, !tbaa !60
   %320 = load i32, ptr %59, align 4, !tbaa !61
   %.not.i.i.not.i143 = icmp ult i32 %319, %320
@@ -963,14 +963,14 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8PrimTypeELb1EE9push_backES3_.ex
   %355 = and i64 %354, -5
   call void @_ZN5clang6interp8FunctionC1ERNS0_7ProgramEN4llvm12PointerUnionIJPKNS_12FunctionDeclEPKNS_9BlockExprEEEEjONS4_15SmallVectorImplINS0_8PrimTypeEEEONS4_8DenseMapIjSt4pairISE_PNS0_10DescriptorEENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjSL_EEEEONSD_IjEEbb(ptr noundef nonnull align 8 dereferenceable(520) %353, ptr noundef nonnull align 8 dereferenceable(328) %348, i64 %355, i32 noundef %.3.lcssa, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(20) %9, ptr noundef nonnull align 8 dereferenceable(48) %8, i1 noundef zeroext %.0199.shrunk, i1 noundef zeroext %.0198) #16
   %356 = getelementptr inbounds nuw i8, ptr %348, i64 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %352, ptr %4, align 8, !tbaa !159
   %357 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %358 = ptrtoint ptr %353 to i64
   store i64 %358, ptr %357, align 8, !tbaa !168
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclESt10unique_ptrINS2_6interp8FunctionESt14default_deleteIS8_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SB_EEEES5_SB_SD_SG_E11try_emplaceIJSB_EEESt4pairINS_16DenseMapIteratorIS5_SB_SD_SG_Lb0EEEbEOS5_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.221") align 8 %5, ptr noundef nonnull align 1 dereferenceable(1) %356, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %357)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %359 = load ptr, ptr %357, align 8, !tbaa !168
   %.not.i.i.i = icmp eq ptr %359, null
   br i1 %.not.i.i.i, label %_ZN5clang6interp7Program14createFunctionIJRjN4llvm11SmallVectorINS0_8PrimTypeELj8EEENS4_8DenseMapIjSt4pairIS6_PNS0_10DescriptorEENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjSC_EEEENS5_IjLj8EEERbSK_EEEPNS0_8FunctionEPKNS_12FunctionDeclEDpOT_.exit, label %_ZNKSt14default_deleteIN5clang6interp8FunctionEEclEPS2_.exit.i.i.i
@@ -981,14 +981,14 @@ _ZNKSt14default_deleteIN5clang6interp8FunctionEEclEPS2_.exit.i.i.i: ; preds = %3
   br label %_ZN5clang6interp7Program14createFunctionIJRjN4llvm11SmallVectorINS0_8PrimTypeELj8EEENS4_8DenseMapIjSt4pairIS6_PNS0_10DescriptorEENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjSC_EEEENS5_IjLj8EEERbSK_EEEPNS0_8FunctionEPKNS_12FunctionDeclEDpOT_.exit
 
 _ZN5clang6interp7Program14createFunctionIJRjN4llvm11SmallVectorINS0_8PrimTypeELj8EEENS4_8DenseMapIjSt4pairIS6_PNS0_10DescriptorEENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjSC_EEEENS5_IjLj8EEERbSK_EEEPNS0_8FunctionEPKNS_12FunctionDeclEDpOT_.exit: ; preds = %347, %_ZNKSt14default_deleteIN5clang6interp8FunctionEEclEPS2_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %360
 
 360:                                              ; preds = %_ZN5clang6interp7Program14createFunctionIJRjN4llvm11SmallVectorINS0_8PrimTypeELj8EEENS4_8DenseMapIjSt4pairIS6_PNS0_10DescriptorEENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjSC_EEEENS5_IjLj8EEERbSK_EEEPNS0_8FunctionEPKNS_12FunctionDeclEDpOT_.exit, %._crit_edge
   %.091 = phi ptr [ %290, %._crit_edge ], [ %353, %_ZN5clang6interp7Program14createFunctionIJRjN4llvm11SmallVectorINS0_8PrimTypeELj8EEENS4_8DenseMapIjSt4pairIS6_PNS0_10DescriptorEENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjSC_EEEENS5_IjLj8EEERbSK_EEEPNS0_8FunctionEPKNS_12FunctionDeclEDpOT_.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %361 = call noundef zeroext i1 @_ZNK5clang12FunctionDecl9isDefinedERPKS0_b(ptr noundef nonnull align 8 dereferenceable(168) %.081, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %361, label %362, label %371
 
 362:                                              ; preds = %360
@@ -1076,7 +1076,7 @@ _ZN5clang6interp7Program14createFunctionIJRjN4llvm11SmallVectorINS0_8PrimTypeELj
   br label %488
 
 405:                                              ; preds = %.thread204
-  call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %18) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %406 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %406, ptr %18, align 8, !tbaa !58
   %407 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -1204,7 +1204,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp5ScopeELb0EE13destroy_rangeEPS3_
   br label %_ZN4llvm11SmallVectorIN5clang6interp5ScopeELj2EED2Ev.exit
 
 _ZN4llvm11SmallVectorIN5clang6interp5ScopeELj2EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp5ScopeELb0EE13destroy_rangeEPS3_S5_.exit.i, %469
-  call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %18) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %488
 
 .lr.ph230:                                        ; preds = %405, %_ZN4llvm15SmallVectorImplIN5clang6interp5ScopeEE12emplace_backIJNS_11SmallVectorINS3_5LocalELj8EEEEEERS3_DpOT_.exit
@@ -1256,7 +1256,7 @@ _ZN4llvm15SmallVectorImplIN5clang6interp5ScopeEE12emplace_backIJNS_11SmallVector
   %492 = zext i32 %491 to i64
   %493 = mul nuw nsw i64 %492, 24
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %489, i64 noundef %493, i64 noundef 8) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %494 = load ptr, ptr %8, align 8, !tbaa !58
   %495 = icmp eq ptr %494, %57
   br i1 %495, label %_ZN4llvm11SmallVectorIjLj8EED2Ev.exit, label %496
@@ -1266,7 +1266,7 @@ _ZN4llvm15SmallVectorImplIN5clang6interp5ScopeEE12emplace_backIJNS_11SmallVector
   br label %_ZN4llvm11SmallVectorIjLj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorIjLj8EED2Ev.exit:            ; preds = %488, %496
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %497 = load ptr, ptr %7, align 8, !tbaa !58
   %498 = icmp eq ptr %497, %54
   br i1 %498, label %_ZN4llvm11SmallVectorIN5clang6interp8PrimTypeELj8EED2Ev.exit, label %499
@@ -1276,7 +1276,7 @@ _ZN4llvm11SmallVectorIjLj8EED2Ev.exit:            ; preds = %488, %496
   br label %_ZN4llvm11SmallVectorIN5clang6interp8PrimTypeELj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorIN5clang6interp8PrimTypeELj8EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIjLj8EED2Ev.exit, %499
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %500
 
 500:                                              ; preds = %21, %_ZN4llvm11SmallVectorIN5clang6interp8PrimTypeELj8EED2Ev.exit
@@ -1284,40 +1284,34 @@ _ZN4llvm11SmallVectorIN5clang6interp8PrimTypeELj8EED2Ev.exit: ; preds = %_ZN4llv
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare noundef zeroext i1 @_ZNK5clang13CXXMethodDecl21isLambdaStaticInvokerEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #1
 
-declare noundef zeroext i1 @_ZNK5clang13CXXMethodDecl21isLambdaStaticInvokerEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #2
+declare noundef zeroext i1 @_ZNK5clang13CXXRecordDecl15isGenericLambdaEv(ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #1
 
-declare noundef zeroext i1 @_ZNK5clang13CXXRecordDecl15isGenericLambdaEv(ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #2
+declare noundef ptr @_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv(ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #1
 
-declare noundef ptr @_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv(ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #2
+declare noundef ptr @_ZNK5clang12FunctionDecl29getTemplateSpecializationArgsEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #1
 
-declare noundef ptr @_ZNK5clang12FunctionDecl29getTemplateSpecializationArgsEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #2
+declare noundef ptr @_ZNK5clang12FunctionDecl28getDescribedFunctionTemplateEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #1
 
-declare noundef ptr @_ZNK5clang12FunctionDecl28getDescribedFunctionTemplateEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #2
+declare noundef ptr @_ZN5clang20FunctionTemplateDecl18findSpecializationEN4llvm8ArrayRefINS_16TemplateArgumentEEERPv(ptr noundef nonnull align 8 dereferenceable(88), ptr, i64, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
-declare noundef ptr @_ZN5clang20FunctionTemplateDecl18findSpecializationEN4llvm8ArrayRefINS_16TemplateArgumentEEERPv(ptr noundef nonnull align 8 dereferenceable(88), ptr, i64, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i64 @_ZNK5clang6interp7Context8classifyENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(40), i64) local_unnamed_addr #2
+declare i64 @_ZNK5clang6interp7Context8classifyENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(40), i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare noundef i64 @_ZN5clang6interp8primSizeENS0_8PrimTypeE(i32 noundef) local_unnamed_addr #2
+declare noundef i64 @_ZN5clang6interp8primSizeENS0_8PrimTypeE(i32 noundef) local_unnamed_addr #1
 
-declare noundef zeroext i1 @_ZNK5clang13CXXMethodDecl30isImplicitObjectMemberFunctionEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #2
+declare noundef zeroext i1 @_ZNK5clang13CXXMethodDecl30isImplicitObjectMemberFunctionEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #1
 
-declare noundef ptr @_ZN5clang6interp7Program17getOrCreateRecordEPKNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(328), ptr noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN5clang6interp7Program17getOrCreateRecordEPKNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(328), ptr noundef) local_unnamed_addr #1
 
-declare void @_ZNK5clang13CXXRecordDecl16getCaptureFieldsERN4llvm8DenseMapIPKNS_9ValueDeclEPNS_9FieldDeclENS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S7_EEEERS7_(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
+declare void @_ZNK5clang13CXXRecordDecl16getCaptureFieldsERN4llvm8DenseMapIPKNS_9ValueDeclEPNS_9FieldDeclENS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S7_EEEERS7_(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
-declare noundef zeroext i1 @_ZNK5clang13CXXMethodDecl8isStaticEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #2
+declare noundef zeroext i1 @_ZNK5clang13CXXMethodDecl8isStaticEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #1
 
-declare noundef ptr @_ZNK5clang6interp6Record8getFieldEPKNS_9FieldDeclE(ptr noundef nonnull align 8 dereferenceable(656), ptr noundef) local_unnamed_addr #2
+declare noundef ptr @_ZNK5clang6interp6Record8getFieldEPKNS_9FieldDeclE(ptr noundef nonnull align 8 dereferenceable(656), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclENS2_6interp11ParamOffsetENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 {
@@ -1373,7 +1367,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZN4l
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclENS2_6interp11ParamOffsetENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E15LookupBucketForIS5_EEbRKT_RPSC_.exit: ; preds = %23, %2
   %.sink.i = phi ptr [ %24, %23 ], [ null, %2 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.sink.i, ptr %3, align 8, !tbaa !216
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !217
@@ -1422,7 +1416,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclENS2_6interp11ParamOffset
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclENS2_6interp11ParamOffsetENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E16InsertIntoBucketIRKS5_JEEEPSC_SI_OT_DpOT0_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclENS2_6interp11ParamOffsetENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E16InsertIntoBucketIRKS5_JEEEPSC_SI_OT_DpOT0_.exit: ; preds = %47, %53
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %57 = load ptr, ptr %1, align 8, !tbaa !121
   store ptr %57, ptr %48, align 8, !tbaa !121
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -1435,7 +1429,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclENS2_6interp11ParamOffset
   ret ptr %.0
 }
 
-declare noundef ptr @_ZN5clang6interp7Program11getFunctionEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(328), ptr noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN5clang6interp7Program11getFunctionEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(328), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN5clang6interp15ByteCodeEmitter16compileObjCBlockEPKNS_9BlockExprE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
@@ -1454,23 +1448,23 @@ define dso_local noundef ptr @_ZN5clang6interp15ByteCodeEmitter16compileObjCBloc
   store ptr %1, ptr %3, align 8, !tbaa !219
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !221
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !131
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %17, ptr %5, align 8, !tbaa !58
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %18, align 8, !tbaa !60
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 8, ptr %19, align 4, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %20, ptr %6, align 8, !tbaa !58
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %21, align 8, !tbaa !60
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 8, ptr %22, align 4, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 20, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %24 = load ptr, ptr %23, align 8, !tbaa !227
@@ -1515,7 +1509,7 @@ define dso_local noundef ptr @_ZN5clang6interp15ByteCodeEmitter16compileObjCBloc
   %.not31 = icmp eq i64 %47, 0
   %.0.i = select i1 %.not31, i32 13, i32 %.sroa.024.0.extract.trunc
   %48 = load ptr, ptr %30, align 8, !tbaa !115
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %49 = ptrtoint ptr %43 to i64
   %50 = and i64 %49, -3
   store i64 %50, ptr %8, align 8, !tbaa !62
@@ -1550,24 +1544,24 @@ define dso_local noundef ptr @_ZN5clang6interp15ByteCodeEmitter16compileObjCBloc
 _ZN5clang6interp7Program16createDescriptorERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbbb.exit: ; preds = %65, %68
   %.0.i.i.i.i.i = phi ptr [ %67, %65 ], [ %69, %68 ]
   call void @_ZN5clang6interp10DescriptorC1ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbbb(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %.0.i, i64 0, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %42, ptr %9, align 8, !tbaa !151
   store i32 %.0.i, ptr %31, align 8
   store ptr %.0.i.i.i.i.i, ptr %.sroa.418.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIN5clang6interp8PrimTypeEPNS4_10DescriptorEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS8_EEEEjS8_SA_SD_E11try_emplaceIJS8_EEES2_INS_16DenseMapIteratorIjS8_SA_SD_Lb0EEEbEOjDpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.152") align 8 %10, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(16) %31)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %43, ptr %11, align 8, !tbaa !155
   %.sroa.0.0.insert.ext = zext i32 %42 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %47, %.sroa.0.0.insert.ext
   store i64 %.sroa.0.0.insert.insert, ptr %33, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang11ParmVarDeclENS2_6interp11ParamOffsetENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS5_S7_S9_SC_Lb0EEEbEOS5_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.159") align 8 %12, ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(8) %33)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %70 = load i32, ptr %21, align 8, !tbaa !60
   %71 = load i32, ptr %22, align 4, !tbaa !61
   %.not.i.i.not.i = icmp ult i32 %70, %71
@@ -1623,13 +1617,13 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8PrimTypeELb1EE9push_backES3_.ex
 98:                                               ; preds = %._crit_edge
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %100 = load ptr, ptr %99, align 8, !tbaa !115
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i8 0, ptr %13, align 1, !tbaa !132
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i8 0, ptr %14, align 1, !tbaa !132
   %101 = call noundef ptr @_ZN5clang6interp7Program14createFunctionIJRPKNS_9BlockExprERjN4llvm11SmallVectorINS0_8PrimTypeELj8EEENS8_8DenseMapIjSt4pairISA_PNS0_10DescriptorEENS8_12DenseMapInfoIjvEENS8_6detail12DenseMapPairIjSG_EEEENS9_IjLj8EEEbbEEEPNS0_8FunctionEDpOT_(ptr noundef nonnull align 8 dereferenceable(328) %100, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %14)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 509
   store i8 1, ptr %102, align 1, !tbaa !169
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 505
@@ -1644,7 +1638,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8PrimTypeELb1EE9push_backES3_.ex
   %108 = zext i32 %107 to i64
   %109 = mul nuw nsw i64 %108, 24
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %105, i64 noundef %109, i64 noundef 8) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %110 = load ptr, ptr %6, align 8, !tbaa !58
   %111 = icmp eq ptr %110, %20
   br i1 %111, label %_ZN4llvm11SmallVectorIjLj8EED2Ev.exit, label %112
@@ -1654,7 +1648,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8PrimTypeELb1EE9push_backES3_.ex
   br label %_ZN4llvm11SmallVectorIjLj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorIjLj8EED2Ev.exit:            ; preds = %104, %112
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %113 = load ptr, ptr %5, align 8, !tbaa !58
   %114 = icmp eq ptr %113, %17
   br i1 %114, label %_ZN4llvm11SmallVectorIN5clang6interp8PrimTypeELj8EED2Ev.exit, label %115
@@ -1664,8 +1658,8 @@ _ZN4llvm11SmallVectorIjLj8EED2Ev.exit:            ; preds = %104, %112
   br label %_ZN4llvm11SmallVectorIN5clang6interp8PrimTypeELj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorIN5clang6interp8PrimTypeELj8EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIjLj8EED2Ev.exit, %115
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -1758,7 +1752,7 @@ _ZNSt6vectorISt10unique_ptrIN5clang6interp8FunctionESt14default_deleteIS3_EESaIS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local { i32, ptr } @_ZN5clang6interp15ByteCodeEmitter11createLocalEPNS0_10DescriptorE(ptr noundef nonnull align 8 captures(none) dereferenceable(488) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local { i32, ptr } @_ZN5clang6interp15ByteCodeEmitter11createLocalEPNS0_10DescriptorE(ptr noundef nonnull align 8 captures(none) dereferenceable(488) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 388
   %4 = load i32, ptr %3, align 4, !tbaa !198
   %5 = add i32 %4, 40
@@ -1785,15 +1779,15 @@ define dso_local void @_ZN5clang6interp15ByteCodeEmitter9emitLabelEj(ptr noundef
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %1, ptr %3, align 4, !tbaa !259
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %14 = trunc i64 %11 to i32
   store i32 %14, ptr %13, align 4, !tbaa !261
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E11try_emplaceIJjEEESt4pairINS_16DenseMapIteratorIjjS3_S6_Lb0EEEbEOjDpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.181") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %13)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %16 = load ptr, ptr %15, align 8, !tbaa !262
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -2039,7 +2033,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN4
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj5EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E15LookupBucketForIjEEbRKT_RPS8_.exit: ; preds = %19, %2
   %.sink.i = phi ptr [ %20, %19 ], [ null, %2 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.sink.i, ptr %3, align 8, !tbaa !271
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i32, ptr %30, align 8, !tbaa !265
@@ -2088,7 +2082,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj5EEENS_12DenseMapInfoIj
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj5EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E16InsertIntoBucketIRKjJEEEPS8_SE_OT_DpOT0_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj5EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E16InsertIntoBucketIRKjJEEEPS8_SE_OT_DpOT0_.exit: ; preds = %43, %49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %53 = load i32, ptr %1, align 4, !tbaa !131
   store i32 %53, ptr %44, align 4, !tbaa !131
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -2112,7 +2106,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter8jumpTrueE
   %4 = alloca i32, align 4
   %5 = alloca %"class.clang::interp::SourceInfo", align 8
   %6 = load i32, ptr %1, align 4, !tbaa !131
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %6, ptr %4, align 4, !tbaa !131
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -2201,14 +2195,14 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i: ; preds = %48, %_ZN
 
 _ZN5clang6interp15ByteCodeEmitter9getOffsetEj.exit: ; preds = %.thread.i, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i
   %.1.i = phi i32 [ 0, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i ], [ %40, %.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.1.i, ptr %3, align 4, !tbaa !131
   %58 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJiEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1146, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %58
 }
 
@@ -2226,7 +2220,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter9jumpFalse
   %4 = alloca i32, align 4
   %5 = alloca %"class.clang::interp::SourceInfo", align 8
   %6 = load i32, ptr %1, align 4, !tbaa !131
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %6, ptr %4, align 4, !tbaa !131
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -2315,14 +2309,14 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i: ; preds = %48, %_ZN
 
 _ZN5clang6interp15ByteCodeEmitter9getOffsetEj.exit: ; preds = %.thread.i, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i
   %.1.i = phi i32 [ 0, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i ], [ %40, %.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.1.i, ptr %3, align 4, !tbaa !131
   %58 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJiEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1144, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %58
 }
 
@@ -2340,7 +2334,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter4jumpERKj(
   %4 = alloca i32, align 4
   %5 = alloca %"class.clang::interp::SourceInfo", align 8
   %6 = load i32, ptr %1, align 4, !tbaa !131
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %6, ptr %4, align 4, !tbaa !131
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -2429,14 +2423,14 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i: ; preds = %48, %_ZN
 
 _ZN5clang6interp15ByteCodeEmitter9getOffsetEj.exit: ; preds = %.thread.i, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i
   %.1.i = phi i32 [ 0, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i ], [ %40, %.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.1.i, ptr %3, align 4, !tbaa !131
   %58 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJiEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1145, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %58
 }
 
@@ -3055,103 +3049,103 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter11emitAllo
   ]
 
 27:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store ptr %2, ptr %24, align 8, !tbaa !291
   store i8 %26, ptr %25, align 1, !tbaa !132
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_10DescriptorEbEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 26, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %48
 
 29:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr %2, ptr %22, align 8, !tbaa !291
   store i8 %26, ptr %23, align 1, !tbaa !132
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_10DescriptorEbEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 27, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %48
 
 31:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %2, ptr %20, align 8, !tbaa !291
   store i8 %26, ptr %21, align 1, !tbaa !132
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_10DescriptorEbEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %48
 
 33:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %2, ptr %18, align 8, !tbaa !291
   store i8 %26, ptr %19, align 1, !tbaa !132
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_10DescriptorEbEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 29, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %48
 
 35:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %2, ptr %16, align 8, !tbaa !291
   store i8 %26, ptr %17, align 1, !tbaa !132
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_10DescriptorEbEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 30, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %48
 
 37:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %2, ptr %14, align 8, !tbaa !291
   store i8 %26, ptr %15, align 1, !tbaa !132
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_10DescriptorEbEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 31, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %48
 
 39:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %2, ptr %12, align 8, !tbaa !291
   store i8 %26, ptr %13, align 1, !tbaa !132
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_10DescriptorEbEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 32, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %48
 
 41:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %2, ptr %10, align 8, !tbaa !291
   store i8 %26, ptr %11, align 1, !tbaa !132
   %42 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_10DescriptorEbEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 33, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %48
 
 43:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %2, ptr %8, align 8, !tbaa !291
   store i8 %26, ptr %9, align 1, !tbaa !132
   %44 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_10DescriptorEbEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 34, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %48
 
 45:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %6, align 8, !tbaa !291
   store i8 %26, ptr %7, align 1, !tbaa !132
   %46 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_10DescriptorEbEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 35, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %48
 
 47:                                               ; preds = %5
@@ -3480,133 +3474,133 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter10emitAllo
   ]
 
 38:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i32 %2, ptr %34, align 4, !tbaa !300
   store ptr %3, ptr %35, align 8, !tbaa !301
   store i8 %37, ptr %36, align 1, !tbaa !132
   %39 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJNS0_8PrimTypeEPKNS_4ExprEbEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 36, ptr noundef nonnull align 4 dereferenceable(4) %34, ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %59
 
 40:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i32 %2, ptr %31, align 4, !tbaa !300
   store ptr %3, ptr %32, align 8, !tbaa !301
   store i8 %37, ptr %33, align 1, !tbaa !132
   %41 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJNS0_8PrimTypeEPKNS_4ExprEbEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 37, ptr noundef nonnull align 4 dereferenceable(4) %31, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 1 dereferenceable(1) %33, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %59
 
 42:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 %2, ptr %28, align 4, !tbaa !300
   store ptr %3, ptr %29, align 8, !tbaa !301
   store i8 %37, ptr %30, align 1, !tbaa !132
   %43 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJNS0_8PrimTypeEPKNS_4ExprEbEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 38, ptr noundef nonnull align 4 dereferenceable(4) %28, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %59
 
 44:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i32 %2, ptr %25, align 4, !tbaa !300
   store ptr %3, ptr %26, align 8, !tbaa !301
   store i8 %37, ptr %27, align 1, !tbaa !132
   %45 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJNS0_8PrimTypeEPKNS_4ExprEbEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 39, ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 1 dereferenceable(1) %27, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %59
 
 46:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i32 %2, ptr %22, align 4, !tbaa !300
   store ptr %3, ptr %23, align 8, !tbaa !301
   store i8 %37, ptr %24, align 1, !tbaa !132
   %47 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJNS0_8PrimTypeEPKNS_4ExprEbEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 40, ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 1 dereferenceable(1) %24, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %59
 
 48:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i32 %2, ptr %19, align 4, !tbaa !300
   store ptr %3, ptr %20, align 8, !tbaa !301
   store i8 %37, ptr %21, align 1, !tbaa !132
   %49 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJNS0_8PrimTypeEPKNS_4ExprEbEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 41, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %59
 
 50:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %2, ptr %16, align 4, !tbaa !300
   store ptr %3, ptr %17, align 8, !tbaa !301
   store i8 %37, ptr %18, align 1, !tbaa !132
   %51 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJNS0_8PrimTypeEPKNS_4ExprEbEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 42, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %59
 
 52:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %13, align 4, !tbaa !300
   store ptr %3, ptr %14, align 8, !tbaa !301
   store i8 %37, ptr %15, align 1, !tbaa !132
   %53 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJNS0_8PrimTypeEPKNS_4ExprEbEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 43, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %59
 
 54:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %10, align 4, !tbaa !300
   store ptr %3, ptr %11, align 8, !tbaa !301
   store i8 %37, ptr %12, align 1, !tbaa !132
   %55 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJNS0_8PrimTypeEPKNS_4ExprEbEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 44, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %59
 
 56:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %7, align 4, !tbaa !300
   store ptr %3, ptr %8, align 8, !tbaa !301
   store i8 %37, ptr %9, align 1, !tbaa !132
   %57 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJNS0_8PrimTypeEPKNS_4ExprEbEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 45, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %59
 
 58:                                               ; preds = %6
@@ -3969,115 +3963,115 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter13emitArra
   ]
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %2, ptr %20, align 4, !tbaa !131
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 47, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %54
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %2, ptr %19, align 4, !tbaa !131
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 48, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %54
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %2, ptr %18, align 4, !tbaa !131
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 49, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %54
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %2, ptr %17, align 4, !tbaa !131
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 50, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %54
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %2, ptr %16, align 4, !tbaa !131
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 51, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %54
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %15, align 4, !tbaa !131
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 52, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %54
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %2, ptr %14, align 4, !tbaa !131
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 53, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %54
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 54, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %54
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 55, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %54
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 56, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %54
 
 41:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %42 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 57, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %54
 
 43:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %44 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 58, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %54
 
 45:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %46 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 59, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
 47:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %48 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 60, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 49:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %50 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 61, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 51:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %52 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 62, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 53:                                               ; preds = %4
@@ -4254,115 +4248,115 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter16emitArra
   ]
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %2, ptr %20, align 4, !tbaa !131
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 63, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %54
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %2, ptr %19, align 4, !tbaa !131
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 64, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %54
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %2, ptr %18, align 4, !tbaa !131
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 65, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %54
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %2, ptr %17, align 4, !tbaa !131
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 66, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %54
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %2, ptr %16, align 4, !tbaa !131
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 67, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %54
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %15, align 4, !tbaa !131
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 68, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %54
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %2, ptr %14, align 4, !tbaa !131
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 69, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %54
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 70, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %54
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 71, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %54
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 72, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %54
 
 41:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %42 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 73, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %54
 
 43:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %44 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 74, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %54
 
 45:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %46 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 75, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
 47:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %48 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 76, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 49:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %50 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 77, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 51:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %52 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 78, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 53:                                               ; preds = %4
@@ -4808,172 +4802,172 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter15emitBitC
   ]
 
 47:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %43)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i8 %46, ptr %43, align 1, !tbaa !132
   store i32 %3, ptr %44, align 4, !tbaa !131
   store ptr %4, ptr %45, align 8, !tbaa !307
   %48 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJbjPKN4llvm12fltSemanticsEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 116, ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull align 4 dereferenceable(4) %44, ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %43)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %74
 
 49:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %40)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store i8 %46, ptr %40, align 1, !tbaa !132
   store i32 %3, ptr %41, align 4, !tbaa !131
   store ptr %4, ptr %42, align 8, !tbaa !307
   %50 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJbjPKN4llvm12fltSemanticsEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 117, ptr noundef nonnull align 1 dereferenceable(1) %40, ptr noundef nonnull align 4 dereferenceable(4) %41, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %40)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %74
 
 51:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %37)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i8 %46, ptr %37, align 1, !tbaa !132
   store i32 %3, ptr %38, align 4, !tbaa !131
   store ptr %4, ptr %39, align 8, !tbaa !307
   %52 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJbjPKN4llvm12fltSemanticsEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 118, ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 4 dereferenceable(4) %38, ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %37)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %74
 
 53:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %34)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i8 %46, ptr %34, align 1, !tbaa !132
   store i32 %3, ptr %35, align 4, !tbaa !131
   store ptr %4, ptr %36, align 8, !tbaa !307
   %54 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJbjPKN4llvm12fltSemanticsEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 119, ptr noundef nonnull align 1 dereferenceable(1) %34, ptr noundef nonnull align 4 dereferenceable(4) %35, ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %74
 
 55:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i8 %46, ptr %31, align 1, !tbaa !132
   store i32 %3, ptr %32, align 4, !tbaa !131
   store ptr %4, ptr %33, align 8, !tbaa !307
   %56 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJbjPKN4llvm12fltSemanticsEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 120, ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %74
 
 57:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i8 %46, ptr %28, align 1, !tbaa !132
   store i32 %3, ptr %29, align 4, !tbaa !131
   store ptr %4, ptr %30, align 8, !tbaa !307
   %58 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJbjPKN4llvm12fltSemanticsEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 121, ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %74
 
 59:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i8 %46, ptr %25, align 1, !tbaa !132
   store i32 %3, ptr %26, align 4, !tbaa !131
   store ptr %4, ptr %27, align 8, !tbaa !307
   %60 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJbjPKN4llvm12fltSemanticsEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 122, ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %74
 
 61:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i8 %46, ptr %22, align 1, !tbaa !132
   store i32 %3, ptr %23, align 4, !tbaa !131
   store ptr %4, ptr %24, align 8, !tbaa !307
   %62 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJbjPKN4llvm12fltSemanticsEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 123, ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %74
 
 63:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i8 %46, ptr %19, align 1, !tbaa !132
   store i32 %3, ptr %20, align 4, !tbaa !131
   store ptr %4, ptr %21, align 8, !tbaa !307
   %64 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJbjPKN4llvm12fltSemanticsEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 124, ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %74
 
 65:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i8 %46, ptr %16, align 1, !tbaa !132
   store i32 %3, ptr %17, align 4, !tbaa !131
   store ptr %4, ptr %18, align 8, !tbaa !307
   %66 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJbjPKN4llvm12fltSemanticsEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 125, ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %74
 
 67:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 %46, ptr %13, align 1, !tbaa !132
   store i32 %3, ptr %14, align 4, !tbaa !131
   store ptr %4, ptr %15, align 8, !tbaa !307
   %68 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJbjPKN4llvm12fltSemanticsEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 126, ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %74
 
 69:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 %46, ptr %10, align 1, !tbaa !132
   store i32 %3, ptr %11, align 4, !tbaa !131
   store ptr %4, ptr %12, align 8, !tbaa !307
   %70 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJbjPKN4llvm12fltSemanticsEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 127, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %74
 
 71:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 %46, ptr %7, align 1, !tbaa !132
   store i32 %3, ptr %8, align 4, !tbaa !131
   store ptr %4, ptr %9, align 8, !tbaa !307
   %72 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJbjPKN4llvm12fltSemanticsEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 128, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %74
 
 73:                                               ; preds = %6
@@ -5519,108 +5513,108 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter8emitCMP3E
   ]
 
 20:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %2, ptr %19, align 8, !tbaa !313
   %21 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_22ComparisonCategoryInfoEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 151, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %51
 
 22:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %2, ptr %18, align 8, !tbaa !313
   %23 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_22ComparisonCategoryInfoEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 152, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %51
 
 24:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %2, ptr %17, align 8, !tbaa !313
   %25 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_22ComparisonCategoryInfoEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 153, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %51
 
 26:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %2, ptr %16, align 8, !tbaa !313
   %27 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_22ComparisonCategoryInfoEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 154, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %51
 
 28:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %2, ptr %15, align 8, !tbaa !313
   %29 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_22ComparisonCategoryInfoEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 155, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %51
 
 30:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %2, ptr %14, align 8, !tbaa !313
   %31 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_22ComparisonCategoryInfoEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 156, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %51
 
 32:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %2, ptr %13, align 8, !tbaa !313
   %33 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_22ComparisonCategoryInfoEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 157, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %51
 
 34:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %2, ptr %12, align 8, !tbaa !313
   %35 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_22ComparisonCategoryInfoEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 158, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %51
 
 36:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %2, ptr %11, align 8, !tbaa !313
   %37 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_22ComparisonCategoryInfoEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 159, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %51
 
 38:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !313
   %39 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_22ComparisonCategoryInfoEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 160, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %51
 
 40:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %2, ptr %9, align 8, !tbaa !313
   %41 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_22ComparisonCategoryInfoEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 161, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %51
 
 42:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %2, ptr %8, align 8, !tbaa !313
   %43 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_22ComparisonCategoryInfoEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 162, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %51
 
 44:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !313
   %45 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_22ComparisonCategoryInfoEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 163, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %51
 
 46:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !313
   %47 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_22ComparisonCategoryInfoEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 164, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %51
 
 48:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8, !tbaa !313
   %49 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_22ComparisonCategoryInfoEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 165, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %51
 
 50:                                               ; preds = %4
@@ -7120,87 +7114,87 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter10emitCast
   ]
 
 17:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %2, ptr %16, align 4, !tbaa !131
   %18 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 279, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %42
 
 19:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %15, align 4, !tbaa !131
   %20 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 280, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %42
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %2, ptr %14, align 4, !tbaa !131
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 281, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %42
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 282, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %42
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 283, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %42
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 284, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %42
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 285, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %42
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 286, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %42
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 287, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %42
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 288, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %42
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 289, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %42
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 290, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %42
 
 41:                                               ; preds = %4
@@ -7337,87 +7331,87 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter11emitCast
   ]
 
 17:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %2, ptr %16, align 4, !tbaa !131
   %18 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 291, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %42
 
 19:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %15, align 4, !tbaa !131
   %20 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 292, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %42
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %2, ptr %14, align 4, !tbaa !131
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 293, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %42
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 294, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %42
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 295, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %42
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 296, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %42
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 297, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %42
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 298, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %42
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 299, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %42
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 300, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %42
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 301, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %42
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 302, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %42
 
 41:                                               ; preds = %4
@@ -7946,66 +7940,66 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter24emitCast
   ]
 
 14:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %15 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 316, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %33
 
 16:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %17 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 317, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %33
 
 18:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %19 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 318, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %33
 
 20:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %21 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 319, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %33
 
 22:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %23 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 320, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %33
 
 24:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %25 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 321, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %33
 
 26:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %27 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 322, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %33
 
 28:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %29 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 323, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %33
 
 30:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %31 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 324, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %33
 
 32:                                               ; preds = %4
@@ -8285,66 +8279,66 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter26emitCast
   ]
 
 14:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %15 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 327, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %33
 
 16:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %17 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 328, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %33
 
 18:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %19 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 329, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %33
 
 20:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %21 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 330, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %33
 
 22:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %23 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 331, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %33
 
 24:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %25 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 332, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %33
 
 26:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %27 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 333, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %33
 
 28:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %29 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 334, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %33
 
 30:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %31 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 335, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %33
 
 32:                                               ; preds = %4
@@ -8469,123 +8463,123 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter24emitCast
   ]
 
 30:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store ptr %2, ptr %28, align 8, !tbaa !307
   store i32 %3, ptr %29, align 4, !tbaa !131
   %31 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKN4llvm12fltSemanticsEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 336, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %55
 
 32:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr %2, ptr %26, align 8, !tbaa !307
   store i32 %3, ptr %27, align 4, !tbaa !131
   %33 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKN4llvm12fltSemanticsEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 337, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 4 dereferenceable(4) %27, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %55
 
 34:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store ptr %2, ptr %24, align 8, !tbaa !307
   store i32 %3, ptr %25, align 4, !tbaa !131
   %35 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKN4llvm12fltSemanticsEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 338, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %55
 
 36:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr %2, ptr %22, align 8, !tbaa !307
   store i32 %3, ptr %23, align 4, !tbaa !131
   %37 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKN4llvm12fltSemanticsEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 339, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %55
 
 38:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %2, ptr %20, align 8, !tbaa !307
   store i32 %3, ptr %21, align 4, !tbaa !131
   %39 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKN4llvm12fltSemanticsEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 340, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %55
 
 40:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %2, ptr %18, align 8, !tbaa !307
   store i32 %3, ptr %19, align 4, !tbaa !131
   %41 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKN4llvm12fltSemanticsEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 341, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %55
 
 42:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %2, ptr %16, align 8, !tbaa !307
   store i32 %3, ptr %17, align 4, !tbaa !131
   %43 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKN4llvm12fltSemanticsEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 342, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %55
 
 44:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %2, ptr %14, align 8, !tbaa !307
   store i32 %3, ptr %15, align 4, !tbaa !131
   %45 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKN4llvm12fltSemanticsEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 343, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %55
 
 46:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %2, ptr %12, align 8, !tbaa !307
   store i32 %3, ptr %13, align 4, !tbaa !131
   %47 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKN4llvm12fltSemanticsEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 344, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %55
 
 48:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %2, ptr %10, align 8, !tbaa !307
   store i32 %3, ptr %11, align 4, !tbaa !131
   %49 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKN4llvm12fltSemanticsEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 345, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %55
 
 50:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %2, ptr %8, align 8, !tbaa !307
   store i32 %3, ptr %9, align 4, !tbaa !131
   %51 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKN4llvm12fltSemanticsEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 346, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %55
 
 52:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %6, align 8, !tbaa !307
   store i32 %3, ptr %7, align 4, !tbaa !131
   %53 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKN4llvm12fltSemanticsEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 347, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %55
 
 54:                                               ; preds = %5
@@ -9135,66 +9129,66 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter18emitChec
   ]
 
 14:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %2, ptr %13, align 8, !tbaa !357
   %15 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_8EnumDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 362, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %33
 
 16:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %2, ptr %12, align 8, !tbaa !357
   %17 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_8EnumDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 363, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %33
 
 18:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %2, ptr %11, align 8, !tbaa !357
   %19 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_8EnumDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 364, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %33
 
 20:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !357
   %21 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_8EnumDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 365, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %33
 
 22:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %2, ptr %9, align 8, !tbaa !357
   %23 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_8EnumDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 366, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %33
 
 24:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %2, ptr %8, align 8, !tbaa !357
   %25 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_8EnumDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 367, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %33
 
 26:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !357
   %27 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_8EnumDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 368, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %33
 
 28:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !357
   %29 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_8EnumDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 369, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %33
 
 30:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8, !tbaa !357
   %31 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_8EnumDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 370, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %33
 
 32:                                               ; preds = %4
@@ -9736,73 +9730,73 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter29emitChec
   ]
 
 15:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %2, ptr %14, align 8, !tbaa !301
   %16 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_4ExprEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 373, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %36
 
 17:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %2, ptr %13, align 8, !tbaa !301
   %18 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_4ExprEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 374, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %36
 
 19:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %2, ptr %12, align 8, !tbaa !301
   %20 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_4ExprEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 375, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %36
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %2, ptr %11, align 8, !tbaa !301
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_4ExprEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 376, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %36
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !301
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_4ExprEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 377, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %36
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %2, ptr %9, align 8, !tbaa !301
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_4ExprEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 378, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %36
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %2, ptr %8, align 8, !tbaa !301
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_4ExprEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 379, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %36
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !301
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_4ExprEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 380, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %36
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !301
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_4ExprEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 381, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %36
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8, !tbaa !301
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_4ExprEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 382, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %36
 
 35:                                               ; preds = %4
@@ -10253,7 +10247,7 @@ _ZNSt6vectorISt4pairIjN5clang6interp10SourceInfoEESaIS4_EE17_M_realloc_insertIJm
   br label %_ZNSt6vectorISt4pairIjN5clang6interp10SourceInfoEESaIS4_EE12emplace_backIJmRKS3_EEERS4_DpOT_.exit
 
 _ZNSt6vectorISt4pairIjN5clang6interp10SourceInfoEESaIS4_EE12emplace_backIJmRKS3_EEERS4_DpOT_.exit: ; preds = %_ZNSt6vectorISt4pairIjN5clang6interp10SourceInfoEESaIS4_EE17_M_realloc_insertIJmRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, %35, %_ZL4emitIN5clang6interp6OpcodeEEvRNS1_7ProgramERSt6vectorISt4byteSaIS6_EERKT_Rb.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %63 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %65 = load i32, ptr %64, align 8, !tbaa !380, !noalias !382
@@ -10262,14 +10256,14 @@ _ZNSt6vectorISt4pairIjN5clang6interp10SourceInfoEESaIS4_EE12emplace_backIJmRKS3_
   br i1 %66, label %_ZNK4llvm12APFixedPoint8getValueEv.exit.thread.i.i.i, label %_ZNK4llvm12APFixedPoint8getValueEv.exit.i.i.i
 
 _ZNK4llvm12APFixedPoint8getValueEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorISt4pairIjN5clang6interp10SourceInfoEESaIS4_EE12emplace_backIJmRKS3_EEERS4_DpOT_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNK5clang6interp10FixedPoint16bytesToSerializeEv.exit.i.i
 
 _ZNK4llvm12APFixedPoint8getValueEv.exit.i.i.i:    ; preds = %_ZNSt6vectorISt4pairIjN5clang6interp10SourceInfoEESaIS4_EE12emplace_backIJmRKS3_EEERS4_DpOT_.exit
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(24) %2) #16, !noalias !382
   %.pre.i.i.i.i = load i32, ptr %63, align 8, !tbaa !380, !noalias !382
   %.pre1.i.i.i.i = load i64, ptr %8, align 8, !noalias !382
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %67 = icmp ult i32 %.pre.i.i.i.i, 65
   %68 = icmp eq i64 %.pre1.i.i.i.i, 0
   %or.cond.i.i.i = select i1 %67, i1 true, i1 %68
@@ -10303,15 +10297,15 @@ _ZNK5clang6interp10FixedPoint16bytesToSerializeEv.exit.i.i: ; preds = %69, %_ZNK
   call void @_ZNSt6vectorISt4byteSaIS0_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %86)
   %87 = load ptr, ptr %9, align 8, !tbaa !200
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 %83
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %89, align 8, !tbaa !62
   store i32 %.sroa.0.0.copyload.i.i.i.i, ptr %6, align 4
   %90 = call noundef i32 @_ZNK4llvm19FixedPointSemantics11toOpaqueIntEv(ptr noundef nonnull align 4 dereferenceable(4) %6) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 %90, ptr %88, align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %92 = load i32, ptr %64, align 8, !tbaa !380, !noalias !385
   store i32 %92, ptr %91, align 8, !tbaa !380, !noalias !385
@@ -10327,7 +10321,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %94, %81
   %.sink.i.i.i.i = phi ptr [ %5, %94 ], [ %2, %81 ]
   %95 = phi i32 [ %.pre.i.i11.i.i, %94 ], [ %92, %81 ]
   %.pre1.i.i12.i.i = load i64, ptr %.sink.i.i.i.i, align 8, !noalias !385
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %95, ptr %96, align 8, !tbaa !380
   store i64 %.pre1.i.i12.i.i, ptr %7, align 8
@@ -10350,7 +10344,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %94, %81
   br label %_ZNK5clang6interp10FixedPoint9serializeEPSt4byte.exit.i.i
 
 _ZNK5clang6interp10FixedPoint9serializeEPSt4byte.exit.i.i: ; preds = %106, %103, %_ZN4llvm5APIntD2Ev.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL4emitIN5clang6interp10FixedPointEEvRNS1_7ProgramERSt6vectorISt4byteSaIS6_EERKT_Rb.exit
 
 _ZL4emitIN5clang6interp10FixedPointEEvRNS1_7ProgramERSt6vectorISt4byteSaIS6_EERKT_Rb.exit: ; preds = %_ZNK5clang6interp10FixedPoint16bytesToSerializeEv.exit.i.i, %_ZNK5clang6interp10FixedPoint9serializeEPSt4byte.exit.i.i
@@ -11592,211 +11586,211 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter13emitCopy
   ]
 
 55:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %52)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %53)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store i32 %2, ptr %52, align 4, !tbaa !131
   store i32 %3, ptr %53, align 4, !tbaa !131
   store i32 %4, ptr %54, align 4, !tbaa !131
   %56 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjjjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 407, ptr noundef nonnull align 4 dereferenceable(4) %52, ptr noundef nonnull align 4 dereferenceable(4) %53, ptr noundef nonnull align 4 dereferenceable(4) %54, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %52)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %53)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %88
 
 57:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %49)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %50)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store i32 %2, ptr %49, align 4, !tbaa !131
   store i32 %3, ptr %50, align 4, !tbaa !131
   store i32 %4, ptr %51, align 4, !tbaa !131
   %58 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjjjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 408, ptr noundef nonnull align 4 dereferenceable(4) %49, ptr noundef nonnull align 4 dereferenceable(4) %50, ptr noundef nonnull align 4 dereferenceable(4) %51, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %50)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %88
 
 59:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %47)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store i32 %2, ptr %46, align 4, !tbaa !131
   store i32 %3, ptr %47, align 4, !tbaa !131
   store i32 %4, ptr %48, align 4, !tbaa !131
   %60 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjjjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 409, ptr noundef nonnull align 4 dereferenceable(4) %46, ptr noundef nonnull align 4 dereferenceable(4) %47, ptr noundef nonnull align 4 dereferenceable(4) %48, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %88
 
 61:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i32 %2, ptr %43, align 4, !tbaa !131
   store i32 %3, ptr %44, align 4, !tbaa !131
   store i32 %4, ptr %45, align 4, !tbaa !131
   %62 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjjjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 410, ptr noundef nonnull align 4 dereferenceable(4) %43, ptr noundef nonnull align 4 dereferenceable(4) %44, ptr noundef nonnull align 4 dereferenceable(4) %45, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %88
 
 63:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store i32 %2, ptr %40, align 4, !tbaa !131
   store i32 %3, ptr %41, align 4, !tbaa !131
   store i32 %4, ptr %42, align 4, !tbaa !131
   %64 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjjjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 411, ptr noundef nonnull align 4 dereferenceable(4) %40, ptr noundef nonnull align 4 dereferenceable(4) %41, ptr noundef nonnull align 4 dereferenceable(4) %42, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %88
 
 65:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i32 %2, ptr %37, align 4, !tbaa !131
   store i32 %3, ptr %38, align 4, !tbaa !131
   store i32 %4, ptr %39, align 4, !tbaa !131
   %66 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjjjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 412, ptr noundef nonnull align 4 dereferenceable(4) %37, ptr noundef nonnull align 4 dereferenceable(4) %38, ptr noundef nonnull align 4 dereferenceable(4) %39, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %88
 
 67:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i32 %2, ptr %34, align 4, !tbaa !131
   store i32 %3, ptr %35, align 4, !tbaa !131
   store i32 %4, ptr %36, align 4, !tbaa !131
   %68 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjjjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 413, ptr noundef nonnull align 4 dereferenceable(4) %34, ptr noundef nonnull align 4 dereferenceable(4) %35, ptr noundef nonnull align 4 dereferenceable(4) %36, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %88
 
 69:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i32 %2, ptr %31, align 4, !tbaa !131
   store i32 %3, ptr %32, align 4, !tbaa !131
   store i32 %4, ptr %33, align 4, !tbaa !131
   %70 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjjjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 414, ptr noundef nonnull align 4 dereferenceable(4) %31, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(4) %33, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %88
 
 71:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 %2, ptr %28, align 4, !tbaa !131
   store i32 %3, ptr %29, align 4, !tbaa !131
   store i32 %4, ptr %30, align 4, !tbaa !131
   %72 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjjjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 415, ptr noundef nonnull align 4 dereferenceable(4) %28, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef nonnull align 4 dereferenceable(4) %30, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %88
 
 73:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i32 %2, ptr %25, align 4, !tbaa !131
   store i32 %3, ptr %26, align 4, !tbaa !131
   store i32 %4, ptr %27, align 4, !tbaa !131
   %74 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjjjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 416, ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef nonnull align 4 dereferenceable(4) %27, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %88
 
 75:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i32 %2, ptr %22, align 4, !tbaa !131
   store i32 %3, ptr %23, align 4, !tbaa !131
   store i32 %4, ptr %24, align 4, !tbaa !131
   %76 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjjjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 417, ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %88
 
 77:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i32 %2, ptr %19, align 4, !tbaa !131
   store i32 %3, ptr %20, align 4, !tbaa !131
   store i32 %4, ptr %21, align 4, !tbaa !131
   %78 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjjjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 418, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %88
 
 79:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %2, ptr %16, align 4, !tbaa !131
   store i32 %3, ptr %17, align 4, !tbaa !131
   store i32 %4, ptr %18, align 4, !tbaa !131
   %80 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjjjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 419, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %88
 
 81:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %13, align 4, !tbaa !131
   store i32 %3, ptr %14, align 4, !tbaa !131
   store i32 %4, ptr %15, align 4, !tbaa !131
   %82 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjjjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 420, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %88
 
 83:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %10, align 4, !tbaa !131
   store i32 %3, ptr %11, align 4, !tbaa !131
   store i32 %4, ptr %12, align 4, !tbaa !131
   %84 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjjjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 421, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %88
 
 85:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %7, align 4, !tbaa !131
   store i32 %3, ptr %8, align 4, !tbaa !131
   store i32 %4, ptr %9, align 4, !tbaa !131
   %86 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjjjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 422, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %88
 
 87:                                               ; preds = %6
@@ -14783,115 +14777,115 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter12emitGetF
   ]
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %2, ptr %20, align 4, !tbaa !131
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 808, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %54
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %2, ptr %19, align 4, !tbaa !131
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 809, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %54
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %2, ptr %18, align 4, !tbaa !131
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 810, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %54
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %2, ptr %17, align 4, !tbaa !131
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 811, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %54
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %2, ptr %16, align 4, !tbaa !131
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 812, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %54
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %15, align 4, !tbaa !131
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 813, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %54
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %2, ptr %14, align 4, !tbaa !131
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 814, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %54
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 815, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %54
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 816, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %54
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 817, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %54
 
 41:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %42 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 818, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %54
 
 43:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %44 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 819, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %54
 
 45:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %46 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 820, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
 47:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %48 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 821, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 49:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %50 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 822, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 51:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %52 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 823, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 53:                                               ; preds = %4
@@ -15068,115 +15062,115 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter15emitGetF
   ]
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %2, ptr %20, align 4, !tbaa !131
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 824, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %54
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %2, ptr %19, align 4, !tbaa !131
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 825, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %54
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %2, ptr %18, align 4, !tbaa !131
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 826, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %54
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %2, ptr %17, align 4, !tbaa !131
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 827, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %54
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %2, ptr %16, align 4, !tbaa !131
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 828, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %54
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %15, align 4, !tbaa !131
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 829, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %54
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %2, ptr %14, align 4, !tbaa !131
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 830, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %54
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 831, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %54
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 832, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %54
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 833, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %54
 
 41:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %42 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 834, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %54
 
 43:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %44 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 835, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %54
 
 45:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %46 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 836, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
 47:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %48 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 837, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 49:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %50 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 838, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 51:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %52 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 839, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 53:                                               ; preds = %4
@@ -15500,115 +15494,115 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter13emitGetG
   ]
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %2, ptr %20, align 4, !tbaa !131
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 841, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %54
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %2, ptr %19, align 4, !tbaa !131
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 842, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %54
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %2, ptr %18, align 4, !tbaa !131
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 843, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %54
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %2, ptr %17, align 4, !tbaa !131
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 844, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %54
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %2, ptr %16, align 4, !tbaa !131
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 845, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %54
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %15, align 4, !tbaa !131
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 846, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %54
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %2, ptr %14, align 4, !tbaa !131
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 847, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %54
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 848, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %54
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 849, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %54
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 850, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %54
 
 41:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %42 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 851, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %54
 
 43:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %44 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 852, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %54
 
 45:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %46 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 853, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
 47:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %48 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 854, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 49:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %50 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 855, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 51:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %52 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 856, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 53:                                               ; preds = %4
@@ -15785,115 +15779,115 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter22emitGetG
   ]
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %2, ptr %20, align 4, !tbaa !131
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 857, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %54
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %2, ptr %19, align 4, !tbaa !131
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 858, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %54
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %2, ptr %18, align 4, !tbaa !131
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 859, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %54
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %2, ptr %17, align 4, !tbaa !131
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 860, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %54
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %2, ptr %16, align 4, !tbaa !131
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 861, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %54
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %15, align 4, !tbaa !131
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 862, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %54
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %2, ptr %14, align 4, !tbaa !131
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 863, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %54
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 864, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %54
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 865, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %54
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 866, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %54
 
 41:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %42 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 867, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %54
 
 43:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %44 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 868, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %54
 
 45:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %46 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 869, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
 47:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %48 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 870, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 49:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %50 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 871, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 51:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %52 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 872, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 53:                                               ; preds = %4
@@ -16062,87 +16056,87 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter13emitGetI
   ]
 
 17:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %2, ptr %16, align 8, !tbaa !291
   %18 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_10DescriptorEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 873, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %42
 
 19:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %2, ptr %15, align 8, !tbaa !291
   %20 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_10DescriptorEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 874, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %42
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %2, ptr %14, align 8, !tbaa !291
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_10DescriptorEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 875, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %42
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %2, ptr %13, align 8, !tbaa !291
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_10DescriptorEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 876, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %42
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %2, ptr %12, align 8, !tbaa !291
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_10DescriptorEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 877, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %42
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %2, ptr %11, align 8, !tbaa !291
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_10DescriptorEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 878, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %42
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !291
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_10DescriptorEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 879, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %42
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %2, ptr %9, align 8, !tbaa !291
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_10DescriptorEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 880, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %42
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %2, ptr %8, align 8, !tbaa !291
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_10DescriptorEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 881, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %42
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !291
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_10DescriptorEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 882, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %42
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !291
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_10DescriptorEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 883, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %42
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8, !tbaa !291
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_10DescriptorEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 884, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %42
 
 41:                                               ; preds = %4
@@ -16287,115 +16281,115 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter12emitGetL
   ]
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %2, ptr %20, align 4, !tbaa !131
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 885, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %54
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %2, ptr %19, align 4, !tbaa !131
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 886, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %54
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %2, ptr %18, align 4, !tbaa !131
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 887, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %54
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %2, ptr %17, align 4, !tbaa !131
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 888, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %54
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %2, ptr %16, align 4, !tbaa !131
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 889, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %54
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %15, align 4, !tbaa !131
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 890, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %54
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %2, ptr %14, align 4, !tbaa !131
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 891, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %54
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 892, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %54
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 893, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %54
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 894, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %54
 
 41:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %42 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 895, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %54
 
 43:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %44 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 896, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %54
 
 45:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %46 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 897, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
 47:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %48 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 898, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 49:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %50 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 899, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 51:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %52 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 900, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 53:                                               ; preds = %4
@@ -16739,115 +16733,115 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter12emitGetP
   ]
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %2, ptr %20, align 4, !tbaa !131
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 905, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %54
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %2, ptr %19, align 4, !tbaa !131
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 906, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %54
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %2, ptr %18, align 4, !tbaa !131
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 907, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %54
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %2, ptr %17, align 4, !tbaa !131
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 908, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %54
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %2, ptr %16, align 4, !tbaa !131
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 909, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %54
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %15, align 4, !tbaa !131
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 910, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %54
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %2, ptr %14, align 4, !tbaa !131
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 911, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %54
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 912, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %54
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 913, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %54
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 914, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %54
 
 41:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %42 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 915, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %54
 
 43:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %44 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 916, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %54
 
 45:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %46 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 917, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
 47:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %48 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 918, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 49:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %50 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 919, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 51:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %52 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 920, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 53:                                               ; preds = %4
@@ -17275,115 +17269,115 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter16emitGetT
   ]
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %2, ptr %20, align 4, !tbaa !131
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 935, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %54
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %2, ptr %19, align 4, !tbaa !131
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 936, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %54
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %2, ptr %18, align 4, !tbaa !131
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 937, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %54
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %2, ptr %17, align 4, !tbaa !131
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 938, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %54
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %2, ptr %16, align 4, !tbaa !131
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 939, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %54
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %15, align 4, !tbaa !131
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 940, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %54
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %2, ptr %14, align 4, !tbaa !131
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 941, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %54
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 942, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %54
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 943, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %54
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 944, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %54
 
 41:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %42 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 945, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %54
 
 43:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %44 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 946, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %54
 
 45:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %46 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 947, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
 47:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %48 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 948, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 49:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %50 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 949, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 51:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %52 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 950, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 53:                                               ; preds = %4
@@ -18016,87 +18010,87 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter16emitInit
   ]
 
 17:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %2, ptr %16, align 8, !tbaa !449
   %18 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 996, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %42
 
 19:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %2, ptr %15, align 8, !tbaa !449
   %20 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 997, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %42
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %2, ptr %14, align 8, !tbaa !449
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 998, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %42
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %2, ptr %13, align 8, !tbaa !449
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 999, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %42
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %2, ptr %12, align 8, !tbaa !449
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1000, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %42
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %2, ptr %11, align 8, !tbaa !449
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1001, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %42
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !449
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1002, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %42
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %2, ptr %9, align 8, !tbaa !449
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1003, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %42
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %2, ptr %8, align 8, !tbaa !449
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1004, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %42
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !449
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1005, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %42
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !449
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1006, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %42
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8, !tbaa !449
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1007, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %42
 
 41:                                               ; preds = %4
@@ -18380,115 +18374,115 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter12emitInit
   ]
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %2, ptr %20, align 4, !tbaa !131
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1008, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %54
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %2, ptr %19, align 4, !tbaa !131
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1009, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %54
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %2, ptr %18, align 4, !tbaa !131
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1010, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %54
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %2, ptr %17, align 4, !tbaa !131
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1011, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %54
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %2, ptr %16, align 4, !tbaa !131
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1012, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %54
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %15, align 4, !tbaa !131
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1013, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %54
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %2, ptr %14, align 4, !tbaa !131
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1014, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %54
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1015, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %54
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1016, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %54
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1017, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %54
 
 41:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %42 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1018, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %54
 
 43:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %44 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1019, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %54
 
 45:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %46 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1020, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
 47:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %48 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1021, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 49:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %50 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1022, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 51:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %52 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1023, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 53:                                               ; preds = %4
@@ -18665,115 +18659,115 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter15emitInit
   ]
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %2, ptr %20, align 4, !tbaa !131
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1024, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %54
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %2, ptr %19, align 4, !tbaa !131
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1025, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %54
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %2, ptr %18, align 4, !tbaa !131
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1026, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %54
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %2, ptr %17, align 4, !tbaa !131
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1027, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %54
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %2, ptr %16, align 4, !tbaa !131
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1028, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %54
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %15, align 4, !tbaa !131
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1029, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %54
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %2, ptr %14, align 4, !tbaa !131
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1030, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %54
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1031, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %54
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1032, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %54
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1033, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %54
 
 41:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %42 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1034, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %54
 
 43:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %44 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1035, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %54
 
 45:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %46 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1036, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
 47:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %48 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1037, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 49:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %50 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1038, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 51:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %52 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1039, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 53:                                               ; preds = %4
@@ -18950,115 +18944,115 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter13emitInit
   ]
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %2, ptr %20, align 4, !tbaa !131
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1040, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %54
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %2, ptr %19, align 4, !tbaa !131
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1041, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %54
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %2, ptr %18, align 4, !tbaa !131
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1042, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %54
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %2, ptr %17, align 4, !tbaa !131
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1043, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %54
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %2, ptr %16, align 4, !tbaa !131
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1044, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %54
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %15, align 4, !tbaa !131
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1045, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %54
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %2, ptr %14, align 4, !tbaa !131
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1046, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %54
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1047, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %54
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1048, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %54
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1049, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %54
 
 41:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %42 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1050, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %54
 
 43:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %44 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1051, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %54
 
 45:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %46 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1052, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
 47:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %48 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1053, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 49:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %50 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1054, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 51:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %52 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1055, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 53:                                               ; preds = %4
@@ -19235,115 +19229,115 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter14emitInit
   ]
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %2, ptr %20, align 4, !tbaa !131
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1056, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %54
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %2, ptr %19, align 4, !tbaa !131
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1057, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %54
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %2, ptr %18, align 4, !tbaa !131
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1058, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %54
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %2, ptr %17, align 4, !tbaa !131
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1059, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %54
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %2, ptr %16, align 4, !tbaa !131
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1060, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %54
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %15, align 4, !tbaa !131
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1061, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %54
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %2, ptr %14, align 4, !tbaa !131
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1062, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %54
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1063, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %54
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1064, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %54
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1065, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %54
 
 41:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %42 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1066, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %54
 
 43:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %44 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1067, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %54
 
 45:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %46 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1068, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
 47:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %48 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1069, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 49:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %50 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1070, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 51:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %52 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1071, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 53:                                               ; preds = %4
@@ -19536,163 +19530,163 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter18emitInit
   ]
 
 38:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store i32 %2, ptr %36, align 4, !tbaa !131
   store ptr %3, ptr %37, align 8, !tbaa !455
   %39 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjPKNS_29LifetimeExtendedTemporaryDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1072, ptr noundef nonnull align 4 dereferenceable(4) %36, ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %71
 
 40:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i32 %2, ptr %34, align 4, !tbaa !131
   store ptr %3, ptr %35, align 8, !tbaa !455
   %41 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjPKNS_29LifetimeExtendedTemporaryDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1073, ptr noundef nonnull align 4 dereferenceable(4) %34, ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %71
 
 42:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i32 %2, ptr %32, align 4, !tbaa !131
   store ptr %3, ptr %33, align 8, !tbaa !455
   %43 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjPKNS_29LifetimeExtendedTemporaryDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1074, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %71
 
 44:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i32 %2, ptr %30, align 4, !tbaa !131
   store ptr %3, ptr %31, align 8, !tbaa !455
   %45 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjPKNS_29LifetimeExtendedTemporaryDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1075, ptr noundef nonnull align 4 dereferenceable(4) %30, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %71
 
 46:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 %2, ptr %28, align 4, !tbaa !131
   store ptr %3, ptr %29, align 8, !tbaa !455
   %47 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjPKNS_29LifetimeExtendedTemporaryDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1076, ptr noundef nonnull align 4 dereferenceable(4) %28, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %71
 
 48:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i32 %2, ptr %26, align 4, !tbaa !131
   store ptr %3, ptr %27, align 8, !tbaa !455
   %49 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjPKNS_29LifetimeExtendedTemporaryDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1077, ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %71
 
 50:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 %2, ptr %24, align 4, !tbaa !131
   store ptr %3, ptr %25, align 8, !tbaa !455
   %51 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjPKNS_29LifetimeExtendedTemporaryDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1078, ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %71
 
 52:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 %2, ptr %22, align 4, !tbaa !131
   store ptr %3, ptr %23, align 8, !tbaa !455
   %53 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjPKNS_29LifetimeExtendedTemporaryDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1079, ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %71
 
 54:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i32 %2, ptr %20, align 4, !tbaa !131
   store ptr %3, ptr %21, align 8, !tbaa !455
   %55 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjPKNS_29LifetimeExtendedTemporaryDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1080, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %71
 
 56:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %2, ptr %18, align 4, !tbaa !131
   store ptr %3, ptr %19, align 8, !tbaa !455
   %57 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjPKNS_29LifetimeExtendedTemporaryDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1081, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %71
 
 58:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %2, ptr %16, align 4, !tbaa !131
   store ptr %3, ptr %17, align 8, !tbaa !455
   %59 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjPKNS_29LifetimeExtendedTemporaryDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1082, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %71
 
 60:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %14, align 4, !tbaa !131
   store ptr %3, ptr %15, align 8, !tbaa !455
   %61 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjPKNS_29LifetimeExtendedTemporaryDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1083, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %71
 
 62:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %12, align 4, !tbaa !131
   store ptr %3, ptr %13, align 8, !tbaa !455
   %63 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjPKNS_29LifetimeExtendedTemporaryDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1084, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %71
 
 64:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %10, align 4, !tbaa !131
   store ptr %3, ptr %11, align 8, !tbaa !455
   %65 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjPKNS_29LifetimeExtendedTemporaryDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1085, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %71
 
 66:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %8, align 4, !tbaa !131
   store ptr %3, ptr %9, align 8, !tbaa !455
   %67 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjPKNS_29LifetimeExtendedTemporaryDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1086, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %71
 
 68:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %6, align 4, !tbaa !131
   store ptr %3, ptr %7, align 8, !tbaa !455
   %69 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjPKNS_29LifetimeExtendedTemporaryDeclEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1087, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %71
 
 70:                                               ; preds = %5
@@ -20322,123 +20316,123 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter20emitInit
   ]
 
 30:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store ptr %2, ptr %28, align 8, !tbaa !449
   store i32 %3, ptr %29, align 4, !tbaa !131
   %31 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1106, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %55
 
 32:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr %2, ptr %26, align 8, !tbaa !449
   store i32 %3, ptr %27, align 4, !tbaa !131
   %33 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1107, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 4 dereferenceable(4) %27, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %55
 
 34:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store ptr %2, ptr %24, align 8, !tbaa !449
   store i32 %3, ptr %25, align 4, !tbaa !131
   %35 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1108, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %55
 
 36:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr %2, ptr %22, align 8, !tbaa !449
   store i32 %3, ptr %23, align 4, !tbaa !131
   %37 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1109, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %55
 
 38:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %2, ptr %20, align 8, !tbaa !449
   store i32 %3, ptr %21, align 4, !tbaa !131
   %39 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1110, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %55
 
 40:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %2, ptr %18, align 8, !tbaa !449
   store i32 %3, ptr %19, align 4, !tbaa !131
   %41 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1111, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %55
 
 42:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %2, ptr %16, align 8, !tbaa !449
   store i32 %3, ptr %17, align 4, !tbaa !131
   %43 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1112, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %55
 
 44:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %2, ptr %14, align 8, !tbaa !449
   store i32 %3, ptr %15, align 4, !tbaa !131
   %45 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1113, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %55
 
 46:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %2, ptr %12, align 8, !tbaa !449
   store i32 %3, ptr %13, align 4, !tbaa !131
   %47 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1114, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %55
 
 48:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %2, ptr %10, align 8, !tbaa !449
   store i32 %3, ptr %11, align 4, !tbaa !131
   %49 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1115, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %55
 
 50:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %2, ptr %8, align 8, !tbaa !449
   store i32 %3, ptr %9, align 4, !tbaa !131
   %51 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1116, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %55
 
 52:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %6, align 8, !tbaa !449
   store i32 %3, ptr %7, align 4, !tbaa !131
   %53 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS0_6Record5FieldEjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1117, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %55
 
 54:                                               ; preds = %5
@@ -20763,115 +20757,115 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter17emitInit
   ]
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %2, ptr %20, align 4, !tbaa !131
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1118, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %54
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %2, ptr %19, align 4, !tbaa !131
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1119, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %54
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %2, ptr %18, align 4, !tbaa !131
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1120, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %54
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %2, ptr %17, align 4, !tbaa !131
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1121, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %54
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %2, ptr %16, align 4, !tbaa !131
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1122, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %54
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %15, align 4, !tbaa !131
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1123, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %54
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %2, ptr %14, align 4, !tbaa !131
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1124, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %54
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1125, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %54
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1126, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %54
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1127, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %54
 
 41:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %42 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1128, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %54
 
 43:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %44 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1129, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %54
 
 45:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %46 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1130, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
 47:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %48 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1131, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 49:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %50 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1132, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 51:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %52 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1133, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 53:                                               ; preds = %4
@@ -22209,33 +22203,33 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter8emitNullE
   ]
 
 12:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 %2, ptr %10, align 8, !tbaa !406
   store ptr %3, ptr %11, align 8, !tbaa !291
   %13 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJmPKNS0_10DescriptorEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1265, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %19
 
 14:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %2, ptr %8, align 8, !tbaa !406
   store ptr %3, ptr %9, align 8, !tbaa !291
   %15 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJmPKNS0_10DescriptorEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1266, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %19
 
 16:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %2, ptr %6, align 8, !tbaa !406
   store ptr %3, ptr %7, align 8, !tbaa !291
   %17 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJmPKNS0_10DescriptorEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1267, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %19
 
 18:                                               ; preds = %5
@@ -22463,73 +22457,73 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter12emitOffs
   ]
 
 15:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %2, ptr %14, align 8, !tbaa !485
   %16 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_12OffsetOfExprEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1268, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %36
 
 17:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %2, ptr %13, align 8, !tbaa !485
   %18 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_12OffsetOfExprEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1269, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %36
 
 19:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %2, ptr %12, align 8, !tbaa !485
   %20 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_12OffsetOfExprEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1270, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %36
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %2, ptr %11, align 8, !tbaa !485
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_12OffsetOfExprEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1271, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %36
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !485
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_12OffsetOfExprEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1272, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %36
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %2, ptr %9, align 8, !tbaa !485
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_12OffsetOfExprEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1273, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %36
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %2, ptr %8, align 8, !tbaa !485
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_12OffsetOfExprEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1274, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %36
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !485
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_12OffsetOfExprEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1275, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %36
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !485
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_12OffsetOfExprEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1276, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %36
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8, !tbaa !485
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJPKNS_12OffsetOfExprEEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1277, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %36
 
 35:                                               ; preds = %4
@@ -23112,115 +23106,115 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter12emitSetF
   ]
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %2, ptr %20, align 4, !tbaa !131
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1325, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %54
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %2, ptr %19, align 4, !tbaa !131
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1326, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %54
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %2, ptr %18, align 4, !tbaa !131
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1327, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %54
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %2, ptr %17, align 4, !tbaa !131
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1328, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %54
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %2, ptr %16, align 4, !tbaa !131
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1329, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %54
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %15, align 4, !tbaa !131
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1330, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %54
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %2, ptr %14, align 4, !tbaa !131
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1331, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %54
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1332, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %54
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1333, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %54
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1334, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %54
 
 41:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %42 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1335, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %54
 
 43:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %44 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1336, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %54
 
 45:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %46 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1337, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
 47:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %48 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1338, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 49:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %50 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1339, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 51:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %52 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1340, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 53:                                               ; preds = %4
@@ -23397,115 +23391,115 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter13emitSetG
   ]
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %2, ptr %20, align 4, !tbaa !131
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1341, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %54
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %2, ptr %19, align 4, !tbaa !131
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1342, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %54
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %2, ptr %18, align 4, !tbaa !131
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1343, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %54
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %2, ptr %17, align 4, !tbaa !131
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1344, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %54
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %2, ptr %16, align 4, !tbaa !131
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1345, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %54
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %15, align 4, !tbaa !131
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1346, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %54
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %2, ptr %14, align 4, !tbaa !131
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1347, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %54
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1348, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %54
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1349, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %54
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1350, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %54
 
 41:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %42 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1351, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %54
 
 43:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %44 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1352, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %54
 
 45:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %46 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1353, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
 47:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %48 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1354, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 49:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %50 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1355, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 51:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %52 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1356, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 53:                                               ; preds = %4
@@ -23682,115 +23676,115 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter12emitSetL
   ]
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %2, ptr %20, align 4, !tbaa !131
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1357, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %54
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %2, ptr %19, align 4, !tbaa !131
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1358, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %54
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %2, ptr %18, align 4, !tbaa !131
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1359, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %54
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %2, ptr %17, align 4, !tbaa !131
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1360, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %54
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %2, ptr %16, align 4, !tbaa !131
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1361, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %54
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %15, align 4, !tbaa !131
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1362, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %54
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %2, ptr %14, align 4, !tbaa !131
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1363, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %54
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1364, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %54
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1365, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %54
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1366, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %54
 
 41:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %42 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1367, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %54
 
 43:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %44 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1368, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %54
 
 45:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %46 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1369, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
 47:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %48 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1370, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 49:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %50 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1371, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 51:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %52 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1372, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 53:                                               ; preds = %4
@@ -23967,115 +23961,115 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter12emitSetP
   ]
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %2, ptr %20, align 4, !tbaa !131
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1373, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %54
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %2, ptr %19, align 4, !tbaa !131
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1374, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %54
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %2, ptr %18, align 4, !tbaa !131
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1375, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %54
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %2, ptr %17, align 4, !tbaa !131
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1376, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %54
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %2, ptr %16, align 4, !tbaa !131
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1377, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %54
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %15, align 4, !tbaa !131
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1378, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %54
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %2, ptr %14, align 4, !tbaa !131
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1379, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %54
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1380, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %54
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1381, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %54
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1382, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %54
 
 41:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %42 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1383, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %54
 
 43:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %44 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1384, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %54
 
 45:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %46 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1385, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
 47:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %48 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1386, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 49:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %50 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1387, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 51:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %52 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1388, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 53:                                               ; preds = %4
@@ -24252,115 +24246,115 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter16emitSetT
   ]
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %2, ptr %20, align 4, !tbaa !131
   %22 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1389, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %54
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %2, ptr %19, align 4, !tbaa !131
   %24 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1390, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %54
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %2, ptr %18, align 4, !tbaa !131
   %26 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1391, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %54
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %2, ptr %17, align 4, !tbaa !131
   %28 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1392, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %54
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %2, ptr %16, align 4, !tbaa !131
   %30 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1393, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %54
 
 31:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %2, ptr %15, align 4, !tbaa !131
   %32 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1394, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %54
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %2, ptr %14, align 4, !tbaa !131
   %34 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1395, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %54
 
 35:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %2, ptr %13, align 4, !tbaa !131
   %36 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1396, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %54
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %2, ptr %12, align 4, !tbaa !131
   %38 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1397, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %54
 
 39:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %2, ptr %11, align 4, !tbaa !131
   %40 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1398, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %54
 
 41:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %2, ptr %10, align 4, !tbaa !131
   %42 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1399, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %54
 
 43:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %2, ptr %9, align 4, !tbaa !131
   %44 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1400, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %54
 
 45:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %8, align 4, !tbaa !131
   %46 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1401, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
 47:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4, !tbaa !131
   %48 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1402, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 49:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !131
   %50 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1403, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 51:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !131
   %52 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJjEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 1404, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 53:                                               ; preds = %4
@@ -26750,18 +26744,18 @@ _ZL4emitIN5clang6interp10IntegralAPILb1EEEEvRNS1_7ProgramERSt6vectorISt4byteSaIS
   ret i1 %.1
 }
 
-declare noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef) local_unnamed_addr #1
 
-declare noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #2
+declare noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #1
 
-declare noundef i32 @_ZNK5clang12FunctionDecl21getOverloadedOperatorEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #2
+declare noundef i32 @_ZNK5clang12FunctionDecl21getOverloadedOperatorEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #1
 
-declare noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #2
+declare noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #1
 
-declare void @_ZN5clang6interp10DescriptorC1ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbbb(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, i64, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #2
+declare void @_ZN5clang6interp10DescriptorC1ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbbb(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, i64, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1, i64 noundef %2, i8 %3) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1, i64 noundef %2, i8 %3) local_unnamed_addr #4 comdat align 2 {
   %5 = zext nneg i8 %3 to i64
   %6 = shl nuw i64 1, %5
   %7 = add i64 %6, -1
@@ -26854,14 +26848,14 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   ret ptr %.0
 }
 
-declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare noundef zeroext i1 @_ZNK5clang12FunctionDecl9isDefinedERPKS0_b(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #2
+declare noundef zeroext i1 @_ZNK5clang12FunctionDecl9isDefinedERPKS0_b(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang6interp5ScopeEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 {
@@ -27160,7 +27154,7 @@ _ZN4llvm15SmallVectorImplIN5clang6interp5ScopeEE5clearEv.exit67: ; preds = %_ZN5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp5ScopeELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef %1, i64 noundef 144, ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   %6 = load ptr, ptr %0, align 8, !tbaa !58
@@ -27243,12 +27237,12 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp5ScopeELb0EE21takeAllocationForG
   %31 = trunc i64 %28 to i32
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %31, ptr %32, align 4, !tbaa !61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang6interp5Scope5LocalEEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 {
@@ -27363,11 +27357,11 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp5Scope5LocalELb1EE18uninitialize
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
-declare noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
+declare noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
-declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclENS2_6interp11ParamOffsetENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E15LookupBucketForIS5_EEbRKT_RPSC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
@@ -27428,7 +27422,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm8DenseMapIPKN5clang9ValueDeclENS1_6interp11ParamOffsetENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
@@ -27633,7 +27627,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIN5
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIN5clang6interp8PrimTypeEPNS4_10DescriptorEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS8_EEEEjS8_SA_SD_E15LookupBucketForIjEEbRKT_RPSD_.exit: ; preds = %21, %4
   %.sink.i = phi ptr [ %22, %21 ], [ null, %4 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %.sink.i, ptr %5, align 8, !tbaa !504
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !505
@@ -27682,7 +27676,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIN5clang6interp8PrimTypeEPNS4_10Desc
   br label %55
 
 55:                                               ; preds = %45, %51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %56 = load i32, ptr %2, align 4, !tbaa !131
   store i32 %56, ptr %46, align 4, !tbaa !131
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -27960,7 +27954,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang11
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang11ParmVarDeclENS2_6interp11ParamOffsetENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E15LookupBucketForIS5_EEbRKT_RPSC_.exit: ; preds = %25, %4
   %.sink.i = phi ptr [ %26, %25 ], [ null, %4 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %.sink.i, ptr %5, align 8, !tbaa !515
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !516
@@ -28009,7 +28003,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang11ParmVarDeclENS2_6interp11ParamOff
   br label %59
 
 59:                                               ; preds = %49, %55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %60 = load ptr, ptr %2, align 8, !tbaa !135
   store ptr %60, ptr %50, align 8, !tbaa !135
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -28246,9 +28240,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang11ParmVarDeclENS2_6interp11ParamOff
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
-declare void @_ZN5clang6interp8FunctionC1ERNS0_7ProgramEN4llvm12PointerUnionIJPKNS_12FunctionDeclEPKNS_9BlockExprEEEEjONS4_15SmallVectorImplINS0_8PrimTypeEEEONS4_8DenseMapIjSt4pairISE_PNS0_10DescriptorEENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjSL_EEEEONSD_IjEEbb(ptr noundef nonnull align 8 dereferenceable(520), ptr noundef nonnull align 8 dereferenceable(328), i64, i32 noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #2
+declare void @_ZN5clang6interp8FunctionC1ERNS0_7ProgramEN4llvm12PointerUnionIJPKNS_12FunctionDeclEPKNS_9BlockExprEEEEjONS4_15SmallVectorImplINS0_8PrimTypeEEEONS4_8DenseMapIjSt4pairISE_PNS0_10DescriptorEENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjSL_EEEEONSD_IjEEbb(ptr noundef nonnull align 8 dereferenceable(520), ptr noundef nonnull align 8 dereferenceable(328), i64, i32 noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclESt10unique_ptrINS2_6interp8FunctionESt14default_deleteIS8_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SB_EEEES5_SB_SD_SG_E11try_emplaceIJSB_EEESt4pairINS_16DenseMapIteratorIS5_SB_SD_SG_Lb0EEEbEOS5_DpOT_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.221") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #0 comdat align 2 {
@@ -28304,7 +28298,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclESt10unique_ptrINS2_6interp8FunctionESt14default_deleteIS8_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SB_EEEES5_SB_SD_SG_E15LookupBucketForIS5_EEbRKT_RPSG_.exit: ; preds = %25, %4
   %.sink.i = phi ptr [ %26, %25 ], [ null, %4 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %.sink.i, ptr %5, align 8, !tbaa !529
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !530
@@ -28353,7 +28347,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclESt10unique_ptrINS2_6
   br label %59
 
 59:                                               ; preds = %49, %55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %60 = load ptr, ptr %2, align 8, !tbaa !527
   store ptr %60, ptr %50, align 8, !tbaa !527
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -28594,7 +28588,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclESt10unique_ptrINS2_6
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5clang6interp8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #10 comdat align 2 {
+define linkonce_odr hidden void @_ZN5clang6interp8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %3 = load ptr, ptr %2, align 8, !tbaa !58
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -28701,12 +28695,12 @@ _ZNSt6vectorISt4byteSaIS0_EED2Ev.exit:            ; preds = %_ZNSt6vectorISt4pai
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33)) local_unnamed_addr #2
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(144) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp5ScopeELb0EE18growAndEmplaceBackIJNS_11SmallVectorINS3_5LocalELj8EEEEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(144) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef 0, i64 noundef 144, ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -28814,12 +28808,12 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp5ScopeELb0EE21takeAllocationForG
   %45 = zext i32 %44 to i64
   %46 = getelementptr inbounds nuw %"class.clang::interp::Scope", ptr %5, i64 %45
   %47 = getelementptr inbounds i8, ptr %46, i64 -144
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %47
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E11try_emplaceIJjEEESt4pairINS_16DenseMapIteratorIjjS3_S6_Lb0EEEbEOjDpOT_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.181") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #0 comdat align 2 {
@@ -28871,7 +28865,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12Dens
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit: ; preds = %21, %4
   %.sink.i = phi ptr [ %22, %21 ], [ null, %4 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %.sink.i, ptr %5, align 8, !tbaa !538
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !539
@@ -28920,7 +28914,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   br label %55
 
 55:                                               ; preds = %45, %51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %56 = load i32, ptr %2, align 4, !tbaa !131
   store i32 %56, ptr %46, align 4, !tbaa !131
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 4
@@ -29147,7 +29141,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
+declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj5EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E15LookupBucketForIjEEbRKT_RPS8_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
@@ -29598,23 +29592,23 @@ _ZNSt6vectorISt4byteSaIS0_EE17_M_default_appendEm.exit: ; preds = %45, %43, %_ZN
   ret void
 }
 
-declare noundef i32 @_ZN5clang6interp7Program24getOrCreateNativePointerEPKv(ptr noundef nonnull align 8 dereferenceable(328), ptr noundef) local_unnamed_addr #2
+declare noundef i32 @_ZN5clang6interp7Program24getOrCreateNativePointerEPKv(ptr noundef nonnull align 8 dereferenceable(328), ptr noundef) local_unnamed_addr #1
 
-declare void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #2
+declare void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
 
-declare noundef i32 @_ZNK4llvm19FixedPointSemantics11toOpaqueIntEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
+declare noundef i32 @_ZNK4llvm19FixedPointSemantics11toOpaqueIntEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
-declare void @_ZN4llvm16StoreIntToMemoryERKNS_5APIntEPhj(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @_ZN4llvm16StoreIntToMemoryERKNS_5APIntEPhj(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK5clang6interp8Floating9serializeEPSt4byte(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !62
   store ptr %4, ptr %1, align 8, !tbaa !307
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #20
   %.not.i = icmp eq ptr %4, %5
   br i1 %.not.i, label %7, label %6
@@ -29648,18 +29642,24 @@ _ZNK4llvm7APFloat14bitcastToAPIntEv.exit:         ; preds = %6, %7
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm7APFloat14bitcastToAPIntEv.exit, %15, %18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare noundef i32 @_ZN4llvm11APFloatBase19semanticsSizeInBitsERKNS_12fltSemanticsE(ptr noundef nonnull align 1) local_unnamed_addr #2
+declare noundef i32 @_ZN4llvm11APFloatBase19semanticsSizeInBitsERKNS_12fltSemanticsE(ptr noundef nonnull align 1) local_unnamed_addr #1
 
-declare void @_ZNK4llvm6detail9IEEEFloat14bitcastToAPIntEv(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
+declare void @_ZNK4llvm6detail9IEEEFloat14bitcastToAPIntEv(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
-declare void @_ZNK4llvm6detail13DoubleAPFloat14bitcastToAPIntEv(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
+declare void @_ZNK4llvm6detail13DoubleAPFloat14bitcastToAPIntEv(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() local_unnamed_addr #13
+declare noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() local_unnamed_addr #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #14
@@ -29677,19 +29677,19 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 declare i64 @llvm.umax.i64(i64, i64) #14
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #16 = { nounwind }

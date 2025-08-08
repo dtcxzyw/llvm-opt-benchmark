@@ -123,9 +123,6 @@ define dso_local range(i32 0, 2) i32 @clientsCronHandleTimeout(ptr noundef %0, i
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @mustObeyClient(ptr noundef) local_unnamed_addr #1
 
 declare void @_serverLog(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -135,9 +132,6 @@ declare void @freeClient(ptr noundef) local_unnamed_addr #1
 declare i32 @clusterRedirectBlockedClientIfNeeded(ptr noundef) local_unnamed_addr #1
 
 declare void @unblockClientOnError(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @encodeTimeoutKey(ptr noundef writeonly captures(none) initializes((0, 16)) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -171,7 +165,7 @@ define dso_local void @addClientToTimeoutTable(ptr noundef %0) local_unnamed_add
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = tail call i64 @intrev64(i64 noundef %4) #4
   store i64 %7, ptr %2, align 16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -189,7 +183,7 @@ define dso_local void @addClientToTimeoutTable(ptr noundef %0) local_unnamed_add
   br label %15
 
 15:                                               ; preds = %11, %6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %16
 
 16:                                               ; preds = %1, %15
@@ -212,14 +206,14 @@ define dso_local void @removeClientFromTimeoutTable(ptr noundef %0) local_unname
   store i64 %7, ptr %3, align 8, !tbaa !5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %9 = load i64, ptr %8, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = tail call i64 @intrev64(i64 noundef %9) #4
   store i64 %10, ptr %2, align 16
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %11, align 8
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1504), align 8, !tbaa !53
   %13 = call i32 @raxRemove(ptr noundef %12, ptr noundef nonnull %2, i64 noundef 16, ptr noundef null) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %14
 
 14:                                               ; preds = %1, %6
@@ -238,7 +232,7 @@ define dso_local void @handleBlockedClientsTimeout() local_unnamed_addr #0 {
 
 5:                                                ; preds = %0
   %6 = tail call i64 @mstime() #4
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1504), align 8, !tbaa !53
   call void @raxStart(ptr noundef nonnull %1, ptr noundef %7) #4
   %8 = call i32 @raxSeek(ptr noundef nonnull %1, ptr noundef nonnull @.str.1, ptr noundef null, i64 noundef 0) #4
@@ -294,7 +288,7 @@ define dso_local void @handleBlockedClientsTimeout() local_unnamed_addr #0 {
 
 .thread:                                          ; preds = %29, %12, %5
   call void @raxStop(ptr noundef nonnull %1) #4
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %36
 
 36:                                               ; preds = %0, %.thread
@@ -317,8 +311,8 @@ declare void @raxStop(ptr noundef) local_unnamed_addr #1
 define dso_local range(i32 -1, 1) i32 @getTimeoutFromObjectOrReply(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca x86_fp80, align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i64 @commandTimeSnapshot() #4
   %8 = icmp eq i32 %3, 0
   br i1 %8, label %9, label %19
@@ -387,8 +381,8 @@ thread-pre-split:                                 ; preds = %19
 
 34:                                               ; preds = %19, %9, %32, %29, %24, %15
   %.0 = phi i32 [ -1, %15 ], [ -1, %24 ], [ -1, %29 ], [ 0, %32 ], [ -1, %9 ], [ -1, %19 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -399,14 +393,20 @@ declare i32 @getLongDoubleFromObjectOrReply(ptr noundef, ptr noundef, ptr nounde
 declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare x86_fp80 @llvm.ceil.f80(x86_fp80) #3
+declare x86_fp80 @llvm.ceil.f80(x86_fp80) #2
 
 declare i32 @getLongLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

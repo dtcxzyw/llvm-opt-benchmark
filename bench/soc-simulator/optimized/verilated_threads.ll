@@ -184,7 +184,7 @@ _ZNSt3_V222condition_variable_anyC2Ev.exit:       ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 0, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %18, align 8
   %19 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
           to label %.noexc unwind label %35
@@ -228,7 +228,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i8.i: ; preds = %28
   br label %.body
 
 34:                                               ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i, %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 35:                                               ; preds = %_ZNSt3_V222condition_variable_anyC2Ev.exit
@@ -273,7 +273,7 @@ _ZN9Verilated14threadContextpEP16VerilatedContext.exit: ; preds = %2, %4
   %5 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9Verilated3t_sE)
   store ptr %1, ptr %5, align 8
   store ptr %1, ptr @_ZN9Verilated14s_lastContextpE, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 17, i1 false)
   call void @_ZN14VlWorkerThread9dequeWorkILb0EEEvPNS_7ExecRecE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull %3)
   %6 = load ptr, ptr %3, align 8
@@ -297,7 +297,7 @@ _ZN9Verilated14threadContextpEP16VerilatedContext.exit: ; preds = %2, %4
   br i1 %16, label %_ZN14VlWorkerThread10workerLoopEv.exit, label %10, !llvm.loop !8
 
 _ZN14VlWorkerThread10workerLoopEv.exit:           ; preds = %10, %_ZN9Verilated14threadContextpEP16VerilatedContext.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1808,10 +1808,10 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #19
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22

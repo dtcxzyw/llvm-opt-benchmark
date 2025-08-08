@@ -239,8 +239,8 @@ define dso_local noundef i64 @sapi_cli_single_write(ptr noundef %0, i64 noundef 
   ]
 
 17:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %12, i8 0, i64 120, i1 false), !tbaa !11
   store i64 2, ptr %3, align 8, !tbaa !11
   %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 24), align 8, !tbaa !13
@@ -248,8 +248,8 @@ define dso_local noundef i64 @sapi_cli_single_write(ptr noundef %0, i64 noundef 
   store i64 0, ptr %13, align 8, !tbaa !23
   %19 = call i32 @select(i32 noundef 2, ptr noundef null, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %4) #25
   %.not8 = icmp eq i32 %19, -1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not8, label %.critedge, label %.critedge2.backedge
 
 .critedge2.backedge:                              ; preds = %17, %14
@@ -262,29 +262,23 @@ define dso_local noundef i64 @sapi_cli_single_write(ptr noundef %0, i64 noundef 
   ret i64 %.lcssa
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca %struct.php_ini_builder, align 8
   %6 = alloca [1 x %struct.__jmp_buf_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1, ptr %4, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = call ptr @save_ps_args(i32 noundef %0, ptr noundef %1) #25
   store ptr @additional_functions, ptr getelementptr inbounds nuw (i8, ptr @cli_sapi_module, i64 264), align 8, !tbaa !25
   %8 = call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #25
@@ -433,7 +427,7 @@ php_ini_builder_finish.exit:                      ; preds = %38, %40
   br label %54
 
 54:                                               ; preds = %51, %50
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !59
   %55 = call i32 @__sigsetjmp(ptr noundef nonnull %6, i32 noundef 0) #28
   %56 = icmp eq i32 %55, 0
@@ -453,7 +447,7 @@ php_ini_builder_finish.exit:                      ; preds = %38, %40
 62:                                               ; preds = %58, %60, %54
   %.144 = phi i32 [ %59, %58 ], [ %61, %60 ], [ 0, %54 ]
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !59
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %63
 
 63:                                               ; preds = %php_ini_builder_finish.exit, %62, %24, %19
@@ -489,27 +483,27 @@ php_ini_builder_finish.exit:                      ; preds = %38, %40
   unreachable
 }
 
-declare ptr @save_ps_args(i32 noundef, ptr noundef) local_unnamed_addr #6
+declare ptr @save_ps_args(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #7
+declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #6
 
-declare void @zend_signal_startup() local_unnamed_addr #6
+declare void @zend_signal_startup() local_unnamed_addr #5
 
-declare i32 @php_getopt(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @php_getopt(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #9
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
-declare void @php_ini_builder_define(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @php_ini_builder_define(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @sapi_cli_ini_defaults(ptr noundef %0) #1 {
   %2 = alloca %struct._zval_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #30
   store i32 1, ptr %3, align 4, !tbaa !84
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -526,16 +520,16 @@ define internal void @sapi_cli_ini_defaults(ptr noundef %0) #1 {
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 262, ptr %9, align 8, !tbaa !37
   %10 = call ptr @zend_hash_str_update(ptr noundef %0, ptr noundef nonnull @.str.59, i64 noundef 14, ptr noundef nonnull %2) #25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare void @sapi_startup(ptr noundef) local_unnamed_addr #6
+declare void @sapi_startup(ptr noundef) local_unnamed_addr #5
 
-declare void @php_ini_builder_prepend(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare void @php_ini_builder_prepend(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #10
+declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @do_cli(i32 noundef %0, ptr noundef %1) unnamed_addr #1 {
@@ -555,14 +549,14 @@ define internal fastcc i32 @do_cli(i32 noundef %0, ptr noundef %1) unnamed_addr 
   %16 = alloca %struct._zval_struct, align 8
   %17 = alloca %struct._zend_execute_data, align 8
   %18 = alloca %struct._zval_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 1, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store volatile i32 0, ptr %7, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 1, ptr %9, align 4, !tbaa !9
   %19 = call i32 @getpid() #25
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -611,7 +605,7 @@ define internal fastcc i32 @do_cli(i32 noundef %0, ptr noundef %1) unnamed_addr 
 35:                                               ; preds = %32
   store volatile i32 1, ptr %7, align 4, !tbaa !9
   %36 = call i64 (ptr, ...) @php_printf(ptr noundef nonnull @.str.60) #25
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_zend_hash_init(ptr noundef nonnull %4, i32 noundef 50, ptr noundef null, i1 noundef zeroext false) #25
   call void @zend_hash_copy(ptr noundef nonnull %4, ptr noundef nonnull @module_registry, ptr noundef null) #25
   call void @zend_hash_sort_ex(ptr noundef nonnull %4, ptr noundef nonnull @zend_sort, ptr noundef nonnull @module_name_cmp, i1 noundef zeroext false) #25
@@ -651,16 +645,16 @@ define internal fastcc i32 @do_cli(i32 noundef %0, ptr noundef %1) unnamed_addr 
 
 print_modules.exit:                               ; preds = %54, %35
   call void @zend_hash_destroy(ptr noundef nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %56 = call i64 (ptr, ...) @php_printf(ptr noundef nonnull @.str.61) #25
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @zend_llist_copy(ptr noundef nonnull %3, ptr noundef nonnull @zend_extensions) #25
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %57, align 8, !tbaa !98
   call void @zend_llist_sort(ptr noundef nonnull %3, ptr noundef nonnull @extension_name_cmp) #25
   call void @zend_llist_apply(ptr noundef nonnull %3, ptr noundef nonnull @print_extension_info) #25
   call void @zend_llist_destroy(ptr noundef nonnull %3) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %58 = call i64 (ptr, ...) @php_printf(ptr noundef nonnull @.str.62) #25
   call void @php_output_end_all() #25
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 448), align 8, !tbaa !91
@@ -1032,7 +1026,7 @@ cli_seek_file_begin.exit.thread:                  ; preds = %183
   call void @zend_stream_init_fp(ptr noundef nonnull %5, ptr noundef nonnull %184, ptr noundef nonnull %.6) #25
   %188 = getelementptr inbounds nuw i8, ptr %5, i64 57
   store i8 1, ptr %188, align 1, !tbaa !116
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %189 = call ptr @tsrm_realpath(ptr noundef nonnull %.6, ptr noundef nonnull %11) #25
   %.not280 = icmp eq ptr %189, null
   br i1 %.not280, label %192, label %190
@@ -1045,7 +1039,7 @@ cli_seek_file_begin.exit.thread:                  ; preds = %183
   %.4216 = phi ptr [ %191, %190 ], [ null, %187 ]
   store ptr %.6, ptr @script_filename, align 8, !tbaa !24
   store ptr %.6, ptr @php_self, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %198
 
 .thread:                                          ; preds = %.tail, %182
@@ -1179,7 +1173,7 @@ cli_seek_file_begin.exit.thread:                  ; preds = %183
   br label %446
 
 245:                                              ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %246 = call i32 @open_file_for_scanning(ptr noundef nonnull %5) #25
   %247 = icmp eq i32 %246, 0
   br i1 %247, label %248, label %249
@@ -1190,7 +1184,7 @@ cli_seek_file_begin.exit.thread:                  ; preds = %183
   br label %249
 
 249:                                              ; preds = %248, %245
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %446
 
 250:                                              ; preds = %.loopexit
@@ -1199,8 +1193,8 @@ cli_seek_file_begin.exit.thread:                  ; preds = %183
   br label %445
 
 252:                                              ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %253 = icmp eq ptr %.5193, null
   %or.cond32 = and i1 %253, %200
   br i1 %or.cond32, label %254, label %265
@@ -1342,14 +1336,14 @@ zend_string_release_ex.exit:                      ; preds = %254, %259, %264
   br label %308
 
 308:                                              ; preds = %306, %.critedge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %445
 
 309:                                              ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %17) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   switch i32 %224, label %zend_string_alloc.exit [
     i32 8, label %310
     i32 9, label %316
@@ -1418,7 +1412,7 @@ zend_string_alloc.exit:                           ; preds = %316, %318, %320, %3
   br i1 %.not294, label %362, label %340
 
 340:                                              ; preds = %zend_string_alloc.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %341 = load ptr, ptr @zend_ce_exception, align 8, !tbaa !130
   %342 = load ptr, ptr @zend_known_strings, align 8, !tbaa !122
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 208
@@ -1455,7 +1449,7 @@ zend_string_alloc.exit:                           ; preds = %316, %318, %320, %3
 zend_object_release.exit:                         ; preds = %355, %356, %361
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !147
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 448), align 8, !tbaa !91
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %366
 
 362:                                              ; preds = %zend_string_alloc.exit
@@ -1467,9 +1461,9 @@ zend_object_release.exit:                         ; preds = %355, %356, %361
 366:                                              ; preds = %362, %zend_object_release.exit
   call void @zval_ptr_dtor(ptr noundef nonnull %16) #25
   call void @zval_ptr_dtor(ptr noundef nonnull %15) #25
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %445
 
 367:                                              ; preds = %.loopexit
@@ -1720,26 +1714,26 @@ sub_2321:                                         ; preds = %sub_1320
 
 477:                                              ; preds = %468, %470
   %478 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 448), align 8, !tbaa !91
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %478
 }
 
-declare i32 @do_cli_server(i32 noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @do_cli_server(i32 noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @php_module_shutdown() local_unnamed_addr #6
+declare void @php_module_shutdown() local_unnamed_addr #5
 
-declare void @sapi_shutdown() local_unnamed_addr #6
+declare void @sapi_shutdown() local_unnamed_addr #5
 
-declare void @cleanup_ps_args(ptr noundef) local_unnamed_addr #6
+declare void @cleanup_ps_args(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #11
+declare void @exit(i32 noundef) local_unnamed_addr #10
 
-declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @php_cli_startup(ptr noundef %0) #1 {
@@ -1747,7 +1741,7 @@ define internal i32 @php_cli_startup(ptr noundef %0) #1 {
   ret i32 %2
 }
 
-declare i32 @php_module_shutdown_wrapper(ptr noundef) #6
+declare i32 @php_module_shutdown_wrapper(ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @sapi_cli_deactivate() #1 {
@@ -1835,7 +1829,7 @@ define internal void @sapi_cli_flush(ptr readnone captures(none) %0) #1 {
   ret void
 }
 
-declare void @zend_error(i32 noundef, ptr noundef, ...) #6
+declare void @zend_error(i32 noundef, ptr noundef, ...) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef i32 @sapi_cli_header_handler(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #0 {
@@ -1861,8 +1855,8 @@ define internal noalias noundef ptr @sapi_cli_read_cookies() #0 {
 define internal void @sapi_cli_register_variables(ptr noundef %0) #1 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @.str.41, ptr %3, align 8, !tbaa !24
   %4 = load ptr, ptr @php_import_environment_variables, align 8, !tbaa !128
   tail call void %4(ptr noundef %0) #25
@@ -1930,101 +1924,101 @@ define internal void @sapi_cli_register_variables(ptr noundef %0) #1 {
   br label %35
 
 35:                                               ; preds = %33, %30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal void @sapi_cli_log_message(ptr noundef %0, i32 %1) #12 {
+define internal void @sapi_cli_log_message(ptr noundef %0, i32 %1) #11 {
   %3 = load ptr, ptr @stderr, align 8, !tbaa !114
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.47, ptr noundef %0) #31
   ret void
 }
 
-declare i32 @php_module_startup(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @php_module_startup(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #13
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #12
 
-declare void @php_handle_aborted_connection() local_unnamed_addr #6
+declare void @php_handle_aborted_connection() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
-declare void @php_register_variable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @php_register_variable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #13
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
-declare void @zif_dl(ptr noundef, ptr noundef) #6
+declare void @zif_dl(ptr noundef, ptr noundef) #5
 
-declare void @zif_cli_set_process_title(ptr noundef, ptr noundef) #6
+declare void @zif_cli_set_process_title(ptr noundef, ptr noundef) #5
 
-declare void @zif_cli_get_process_title(ptr noundef, ptr noundef) #6
+declare void @zif_cli_get_process_title(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #14
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #13
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
-declare ptr @zend_hash_str_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
+declare ptr @zend_hash_str_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #16
+declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #16
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #7
+declare i32 @getpid() local_unnamed_addr #6
 
-declare i32 @php_request_startup() local_unnamed_addr #6
+declare i32 @php_request_startup() local_unnamed_addr #5
 
-declare void @php_print_info(i32 noundef) local_unnamed_addr #6
+declare void @php_print_info(i32 noundef) local_unnamed_addr #5
 
-declare void @php_output_end_all() local_unnamed_addr #6
+declare void @php_output_end_all() local_unnamed_addr #5
 
-declare void @php_print_version(ptr noundef) local_unnamed_addr #6
+declare void @php_print_version(ptr noundef) local_unnamed_addr #5
 
-declare void @sapi_deactivate() local_unnamed_addr #6
+declare void @sapi_deactivate() local_unnamed_addr #5
 
-declare i64 @php_printf(ptr noundef, ...) local_unnamed_addr #6
+declare i64 @php_printf(ptr noundef, ...) local_unnamed_addr #5
 
-declare i32 @zend_load_extension(ptr noundef) local_unnamed_addr #6
+declare i32 @zend_load_extension(ptr noundef) local_unnamed_addr #5
 
-declare i64 @php_output_write(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i64 @php_output_write(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
-declare void @virtual_cwd_activate() local_unnamed_addr #6
+declare void @virtual_cwd_activate() local_unnamed_addr #5
 
-declare ptr @tsrm_realpath(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare ptr @tsrm_realpath(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @zend_stream_init_fp(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @zend_stream_init_fp(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @zend_register_bool_constant(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare void @zend_register_bool_constant(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @is_ps_title_available() local_unnamed_addr #6
+declare i32 @is_ps_title_available() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
-declare zeroext i1 @zend_is_auto_global(ptr noundef) local_unnamed_addr #6
+declare zeroext i1 @zend_is_auto_global(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @cli_register_file_handles() unnamed_addr #1 {
   %1 = alloca %struct._zend_constant, align 8
   %2 = alloca %struct._zend_constant, align 8
   %3 = alloca %struct._zend_constant, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @_php_stream_open_wrapper_ex(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.100, i32 noundef 0, ptr noundef null, ptr noundef null) #25
   %5 = tail call ptr @_php_stream_open_wrapper_ex(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.104, i32 noundef 0, ptr noundef null, ptr noundef null) #25
   %6 = tail call ptr @_php_stream_open_wrapper_ex(ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.104, i32 noundef 0, ptr noundef null, ptr noundef null) #25
@@ -2135,48 +2129,48 @@ define internal fastcc void @cli_register_file_handles() unnamed_addr #1 {
   br label %63
 
 63:                                               ; preds = %26, %27, %29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-declare zeroext i1 @php_execute_script(ptr noundef) local_unnamed_addr #6
+declare zeroext i1 @php_execute_script(ptr noundef) local_unnamed_addr #5
 
-declare i32 @php_lint_script(ptr noundef) local_unnamed_addr #6
+declare i32 @php_lint_script(ptr noundef) local_unnamed_addr #5
 
-declare i32 @open_file_for_scanning(ptr noundef) local_unnamed_addr #6
+declare i32 @open_file_for_scanning(ptr noundef) local_unnamed_addr #5
 
-declare void @zend_strip() local_unnamed_addr #6
+declare void @zend_strip() local_unnamed_addr #5
 
-declare void @php_get_highlight_struct(ptr noundef) local_unnamed_addr #6
+declare void @php_get_highlight_struct(ptr noundef) local_unnamed_addr #5
 
-declare void @zend_highlight(ptr noundef) local_unnamed_addr #6
+declare void @zend_highlight(ptr noundef) local_unnamed_addr #5
 
-declare i32 @zend_eval_string_ex(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #6
+declare i32 @zend_eval_string_ex(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
 
-declare ptr @_php_stream_get_line(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
+declare ptr @_php_stream_get_line(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @_efree(ptr noundef) local_unnamed_addr #6
+declare void @_efree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #14
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
-declare i32 @object_init_ex(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @object_init_ex(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare ptr @zend_read_property_ex(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #6
+declare ptr @zend_read_property_ex(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
-declare i64 @zend_print_zval(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @zend_print_zval(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #6
+declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #5
 
-declare ptr @zend_str_tolower_dup(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @zend_str_tolower_dup(ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare void @display_ini_entries(ptr noundef) local_unnamed_addr #6
+declare void @display_ini_entries(ptr noundef) local_unnamed_addr #5
 
-declare void @php_info_print_module(ptr noundef) local_unnamed_addr #6
+declare void @php_info_print_module(ptr noundef) local_unnamed_addr #5
 
-declare ptr @zend_array_dup(ptr noundef) local_unnamed_addr #6
+declare ptr @zend_array_dup(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @zend_ini_entry_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
@@ -2195,22 +2189,22 @@ define internal i32 @zend_ini_entry_cmp(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #18
+declare void @llvm.assume(i1 noundef) #17
 
-declare void @zend_array_destroy(ptr noundef) local_unnamed_addr #6
+declare void @zend_array_destroy(ptr noundef) local_unnamed_addr #5
 
-declare void @zend_destroy_file_handle(ptr noundef) local_unnamed_addr #6
+declare void @zend_destroy_file_handle(ptr noundef) local_unnamed_addr #5
 
-declare void @php_request_shutdown(ptr noundef) local_unnamed_addr #6
+declare void @php_request_shutdown(ptr noundef) local_unnamed_addr #5
 
-declare void @zend_ini_deactivate() local_unnamed_addr #6
+declare void @zend_ini_deactivate() local_unnamed_addr #5
 
-declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #6
+declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
 
-declare void @zend_hash_copy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @zend_hash_copy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read) uwtable
-define internal i32 @module_name_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #19 {
+define internal i32 @module_name_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #18 {
   %3 = load ptr, ptr %0, align 8, !tbaa !37
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !94
@@ -2221,21 +2215,21 @@ define internal i32 @module_name_cmp(ptr noundef readonly captures(none) %0, ptr
   ret i32 %9
 }
 
-declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #6
+declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #5
 
-declare void @zend_hash_sort_ex(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #6
+declare void @zend_hash_sort_ex(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
 
-declare void @zend_sort(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #6
+declare void @zend_sort(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #20
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #19
 
-declare void @zend_llist_copy(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @zend_llist_copy(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @zend_llist_sort(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @zend_llist_sort(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @extension_name_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #21 {
+define internal i32 @extension_name_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #20 {
   %3 = load ptr, ptr %0, align 8, !tbaa !171
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %1, align 8, !tbaa !171
@@ -2246,7 +2240,7 @@ define internal i32 @extension_name_cmp(ptr noundef readonly captures(none) %0, 
   ret i32 %9
 }
 
-declare void @zend_llist_apply(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @zend_llist_apply(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @print_extension_info(ptr noundef readonly captures(none) %0) #1 {
@@ -2255,31 +2249,37 @@ define internal void @print_extension_info(ptr noundef readonly captures(none) %
   ret void
 }
 
-declare void @zend_llist_destroy(ptr noundef) local_unnamed_addr #6
+declare void @zend_llist_destroy(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #22
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #13
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #12
 
-declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @zend_register_constant(ptr noundef) local_unnamed_addr #6
+declare i32 @zend_register_constant(ptr noundef) local_unnamed_addr #5
 
-declare void @zend_call_known_function(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @zend_call_known_function(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @zend_objects_store_del(ptr noundef) local_unnamed_addr #6
+declare void @zend_objects_store_del(ptr noundef) local_unnamed_addr #5
 
-declare void @gc_possible_root(ptr noundef) local_unnamed_addr #6
+declare void @gc_possible_root(ptr noundef) local_unnamed_addr #5
 
-declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare void @zend_array_sort_ex(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #6
+declare void @zend_array_sort_ex(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
 
-declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #23
@@ -2292,27 +2292,27 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #19 = { mustprogress nofree norecurse nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #18 = { mustprogress nofree norecurse nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #23 = { nofree nounwind }
 attributes #24 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #25 = { nounwind }

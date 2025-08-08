@@ -136,9 +136,9 @@ define zeroext i1 @IsValidJsonNumber(ptr noundef %0, i64 noundef %1) local_unnam
   %3 = alloca i8, align 1
   %4 = alloca i64, align 8
   %5 = alloca %struct.JsonLexContext, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 104, i1 false)
   %7 = icmp eq i64 %1, 0
@@ -168,20 +168,17 @@ define zeroext i1 @IsValidJsonNumber(ptr noundef %0, i64 noundef %1) local_unnam
 
 21:                                               ; preds = %2, %8
   %.0 = phi i1 [ %20, %8 ], [ false, %2 ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 16) i32 @json_lex_number(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #4 {
+define internal fastcc range(i32 0, 16) i32 @json_lex_number(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #3 {
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -434,9 +431,6 @@ define internal fastcc range(i32 0, 16) i32 @json_lex_number(ptr noundef capture
   ret i32 %.0100
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define noundef ptr @makeJsonLexContextCstringLen(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
   %6 = zext i1 %4 to i8
@@ -492,9 +486,9 @@ define noundef ptr @makeJsonLexContextCstringLen(ptr noundef captures(address_is
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare ptr @createPQExpBuffer() local_unnamed_addr #6
+declare ptr @createPQExpBuffer() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @makeJsonLexContextIncremental(ptr noundef captures(address_is_null, ret: address, provenance) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
@@ -592,10 +586,10 @@ define noundef ptr @makeJsonLexContextIncremental(ptr noundef captures(address_i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @setJsonLexContextOwnsTokens(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #8 {
+define void @setJsonLexContextOwnsTokens(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i8, ptr %3, align 8, !range !3, !noundef !4
   %5 = trunc nuw i8 %4 to i1
@@ -729,12 +723,12 @@ define void @freeJsonLexContext(ptr noundef captures(address) %0) local_unnamed_
   ret void
 }
 
-declare void @destroyPQExpBuffer(ptr noundef) local_unnamed_addr #6
+declare void @destroyPQExpBuffer(ptr noundef) local_unnamed_addr #5
 
-declare void @termPQExpBuffer(ptr noundef) local_unnamed_addr #6
+declare void @termPQExpBuffer(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define i32 @pg_parse_json(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
@@ -865,7 +859,7 @@ define range(i32 0, 23) i32 @json_lex(ptr noundef captures(address) %0) local_un
   br i1 %.not, label %153, label %41
 
 41:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 120, i1 false)
   %42 = load ptr, ptr %38, align 8
   %43 = load i8, ptr %42, align 1
@@ -1115,7 +1109,7 @@ define range(i32 0, 23) i32 @json_lex(ptr noundef captures(address) %0) local_un
 
 152:                                              ; preds = %110, %149, %144, %.critedge, %105
   %.1 = phi i32 [ 15, %105 ], [ 1, %.critedge ], [ 15, %144 ], [ 0, %149 ], [ %133, %110 ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread292
 
 153:                                              ; preds = %.thread, %37, %33
@@ -1544,7 +1538,7 @@ lex_expect.exit50:                                ; preds = %.lr.ph, %23
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i32 @parse_scalar(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
+define internal fastcc i32 @parse_scalar(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 52
@@ -1644,7 +1638,7 @@ define internal fastcc i32 @parse_scalar(ptr noundef captures(address) %0, ptr n
 ; Function Attrs: nounwind uwtable
 define i32 @json_count_array_elements(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %struct.JsonLexContext, align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq ptr %0, @failed_oom
   br i1 %4, label %parse_array_element.exit, label %5
 
@@ -1743,7 +1737,7 @@ lex_expect.exit29:                                ; preds = %27, %18
 
 parse_array_element.exit:                         ; preds = %26, %29, %31, %12, %lex_expect.exit29, %lex_expect.exit, %2, %37
   %.013 = phi i32 [ 0, %37 ], [ 16, %2 ], [ %17, %lex_expect.exit ], [ %36, %lex_expect.exit29 ], [ %spec.select, %12 ], [ %spec.select41, %31 ], [ %.025.i, %26 ], [ %30, %29 ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.013
 }
 
@@ -2278,7 +2272,7 @@ report_parse_error.exit.thread:                   ; preds = %report_parse_error.
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn uwtable
-define internal fastcc noundef zeroext i1 @inc_lex_level(ptr noundef captures(none) %0) unnamed_addr #10 {
+define internal fastcc noundef zeroext i1 @inc_lex_level(ptr noundef captures(none) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8, !range !3, !noundef !4
   %4 = trunc nuw i8 %3 to i1
@@ -2369,7 +2363,7 @@ define internal fastcc noundef zeroext i1 @inc_lex_level(ptr noundef captures(no
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn uwtable
-define internal fastcc void @dec_lex_level(ptr noundef captures(none) %0) unnamed_addr #10 {
+define internal fastcc void @dec_lex_level(ptr noundef captures(none) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 4
@@ -2406,10 +2400,10 @@ set_fname.exit:                                   ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #11
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn uwtable
-define internal fastcc void @set_fname(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #10 {
+define internal fastcc void @set_fname(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 4
@@ -2443,14 +2437,14 @@ define internal fastcc void @set_fname(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
-declare void @resetPQExpBuffer(ptr noundef) local_unnamed_addr #6
+declare void @resetPQExpBuffer(ptr noundef) local_unnamed_addr #5
 
-declare void @appendPQExpBufferChar(ptr noundef, i8 noundef signext) local_unnamed_addr #6
+declare void @appendPQExpBufferChar(ptr noundef, i8 noundef signext) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 23) i32 @json_lex_string(ptr noundef captures(none) %0) unnamed_addr #13 {
+define internal fastcc range(i32 0, 23) i32 @json_lex_string(ptr noundef captures(none) %0) unnamed_addr #12 {
   %2 = alloca [5 x i8], align 1
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2740,13 +2734,13 @@ define internal fastcc range(i32 0, 23) i32 @json_lex_string(ptr noundef capture
   br i1 %160, label %161, label %166
 
 161:                                              ; preds = %158
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %162 = call fastcc ptr @unicode_to_utf8(i32 noundef %.2219268271, ptr noundef %2)
   %163 = call i32 @pg_utf_mblen(ptr noundef nonnull %2) #16
   %164 = load ptr, ptr %19, align 8
   %165 = sext i32 %163 to i64
   call void @appendBinaryPQExpBuffer(ptr noundef %164, ptr noundef nonnull %2, i64 noundef %165) #16
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.backedge
 
 166:                                              ; preds = %158
@@ -3005,7 +2999,7 @@ pg_lfind8.exit..critedge_crit_edge:               ; preds = %pg_lfind8.exit
   ret i32 %.0
 }
 
-declare void @appendBinaryPQExpBuffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare void @appendBinaryPQExpBuffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define ptr @json_errdetail(i32 noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #1 {
@@ -3249,12 +3243,12 @@ define ptr @json_errdetail(i32 noundef %0, ptr noundef captures(address) %1) loc
   ret ptr %.0
 }
 
-declare void @appendPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
+declare void @appendPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
-declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #6
+declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #14
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @parse_object_field(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
@@ -3387,9 +3381,15 @@ report_parse_error.exit:                          ; preds = %8, %54, %58, %20, %
   ret i32 %.044
 }
 
-declare i32 @pg_encoding_mblen(i32 noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @pg_encoding_mblen(i32 noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @pg_utf_mblen(ptr noundef) local_unnamed_addr #6
+declare i32 @pg_utf_mblen(ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
@@ -3399,19 +3399,19 @@ declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #15
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { inlinehint mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { inlinehint nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { inlinehint mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { inlinehint nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #16 = { nounwind }
 attributes #17 = { nounwind allocsize(0,1) }

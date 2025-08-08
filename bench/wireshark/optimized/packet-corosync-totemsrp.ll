@@ -259,7 +259,7 @@ define internal fastcc range(i32 8, 1) i32 @dissect_corosync_totemsrp0(ptr nound
   %23 = alloca i32, align 4
   %24 = alloca i64, align 8
   %25 = alloca %struct.corosync_totemsrp_info, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %26 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %27 = icmp ult i32 %26, 8
   br i1 %27, label %329, label %28
@@ -344,8 +344,8 @@ corosync_totemsrp_get_uint32.exit:                ; preds = %61, %63
   ]
 
 66:                                               ; preds = %corosync_totemsrp_get_uint32.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %67 = load i32, ptr @hf_corosync_totemsrp_orf_token, align 4
   %68 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %67, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef 0)
   %69 = load i32, ptr @ett_corosync_totemsrp_orf_token, align 4
@@ -404,13 +404,13 @@ corosync_totemsrp_get_uint32.exit84.thread.i:     ; preds = %corosync_totemsrp_g
 dissect_corosync_totemsrp_rtr_list.exit.us.i:     ; preds = %corosync_totemsrp_get_uint32.exit84.i, %dissect_corosync_totemsrp_rtr_list.exit.us.i
   %.05.us.i = phi i32 [ %123, %dissect_corosync_totemsrp_rtr_list.exit.us.i ], [ %100, %corosync_totemsrp_get_uint32.exit84.i ]
   %.0794.us.i = phi i32 [ %124, %dissect_corosync_totemsrp_rtr_list.exit.us.i ], [ 0, %corosync_totemsrp_get_uint32.exit84.i ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %103 = load i32, ptr @hf_corosync_totemsrp_rtr_item, align 4
   %104 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %103, ptr noundef %0, i32 noundef %.05.us.i, i32 noundef -1, i32 noundef 0)
   %105 = load i32, ptr @ett_corosync_totemsrp_rtr_item, align 4
   %106 = call ptr @proto_item_add_subtree(ptr noundef %104, i32 noundef %105)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %107 = load i32, ptr @hf_corosync_totemsrp_memb_ring_id, align 4
   %108 = call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %107, ptr noundef %0, i32 noundef %.05.us.i, i32 noundef -1, i32 noundef -2147483648)
   %109 = load i32, ptr @ett_corosync_totemsrp_memb_ring_id, align 4
@@ -424,7 +424,7 @@ dissect_corosync_totemsrp_rtr_list.exit.us.i:     ; preds = %corosync_totemsrp_g
   %116 = load i32, ptr %6, align 4
   %117 = add i32 %111, 8
   call void @proto_item_set_len(ptr noundef %108, i32 noundef %117)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %118 = add i32 %117, %.05.us.i
   %119 = load i32, ptr @hf_corosync_totemsrp_rtr_item_seq, align 4
   %120 = call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %119, ptr noundef %0, i32 noundef %118, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) -2147483648)
@@ -432,8 +432,8 @@ dissect_corosync_totemsrp_rtr_list.exit.us.i:     ; preds = %corosync_totemsrp_g
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %104, ptr noundef nonnull @.str.119, i64 noundef %115, i32 noundef %116, i32 noundef %121)
   %122 = add i32 %111, 12
   call void @proto_item_set_len(ptr noundef %104, i32 noundef %122)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %123 = add i32 %122, %.05.us.i
   %124 = add nuw i32 %.0794.us.i, 1
   %exitcond8.not.i = icmp eq i32 %124, %101
@@ -442,8 +442,8 @@ dissect_corosync_totemsrp_rtr_list.exit.us.i:     ; preds = %corosync_totemsrp_g
 dissect_corosync_totemsrp_rtr_list.exit.i:        ; preds = %corosync_totemsrp_get_uint32.exit84.thread.i, %dissect_corosync_totemsrp_rtr_list.exit.i
   %.05.i = phi i32 [ %137, %dissect_corosync_totemsrp_rtr_list.exit.i ], [ %100, %corosync_totemsrp_get_uint32.exit84.thread.i ]
   %.0794.i = phi i32 [ %138, %dissect_corosync_totemsrp_rtr_list.exit.i ], [ 0, %corosync_totemsrp_get_uint32.exit84.thread.i ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %125 = load i32, ptr @hf_corosync_totemsrp_rtr_item, align 4
   %126 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %125, ptr noundef %0, i32 noundef %.05.i, i32 noundef -1, i32 noundef 0)
   %127 = load i32, ptr @ett_corosync_totemsrp_rtr_item, align 4
@@ -458,8 +458,8 @@ dissect_corosync_totemsrp_rtr_list.exit.i:        ; preds = %corosync_totemsrp_g
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %126, ptr noundef nonnull @.str.119, i64 noundef %134, i32 noundef %135, i32 noundef %133)
   %136 = add i32 %129, 4
   call void @proto_item_set_len(ptr noundef %126, i32 noundef %136)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %137 = add i32 %136, %.05.i
   %138 = add nuw i32 %.0794.i, 1
   %exitcond.not.i = icmp eq i32 %138, %102
@@ -473,21 +473,21 @@ dissect_corosync_totemsrp_orf_token.exit:         ; preds = %dissect_corosync_to
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %68, ptr noundef nonnull @.str.114, i64 noundef %139, i32 noundef %140, i32 noundef %.0.i8312.i, i32 noundef %.0.i2.i, i32 noundef %.0.i81.i)
   %141 = add i32 %.0.lcssa.i, -8
   call void @proto_item_set_len(ptr noundef %68, i32 noundef %141)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %328
 
 142:                                              ; preds = %corosync_totemsrp_get_uint32.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr null, ptr %20, align 8
   %143 = load i32, ptr @hf_corosync_totemsrp_mcast, align 4
   %144 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %143, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef range(i32 -2147483648, 1) %.0)
   %145 = load i32, ptr @ett_corosync_totemsrp_mcast, align 4
   %146 = tail call ptr @proto_item_add_subtree(ptr noundef %144, i32 noundef %145)
   %147 = load i32, ptr @hf_corosync_totemsrp_mcast_system_from, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i101 = icmp eq i32 %147, 0
   %148 = load i32, ptr @hf_corosync_totemsrp_srp_addr, align 4
   %149 = select i1 %.not.i101, i32 %148, i32 %147
@@ -501,7 +501,7 @@ dissect_corosync_totemsrp_orf_token.exit:         ; preds = %dissect_corosync_to
   %156 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %152, i32 noundef %154, i32 noundef range(i32 -2147483648, 1) %.0, i1 noundef zeroext true, i32 noundef 1, ptr noundef null)
   %157 = add i32 %156, %153
   call void @proto_item_set_len(ptr noundef %150, i32 noundef %157)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %158 = add i32 %157, 8
   %159 = load i32, ptr @hf_corosync_totemsrp_mcast_seq, align 4
   %160 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %159, ptr noundef %0, i32 noundef %158, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0)
@@ -539,19 +539,19 @@ dissect_corosync_totemsrp_mcast.exit:             ; preds = %177, %180
   %.0.i88 = phi i32 [ %179, %177 ], [ %spec.select.i, %180 ]
   %183 = add i32 %.0.i88, -8
   call void @proto_item_set_len(ptr noundef %144, i32 noundef %183)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %328
 
 184:                                              ; preds = %corosync_totemsrp_get_uint32.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %185 = load i32, ptr @hf_corosync_totemsrp_memb_merge_detect, align 4
   %186 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %185, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef 0)
   %187 = load i32, ptr @ett_corosync_totemsrp_memb_merge_detect, align 4
   %188 = tail call ptr @proto_item_add_subtree(ptr noundef %186, i32 noundef %187)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %189 = load i32, ptr @hf_corosync_totemsrp_srp_addr, align 4
   %190 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %189, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef range(i32 -2147483648, 1) %.0)
   %191 = load i32, ptr @ett_corosync_totemsrp_srp_addr, align 4
@@ -563,7 +563,7 @@ dissect_corosync_totemsrp_mcast.exit:             ; preds = %177, %180
   %196 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %192, i32 noundef %194, i32 noundef range(i32 -2147483648, 1) %.0, i1 noundef zeroext true, i32 noundef 1, ptr noundef null)
   %197 = add i32 %196, %193
   call void @proto_item_set_len(ptr noundef %190, i32 noundef %197)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %198 = add i32 %197, 8
   %199 = call fastcc i32 @dissect_corosync_totemsrp_memb_ring_id(ptr noundef %0, ptr noundef %188, i32 noundef %198, i32 noundef range(i32 -2147483648, 1) %.0, ptr noundef nonnull %16, ptr noundef nonnull %17)
   %200 = load i64, ptr %17, align 8
@@ -571,8 +571,8 @@ dissect_corosync_totemsrp_mcast.exit:             ; preds = %177, %180
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %186, ptr noundef nonnull @.str.120, i64 noundef %200, i32 noundef %201)
   %202 = add i32 %199, %197
   call void @proto_item_set_len(ptr noundef %186, i32 noundef %202)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %328
 
 203:                                              ; preds = %corosync_totemsrp_get_uint32.exit
@@ -580,7 +580,7 @@ dissect_corosync_totemsrp_mcast.exit:             ; preds = %177, %180
   %205 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %204, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef range(i32 -2147483648, 1) %.0)
   %206 = load i32, ptr @ett_corosync_totemsrp_memb_join, align 4
   %207 = tail call ptr @proto_item_add_subtree(ptr noundef %205, i32 noundef %206)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %208 = load i32, ptr @hf_corosync_totemsrp_srp_addr, align 4
   %209 = tail call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %208, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef range(i32 -2147483648, 1) %.0)
   %210 = load i32, ptr @ett_corosync_totemsrp_srp_addr, align 4
@@ -592,7 +592,7 @@ dissect_corosync_totemsrp_mcast.exit:             ; preds = %177, %180
   %215 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %211, i32 noundef %213, i32 noundef range(i32 -2147483648, 1) %.0, i1 noundef zeroext true, i32 noundef 1, ptr noundef null)
   %216 = add i32 %215, %212
   call void @proto_item_set_len(ptr noundef %209, i32 noundef %216)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %217 = add i32 %216, 8
   %218 = load i32, ptr @hf_corosync_totemsrp_memb_join_proc_list_entries, align 4
   %219 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %218, ptr noundef %0, i32 noundef %217, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0)
@@ -630,7 +630,7 @@ corosync_totemsrp_get_uint32.exit66.i:            ; preds = %226, %221
 .lr.ph.i:                                         ; preds = %corosync_totemsrp_get_uint32.exit66.i, %.lr.ph.i
   %.05.i91 = phi i32 [ %247, %.lr.ph.i ], [ %235, %corosync_totemsrp_get_uint32.exit66.i ]
   %.0634.i = phi i32 [ %248, %.lr.ph.i ], [ 0, %corosync_totemsrp_get_uint32.exit66.i ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %238 = load i32, ptr @hf_corosync_totemsrp_srp_addr, align 4
   %239 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %238, ptr noundef %0, i32 noundef %.05.i91, i32 noundef -1, i32 noundef range(i32 -2147483648, 1) %.0)
   %240 = load i32, ptr @ett_corosync_totemsrp_srp_addr, align 4
@@ -642,7 +642,7 @@ corosync_totemsrp_get_uint32.exit66.i:            ; preds = %226, %221
   %245 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %241, i32 noundef %243, i32 noundef range(i32 -2147483648, 1) %.0, i1 noundef zeroext true, i32 noundef 1, ptr noundef null)
   %246 = add i32 %245, %242
   call void @proto_item_set_len(ptr noundef %239, i32 noundef %246)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %247 = add i32 %246, %.05.i91
   %248 = add nuw i32 %.0634.i, 1
   %exitcond.not.i92 = icmp eq i32 %248, %.0.i2.i89
@@ -658,7 +658,7 @@ corosync_totemsrp_get_uint32.exit66.i:            ; preds = %226, %221
 .lr.ph9.i:                                        ; preds = %._crit_edge.i, %.lr.ph9.i
   %.17.i = phi i32 [ %260, %.lr.ph9.i ], [ %.0.lcssa.i93, %._crit_edge.i ]
   %.1646.i = phi i32 [ %261, %.lr.ph9.i ], [ 0, %._crit_edge.i ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %251 = load i32, ptr @hf_corosync_totemsrp_srp_addr, align 4
   %252 = call ptr @proto_tree_add_item(ptr noundef %250, i32 noundef %251, ptr noundef %0, i32 noundef %.17.i, i32 noundef -1, i32 noundef range(i32 -2147483648, 1) %.0)
   %253 = load i32, ptr @ett_corosync_totemsrp_srp_addr, align 4
@@ -670,7 +670,7 @@ corosync_totemsrp_get_uint32.exit66.i:            ; preds = %226, %221
   %258 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %254, i32 noundef %256, i32 noundef range(i32 -2147483648, 1) %.0, i1 noundef zeroext true, i32 noundef 1, ptr noundef null)
   %259 = add i32 %258, %255
   call void @proto_item_set_len(ptr noundef %252, i32 noundef %259)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %260 = add i32 %259, %.17.i
   %261 = add nuw i32 %.1646.i, 1
   %exitcond14.not.i = icmp eq i32 %261, %.0.i65.i
@@ -683,8 +683,8 @@ dissect_corosync_totemsrp_memb_join.exit:         ; preds = %.lr.ph9.i, %._crit_
   br label %328
 
 263:                                              ; preds = %corosync_totemsrp_get_uint32.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %264 = load i32, ptr @hf_corosync_totemsrp_memb_commit_token, align 4
   %265 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %264, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef 0)
   %266 = load i32, ptr @ett_corosync_totemsrp_memb_commit_token, align 4
@@ -732,7 +732,7 @@ corosync_totemsrp_get_uint32.exit69.i:            ; preds = %286, %284
 .lr.ph.i95:                                       ; preds = %corosync_totemsrp_get_uint32.exit69.i, %.lr.ph.i95
   %.02.i = phi i32 [ %298, %.lr.ph.i95 ], [ %288, %corosync_totemsrp_get_uint32.exit69.i ]
   %.0651.i = phi i32 [ %299, %.lr.ph.i95 ], [ 0, %corosync_totemsrp_get_uint32.exit69.i ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %289 = load i32, ptr @hf_corosync_totemsrp_srp_addr, align 4
   %290 = call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %289, ptr noundef %0, i32 noundef %.02.i, i32 noundef -1, i32 noundef range(i32 -2147483648, 1) %.0)
   %291 = load i32, ptr @ett_corosync_totemsrp_srp_addr, align 4
@@ -744,7 +744,7 @@ corosync_totemsrp_get_uint32.exit69.i:            ; preds = %286, %284
   %296 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %292, i32 noundef %294, i32 noundef range(i32 -2147483648, 1) %.0, i1 noundef zeroext true, i32 noundef 1, ptr noundef null)
   %297 = add i32 %296, %293
   call void @proto_item_set_len(ptr noundef %290, i32 noundef %297)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %298 = add i32 %297, %.02.i
   %299 = add nuw i32 %.0651.i, 1
   %exitcond.not.i96 = icmp eq i32 %299, %.0.i68.i
@@ -781,13 +781,13 @@ dissect_corosync_totemsrp_memb_commit_token.exit: ; preds = %.lr.ph5.i, %corosyn
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %265, ptr noundef nonnull @.str.123, i64 noundef %317, i32 noundef %318, i32 noundef %.0.i.i, i32 noundef %.0.i68.i)
   %319 = add i32 %.1.lcssa.i98, -8
   call void @proto_item_set_len(ptr noundef %265, i32 noundef %319)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %328
 
 320:                                              ; preds = %corosync_totemsrp_get_uint32.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %321 = load i32, ptr @hf_corosync_totemsrp_token_hold_cancel, align 4
   %322 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %321, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef 0)
   %323 = load i32, ptr @ett_corosync_totemsrp_token_hold_cancel, align 4
@@ -797,8 +797,8 @@ dissect_corosync_totemsrp_memb_commit_token.exit: ; preds = %.lr.ph5.i, %corosyn
   %327 = load i32, ptr %7, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %322, ptr noundef nonnull @.str.120, i64 noundef %326, i32 noundef %327)
   call void @proto_item_set_len(ptr noundef %322, i32 noundef %325)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %328
 
 default.unreachable:                              ; preds = %corosync_totemsrp_get_uint32.exit
@@ -810,12 +810,9 @@ default.unreachable:                              ; preds = %corosync_totemsrp_g
 
 329:                                              ; preds = %32, %28, %4, %328
   %.084 = phi i32 [ %26, %328 ], [ 0, %4 ], [ 0, %28 ], [ 0, %32 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   ret i32 %.084
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
@@ -844,9 +841,6 @@ declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid
 declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -856,7 +850,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_corosync_totemsrp_memb_ring_id(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -2147483648, 1) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_corosync_totemsrp_memb_ring_id, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %2, i32 noundef -1, i32 noundef %3)
   %10 = load i32, ptr @ett_corosync_totemsrp_memb_ring_id, align 4
@@ -898,7 +892,7 @@ corosync_totemsrp_get_uint64.exit:                ; preds = %17, %19
 25:                                               ; preds = %24, %23
   %26 = add i32 %12, 8
   call void @proto_item_set_len(ptr noundef %9, i32 noundef %26)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %26
 }
 
@@ -1010,11 +1004,16 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i1 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

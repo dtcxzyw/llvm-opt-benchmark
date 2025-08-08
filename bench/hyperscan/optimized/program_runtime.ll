@@ -1162,7 +1162,7 @@ roseCheckMask.exit:                               ; preds = %658, %651, %378
   br i1 %687, label %roseCheckMask32.exit.thread, label %688, !prof !6
 
 688:                                              ; preds = %671
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store <4 x i64> zeroinitializer, ptr %16, align 32
   %689 = icmp slt i64 %682, 0
   br i1 %689, label %690, label %809
@@ -1601,7 +1601,7 @@ copy_upto_64_bytes.exit1109:                      ; preds = %861, %853, %851, %8
   br i1 %.not4074, label %885, label %roseCheckMask32.exit
 
 roseCheckMask32.exit:                             ; preds = %copy_upto_64_bytes.exit1109
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %roseCheckMask32.exit.thread
 
 roseCheckMask32.exit.thread:                      ; preds = %671, %roseCheckMask32.exit
@@ -1612,7 +1612,7 @@ roseCheckMask32.exit.thread:                      ; preds = %671, %roseCheckMask
   br label %11178
 
 885:                                              ; preds = %copy_upto_64_bytes.exit1109, %814, %695
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %886 = getelementptr inbounds nuw i8, ptr %.11772, i64 80
   br label %11178
 
@@ -1725,7 +1725,7 @@ select.unfold2949:                                ; preds = %922, %908, %914
   br i1 %.not.i1115, label %.thread2952, label %getData128.exit1116.thread
 
 .thread2952:                                      ; preds = %950
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %1066
 
 getData128.exit1116.thread:                       ; preds = %950
@@ -1736,7 +1736,7 @@ getData128.exit1116.thread:                       ; preds = %950
   br label %1121
 
 958:                                              ; preds = %948
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %959 = icmp slt i64 %942, 0
   br i1 %959, label %960, label %._crit_edge6325
 
@@ -2133,11 +2133,11 @@ getData128.exit1116.thread2962:                   ; preds = %1066
   %1113 = load ptr, ptr %1112, align 8
   %1114 = getelementptr inbounds nuw i8, ptr %1113, i64 %942
   %1115 = load <2 x i64>, ptr %1114, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1121
 
 getData128.exit1116.thread2958:                   ; preds = %1069, %965
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1144
 
 getData128.exit1116:                              ; preds = %1064, %1062, %1060, %1052, %1050, %1042, %1040, %1035, %1033, %1031, %copy_upto_64_bytes.exit80.i, %1110, %1108, %1106, %1098, %1096, %1088, %1086, %1081, %1079, %1077, %1070
@@ -2148,7 +2148,7 @@ getData128.exit1116:                              ; preds = %1064, %1062, %1060,
   %1118 = and i32 %1117, 65535
   %1119 = lshr i32 %1118, %.3.i1120
   %1120 = load <2 x i64>, ptr %12, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.not.i930 = icmp eq i32 %1119, 0
   br i1 %.not.i930, label %1144, label %1121, !prof !7
 
@@ -2223,7 +2223,7 @@ roseCheckShufti16x8.exit:                         ; preds = %1121, %931
   br i1 %.not.i1172, label %.thread2969, label %getData256.exit1173.thread
 
 .thread2969:                                      ; preds = %1166
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %1294
 
 getData256.exit1173.thread:                       ; preds = %1166
@@ -2234,7 +2234,7 @@ getData256.exit1173.thread:                       ; preds = %1166
   br label %1354
 
 1174:                                             ; preds = %1164
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1175 = icmp slt i64 %1158, 0
   br i1 %1175, label %1176, label %._crit_edge6321
 
@@ -2662,14 +2662,14 @@ copy_upto_64_bytes.exit79.i.i1166:                ; preds = %1298, %1305, %1307,
   br label %getData256.exit1173
 
 getData256.exit1173.thread2975:                   ; preds = %1297, %1181
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %roseCheckShufti32x8.exit
 
 getData256.exit1173:                              ; preds = %1346, %copy_upto_64_bytes.exit79.i.i1166
   %.in7116 = phi ptr [ %10, %copy_upto_64_bytes.exit79.i.i1166 ], [ %1349, %1346 ]
   %.170.shrunk.i.i1153 = phi i32 [ %1352, %copy_upto_64_bytes.exit79.i.i1166 ], [ -1, %1346 ]
   %1353 = load <4 x i64>, ptr %.in7116, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %1354
 
 1354:                                             ; preds = %getData256.exit1173, %getData256.exit1173.thread
@@ -2743,7 +2743,7 @@ roseCheckShufti32x8.exit:                         ; preds = %getData256.exit1173
   br i1 %.not.i1113, label %.thread2981, label %getData128.exit.thread
 
 .thread2981:                                      ; preds = %1398
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br label %1514
 
 getData128.exit.thread:                           ; preds = %1398
@@ -2754,7 +2754,7 @@ getData128.exit.thread:                           ; preds = %1398
   br label %1569
 
 1406:                                             ; preds = %1396
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %1407 = icmp slt i64 %1390, 0
   br i1 %1407, label %1408, label %._crit_edge6318
 
@@ -3151,11 +3151,11 @@ getData128.exit.thread2991:                       ; preds = %1514
   %1561 = load ptr, ptr %1560, align 8
   %1562 = getelementptr inbounds nuw i8, ptr %1561, i64 %1390
   %1563 = load <2 x i64>, ptr %1562, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %1569
 
 getData128.exit.thread2987:                       ; preds = %1517, %1413
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %1593
 
 getData128.exit:                                  ; preds = %1512, %1510, %1508, %1500, %1498, %1490, %1488, %1483, %1481, %1479, %copy_upto_64_bytes.exit80.i1146, %1558, %1556, %1554, %1546, %1544, %1536, %1534, %1529, %1527, %1525, %1518
@@ -3166,7 +3166,7 @@ getData128.exit:                                  ; preds = %1512, %1510, %1508,
   %1566 = and i32 %1565, 65535
   %1567 = lshr i32 %1566, %.3.i1134
   %1568 = load <2 x i64>, ptr %13, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not.i938 = icmp eq i32 %1567, 0
   br i1 %.not.i938, label %1593, label %1569, !prof !7
 
@@ -3243,7 +3243,7 @@ roseCheckShufti16x16.exit:                        ; preds = %1569, %1378
   br i1 %.not.i1151, label %.thread2998, label %getData256.exit.thread
 
 .thread2998:                                      ; preds = %1616
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %1744
 
 getData256.exit.thread:                           ; preds = %1616
@@ -3254,7 +3254,7 @@ getData256.exit.thread:                           ; preds = %1616
   br label %1804
 
 1624:                                             ; preds = %1614
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %1625 = icmp slt i64 %1608, 0
   br i1 %1625, label %1626, label %._crit_edge6314
 
@@ -3682,14 +3682,14 @@ copy_upto_64_bytes.exit79.i.i:                    ; preds = %1748, %1755, %1757,
   br label %getData256.exit
 
 getData256.exit.thread3004:                       ; preds = %1747, %1631
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %roseCheckShufti32x16.exit
 
 getData256.exit:                                  ; preds = %1796, %copy_upto_64_bytes.exit79.i.i
   %.in = phi ptr [ %11, %copy_upto_64_bytes.exit79.i.i ], [ %1799, %1796 ]
   %.170.shrunk.i.i = phi i32 [ %1802, %copy_upto_64_bytes.exit79.i.i ], [ -1, %1796 ]
   %1803 = load <4 x i64>, ptr %.in, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %1804
 
 1804:                                             ; preds = %getData256.exit, %getData256.exit.thread
@@ -4356,7 +4356,7 @@ reduceInfixQueue.exit:                            ; preds = %2177, %2175, %._cri
   %2228 = load i64, ptr %2227, align 8
   %2229 = load i64, ptr %2127, align 8
   %2230 = sub i64 %4, %2229
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %2231 = zext i32 %2223 to i64
   %2232 = getelementptr inbounds nuw i8, ptr %0, i64 %2231
   %2233 = getelementptr inbounds nuw i8, ptr %1859, i64 4
@@ -4534,11 +4534,11 @@ q_skip_forward_to.exit:                           ; preds = %2289, %.critedge.i1
   br label %roseLeftfixCheckMiracles.exit.thread3065
 
 roseLeftfixCheckMiracles.exit.thread3065:         ; preds = %2317, %.thread3058
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %roseLeftfixCheckMiracles.exit.thread
 
 roseLeftfixCheckMiracles.exit:                    ; preds = %q_skip_forward_to.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread3068
 
 roseLeftfixCheckMiracles.exit.thread:             ; preds = %reduceInfixQueue.exit, %roseLeftfixCheckMiracles.exit.thread3065
@@ -5224,7 +5224,7 @@ mmbit_set_i.exit1605.thread3093:                  ; preds = %.thread3088, %2709,
 2763:                                             ; preds = %2760
   %2764 = load i64, ptr %2717, align 8
   %2765 = sub i64 %4, %2764
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %2766 = zext i32 %2762 to i64
   %2767 = getelementptr inbounds nuw i8, ptr %0, i64 %2766
   %2768 = getelementptr inbounds nuw i8, ptr %2423, i64 4
@@ -5364,7 +5364,7 @@ roseMiracleOccurs.exit:                           ; preds = %2817
   br label %2835
 
 2835:                                             ; preds = %2826, %2824, %.thread3098
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %roseLeftfixCheckMiracles.exit1273
 
 roseLeftfixCheckMiracles.exit1273:                ; preds = %2835, %2760, %2758
@@ -5993,7 +5993,7 @@ roseCatchUpMPV.exit957:                           ; preds = %3158, %canSkipCatch
   %3184 = load ptr, ptr %3183, align 16
   %3185 = zext i32 %3182 to i64
   %3186 = getelementptr inbounds nuw %struct.mq, ptr %3184, i64 %3185
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 -1, ptr %15, align 8
   %3187 = getelementptr inbounds nuw i8, ptr %3186, i64 88
   store ptr @roseNfaEarliestSom, ptr %3187, align 8
@@ -6004,7 +6004,7 @@ roseCatchUpMPV.exit957:                           ; preds = %3158, %canSkipCatch
   store ptr @roseNfaAdaptor, ptr %3187, align 8
   store ptr null, ptr %3188, align 8
   %3191 = load i64, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %3192 = getelementptr inbounds nuw i8, ptr %.24785, i64 16
   br label %11178
 
@@ -11089,7 +11089,7 @@ mmbit_sparse_iter_begin.exit1018.thread3469:      ; preds = %6106, %6059, %mmbit
   %6204 = load ptr, ptr %6203, align 8
   %6205 = zext i32 %6180 to i64
   %6206 = getelementptr inbounds nuw i8, ptr %0, i64 %6205
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %14) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %6207 = icmp ugt i32 %6200, 256
   br i1 %6207, label %6294, label %6208
 
@@ -11372,7 +11372,7 @@ mmbit_sparse_iter_begin.exit.i:                   ; preds = %mmbit_mask_index.ex
   br label %6374
 
 roseEnginesEod.exit.thread:                       ; preds = %6291, %6338, %6482, %mmbit_sparse_iter_next.exit.i, %.lr.ph5060, %6594, %6239, %6294, %mmbit_get_flat_block.exit63.i, %mmbit_sparse_iter_begin.exit.i
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %14) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %6373 = getelementptr inbounds nuw i8, ptr %.49810, i64 8
   br label %11178
 
@@ -11761,7 +11761,7 @@ mmbit_sparse_iter_next.exit.i:                    ; preds = %mmbit_mask_index.ex
   br i1 %.not51.i, label %roseEnginesEod.exit.thread, label %6374
 
 roseEnginesEod.exit:                              ; preds = %6473
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %14) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %roseTriggerSuffix.exit
 
 6608:                                             ; preds = %6, %11178
@@ -12481,7 +12481,7 @@ flushQueuedLiterals.exit.thread:                  ; preds = %6975, %6968, %flush
   %6997 = load i32, ptr %6923, align 8
   %6998 = load ptr, ptr %6920, align 8
   %6999 = getelementptr inbounds nuw i8, ptr %6998, i64 1
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %7000 = icmp ugt i32 %6997, 256
   br i1 %7000, label %7151, label %7001
 
@@ -12916,7 +12916,7 @@ mmbit_mask_index.exit.i2399:                      ; preds = %7166
   br label %7163
 
 mmbit_sparse_iter_unset.exit:                     ; preds = %7143, %7210, %7066, %mmbit_get_flat_block.exit.i2391, %7111, %7112, %7120, %7125, %7130, %7132, %7137, %7140, %7151, %mmbit_get_flat_block.exit45.i, %7034, %7035, %7043, %7048, %7053, %7055, %7060, %7063
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %7248
 
 7248:                                             ; preds = %mmbit_clear.exit, %flushQueuedLiterals.exit.thread, %6986, %mmbit_sparse_iter_unset.exit
@@ -19507,7 +19507,7 @@ define internal fastcc range(i32 0, 2) i32 @roseCheckMultipathShufti16x8(ptr nou
   br i1 %.not.i, label %.thread, label %getData128.exit.thread
 
 .thread:                                          ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %139
 
 getData128.exit.thread:                           ; preds = %25
@@ -19520,7 +19520,7 @@ getData128.exit.thread:                           ; preds = %25
   br label %219
 
 35:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %36 = icmp slt i64 %11, 0
   br i1 %36, label %37, label %._crit_edge
 
@@ -19905,13 +19905,13 @@ getData128.exit.thread49:                         ; preds = %139
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 %11
   %188 = load <2 x i64>, ptr %187, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %189 = getelementptr inbounds nuw i8, ptr %1, i64 49
   %190 = load <2 x i64>, ptr %189, align 1
   br label %219
 
 getData128.exit.thread44:                         ; preds = %142, %42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 49
   %192 = load <2 x i64>, ptr %191, align 1
   br label %201
@@ -19924,7 +19924,7 @@ getData128.exit:                                  ; preds = %137, %135, %127, %1
   %195 = and i32 %194, 65535
   %196 = lshr i32 %195, %.3.i
   %197 = load <2 x i64>, ptr %4, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %198 = getelementptr inbounds nuw i8, ptr %1, i64 49
   %199 = load <2 x i64>, ptr %198, align 1
   %200 = and i32 %196, 1
@@ -20038,7 +20038,7 @@ define internal fastcc range(i32 0, 2) i32 @roseCheckMultipathShufti32x8(ptr nou
   br i1 %.not.i, label %.thread, label %getData128.exit.thread
 
 .thread:                                          ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %140
 
 getData128.exit.thread:                           ; preds = %25
@@ -20052,7 +20052,7 @@ getData128.exit.thread:                           ; preds = %25
   br label %223
 
 36:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %37 = icmp slt i64 %11, 0
   br i1 %37, label %38, label %._crit_edge
 
@@ -20437,14 +20437,14 @@ getData128.exit.thread53:                         ; preds = %140
   %187 = load ptr, ptr %186, align 8
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 %11
   %189 = load <2 x i64>, ptr %188, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %190 = shufflevector <2 x i64> %189, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 65
   %192 = load <4 x i64>, ptr %191, align 1
   br label %223
 
 getData128.exit.thread48:                         ; preds = %143, %43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 65
   %194 = load <4 x i64>, ptr %193, align 1
   br label %204
@@ -20457,7 +20457,7 @@ getData128.exit:                                  ; preds = %138, %136, %128, %1
   %197 = and i32 %196, 65535
   %198 = lshr i32 %197, %.3.i
   %199 = load <2 x i64>, ptr %4, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %200 = shufflevector <2 x i64> %199, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %201 = getelementptr inbounds nuw i8, ptr %1, i64 65
   %202 = load <4 x i64>, ptr %201, align 1
@@ -20573,7 +20573,7 @@ define internal fastcc range(i32 0, 2) i32 @roseCheckMultipathShufti32x16(ptr no
   br i1 %.not.i, label %.thread, label %getData128.exit.thread
 
 .thread:                                          ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %140
 
 getData128.exit.thread:                           ; preds = %25
@@ -20587,7 +20587,7 @@ getData128.exit.thread:                           ; preds = %25
   br label %223
 
 36:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %37 = icmp slt i64 %11, 0
   br i1 %37, label %38, label %._crit_edge
 
@@ -20972,14 +20972,14 @@ getData128.exit.thread59:                         ; preds = %140
   %187 = load ptr, ptr %186, align 8
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 %11
   %189 = load <2 x i64>, ptr %188, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %190 = shufflevector <2 x i64> %189, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 129
   %192 = load <4 x i64>, ptr %191, align 1
   br label %223
 
 getData128.exit.thread54:                         ; preds = %143, %43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 129
   %194 = load <4 x i64>, ptr %193, align 1
   br label %204
@@ -20992,7 +20992,7 @@ getData128.exit:                                  ; preds = %138, %136, %128, %1
   %197 = and i32 %196, 65535
   %198 = lshr i32 %197, %.3.i
   %199 = load <2 x i64>, ptr %4, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %200 = shufflevector <2 x i64> %199, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %201 = getelementptr inbounds nuw i8, ptr %1, i64 129
   %202 = load <4 x i64>, ptr %201, align 1
@@ -21124,7 +21124,7 @@ define internal fastcc range(i32 0, 2) i32 @roseCheckMultipathShufti64(ptr nound
   br i1 %.not.i, label %.thread, label %getData128.exit.thread
 
 .thread:                                          ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %142
 
 getData128.exit.thread:                           ; preds = %25
@@ -21140,7 +21140,7 @@ getData128.exit.thread:                           ; preds = %25
   br label %235
 
 38:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = icmp slt i64 %11, 0
   br i1 %39, label %40, label %._crit_edge
 
@@ -21525,7 +21525,7 @@ getData128.exit.thread63:                         ; preds = %142
   %189 = load ptr, ptr %188, align 8
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 %11
   %191 = load <2 x i64>, ptr %190, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %192 = shufflevector <2 x i64> %191, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 97
   %194 = load <4 x i64>, ptr %193, align 1
@@ -21534,7 +21534,7 @@ getData128.exit.thread63:                         ; preds = %142
   br label %235
 
 getData128.exit.thread58:                         ; preds = %145, %45
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 97
   %198 = load <4 x i64>, ptr %197, align 1
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 129
@@ -21549,7 +21549,7 @@ getData128.exit:                                  ; preds = %140, %138, %130, %1
   %203 = and i32 %202, 65535
   %204 = lshr i32 %203, %.3.i
   %205 = load <2 x i64>, ptr %4, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %206 = shufflevector <2 x i64> %205, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %207 = getelementptr inbounds nuw i8, ptr %1, i64 97
   %208 = load <4 x i64>, ptr %207, align 1
@@ -22236,7 +22236,7 @@ partial_load_u64a.exit592:                        ; preds = %328, %325, %317, %3
   br i1 %380, label %roseCheckMask32.exit.thread, label %381, !prof !6
 
 381:                                              ; preds = %365
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store <4 x i64> zeroinitializer, ptr %7, align 32
   %382 = icmp slt i64 %375, 0
   br i1 %382, label %383, label %498
@@ -22667,11 +22667,11 @@ copy_upto_64_bytes.exit598:                       ; preds = %547, %539, %537, %5
   br i1 %.not2516, label %.thread1632, label %roseCheckMask32.exit
 
 roseCheckMask32.exit:                             ; preds = %copy_upto_64_bytes.exit598
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %roseCheckMask32.exit.thread
 
 .thread1632:                                      ; preds = %copy_upto_64_bytes.exit598, %502, %387
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %566 = getelementptr inbounds nuw i8, ptr %.0363, i64 80
   br label %.backedge2630.backedge
 
@@ -31880,14 +31880,8 @@ roseReport.exit.thread2479:                       ; preds = %733, %783, %roseCat
   ret i64 %.12485
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8>, <32 x i8>) #4
+declare <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8>, <32 x i8>) #3
 
 declare signext i8 @nfaQueueInitState(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -31898,10 +31892,10 @@ declare signext i8 @nfaInAcceptState(ptr noundef, i32 noundef, ptr noundef) loca
 declare signext i8 @nfaExpandState(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @roseCountingMiracleOccurs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @roseCountingMiracleOccurs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #5 {
   %.sroa.0147 = alloca <2 x i64>, align 16
   %.sroa.0146 = alloca <2 x i64>, align 16
   %.sroa.0145 = alloca <2 x i64>, align 16
@@ -31971,7 +31965,7 @@ define internal fastcc range(i32 0, 2) i32 @roseCountingMiracleOccurs(ptr nounde
   br i1 %.not45.i, label %roseCountingMiracleScan.exit.thread, label %46
 
 46:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %47 = add i8 %22, 1
   %.sroa.0.0.zext = zext i8 %47 to i64
   %.sroa.0.0.isplat = mul nuw i64 %.sroa.0.0.zext, 72340172838076673
@@ -31989,7 +31983,7 @@ define internal fastcc range(i32 0, 2) i32 @roseCountingMiracleOccurs(ptr nounde
   %54 = zext nneg i16 %53 to i32
   %55 = add i32 %.040.i, %54
   %.not46.i = icmp ult i32 %55, %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   br i1 %.not46.i, label %roseCountingMiracleScan.exit.thread, label %roseCountingMiracleScan.exit
 
 roseCountingMiracleScan.exit.loopexit:            ; preds = %37
@@ -32047,7 +32041,7 @@ roseCountingMiracleScan.exit.thread:              ; preds = %46, %45, %20
   br i1 %.not45.i120, label %.thread, label %82
 
 82:                                               ; preds = %81
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0145)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0145)
   %83 = add i8 %22, 1
   %.sroa.0145.0.zext = zext i8 %83 to i64
   %.sroa.0145.0.isplat = mul nuw i64 %.sroa.0145.0.zext, 72340172838076673
@@ -32065,7 +32059,7 @@ roseCountingMiracleScan.exit.thread:              ; preds = %46, %45, %20
   %90 = zext nneg i16 %89 to i32
   %91 = add i32 %.040.i115, %90
   %.not46.i121 = icmp ult i32 %91, %69
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0145)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0145)
   br i1 %.not46.i121, label %.thread, label %roseCountingMiracleScan.exit124
 
 roseCountingMiracleScan.exit124.loopexit:         ; preds = %73
@@ -32136,7 +32130,7 @@ roseCountingMiracleScan.exit124:                  ; preds = %82, %roseCountingMi
   br i1 %.not60.i, label %roseCountingMiracleScanShufti.exit.thread, label %133
 
 133:                                              ; preds = %132
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0146)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0146)
   %.sroa.0146.0.zext = zext i8 %100 to i64
   %.sroa.0146.0.isplat = mul nuw i64 %.sroa.0146.0.zext, 72340172838076673
   %.sroa.0146.0.vsplat.splatinsert = insertelement <2 x i64> poison, i64 %.sroa.0146.0.isplat, i64 0
@@ -32162,7 +32156,7 @@ roseCountingMiracleScan.exit124:                  ; preds = %82, %roseCountingMi
   %149 = zext nneg i16 %148 to i32
   %150 = add i32 %.053.i, %149
   %.not61.i = icmp ult i32 %150, %111
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0146)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0146)
   br i1 %.not61.i, label %roseCountingMiracleScanShufti.exit.thread, label %roseCountingMiracleScanShufti.exit
 
 roseCountingMiracleScanShufti.exit.loopexit:      ; preds = %115
@@ -32229,7 +32223,7 @@ roseCountingMiracleScanShufti.exit.thread:        ; preds = %133, %132, %94
   br i1 %.not60.i134, label %.thread, label %186
 
 186:                                              ; preds = %185
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0147)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0147)
   %.sroa.0147.0.zext = zext i8 %100 to i64
   %.sroa.0147.0.isplat = mul nuw i64 %.sroa.0147.0.zext, 72340172838076673
   %.sroa.0147.0.vsplat.splatinsert = insertelement <2 x i64> poison, i64 %.sroa.0147.0.isplat, i64 0
@@ -32255,7 +32249,7 @@ roseCountingMiracleScanShufti.exit.thread:        ; preds = %133, %132, %94
   %202 = zext nneg i16 %201 to i32
   %203 = add i32 %.053.i129, %202
   %.not61.i135 = icmp ult i32 %203, %164
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0147)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0147)
   br i1 %.not61.i135, label %.thread, label %roseCountingMiracleScanShufti.exit138
 
 roseCountingMiracleScanShufti.exit138.loopexit:   ; preds = %168
@@ -32281,16 +32275,16 @@ roseCountingMiracleScanShufti.exit138:            ; preds = %186, %roseCountingM
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #7
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #4
+declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
 
 declare i32 @roseRunFlushCombProgram(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -32299,7 +32293,7 @@ declare i64 @roseCatchUpAll(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @roseCatchUpMPV_i(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @roseNfaEarliestSom(i64 noundef %0, i64 %1, i32 %2, ptr noundef captures(none) %3) #9 {
+define internal noundef i32 @roseNfaEarliestSom(i64 noundef %0, i64 %1, i32 %2, ptr noundef captures(none) %3) #8 {
   %5 = load i64, ptr %3, align 8
   %. = tail call i64 @llvm.umin.i64(i64 %5, i64 %0)
   store i64 %., ptr %3, align 8
@@ -32323,7 +32317,7 @@ declare void @handleSomInternal(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare void @setSomFromSomAware(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #7
+declare i64 @llvm.ctpop.i64(i64) #6
 
 declare signext i8 @nfaCheckFinalState(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -32336,7 +32330,13 @@ declare i64 @roseCallback(i64 noundef, i32 noundef, ptr noundef) #1
 declare i64 @flushQueuedLiterals_i(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i64 @llvm.x86.bmi.pdep.64(i64, i64) #4
+declare i64 @llvm.x86.bmi.pdep.64(i64, i64) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
@@ -32362,13 +32362,13 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #10
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
 attributes #2 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }
 

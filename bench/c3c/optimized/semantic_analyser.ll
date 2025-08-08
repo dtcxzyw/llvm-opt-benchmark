@@ -982,8 +982,8 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
   unreachable
 
 halt_on_error.exit:                               ; preds = %.critedge80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 248), align 8
   %.not.i64 = icmp eq ptr %125, null
   %126 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 200), align 8
@@ -1141,10 +1141,10 @@ halt_on_error.exit:                               ; preds = %.critedge80
   br label %assign_panicfn.exit
 
 assign_panicfn.exit:                              ; preds = %128, %175, %191, %211
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %212 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 166), align 2
   %213 = trunc i8 %212 to i1
   br i1 %213, label %214, label %assign_testfn.exit
@@ -1230,10 +1230,10 @@ assign_panicfn.exit:                              ; preds = %128, %175, %191, %2
   br label %assign_testfn.exit
 
 assign_testfn.exit:                               ; preds = %assign_panicfn.exit, %218, %256
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %259 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 165), align 1
   %260 = trunc i8 %259 to i1
   br i1 %260, label %261, label %assign_benchfn.exit
@@ -1319,8 +1319,8 @@ assign_testfn.exit:                               ; preds = %assign_panicfn.exit
   br label %assign_benchfn.exit
 
 assign_benchfn.exit:                              ; preds = %assign_testfn.exit, %265, %303
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %306 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 212), align 4
   %.not52 = icmp eq i32 %306, 0
   br i1 %.not52, label %308, label %307
@@ -1829,10 +1829,10 @@ declare ptr @type_get_ptr(ptr noundef) local_unnamed_addr #4
 declare ptr @type_get_subarray(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

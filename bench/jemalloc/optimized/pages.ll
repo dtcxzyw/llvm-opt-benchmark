@@ -53,7 +53,7 @@ define hidden ptr @je_pages_map(ptr noundef %0, i64 noundef %1, i64 noundef %2, 
   br i1 %17, label %18, label %os_pages_unmap.exit
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %19 = tail call ptr @__errno_location() #11
   %20 = load i32, ptr %19, align 4, !tbaa !4
   %21 = call i32 @je_buferror(i32 noundef %20, ptr noundef nonnull %7, i64 noundef 64) #10
@@ -67,7 +67,7 @@ define hidden ptr @je_pages_map(ptr noundef %0, i64 noundef %1, i64 noundef %2, 
   unreachable
 
 25:                                               ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %os_pages_unmap.exit
 
 os_pages_unmap.exit:                              ; preds = %15, %25
@@ -120,7 +120,7 @@ os_pages_unmap.exit:                              ; preds = %15, %25
   br i1 %48, label %49, label %os_pages_unmap.exit.i.i
 
 49:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %50 = tail call ptr @__errno_location() #11
   %51 = load i32, ptr %50, align 4, !tbaa !4
   %52 = call i32 @je_buferror(i32 noundef %51, ptr noundef nonnull %6, i64 noundef 64) #10
@@ -134,7 +134,7 @@ os_pages_unmap.exit:                              ; preds = %15, %25
   unreachable
 
 56:                                               ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %os_pages_unmap.exit.i.i
 
 os_pages_unmap.exit.i.i:                          ; preds = %56, %46, %41
@@ -150,7 +150,7 @@ os_pages_unmap.exit.i.i:                          ; preds = %56, %46, %41
   br i1 %62, label %63, label %pages_map_slow.exit
 
 63:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %64 = tail call ptr @__errno_location() #11
   %65 = load i32, ptr %64, align 4, !tbaa !4
   %66 = call i32 @je_buferror(i32 noundef %65, ptr noundef nonnull %5, i64 noundef 64) #10
@@ -164,7 +164,7 @@ os_pages_unmap.exit.i.i:                          ; preds = %56, %46, %41
   unreachable
 
 70:                                               ; preds = %63
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %pages_map_slow.exit
 
 71:                                               ; preds = %os_pages_unmap.exit.i.i
@@ -179,9 +179,6 @@ pages_map_slow.exit:                              ; preds = %37, %37, %os_pages_
   %.0 = phi ptr [ %8, %4 ], [ %8, %11 ], [ null, %os_pages_unmap.exit ], [ %58, %57 ], [ %58, %70 ], [ %73, %os_pages_trim.exit.loopexit.split.loop.exit.i ], [ null, %37 ], [ null, %37 ]
   ret ptr %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @os_pages_map(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 {
@@ -219,7 +216,7 @@ define internal fastcc ptr @os_pages_map(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %18, label %19, label %os_pages_unmap.exit
 
 19:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = tail call ptr @__errno_location() #11
   %21 = load i32, ptr %20, align 4, !tbaa !4
   %22 = call i32 @je_buferror(i32 noundef %21, ptr noundef nonnull %4, i64 noundef 64) #10
@@ -233,16 +230,13 @@ define internal fastcc ptr @os_pages_map(ptr noundef %0, i64 noundef %1, ptr nou
   unreachable
 
 26:                                               ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %os_pages_unmap.exit
 
 os_pages_unmap.exit:                              ; preds = %26, %16, %10, %15
   %.0 = phi ptr [ %13, %15 ], [ null, %10 ], [ null, %16 ], [ null, %26 ]
   ret ptr %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_pages_unmap(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -252,7 +246,7 @@ define hidden void @je_pages_unmap(ptr noundef %0, i64 noundef %1) local_unnamed
   br i1 %5, label %6, label %os_pages_unmap.exit
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = tail call ptr @__errno_location() #11
   %8 = load i32, ptr %7, align 4, !tbaa !4
   %9 = call i32 @je_buferror(i32 noundef %8, ptr noundef nonnull %3, i64 noundef 64) #10
@@ -266,7 +260,7 @@ define hidden void @je_pages_unmap(ptr noundef %0, i64 noundef %1) local_unnamed
   unreachable
 
 13:                                               ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %os_pages_unmap.exit
 
 os_pages_unmap.exit:                              ; preds = %2, %13
@@ -304,7 +298,7 @@ define internal fastcc noundef zeroext i1 @pages_commit_impl(ptr noundef %0, i64
   br i1 %16, label %17, label %os_pages_commit.exit
 
 17:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %18 = tail call ptr @__errno_location() #11
   %19 = load i32, ptr %18, align 4, !tbaa !4
   %20 = call i32 @je_buferror(i32 noundef %19, ptr noundef nonnull %4, i64 noundef 64) #10
@@ -318,7 +312,7 @@ define internal fastcc noundef zeroext i1 @pages_commit_impl(ptr noundef %0, i64
   unreachable
 
 24:                                               ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %os_pages_commit.exit
 
 os_pages_commit.exit:                             ; preds = %24, %14, %13, %7, %3
@@ -354,7 +348,7 @@ define hidden void @je_pages_mark_guards(ptr noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: nounwind
-declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_pages_unmark_guards(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -408,7 +402,7 @@ define hidden zeroext i1 @je_pages_purge_lazy(ptr noundef %0, i64 noundef %1) lo
 }
 
 ; Function Attrs: nounwind
-declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @je_pages_purge_forced(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -441,7 +435,7 @@ define hidden zeroext i1 @je_pages_nohuge(ptr noundef %0, i64 noundef %1) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @je_pages_collapse(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @je_pages_collapse(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #2 {
   ret i1 true
 }
 
@@ -576,14 +570,14 @@ madvise_MADV_DONTNEED_zeroes_pages.exit:          ; preds = %28, %30
 
 37:                                               ; preds = %madvise_MADV_DONTNEED_zeroes_pages.exit, %35, %36
   store i32 34, ptr @mmap_flags, align 4, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %38 = tail call i64 (i64, ...) @syscall(i64 noundef 2, ptr noundef nonnull @.str.10, i32 noundef 524288) #10
   %39 = trunc i64 %38 to i32
   %40 = icmp eq i32 %39, -1
   br i1 %40, label %os_overcommits_proc.exit.thread, label %.preheader.i
 
 os_overcommits_proc.exit.thread:                  ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i8 0, ptr @os_overcommits, align 1, !tbaa !8
   br label %56
 
@@ -616,7 +610,7 @@ os_overcommits_proc.exit:                         ; preds = %.preheader.i, %mall
   %50 = and i8 %49, -2
   %51 = icmp eq i8 %50, 48
   %.1.i = select i1 %48, i1 %51, i1 false
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %52 = zext i1 %.1.i to i8
   store i8 %52, ptr @os_overcommits, align 1, !tbaa !8
   br i1 %.1.i, label %53, label %56
@@ -628,7 +622,7 @@ os_overcommits_proc.exit:                         ; preds = %.preheader.i, %mall
   br label %56
 
 56:                                               ; preds = %os_overcommits_proc.exit.thread, %53, %os_overcommits_proc.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %57 = call i64 (i64, ...) @syscall(i64 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 0) #10
   %58 = trunc i64 %57 to i32
   %59 = icmp eq i32 %58, -1
@@ -698,7 +692,7 @@ malloc_read_fd.exit.i13:                          ; preds = %66, %.preheader.i7,
   br label %init_thp_state.exit
 
 init_thp_state.exit:                              ; preds = %73, %77, %81, %82
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %83 = load i8, ptr @os_overcommits, align 1, !tbaa !8, !range !10, !noundef !11
   %84 = trunc nuw i8 %83 to i1
   %spec.select = select i1 %84, i32 3, i32 0
@@ -729,7 +723,7 @@ je_pages_purge_lazy.exit.thread:                  ; preds = %87, %je_pages_purge
   br i1 %91, label %92, label %os_pages_unmap.exit
 
 92:                                               ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %93 = tail call ptr @__errno_location() #11
   %94 = load i32, ptr %93, align 4, !tbaa !4
   %95 = call i32 @je_buferror(i32 noundef %94, ptr noundef nonnull %1, i64 noundef 64) #10
@@ -743,7 +737,7 @@ je_pages_purge_lazy.exit.thread:                  ; preds = %87, %je_pages_purge
   unreachable
 
 99:                                               ; preds = %92
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %os_pages_unmap.exit
 
 os_pages_unmap.exit:                              ; preds = %init_thp_state.exit, %init_thp_state.exit, %89, %99, %7
@@ -751,51 +745,57 @@ os_pages_unmap.exit:                              ; preds = %init_thp_state.exit
   ret i1 %.04
 }
 
-declare void @je_malloc_write(ptr noundef) local_unnamed_addr #4
+declare void @je_malloc_write(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #5
+declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @je_buferror(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @je_buferror(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @je_malloc_printf(ptr noundef, ...) local_unnamed_addr #4
+declare void @je_malloc_printf(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i64 @sysconf(i32 noundef) local_unnamed_addr #2
+declare i64 @sysconf(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #2
+declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind willreturn memory(none) }

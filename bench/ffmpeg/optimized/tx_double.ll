@@ -237,16 +237,10 @@ define void @ff_tx_init_tabs_double(i32 noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ff_tx_mdct_gen_exp_double(ptr noundef captures(none) initializes((16, 24)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define range(i32 -12, 1) i32 @ff_tx_mdct_gen_exp_double(ptr noundef captures(none) initializes((16, 24)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %0, align 8, !tbaa !16
   %4 = ashr i32 %3, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -323,25 +317,25 @@ define range(i32 -12, 1) i32 @ff_tx_mdct_gen_exp_double(ptr noundef captures(non
   ret i32 %.035
 }
 
-declare ptr @av_malloc_array(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @av_malloc_array(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #4
+declare double @llvm.fabs.f64(double) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #4
+declare double @llvm.sqrt.f64(double) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.cos.f64(double) #4
+declare double @llvm.cos.f64(double) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sin.f64(double) #4
+declare double @llvm.sin.f64(double) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @ff_tx_init_tab_8_double() #6 {
+define internal void @ff_tx_init_tab_8_double() #5 {
   br label %2
 
 1:                                                ; preds = %2
@@ -358,7 +352,7 @@ define internal void @ff_tx_init_tab_8_double() #6 {
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @ff_tx_init_tab_16_double() #6 {
+define internal void @ff_tx_init_tab_16_double() #5 {
   br label %2
 
 1:                                                ; preds = %2
@@ -379,7 +373,7 @@ define internal void @ff_tx_init_tab_16_double() #6 {
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @ff_tx_init_tab_32_double() #6 {
+define internal void @ff_tx_init_tab_32_double() #5 {
   br label %2
 
 1:                                                ; preds = %2
@@ -400,7 +394,7 @@ define internal void @ff_tx_init_tab_32_double() #6 {
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @ff_tx_init_tab_64_double() #6 {
+define internal void @ff_tx_init_tab_64_double() #5 {
   br label %2
 
 1:                                                ; preds = %2
@@ -421,7 +415,7 @@ define internal void @ff_tx_init_tab_64_double() #6 {
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @ff_tx_init_tab_128_double() #6 {
+define internal void @ff_tx_init_tab_128_double() #5 {
   br label %2
 
 1:                                                ; preds = %2
@@ -442,7 +436,7 @@ define internal void @ff_tx_init_tab_128_double() #6 {
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @ff_tx_init_tab_256_double() #6 {
+define internal void @ff_tx_init_tab_256_double() #5 {
   br label %2
 
 1:                                                ; preds = %2
@@ -463,7 +457,7 @@ define internal void @ff_tx_init_tab_256_double() #6 {
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @ff_tx_init_tab_512_double() #6 {
+define internal void @ff_tx_init_tab_512_double() #5 {
   br label %2
 
 1:                                                ; preds = %2
@@ -484,7 +478,7 @@ define internal void @ff_tx_init_tab_512_double() #6 {
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @ff_tx_init_tab_1024_double() #6 {
+define internal void @ff_tx_init_tab_1024_double() #5 {
   br label %2
 
 1:                                                ; preds = %2
@@ -505,7 +499,7 @@ define internal void @ff_tx_init_tab_1024_double() #6 {
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @ff_tx_init_tab_2048_double() #6 {
+define internal void @ff_tx_init_tab_2048_double() #5 {
   br label %2
 
 1:                                                ; preds = %2
@@ -526,7 +520,7 @@ define internal void @ff_tx_init_tab_2048_double() #6 {
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @ff_tx_init_tab_4096_double() #6 {
+define internal void @ff_tx_init_tab_4096_double() #5 {
   br label %2
 
 1:                                                ; preds = %2
@@ -547,7 +541,7 @@ define internal void @ff_tx_init_tab_4096_double() #6 {
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @ff_tx_init_tab_8192_double() #6 {
+define internal void @ff_tx_init_tab_8192_double() #5 {
   br label %2
 
 1:                                                ; preds = %2
@@ -568,7 +562,7 @@ define internal void @ff_tx_init_tab_8192_double() #6 {
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @ff_tx_init_tab_16384_double() #6 {
+define internal void @ff_tx_init_tab_16384_double() #5 {
   br label %2
 
 1:                                                ; preds = %2
@@ -589,7 +583,7 @@ define internal void @ff_tx_init_tab_16384_double() #6 {
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @ff_tx_init_tab_32768_double() #6 {
+define internal void @ff_tx_init_tab_32768_double() #5 {
   br label %2
 
 1:                                                ; preds = %2
@@ -610,7 +604,7 @@ define internal void @ff_tx_init_tab_32768_double() #6 {
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @ff_tx_init_tab_65536_double() #6 {
+define internal void @ff_tx_init_tab_65536_double() #5 {
   br label %2
 
 1:                                                ; preds = %2
@@ -631,7 +625,7 @@ define internal void @ff_tx_init_tab_65536_double() #6 {
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @ff_tx_init_tab_131072_double() #6 {
+define internal void @ff_tx_init_tab_131072_double() #5 {
   br label %2
 
 1:                                                ; preds = %2
@@ -652,7 +646,7 @@ define internal void @ff_tx_init_tab_131072_double() #6 {
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @ff_tx_init_tab_262144_double() #6 {
+define internal void @ff_tx_init_tab_262144_double() #5 {
   br label %2
 
 1:                                                ; preds = %2
@@ -673,7 +667,7 @@ define internal void @ff_tx_init_tab_262144_double() #6 {
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @ff_tx_init_tab_524288_double() #6 {
+define internal void @ff_tx_init_tab_524288_double() #5 {
   br label %2
 
 1:                                                ; preds = %2
@@ -694,7 +688,7 @@ define internal void @ff_tx_init_tab_524288_double() #6 {
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @ff_tx_init_tab_1048576_double() #6 {
+define internal void @ff_tx_init_tab_1048576_double() #5 {
   br label %2
 
 1:                                                ; preds = %2
@@ -715,7 +709,7 @@ define internal void @ff_tx_init_tab_1048576_double() #6 {
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @ff_tx_init_tab_2097152_double() #6 {
+define internal void @ff_tx_init_tab_2097152_double() #5 {
   br label %2
 
 1:                                                ; preds = %2
@@ -736,7 +730,7 @@ define internal void @ff_tx_init_tab_2097152_double() #6 {
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @ff_tx_init_tab_53_double() #7 {
+define internal void @ff_tx_init_tab_53_double() #6 {
   store double 0x3FD3C6EF372FE950, ptr @ff_tx_tab_53_double, align 16, !tbaa !27
   store double 0x3FD3C6EF372FE950, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_double, i64 8), align 8, !tbaa !27
   store double 0x3FE9E3779B97F4A8, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_double, i64 16), align 16, !tbaa !27
@@ -753,7 +747,7 @@ define internal void @ff_tx_init_tab_53_double() #7 {
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @ff_tx_init_tab_9_double() #7 {
+define internal void @ff_tx_init_tab_9_double() #6 {
   store double 0xBFDFFFFFFFFFFFFC, ptr @ff_tx_tab_9_double, align 16, !tbaa !27
   store double 0x3FEBB67AE8584CAB, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_double, i64 8), align 8, !tbaa !27
   store double 0x3FE8836FA2CF5039, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_double, i64 16), align 16, !tbaa !27
@@ -766,7 +760,7 @@ define internal void @ff_tx_init_tab_9_double() #7 {
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @ff_tx_init_tab_7_double() #7 {
+define internal void @ff_tx_init_tab_7_double() #6 {
   store double 0x3FE3F3A0E28BEDD2, ptr @ff_tx_tab_7_double, align 16, !tbaa !27
   store double 0x3FE904C37505DE4B, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_double, i64 8), align 8, !tbaa !27
   store double 0x3FCC7B90E3024582, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_double, i64 16), align 16, !tbaa !27
@@ -777,7 +771,7 @@ define internal void @ff_tx_init_tab_7_double() #7 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @ff_tx_fft2_ns_double_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1, ptr noundef readonly captures(none) %2, i64 %3) #8 {
+define internal void @ff_tx_fft2_ns_double_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1, ptr noundef readonly captures(none) %2, i64 %3) #7 {
   %5 = load double, ptr %2, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load double, ptr %6, align 8, !tbaa !50
@@ -806,10 +800,10 @@ define internal i32 @ff_tx_fft_sr_codelet_init_double_c(ptr noundef %0, ptr read
   ret i32 %8
 }
 
-declare i32 @ff_tx_gen_ptwo_revtab(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ff_tx_gen_ptwo_revtab(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @ff_tx_fft4_ns_double_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 64)) %1, ptr noundef readonly captures(none) %2, i64 %3) #8 {
+define internal void @ff_tx_fft4_ns_double_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 64)) %1, ptr noundef readonly captures(none) %2, i64 %3) #7 {
   %5 = load double, ptr %2, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load double, ptr %6, align 8, !tbaa !50
@@ -860,7 +854,7 @@ define internal void @ff_tx_fft4_ns_double_c(ptr readnone captures(none) %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft8_ns_double_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 128)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
+define internal void @ff_tx_fft8_ns_double_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 128)) %1, ptr noundef readonly captures(none) %2, i64 %3) #8 {
   %5 = load double, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_8_double, i64 8), align 8, !tbaa !27
   %6 = load double, ptr %2, align 8, !tbaa !50
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -994,10 +988,10 @@ define internal void @ff_tx_fft8_ns_double_c(ptr readnone captures(none) %0, ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft16_ns_double_c(ptr readnone captures(none) %0, ptr noundef captures(none) initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
+define internal void @ff_tx_fft16_ns_double_c(ptr readnone captures(none) %0, ptr noundef captures(none) initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #8 {
   %5 = load double, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_16_double, i64 8), align 8, !tbaa !27
   %6 = load double, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_16_double, i64 16), align 16, !tbaa !27
   %7 = load double, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_16_double, i64 24), align 8, !tbaa !27
@@ -1240,7 +1234,7 @@ define internal void @ff_tx_fft16_ns_double_c(ptr readnone captures(none) %0, pt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft32_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #10 {
+define internal void @ff_tx_fft32_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft16_ns_double_c(ptr poison, ptr noundef %1, ptr noundef %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 256
@@ -1253,7 +1247,7 @@ define internal void @ff_tx_fft32_ns_double_c(ptr readnone captures(none) %0, pt
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ff_tx_fft_sr_combine_double_c(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #11 {
+define internal fastcc void @ff_tx_fft_sr_combine_double_c(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #10 {
   %4 = shl nsw i32 %2, 1
   %5 = sext i32 %4 to i64
   %6 = icmp sgt i32 %2, 0
@@ -1674,7 +1668,7 @@ define internal fastcc void @ff_tx_fft_sr_combine_double_c(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft64_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #10 {
+define internal void @ff_tx_fft64_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft16_ns_double_c(ptr readnone poison, ptr noundef %1, ptr noundef readonly %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 256
@@ -1694,7 +1688,7 @@ define internal void @ff_tx_fft64_ns_double_c(ptr readnone captures(none) %0, pt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft128_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #10 {
+define internal void @ff_tx_fft128_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft16_ns_double_c(ptr readnone poison, ptr noundef %1, ptr noundef readonly %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 256
@@ -1735,7 +1729,7 @@ define internal void @ff_tx_fft128_ns_double_c(ptr readnone captures(none) %0, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft256_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #10 {
+define internal void @ff_tx_fft256_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft128_ns_double_c(ptr poison, ptr noundef %1, ptr noundef %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2048
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 2048
@@ -1776,7 +1770,7 @@ define internal void @ff_tx_fft256_ns_double_c(ptr readnone captures(none) %0, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft512_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #10 {
+define internal void @ff_tx_fft512_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft256_ns_double_c(ptr poison, ptr noundef %1, ptr noundef %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4096
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4096
@@ -1789,7 +1783,7 @@ define internal void @ff_tx_fft512_ns_double_c(ptr readnone captures(none) %0, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft1024_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #10 {
+define internal void @ff_tx_fft1024_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft256_ns_double_c(ptr readnone poison, ptr noundef %1, ptr noundef readonly %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4096
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4096
@@ -1809,7 +1803,7 @@ define internal void @ff_tx_fft1024_ns_double_c(ptr readnone captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft2048_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #10 {
+define internal void @ff_tx_fft2048_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft256_ns_double_c(ptr readnone poison, ptr noundef %1, ptr noundef readonly %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4096
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4096
@@ -1850,7 +1844,7 @@ define internal void @ff_tx_fft2048_ns_double_c(ptr readnone captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft4096_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #10 {
+define internal void @ff_tx_fft4096_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft2048_ns_double_c(ptr poison, ptr noundef %1, ptr noundef %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32768
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32768
@@ -1891,7 +1885,7 @@ define internal void @ff_tx_fft4096_ns_double_c(ptr readnone captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft8192_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #10 {
+define internal void @ff_tx_fft8192_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft4096_ns_double_c(ptr poison, ptr noundef %1, ptr noundef %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 65536
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 65536
@@ -1904,7 +1898,7 @@ define internal void @ff_tx_fft8192_ns_double_c(ptr readnone captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft16384_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #10 {
+define internal void @ff_tx_fft16384_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft4096_ns_double_c(ptr readnone poison, ptr noundef %1, ptr noundef readonly %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 65536
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 65536
@@ -1924,7 +1918,7 @@ define internal void @ff_tx_fft16384_ns_double_c(ptr readnone captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft32768_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #10 {
+define internal void @ff_tx_fft32768_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft4096_ns_double_c(ptr readnone poison, ptr noundef %1, ptr noundef readonly %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 65536
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 65536
@@ -1965,7 +1959,7 @@ define internal void @ff_tx_fft32768_ns_double_c(ptr readnone captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft65536_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #10 {
+define internal void @ff_tx_fft65536_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft32768_ns_double_c(ptr poison, ptr noundef %1, ptr noundef %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 524288
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 524288
@@ -2006,7 +2000,7 @@ define internal void @ff_tx_fft65536_ns_double_c(ptr readnone captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft131072_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #10 {
+define internal void @ff_tx_fft131072_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft65536_ns_double_c(ptr poison, ptr noundef %1, ptr noundef %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 1048576
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 1048576
@@ -2019,7 +2013,7 @@ define internal void @ff_tx_fft131072_ns_double_c(ptr readnone captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft262144_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #10 {
+define internal void @ff_tx_fft262144_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft65536_ns_double_c(ptr readnone poison, ptr noundef %1, ptr noundef readonly %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 1048576
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 1048576
@@ -2039,7 +2033,7 @@ define internal void @ff_tx_fft262144_ns_double_c(ptr readnone captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft524288_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #10 {
+define internal void @ff_tx_fft524288_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft65536_ns_double_c(ptr readnone poison, ptr noundef %1, ptr noundef readonly %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 1048576
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 1048576
@@ -2080,7 +2074,7 @@ define internal void @ff_tx_fft524288_ns_double_c(ptr readnone captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft1048576_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #10 {
+define internal void @ff_tx_fft1048576_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft524288_ns_double_c(ptr poison, ptr noundef %1, ptr noundef %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8388608
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8388608
@@ -2121,7 +2115,7 @@ define internal void @ff_tx_fft1048576_ns_double_c(ptr readnone captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft2097152_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #10 {
+define internal void @ff_tx_fft2097152_ns_double_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 256)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft1048576_ns_double_c(ptr poison, ptr noundef %1, ptr noundef %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16777216
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16777216
@@ -2134,7 +2128,7 @@ define internal void @ff_tx_fft2097152_ns_double_c(ptr readnone captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft3_double_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #9 {
+define internal void @ff_tx_fft3_double_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #8 {
   %5 = lshr i64 %3, 4
   %.sroa.0.0.copyload.i = load double, ptr %2, align 8, !tbaa !27
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2205,12 +2199,12 @@ define internal i32 @ff_tx_fft_factor_init_double_c(ptr noundef %0, ptr readnone
   ret i32 %.0
 }
 
-declare i32 @ff_tx_gen_pfa_input_map(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ff_tx_gen_pfa_input_map(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ff_tx_gen_default_map(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ff_tx_gen_default_map(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft5_double_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #9 {
+define internal void @ff_tx_fft5_double_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #8 {
   %5 = lshr i64 %3, 4
   %.sroa.042.0.copyload.i = load double, ptr %2, align 8, !tbaa !27
   %.sroa.847.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2311,7 +2305,7 @@ define internal void @ff_tx_fft5_double_c(ptr readnone captures(none) %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft7_double_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #9 {
+define internal void @ff_tx_fft7_double_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #8 {
   %5 = lshr i64 %3, 4
   %.sroa.097.0.copyload.i = load double, ptr %2, align 8, !tbaa !27
   %.sroa.10104.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2468,7 +2462,7 @@ define internal void @ff_tx_fft7_double_c(ptr readnone captures(none) %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft9_double_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #9 {
+define internal void @ff_tx_fft9_double_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #8 {
   %5 = lshr i64 %3, 4
   %.sroa.0117.0.copyload.i = load double, ptr %2, align 8, !tbaa !27
   %.sroa.5119.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2655,9 +2649,9 @@ define internal void @ff_tx_fft9_double_c(ptr readnone captures(none) %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft15_double_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #12 {
+define internal void @ff_tx_fft15_double_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #11 {
   %5 = alloca [15 x %struct.AVComplexDouble], align 16
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load double, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_double, i64 64), align 16, !tbaa !27
   %7 = load double, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_double, i64 72), align 8, !tbaa !27
   %8 = load double, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_double, i64 80), align 16, !tbaa !27
@@ -3005,12 +2999,12 @@ fft15.exit:                                       ; preds = %9
   %281 = fadd nsz double %.sroa.847.0.copyload.i11, %262
   %282 = getelementptr inbounds nuw i8, ptr %280, i64 8
   store double %281, ptr %282, align 8, !tbaa !52
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_fft_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #3 {
+define internal void @ff_tx_fft_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load i64, ptr %5, align 8, !tbaa !55
   %7 = and i64 %6, 1
@@ -3065,7 +3059,7 @@ define internal i32 @ff_tx_fft_init_double_c(ptr noundef %0, ptr readnone captur
   %8 = alloca %struct.FFTXCodeletOptions, align 4
   %9 = and i64 %2, 1
   %.not = icmp eq i64 %9, 0
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = select i1 %.not, i32 1, i32 2
   store i32 %10, ptr %8, align 4, !tbaa !60
   %11 = and i64 %2, 6917529027641081854
@@ -3087,19 +3081,19 @@ define internal i32 @ff_tx_fft_init_double_c(ptr noundef %0, ptr readnone captur
 
 18:                                               ; preds = %15, %7, %17
   %.0 = phi i32 [ 0, %17 ], [ %13, %7 ], [ %16, %15 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
-declare i32 @ff_tx_init_subtx(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ff_tx_init_subtx(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ff_tx_gen_inplace_map(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ff_tx_gen_inplace_map(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_fft_inplace_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #3 {
+define internal void @ff_tx_fft_inplace_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #2 {
   %5 = alloca %struct.AVComplexDouble, align 8
   %6 = alloca %struct.AVComplexDouble, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !57
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3121,13 +3115,13 @@ define internal void @ff_tx_fft_inplace_double_c(ptr noundef readonly captures(n
 
 19:                                               ; preds = %19, %14
   %.0 = phi i32 [ %18, %14 ], [ %23, %19 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = sext i32 %.0 to i64
   %21 = getelementptr inbounds %struct.AVComplexDouble, ptr %2, i64 %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !29
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %22 = getelementptr inbounds i32, ptr %10, i64 %20
   %23 = load i32, ptr %22, align 4, !tbaa !10
   %.not = icmp eq i32 %23, %.024
@@ -3145,7 +3139,7 @@ define internal void @ff_tx_fft_inplace_double_c(ptr noundef readonly captures(n
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   %29 = load ptr, ptr %7, align 8, !tbaa !57
   tail call void %28(ptr noundef %29, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %3) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -3169,10 +3163,10 @@ define internal i32 @ff_tx_fft_inplace_small_init_double_c(ptr noundef initializ
   ret i32 %.0
 }
 
-declare noalias ptr @av_malloc(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @av_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_fft_pfa_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #3 {
+define internal void @ff_tx_fft_pfa_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !57
   %7 = load i32, ptr %6, align 8, !tbaa !16
@@ -3309,9 +3303,9 @@ define internal void @ff_tx_fft_pfa_double_c(ptr noundef readonly captures(none)
 define internal i32 @ff_tx_fft_pfa_init_double_c(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) #0 {
   %8 = alloca %struct.FFTXCodeletOptions, align 4
   %9 = alloca [512 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 1, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = call i32 @ff_tx_decompose_length(ptr noundef nonnull %9, i32 noundef 2, i32 noundef %4, i32 noundef %5) #16
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %.thread142, label %.preheader149
@@ -3496,19 +3490,19 @@ define internal i32 @ff_tx_fft_pfa_init_double_c(ptr noundef %0, ptr readnone ca
 
 .thread142:                                       ; preds = %.loopexit, %.lr.ph161, %22, %28, %37, %44, %92, %55, %.thread147, %7, %96
   %.097 = phi i32 [ 0, %96 ], [ %10, %7 ], [ %54, %.thread147 ], [ -12, %55 ], [ -12, %92 ], [ -12, %44 ], [ -12, %37 ], [ %.2110, %.loopexit ], [ -12, %.lr.ph161 ], [ -12, %22 ], [ -12, %28 ]
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.097
 }
 
-declare i32 @ff_tx_decompose_length(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ff_tx_decompose_length(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ff_tx_clear_ctx(ptr noundef) local_unnamed_addr #2
+declare void @ff_tx_clear_ctx(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ff_tx_gen_compound_mapping(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ff_tx_gen_compound_mapping(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_fft_pfa_ns_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i64 noundef %3) #3 {
+define internal void @ff_tx_fft_pfa_ns_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i64 noundef %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !57
   %7 = load i32, ptr %6, align 8, !tbaa !16
@@ -3606,7 +3600,7 @@ define internal void @ff_tx_fft_pfa_ns_double_c(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @ff_tx_fft_naive_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #13 {
+define internal void @ff_tx_fft_naive_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #12 {
   %5 = load i32, ptr %0, align 8, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !77
@@ -3668,7 +3662,7 @@ define internal void @ff_tx_fft_naive_double_c(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @ff_tx_fft_naive_small_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #12 {
+define internal void @ff_tx_fft_naive_small_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #11 {
   %5 = load i32, ptr %0, align 8, !tbaa !16
   %6 = lshr i64 %3, 4
   %7 = icmp sgt i32 %5, 0
@@ -3781,7 +3775,7 @@ define internal range(i32 -12, 1) i32 @ff_tx_fft_init_naive_small_double_c(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_mdct_fwd_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #3 {
+define internal void @ff_tx_mdct_fwd_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !26
   %7 = load i32, ptr %0, align 8, !tbaa !16
@@ -3941,7 +3935,7 @@ define internal void @ff_tx_mdct_fwd_double_c(ptr noundef readonly captures(none
 ; Function Attrs: cold nounwind optsize uwtable
 define internal i32 @ff_tx_mdct_init_double_c(ptr noundef initializes((140, 152)) %0, ptr readnone captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) #0 {
   %8 = alloca %struct.FFTXCodeletOptions, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq i32 %5, 0
   %9 = select i1 %.not, i32 2, i32 1
   store i32 %9, ptr %8, align 4, !tbaa !60
@@ -4036,12 +4030,12 @@ define internal i32 @ff_tx_mdct_init_double_c(ptr noundef initializes((140, 152)
 
 .loopexit:                                        ; preds = %42, %.preheader, %.loopexit54, %21, %18
   %.044 = phi i32 [ %20, %18 ], [ -12, %21 ], [ %38, %.loopexit54 ], [ 0, %.preheader ], [ 0, %42 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.044
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_mdct_inv_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #3 {
+define internal void @ff_tx_mdct_inv_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !26
   %7 = load i32, ptr %0, align 8, !tbaa !16
@@ -4155,9 +4149,9 @@ define internal void @ff_tx_mdct_inv_double_c(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_mdct_pfa_3xM_fwd_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #3 {
+define internal void @ff_tx_mdct_pfa_3xM_fwd_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = alloca [3 x %struct.AVComplexDouble], align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4340,7 +4334,7 @@ define internal void @ff_tx_mdct_pfa_3xM_fwd_double_c(ptr noundef readonly captu
   br i1 %exitcond150.not, label %.preheader, label %124, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %130, %.preheader
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 130:                                              ; preds = %.lr.ph, %130
@@ -4405,7 +4399,7 @@ define internal void @ff_tx_mdct_pfa_3xM_fwd_double_c(ptr noundef readonly captu
 define internal i32 @ff_tx_mdct_pfa_init_double_c(ptr noundef initializes((140, 152)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) #0 {
   %8 = alloca %struct.FFTXCodeletOptions, align 4
   %9 = alloca [15 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 2, ptr %8, align 4
   %10 = ashr i32 %4, 1
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -4437,7 +4431,7 @@ define internal i32 @ff_tx_mdct_pfa_init_double_c(ptr noundef initializes((140, 
   br i1 %28, label %29, label %49
 
 29:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %30 = icmp sgt i32 %10, 0
   br i1 %30, label %.lr.ph, label %._crit_edge
 
@@ -4448,7 +4442,7 @@ define internal i32 @ff_tx_mdct_pfa_init_double_c(ptr noundef initializes((140, 
   br label %34
 
 ._crit_edge:                                      ; preds = %37, %29
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %49
 
 34:                                               ; preds = %.lr.ph, %37
@@ -4540,14 +4534,14 @@ define internal i32 @ff_tx_mdct_pfa_init_double_c(ptr noundef initializes((140, 
 
 69:                                               ; preds = %._crit_edge69, %53, %21, %7, %67
   %.054 = phi i32 [ 0, %67 ], [ %20, %7 ], [ %25, %21 ], [ %55, %53 ], [ -12, %._crit_edge69 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.054
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_mdct_pfa_5xM_fwd_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #3 {
+define internal void @ff_tx_mdct_pfa_5xM_fwd_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = alloca [5 x %struct.AVComplexDouble], align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4783,7 +4777,7 @@ define internal void @ff_tx_mdct_pfa_5xM_fwd_double_c(ptr noundef readonly captu
   br i1 %exitcond150.not, label %.preheader, label %171, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %177, %.preheader
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 177:                                              ; preds = %.lr.ph, %177
@@ -4845,9 +4839,9 @@ define internal void @ff_tx_mdct_pfa_5xM_fwd_double_c(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_mdct_pfa_7xM_fwd_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #3 {
+define internal void @ff_tx_mdct_pfa_7xM_fwd_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = alloca [7 x %struct.AVComplexDouble], align 16
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5139,7 +5133,7 @@ define internal void @ff_tx_mdct_pfa_7xM_fwd_double_c(ptr noundef readonly captu
   br i1 %exitcond150.not, label %.preheader, label %221, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %227, %.preheader
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 227:                                              ; preds = %.lr.ph, %227
@@ -5201,9 +5195,9 @@ define internal void @ff_tx_mdct_pfa_7xM_fwd_double_c(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_mdct_pfa_9xM_fwd_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #3 {
+define internal void @ff_tx_mdct_pfa_9xM_fwd_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = alloca [9 x %struct.AVComplexDouble], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5525,7 +5519,7 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_double_c(ptr noundef readonly captu
   br i1 %exitcond150.not, label %.preheader, label %237, !llvm.loop !109
 
 ._crit_edge:                                      ; preds = %243, %.preheader
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 243:                                              ; preds = %.lr.ph, %243
@@ -5587,10 +5581,10 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_double_c(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_mdct_pfa_15xM_fwd_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #3 {
+define internal void @ff_tx_mdct_pfa_15xM_fwd_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = alloca [15 x %struct.AVComplexDouble], align 16
   %6 = alloca [15 x %struct.AVComplexDouble], align 16
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5674,7 +5668,7 @@ define internal void @ff_tx_mdct_pfa_15xM_fwd_double_c(ptr noundef readonly capt
 57:                                               ; preds = %352
   %58 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv162
   %59 = load i32, ptr %58, align 4, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %60 = load double, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_double, i64 64), align 16, !tbaa !27
   %61 = load double, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_double, i64 72), align 8, !tbaa !27
   %62 = load double, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_double, i64 80), align 16, !tbaa !27
@@ -5981,7 +5975,7 @@ fft15.exit:                                       ; preds = %63
   %310 = fadd nsz double %.sroa.847.0.copyload.i145, %291
   %311 = getelementptr inbounds nuw i8, ptr %309, i64 8
   store double %310, ptr %311, align 8, !tbaa !52
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next163, %27
   br i1 %exitcond165.not, label %.preheader150, label %.preheader151, !llvm.loop !111
@@ -6079,7 +6073,7 @@ fft15.exit:                                       ; preds = %63
   br i1 %exitcond169.not, label %.preheader, label %369, !llvm.loop !113
 
 ._crit_edge:                                      ; preds = %375, %.preheader
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 375:                                              ; preds = %.lr.ph, %375
@@ -6141,9 +6135,9 @@ fft15.exit:                                       ; preds = %63
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_mdct_pfa_3xM_inv_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #3 {
+define internal void @ff_tx_mdct_pfa_3xM_inv_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = alloca [3 x %struct.AVComplexDouble], align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !26
   %8 = load i32, ptr %0, align 8, !tbaa !16
@@ -6298,7 +6292,7 @@ define internal void @ff_tx_mdct_pfa_3xM_inv_double_c(ptr noundef readonly captu
   br i1 %exitcond125.not, label %.preheader, label %100, !llvm.loop !117
 
 ._crit_edge:                                      ; preds = %106, %.preheader
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 106:                                              ; preds = %.lr.ph, %106
@@ -6354,9 +6348,9 @@ define internal void @ff_tx_mdct_pfa_3xM_inv_double_c(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_mdct_pfa_5xM_inv_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #3 {
+define internal void @ff_tx_mdct_pfa_5xM_inv_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = alloca [5 x %struct.AVComplexDouble], align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !26
   %8 = load i32, ptr %0, align 8, !tbaa !16
@@ -6564,7 +6558,7 @@ define internal void @ff_tx_mdct_pfa_5xM_inv_double_c(ptr noundef readonly captu
   br i1 %exitcond125.not, label %.preheader, label %147, !llvm.loop !121
 
 ._crit_edge:                                      ; preds = %153, %.preheader
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 153:                                              ; preds = %.lr.ph, %153
@@ -6620,9 +6614,9 @@ define internal void @ff_tx_mdct_pfa_5xM_inv_double_c(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_mdct_pfa_7xM_inv_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #3 {
+define internal void @ff_tx_mdct_pfa_7xM_inv_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = alloca [7 x %struct.AVComplexDouble], align 16
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !26
   %8 = load i32, ptr %0, align 8, !tbaa !16
@@ -6886,7 +6880,7 @@ define internal void @ff_tx_mdct_pfa_7xM_inv_double_c(ptr noundef readonly captu
   br i1 %exitcond125.not, label %.preheader, label %197, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %203, %.preheader
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 203:                                              ; preds = %.lr.ph, %203
@@ -6942,9 +6936,9 @@ define internal void @ff_tx_mdct_pfa_7xM_inv_double_c(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_mdct_pfa_9xM_inv_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #3 {
+define internal void @ff_tx_mdct_pfa_9xM_inv_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = alloca [9 x %struct.AVComplexDouble], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !26
   %8 = load i32, ptr %0, align 8, !tbaa !16
@@ -7238,7 +7232,7 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_double_c(ptr noundef readonly captu
   br i1 %exitcond125.not, label %.preheader, label %213, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %219, %.preheader
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 219:                                              ; preds = %.lr.ph, %219
@@ -7294,10 +7288,10 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_double_c(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_mdct_pfa_15xM_inv_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #3 {
+define internal void @ff_tx_mdct_pfa_15xM_inv_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = alloca [15 x %struct.AVComplexDouble], align 16
   %6 = alloca [15 x %struct.AVComplexDouble], align 16
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !26
   %9 = load i32, ptr %0, align 8, !tbaa !16
@@ -7390,7 +7384,7 @@ define internal void @ff_tx_mdct_pfa_15xM_inv_double_c(ptr noundef readonly capt
 
 60:                                               ; preds = %319
   %61 = load i32, ptr %.0106131, align 4, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %62 = load double, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_double, i64 64), align 16, !tbaa !27
   %63 = load double, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_double, i64 72), align 8, !tbaa !27
   %64 = load double, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_double, i64 80), align 16, !tbaa !27
@@ -7698,7 +7692,7 @@ fft15.exit:                                       ; preds = %65
   %313 = fadd nsz double %.sroa.847.0.copyload.i121, %294
   %314 = getelementptr inbounds nuw i8, ptr %312, i64 8
   store double %313, ptr %314, align 8, !tbaa !52
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %315 = getelementptr inbounds nuw i8, ptr %.0133, i64 240
   %316 = getelementptr inbounds nuw i8, ptr %.0105132, i64 60
   %317 = add nuw nsw i32 %.0107130, 15
@@ -7758,7 +7752,7 @@ fft15.exit:                                       ; preds = %65
   br i1 %exitcond144.not, label %.preheader, label %345, !llvm.loop !133
 
 ._crit_edge:                                      ; preds = %351, %.preheader
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 351:                                              ; preds = %.lr.ph, %351
@@ -7814,7 +7808,7 @@ fft15.exit:                                       ; preds = %65
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @ff_tx_mdct_naive_fwd_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #13 {
+define internal void @ff_tx_mdct_naive_fwd_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #12 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load double, ptr %5, align 8, !tbaa !25
   %7 = load i32, ptr %0, align 8, !tbaa !16
@@ -7870,7 +7864,7 @@ define internal void @ff_tx_mdct_naive_fwd_double_c(ptr noundef readonly capture
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ff_tx_mdct_naive_init_double_c(ptr noundef writeonly captures(none) initializes((140, 152)) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, i32 %4, i32 %5, ptr noundef readonly captures(none) %6) #14 {
+define internal noundef i32 @ff_tx_mdct_naive_init_double_c(ptr noundef writeonly captures(none) initializes((140, 152)) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, i32 %4, i32 %5, ptr noundef readonly captures(none) %6) #13 {
   %8 = load double, ptr %6, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store double %8, ptr %9, align 8, !tbaa !25
@@ -7881,7 +7875,7 @@ define internal noundef i32 @ff_tx_mdct_naive_init_double_c(ptr noundef writeonl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @ff_tx_mdct_naive_inv_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #13 {
+define internal void @ff_tx_mdct_naive_inv_double_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #12 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load double, ptr %5, align 8, !tbaa !25
   %7 = load i32, ptr %0, align 8, !tbaa !16
@@ -7955,7 +7949,7 @@ define internal void @ff_tx_mdct_naive_inv_double_c(ptr noundef readonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_mdct_inv_full_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #3 {
+define internal void @ff_tx_mdct_inv_full_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #2 {
   %5 = load i32, ptr %0, align 8, !tbaa !16
   %6 = shl i32 %5, 1
   %7 = ashr i32 %6, 2
@@ -8019,7 +8013,7 @@ define internal i32 @ff_tx_mdct_inv_full_init_double_c(ptr noundef initializes((
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_rdft_r2c_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #3 {
+define internal void @ff_tx_rdft_r2c_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #2 {
   %5 = load i32, ptr %0, align 8, !tbaa !16
   %6 = ashr i32 %5, 1
   %7 = ashr i32 %5, 2
@@ -8253,10 +8247,10 @@ define internal i32 @ff_tx_rdft_init_double_c(ptr noundef initializes((140, 152)
   ret i32 %.061
 }
 
-declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_rdft_r2r_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #3 {
+define internal void @ff_tx_rdft_r2r_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #2 {
   %5 = load i32, ptr %0, align 8, !tbaa !16
   %6 = ashr i32 %5, 1
   %7 = ashr i32 %5, 2
@@ -8382,7 +8376,7 @@ define internal void @ff_tx_rdft_r2r_double_c(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_rdft_r2r_mod2_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #3 {
+define internal void @ff_tx_rdft_r2r_mod2_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #2 {
   %5 = load i32, ptr %0, align 8, !tbaa !16
   %6 = ashr i32 %5, 1
   %7 = ashr i32 %5, 2
@@ -8531,7 +8525,7 @@ define internal void @ff_tx_rdft_r2r_mod2_double_c(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_rdft_r2i_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #3 {
+define internal void @ff_tx_rdft_r2i_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #2 {
   %5 = load i32, ptr %0, align 8, !tbaa !16
   %6 = ashr i32 %5, 1
   %7 = ashr i32 %5, 2
@@ -8645,7 +8639,7 @@ define internal void @ff_tx_rdft_r2i_double_c(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_rdft_r2i_mod2_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #3 {
+define internal void @ff_tx_rdft_r2i_mod2_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #2 {
   %5 = load i32, ptr %0, align 8, !tbaa !16
   %6 = ashr i32 %5, 1
   %7 = ashr i32 %5, 2
@@ -8777,7 +8771,7 @@ define internal void @ff_tx_rdft_r2i_mod2_double_c(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_rdft_c2r_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #3 {
+define internal void @ff_tx_rdft_c2r_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #2 {
   %5 = load i32, ptr %0, align 8, !tbaa !16
   %6 = ashr i32 %5, 1
   %7 = ashr i32 %5, 2
@@ -8879,7 +8873,7 @@ define internal void @ff_tx_rdft_c2r_double_c(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_dctII_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #3 {
+define internal void @ff_tx_dctII_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #2 {
   %5 = load i32, ptr %0, align 8, !tbaa !16
   %6 = ashr i32 %5, 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8971,7 +8965,7 @@ define internal void @ff_tx_dctII_double_c(ptr noundef readonly captures(none) %
 ; Function Attrs: cold nounwind optsize uwtable
 define internal i32 @ff_tx_dct_init_double_c(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) #0 {
   %8 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load double, ptr %6, align 8, !tbaa !27
   store double %9, ptr %8, align 8, !tbaa !27
   %.not = icmp eq i32 %5, 0
@@ -9083,12 +9077,12 @@ define internal i32 @ff_tx_dct_init_double_c(ptr noundef %0, ptr readnone captur
 
 .loopexit:                                        ; preds = %.lr.ph52, %.lr.ph54, %.preheader48, %.preheader, %17, %15
   %.042 = phi i32 [ %16, %15 ], [ -12, %17 ], [ 0, %.preheader ], [ 0, %.preheader48 ], [ 0, %.lr.ph54 ], [ 0, %.lr.ph52 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.042
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_dctIII_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #3 {
+define internal void @ff_tx_dctIII_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #2 {
   %5 = load i32, ptr %0, align 8, !tbaa !16
   %6 = ashr i32 %5, 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9171,7 +9165,7 @@ define internal void @ff_tx_dctIII_double_c(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_dctI_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #3 {
+define internal void @ff_tx_dctI_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = load i32, ptr %0, align 8, !tbaa !16
   %6 = add i32 %5, -1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9218,7 +9212,7 @@ define internal void @ff_tx_dctI_double_c(ptr noundef readonly captures(none) %0
 ; Function Attrs: cold nounwind optsize uwtable
 define internal i32 @ff_tx_dcstI_init_double_c(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) #0 {
   %8 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load double, ptr %6, align 8, !tbaa !27
   store double %9, ptr %8, align 8, !tbaa !27
   %.not = icmp eq i32 %5, 0
@@ -9263,12 +9257,12 @@ define internal i32 @ff_tx_dcstI_init_double_c(ptr noundef %0, ptr noundef reado
 
 34:                                               ; preds = %27, %15
   %.0 = phi i32 [ %26, %15 ], [ %., %27 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ff_tx_dstI_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #3 {
+define internal void @ff_tx_dstI_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = load i32, ptr %0, align 8, !tbaa !16
   %6 = add i32 %5, 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9312,6 +9306,12 @@ define internal void @ff_tx_dstI_double_c(ptr noundef readonly captures(none) %0
   br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !163
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #15
 
@@ -9319,20 +9319,20 @@ declare i32 @llvm.ctpop.i32(i32) #15
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #15
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nounwind }
 attributes #17 = { cold }

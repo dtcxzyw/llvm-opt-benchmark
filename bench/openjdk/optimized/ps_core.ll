@@ -776,7 +776,7 @@ define internal fastcc range(i32 0, 2) i32 @read_shared_lib_info(ptr noundef non
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i64 %33, ptr %35, align 8
   call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.50, i64 noundef %33) #15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %36 = load ptr, ptr %11, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i32, ptr %37, align 8
@@ -797,11 +797,11 @@ define internal fastcc range(i32 0, 2) i32 @read_shared_lib_info(ptr noundef non
 read_interp_segments.exit.thread:                 ; preds = %32, %40
   %.str.61.sink.i = phi ptr [ @.str.60, %32 ], [ @.str.61, %40 ]
   call void (ptr, ...) @print_debug(ptr noundef nonnull %.str.61.sink.i) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 47:                                               ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %48 = call fastcc i32 @sort_map_array(ptr noundef %0)
   %.not37.not = icmp eq i32 %48, 0
   br i1 %.not37.not, label %.loopexit, label %49
@@ -1306,10 +1306,10 @@ declare i64 @llvm.smin.i64(i64, i64) #12
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12

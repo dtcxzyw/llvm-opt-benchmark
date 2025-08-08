@@ -144,17 +144,11 @@ define dso_local void @addReplyPubsubMessage(ptr noundef %0, ptr noundef %1, ptr
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @addReply(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @addReply(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @addReplyPushLen(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @addReplyPushLen(ptr noundef, i64 noundef) local_unnamed_addr #4
-
-declare void @addReplyBulk(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @addReplyBulk(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @addReplyPubsubPatMessage(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
@@ -241,7 +235,7 @@ define dso_local void @addReplyPubsubSubscribed(ptr noundef %0, ptr noundef %1, 
   ret void
 }
 
-declare void @addReplyLongLong(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @addReplyLongLong(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @addReplyPubsubUnsubscribed(ptr noundef %0, ptr noundef %1, ptr noundef readonly byval(%struct.pubsubtype) align 8 captures(none) %2) local_unnamed_addr #2 {
@@ -299,7 +293,7 @@ define dso_local void @addReplyPubsubUnsubscribed(ptr noundef %0, ptr noundef %1
   ret void
 }
 
-declare void @addReplyNull(ptr noundef) local_unnamed_addr #4
+declare void @addReplyNull(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @addReplyPubsubPatSubscribed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
@@ -439,7 +433,7 @@ define dso_local i32 @serverPubsubSubscriptionCount() local_unnamed_addr #2 {
   ret i32 %10
 }
 
-declare i64 @kvstoreSize(ptr noundef) local_unnamed_addr #4
+declare i64 @kvstoreSize(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @serverPubsubShardSubscriptionCount() local_unnamed_addr #2 {
@@ -480,7 +474,7 @@ define dso_local i32 @clientTotalPubSubSubscriptionCount(ptr noundef readonly ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @markClientAsPubSub(ptr noundef captures(none) %0) local_unnamed_addr #5 {
+define dso_local void @markClientAsPubSub(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !31
   %4 = and i64 %3, 262144
@@ -500,7 +494,7 @@ define dso_local void @markClientAsPubSub(ptr noundef captures(none) %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @unmarkClientAsPubSub(ptr noundef captures(none) %0) local_unnamed_addr #5 {
+define dso_local void @unmarkClientAsPubSub(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !31
   %4 = and i64 %3, 262144
@@ -522,7 +516,7 @@ define dso_local void @unmarkClientAsPubSub(ptr noundef captures(none) %0) local
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @pubsubSubscribeChannel(ptr noundef %0, ptr noundef %1, ptr noundef readonly byval(%struct.pubsubtype) align 8 captures(none) %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !67
   %7 = tail call ptr %6(ptr noundef %0) #9
@@ -637,34 +631,34 @@ define dso_local range(i32 0, 2) i32 @pubsubSubscribeChannel(ptr noundef %0, ptr
   br label %addReplyPubsubSubscribed.exit
 
 addReplyPubsubSubscribed.exit:                    ; preds = %49, %54
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.021
 }
 
-declare ptr @dictFindPositionForInsert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @dictFindPositionForInsert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @getKeySlot(ptr noundef) local_unnamed_addr #4
+declare i32 @getKeySlot(ptr noundef) local_unnamed_addr #3
 
-declare ptr @kvstoreDictAddRaw(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @kvstoreDictAddRaw(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #4
+declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #3
 
-declare ptr @dictGetKey(ptr noundef) local_unnamed_addr #4
+declare ptr @dictGetKey(ptr noundef) local_unnamed_addr #3
 
-declare ptr @dictCreate(ptr noundef) local_unnamed_addr #4
+declare ptr @dictCreate(ptr noundef) local_unnamed_addr #3
 
-declare void @kvstoreDictSetVal(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @kvstoreDictSetVal(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @incrRefCount(ptr noundef) local_unnamed_addr #4
+declare void @incrRefCount(ptr noundef) local_unnamed_addr #3
 
-declare i32 @dictAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @dictAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #6
+declare void @abort() local_unnamed_addr #5
 
-declare ptr @dictInsertAtPosition(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @dictInsertAtPosition(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @pubsubUnsubscribeChannel(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly byval(%struct.pubsubtype) align 8 captures(none) %3) local_unnamed_addr #2 {
@@ -790,15 +784,15 @@ addReplyPubsubUnsubscribed.exit:                  ; preds = %59, %55, %40
   ret i32 %.022
 }
 
-declare i32 @dictDelete(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @dictDelete(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @kvstoreDictFind(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @kvstoreDictFind(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @_serverAssertWithInfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @_serverAssertWithInfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @kvstoreDictDelete(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @kvstoreDictDelete(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @decrRefCount(ptr noundef) local_unnamed_addr #4
+declare void @decrRefCount(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pubsubShardUnsubscribeAllChannelsInSlot(i32 noundef %0) local_unnamed_addr #2 {
@@ -952,19 +946,19 @@ unmarkClientAsPubSub.exit:                        ; preds = %70, %67, %addReplyP
   ret void
 }
 
-declare i64 @kvstoreDictSize(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @kvstoreDictSize(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @kvstoreGetDictSafeIterator(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @kvstoreGetDictSafeIterator(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @kvstoreDictIteratorNext(ptr noundef) local_unnamed_addr #4
+declare ptr @kvstoreDictIteratorNext(ptr noundef) local_unnamed_addr #3
 
-declare ptr @dictGetIterator(ptr noundef) local_unnamed_addr #4
+declare ptr @dictGetIterator(ptr noundef) local_unnamed_addr #3
 
-declare ptr @dictNext(ptr noundef) local_unnamed_addr #4
+declare ptr @dictNext(ptr noundef) local_unnamed_addr #3
 
-declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #4
+declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #3
 
-declare void @kvstoreReleaseDictIterator(ptr noundef) local_unnamed_addr #4
+declare void @kvstoreReleaseDictIterator(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @pubsubSubscribePattern(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
@@ -1009,7 +1003,7 @@ define dso_local range(i32 0, 2) i32 @pubsubSubscribePattern(ptr noundef %0, ptr
   ret i32 %.0
 }
 
-declare ptr @dictFind(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @dictFind(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @pubsubUnsubscribePattern(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
@@ -1157,7 +1151,7 @@ addReplyPubsubUnsubscribed.exit:                  ; preds = %40, %35, %22
   ret i32 %.0
 }
 
-declare ptr @dictGetSafeIterator(ptr noundef) local_unnamed_addr #4
+declare ptr @dictGetSafeIterator(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pubsubUnsubscribeAllChannels(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
@@ -1624,11 +1618,11 @@ addReplyPubsubPatMessage.exit:                    ; preds = %174, %177
   ret i32 %.0
 }
 
-declare i32 @updateClientMemUsageAndBucket(ptr noundef) local_unnamed_addr #4
+declare i32 @updateClientMemUsageAndBucket(ptr noundef) local_unnamed_addr #3
 
-declare ptr @getDecodedObject(ptr noundef) local_unnamed_addr #4
+declare ptr @getDecodedObject(ptr noundef) local_unnamed_addr #3
 
-declare i32 @stringmatchlen(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @stringmatchlen(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pubsubPublishMessage(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
@@ -1650,7 +1644,7 @@ define dso_local i32 @pubsubPublishMessage(ptr noundef %0, ptr noundef %1, i32 n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @subscribeCommand(ptr noundef %0) local_unnamed_addr #2 {
@@ -1708,7 +1702,7 @@ markClientAsPubSub.exit:                          ; preds = %20, %._crit_edge, %
   ret void
 }
 
-declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @unsubscribeCommand(ptr noundef %0) local_unnamed_addr #2 {
@@ -1927,7 +1921,7 @@ unmarkClientAsPubSub.exit:                        ; preds = %47, %43, %.loopexit
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pubsubPublishMessageAndPropagateToCluster(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.pubsubtype, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %6, label %5
 
@@ -1941,7 +1935,7 @@ define dso_local i32 @pubsubPublishMessageAndPropagateToCluster(ptr noundef %0, 
 
 pubsubPublishMessage.exit:                        ; preds = %5, %6
   %7 = tail call i32 @pubsubPublishMessageInternal(ptr noundef %0, ptr noundef %1, ptr noundef nonnull byval(%struct.pubsubtype) align 8 %4)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7888), align 8, !tbaa !68
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %10, label %9
@@ -1954,7 +1948,7 @@ pubsubPublishMessage.exit:                        ; preds = %5, %6
   ret i32 %7
 }
 
-declare void @clusterPropagatePublish(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @clusterPropagatePublish(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @publishCommand(ptr noundef %0) local_unnamed_addr #2 {
@@ -1997,9 +1991,9 @@ pubsubPublishMessageAndPropagateToCluster.exit.thread: ; preds = %4, %pubsubPubl
   ret void
 }
 
-declare void @sentinelPublishCommand(ptr noundef) local_unnamed_addr #4
+declare void @sentinelPublishCommand(ptr noundef) local_unnamed_addr #3
 
-declare void @forceCommandPropagation(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @forceCommandPropagation(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pubsubCommand(ptr noundef %0) local_unnamed_addr #2 {
@@ -2021,10 +2015,10 @@ define dso_local void @pubsubCommand(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %8, label %._crit_edge
 
 8:                                                ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %2, ptr noundef nonnull align 16 dereferenceable(96) @__const.pubsubCommand.help, i64 96, i1 false)
   call void @addReplyHelp(ptr noundef nonnull %0, ptr noundef nonnull %2) #9
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 ._crit_edge:                                      ; preds = %1, %6
@@ -2198,9 +2192,9 @@ define dso_local void @pubsubCommand(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
-declare void @addReplyHelp(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @addReplyHelp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @channelList(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
@@ -2384,21 +2378,21 @@ sdslen.exit30:                                    ; preds = %sdslen.exit, %51, %
   br i1 %exitcond.not, label %._crit_edge37, label %.lr.ph36.split, !llvm.loop !108
 }
 
-declare void @addReplyArrayLen(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @addReplyArrayLen(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @kvstoreDictFetchValue(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @kvstoreDictFetchValue(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @calculateKeySlot(ptr noundef) local_unnamed_addr #4
+declare i32 @calculateKeySlot(ptr noundef) local_unnamed_addr #3
 
-declare void @addReplySubcommandSyntaxError(ptr noundef) local_unnamed_addr #4
+declare void @addReplySubcommandSyntaxError(ptr noundef) local_unnamed_addr #3
 
-declare i32 @kvstoreNumDicts(ptr noundef) local_unnamed_addr #4
+declare i32 @kvstoreNumDicts(ptr noundef) local_unnamed_addr #3
 
-declare ptr @addReplyDeferredLen(ptr noundef) local_unnamed_addr #4
+declare ptr @addReplyDeferredLen(ptr noundef) local_unnamed_addr #3
 
-declare ptr @kvstoreGetDictIterator(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @kvstoreGetDictIterator(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @setDeferredArrayLen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @setDeferredArrayLen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @spublishCommand(ptr noundef %0) local_unnamed_addr #2 {
@@ -2580,7 +2574,7 @@ define dso_local i64 @pubsubMemOverhead(ptr noundef readonly captures(none) %0) 
   ret i64 %12
 }
 
-declare i64 @dictMemUsage(ptr noundef) local_unnamed_addr #4
+declare i64 @dictMemUsage(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pubsubTotalSubscriptions() local_unnamed_addr #2 {
@@ -2600,17 +2594,23 @@ define dso_local i32 @pubsubTotalSubscriptions() local_unnamed_addr #2 {
   ret i32 %13
 }
 
-declare zeroext i16 @crc16(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare zeroext i16 @crc16(ptr noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 attributes #10 = { noreturn nounwind }
 attributes #11 = { nounwind willreturn memory(read) }

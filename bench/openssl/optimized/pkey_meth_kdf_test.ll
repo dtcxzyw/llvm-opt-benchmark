@@ -53,20 +53,17 @@ define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
   ret i32 1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @fips_provider_version_ge(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @fips_provider_version_ge(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_kdf_tls1_prf(i32 noundef %0) #0 {
   %2 = alloca [16 x i8], align 16
   %3 = alloca i64, align 8
   %4 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 16, ptr %3, align 8, !tbaa !4
   %5 = tail call ptr @EVP_PKEY_CTX_new_id(i32 noundef 1021, ptr noundef null) #4
   %6 = icmp eq ptr %5, null
@@ -145,19 +142,19 @@ define internal range(i32 0, 2) i32 @test_kdf_tls1_prf(i32 noundef %0) #0 {
   br label %41
 
 39:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) @__const.test_kdf_tls1_prf.expected, i64 16, i1 false)
   %40 = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 71, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull %2, i64 noundef 16, ptr noundef nonnull %4, i64 noundef 16) #4
   %.not = icmp ne i32 %40, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %spec.select = zext i1 %.not to i32
   br label %41
 
 41:                                               ; preds = %39, %38, %34, %30, %26, %20, %16, %11, %7
   %.012 = phi i32 [ 0, %7 ], [ 0, %11 ], [ 0, %16 ], [ 0, %20 ], [ 0, %26 ], [ 0, %38 ], [ 0, %30 ], [ 0, %34 ], [ %spec.select, %39 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %5) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.012
 }
 
@@ -166,8 +163,8 @@ define internal range(i32 0, 2) i32 @test_kdf_hkdf(i32 noundef %0) #0 {
   %2 = alloca [10 x i8], align 1
   %3 = alloca i64, align 8
   %4 = alloca [10 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 10, ptr %3, align 8, !tbaa !4
   %5 = tail call ptr @EVP_PKEY_CTX_new_id(i32 noundef 1036, ptr noundef null) #4
   %6 = icmp eq ptr %5, null
@@ -255,31 +252,31 @@ define internal range(i32 0, 2) i32 @test_kdf_hkdf(i32 noundef %0) #0 {
   br label %45
 
 43:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %4, ptr noundef nonnull align 1 dereferenceable(10) @__const.test_kdf_hkdf.expected, i64 10, i1 false)
   %44 = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 137, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull %2, i64 noundef 10, ptr noundef nonnull %4, i64 noundef 10) #4
   %.not = icmp ne i32 %44, 0
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %spec.select = zext i1 %.not to i32
   br label %45
 
 45:                                               ; preds = %43, %42, %38, %34, %30, %24, %20, %16, %11, %7
   %.013 = phi i32 [ 0, %7 ], [ 0, %11 ], [ 0, %16 ], [ 0, %20 ], [ 0, %24 ], [ 0, %30 ], [ 0, %42 ], [ 0, %34 ], [ 0, %38 ], [ %spec.select, %43 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %5) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.013
 }
 
-declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_kdf_scrypt() #0 {
   %1 = alloca [64 x i8], align 16
   %2 = alloca i64, align 8
   %3 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 64, ptr %2, align 8, !tbaa !4
   %4 = tail call ptr @EVP_PKEY_CTX_new_id(i32 noundef 973, ptr noundef null) #4
   %5 = icmp eq ptr %4, null
@@ -380,72 +377,75 @@ define internal range(i32 0, 2) i32 @test_kdf_scrypt() #0 {
   br label %49
 
 47:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 16 dereferenceable(64) @__const.test_kdf_scrypt.expected, i64 64, i1 false)
   %48 = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 211, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull %1, i64 noundef 64, ptr noundef nonnull %3, i64 noundef 64) #4
   %.not = icmp ne i32 %48, 0
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %spec.select = zext i1 %.not to i32
   br label %49
 
 49:                                               ; preds = %47, %46, %42, %38, %34, %30, %26, %22, %18, %14, %10, %6
   %.014 = phi i32 [ 0, %6 ], [ 0, %10 ], [ 0, %14 ], [ 0, %18 ], [ 0, %22 ], [ 0, %26 ], [ 0, %30 ], [ 0, %34 ], [ 0, %38 ], [ 0, %42 ], [ 0, %46 ], [ %spec.select, %47 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.014
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @EVP_PKEY_CTX_new_id(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @EVP_PKEY_CTX_new_id(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @EVP_PKEY_derive_init(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_PKEY_derive_init(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_PKEY_CTX_set_tls1_prf_md(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_PKEY_CTX_set_tls1_prf_md(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_sha256() local_unnamed_addr #1
 
-declare ptr @EVP_sha256() local_unnamed_addr #2
+declare i32 @EVP_PKEY_CTX_set1_tls1_prf_secret(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_PKEY_CTX_set1_tls1_prf_secret(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @EVP_PKEY_CTX_add1_tls1_prf_seed(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_PKEY_CTX_add1_tls1_prf_seed(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @EVP_PKEY_derive(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_PKEY_derive(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #2
+declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_PKEY_CTX_set_hkdf_md(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_PKEY_CTX_set_hkdf_md(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_PKEY_CTX_set1_hkdf_salt(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @EVP_PKEY_CTX_set1_hkdf_salt(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_PKEY_CTX_set1_hkdf_key(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @EVP_PKEY_CTX_set1_hkdf_key(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_PKEY_CTX_add1_hkdf_info(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @EVP_PKEY_CTX_add1_hkdf_info(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_PKEY_CTX_set1_pbe_pass(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @EVP_PKEY_CTX_set1_pbe_pass(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_PKEY_CTX_set1_scrypt_salt(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @EVP_PKEY_CTX_set1_scrypt_salt(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_PKEY_CTX_set_scrypt_N(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @EVP_PKEY_CTX_set_scrypt_N(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_PKEY_CTX_set_scrypt_r(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @EVP_PKEY_CTX_set_scrypt_r(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_PKEY_CTX_set_scrypt_p(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @EVP_PKEY_CTX_set_scrypt_p(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_PKEY_CTX_set_scrypt_maxmem_bytes(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @EVP_PKEY_CTX_set_scrypt_maxmem_bytes(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

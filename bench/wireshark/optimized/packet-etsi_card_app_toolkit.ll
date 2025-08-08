@@ -1052,9 +1052,9 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %10 = alloca i8, align 1
   %11 = alloca i32, align 4
   %12 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = tail call ptr @find_or_create_conversation(ptr noundef %1)
   %14 = load i32, ptr @proto_cat, align 4
   %15 = tail call ptr @conversation_get_proto_data(ptr noundef %13, i32 noundef %14)
@@ -1063,7 +1063,7 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 16:                                               ; preds = %4
   %17 = tail call ptr @wmem_file_scope()
-  %18 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %17, i64 noundef 8) #5
+  %18 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %17, i64 noundef 8) #4
   %19 = tail call ptr @wmem_file_scope()
   %20 = tail call noalias ptr @wmem_tree_new(ptr noundef %19)
   store ptr %20, ptr %18, align 8
@@ -1104,10 +1104,10 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.0603684 = phi i8 [ 0, %.lr.ph686 ], [ %.1604, %dissect_cat_efadn_coding.exit ]
   %.0606683 = phi i1 [ false, %.lr.ph686 ], [ %.1607, %dissect_cat_efadn_coding.exit ]
   %.0610682 = phi ptr [ null, %.lr.ph686 ], [ %.1611, %dissect_cat_efadn_coding.exit ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %42 = add nuw i32 %.0685, 1
   %43 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0685)
   %44 = and i8 %43, 127
@@ -1299,7 +1299,7 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not636, label %dissect_cat_efadn_coding.exit, label %116
 
 116:                                              ; preds = %115
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %117 = load i32, ptr %8, align 4
   %118 = shl i32 %117, 16
   %119 = load i32, ptr %7, align 4
@@ -1329,7 +1329,7 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 129:                                              ; preds = %124
   %130 = call ptr @wmem_file_scope()
-  %131 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %130, i64 noundef 12) #5
+  %131 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %130, i64 noundef 12) #4
   %132 = load i32, ptr %35, align 4
   store i32 %132, ptr %131, align 4
   %133 = load i32, ptr %11, align 4
@@ -1360,7 +1360,7 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 147:                                              ; preds = %124, %116, %143, %140, %129
   %.2612 = phi ptr [ %spec.store.select, %143 ], [ null, %140 ], [ %131, %129 ], [ %.0610682, %116 ], [ %.0610682, %124 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %dissect_cat_efadn_coding.exit
 
 148:                                              ; preds = %73
@@ -2164,16 +2164,16 @@ dissect_cat_efadn_coding.exit:                    ; preds = %.lr.ph, %618, %.lr.
   %.1607 = phi i1 [ %.0606683, %73 ], [ %.0606683, %78 ], [ %spec.select, %147 ], [ %spec.select, %115 ], [ %.0606683, %148 ], [ %.0606683, %150 ], [ %.0606683, %156 ], [ %.0606683, %160 ], [ %.0606683, %164 ], [ %.0606683, %168 ], [ %.0606683, %172 ], [ %.0606683, %176 ], [ %.0606683, %180 ], [ %.0606683, %184 ], [ %.0606683, %186 ], [ %.0606683, %217 ], [ %.0606683, %213 ], [ %.0606683, %220 ], [ %.0606683, %228 ], [ %.0606683, %230 ], [ %.0606683, %235 ], [ %.0606683, %240 ], [ %.0606683, %245 ], [ %.0606683, %246 ], [ %.0606683, %249 ], [ %.0606683, %259 ], [ %.0606683, %260 ], [ %.0606683, %266 ], [ %.0606683, %271 ], [ %.0606683, %275 ], [ %.0606683, %283 ], [ %.0606683, %286 ], [ %.0606683, %288 ], [ %.0606683, %291 ], [ %.0606683, %278 ], [ %.0606683, %277 ], [ %.0606683, %307 ], [ %.0606683, %408 ], [ %.0606683, %411 ], [ %.0606683, %419 ], [ %.0606683, %422 ], [ %.0606683, %537 ], [ %.0606683, %535 ], [ %.0606683, %459 ], [ %.0606683, %469 ], [ %.0606683, %488 ], [ %.0606683, %455 ], [ %.0606683, %527 ], [ %.0606683, %542 ], [ %.0606683, %545 ], [ %.0606683, %547 ], [ %.0606683, %553 ], [ %.0606683, %557 ], [ %.0606683, %561 ], [ true, %570 ], [ true, %574 ], [ true, %578 ], [ false, %569 ], [ %.0606683, %582 ], [ %.0606683, %595 ], [ %.0606683, %600 ], [ %.0606683, %601 ], [ %.0606683, %587 ], [ %.0606683, %584 ], [ %.0606683, %602 ], [ %.0606683, %604 ], [ %.0606683, %609 ], [ %.0606683, %607 ], [ %.0606683, %612 ], [ %.0606683, %631 ], [ %.0606683, %629 ], [ %.0606683, %642 ], [ %.0606683, %649 ], [ %.0606683, %650 ], [ %.0606683, %394 ], [ %.0606683, %391 ], [ %.0606683, %446 ], [ %.0606683, %436 ], [ %.0606683, %192 ], [ %.0606683, %.sink.split.i ], [ %.0606683, %197 ], [ %.0606683, %.sink.split.i644 ], [ %.0606683, %208 ], [ %.0606683, %.sink.split.i648 ], [ %.0606683, %250 ], [ %.0606683, %.sink.split.i652 ], [ %.0606683, %414 ], [ %.0606683, %.sink.split.i656 ], [ %.0606683, %.preheader ], [ %.0606683, %.preheader659 ], [ %.0606683, %.preheader661 ], [ %.0606683, %.preheader663 ], [ %.0606683, %.preheader667 ], [ %.0606683, %.lr.ph681 ], [ %.0606683, %.lr.ph678 ], [ %.0606683, %.lr.ph676 ], [ %.0606683, %.lr.ph674 ], [ %.0606683, %.lr.ph671 ], [ %.0606683, %618 ], [ %.0606683, %.lr.ph ]
   %.1604 = phi i8 [ %.0603684, %73 ], [ %.0603684, %78 ], [ %spec.select641, %147 ], [ %spec.select641, %115 ], [ %.0603684, %148 ], [ %.0603684, %150 ], [ %.0603684, %156 ], [ %.0603684, %160 ], [ %.0603684, %164 ], [ %.0603684, %168 ], [ %.0603684, %172 ], [ %.0603684, %176 ], [ %.0603684, %180 ], [ %.0603684, %184 ], [ %.0603684, %186 ], [ %.0603684, %217 ], [ %.0603684, %213 ], [ %.0603684, %220 ], [ %.0603684, %228 ], [ %.0603684, %230 ], [ %.0603684, %235 ], [ %.0603684, %240 ], [ %.0603684, %245 ], [ %.0603684, %246 ], [ %.0603684, %249 ], [ %.0603684, %259 ], [ %.0603684, %260 ], [ %.0603684, %266 ], [ %.0603684, %271 ], [ %.0603684, %275 ], [ %.0603684, %283 ], [ %.0603684, %286 ], [ %.0603684, %288 ], [ %.0603684, %291 ], [ %.0603684, %278 ], [ %.0603684, %277 ], [ %.0603684, %307 ], [ %.0603684, %408 ], [ %.0603684, %411 ], [ %.0603684, %419 ], [ %.0603684, %422 ], [ %.0603684, %537 ], [ %.0603684, %535 ], [ %.0603684, %459 ], [ %.0603684, %469 ], [ %.0603684, %488 ], [ %.0603684, %455 ], [ %.0603684, %527 ], [ %.0603684, %542 ], [ %.0603684, %545 ], [ %.0603684, %547 ], [ %.0603684, %553 ], [ %.0603684, %557 ], [ %.0603684, %561 ], [ %.0603684, %570 ], [ %.0603684, %574 ], [ %.0603684, %578 ], [ %.0603684, %569 ], [ %.0603684, %582 ], [ %.0603684, %595 ], [ %.0603684, %600 ], [ %.0603684, %601 ], [ %.0603684, %587 ], [ %.0603684, %584 ], [ %.0603684, %602 ], [ %.0603684, %604 ], [ %.0603684, %609 ], [ %.0603684, %607 ], [ %.0603684, %612 ], [ %.0603684, %631 ], [ %.0603684, %629 ], [ %.0603684, %642 ], [ %.0603684, %649 ], [ %.0603684, %650 ], [ %.0603684, %394 ], [ %.0603684, %391 ], [ %.0603684, %446 ], [ %.0603684, %436 ], [ %.0603684, %192 ], [ %.0603684, %.sink.split.i ], [ %.0603684, %197 ], [ %.0603684, %.sink.split.i644 ], [ %.0603684, %208 ], [ %.0603684, %.sink.split.i648 ], [ %.0603684, %250 ], [ %.0603684, %.sink.split.i652 ], [ %.0603684, %414 ], [ %.0603684, %.sink.split.i656 ], [ %.0603684, %.preheader ], [ %.0603684, %.preheader659 ], [ %.0603684, %.preheader661 ], [ %.0603684, %.preheader663 ], [ %.0603684, %.preheader667 ], [ %spec.select642, %.lr.ph681 ], [ %.0603684, %.lr.ph678 ], [ %.0603684, %.lr.ph676 ], [ %.0603684, %.lr.ph674 ], [ %.0603684, %.lr.ph671 ], [ %.0603684, %618 ], [ %.0603684, %.lr.ph ]
   %652 = add i32 %.2, %.0619
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %653 = icmp ult i32 %652, %12
   br i1 %653, label %41, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %dissect_cat_efadn_coding.exit, %22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %12
 }
 
@@ -2188,9 +2188,6 @@ define hidden void @proto_reg_handoff_card_app_toolkit() local_unnamed_addr #1 {
 ; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #0
 
@@ -2201,7 +2198,7 @@ declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #0
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_file_scope() local_unnamed_addr #0
@@ -2250,9 +2247,6 @@ declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) lo
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_tree_lookup32_array_le(ptr noundef, ptr noundef) local_unnamed_addr #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
@@ -2311,12 +2305,17 @@ declare void @nas_esm_pdn_con_req(ptr noundef, ptr noundef, ptr noundef, i32 nou
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @de_emm_trac_area_id(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { allocsize(1) }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

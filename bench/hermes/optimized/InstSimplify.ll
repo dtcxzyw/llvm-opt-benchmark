@@ -136,7 +136,7 @@ for.body8:                                        ; preds = %for.cond6
   ]
 
 sw.bb.i:                                          ; preds = %for.body8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %builder.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %builder.i.i)
   %Parent.i.i.i = getelementptr inbounds nuw i8, ptr %instIter.sroa.0.0, i64 56
   %6 = load ptr, ptr %Parent.i.i.i, align 8
   %Parent.i32.i.i = getelementptr inbounds nuw i8, ptr %6, i64 72
@@ -398,7 +398,7 @@ if.then148.i.i:                                   ; preds = %land.lhs.true140.i.
   %nonzeroOp.0.i.i = phi ptr [ %call.i33.i.i, %land.lhs.true133.i.i ], [ %call.i.i.i, %land.lhs.true140.i.i ]
   call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %instIter.sroa.0.0) #9
   %call149.i.i = call noundef ptr @_ZN6hermes9IRBuilder17createAsInt32InstEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %nonzeroOp.0.i.i) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %builder.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %builder.i.i.i)
   %Parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %call149.i.i, i64 56
   %40 = load ptr, ptr %Parent.i.i.i.i, align 8
   %Parent.i5.i.i.i = getelementptr inbounds nuw i8, ptr %40, i64 72
@@ -424,16 +424,16 @@ if.end7.i.i.i:                                    ; preds = %if.then.i.i.i, %if.
 
 _ZN12_GLOBAL__N_113reduceAsInt32EPN6hermes11AsInt32InstE.exit.i.i: ; preds = %if.end7.i.i.i, %if.then.i.i.i
   %retval.0.i60.i.i = phi ptr [ %add.ptr.i.i.i, %if.end7.i.i.i ], [ %call4.i.i.i, %if.then.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %builder.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %builder.i.i.i)
   br label %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i
 
 _ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i: ; preds = %_ZN12_GLOBAL__N_113reduceAsInt32EPN6hermes11AsInt32InstE.exit.i.i, %land.lhs.true140.i.i, %if.else138.i.i, %if.then123.i.i, %land.rhs113.i.i, %if.else.i.i, %if.then106.i.i, %if.then92.i.i, %sw.bb90.i.i, %if.then87.i.i, %sw.bb85.i.i, %if.then82.i.i, %sw.bb80.i.i, %if.then77.i.i, %sw.bb75.i.i, %if.then72.i.i, %sw.bb70.i.i, %if.then66.i.i, %if.then61.i.i, %land.lhs.true59.i.i, %if.end57.i.i, %if.then55.i.i, %if.then46.i.i, %if.end41.i.i, %if.then39.i.i, %if.then34.i.i, %if.end30.i.i, %if.then28.i.i, %land.end25.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %call29.i.i, %if.then28.i.i ], [ %spec.select.i.i, %if.then34.i.i ], [ %call40.i.i, %if.then39.i.i ], [ %spec.select1.i.i, %if.then46.i.i ], [ %call56.i.i, %if.then55.i.i ], [ %call67.i.i, %if.then66.i.i ], [ %call73.i.i, %if.then72.i.i ], [ %call78.i.i, %if.then77.i.i ], [ %call83.i.i, %if.then82.i.i ], [ %call88.i.i, %if.then87.i.i ], [ %call93.i.i, %if.then92.i.i ], [ %spec.select2.i.i, %if.then106.i.i ], [ %spec.select3.i.i, %if.then123.i.i ], [ %retval.0.i60.i.i, %_ZN12_GLOBAL__N_113reduceAsInt32EPN6hermes11AsInt32InstE.exit.i.i ], [ %call8.i.i, %if.then.i.i ], [ null, %land.end25.i.i ], [ null, %if.else.i.i ], [ null, %land.rhs113.i.i ], [ null, %sw.bb90.i.i ], [ null, %sw.bb85.i.i ], [ null, %sw.bb80.i.i ], [ null, %sw.bb75.i.i ], [ null, %sw.bb70.i.i ], [ null, %if.end57.i.i ], [ null, %land.lhs.true59.i.i ], [ null, %if.then61.i.i ], [ null, %if.end30.i.i ], [ null, %if.end41.i.i ], [ null, %land.lhs.true140.i.i ], [ null, %if.else138.i.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %builder.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %builder.i.i)
   br label %if.then
 
 sw.bb3.i:                                         ; preds = %for.body8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %builder.i12.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %builder.i12.i)
   %Parent.i.i13.i = getelementptr inbounds nuw i8, ptr %instIter.sroa.0.0, i64 56
   %46 = load ptr, ptr %Parent.i.i13.i, align 8
   %Parent.i24.i.i = getelementptr inbounds nuw i8, ptr %46, i64 72
@@ -517,7 +517,7 @@ if.then48.i.i:                                    ; preds = %sw.bb44.i.i
 sw.bb51.i.i:                                      ; preds = %if.end9.i.i
   call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, ptr noundef nonnull %instIter.sroa.0.0) #9
   %call52.i.i = call noundef ptr @_ZN6hermes9IRBuilder18createAsNumberInstEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, ptr noundef nonnull %call.i.i17.i) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %builder.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %builder.i.i.i.i)
   %Parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call52.i.i, i64 56
   %53 = load ptr, ptr %Parent.i.i.i.i.i, align 8
   %Parent.i7.i.i.i.i = getelementptr inbounds nuw i8, ptr %53, i64 72
@@ -548,16 +548,16 @@ if.end7.i.i.i.i:                                  ; preds = %if.then.i.i.i.i, %s
 
 _ZN12_GLOBAL__N_114reduceAsNumberEPN6hermes12AsNumberInstE.exit.i.i: ; preds = %if.end7.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %call4.i.i.i.i, %if.then.i.i.i.i ], [ %spec.select.i.i.i.i, %if.end7.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %builder.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %builder.i.i.i.i)
   br label %_ZN12_GLOBAL__N_112simplifyUnOpEPN6hermes17UnaryOperatorInstE.exit.i
 
 _ZN12_GLOBAL__N_112simplifyUnOpEPN6hermes17UnaryOperatorInstE.exit.i: ; preds = %_ZN12_GLOBAL__N_114reduceAsNumberEPN6hermes12AsNumberInstE.exit.i.i, %if.then48.i.i, %sw.bb44.i.i, %_ZN4llvh9StringRefC2EPKc.exit113.i.i, %_ZN4llvh9StringRefC2EPKc.exit103.i.i, %_ZN4llvh9StringRefC2EPKc.exit93.i.i, %_ZN4llvh9StringRefC2EPKc.exit83.i.i, %_ZN4llvh9StringRefC2EPKc.exit73.i.i, %_ZN4llvh9StringRefC2EPKc.exit63.i.i, %_ZN4llvh9StringRefC2EPKc.exit.i.i, %sw.bb.i23.i, %if.end9.i.i, %if.then.i20.i
   %retval.0.i21.i = phi ptr [ %call12.i.i, %_ZN4llvh9StringRefC2EPKc.exit.i.i ], [ %call17.i.i, %_ZN4llvh9StringRefC2EPKc.exit63.i.i ], [ %call22.i.i, %_ZN4llvh9StringRefC2EPKc.exit73.i.i ], [ %call27.i.i, %_ZN4llvh9StringRefC2EPKc.exit83.i.i ], [ %call32.i.i, %_ZN4llvh9StringRefC2EPKc.exit93.i.i ], [ %call37.i.i, %_ZN4llvh9StringRefC2EPKc.exit103.i.i ], [ %call42.i.i, %_ZN4llvh9StringRefC2EPKc.exit113.i.i ], [ %call49.i.i, %if.then48.i.i ], [ %retval.0.i.i.i.i, %_ZN12_GLOBAL__N_114reduceAsNumberEPN6hermes12AsNumberInstE.exit.i.i ], [ %call6.i.i, %if.then.i20.i ], [ null, %if.end9.i.i ], [ null, %sw.bb44.i.i ], [ null, %sw.bb.i23.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %builder.i12.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %builder.i12.i)
   br label %if.then
 
 sw.bb7.i:                                         ; preds = %for.body8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %builder.i.i.i25.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %builder.i.i.i25.i)
   %Parent.i.i.i.i26.i = getelementptr inbounds nuw i8, ptr %instIter.sroa.0.0, i64 56
   %60 = load ptr, ptr %Parent.i.i.i.i26.i, align 8
   %Parent.i7.i.i.i27.i = getelementptr inbounds nuw i8, ptr %60, i64 72
@@ -587,7 +587,7 @@ if.end7.i.i.i38.i:                                ; preds = %if.then.i.i.i31.i, 
 
 _ZN12_GLOBAL__N_116simplifyAsNumberEPN6hermes12AsNumberInstE.exit.i: ; preds = %if.end7.i.i.i38.i, %if.then.i.i.i31.i
   %retval.0.i.i.i35.i = phi ptr [ %call4.i.i.i32.i, %if.then.i.i.i31.i ], [ %spec.select.i.i.i43.i, %if.end7.i.i.i38.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %builder.i.i.i25.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %builder.i.i.i25.i)
   %cmp.i37.i = icmp eq ptr %retval.0.i.i.i35.i, %add.ptr.i
   br i1 %cmp.i37.i, label %if.then, label %if.end
 
@@ -625,7 +625,7 @@ if.then16.i.i:                                    ; preds = %if.end11.i65.i, %if
   br i1 %cmp.i.i.i.i, label %_ZN12_GLOBAL__N_117simplifyAsNumericEPN6hermes13AsNumericInstE.exit.i, label %if.end.i12.i.i
 
 if.end.i12.i.i:                                   ; preds = %if.then16.i.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %builder.i.i.i45.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %builder.i.i.i45.i)
   %Parent.i.i.i.i48.i = getelementptr inbounds nuw i8, ptr %instIter.sroa.0.0, i64 56
   %72 = load ptr, ptr %Parent.i.i.i.i48.i, align 8
   %Parent.i7.i.i.i49.i = getelementptr inbounds nuw i8, ptr %72, i64 72
@@ -655,7 +655,7 @@ if.end7.i.i.i58.i:                                ; preds = %if.then.i.i.i53.i, 
 
 _ZN12_GLOBAL__N_118reduceAsNumberLikeIN6hermes13AsNumericInstEEEPNS1_5ValueEPT_.exit.i.i.i: ; preds = %if.end7.i.i.i58.i, %if.then.i.i.i53.i
   %retval.0.i.i.i56.i = phi ptr [ %call4.i.i.i54.i, %if.then.i.i.i53.i ], [ %spec.select.i.i.i62.i, %if.end7.i.i.i58.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %builder.i.i.i45.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %builder.i.i.i45.i)
   br label %_ZN12_GLOBAL__N_117simplifyAsNumericEPN6hermes13AsNumericInstE.exit.i
 
 _ZN12_GLOBAL__N_117simplifyAsNumericEPN6hermes13AsNumericInstE.exit.i: ; preds = %_ZN12_GLOBAL__N_118reduceAsNumberLikeIN6hermes13AsNumericInstEEEPNS1_5ValueEPT_.exit.i.i.i, %if.then16.i.i, %if.end11.i65.i
@@ -665,7 +665,7 @@ _ZN12_GLOBAL__N_117simplifyAsNumericEPN6hermes13AsNumericInstE.exit.i: ; preds =
   br label %if.then
 
 sw.bb15.i:                                        ; preds = %for.body8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %builder.i.i69.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %builder.i.i69.i)
   %Parent.i.i.i70.i = getelementptr inbounds nuw i8, ptr %instIter.sroa.0.0, i64 56
   %79 = load ptr, ptr %Parent.i.i.i70.i, align 8
   %Parent.i5.i.i71.i = getelementptr inbounds nuw i8, ptr %79, i64 72
@@ -686,16 +686,16 @@ if.then.i.i75.i:                                  ; preds = %sw.bb15.i
   br i1 %tobool5.not.i.i77.i, label %_ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i.thread, label %_ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i
 
 _ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i.thread: ; preds = %sw.bb15.i, %if.then.i.i75.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %builder.i.i69.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %builder.i.i69.i)
   br label %if.then
 
 _ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i: ; preds = %if.then.i.i75.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %builder.i.i69.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %builder.i.i69.i)
   %cmp.i80.i = icmp eq ptr %call4.i.i76.i, %add.ptr.i
   br i1 %cmp.i80.i, label %if.then, label %if.end
 
 sw.bb19.i:                                        ; preds = %for.body8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %builder.i85.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %builder.i85.i)
   %Parent.i.i86.i = getelementptr inbounds nuw i8, ptr %instIter.sroa.0.0, i64 56
   %85 = load ptr, ptr %Parent.i.i86.i, align 8
   %Parent.i6.i.i = getelementptr inbounds nuw i8, ptr %85, i64 72
@@ -725,7 +725,7 @@ if.end7.i.i:                                      ; preds = %if.then.i90.i, %sw.
 
 _ZN12_GLOBAL__N_122simplifyAddEmptyStringEPN6hermes18AddEmptyStringInstE.exit.i: ; preds = %if.end7.i.i, %if.then.i90.i
   %retval.0.i91.i = phi ptr [ %call4.i.i, %if.then.i90.i ], [ %call2..i.i, %if.end7.i.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %builder.i85.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %builder.i85.i)
   br label %if.then
 
 sw.bb23.i:                                        ; preds = %for.body8
@@ -810,8 +810,8 @@ if.end.i111.i:                                    ; preds = %lor.lhs.false.i.i
   br i1 %tobool.not.i113.i, label %if.then, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i111.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %builder.i.i107.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %returnValues.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %builder.i.i107.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %returnValues.i.i.i)
   %parent_.i.i.i.i114.i = getelementptr inbounds nuw i8, ptr %call3.i.i, i64 56
   %96 = load ptr, ptr %parent_.i.i.i.i114.i, align 8
   store ptr %96, ptr %builder.i.i107.i, align 8
@@ -1062,8 +1062,8 @@ _ZN4llvh6detail12DenseSetImplIPN6hermes5ValueENS_8DenseMapIS4_NS0_13DenseSetEmpt
 
 _ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.thread10.i.i: ; preds = %_ZN4llvh6detail12DenseSetImplIPN6hermes5ValueENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit.i.i.i
   call void @_ZdlPv(ptr noundef %.pre18.i.i) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %builder.i.i107.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %returnValues.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %builder.i.i107.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %returnValues.i.i.i)
   br label %if.then7.i.i
 
 if.end19.i.i.i:                                   ; preds = %_ZN4llvh6detail12DenseSetImplIPN6hermes5ValueENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit.i.i.i
@@ -1097,16 +1097,16 @@ if.end31.i.i.i:                                   ; preds = %if.end25.i.i.i
 _ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.thread.i.i: ; preds = %if.then22.i._ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.thread_crit_edge.i.i, %if.end19.i.i.i, %for.end.i.i.i, %if.then4.i.i
   %128 = phi ptr [ %.pre.i.i, %if.then22.i._ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.thread_crit_edge.i.i ], [ %.pre18.i.i, %for.end.i.i.i ], [ %.pre18.i.i, %if.end19.i.i.i ], [ null, %if.then4.i.i ]
   call void @_ZdlPv(ptr noundef %128) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %builder.i.i107.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %returnValues.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %builder.i.i107.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %returnValues.i.i.i)
   br label %if.then
 
 _ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.i.i: ; preds = %if.end31.i.i.i, %if.then29.i.i.i
   %retval.0.i.i121.i = phi ptr [ %call30.i.i.i, %if.then29.i.i.i ], [ %call.i14.i.i.i, %if.end31.i.i.i ]
   %129 = load ptr, ptr %returnValues.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %129) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %builder.i.i107.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %returnValues.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %builder.i.i107.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %returnValues.i.i.i)
   %tobool6.not.i.i = icmp eq ptr %retval.0.i.i121.i, null
   br i1 %tobool6.not.i.i, label %if.then, label %if.then7.i.i
 
@@ -1116,7 +1116,7 @@ if.then7.i.i:                                     ; preds = %_ZN12_GLOBAL__N_119
   br label %for.cond6.outer.backedge
 
 sw.bb35.i:                                        ; preds = %for.body8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %builder.i123.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %builder.i123.i)
   %call.i.i124.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #9
   %valueType.i.i125.i = getelementptr inbounds nuw i8, ptr %call.i.i124.i, i64 2
   %retval.sroa.0.0.copyload.i.i126.i = load i32, ptr %valueType.i.i125.i, align 2
@@ -1148,7 +1148,7 @@ if.end.i129.i:                                    ; preds = %sw.bb35.i
 
 _ZN12_GLOBAL__N_120simplifyCoerceThisNSEPN6hermes16CoerceThisNSInstE.exit.i: ; preds = %if.end.i129.i, %if.then.i132.i
   %retval.0.i131.i = phi ptr [ %call5.i.i, %if.then.i132.i ], [ %call..i.i, %if.end.i129.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %builder.i123.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %builder.i123.i)
   br label %if.then
 
 sw.bb39.i:                                        ; preds = %for.body8
@@ -1498,10 +1498,10 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 declare i16 @llvm.ctpop.i16(i16) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8

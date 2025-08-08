@@ -16,10 +16,10 @@ define hidden range(i32 0, 2) i32 @HKDF(ptr noundef writeonly captures(none) %0,
   %13 = alloca %struct.hmac_ctx_st, align 8
   %14 = alloca i8, align 1
   %15 = tail call i64 @EVP_MD_size(ptr noundef %2) #4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #4
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %13) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %16 = add i64 %15, %1
   %17 = add i64 %16, -1
   %18 = udiv i64 %17, %15
@@ -52,7 +52,7 @@ define hidden range(i32 0, 2) i32 @HKDF(ptr noundef writeonly captures(none) %0,
 .lr.ph:                                           ; preds = %.preheader, %41
   %.03961 = phi i32 [ %29, %41 ], [ 0, %.preheader ]
   %.04060 = phi i64 [ %46, %41 ], [ 0, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %29 = add i32 %.03961, 1
   %30 = trunc i32 %29 to i8
   store i8 %30, ptr %14, align 1, !tbaa !10
@@ -85,7 +85,7 @@ define hidden range(i32 0, 2) i32 @HKDF(ptr noundef writeonly captures(none) %0,
   br i1 %.not49, label %.thread, label %41
 
 .thread:                                          ; preds = %33, %31, %39, %37, %35
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %49
 
 41:                                               ; preds = %39
@@ -96,7 +96,7 @@ define hidden range(i32 0, 2) i32 @HKDF(ptr noundef writeonly captures(none) %0,
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 %.04060
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr nonnull align 16 %11, i64 %spec.select, i1 false)
   %46 = add i64 %spec.select, %.04060
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %47 = zext i32 %29 to i64
   %48 = icmp ugt i64 %18, %47
   br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !11
@@ -112,42 +112,42 @@ define hidden range(i32 0, 2) i32 @HKDF(ptr noundef writeonly captures(none) %0,
 
 50:                                               ; preds = %._crit_edge, %49, %21
   %.041 = phi i32 [ 0, %21 ], [ 0, %49 ], [ 1, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %13) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.041
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @EVP_MD_size(ptr noundef) local_unnamed_addr #1
 
-declare i64 @EVP_MD_size(ptr noundef) local_unnamed_addr #2
+declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @HMAC_CTX_init(ptr noundef) local_unnamed_addr #1
 
-declare void @HMAC_CTX_init(ptr noundef) local_unnamed_addr #2
+declare ptr @HMAC(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @HMAC(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @HMAC_Init_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @HMAC_Init_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @HMAC_Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @HMAC_Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare i32 @HMAC_Final(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @HMAC_Final(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+
+declare void @HMAC_CTX_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
-declare void @HMAC_CTX_cleanup(ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

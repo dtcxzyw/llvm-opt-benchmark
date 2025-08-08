@@ -125,17 +125,11 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_tslexeme(ptr no
   ret i64 %69
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
 
-declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
+declare i32 @tsCompareString(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @tsCompareString(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
-
-declare void @pfree(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_prefix(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -311,9 +305,9 @@ define dso_local i64 @gin_extract_tsvector(ptr noundef readonly captures(none) %
   ret i64 %39
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare ptr @cstring_to_text_with_len(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @cstring_to_text_with_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @gin_extract_tsquery(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -441,9 +435,9 @@ define dso_local i64 @gin_extract_tsquery(ptr noundef readonly captures(none) %0
   ret i64 %72
 }
 
-declare zeroext i1 @tsquery_requires_match(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @tsquery_requires_match(ptr noundef) local_unnamed_addr #1
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -467,7 +461,7 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent(ptr noundef readonl
 16:                                               ; preds = %1
   %17 = inttoptr i64 %9 to ptr
   %18 = inttoptr i64 %4 to ptr
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %19, ptr %2, align 8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -490,7 +484,7 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent(ptr noundef readonl
 
 26:                                               ; preds = %25, %24, %16
   %.1 = phi i64 [ 1, %24 ], [ 1, %25 ], [ 0, %16 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %27
 
 27:                                               ; preds = %26, %1
@@ -498,10 +492,10 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent(ptr noundef readonl
   ret i64 %.0
 }
 
-declare i32 @TS_execute_ternary(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @TS_execute_ternary(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -128, 128) i32 @checkcondition_gin(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address_is_null) %2) #3 {
+define internal range(i32 -128, 128) i32 @checkcondition_gin(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address_is_null) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
@@ -552,7 +546,7 @@ define dso_local range(i64 -128, 128) i64 @gin_tsquery_triconsistent(ptr noundef
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8
   %15 = inttoptr i64 %14 to ptr
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %16, ptr %2, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -562,7 +556,7 @@ define dso_local range(i64 -128, 128) i64 @gin_tsquery_triconsistent(ptr noundef
   store ptr %18, ptr %19, align 8
   %20 = call i32 @TS_execute_ternary(ptr noundef nonnull %16, ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull @checkcondition_gin) #6
   %21 = zext i32 %20 to i64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %sext = shl i64 %21, 56
   %22 = ashr exact i64 %sext, 56
   br label %23
@@ -649,11 +643,11 @@ gin_extract_tsvector.exit:                        ; preds = %.loopexit.i, %44
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @gin_extract_tsquery_5args(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -709,7 +703,7 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent_6args(ptr noundef r
 23:                                               ; preds = %9
   %24 = inttoptr i64 %16 to ptr
   %25 = inttoptr i64 %11 to ptr
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %26, ptr %2, align 8
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -732,7 +726,7 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent_6args(ptr noundef r
 
 33:                                               ; preds = %32, %31, %23
   %.1.i = phi i64 [ 1, %31 ], [ 1, %32 ], [ 0, %23 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %gin_tsquery_consistent.exit
 
 gin_tsquery_consistent.exit:                      ; preds = %9, %33
@@ -768,7 +762,7 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent_oldsig(ptr noundef 
 16:                                               ; preds = %1
   %17 = inttoptr i64 %9 to ptr
   %18 = inttoptr i64 %4 to ptr
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %19, ptr %2, align 8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -791,7 +785,7 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent_oldsig(ptr noundef 
 
 26:                                               ; preds = %25, %24, %16
   %.1.i = phi i64 [ 1, %24 ], [ 1, %25 ], [ 0, %16 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %gin_tsquery_consistent.exit
 
 gin_tsquery_consistent.exit:                      ; preds = %1, %26
@@ -799,16 +793,22 @@ gin_tsquery_consistent.exit:                      ; preds = %1, %26
   ret i64 %.0.i
 }
 
-declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
+declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { nounwind }
 attributes #7 = { cold nounwind }

@@ -23,7 +23,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_ca
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @ieee80211_calc_rx_airtime(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 31
   %6 = load i8, ptr %5, align 1
@@ -108,15 +108,9 @@ define dso_local i32 @ieee80211_calc_rx_airtime(ptr noundef readonly captures(no
 
 57:                                               ; preds = %52, %49, %33, %26, %17, %16, %16
   %58 = phi i32 [ %56, %52 ], [ %48, %33 ], [ 0, %16 ], [ 0, %16 ], [ 0, %26 ], [ 0, %17 ], [ 0, %49 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %58
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @ieee80211_get_rate_duration(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 align 16 {
@@ -263,7 +257,7 @@ define dso_local i32 @ieee80211_calc_tx_airtime(ptr noundef readonly captures(no
   %16 = load i32, ptr %6, align 4
   %17 = trunc i32 %16 to i8
   %18 = and i8 %17, 7
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   store i8 %18, ptr %7, align 4
   %19 = load i8, ptr %15, align 1
@@ -333,12 +327,12 @@ define dso_local i32 @ieee80211_calc_tx_airtime(ptr noundef readonly captures(no
   br label %57
 
 .thread:                                          ; preds = %12, %21
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread5
 
 57:                                               ; preds = %46, %54, %56
   %58 = call i32 @ieee80211_calc_rx_airtime(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %2)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %.thread5, label %60
 
@@ -380,10 +374,10 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr noundef readonly ca
 
 18:                                               ; preds = %.thread, %12
   %19 = phi i8 [ %16, %.thread ], [ 0, %12 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = getelementptr i8, ptr %2, i64 -296
   %21 = getelementptr i8, ptr %2, i64 -292
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !annotation !21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 36
@@ -611,8 +605,8 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr noundef readonly ca
 
 165:                                              ; preds = %157, %141, %95, %.loopexit
   %166 = phi i32 [ %142, %141 ], [ %164, %157 ], [ 0, %.loopexit ], [ 0, %95 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %199
 
 167:                                              ; preds = %.thread
@@ -660,15 +654,21 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr noundef readonly ca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #3
+declare i32 @llvm.umax.i32(i32, i32) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 attributes #5 = { nounwind memory(read) }
 

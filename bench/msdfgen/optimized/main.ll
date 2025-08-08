@@ -537,7 +537,7 @@ if.then50:                                        ; preds = %lor.lhs.false, %lan
 
 sw.bb:                                            ; preds = %if.then50, %if.then50
   %add.ptr = getelementptr inbounds nuw i8, ptr %13, i64 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i)
   store ptr null, ptr %end.i, align 8
   %15 = load i8, ptr %add.ptr, align 1
   %cmp.i = icmp eq i8 %15, 48
@@ -569,13 +569,13 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp10.i, label %_ZL21parseUnsignedDecOrHexRjPKc.exit, label %_ZL21parseUnsignedDecOrHexRjPKc.exit.thread
 
 _ZL21parseUnsignedDecOrHexRjPKc.exit.thread:      ; preds = %if.end.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i)
   br label %sw.epilog
 
 _ZL21parseUnsignedDecOrHexRjPKc.exit:             ; preds = %if.end.i
   %18 = load i8, ptr %17, align 1
   %tobool.not.i = icmp eq i8 %18, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i)
   br i1 %tobool.not.i, label %if.then60, label %sw.epilog
 
 if.then60:                                        ; preds = %_ZL21parseUnsignedDecOrHexRjPKc.exit
@@ -592,7 +592,7 @@ sw.bb62:                                          ; preds = %if.then50, %if.then
 sw.default:                                       ; preds = %sw.bb62, %if.then50
   %20 = phi i8 [ %.pr, %sw.bb62 ], [ %14, %if.then50 ]
   %charArg.0 = phi ptr [ %incdec.ptr63, %sw.bb62 ], [ %13, %if.then50 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i.i)
   store ptr null, ptr %end.i.i, align 8
   %cmp.i.i = icmp eq i8 %20, 48
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.else.i.i
@@ -622,14 +622,14 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   br i1 %cmp10.i.i, label %_ZL21parseUnsignedDecOrHexRjPKc.exit.i, label %_ZL21parseUnsignedDecOrHexRjPKc.exit.thread.i
 
 _ZL21parseUnsignedDecOrHexRjPKc.exit.thread.i:    ; preds = %if.end.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i)
   br label %if.end.i603
 
 _ZL21parseUnsignedDecOrHexRjPKc.exit.i:           ; preds = %if.end.i.i
   %storemerge.i.i = trunc i64 %storemerge.in.i.i to i32
   %23 = load i8, ptr %22, align 1
   %tobool.not.i.i = icmp eq i8 %23, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i)
   br i1 %tobool.not.i.i, label %sw.epilog, label %if.end.i603
 
 if.end.i603:                                      ; preds = %_ZL21parseUnsignedDecOrHexRjPKc.exit.i, %_ZL21parseUnsignedDecOrHexRjPKc.exit.thread.i
@@ -984,7 +984,7 @@ if.then382:                                       ; preds = %if.end376
   %arrayidx.le5098 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
   %arrayidx385 = getelementptr i8, ptr %arrayidx.le5098, i64 8
   %42 = load ptr, ptr %arrayidx385, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i608)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i608)
   store ptr null, ptr %end.i608, align 8
   %call.i609 = call i64 @strtoul(ptr noundef %42, ptr noundef nonnull %end.i608, i32 noundef 10) #20
   %conv.i = trunc i64 %call.i609 to i32
@@ -993,20 +993,20 @@ if.then382:                                       ; preds = %if.end376
   br i1 %cmp.i610, label %_ZL13parseUnsignedRjPKc.exit, label %_ZL13parseUnsignedRjPKc.exit.thread
 
 _ZL13parseUnsignedRjPKc.exit.thread:              ; preds = %if.then382
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i608)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i608)
   br label %do.body397
 
 _ZL13parseUnsignedRjPKc.exit:                     ; preds = %if.then382
   %44 = load i8, ptr %43, align 1
   %tobool.not.i612 = icmp eq i8 %44, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i608)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i608)
   br i1 %tobool.not.i612, label %land.lhs.true387, label %do.body397
 
 land.lhs.true387:                                 ; preds = %_ZL13parseUnsignedRjPKc.exit
   %idxprom389 = sext i32 %add41 to i64
   %arrayidx390 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom389
   %45 = load ptr, ptr %arrayidx390, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i613)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i613)
   store ptr null, ptr %end.i613, align 8
   %call.i614 = call i64 @strtoul(ptr noundef %45, ptr noundef nonnull %end.i613, i32 noundef 10) #20
   %conv.i615 = trunc i64 %call.i614 to i32
@@ -1015,13 +1015,13 @@ land.lhs.true387:                                 ; preds = %_ZL13parseUnsignedR
   br i1 %cmp.i616, label %_ZL13parseUnsignedRjPKc.exit619, label %_ZL13parseUnsignedRjPKc.exit619.thread
 
 _ZL13parseUnsignedRjPKc.exit619.thread:           ; preds = %land.lhs.true387
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i613)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i613)
   br label %do.body397
 
 _ZL13parseUnsignedRjPKc.exit619:                  ; preds = %land.lhs.true387
   %47 = load i8, ptr %46, align 1
   %tobool.not.i618 = icmp eq i8 %47, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i613)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i613)
   %tobool393 = icmp ne i32 %conv.i, 0
   %or.cond = select i1 %tobool.not.i618, i1 %tobool393, i1 false
   %tobool395 = icmp ne i32 %conv.i615, 0
@@ -1058,7 +1058,7 @@ if.then416:                                       ; preds = %if.end410
   %idxprom418 = sext i32 %add414 to i64
   %arrayidx419 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom418
   %50 = load ptr, ptr %arrayidx419, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i620)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i620)
   store ptr null, ptr %end.i620, align 8
   %call.i621 = call double @strtod(ptr noundef %50, ptr noundef nonnull %end.i620) #20
   %51 = load ptr, ptr %end.i620, align 8
@@ -1066,13 +1066,13 @@ if.then416:                                       ; preds = %if.end410
   br i1 %cmp.i622, label %_ZL11parseDoubleRdPKc.exit, label %_ZL11parseDoubleRdPKc.exit.thread
 
 _ZL11parseDoubleRdPKc.exit.thread:                ; preds = %if.then416
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i620)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i620)
   br label %do.body424
 
 _ZL11parseDoubleRdPKc.exit:                       ; preds = %if.then416
   %52 = load i8, ptr %51, align 1
   %tobool.not.i624 = icmp eq i8 %52, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i620)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i620)
   %cmp422 = fcmp ogt double %call.i621, 0.000000e+00
   %or.cond2 = select i1 %tobool.not.i624, i1 %cmp422, i1 false
   br i1 %or.cond2, label %while.cond.backedge, label %do.body424
@@ -1094,7 +1094,7 @@ if.then435:                                       ; preds = %if.end429
   %idxprom438 = sext i32 %add433 to i64
   %arrayidx439 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom438
   %55 = load ptr, ptr %arrayidx439, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i625)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i625)
   store ptr null, ptr %end.i625, align 8
   %call.i626 = call double @strtod(ptr noundef %55, ptr noundef nonnull %end.i625) #20
   %56 = load ptr, ptr %end.i625, align 8
@@ -1102,13 +1102,13 @@ if.then435:                                       ; preds = %if.end429
   br i1 %cmp.i627, label %_ZL11parseDoubleRdPKc.exit630, label %_ZL11parseDoubleRdPKc.exit630.thread
 
 _ZL11parseDoubleRdPKc.exit630.thread:             ; preds = %if.then435
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i625)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i625)
   br label %do.body444
 
 _ZL11parseDoubleRdPKc.exit630:                    ; preds = %if.then435
   %57 = load i8, ptr %56, align 1
   %tobool.not.i629 = icmp eq i8 %57, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i625)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i625)
   %cmp442 = fcmp ogt double %call.i626, 0.000000e+00
   %or.cond3 = select i1 %tobool.not.i629, i1 %cmp442, i1 false
   br i1 %or.cond3, label %while.cond.backedge, label %do.body444
@@ -1130,7 +1130,7 @@ if.then455:                                       ; preds = %if.end449
   %idxprom457 = sext i32 %add453 to i64
   %arrayidx458 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom457
   %60 = load ptr, ptr %arrayidx458, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i631)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i631)
   store ptr null, ptr %end.i631, align 8
   %call.i632 = call double @strtod(ptr noundef %60, ptr noundef nonnull %end.i631) #20
   %61 = load ptr, ptr %end.i631, align 8
@@ -1138,13 +1138,13 @@ if.then455:                                       ; preds = %if.end449
   br i1 %cmp.i633, label %_ZL11parseDoubleRdPKc.exit636, label %_ZL11parseDoubleRdPKc.exit636.thread
 
 _ZL11parseDoubleRdPKc.exit636.thread:             ; preds = %if.then455
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i631)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i631)
   br label %do.body463
 
 _ZL11parseDoubleRdPKc.exit636:                    ; preds = %if.then455
   %62 = load i8, ptr %61, align 1
   %tobool.not.i635 = icmp eq i8 %62, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i631)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i631)
   %cmp461 = fcmp ogt double %call.i632, 0.000000e+00
   %or.cond4 = select i1 %tobool.not.i635, i1 %cmp461, i1 false
   br i1 %or.cond4, label %if.end466, label %do.body463
@@ -1169,7 +1169,7 @@ if.then475:                                       ; preds = %if.end469
   %arrayidx.le5096 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
   %arrayidx478 = getelementptr i8, ptr %arrayidx.le5096, i64 8
   %65 = load ptr, ptr %arrayidx478, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i638)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i638)
   store ptr null, ptr %end.i638, align 8
   %call.i639 = call double @strtod(ptr noundef %65, ptr noundef nonnull %end.i638) #20
   %66 = load ptr, ptr %end.i638, align 8
@@ -1177,20 +1177,20 @@ if.then475:                                       ; preds = %if.end469
   br i1 %cmp.i640, label %_ZL11parseDoubleRdPKc.exit643, label %_ZL11parseDoubleRdPKc.exit643.thread
 
 _ZL11parseDoubleRdPKc.exit643.thread:             ; preds = %if.then475
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i638)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i638)
   br label %do.body490
 
 _ZL11parseDoubleRdPKc.exit643:                    ; preds = %if.then475
   %67 = load i8, ptr %66, align 1
   %tobool.not.i642 = icmp eq i8 %67, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i638)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i638)
   br i1 %tobool.not.i642, label %land.lhs.true480, label %do.body490
 
 land.lhs.true480:                                 ; preds = %_ZL11parseDoubleRdPKc.exit643
   %idxprom482 = sext i32 %add41 to i64
   %arrayidx483 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom482
   %68 = load ptr, ptr %arrayidx483, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i644)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i644)
   store ptr null, ptr %end.i644, align 8
   %call.i645 = call double @strtod(ptr noundef %68, ptr noundef nonnull %end.i644) #20
   %69 = load ptr, ptr %end.i644, align 8
@@ -1198,13 +1198,13 @@ land.lhs.true480:                                 ; preds = %_ZL11parseDoubleRdP
   br i1 %cmp.i646, label %_ZL11parseDoubleRdPKc.exit649, label %_ZL11parseDoubleRdPKc.exit649.thread
 
 _ZL11parseDoubleRdPKc.exit649.thread:             ; preds = %land.lhs.true480
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i644)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i644)
   br label %do.body490
 
 _ZL11parseDoubleRdPKc.exit649:                    ; preds = %land.lhs.true480
   %70 = load i8, ptr %69, align 1
   %tobool.not.i648 = icmp eq i8 %70, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i644)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i644)
   %cmp486 = fcmp ogt double %call.i639, 0.000000e+00
   %or.cond5 = select i1 %tobool.not.i648, i1 %cmp486, i1 false
   %cmp488 = fcmp ogt double %call.i645, 0.000000e+00
@@ -1232,7 +1232,7 @@ if.then501:                                       ; preds = %if.end495
   %arrayidx.le5094 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
   %arrayidx504 = getelementptr i8, ptr %arrayidx.le5094, i64 8
   %73 = load ptr, ptr %arrayidx504, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i651)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i651)
   store ptr null, ptr %end.i651, align 8
   %call.i652 = call double @strtod(ptr noundef %73, ptr noundef nonnull %end.i651) #20
   %74 = load ptr, ptr %end.i651, align 8
@@ -1240,20 +1240,20 @@ if.then501:                                       ; preds = %if.end495
   br i1 %cmp.i653, label %_ZL11parseDoubleRdPKc.exit656, label %_ZL11parseDoubleRdPKc.exit656.thread
 
 _ZL11parseDoubleRdPKc.exit656.thread:             ; preds = %if.then501
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i651)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i651)
   br label %do.body512
 
 _ZL11parseDoubleRdPKc.exit656:                    ; preds = %if.then501
   %75 = load i8, ptr %74, align 1
   %tobool.not.i655 = icmp eq i8 %75, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i651)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i651)
   br i1 %tobool.not.i655, label %land.lhs.true506, label %do.body512
 
 land.lhs.true506:                                 ; preds = %_ZL11parseDoubleRdPKc.exit656
   %idxprom508 = sext i32 %add41 to i64
   %arrayidx509 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom508
   %76 = load ptr, ptr %arrayidx509, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i657)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i657)
   store ptr null, ptr %end.i657, align 8
   %call.i658 = call double @strtod(ptr noundef %76, ptr noundef nonnull %end.i657) #20
   %77 = load ptr, ptr %end.i657, align 8
@@ -1261,13 +1261,13 @@ land.lhs.true506:                                 ; preds = %_ZL11parseDoubleRdP
   br i1 %cmp.i659, label %_ZL11parseDoubleRdPKc.exit662, label %_ZL11parseDoubleRdPKc.exit662.thread
 
 _ZL11parseDoubleRdPKc.exit662.thread:             ; preds = %land.lhs.true506
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i657)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i657)
   br label %do.body512
 
 _ZL11parseDoubleRdPKc.exit662:                    ; preds = %land.lhs.true506
   %78 = load i8, ptr %77, align 1
   %tobool.not.i661 = icmp eq i8 %78, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i657)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i657)
   br i1 %tobool.not.i661, label %if.end515, label %do.body512
 
 do.body512:                                       ; preds = %_ZL11parseDoubleRdPKc.exit656, %_ZL11parseDoubleRdPKc.exit662, %_ZL11parseDoubleRdPKc.exit662.thread, %_ZL11parseDoubleRdPKc.exit656.thread
@@ -1488,7 +1488,7 @@ if.then724:                                       ; preds = %if.end718
   %idxprom726 = sext i32 %add722 to i64
   %arrayidx727 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom726
   %92 = load ptr, ptr %arrayidx727, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i664)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i664)
   store ptr null, ptr %end.i664, align 8
   %call.i665 = call double @strtod(ptr noundef %92, ptr noundef nonnull %end.i664) #20
   %93 = load ptr, ptr %end.i664, align 8
@@ -1496,13 +1496,13 @@ if.then724:                                       ; preds = %if.end718
   br i1 %cmp.i666, label %_ZL11parseDoubleRdPKc.exit669, label %_ZL11parseDoubleRdPKc.exit669.thread
 
 _ZL11parseDoubleRdPKc.exit669.thread:             ; preds = %if.then724
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i664)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i664)
   br label %do.body732
 
 _ZL11parseDoubleRdPKc.exit669:                    ; preds = %if.then724
   %94 = load i8, ptr %93, align 1
   %tobool.not.i668 = icmp eq i8 %94, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i664)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i664)
   %cmp730 = fcmp ogt double %call.i665, 0.000000e+00
   %or.cond7 = select i1 %tobool.not.i668, i1 %cmp730, i1 false
   br i1 %or.cond7, label %if.end735, label %do.body732
@@ -1528,7 +1528,7 @@ if.then744:                                       ; preds = %if.end738
   %idxprom746 = sext i32 %add742 to i64
   %arrayidx747 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom746
   %97 = load ptr, ptr %arrayidx747, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i670)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i670)
   store ptr null, ptr %end.i670, align 8
   %call.i671 = call double @strtod(ptr noundef %97, ptr noundef nonnull %end.i670) #20
   %98 = load ptr, ptr %end.i670, align 8
@@ -1536,13 +1536,13 @@ if.then744:                                       ; preds = %if.end738
   br i1 %cmp.i672, label %_ZL11parseDoubleRdPKc.exit675, label %_ZL11parseDoubleRdPKc.exit675.thread
 
 _ZL11parseDoubleRdPKc.exit675.thread:             ; preds = %if.then744
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i670)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i670)
   br label %do.body752
 
 _ZL11parseDoubleRdPKc.exit675:                    ; preds = %if.then744
   %99 = load i8, ptr %98, align 1
   %tobool.not.i674 = icmp eq i8 %99, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i670)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i670)
   %cmp750 = fcmp ogt double %call.i671, 0.000000e+00
   %or.cond8 = select i1 %tobool.not.i674, i1 %cmp750, i1 false
   br i1 %or.cond8, label %if.end755, label %do.body752
@@ -1647,7 +1647,7 @@ if.then838:                                       ; preds = %if.end832
   %idxprom840 = sext i32 %add836 to i64
   %arrayidx841 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom840
   %112 = load ptr, ptr %arrayidx841, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i676)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i676)
   store ptr null, ptr %end.i676, align 8
   %call.i677 = call double @strtod(ptr noundef %112, ptr noundef nonnull %end.i676) #20
   %113 = load ptr, ptr %end.i676, align 8
@@ -1655,13 +1655,13 @@ if.then838:                                       ; preds = %if.end832
   br i1 %cmp.i678, label %_ZL11parseDoubleRdPKc.exit681, label %_ZL11parseDoubleRdPKc.exit681.thread
 
 _ZL11parseDoubleRdPKc.exit681.thread:             ; preds = %if.then838
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i676)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i676)
   br label %do.body844
 
 _ZL11parseDoubleRdPKc.exit681:                    ; preds = %if.then838
   %114 = load i8, ptr %113, align 1
   %tobool.not.i680 = icmp eq i8 %114, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i676)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i676)
   br i1 %tobool.not.i680, label %if.end847, label %do.body844
 
 do.body844:                                       ; preds = %_ZL11parseDoubleRdPKc.exit681, %_ZL11parseDoubleRdPKc.exit681.thread
@@ -1700,7 +1700,7 @@ if.then867:                                       ; preds = %if.end861
   %idxprom871 = sext i32 %add41 to i64
   %arrayidx872 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom871
   %118 = load ptr, ptr %arrayidx872, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i682)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i682)
   store ptr null, ptr %end.i682, align 8
   %call.i683 = call i64 @strtoul(ptr noundef %118, ptr noundef nonnull %end.i682, i32 noundef 10) #20
   %conv.i684 = trunc i64 %call.i683 to i32
@@ -1709,20 +1709,20 @@ if.then867:                                       ; preds = %if.end861
   br i1 %cmp.i685, label %_ZL13parseUnsignedRjPKc.exit688, label %_ZL13parseUnsignedRjPKc.exit688.thread
 
 _ZL13parseUnsignedRjPKc.exit688.thread:           ; preds = %if.then867
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i682)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i682)
   br label %do.body884
 
 _ZL13parseUnsignedRjPKc.exit688:                  ; preds = %if.then867
   %120 = load i8, ptr %119, align 1
   %tobool.not.i687 = icmp eq i8 %120, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i682)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i682)
   br i1 %tobool.not.i687, label %lor.lhs.false874, label %do.body884
 
 lor.lhs.false874:                                 ; preds = %_ZL13parseUnsignedRjPKc.exit688
   %idxprom876 = sext i32 %add865 to i64
   %arrayidx877 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom876
   %121 = load ptr, ptr %arrayidx877, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i689)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i689)
   store ptr null, ptr %end.i689, align 8
   %call.i690 = call i64 @strtoul(ptr noundef %121, ptr noundef nonnull %end.i689, i32 noundef 10) #20
   %conv.i691 = trunc i64 %call.i690 to i32
@@ -1731,13 +1731,13 @@ lor.lhs.false874:                                 ; preds = %_ZL13parseUnsignedR
   br i1 %cmp.i692, label %_ZL13parseUnsignedRjPKc.exit695, label %_ZL13parseUnsignedRjPKc.exit695.thread
 
 _ZL13parseUnsignedRjPKc.exit695.thread:           ; preds = %lor.lhs.false874
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i689)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i689)
   br label %do.body884
 
 _ZL13parseUnsignedRjPKc.exit695:                  ; preds = %lor.lhs.false874
   %123 = load i8, ptr %122, align 1
   %tobool.not.i694 = icmp eq i8 %123, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i689)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i689)
   %tobool880 = icmp ne i32 %conv.i684, 0
   %or.cond9 = select i1 %tobool.not.i694, i1 %tobool880, i1 false
   %tobool882 = icmp ne i32 %conv.i691, 0
@@ -1768,7 +1768,7 @@ if.then898:                                       ; preds = %if.end892
   %idxprom902 = sext i32 %add41 to i64
   %arrayidx903 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom902
   %127 = load ptr, ptr %arrayidx903, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i696)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i696)
   store ptr null, ptr %end.i696, align 8
   %call.i697 = call i64 @strtoul(ptr noundef %127, ptr noundef nonnull %end.i696, i32 noundef 10) #20
   %conv.i698 = trunc i64 %call.i697 to i32
@@ -1777,20 +1777,20 @@ if.then898:                                       ; preds = %if.end892
   br i1 %cmp.i699, label %_ZL13parseUnsignedRjPKc.exit702, label %_ZL13parseUnsignedRjPKc.exit702.thread
 
 _ZL13parseUnsignedRjPKc.exit702.thread:           ; preds = %if.then898
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i696)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i696)
   br label %do.body915
 
 _ZL13parseUnsignedRjPKc.exit702:                  ; preds = %if.then898
   %129 = load i8, ptr %128, align 1
   %tobool.not.i701 = icmp eq i8 %129, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i696)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i696)
   br i1 %tobool.not.i701, label %lor.lhs.false905, label %do.body915
 
 lor.lhs.false905:                                 ; preds = %_ZL13parseUnsignedRjPKc.exit702
   %idxprom907 = sext i32 %add896 to i64
   %arrayidx908 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom907
   %130 = load ptr, ptr %arrayidx908, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i703)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i703)
   store ptr null, ptr %end.i703, align 8
   %call.i704 = call i64 @strtoul(ptr noundef %130, ptr noundef nonnull %end.i703, i32 noundef 10) #20
   %conv.i705 = trunc i64 %call.i704 to i32
@@ -1799,13 +1799,13 @@ lor.lhs.false905:                                 ; preds = %_ZL13parseUnsignedR
   br i1 %cmp.i706, label %_ZL13parseUnsignedRjPKc.exit709, label %_ZL13parseUnsignedRjPKc.exit709.thread
 
 _ZL13parseUnsignedRjPKc.exit709.thread:           ; preds = %lor.lhs.false905
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i703)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i703)
   br label %do.body915
 
 _ZL13parseUnsignedRjPKc.exit709:                  ; preds = %lor.lhs.false905
   %132 = load i8, ptr %131, align 1
   %tobool.not.i708 = icmp eq i8 %132, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i703)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i703)
   %tobool911 = icmp ne i32 %conv.i698, 0
   %or.cond11 = select i1 %tobool.not.i708, i1 %tobool911, i1 false
   %tobool913 = icmp ne i32 %conv.i705, 0
@@ -2182,8 +2182,8 @@ if.end1084:                                       ; preds = %invoke.cont1080
   br i1 %cmp1085, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end1084
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buffer.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i718)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i718)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer.i) #20
   br label %while.cond.i
 
@@ -2278,8 +2278,8 @@ do.cond.i:                                        ; preds = %if.then23.i, %if.th
 
 _ZL11loadVarFontPN7msdfgen14FreetypeHandleEPKc.exit: ; preds = %do.cond.i, %while.cond7.i, %invoke.cont1.i, %land.lhs.true.i721
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer.i) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buffer.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i718)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i718)
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end1084
@@ -5687,10 +5687,10 @@ declare noundef zeroext i1 @_ZN7msdfgen8saveTiffERKNS_14BitmapConstRefIfLi4EEEPK
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #17

@@ -264,10 +264,10 @@ _ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit: ; preds = %_ZN14Compil
   %63 = tail call i32 @llvm.smax.i32(i32 %61, i32 %55)
   %.1 = select i1 %62, i32 %63, i32 %44
   %64 = zext nneg i32 %.1 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 %64, ptr %1, align 8
   %65 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 657, i32 noundef 3, ptr noundef nonnull %1, i32 noundef 5) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %66
 
 66:                                               ; preds = %54, %29
@@ -1679,7 +1679,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit73:      ; preds = %111, %_ZN26Growable
   %162 = load i32, ptr %161, align 8
   %163 = sub i32 %160, %162
   %164 = select i1 %.not.i.i8.i, i32 %163, i32 1073741824
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %165 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   %166 = load double, ptr %2, align 8
   %.0.i.i = select i1 %165, double %166, double 1.000000e+00
@@ -1691,7 +1691,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit73:      ; preds = %111, %_ZN26Growable
   br i1 %171, label %172, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread82
 
 _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread82: ; preds = %148
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.old = load i32, ptr @_ZN9Arguments5_modeE, align 4
   %.old86 = icmp eq i32 %.old, 2
   br i1 %.old86, label %_ZN6Method28clear_queued_for_compilationEv.exit79, label %185
@@ -1704,7 +1704,7 @@ _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread82: ; pre
   br i1 %176, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread84, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit
 
 _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread84: ; preds = %172
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN6Method28clear_queued_for_compilationEv.exit79
 
 _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit: ; preds = %172
@@ -1714,7 +1714,7 @@ _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit: ; preds = %172
   %180 = sitofp i64 %179 to double
   %181 = fmul double %.0.i.i, %180
   %182 = fcmp ugt double %181, %178
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %183 = load i32, ptr @_ZN9Arguments5_modeE, align 4
   %184 = icmp eq i32 %183, 2
   %or.cond87 = select i1 %182, i1 true, i1 %184
@@ -1779,7 +1779,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN17CompilationPolicy6is_oldERK1
   %8 = load i64, ptr @TieredOldPercentage, align 8
   %9 = sitofp i64 %8 to double
   %10 = fdiv double %9, 1.000000e+02
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   %12 = load double, ptr %3, align 8
   %13 = select i1 %11, double %12, double 1.000000e+00
@@ -1792,7 +1792,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN17CompilationPolicy6is_oldERK1
   br i1 %18, label %19, label %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread
 
 _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread: ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %39
 
 19:                                               ; preds = %1
@@ -1803,7 +1803,7 @@ _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread: ; pr
   br i1 %23, label %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread11, label %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit
 
 _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread11: ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %30
 
 _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit: ; preds = %19
@@ -1813,11 +1813,11 @@ _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit: ; preds = %
   %27 = sitofp i64 %26 to double
   %28 = fmul double %.0.i, %27
   %29 = fcmp ugt double %28, %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %29, label %30, label %39
 
 30:                                               ; preds = %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread11, %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %31 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   %32 = load double, ptr %2, align 8
   %33 = select i1 %31, double %32, double 1.000000e+00
@@ -1827,7 +1827,7 @@ _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit: ; preds = %
   %36 = sitofp i64 %35 to double
   %37 = fmul double %.0.i9, %36
   %38 = fcmp ole double %37, %34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %39
 
 39:                                               ; preds = %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread, %30, %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit
@@ -2046,7 +2046,7 @@ define hidden noundef zeroext i1 @_ZN17CompilationPolicy18is_method_profiledERK1
   %20 = load i32, ptr %19, align 8
   %21 = sub i32 %18, %20
   %22 = select i1 %.not.i.i8, i32 %21, i32 1073741824
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %23 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   %24 = load double, ptr %2, align 8
   %.0.i = select i1 %23, double %24, double 1.000000e+00
@@ -2075,7 +2075,7 @@ define hidden noundef zeroext i1 @_ZN17CompilationPolicy18is_method_profiledERK1
 
 _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit: ; preds = %6, %30, %35
   %.017.i = phi i1 [ true, %6 ], [ false, %30 ], [ %41, %35 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %42
 
 42:                                               ; preds = %1, %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit
@@ -2952,7 +2952,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %7, %_ZN26GrowableAr
   %43 = load i64, ptr @ProfileMaturityPercentage, align 8
   %44 = sitofp i64 %43 to double
   %45 = fdiv double %44, 1.000000e+02
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %46 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   %47 = load double, ptr %3, align 8
   %48 = select i1 %46, double %47, double 1.000000e+00
@@ -2965,7 +2965,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %7, %_ZN26GrowableAr
   br i1 %53, label %54, label %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread
 
 _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread: ; preds = %34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %74
 
 54:                                               ; preds = %34
@@ -2976,7 +2976,7 @@ _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread: ; pr
   br i1 %58, label %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread17, label %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit
 
 _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread17: ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %65
 
 _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit: ; preds = %54
@@ -2986,11 +2986,11 @@ _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit: ; preds = %
   %62 = sitofp i64 %61 to double
   %63 = fmul double %.0.i, %62
   %64 = fcmp ugt double %63, %60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %64, label %65, label %74
 
 65:                                               ; preds = %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread17, %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %66 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   %67 = load double, ptr %2, align 8
   %68 = select i1 %66, double %67, double 1.000000e+00
@@ -3000,7 +3000,7 @@ _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit: ; preds = %
   %71 = sitofp i64 %70 to double
   %72 = fmul double %.0.i15, %71
   %73 = fcmp ole double %72, %69
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %74
 
 74:                                               ; preds = %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread, %_ZN12methodHandleC2EP6ThreadP6Method.exit, %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit, %65
@@ -3307,7 +3307,7 @@ _ZN13CompileBroker10queue_sizeEi.exit:            ; preds = %42, %44
   %72 = load i32, ptr %71, align 8
   %73 = sub i32 %70, %72
   %74 = select i1 %.not.i.i8.i, i32 %73, i32 1073741824
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %75 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   %76 = load double, ptr %4, align 8
   %.0.i.i = select i1 %75, double %76, double 1.000000e+00
@@ -3319,7 +3319,7 @@ _ZN13CompileBroker10queue_sizeEi.exit:            ; preds = %42, %44
   br i1 %81, label %82, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67
 
 _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67: ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
 
 82:                                               ; preds = %58
@@ -3330,7 +3330,7 @@ _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67: ; pre
   br i1 %86, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread69, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit
 
 _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread69: ; preds = %82
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread
 
 _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit: ; preds = %82
@@ -3340,7 +3340,7 @@ _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit: ; preds = %82
   %90 = sitofp i64 %89 to double
   %91 = fmul double %.0.i.i, %90
   %92 = fcmp ugt double %91, %88
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %92, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
 
 _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread: ; preds = %55, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread69, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit
@@ -3652,7 +3652,7 @@ _ZN13CompileBroker10queue_sizeEi.exit:            ; preds = %42, %44
   %72 = load i32, ptr %71, align 8
   %73 = sub i32 %70, %72
   %74 = select i1 %.not.i.i8.i, i32 %73, i32 1073741824
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %75 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   %76 = load double, ptr %4, align 8
   %.0.i.i = select i1 %75, double %76, double 1.000000e+00
@@ -3664,7 +3664,7 @@ _ZN13CompileBroker10queue_sizeEi.exit:            ; preds = %42, %44
   br i1 %81, label %82, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67
 
 _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67: ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
 
 82:                                               ; preds = %58
@@ -3675,7 +3675,7 @@ _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67: ; pre
   br i1 %86, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread69, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit
 
 _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread69: ; preds = %82
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread
 
 _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit: ; preds = %82
@@ -3685,7 +3685,7 @@ _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit: ; preds = %82
   %90 = sitofp i64 %89 to double
   %91 = fmul double %.0.i.i, %90
   %92 = fcmp ugt double %91, %88
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %92, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
 
 _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread: ; preds = %55, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread69, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit
@@ -3969,7 +3969,7 @@ _ZN13CompileBroker10queue_sizeEi.exit:            ; preds = %24, %33
   br i1 %.not15, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread, label %42
 
 42:                                               ; preds = %_ZN13CompileBroker10queue_sizeEi.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %43 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   %44 = load double, ptr %4, align 8
   %45 = select i1 %43, double %44, double 1.000000e+00
@@ -3982,7 +3982,7 @@ _ZN13CompileBroker10queue_sizeEi.exit:            ; preds = %24, %33
   br i1 %50, label %51, label %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread
 
 _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread: ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
 
 51:                                               ; preds = %42
@@ -3993,7 +3993,7 @@ _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread: ; pr
   br i1 %55, label %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread22, label %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit
 
 _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread22: ; preds = %51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %62
 
 _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit: ; preds = %51
@@ -4003,11 +4003,11 @@ _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit: ; preds = %
   %59 = sitofp i64 %58 to double
   %60 = fmul double %.0.i18, %59
   %61 = fcmp ugt double %60, %57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %61, label %62, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
 
 62:                                               ; preds = %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread22, %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %63 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   %64 = load double, ptr %3, align 8
   %65 = select i1 %63, double %64, double 1.000000e+00
@@ -4017,7 +4017,7 @@ _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit: ; preds = %
   %68 = sitofp i64 %67 to double
   %69 = fmul double %.0.i19, %68
   %70 = fcmp ole double %69, %66
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
 
 _ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread: ; preds = %16, %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread, %_ZN13CompileBroker10queue_sizeEi.exit, %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit, %62, %22, %2, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
@@ -4743,7 +4743,7 @@ _ZN13CompileBroker10queue_sizeEi.exit.i:          ; preds = %13, %11
 
 _ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit.thread: ; preds = %_ZN13CompileBroker10queue_sizeEi.exit.i, %6
   %.0.ph = phi double [ 1.000000e+00, %6 ], [ %22, %_ZN13CompileBroker10queue_sizeEi.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %23 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %5) #12
   %24 = load double, ptr %5, align 8
   %25 = fmul double %.0.ph, %24
@@ -4759,7 +4759,7 @@ _ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit: ; preds = %4, %4
   %31 = load i64, ptr @Tier3LoadFeedback, align 8
   %32 = trunc i64 %31 to i32
   %33 = tail call noundef double @_ZN17CompilationPolicy15threshold_scaleE9CompLeveli(i8 noundef signext 3, i32 noundef %32)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %34 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %5) #12
   switch i8 %1, label %_ZN13LoopPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit [
     i8 0, label %35
@@ -4779,7 +4779,7 @@ _ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit: ; preds = %4, %4
 
 _ZN13LoopPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit: ; preds = %_ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit, %35, %_ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit.thread
   %.07.i = phi i1 [ %42, %35 ], [ %30, %_ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit.thread ], [ true, %_ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %43
 
 43:                                               ; preds = %4, %_ZN13LoopPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit
@@ -4825,7 +4825,7 @@ _ZN13CompileBroker10queue_sizeEi.exit.i:          ; preds = %13, %11
 
 _ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit.thread: ; preds = %_ZN13CompileBroker10queue_sizeEi.exit.i, %6
   %.0.ph = phi double [ 1.000000e+00, %6 ], [ %22, %_ZN13CompileBroker10queue_sizeEi.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %23 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %5) #12
   %24 = load double, ptr %5, align 8
   %25 = fmul double %.0.ph, %24
@@ -4841,7 +4841,7 @@ _ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit: ; preds = %4, %4
   %31 = load i64, ptr @Tier3LoadFeedback, align 8
   %32 = trunc i64 %31 to i32
   %33 = tail call noundef double @_ZN17CompilationPolicy15threshold_scaleE9CompLeveli(i8 noundef signext 3, i32 noundef %32)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %34 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %5) #12
   %35 = load double, ptr %5, align 8
   %36 = fmul double %33, %35
@@ -4893,7 +4893,7 @@ _ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit: ; preds = %4, %4
 
 _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit: ; preds = %_ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit, %37, %43, %48, %_ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit.thread, %55, %60
   %.017.i = phi i1 [ true, %37 ], [ false, %43 ], [ %54, %48 ], [ true, %_ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit.thread ], [ false, %55 ], [ %66, %60 ], [ true, %_ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %67
 
 67:                                               ; preds = %4, %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit
@@ -4914,10 +4914,10 @@ declare i8 @llvm.smax.i8(i8, i8) #9
 declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9

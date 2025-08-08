@@ -55,14 +55,8 @@ define hidden void @timelib_unixtime2date(i64 noundef %0, ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @timelib_unixtime2gmt(ptr noundef writeonly captures(none) initializes((0, 48), (56, 60), (80, 84), (192, 200), (220, 232)) %0, i64 noundef %1) local_unnamed_addr #2 {
+define hidden void @timelib_unixtime2gmt(ptr noundef writeonly captures(none) initializes((0, 48), (56, 60), (80, 84), (192, 200), (220, 232)) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = sdiv i64 %1, 86400
@@ -143,7 +137,7 @@ define hidden void @timelib_unixtime2gmt(ptr noundef writeonly captures(none) in
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @timelib_update_from_sse(ptr noundef captures(none) initializes((0, 48), (208, 212), (220, 232)) %0) local_unnamed_addr #3 {
+define hidden void @timelib_update_from_sse(ptr noundef captures(none) initializes((0, 48), (208, 212), (220, 232)) %0) local_unnamed_addr #2 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8, !tbaa !18
@@ -236,7 +230,7 @@ define hidden void @timelib_update_from_sse(ptr noundef captures(none) initializ
   br label %167
 
 64:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !25
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %66 = load ptr, ptr %65, align 8, !tbaa !26
@@ -314,7 +308,7 @@ define hidden void @timelib_update_from_sse(ptr noundef captures(none) initializ
   store i32 1, ptr %117, align 4, !tbaa !21
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 1, ptr %118, align 8, !tbaa !22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %167
 
 119:                                              ; preds = %1
@@ -399,10 +393,10 @@ define hidden void @timelib_update_from_sse(ptr noundef captures(none) initializ
   ret void
 }
 
-declare i32 @timelib_get_time_zone_offset_info(i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @timelib_get_time_zone_offset_info(i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @timelib_unixtime2local(ptr noundef initializes((228, 232)) %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden void @timelib_unixtime2local(ptr noundef initializes((228, 232)) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !24
   switch i32 %4, label %125 [
@@ -594,14 +588,14 @@ define hidden void @timelib_unixtime2local(ptr noundef initializes((228, 232)) %
   ret void
 }
 
-declare ptr @timelib_get_time_zone_info(i64 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @timelib_get_time_zone_info(i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @timelib_time_tz_abbr_update(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @timelib_time_tz_abbr_update(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @timelib_time_offset_dtor(ptr noundef) local_unnamed_addr #4
+declare void @timelib_time_offset_dtor(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @timelib_set_timezone_from_offset(ptr noundef captures(none) initializes((56, 60), (72, 84), (208, 212), (232, 236)) %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden void @timelib_set_timezone_from_offset(ptr noundef captures(none) initializes((56, 60), (72, 84), (208, 212), (232, 236)) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   %.not = icmp eq ptr %4, null
@@ -627,10 +621,10 @@ define hidden void @timelib_set_timezone_from_offset(ptr noundef captures(none) 
   ret void
 }
 
-declare void @_efree(ptr noundef) local_unnamed_addr #4
+declare void @_efree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @timelib_set_timezone_from_abbr(ptr noundef captures(none) initializes((56, 60), (72, 84), (208, 212), (232, 236)) %0, ptr noundef readonly byval(%struct._timelib_abbr_info) align 8 captures(none) %1) local_unnamed_addr #3 {
+define hidden void @timelib_set_timezone_from_abbr(ptr noundef captures(none) initializes((56, 60), (72, 84), (208, 212), (232, 236)) %0, ptr noundef readonly byval(%struct._timelib_abbr_info) align 8 captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   %.not = icmp eq ptr %4, null
@@ -662,10 +656,10 @@ define hidden void @timelib_set_timezone_from_abbr(ptr noundef captures(none) in
   ret void
 }
 
-declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #4
+declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @timelib_set_timezone(ptr noundef captures(none) initializes((56, 60), (72, 84), (208, 212), (232, 236)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @timelib_set_timezone(ptr noundef captures(none) initializes((56, 60), (72, 84), (208, 212), (232, 236)) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load i64, ptr %3, align 8, !tbaa !20
   %5 = tail call ptr @timelib_get_time_zone_info(i64 noundef %4, ptr noundef %1) #5
@@ -701,7 +695,7 @@ define hidden void @timelib_set_timezone(ptr noundef captures(none) initializes(
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @timelib_apply_localtime(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 -1, 1) i32 @timelib_apply_localtime(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %9, label %3
 
@@ -801,11 +795,17 @@ define hidden range(i32 -1, 1) i32 @timelib_apply_localtime(ptr noundef %0, i32 
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

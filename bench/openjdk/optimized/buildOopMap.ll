@@ -873,8 +873,8 @@ _ZN10Block_ListC2Ev.exit:                         ; preds = %29
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 2136
   %40 = load ptr, ptr %39, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %42 = load i32, ptr %41, align 8
   %43 = add i32 %42, 1
@@ -1522,8 +1522,8 @@ _ZN10Block_List4pushEP5Block.exit190.i:           ; preds = %390, %.lr.ph245.i
   br i1 %396, label %.lr.ph245.i, label %.loopexit.i, !llvm.loop !32
 
 _ZL11do_livenessP13PhaseRegAllocP8PhaseCFGP10Block_ListiP5ArenaP4Dict.exit: ; preds = %._crit_edge240.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %397 = load ptr, ptr %6, align 8
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 2136
   %399 = load ptr, ptr %398, align 8
@@ -1994,10 +1994,10 @@ declare void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceabl
 declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

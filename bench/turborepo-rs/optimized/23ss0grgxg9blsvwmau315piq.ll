@@ -259,24 +259,22 @@ define void @_RNvXs1_CslGy2FzxvRkj_12block_bufferINtB5_11BlockBufferINtNtCs5FtjD
   %3 = alloca [24 x i8], align 8
   %4 = alloca [8 x i8], align 8
   %5 = alloca [72 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !195
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !195
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 0, ptr %6, align 8, !noalias !195
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !195
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !195
   store ptr %6, ptr %4, align 8, !noalias !195
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !195
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !195
   store ptr %2, ptr %3, align 8, !noalias !195
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %7, align 8, !noalias !195
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %8, align 8, !noalias !195
   call void @_RINvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_7IterMuthENtNtNtNtBb_4iter6traits8iterator8Iterator4folduNCINvNvXs_NtNtB11_8adapters9enumerateINtB1Q_9EnumeratepEBV_4fold9enumerateQhuNCINvNvBV_8for_each4callTjB2S_ENCINvXsg_CshTjWJoR5NBV_13generic_arrayINtB3z_12GenericArrayhINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIB4p_IB4p_IB4p_IB4p_IB4p_IB4p_NtB4r_5UTermNtNtB4t_3bit2B1ENtB5H_2B0EB5V_EB5V_EB5V_EB5V_EB5V_EEINtNtB3z_8sequence15GenericSequencehE8generateNCNvXNtB3z_5implsB42_NtNtBb_7default7Default7default0E0E0E0ECsff1zCjKRl2o_13turborepo_env.llvm.10116246802473599757(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3), !noalias !195
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !195
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !195
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !195
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !195
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !195
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 0, ptr %9, align 1
   ret void
@@ -446,17 +444,17 @@ declare noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h
 ; Function Attrs: nounwind nonlazybind uwtable
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
-
 ; Function Attrs: nonlazybind uwtable
 declare noundef ptr @_RINvMsi_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_12RawIterRangeTNtNtCs68wO5nsWeTG_5alloc6string6StringBV_EE9next_implKb0_ECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden void @_RINvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_7IterMuthENtNtNtNtBb_4iter6traits8iterator8Iterator4folduNCINvNvXs_NtNtB11_8adapters9enumerateINtB1Q_9EnumeratepEBV_4fold9enumerateQhuNCINvNvBV_8for_each4callTjB2S_ENCINvXsg_CshTjWJoR5NBV_13generic_arrayINtB3z_12GenericArrayhINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIB4p_IB4p_IB4p_IB4p_IB4p_IB4p_NtB4r_5UTermNtNtB4t_3bit2B1ENtB5H_2B0EB5V_EB5V_EB5V_EB5V_EB5V_EEINtNtB3z_8sequence15GenericSequencehE8generateNCNvXNtB3z_5implsB42_NtNtBb_7default7Default7default0E0E0E0ECsff1zCjKRl2o_13turborepo_env.llvm.10116246802473599757(ptr noundef nonnull, ptr noundef, ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10

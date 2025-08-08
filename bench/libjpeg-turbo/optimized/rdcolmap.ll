@@ -39,7 +39,7 @@ define dso_local void @read_color_map(ptr noundef %0, ptr noundef captures(none)
   ]
 
 21:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 52, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %22
 
 22:                                               ; preds = %30, %21
@@ -200,7 +200,7 @@ add_map_entry.exit.i:                             ; preds = %83, %._crit_edge.th
   br i1 %exitcond37.not.i, label %read_gif_map.exit, label %54, !llvm.loop !47
 
 read_gif_map.exit:                                ; preds = %add_map_entry.exit.i
-  call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %read_ppm_map.exit
 
 106:                                              ; preds = %12
@@ -692,12 +692,6 @@ read_ppm_map.exit:                                ; preds = %._crit_edge.us.i, %
 ; Function Attrs: nofree nounwind
 declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   br label %.critedge
@@ -779,6 +773,12 @@ pbm_getc.exit31:                                  ; preds = %.preheader.i30, %.p
 26:                                               ; preds = %pbm_getc.exit31
   ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

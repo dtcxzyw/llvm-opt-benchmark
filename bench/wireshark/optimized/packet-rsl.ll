@@ -1324,26 +1324,23 @@ switch.lookup11:                                  ; preds = %5
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #3
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_rsl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
@@ -1387,13 +1384,10 @@ define internal i32 @dissect_rsl(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_rsl() local_unnamed_addr #0 {
@@ -1418,43 +1412,43 @@ define hidden void @proto_reg_handoff_rsl() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #3
+declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = add i32 %3, 1
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %7)
@@ -2527,7 +2521,7 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
 
 573:                                              ; preds = %571, %13
   %.0 = phi i32 [ %14, %13 ], [ %572, %571 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -2537,13 +2531,13 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca %struct._address, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 255, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %10 = and i8 %9, 127
   %11 = add i32 %3, 1
@@ -2696,7 +2690,7 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
 
 79:                                               ; preds = %73
   %80 = call ptr @wmem_file_scope()
-  %81 = call noalias dereferenceable_or_null(2) ptr @wmem_alloc0(ptr noundef %80, i64 noundef 2) #7
+  %81 = call noalias dereferenceable_or_null(2) ptr @wmem_alloc0(ptr noundef %80, i64 noundef 2) #6
   %82 = load i32, ptr @proto_rsl, align 4
   call void @conversation_add_proto_data(ptr noundef %76, i32 noundef %82, ptr noundef %81)
   br label %83
@@ -2721,7 +2715,7 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
 
 94:                                               ; preds = %88
   %95 = call ptr @wmem_file_scope()
-  %96 = call noalias dereferenceable_or_null(2) ptr @wmem_alloc0(ptr noundef %95, i64 noundef 2) #7
+  %96 = call noalias dereferenceable_or_null(2) ptr @wmem_alloc0(ptr noundef %95, i64 noundef 2) #6
   %97 = load i32, ptr @proto_rsl, align 4
   call void @conversation_add_proto_data(ptr noundef %91, i32 noundef %97, ptr noundef %96)
   %98 = load i32, ptr %6, align 4
@@ -2846,15 +2840,15 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
 
 165:                                              ; preds = %.thread181, %._crit_edge, %158
   %.2 = phi i32 [ %.0161.lcssa, %158 ], [ %.0161.lcssa, %._crit_edge ], [ %36, %.thread181 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.2
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #3
+declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
@@ -2927,7 +2921,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_link_id(ptr noundef %0, ptr n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rsl_ie_L3_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %4, label %10, label %8
 
 8:                                                ; preds = %6
@@ -2974,14 +2968,14 @@ define internal fastcc i32 @dissect_rsl_ie_L3_inf(ptr noundef %0, ptr noundef %1
 
 33:                                               ; preds = %8, %25
   %.0 = phi i32 [ %32, %25 ], [ %3, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_rsl_ie_rlm_cause(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i32, ptr @ett_ie_rlm_cause, align 4
   %6 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %5, ptr noundef nonnull %4, ptr noundef nonnull @.str.759)
   %7 = load i32, ptr @hf_rsl_ie_id, align 4
@@ -3008,12 +3002,12 @@ define internal fastcc noundef i32 @dissect_rsl_ie_rlm_cause(ptr noundef %0, ptr
 
 24:                                               ; preds = %3, %18
   %.0 = phi i32 [ %23, %18 ], [ %16, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_rsl_ie_rel_mode(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
@@ -3046,7 +3040,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_sys_info_type(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rsl_ie_full_bcch_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %.not = icmp eq i8 %6, 39
   br i1 %.not, label %7, label %27
@@ -3076,7 +3070,7 @@ define internal fastcc i32 @dissect_rsl_ie_full_bcch_inf(ptr noundef %0, ptr nou
 
 27:                                               ; preds = %4, %7
   %.0 = phi i32 [ %26, %7 ], [ %3, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -3110,7 +3104,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_starting_time(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rsl_ie_rach_load(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2)
   %.not = icmp eq i8 %5, 18
   br i1 %.not, label %6, label %34
@@ -3153,7 +3147,7 @@ define internal fastcc i32 @dissect_rsl_ie_rach_load(ptr noundef %0, ptr noundef
 
 34:                                               ; preds = %3, %32
   %.0 = phi i32 [ %33, %32 ], [ %2, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -3257,7 +3251,7 @@ define internal fastcc i32 @dissect_rsl_ie_phy_ctx(ptr noundef %0, ptr noundef %
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2)
   %.not = icmp eq i8 %9, 16
   br i1 %.not, label %10, label %dissect_phy_ctx_ie.exit
@@ -3291,7 +3285,7 @@ define internal fastcc i32 @dissect_rsl_ie_phy_ctx(ptr noundef %0, ptr noundef %
   ]
 
 29:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %30 = load i32, ptr @ett_phy_ctx_ie_ext_rand_access, align 4
   %31 = call ptr @proto_tree_add_subtree(ptr noundef %27, ptr noundef %0, i32 noundef %22, i32 noundef 0, i32 noundef %30, ptr noundef nonnull %7, ptr noundef nonnull @.str.770)
   %32 = load i32, ptr @hf_rsl_phy_ctx_ie_id, align 4
@@ -3308,9 +3302,9 @@ define internal fastcc i32 @dissect_rsl_ie_phy_ctx(ptr noundef %0, ptr noundef %
   %42 = load i32, ptr @hf_rsl_phy_ctx_ext_rand_access, align 4
   %43 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %42, ptr noundef %0, i32 noundef %41, i32 noundef %36, i32 noundef 0)
   %44 = add i32 %41, %36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %45 = call fastcc i32 @dissect_rsl_phy_ctx_ab_rx_lvl_err_bits(ptr noundef %0, ptr noundef %27, i32 noundef %44)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %46 = load i32, ptr @ett_phy_ctx_rxlvl_ext, align 4
   %47 = call ptr @proto_tree_add_subtree(ptr noundef %27, ptr noundef %0, i32 noundef %45, i32 noundef 0, i32 noundef %46, ptr noundef nonnull %6, ptr noundef nonnull @.str.772)
   %48 = load i32, ptr @hf_rsl_phy_ctx_ie_id, align 4
@@ -3327,12 +3321,12 @@ define internal fastcc i32 @dissect_rsl_ie_phy_ctx(ptr noundef %0, ptr noundef %
   %58 = load i32, ptr @hf_rsl_phy_ctx_rx_lvl_ext, align 4
   %59 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %58, ptr noundef %0, i32 noundef %57, i32 noundef 1, i32 noundef 0)
   %60 = add i32 %45, 3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dissect_phy_ctx_ie.exit
 
 61:                                               ; preds = %25
   %62 = call fastcc i32 @dissect_rsl_phy_ctx_ab_rx_lvl_err_bits(ptr noundef %0, ptr noundef %27, i32 noundef %22)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %63 = load i32, ptr @ett_phy_ctx_rxlvl_ext, align 4
   %64 = call ptr @proto_tree_add_subtree(ptr noundef %27, ptr noundef %0, i32 noundef %62, i32 noundef 0, i32 noundef %63, ptr noundef nonnull %5, ptr noundef nonnull @.str.772)
   %65 = load i32, ptr @hf_rsl_phy_ctx_ie_id, align 4
@@ -3349,11 +3343,11 @@ define internal fastcc i32 @dissect_rsl_ie_phy_ctx(ptr noundef %0, ptr noundef %
   %75 = load i32, ptr @hf_rsl_phy_ctx_rx_lvl_ext, align 4
   %76 = call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %75, ptr noundef %0, i32 noundef %74, i32 noundef 1, i32 noundef 0)
   %77 = add i32 %62, 3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_phy_ctx_ie.exit
 
 78:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %79 = load i32, ptr @ett_phy_ctx_rxlvl_ext, align 4
   %80 = call ptr @proto_tree_add_subtree(ptr noundef %27, ptr noundef %0, i32 noundef %22, i32 noundef 0, i32 noundef %79, ptr noundef nonnull %4, ptr noundef nonnull @.str.772)
   %81 = load i32, ptr @hf_rsl_phy_ctx_ie_id, align 4
@@ -3370,7 +3364,7 @@ define internal fastcc i32 @dissect_rsl_ie_phy_ctx(ptr noundef %0, ptr noundef %
   %91 = load i32, ptr @hf_rsl_phy_ctx_rx_lvl_ext, align 4
   %92 = call ptr @proto_tree_add_item(ptr noundef %80, i32 noundef %91, ptr noundef %0, i32 noundef %90, i32 noundef 1, i32 noundef 0)
   %93 = add i32 %2, 5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %dissect_phy_ctx_ie.exit
 
 94:                                               ; preds = %10
@@ -3381,14 +3375,14 @@ define internal fastcc i32 @dissect_rsl_ie_phy_ctx(ptr noundef %0, ptr noundef %
 
 dissect_phy_ctx_ie.exit:                          ; preds = %78, %61, %29, %25, %94, %3
   %.0 = phi i32 [ %2, %3 ], [ %97, %94 ], [ %22, %25 ], [ %60, %29 ], [ %77, %61 ], [ %93, %78 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rsl_ie_full_imm_ass_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @ett_ie_full_imm_ass_inf, align 4
   %7 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef 0, i32 noundef %6, ptr noundef nonnull %5, ptr noundef nonnull @.str.773)
   %8 = load i32, ptr @hf_rsl_ie_id, align 4
@@ -3409,7 +3403,7 @@ define internal fastcc i32 @dissect_rsl_ie_full_imm_ass_inf(ptr noundef %0, ptr 
   %22 = load ptr, ptr @top_tree, align 8
   %23 = call i32 @call_dissector(ptr noundef %21, ptr noundef %20, ptr noundef %1, ptr noundef %22)
   %24 = add i32 %17, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %24
 }
 
@@ -3429,7 +3423,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_paging_grp(ptr noundef %0, pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rsl_ie_ms_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @ett_ie_ms_id, align 4
   %7 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef 0, i32 noundef %6, ptr noundef nonnull %5, ptr noundef nonnull @.str.775)
   %8 = load i32, ptr @hf_rsl_ie_id, align 4
@@ -3445,7 +3439,7 @@ define internal fastcc i32 @dissect_rsl_ie_ms_id(ptr noundef %0, ptr noundef %1,
   %17 = add i32 %3, 2
   %18 = call zeroext i16 @de_mid(ptr noundef %0, ptr noundef %7, ptr noundef %1, i32 noundef %17, i32 noundef %12, ptr noundef null, i32 noundef 0)
   %19 = add i32 %17, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %19
 }
 
@@ -3496,7 +3490,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_emlpp_prio(ptr noundef %0, pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rsl_ie_smscb_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @ett_ie_smscb_inf, align 4
   %7 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef 0, i32 noundef %6, ptr noundef nonnull %5, ptr noundef nonnull @.str.778)
   %8 = load i32, ptr @hf_rsl_ie_id, align 4
@@ -3515,7 +3509,7 @@ define internal fastcc i32 @dissect_rsl_ie_smscb_inf(ptr noundef %0, ptr noundef
   %20 = load ptr, ptr @top_tree, align 8
   %21 = call i32 @call_dissector(ptr noundef %19, ptr noundef %18, ptr noundef %1, ptr noundef %20)
   %22 = add i32 %17, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %22
 }
 
@@ -3544,7 +3538,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_smscb_ch_ind(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_rsl_ie_resource_inf(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i32, ptr @ett_ie_resource_inf, align 4
   %6 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %5, ptr noundef nonnull %4, ptr noundef nonnull @.str.780)
   %7 = load i32, ptr @hf_rsl_ie_id, align 4
@@ -3579,14 +3573,14 @@ define internal fastcc noundef i32 @dissect_rsl_ie_resource_inf(ptr noundef %0, 
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rsl_ie_cause(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %3, label %8, label %6
 
 6:                                                ; preds = %4
@@ -3627,7 +3621,7 @@ define internal fastcc i32 @dissect_rsl_ie_cause(ptr noundef %0, ptr noundef %1,
 
 31:                                               ; preds = %6, %29
   %.0 = phi i32 [ %30, %29 ], [ %2, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -3656,7 +3650,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_message_id(ptr noundef %0, pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rsl_ie_err_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %.not = icmp eq i8 %6, 38
   br i1 %.not, label %7, label %21
@@ -3680,7 +3674,7 @@ define internal fastcc i32 @dissect_rsl_ie_err_msg(ptr noundef %0, ptr noundef %
 
 21:                                               ; preds = %4, %7
   %.0 = phi i32 [ %20, %7 ], [ %3, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -3704,7 +3698,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_cb_cmd_type(ptr noundef %0, p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rsl_ie_smscb_mess(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @ett_ie_smscb_mess, align 4
   %7 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef 0, i32 noundef %6, ptr noundef nonnull %5, ptr noundef nonnull @.str.785)
   %8 = load i32, ptr @hf_rsl_ie_id, align 4
@@ -3723,7 +3717,7 @@ define internal fastcc i32 @dissect_rsl_ie_smscb_mess(ptr noundef %0, ptr nounde
   %20 = load ptr, ptr @top_tree, align 8
   %21 = call i32 @call_dissector(ptr noundef %19, ptr noundef %18, ptr noundef %1, ptr noundef %20)
   %22 = add i32 %17, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %22
 }
 
@@ -3751,8 +3745,8 @@ define internal fastcc noundef i32 @dissect_rsl_ie_cmd_ind(ptr noundef %0, ptr n
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load i32, ptr @ett_ie_cmd_ind, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef %7, ptr noundef nonnull %4, ptr noundef nonnull @.str.789)
   %9 = load i32, ptr @hf_rsl_ie_id, align 4
@@ -3779,7 +3773,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_cmd_ind(ptr noundef %0, ptr n
   br label %36
 
 27:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %28 = load i32, ptr @hf_rsl_command, align 4
   %29 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %8, i32 noundef %28, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6)
   %30 = add i32 %2, 3
@@ -3800,20 +3794,20 @@ define internal fastcc noundef i32 @dissect_rsl_ie_cmd_ind(ptr noundef %0, ptr n
 35:                                               ; preds = %33, %27, %32
   %.str.791.sink = phi ptr [ @.str.791, %32 ], [ @.str.790, %27 ], [ %.str.792..str.793, %33 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef nonnull %.str.791.sink)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %36
 
 36:                                               ; preds = %23, %35
   %.035 = phi i32 [ %26, %23 ], [ %30, %35 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.035
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rsl_ie_grp_call_ref(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %.not = icmp eq i8 %6, 47
   br i1 %.not, label %7, label %24
@@ -3840,14 +3834,14 @@ define internal fastcc i32 @dissect_rsl_ie_grp_call_ref(ptr noundef %0, ptr noun
 
 24:                                               ; preds = %4, %7
   %.0 = phi i32 [ %23, %7 ], [ %3, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rsl_ie_ch_desc(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2)
   %.not = icmp eq i8 %5, 48
   br i1 %.not, label %6, label %22
@@ -3873,7 +3867,7 @@ define internal fastcc i32 @dissect_rsl_ie_ch_desc(ptr noundef %0, ptr noundef %
 
 22:                                               ; preds = %3, %6
   %.0 = phi i32 [ %21, %6 ], [ %2, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -3940,7 +3934,7 @@ default.unreachable:                              ; preds = %3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rsl_ie_ch_mode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @ett_ie_ch_mode, align 4
   %7 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef 0, i32 noundef %6, ptr noundef nonnull %5, ptr noundef nonnull @.str.798)
   %8 = load i32, ptr @hf_rsl_ie_id, align 4
@@ -4008,7 +4002,7 @@ define internal fastcc i32 @dissect_rsl_ie_ch_mode(ptr noundef %0, ptr noundef %
 
 51:                                               ; preds = %30, %46, %49, %43, %40
   %52 = add i32 %17, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %52
 }
 
@@ -4016,8 +4010,8 @@ define internal fastcc i32 @dissect_rsl_ie_ch_mode(ptr noundef %0, ptr noundef %
 define internal fastcc i32 @dissect_rsl_ie_ch_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %.not = icmp eq i8 %7, 5
   br i1 %.not, label %8, label %39
@@ -4063,15 +4057,15 @@ define internal fastcc i32 @dissect_rsl_ie_ch_id(ptr noundef %0, ptr noundef %1,
 
 39:                                               ; preds = %4, %37
   %.0 = phi i32 [ %38, %37 ], [ %3, %4 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rsl_ie_enc_inf(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %3, label %8, label %6
 
 6:                                                ; preds = %4
@@ -4104,7 +4098,7 @@ define internal fastcc i32 @dissect_rsl_ie_enc_inf(ptr noundef %0, ptr noundef %
 
 28:                                               ; preds = %6, %8
   %.0 = phi i32 [ %27, %8 ], [ %2, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -4214,7 +4208,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_timing_adv(ptr noundef %0, pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rsl_ie_bs_power_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2)
   %.not = icmp eq i8 %5, 32
   br i1 %.not, label %6, label %20
@@ -4238,14 +4232,14 @@ define internal fastcc i32 @dissect_rsl_ie_bs_power_params(ptr noundef %0, ptr n
 
 20:                                               ; preds = %3, %6
   %.0 = phi i32 [ %19, %6 ], [ %2, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rsl_ie_ms_pow_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2)
   %.not = icmp eq i8 %5, 31
   br i1 %.not, label %6, label %20
@@ -4269,7 +4263,7 @@ define internal fastcc i32 @dissect_rsl_ie_ms_pow_params(ptr noundef %0, ptr nou
 
 20:                                               ; preds = %3, %6
   %.0 = phi i32 [ %19, %6 ], [ %2, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -4320,7 +4314,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_main_ch_ref(ptr noundef %0, p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rsl_ie_multirate_conf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %4, label %9, label %7
 
 7:                                                ; preds = %5
@@ -4348,7 +4342,7 @@ define internal fastcc i32 @dissect_rsl_ie_multirate_conf(ptr noundef %0, ptr no
 
 24:                                               ; preds = %7, %9
   %.0 = phi i32 [ %23, %9 ], [ %3, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -4377,7 +4371,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_multirate_cntrl(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rsl_ie_sup_codec_types(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2)
   %.not = icmp eq i8 %5, 56
   br i1 %.not, label %6, label %22
@@ -4403,14 +4397,14 @@ define internal fastcc i32 @dissect_rsl_ie_sup_codec_types(ptr noundef %0, ptr n
 
 22:                                               ; preds = %3, %6
   %.0 = phi i32 [ %21, %6 ], [ %2, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rsl_ie_tfo_transp_cont(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %.not = icmp eq i8 %6, 61
   br i1 %.not, label %7, label %22
@@ -4435,7 +4429,7 @@ define internal fastcc i32 @dissect_rsl_ie_tfo_transp_cont(ptr noundef %0, ptr n
 
 22:                                               ; preds = %4, %7
   %.0 = phi i32 [ %21, %7 ], [ %3, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -4443,8 +4437,8 @@ define internal fastcc i32 @dissect_rsl_ie_tfo_transp_cont(ptr noundef %0, ptr n
 define internal fastcc noundef i32 @dissect_rsl_ie_osmo_rep_acch_cap(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2)
   %.not = icmp eq i8 %6, 96
   br i1 %.not, label %7, label %30
@@ -4477,8 +4471,8 @@ define internal fastcc noundef i32 @dissect_rsl_ie_osmo_rep_acch_cap(ptr noundef
 
 30:                                               ; preds = %3, %7
   %.0 = phi i32 [ %29, %7 ], [ %2, %3 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -4486,8 +4480,8 @@ define internal fastcc noundef i32 @dissect_rsl_ie_osmo_rep_acch_cap(ptr noundef
 define internal fastcc noundef i32 @dissect_rsl_ie_osmo_top_acch_cap(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2)
   %.not = icmp eq i8 %6, 98
   br i1 %.not, label %7, label %28
@@ -4518,8 +4512,8 @@ define internal fastcc noundef i32 @dissect_rsl_ie_osmo_top_acch_cap(ptr noundef
 
 28:                                               ; preds = %3, %7
   %.0 = phi i32 [ %27, %7 ], [ %2, %3 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -4527,8 +4521,8 @@ define internal fastcc noundef i32 @dissect_rsl_ie_osmo_top_acch_cap(ptr noundef
 define internal fastcc noundef i32 @dissect_rsl_ie_osmo_training_seq(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2)
   %.not = icmp eq i8 %6, 97
   br i1 %.not, label %7, label %25
@@ -4556,8 +4550,8 @@ define internal fastcc noundef i32 @dissect_rsl_ie_osmo_training_seq(ptr noundef
 
 25:                                               ; preds = %3, %7
   %.0 = phi i32 [ %23, %7 ], [ %2, %3 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -4625,7 +4619,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_meas_res_no(ptr noundef %0, p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rsl_ie_uplik_meas(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i32, ptr @ett_ie_uplink_meas, align 4
   %6 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %5, ptr noundef nonnull %4, ptr noundef nonnull @.str.818)
   %7 = load i32, ptr @hf_rsl_ie_id, align 4
@@ -4652,7 +4646,7 @@ define internal fastcc i32 @dissect_rsl_ie_uplik_meas(ptr noundef %0, ptr nounde
   %27 = load i32, ptr @hf_rsl_rxqual_sub_up, align 4
   %28 = call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %27, ptr noundef %0, i32 noundef %24, i32 noundef 1, i32 noundef 0)
   %29 = add i32 %16, %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %29
 }
 
@@ -4710,7 +4704,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_ms_timing_offset(ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_rsl_ie_codec_conf(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i32, ptr @ett_ie_codec_conf, align 4
   %6 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %5, ptr noundef nonnull %4, ptr noundef nonnull @.str.821)
   %7 = load i32, ptr @hf_rsl_ie_id, align 4
@@ -4724,7 +4718,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_codec_conf(ptr noundef %0, pt
   %14 = load i32, ptr @hf_rsl_ie_length, align 4
   %15 = call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %14, ptr noundef %0, i32 noundef %9, i32 noundef 1, i32 noundef 0)
   %16 = add i32 %13, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %16
 }
 
@@ -4764,7 +4758,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_tfo_status(ptr noundef %0, pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rsl_ie_llp_apdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @ett_ie_llp_apdu, align 4
   %7 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef 0, i32 noundef %6, ptr noundef nonnull %5, ptr noundef nonnull @.str.825)
   %8 = load i32, ptr @hf_rsl_ie_id, align 4
@@ -4780,7 +4774,7 @@ define internal fastcc i32 @dissect_rsl_ie_llp_apdu(ptr noundef %0, ptr noundef 
   %17 = add i32 %3, 2
   %18 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_rsl_facility_information_element_3gpp_ts_44071, ptr noundef %0, i32 noundef %17, i32 noundef %13)
   %19 = add i32 %17, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %19
 }
 
@@ -4840,7 +4834,7 @@ define internal fastcc noundef i32 @dissect_rsl_paging_package(ptr noundef %0, p
   %24 = load i32, ptr @hf_rsl_paging_emlpp_prio, align 4
   %25 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %24, ptr noundef %0, i32 noundef %.033, i32 noundef 1, i32 noundef 0)
   %26 = add i32 %.033, 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = load i32, ptr @ett_ie_ms_id, align 4
   %28 = call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %0, i32 noundef %26, i32 noundef 0, i32 noundef %27, ptr noundef nonnull %6, ptr noundef nonnull @.str.775)
   %29 = load i32, ptr @hf_rsl_ie_id, align 4
@@ -4855,7 +4849,7 @@ define internal fastcc noundef i32 @dissect_rsl_paging_package(ptr noundef %0, p
   %37 = add i32 %.033, 3
   %38 = call zeroext i16 @de_mid(ptr noundef %0, ptr noundef %28, ptr noundef %1, i32 noundef %37, i32 noundef %32, ptr noundef null, i32 noundef 0)
   %39 = add i32 %37, %32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %40 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %39)
   %41 = icmp sgt i8 %40, -1
   %..i = select i1 %41, i32 2, i32 5
@@ -4903,7 +4897,7 @@ dissect_rsl_paging_group_paras.exit:              ; preds = %56, %47
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rsl_ie_etws_pn(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i32, ptr @ett_ie_smscb_mess, align 4
   %6 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %5, ptr noundef nonnull %4, ptr noundef nonnull @.str.785)
   %7 = load i32, ptr @hf_rsl_ie_id, align 4
@@ -4920,80 +4914,80 @@ define internal fastcc i32 @dissect_rsl_ie_etws_pn(ptr noundef %0, ptr noundef %
   %17 = load i32, ptr @hf_rsl_etws_pn, align 4
   %18 = call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef %11, i32 noundef 0)
   %19 = add i32 %16, %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %19
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #3
+declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #3
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_ipv4(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @tvb_get_ipv4(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #3
+declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_file_scope() local_unnamed_addr #3
+declare ptr @wmem_file_scope() local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @rtp_dyn_payload_new() local_unnamed_addr #3
+declare ptr @rtp_dyn_payload_new() local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @rtp_dyn_payload_insert(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @rtp_dyn_payload_insert(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @conversation_delete_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @conversation_delete_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @rtp_add_address(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @rtp_add_address(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @rtcp_add_address(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @rtcp_add_address(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @parse_reduced_frame_number(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i16 @parse_reduced_frame_number(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_rsl_phy_ctx_ab_rx_lvl_err_bits(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i32, ptr @ett_phy_ctx_ab_rx_lvl_err_bits, align 4
   %6 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %5, ptr noundef nonnull %4, ptr noundef nonnull @.str.771)
   %7 = load i32, ptr @hf_rsl_phy_ctx_ie_id, align 4
@@ -5013,45 +5007,50 @@ define internal fastcc noundef i32 @dissect_rsl_phy_ctx_ab_rx_lvl_err_bits(ptr n
   %20 = load i32, ptr @hf_rsl_phy_ctx_ab_err_bits, align 4
   %21 = call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %20, ptr noundef %0, i32 noundef %19, i32 noundef 1, i32 noundef 0)
   %22 = add i32 %2, 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %22
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @de_mid(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i16 @de_mid(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item_ret_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_item_ret_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @de_d_gb_call_ref(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i16 @de_d_gb_call_ref(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @de_rr_ch_dsc(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i16 @de_rr_ch_dsc(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @de_rr_mob_all(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i16 @de_rr_mob_all(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @de_rr_multirate_conf(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i16 @de_rr_multirate_conf(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { allocsize(1) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

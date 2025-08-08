@@ -3659,7 +3659,7 @@ define hidden void @_ZN7Compile12begin_methodEv(ptr noundef nonnull readonly ali
 define hidden void @_ZN14CompileWrapperD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.EventCompilerPhase, align 8
   %3 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %2, i8 0, i64 16, i1 false)
   store i8 1, ptr %4, align 8
@@ -3683,7 +3683,7 @@ define hidden void @_ZN14CompileWrapperD2Ev(ptr noundef nonnull readonly align 8
 
 _ZN7Compile10end_methodEv.exit:                   ; preds = %1, %8
   %14 = phi ptr [ %3, %1 ], [ %.pre, %8 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 352
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 128
@@ -4933,7 +4933,7 @@ _ZN7Compile10TracePhaseD2Ev.exit69:               ; preds = %.critedge, %683, %6
 692:                                              ; preds = %641, %624, %_ZN7Compile10TracePhaseD2Ev.exit, %_ZN7Compile10TracePhaseD2Ev.exit69, %663
   call void @_ZN9TraceTimeD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #17
   call void @_ZN9TraceTimeD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #17
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %693 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %7, i8 0, i64 16, i1 false)
   store i8 1, ptr %693, align 8
@@ -4954,7 +4954,7 @@ _ZN7Compile10TracePhaseD2Ev.exit69:               ; preds = %.critedge, %683, %6
   br label %_ZN14CompileWrapperD2Ev.exit
 
 _ZN14CompileWrapperD2Ev.exit:                     ; preds = %692, %697
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %702 = load ptr, ptr %45, align 8
   %703 = getelementptr inbounds nuw i8, ptr %702, i64 128
   store ptr null, ptr %703, align 8
@@ -5692,7 +5692,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %25, %27
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %38 = load i64, ptr %37, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 88
@@ -5738,10 +5738,10 @@ _ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i: ; preds = %53, %48
   br label %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit
 
 _ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit: ; preds = %_ZN12ResourceMarkD2Ev.exit, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %65 = load ptr, ptr %19, align 8
   call void @_ZN15PhaseStringOptsC1EP8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(136) %6, ptr noundef %65) #17
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %66 = load ptr, ptr %39, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 88
   %68 = load ptr, ptr %67, align 8
@@ -5785,7 +5785,7 @@ _ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i3: ; preds = %78, %73
   br label %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit5
 
 _ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit5: ; preds = %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %90 = load ptr, ptr %32, align 8
   %.not.i.i.i.i6 = icmp eq ptr %90, null
   br i1 %.not.i.i.i.i6, label %92, label %91
@@ -5921,10 +5921,10 @@ define hidden void @_ZN7Compile22initialize_stress_seedEPK12DirectiveSet(ptr nou
   %15 = trunc i64 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i32 %15, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %15, ptr %3, align 4
   %17 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 159, i32 noundef 2, ptr noundef nonnull %3, i32 noundef 5) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
 
 18:                                               ; preds = %7, %5
@@ -6022,7 +6022,7 @@ define hidden void @_ZN7Compile8OptimizeEv(ptr noundef nonnull align 8 dereferen
   br label %_ZN7Compile21print_inlining_reinitEv.exit
 
 _ZN7Compile21print_inlining_reinitEv.exit:        ; preds = %1, %58
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 88
@@ -6068,7 +6068,7 @@ _ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i: ; preds = %75, %70
   br label %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit
 
 _ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit: ; preds = %_ZN7Compile21print_inlining_reinitEv.exit, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 1952
   %88 = load ptr, ptr %87, align 8
   call void @_ZN12PhaseIterGVNC1EP8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(2416) %7, ptr noundef %88) #17
@@ -6128,7 +6128,7 @@ _ZN7Compile10TracePhaseD2Ev.exit:                 ; preds = %_ZN7Compile12print_
   br i1 %125, label %.loopexit, label %126
 
 126:                                              ; preds = %_ZN7Compile10TracePhaseD2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %127 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %4, i8 0, i64 16, i1 false)
   store i8 1, ptr %127, align 8
@@ -6159,7 +6159,7 @@ _ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit44: ; preds = %126, %13
   store i64 %141, ptr %139, align 8
   %.sroa.2.0..sroa_idx.i.i43 = getelementptr inbounds nuw i8, ptr %138, i64 2304
   store i64 %142, ptr %.sroa.2.0..sroa_idx.i.i43, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN7Compile29process_for_unstable_if_trapsER12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull align 8 dereferenceable(2416) %7)
   %143 = load ptr, ptr %61, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 88
@@ -6172,7 +6172,7 @@ _ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit44: ; preds = %126, %13
 
 150:                                              ; preds = %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit44
   call void @_ZN7Compile20inline_incrementallyER12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull align 8 dereferenceable(2416) %7)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %151 = load ptr, ptr %61, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 88
   %153 = load ptr, ptr %152, align 8
@@ -6220,7 +6220,7 @@ _ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i46: ; preds = %163, %1
 _ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit48: ; preds = %150, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i46
   %173 = phi ptr [ %155, %150 ], [ %.pre69, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i46 ]
   %174 = phi ptr [ %153, %150 ], [ %.pre68, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i46 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %175 = icmp ne ptr %174, null
   %176 = icmp ne ptr %173, null
   %177 = select i1 %175, i1 true, i1 %176
@@ -6322,7 +6322,7 @@ _ZN7Compile19inline_boxing_callsER12PhaseIterGVN.exit: ; preds = %206, %182, %22
 232:                                              ; preds = %231, %228
   %233 = phi ptr [ %.pre77, %231 ], [ null, %228 ]
   %234 = phi ptr [ %.pre76, %231 ], [ null, %228 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %235 = icmp ne ptr %234, null
   %236 = icmp ne ptr %233, null
   %237 = select i1 %235, i1 true, i1 %236
@@ -6366,7 +6366,7 @@ _ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i50: ; preds = %243, %2
 _ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit52: ; preds = %232, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i50
   %253 = phi ptr [ %233, %232 ], [ %.pre81, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i50 ]
   %254 = phi ptr [ %234, %232 ], [ %.pre80, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i50 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %255 = icmp ne ptr %254, null
   %256 = icmp ne ptr %253, null
   %257 = select i1 %255, i1 true, i1 %256
@@ -7180,7 +7180,7 @@ _ZN7Compile16check_node_countEjPKc.exit:          ; preds = %74, %.sink.split.i
   br i1 %91, label %_ZN12PhaseChaitinD2Ev.exit, label %92
 
 92:                                               ; preds = %_ZN7Compile16check_node_countEjPKc.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %6, i8 0, i64 16, i1 false)
   store i8 1, ptr %93, align 8
@@ -7211,7 +7211,7 @@ _ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit: ; preds = %92, %97
   store i64 %107, ptr %105, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %104, i64 2304
   store i64 %108, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 736
@@ -7239,7 +7239,7 @@ _ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit: ; preds = %92, %97
   br i1 %125, label %126, label %.critedge
 
 126:                                              ; preds = %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %127 = load ptr, ptr %19, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 88
   %129 = load ptr, ptr %128, align 8
@@ -7281,7 +7281,7 @@ _ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i13: ; preds = %139, %1
   br label %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit15
 
 _ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit15: ; preds = %126, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i13
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %149 = load ptr, ptr %116, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 352
   %151 = load ptr, ptr %150, align 8
@@ -7346,7 +7346,7 @@ _ZN7Compile10TracePhaseD2Ev.exit17:               ; preds = %_ZN7Compile12print_
   br i1 %191, label %.critedge9, label %192
 
 192:                                              ; preds = %_ZN7Compile10TracePhaseD2Ev.exit17
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %193 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %4, i8 0, i64 16, i1 false)
   store i8 1, ptr %193, align 8
@@ -7375,7 +7375,7 @@ _ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit21: ; preds = %192, %19
   store i64 %205, ptr %203, align 8
   %.sroa.2.0..sroa_idx.i.i20 = getelementptr inbounds nuw i8, ptr %202, i64 2304
   store i64 %206, ptr %.sroa.2.0..sroa_idx.i.i20, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %207 = load ptr, ptr %173, align 8
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 352
   %209 = load ptr, ptr %208, align 8
@@ -7438,7 +7438,7 @@ _ZN7Compile10TracePhaseD2Ev.exit23:               ; preds = %_ZN7Compile12print_
 242:                                              ; preds = %241, %240
   call void @_ZN8PhaseCFG10fixup_flowEv(ptr noundef nonnull align 8 dereferenceable(160) %9) #17
   call void @_ZN8PhaseCFG25remove_unreachable_blocksEv(ptr noundef nonnull align 8 dereferenceable(160) %9) #17
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %243 = load ptr, ptr %19, align 8
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 88
   %245 = load ptr, ptr %244, align 8
@@ -7480,7 +7480,7 @@ _ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i25: ; preds = %255, %2
   br label %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit27
 
 _ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit27: ; preds = %242, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i25
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %265 = load ptr, ptr %228, align 8
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 352
   %267 = load ptr, ptr %266, align 8
@@ -7529,7 +7529,7 @@ _ZN7Compile10TracePhaseD2Ev.exit29:               ; preds = %_ZN7Compile12print_
   %295 = load ptr, ptr %170, align 8
   call void @_ZN13PhasePeepholeC1EP13PhaseRegAllocR8PhaseCFG(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef %295, ptr noundef nonnull align 8 dereferenceable(160) %9) #17
   call void @_ZN13PhasePeephole12do_transformEv(ptr noundef nonnull align 8 dereferenceable(40) %16) #17
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %296 = load ptr, ptr %19, align 8
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 88
   %298 = load ptr, ptr %297, align 8
@@ -7571,7 +7571,7 @@ _ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i31: ; preds = %308, %3
   br label %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit33
 
 _ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit33: ; preds = %_ZN7Compile10TracePhaseD2Ev.exit29, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i31
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %318 = load ptr, ptr %286, align 8
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 352
   %320 = load ptr, ptr %319, align 8
@@ -8166,7 +8166,7 @@ _ZN8PhaseGVNC2Ev.exit:                            ; preds = %192, %207
   call void @_ZN8GraphKitC1Ev(ptr noundef nonnull align 8 dereferenceable(84) %14) #17
   call void @_ZN8GraphKit8gen_stubEPhPKcibb(ptr noundef nonnull align 8 dereferenceable(84) %14, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7) #17
   call void @_ZN7Compile8Code_GenEv(ptr noundef nonnull align 8 dereferenceable(2316) %0)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %215 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %10, i8 0, i64 16, i1 false)
   store i8 1, ptr %215, align 8
@@ -8187,7 +8187,7 @@ _ZN8PhaseGVNC2Ev.exit:                            ; preds = %192, %207
   br label %_ZN14CompileWrapperD2Ev.exit
 
 _ZN14CompileWrapperD2Ev.exit:                     ; preds = %_ZN8PhaseGVNC2Ev.exit, %219
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %224 = load ptr, ptr %41, align 8
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 128
   store ptr null, ptr %225, align 8
@@ -9342,12 +9342,12 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nonnu
 
 280:                                              ; preds = %279
   %281 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %281, ptr %8, align 8
   %282 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %8, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #17
   %283 = load ptr, ptr %8, align 8
   %284 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef 5, ptr noundef %283, ptr noundef %282, i1 noundef zeroext false, ptr noundef null, i32 noundef %.1132, i32 noundef 0, ptr noundef null, i32 noundef 2147483647) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %313
 
 285:                                              ; preds = %275
@@ -9387,21 +9387,21 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nonnu
 303:                                              ; preds = %300
   %304 = getelementptr inbounds nuw i8, ptr %.1147, i64 76
   %305 = load i32, ptr %304, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %295, ptr %7, align 8
   %306 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %7, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #17
   %307 = load ptr, ptr %7, align 8
   %308 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef %302, ptr noundef %307, ptr noundef %306, i1 noundef zeroext true, ptr noundef null, i32 noundef %.1132, i32 noundef %305, ptr noundef null, i32 noundef 2147483647) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %313
 
 309:                                              ; preds = %300
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %295, ptr %6, align 8
   %310 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #17
   %311 = load ptr, ptr %6, align 8
   %312 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef %302, ptr noundef %311, ptr noundef %310, i1 noundef zeroext false, ptr noundef null, i32 noundef %.1132, i32 noundef 0, ptr noundef null, i32 noundef 2147483647) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %313
 
 313:                                              ; preds = %280, %279, %297, %309, %303, %.thread201, %290, %.thread198
@@ -9421,12 +9421,12 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nonnu
 
 .split:                                           ; preds = %317
   %319 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %319, ptr %5, align 8
   %320 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #17
   %321 = load ptr, ptr %5, align 8
   %322 = call noundef ptr @_ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi(i32 noundef 4, ptr noundef %321, ptr noundef %320, i32 noundef -2000000001) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %329
 
 323:                                              ; preds = %317
@@ -9435,12 +9435,12 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nonnu
 
 .split148:                                        ; preds = %323
   %325 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %325, ptr %4, align 8
   %326 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #17
   %327 = load ptr, ptr %4, align 8
   %328 = call noundef ptr @_ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi(i32 noundef 4, ptr noundef %327, ptr noundef %326, i32 noundef %.3134) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %329
 
 329:                                              ; preds = %.split, %.split148, %323
@@ -9484,12 +9484,12 @@ _ZNK10ciMetadata9is_loadedEv.exit:                ; preds = %342
 
 349:                                              ; preds = %_ZNK10ciMetadata9is_loadedEv.exit, %339
   %350 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %350, ptr %3, align 8
   %351 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #17
   %352 = load ptr, ptr %3, align 8
   %353 = call noundef ptr @_ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi(i32 noundef 4, ptr noundef %352, ptr noundef %351, i32 noundef %.3134) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %356
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %342, %_ZNK10ciMetadata9is_loadedEv.exit
@@ -10165,13 +10165,13 @@ define hidden noundef ptr @_ZN7Compile10alias_typeEP7ciField(ptr noundef nonnull
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(144) %6) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = tail call noundef ptr @_ZN8ciObject5klassEv(ptr noundef nonnull align 8 dereferenceable(40) %11) #17
   store ptr %12, ptr %3, align 8
   %13 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #17
   %14 = load ptr, ptr %3, align 8
   %15 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef 2, ptr noundef %14, ptr noundef %13, i1 noundef zeroext true, ptr noundef nonnull %11, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %18
 
 16:                                               ; preds = %2
@@ -11226,7 +11226,7 @@ _ZN7Compile10TracePhaseD2Ev.exit5:                ; preds = %_ZN12PhaseIterGVN14
   br i1 %.not10, label %97, label %122
 
 97:                                               ; preds = %_ZN7Compile10TracePhaseD2Ev.exit5
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %98 = load ptr, ptr %70, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 88
   %100 = load ptr, ptr %99, align 8
@@ -11270,7 +11270,7 @@ _ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i: ; preds = %110, %105
   br label %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit
 
 _ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit: ; preds = %97, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %122
 
 122:                                              ; preds = %_ZN7Compile10TracePhaseD2Ev.exit5, %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit
@@ -11366,7 +11366,7 @@ define hidden noundef zeroext i1 @_ZN7Compile24inline_incrementally_oneEv(ptr no
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 136
   %59 = load ptr, ptr %58, align 8
   %60 = call noundef ptr %59(ptr noundef nonnull align 8 dereferenceable(16) %30) #17
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %61 = load ptr, ptr %24, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 88
   %63 = load ptr, ptr %62, align 8
@@ -11410,7 +11410,7 @@ _ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i: ; preds = %73, %68
   br label %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit
 
 _ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit: ; preds = %56, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load i32, ptr %18, align 8
   br label %.loopexit
 
@@ -11759,7 +11759,7 @@ _ZN7Compile23log_late_inline_failureEP13CallGeneratorPKc.exit: ; preds = %.lr.ph
 
 139:                                              ; preds = %131
   call void @_ZN7Compile28inline_incrementally_cleanupER12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull align 8 dereferenceable(2416) %1)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %140 = load ptr, ptr %26, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 88
   %142 = load ptr, ptr %141, align 8
@@ -11804,7 +11804,7 @@ _ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i: ; preds = %149, %147
 _ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit: ; preds = %139, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i
   %159 = phi ptr [ %144, %139 ], [ %.pre46, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i ]
   %160 = phi ptr [ %142, %139 ], [ %.pre45, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %161 = icmp ne ptr %160, null
   %162 = icmp ne ptr %159, null
   %163 = select i1 %161, i1 true, i1 %162
@@ -12154,7 +12154,7 @@ define hidden noundef zeroext i1 @_ZN7Compile14optimize_loopsER12PhaseIterGVN12L
   br i1 %or.cond7, label %55, label %43
 
 43:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %4, i8 0, i64 16, i1 false)
   store i8 1, ptr %17, align 8
   store i8 0, ptr %18, align 1
@@ -12180,7 +12180,7 @@ _ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit: ; preds = %43, %45
   store i64 %53, ptr %51, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %50, i64 2304
   store i64 %54, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %55
 
 55:                                               ; preds = %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit, %25
@@ -14035,7 +14035,7 @@ define hidden void @_ZN7Compile28inline_vector_reboxing_callsEv(ptr noundef nonn
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 136
   %41 = load ptr, ptr %40, align 8
   %42 = call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(16) %27) #17
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %43 = load ptr, ptr %16, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 88
   %45 = load ptr, ptr %44, align 8
@@ -14074,7 +14074,7 @@ _ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i: ; preds = %52, %50
   br label %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit
 
 _ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit: ; preds = %38, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %62 = load i32, ptr %12, align 8
   %63 = icmp sgt i32 %62, 0
   br i1 %63, label %21, label %._crit_edge, !llvm.loop !68
@@ -18967,7 +18967,7 @@ _ZNK7Compile17failure_reason_isEPKc.exit:         ; preds = %24
 
 _ZNK7Compile17failure_reason_isEPKc.exit.thread6: ; preds = %24, %_ZNK7Compile17failure_reason_isEPKc.exit
   %27 = load ptr, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 352
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 88
@@ -19013,7 +19013,7 @@ _ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i: ; preds = %42, %37
   br label %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit
 
 _ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit: ; preds = %_ZNK7Compile17failure_reason_isEPKc.exit.thread6, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK7Compile17failure_reason_isEPKc.exit.thread
 
 _ZNK7Compile17failure_reason_isEPKc.exit.thread:  ; preds = %17, %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit, %_ZNK7Compile17failure_reason_isEPKc.exit
@@ -22963,10 +22963,10 @@ declare i32 @llvm.smax.i32(i32, i32) #15
 declare i32 @llvm.ctpop.i32(i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

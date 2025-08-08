@@ -1010,7 +1010,7 @@ declare i64 @_ZN12BarrierSetC126atomic_cmpxchg_at_resolvedER9LIRAccessR7LIRItemS
 define hidden void @_ZN13XBarrierSetC125generate_c1_runtime_stubsEP10BufferBlob(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((8, 24)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.XLoadBarrierRuntimeStubCodeGenClosure, align 8
   %4 = alloca %class.XLoadBarrierRuntimeStubCodeGenClosure, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV37XLoadBarrierRuntimeStubCodeGenClosure, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 16384, ptr %5, align 8
@@ -1019,10 +1019,10 @@ define hidden void @_ZN13XBarrierSetC125generate_c1_runtime_stubsEP10BufferBlob(
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %6, i64 %9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV37XLoadBarrierRuntimeStubCodeGenClosure, i64 16), ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 32768, ptr %12, align 8
@@ -1031,7 +1031,7 @@ define hidden void @_ZN13XBarrierSetC125generate_c1_runtime_stubsEP10BufferBlob(
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %13, i64 %16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %17, ptr %18, align 8
   ret void
@@ -1587,10 +1587,10 @@ declare i32 @llvm.smax.i32(i32, i32) #6
 declare i32 @llvm.ctpop.i32(i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8

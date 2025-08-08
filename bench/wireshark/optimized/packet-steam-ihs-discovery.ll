@@ -247,14 +247,11 @@ define hidden void @proto_register_steam_ihs_discovery() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_steam_ihs_discovery(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
@@ -306,19 +303,19 @@ define internal i32 @dissect_steam_ihs_discovery(ptr noundef %0, ptr noundef %1,
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648)
   %36 = load i32, ptr @hf_steam_ihs_discovery_header_length, align 4
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %36, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %0, ptr %8, align 8
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %40, align 8
   %41 = icmp slt i32 %18, 1
   br i1 %41, label %steamdiscover_dissect_header.exit.thread, label %.lr.ph.i
 
 steamdiscover_dissect_header.exit.thread:         ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %155
 
 .lr.ph.i:                                         ; preds = %26
@@ -380,13 +377,13 @@ protobuf_iter_next.exit.i:                        ; preds = %46, %get_varint64.e
   ]
 
 64:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %65 = icmp eq i8 %60, 0
   br i1 %65, label %protobuf_verify_wiretype.exit.thread.i, label %66
 
 protobuf_verify_wiretype.exit.thread.i:           ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %76
 
 66:                                               ; preds = %64
@@ -405,7 +402,7 @@ protobuf_verify_wiretype.exit.thread.i:           ; preds = %64
 protobuf_verify_wiretype.exit.i:                  ; preds = %71, %66
   %.0.i42.i.i = phi ptr [ %74, %71 ], [ @.str.151, %66 ]
   %75 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %68, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 1, i32 noundef %69, ptr noundef %.0.i42.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not20.i = icmp eq i32 %67, 0
   br i1 %.not20.i, label %76, label %147
 
@@ -446,13 +443,13 @@ get_varint64.exit.i:                              ; preds = %77, %get_varint64.e
   br label %147
 
 91:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %92 = icmp eq i8 %60, 0
   br i1 %92, label %protobuf_verify_wiretype.exit27.thread.i, label %93
 
 protobuf_verify_wiretype.exit27.thread.i:         ; preds = %91
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %103
 
 93:                                               ; preds = %91
@@ -471,7 +468,7 @@ protobuf_verify_wiretype.exit27.thread.i:         ; preds = %91
 protobuf_verify_wiretype.exit27.i:                ; preds = %98, %93
   %.0.i42.i25.i = phi ptr [ %101, %98 ], [ @.str.151, %93 ]
   %102 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %95, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 2, i32 noundef %96, ptr noundef %.0.i42.i25.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not19.i = icmp eq i32 %94, 0
   br i1 %.not19.i, label %103, label %147
 
@@ -512,13 +509,13 @@ get_varint64.exit30.i:                            ; preds = %104, %get_varint64.
   br label %147
 
 118:                                              ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %119 = icmp eq i8 %60, 0
   br i1 %119, label %protobuf_verify_wiretype.exit34.thread.i, label %120
 
 protobuf_verify_wiretype.exit34.thread.i:         ; preds = %118
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %130
 
 120:                                              ; preds = %118
@@ -537,7 +534,7 @@ protobuf_verify_wiretype.exit34.thread.i:         ; preds = %118
 protobuf_verify_wiretype.exit34.i:                ; preds = %125, %120
   %.0.i42.i32.i = phi ptr [ %128, %125 ], [ @.str.151, %120 ]
   %129 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %122, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 3, i32 noundef %123, ptr noundef %.0.i42.i32.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not18.i = icmp eq i32 %121, 0
   br i1 %.not18.i, label %130, label %147
 
@@ -593,8 +590,8 @@ get_varint64.exit37.i:                            ; preds = %131, %get_varint64.
 
 steamdiscover_dissect_header.exit:                ; preds = %protobuf_iter_next.exit.i, %147
   %.0.lcssa.i = phi i64 [ %.1.i, %147 ], [ %.055.i, %protobuf_iter_next.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %or.cond = icmp ult i64 %.0.lcssa.i, 11
   br i1 %or.cond, label %151, label %155
 
@@ -679,19 +676,16 @@ steamdiscover_dissect_header.exit:                ; preds = %protobuf_iter_next.
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_steam_ihs_discovery() local_unnamed_addr #0 {
@@ -701,31 +695,31 @@ define hidden void @proto_reg_handoff_steam_ihs_discovery() local_unnamed_addr #
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @steamdiscover_dissect_body_discovery(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
@@ -733,11 +727,11 @@ define internal fastcc void @steamdiscover_dissect_body_discovery(ptr noundef %0
   %7 = alloca ptr, align 8
   %8 = alloca %struct.protobuf_desc_t, align 8
   %9 = alloca %struct.protobuf_tag_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %0, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %12, align 8
   %13 = icmp slt i32 %4, 1
@@ -802,13 +796,13 @@ protobuf_iter_next.exit:                          ; preds = %20, %get_varint64.e
   ]
 
 38:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %39 = icmp eq i8 %34, 0
   br i1 %39, label %protobuf_verify_wiretype.exit.thread, label %40
 
 protobuf_verify_wiretype.exit.thread:             ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %50
 
 40:                                               ; preds = %38
@@ -827,7 +821,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %38
 protobuf_verify_wiretype.exit:                    ; preds = %40, %45
   %.0.i42.i = phi ptr [ %48, %45 ], [ @.str.151, %40 ]
   %49 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %42, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 1, i32 noundef %43, ptr noundef %.0.i42.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not15 = icmp eq i32 %41, 0
   br i1 %.not15, label %50, label %98
 
@@ -872,13 +866,13 @@ get_varint64.exit:                                ; preds = %52, %get_varint64.e
   br label %98
 
 68:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %69 = icmp eq i8 %34, 0
   br i1 %69, label %protobuf_verify_wiretype.exit22.thread, label %70
 
 protobuf_verify_wiretype.exit22.thread:           ; preds = %68
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %80
 
 70:                                               ; preds = %68
@@ -897,7 +891,7 @@ protobuf_verify_wiretype.exit22.thread:           ; preds = %68
 protobuf_verify_wiretype.exit22:                  ; preds = %70, %75
   %.0.i42.i20 = phi ptr [ %78, %75 ], [ @.str.151, %70 ]
   %79 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %72, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 2, i32 noundef %73, ptr noundef %.0.i42.i20)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not14 = icmp eq i32 %71, 0
   br i1 %.not14, label %80, label %98
 
@@ -952,8 +946,8 @@ get_varint64.exit25:                              ; preds = %82, %get_varint64.e
   br i1 %101, label %protobuf_iter_next.exit.thread, label %17, !llvm.loop !9
 
 protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.exit, %98, %5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -976,21 +970,21 @@ define internal fastcc void @steamdiscover_dissect_body_status(ptr noundef %0, p
   %20 = alloca %struct.protobuf_tag_t, align 8
   %21 = alloca %struct.nstime_t, align 8
   %22 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %0, ptr %18, align 8
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %0, ptr %19, align 8
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 0, ptr %26, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 0, ptr %27, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %28 = icmp slt i32 %4, 1
   br i1 %28, label %protobuf_iter_next.exit.thread, label %.lr.ph264
 
@@ -1066,13 +1060,13 @@ protobuf_iter_next.exit:                          ; preds = %37, %get_varint64.e
   ]
 
 55:                                               ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr null, ptr %17, align 8
   %56 = icmp eq i8 %51, 0
   br i1 %56, label %protobuf_verify_wiretype.exit.thread, label %57
 
 protobuf_verify_wiretype.exit.thread:             ; preds = %55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %67
 
 57:                                               ; preds = %55
@@ -1091,7 +1085,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %55
 protobuf_verify_wiretype.exit:                    ; preds = %57, %62
   %.0.i42.i = phi ptr [ %65, %62 ], [ @.str.151, %57 ]
   %66 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %59, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 1, i32 noundef %60, ptr noundef %.0.i42.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.not96 = icmp eq i32 %58, 0
   br i1 %.not96, label %67, label %protobuf_iter_next.exit152.thread
 
@@ -1134,13 +1128,13 @@ get_varint64.exit:                                ; preds = %69, %get_varint64.e
   br label %protobuf_iter_next.exit152.thread
 
 84:                                               ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr %16, align 8
   %85 = icmp eq i8 %51, 0
   br i1 %85, label %protobuf_verify_wiretype.exit103.thread, label %86
 
 protobuf_verify_wiretype.exit103.thread:          ; preds = %84
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %96
 
 86:                                               ; preds = %84
@@ -1159,7 +1153,7 @@ protobuf_verify_wiretype.exit103.thread:          ; preds = %84
 protobuf_verify_wiretype.exit103:                 ; preds = %86, %91
   %.0.i42.i101 = phi ptr [ %94, %91 ], [ @.str.151, %86 ]
   %95 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %88, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 2, i32 noundef %89, ptr noundef %.0.i42.i101)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %.not95 = icmp eq i32 %87, 0
   br i1 %.not95, label %96, label %protobuf_iter_next.exit152.thread
 
@@ -1202,13 +1196,13 @@ get_varint64.exit106:                             ; preds = %98, %get_varint64.e
   br label %protobuf_iter_next.exit152.thread
 
 113:                                              ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr null, ptr %15, align 8
   %114 = icmp eq i8 %51, 0
   br i1 %114, label %protobuf_verify_wiretype.exit110.thread, label %115
 
 protobuf_verify_wiretype.exit110.thread:          ; preds = %113
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %125
 
 115:                                              ; preds = %113
@@ -1227,7 +1221,7 @@ protobuf_verify_wiretype.exit110.thread:          ; preds = %113
 protobuf_verify_wiretype.exit110:                 ; preds = %115, %120
   %.0.i42.i108 = phi ptr [ %123, %120 ], [ @.str.151, %115 ]
   %124 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %117, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 3, i32 noundef %118, ptr noundef %.0.i42.i108)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.not94 = icmp eq i32 %116, 0
   br i1 %.not94, label %125, label %protobuf_iter_next.exit152.thread
 
@@ -1331,13 +1325,13 @@ get_varint64.exit116:                             ; preds = %.preheader, %get_va
   br label %protobuf_iter_next.exit152.thread
 
 167:                                              ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8
   %168 = icmp eq i8 %51, 0
   br i1 %168, label %protobuf_verify_wiretype.exit120.thread, label %169
 
 protobuf_verify_wiretype.exit120.thread:          ; preds = %167
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %179
 
 169:                                              ; preds = %167
@@ -1356,7 +1350,7 @@ protobuf_verify_wiretype.exit120.thread:          ; preds = %167
 protobuf_verify_wiretype.exit120:                 ; preds = %169, %174
   %.0.i42.i118 = phi ptr [ %177, %174 ], [ @.str.151, %169 ]
   %178 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %171, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 6, i32 noundef %172, ptr noundef %.0.i42.i118)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.not90 = icmp eq i32 %170, 0
   br i1 %.not90, label %179, label %protobuf_iter_next.exit152.thread
 
@@ -1399,13 +1393,13 @@ get_varint64.exit123:                             ; preds = %181, %get_varint64.
   br label %protobuf_iter_next.exit152.thread
 
 196:                                              ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8
   %197 = icmp eq i8 %51, 0
   br i1 %197, label %protobuf_verify_wiretype.exit127.thread, label %198
 
 protobuf_verify_wiretype.exit127.thread:          ; preds = %196
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %208
 
 198:                                              ; preds = %196
@@ -1424,7 +1418,7 @@ protobuf_verify_wiretype.exit127.thread:          ; preds = %196
 protobuf_verify_wiretype.exit127:                 ; preds = %198, %203
   %.0.i42.i125 = phi ptr [ %206, %203 ], [ @.str.151, %198 ]
   %207 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %200, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 7, i32 noundef %201, ptr noundef %.0.i42.i125)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not89 = icmp eq i32 %199, 0
   br i1 %.not89, label %208, label %protobuf_iter_next.exit152.thread
 
@@ -1467,13 +1461,13 @@ get_varint64.exit130:                             ; preds = %210, %get_varint64.
   br label %protobuf_iter_next.exit152.thread
 
 225:                                              ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8
   %226 = icmp eq i8 %51, 0
   br i1 %226, label %protobuf_verify_wiretype.exit134.thread, label %227
 
 protobuf_verify_wiretype.exit134.thread:          ; preds = %225
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %237
 
 227:                                              ; preds = %225
@@ -1492,7 +1486,7 @@ protobuf_verify_wiretype.exit134.thread:          ; preds = %225
 protobuf_verify_wiretype.exit134:                 ; preds = %227, %232
   %.0.i42.i132 = phi ptr [ %235, %232 ], [ @.str.151, %227 ]
   %236 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %229, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 8, i32 noundef %230, ptr noundef %.0.i42.i132)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.not87 = icmp eq i32 %228, 0
   br i1 %.not87, label %237, label %protobuf_iter_next.exit152.thread
 
@@ -1636,13 +1630,13 @@ protobuf_iter_next.exit152:                       ; preds = %276, %get_varint64.
   ]
 
 294:                                              ; preds = %293
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8
   %295 = icmp eq i8 %290, 1
   br i1 %295, label %protobuf_verify_wiretype.exit156.thread, label %296
 
 protobuf_verify_wiretype.exit156.thread:          ; preds = %294
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %306
 
 296:                                              ; preds = %294
@@ -1661,7 +1655,7 @@ protobuf_verify_wiretype.exit156.thread:          ; preds = %294
 protobuf_verify_wiretype.exit156:                 ; preds = %296, %301
   %.0.i42.i154 = phi ptr [ %304, %301 ], [ @.str.151, %296 ]
   %305 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %298, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 1, ptr noundef nonnull @.str.137, i64 noundef 1, i32 noundef %299, ptr noundef %.0.i42.i154)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not86 = icmp eq i32 %297, 0
   br i1 %.not86, label %306, label %343
 
@@ -1674,13 +1668,13 @@ protobuf_verify_wiretype.exit156:                 ; preds = %296, %301
   br label %343
 
 311:                                              ; preds = %293
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %312 = icmp eq i8 %290, 0
   br i1 %312, label %protobuf_verify_wiretype.exit160.thread, label %313
 
 protobuf_verify_wiretype.exit160.thread:          ; preds = %311
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %323
 
 313:                                              ; preds = %311
@@ -1699,7 +1693,7 @@ protobuf_verify_wiretype.exit160.thread:          ; preds = %311
 protobuf_verify_wiretype.exit160:                 ; preds = %313, %318
   %.0.i42.i158 = phi ptr [ %321, %318 ], [ @.str.151, %313 ]
   %322 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %315, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 2, i32 noundef %316, ptr noundef %.0.i42.i158)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not85 = icmp eq i32 %314, 0
   br i1 %.not85, label %323, label %343
 
@@ -1757,13 +1751,13 @@ get_varint64.exit163:                             ; preds = %325, %get_varint64.
   br i1 %346, label %protobuf_iter_next.exit152.thread, label %.lr.ph, !llvm.loop !10
 
 347:                                              ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %348 = icmp eq i8 %51, 0
   br i1 %348, label %protobuf_verify_wiretype.exit167.thread, label %349
 
 protobuf_verify_wiretype.exit167.thread:          ; preds = %347
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %359
 
 349:                                              ; preds = %347
@@ -1782,7 +1776,7 @@ protobuf_verify_wiretype.exit167.thread:          ; preds = %347
 protobuf_verify_wiretype.exit167:                 ; preds = %349, %354
   %.0.i42.i165 = phi ptr [ %357, %354 ], [ @.str.151, %349 ]
   %358 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %351, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 11, i32 noundef %352, ptr noundef %.0.i42.i165)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not82 = icmp eq i32 %350, 0
   br i1 %.not82, label %359, label %protobuf_iter_next.exit152.thread
 
@@ -1825,13 +1819,13 @@ get_varint64.exit170:                             ; preds = %361, %get_varint64.
   br label %protobuf_iter_next.exit152.thread
 
 376:                                              ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %377 = icmp eq i8 %51, 0
   br i1 %377, label %protobuf_verify_wiretype.exit174.thread, label %378
 
 protobuf_verify_wiretype.exit174.thread:          ; preds = %376
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %388
 
 378:                                              ; preds = %376
@@ -1850,7 +1844,7 @@ protobuf_verify_wiretype.exit174.thread:          ; preds = %376
 protobuf_verify_wiretype.exit174:                 ; preds = %378, %383
   %.0.i42.i172 = phi ptr [ %386, %383 ], [ @.str.151, %378 ]
   %387 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %380, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 12, i32 noundef %381, ptr noundef %.0.i42.i172)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not81 = icmp eq i32 %379, 0
   br i1 %.not81, label %388, label %protobuf_iter_next.exit152.thread
 
@@ -1894,13 +1888,13 @@ get_varint64.exit177:                             ; preds = %390, %get_varint64.
   br label %protobuf_iter_next.exit152.thread
 
 404:                                              ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %405 = icmp eq i8 %51, 0
   br i1 %405, label %protobuf_verify_wiretype.exit181.thread, label %406
 
 protobuf_verify_wiretype.exit181.thread:          ; preds = %404
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %416
 
 406:                                              ; preds = %404
@@ -1919,7 +1913,7 @@ protobuf_verify_wiretype.exit181.thread:          ; preds = %404
 protobuf_verify_wiretype.exit181:                 ; preds = %406, %411
   %.0.i42.i179 = phi ptr [ %414, %411 ], [ @.str.151, %406 ]
   %415 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %408, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 13, i32 noundef %409, ptr noundef %.0.i42.i179)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not79 = icmp eq i32 %407, 0
   br i1 %.not79, label %416, label %protobuf_iter_next.exit152.thread
 
@@ -1963,13 +1957,13 @@ get_varint64.exit184:                             ; preds = %418, %get_varint64.
   br label %protobuf_iter_next.exit152.thread
 
 433:                                              ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %434 = icmp eq i8 %51, 0
   br i1 %434, label %protobuf_verify_wiretype.exit188.thread, label %435
 
 protobuf_verify_wiretype.exit188.thread:          ; preds = %433
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %445
 
 435:                                              ; preds = %433
@@ -1988,7 +1982,7 @@ protobuf_verify_wiretype.exit188.thread:          ; preds = %433
 protobuf_verify_wiretype.exit188:                 ; preds = %435, %440
   %.0.i42.i186 = phi ptr [ %443, %440 ], [ @.str.151, %435 ]
   %444 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %437, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 14, i32 noundef %438, ptr noundef %.0.i42.i186)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not78 = icmp eq i32 %436, 0
   br i1 %.not78, label %445, label %protobuf_iter_next.exit152.thread
 
@@ -2090,11 +2084,11 @@ protobuf_iter_next.exit152.thread:                ; preds = %protobuf_iter_next.
   br i1 %485, label %protobuf_iter_next.exit.thread, label %34, !llvm.loop !11
 
 protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.exit, %protobuf_iter_next.exit152.thread, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 }
 
@@ -2102,11 +2096,11 @@ protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.
 define internal fastcc void @steamdiscover_dissect_body_authrequest(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.protobuf_desc_t, align 8
   %7 = alloca %struct.protobuf_tag_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8
   %11 = icmp slt i32 %4, 1
@@ -2337,8 +2331,8 @@ get_varint64.exit37:                              ; preds = %.preheader51, %get_
   br i1 %105, label %protobuf_iter_next.exit.thread, label %16, !llvm.loop !12
 
 protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.exit, %102, %5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -2347,11 +2341,11 @@ define internal fastcc void @steamdiscover_dissect_body_authresponse(ptr noundef
   %6 = alloca ptr, align 8
   %7 = alloca %struct.protobuf_desc_t, align 8
   %8 = alloca %struct.protobuf_tag_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %11, align 8
   %12 = icmp slt i32 %4, 1
@@ -2414,13 +2408,13 @@ protobuf_iter_next.exit:                          ; preds = %19, %get_varint64.e
   br i1 %cond, label %37, label %67
 
 37:                                               ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %38 = icmp eq i8 %33, 0
   br i1 %38, label %protobuf_verify_wiretype.exit.thread, label %39
 
 protobuf_verify_wiretype.exit.thread:             ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %49
 
 39:                                               ; preds = %37
@@ -2439,7 +2433,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %37
 protobuf_verify_wiretype.exit:                    ; preds = %39, %44
   %.0.i42.i = phi ptr [ %47, %44 ], [ @.str.151, %39 ]
   %48 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %41, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 1, i32 noundef %42, ptr noundef %.0.i42.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not11 = icmp eq i32 %40, 0
   br i1 %.not11, label %49, label %69
 
@@ -2497,8 +2491,8 @@ get_varint64.exit:                                ; preds = %51, %get_varint64.e
   br i1 %72, label %protobuf_iter_next.exit.thread, label %16, !llvm.loop !13
 
 protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.exit, %69, %5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -2514,11 +2508,11 @@ define internal fastcc void @steamdiscover_dissect_body_streamingrequest(ptr nou
   %13 = alloca ptr, align 8
   %14 = alloca %struct.protobuf_desc_t, align 8
   %15 = alloca %struct.protobuf_tag_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %0, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %18, align 8
   %19 = icmp slt i32 %4, 1
@@ -2592,13 +2586,13 @@ protobuf_iter_next.exit:                          ; preds = %26, %get_varint64.e
   ]
 
 44:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8
   %45 = icmp eq i8 %40, 0
   br i1 %45, label %protobuf_verify_wiretype.exit.thread, label %46
 
 protobuf_verify_wiretype.exit.thread:             ; preds = %44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %56
 
 46:                                               ; preds = %44
@@ -2617,7 +2611,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %44
 protobuf_verify_wiretype.exit:                    ; preds = %46, %51
   %.0.i42.i = phi ptr [ %54, %51 ], [ @.str.151, %46 ]
   %55 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %48, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 1, i32 noundef %49, ptr noundef %.0.i42.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not66 = icmp eq i32 %47, 0
   br i1 %.not66, label %56, label %336
 
@@ -2662,13 +2656,13 @@ get_varint64.exit:                                ; preds = %58, %get_varint64.e
   br label %336
 
 74:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8
   %75 = icmp eq i8 %40, 0
   br i1 %75, label %protobuf_verify_wiretype.exit73.thread, label %76
 
 protobuf_verify_wiretype.exit73.thread:           ; preds = %74
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %86
 
 76:                                               ; preds = %74
@@ -2687,7 +2681,7 @@ protobuf_verify_wiretype.exit73.thread:           ; preds = %74
 protobuf_verify_wiretype.exit73:                  ; preds = %76, %81
   %.0.i42.i71 = phi ptr [ %84, %81 ], [ @.str.151, %76 ]
   %85 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %78, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 2, i32 noundef %79, ptr noundef %.0.i42.i71)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.not65 = icmp eq i32 %77, 0
   br i1 %.not65, label %86, label %336
 
@@ -2730,13 +2724,13 @@ get_varint64.exit76:                              ; preds = %88, %get_varint64.e
   br label %336
 
 103:                                              ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8
   %104 = icmp eq i8 %40, 0
   br i1 %104, label %protobuf_verify_wiretype.exit80.thread, label %105
 
 protobuf_verify_wiretype.exit80.thread:           ; preds = %103
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %115
 
 105:                                              ; preds = %103
@@ -2755,7 +2749,7 @@ protobuf_verify_wiretype.exit80.thread:           ; preds = %103
 protobuf_verify_wiretype.exit80:                  ; preds = %105, %110
   %.0.i42.i78 = phi ptr [ %113, %110 ], [ @.str.151, %105 ]
   %114 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %107, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 3, i32 noundef %108, ptr noundef %.0.i42.i78)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not64 = icmp eq i32 %106, 0
   br i1 %.not64, label %115, label %336
 
@@ -2798,13 +2792,13 @@ get_varint64.exit83:                              ; preds = %117, %get_varint64.
   br label %336
 
 132:                                              ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %133 = icmp eq i8 %40, 0
   br i1 %133, label %protobuf_verify_wiretype.exit87.thread, label %134
 
 protobuf_verify_wiretype.exit87.thread:           ; preds = %132
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %144
 
 134:                                              ; preds = %132
@@ -2823,7 +2817,7 @@ protobuf_verify_wiretype.exit87.thread:           ; preds = %132
 protobuf_verify_wiretype.exit87:                  ; preds = %134, %139
   %.0.i42.i85 = phi ptr [ %142, %139 ], [ @.str.151, %134 ]
   %143 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %136, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 4, i32 noundef %137, ptr noundef %.0.i42.i85)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not63 = icmp eq i32 %135, 0
   br i1 %.not63, label %144, label %336
 
@@ -2911,13 +2905,13 @@ get_varint64.exit93:                              ; preds = %.preheader, %get_va
   br label %336
 
 180:                                              ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %181 = icmp eq i8 %40, 0
   br i1 %181, label %protobuf_verify_wiretype.exit97.thread, label %182
 
 protobuf_verify_wiretype.exit97.thread:           ; preds = %180
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %192
 
 182:                                              ; preds = %180
@@ -2936,7 +2930,7 @@ protobuf_verify_wiretype.exit97.thread:           ; preds = %180
 protobuf_verify_wiretype.exit97:                  ; preds = %182, %187
   %.0.i42.i95 = phi ptr [ %190, %187 ], [ @.str.151, %182 ]
   %191 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %184, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 6, i32 noundef %185, ptr noundef %.0.i42.i95)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not60 = icmp eq i32 %183, 0
   br i1 %.not60, label %192, label %336
 
@@ -3070,13 +3064,13 @@ get_varint64.exit106:                             ; preds = %.preheader172, %get
   br label %336
 
 247:                                              ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %248 = icmp eq i8 %40, 0
   br i1 %248, label %protobuf_verify_wiretype.exit110.thread, label %249
 
 protobuf_verify_wiretype.exit110.thread:          ; preds = %247
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %259
 
 249:                                              ; preds = %247
@@ -3095,7 +3089,7 @@ protobuf_verify_wiretype.exit110.thread:          ; preds = %247
 protobuf_verify_wiretype.exit110:                 ; preds = %249, %254
   %.0.i42.i108 = phi ptr [ %257, %254 ], [ @.str.151, %249 ]
   %258 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %251, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 9, i32 noundef %252, ptr noundef %.0.i42.i108)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not56 = icmp eq i32 %250, 0
   br i1 %.not56, label %259, label %336
 
@@ -3139,13 +3133,13 @@ get_varint64.exit113:                             ; preds = %261, %get_varint64.
   br label %336
 
 276:                                              ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %277 = icmp eq i8 %40, 0
   br i1 %277, label %protobuf_verify_wiretype.exit117.thread, label %278
 
 protobuf_verify_wiretype.exit117.thread:          ; preds = %276
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %288
 
 278:                                              ; preds = %276
@@ -3164,7 +3158,7 @@ protobuf_verify_wiretype.exit117.thread:          ; preds = %276
 protobuf_verify_wiretype.exit117:                 ; preds = %278, %283
   %.0.i42.i115 = phi ptr [ %286, %283 ], [ @.str.151, %278 ]
   %287 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %280, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 10, i32 noundef %281, ptr noundef %.0.i42.i115)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not54 = icmp eq i32 %279, 0
   br i1 %.not54, label %288, label %336
 
@@ -3208,13 +3202,13 @@ get_varint64.exit120:                             ; preds = %290, %get_varint64.
   br label %336
 
 305:                                              ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %306 = icmp eq i8 %40, 0
   br i1 %306, label %protobuf_verify_wiretype.exit124.thread, label %307
 
 protobuf_verify_wiretype.exit124.thread:          ; preds = %305
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %317
 
 307:                                              ; preds = %305
@@ -3233,7 +3227,7 @@ protobuf_verify_wiretype.exit124.thread:          ; preds = %305
 protobuf_verify_wiretype.exit124:                 ; preds = %307, %312
   %.0.i42.i122 = phi ptr [ %315, %312 ], [ @.str.151, %307 ]
   %316 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %309, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 11, i32 noundef %310, ptr noundef %.0.i42.i122)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not53 = icmp eq i32 %308, 0
   br i1 %.not53, label %317, label %336
 
@@ -3290,8 +3284,8 @@ get_varint64.exit127:                             ; preds = %319, %get_varint64.
   br i1 %339, label %protobuf_iter_next.exit.thread, label %23, !llvm.loop !14
 
 protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.exit, %336, %5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void
 }
 
@@ -3300,11 +3294,11 @@ define internal fastcc void @steamdiscover_dissect_body_streamingcancelrequest(p
   %6 = alloca ptr, align 8
   %7 = alloca %struct.protobuf_desc_t, align 8
   %8 = alloca %struct.protobuf_tag_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %11, align 8
   %12 = icmp slt i32 %4, 1
@@ -3367,13 +3361,13 @@ protobuf_iter_next.exit:                          ; preds = %19, %get_varint64.e
   br i1 %cond, label %37, label %67
 
 37:                                               ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %38 = icmp eq i8 %33, 0
   br i1 %38, label %protobuf_verify_wiretype.exit.thread, label %39
 
 protobuf_verify_wiretype.exit.thread:             ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %49
 
 39:                                               ; preds = %37
@@ -3392,7 +3386,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %37
 protobuf_verify_wiretype.exit:                    ; preds = %39, %44
   %.0.i42.i = phi ptr [ %47, %44 ], [ @.str.151, %39 ]
   %48 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %41, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 1, i32 noundef %42, ptr noundef %.0.i42.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not10 = icmp eq i32 %40, 0
   br i1 %.not10, label %49, label %69
 
@@ -3450,8 +3444,8 @@ get_varint64.exit:                                ; preds = %51, %get_varint64.e
   br i1 %72, label %protobuf_iter_next.exit.thread, label %16, !llvm.loop !15
 
 protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.exit, %69, %5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -3463,11 +3457,11 @@ define internal fastcc void @steamdiscover_dissect_body_streamingresponse(ptr no
   %9 = alloca ptr, align 8
   %10 = alloca %struct.protobuf_desc_t, align 8
   %11 = alloca %struct.protobuf_tag_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %0, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %14, align 8
   %15 = icmp slt i32 %4, 1
@@ -3535,13 +3529,13 @@ protobuf_iter_next.exit:                          ; preds = %22, %get_varint64.e
   ]
 
 40:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %41 = icmp eq i8 %36, 0
   br i1 %41, label %protobuf_verify_wiretype.exit.thread, label %42
 
 protobuf_verify_wiretype.exit.thread:             ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %52
 
 42:                                               ; preds = %40
@@ -3560,7 +3554,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %40
 protobuf_verify_wiretype.exit:                    ; preds = %42, %47
   %.0.i42.i = phi ptr [ %50, %47 ], [ @.str.151, %42 ]
   %51 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 1, i32 noundef %45, ptr noundef %.0.i42.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not36 = icmp eq i32 %43, 0
   br i1 %.not36, label %52, label %180
 
@@ -3605,13 +3599,13 @@ get_varint64.exit:                                ; preds = %54, %get_varint64.e
   br label %180
 
 70:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %71 = icmp eq i8 %36, 0
   br i1 %71, label %protobuf_verify_wiretype.exit43.thread, label %72
 
 protobuf_verify_wiretype.exit43.thread:           ; preds = %70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %82
 
 72:                                               ; preds = %70
@@ -3630,7 +3624,7 @@ protobuf_verify_wiretype.exit43.thread:           ; preds = %70
 protobuf_verify_wiretype.exit43:                  ; preds = %72, %77
   %.0.i42.i41 = phi ptr [ %80, %77 ], [ @.str.151, %72 ]
   %81 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %74, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 2, i32 noundef %75, ptr noundef %.0.i42.i41)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not35 = icmp eq i32 %73, 0
   br i1 %.not35, label %82, label %180
 
@@ -3675,13 +3669,13 @@ get_varint64.exit46:                              ; preds = %84, %get_varint64.e
   br label %180
 
 100:                                              ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %101 = icmp eq i8 %36, 0
   br i1 %101, label %protobuf_verify_wiretype.exit50.thread, label %102
 
 protobuf_verify_wiretype.exit50.thread:           ; preds = %100
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %112
 
 102:                                              ; preds = %100
@@ -3700,7 +3694,7 @@ protobuf_verify_wiretype.exit50.thread:           ; preds = %100
 protobuf_verify_wiretype.exit50:                  ; preds = %102, %107
   %.0.i42.i48 = phi ptr [ %110, %107 ], [ @.str.151, %102 ]
   %111 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %104, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 3, i32 noundef %105, ptr noundef %.0.i42.i48)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not34 = icmp eq i32 %103, 0
   br i1 %.not34, label %112, label %180
 
@@ -3790,13 +3784,13 @@ get_varint64.exit56:                              ; preds = %.preheader, %get_va
   br label %180
 
 149:                                              ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %150 = icmp eq i8 %36, 0
   br i1 %150, label %protobuf_verify_wiretype.exit60.thread, label %151
 
 protobuf_verify_wiretype.exit60.thread:           ; preds = %149
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %161
 
 151:                                              ; preds = %149
@@ -3815,7 +3809,7 @@ protobuf_verify_wiretype.exit60.thread:           ; preds = %149
 protobuf_verify_wiretype.exit60:                  ; preds = %151, %156
   %.0.i42.i58 = phi ptr [ %159, %156 ], [ @.str.151, %151 ]
   %160 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %153, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef 0, ptr noundef nonnull @.str.136, i64 noundef 5, i32 noundef %154, ptr noundef %.0.i42.i58)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not32 = icmp eq i32 %152, 0
   br i1 %.not32, label %161, label %180
 
@@ -3871,8 +3865,8 @@ get_varint64.exit63:                              ; preds = %163, %get_varint64.
   br i1 %183, label %protobuf_iter_next.exit.thread, label %19, !llvm.loop !16
 
 protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.exit, %180, %5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
@@ -3880,11 +3874,11 @@ protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.
 define internal fastcc void @steamdiscover_dissect_body_proofrequest(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.protobuf_desc_t, align 8
   %7 = alloca %struct.protobuf_tag_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8
   %11 = icmp slt i32 %4, 1
@@ -4004,8 +3998,8 @@ get_varint64.exit:                                ; preds = %.preheader, %get_va
   br i1 %59, label %protobuf_iter_next.exit.thread, label %14, !llvm.loop !17
 
 protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.exit, %56, %5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -4013,11 +4007,11 @@ protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.
 define internal fastcc void @steamdiscover_dissect_body_proofresponse(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.protobuf_desc_t, align 8
   %7 = alloca %struct.protobuf_tag_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8
   %11 = icmp slt i32 %4, 1
@@ -4137,8 +4131,8 @@ get_varint64.exit:                                ; preds = %.preheader, %get_va
   br i1 %59, label %protobuf_iter_next.exit.thread, label %14, !llvm.loop !18
 
 protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.exit, %56, %5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -4146,11 +4140,11 @@ protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.
 define internal fastcc void @steamdiscover_dissect_body_unknown(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.protobuf_desc_t, align 8
   %7 = alloca %struct.protobuf_tag_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8
   %11 = icmp slt i32 %4, 1
@@ -4217,15 +4211,15 @@ protobuf_iter_next.exit:                          ; preds = %17, %get_varint64.e
   br i1 %38, label %protobuf_iter_next.exit.thread, label %14, !llvm.loop !19
 
 protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.exit, %34, %5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @protobuf_verify_wiretype(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext range(i8 0, 3) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i8, ptr %7, align 8
@@ -4338,12 +4332,12 @@ protobuf_get_wiretype_name.exit:                  ; preds = %59, %71
 
 76:                                               ; preds = %10, %42, %protobuf_get_wiretype_name.exit, %47, %30
   %.0 = phi i32 [ %41, %30 ], [ %58, %47 ], [ %61, %protobuf_get_wiretype_name.exit ], [ 0, %42 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
@@ -4554,55 +4548,60 @@ protobuf_get_wiretype_name.exit66:                ; preds = %93, %103
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val64_to_str_const(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val64_to_str_const(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #3
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

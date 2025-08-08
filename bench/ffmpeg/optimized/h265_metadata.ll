@@ -420,8 +420,8 @@ h265_metadata_guess_level.exit:                   ; preds = %147, %._crit_edge.t
   br i1 %.not16.i, label %188, label %169
 
 169:                                              ; preds = %166
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %170 = sext i32 %165 to i64
   %171 = sext i32 %168 to i64
   %172 = call i32 @av_reduce(ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef %170, i64 noundef %171, i64 noundef 4294967295) #4
@@ -455,8 +455,8 @@ h265_metadata_guess_level.exit:                   ; preds = %147, %._crit_edge.t
   br label %187
 
 187:                                              ; preds = %.sink.split.i, %184
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre.i = load ptr, ptr %10, align 8, !tbaa !4
   br label %188
 
@@ -523,8 +523,8 @@ h265_metadata_update_vps.exit:                    ; preds = %.sink.split.i.i, %1
   br i1 %.not125.i, label %242, label %217
 
 217:                                              ; preds = %214
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %218 = sext i32 %213 to i64
   %219 = sext i32 %216 to i64
   %220 = call i32 @av_reduce(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %218, i64 noundef %219, i64 noundef 65535) #4
@@ -570,8 +570,8 @@ h265_metadata_update_vps.exit:                    ; preds = %.sink.split.i.i, %1
 240:                                              ; preds = %.thread.i, %232
   %241 = getelementptr inbounds nuw i8, ptr %210, i64 10956
   store i8 1, ptr %241, align 4, !tbaa !83
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %242
 
 242:                                              ; preds = %240, %214, %208
@@ -766,8 +766,8 @@ h265_metadata_update_vps.exit:                    ; preds = %.sink.split.i.i, %1
   br i1 %.not132.i, label %356, label %337
 
 337:                                              ; preds = %334
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %338 = sext i32 %333 to i64
   %339 = sext i32 %336 to i64
   %340 = call i32 @av_reduce(ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef %338, i64 noundef %339, i64 noundef 4294967295) #4
@@ -801,8 +801,8 @@ h265_metadata_update_vps.exit:                    ; preds = %.sink.split.i.i, %1
   br label %355
 
 355:                                              ; preds = %.sink.split176.i, %352
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %356
 
 356:                                              ; preds = %355, %334, %331
@@ -1112,13 +1112,7 @@ h265_metadata_update_sps.exit.thread:             ; preds = %h265_metadata_updat
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @ff_cbs_delete_unit(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @ff_cbs_insert_unit_content(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1127,6 +1121,12 @@ declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 declare ptr @ff_h265_guess_level(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @av_reduce(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #3

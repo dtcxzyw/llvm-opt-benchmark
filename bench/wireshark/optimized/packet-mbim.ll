@@ -3938,14 +3938,11 @@ define void @mbim_register_uuid_ext(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_epan_scope() local_unnamed_addr #2
+declare ptr @wmem_epan_scope() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mbim_uuid_hash(ptr noundef %0) #0 {
@@ -3954,7 +3951,7 @@ define internal i32 @mbim_uuid_hash(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @mbim_uuid_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
+define internal range(i32 0, 2) i32 @mbim_uuid_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -3991,13 +3988,10 @@ define internal range(i32 0, 2) i32 @mbim_uuid_equal(ptr noundef readonly captur
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_mbim() local_unnamed_addr #0 {
@@ -4030,7 +4024,7 @@ define hidden void @proto_register_mbim() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @mbim_rssi_fmt(ptr noundef %0, i32 noundef %1) #5 {
+define internal void @mbim_rssi_fmt(ptr noundef %0, i32 noundef %1) #4 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %6
 
@@ -4071,7 +4065,7 @@ define internal void @mbim_rssi_fmt(ptr noundef %0, i32 noundef %1) #5 {
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @mbim_rsrp_signal_state_fmt(ptr noundef %0, i32 noundef %1) #5 {
+define internal void @mbim_rsrp_signal_state_fmt(ptr noundef %0, i32 noundef %1) #4 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %6
 
@@ -4106,7 +4100,7 @@ define internal void @mbim_rsrp_signal_state_fmt(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @mbim_snr_signal_state_fmt(ptr noundef %0, i32 noundef %1) #5 {
+define internal void @mbim_snr_signal_state_fmt(ptr noundef %0, i32 noundef %1) #4 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %6
 
@@ -4147,7 +4141,7 @@ define internal void @mbim_snr_signal_state_fmt(ptr noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @mbim_degrees_fmt(ptr noundef %0, i32 noundef %1) #5 {
+define internal void @mbim_degrees_fmt(ptr noundef %0, i32 noundef %1) #4 {
   %3 = uitofp i32 %1 to float
   %4 = fpext float %3 to double
   %5 = fdiv double %4, 1.000000e+01
@@ -4156,7 +4150,7 @@ define internal void @mbim_degrees_fmt(ptr noundef %0, i32 noundef %1) #5 {
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @mbim_rscp_fmt(ptr noundef %0, i32 noundef %1) #5 {
+define internal void @mbim_rscp_fmt(ptr noundef %0, i32 noundef %1) #4 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %6
 
@@ -4196,7 +4190,7 @@ define internal void @mbim_rscp_fmt(ptr noundef %0, i32 noundef %1) #5 {
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @mbim_ecno_fmt(ptr noundef %0, i32 noundef %1) #5 {
+define internal void @mbim_ecno_fmt(ptr noundef %0, i32 noundef %1) #4 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %6
 
@@ -4239,7 +4233,7 @@ define internal void @mbim_ecno_fmt(ptr noundef %0, i32 noundef %1) #5 {
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @mbim_rsrq_fmt(ptr noundef %0, i32 noundef %1) #5 {
+define internal void @mbim_rsrq_fmt(ptr noundef %0, i32 noundef %1) #4 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %6
 
@@ -4282,7 +4276,7 @@ define internal void @mbim_rsrq_fmt(ptr noundef %0, i32 noundef %1) #5 {
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @mbim_rsrp_fmt(ptr noundef %0, i32 noundef %1) #5 {
+define internal void @mbim_rsrp_fmt(ptr noundef %0, i32 noundef %1) #4 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %6
 
@@ -4322,7 +4316,7 @@ define internal void @mbim_rsrp_fmt(ptr noundef %0, i32 noundef %1) #5 {
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @mbim_rssnr_fmt(ptr noundef %0, i32 noundef %1) #5 {
+define internal void @mbim_rssnr_fmt(ptr noundef %0, i32 noundef %1) #4 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %6
 
@@ -4362,7 +4356,7 @@ define internal void @mbim_rssnr_fmt(ptr noundef %0, i32 noundef %1) #5 {
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @mbim_projection_table_coeff_fmt(ptr noundef %0, i32 noundef %1) #5 {
+define internal void @mbim_projection_table_coeff_fmt(ptr noundef %0, i32 noundef %1) #4 {
   %3 = sitofp i32 %1 to float
   %4 = fdiv float %3, 1.000000e+03
   %5 = fpext float %4 to double
@@ -4371,7 +4365,7 @@ define internal void @mbim_projection_table_coeff_fmt(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @mbim_version_fmt(ptr noundef %0, i32 noundef %1) #5 {
+define internal void @mbim_version_fmt(ptr noundef %0, i32 noundef %1) #4 {
   %3 = lshr i32 %1, 8
   %4 = and i32 %1, 255
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.2558, i32 noundef %3, i32 noundef %4)
@@ -4379,25 +4373,25 @@ define internal void @mbim_version_fmt(ptr noundef %0, i32 noundef %1) #5 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mbim_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
@@ -4419,11 +4413,11 @@ define internal i32 @dissect_mbim_control(ptr noundef %0, ptr noundef %1, ptr no
   %20 = alloca ptr, align 8
   %21 = alloca i32, align 4
   %22 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %32, label %23
 
@@ -4593,11 +4587,11 @@ proto_item_set_hidden.exit:                       ; preds = %59, %66, %69
   br label %2549
 
 120:                                              ; preds = %proto_item_set_hidden.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8
   %121 = load i32, ptr @ett_mbim_frag_header, align 4
   %122 = call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %0, i32 noundef %89, i32 noundef 8, i32 noundef %121, ptr noundef null, ptr noundef nonnull @.str.2617)
@@ -6025,7 +6019,7 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
   br i1 %859, label %860, label %869
 
 860:                                              ; preds = %857
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %861 = load i32, ptr @hf_mbim_usbprofile_cmd_length, align 4
   %862 = load i32, ptr %5, align 4
   %863 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.01669, i32 noundef %861, ptr noundef %.01674, i32 noundef %862, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %14)
@@ -6035,7 +6029,7 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
   %866 = load i32, ptr @hf_mbim_usbprofile_cmd_buffer, align 4
   %867 = load i32, ptr %14, align 4
   %868 = call ptr @proto_tree_add_item(ptr noundef %.01669, i32 noundef %866, ptr noundef %.01674, i32 noundef %865, i32 noundef %867, i32 noundef -2147483644)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %1377
 
 869:                                              ; preds = %857
@@ -6058,7 +6052,7 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
   br i1 %878, label %879, label %892
 
 879:                                              ; preds = %876
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %880 = load i32, ptr @hf_mbim_ciq_set_mode, align 4
   %881 = load i32, ptr %5, align 4
   %882 = call ptr @proto_tree_add_item(ptr noundef %.01669, i32 noundef %880, ptr noundef %.01674, i32 noundef %881, i32 noundef 4, i32 noundef -2147483648)
@@ -6073,7 +6067,7 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
   %889 = load i32, ptr @hf_mbim_ciq_set_debug_info, align 4
   %890 = load i32, ptr %15, align 4
   %891 = call ptr @proto_tree_add_item(ptr noundef %.01669, i32 noundef %889, ptr noundef %.01674, i32 noundef %888, i32 noundef %890, i32 noundef -2147483644)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %1377
 
 892:                                              ; preds = %876
@@ -6991,7 +6985,7 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
   br label %1377
 
 1345:                                             ; preds = %223
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %1346 = load ptr, ptr %13, align 8
   %1347 = getelementptr inbounds nuw i8, ptr %1346, i64 24
   %1348 = load ptr, ptr %1347, align 8
@@ -7034,7 +7028,7 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
   br label %1370
 
 1370:                                             ; preds = %1360, %1364, %1362, %1367
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %1377
 
 1371:                                             ; preds = %223
@@ -7049,11 +7043,11 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
   br label %1377
 
 1377:                                             ; preds = %1370, %460, %464, %462, %447, %452, %450, %435, %441, %439, %424, %429, %427, %418, %419, %406, %411, %409, %396, %399, %385, %390, %375, %379, %377, %368, %367, %364, %346, %350, %348, %334, %340, %338, %324, %328, %326, %314, %317, %304, %308, %306, %294, %298, %296, %283, %288, %286, %273, %277, %275, %261, %267, %265, %239, %252, %256, %242, %228, %233, %231, %467, %455, %512, %517, %515, %498, %506, %492, %493, %485, %487, %474, %478, %476, %520, %528, %529, %531, %578, %579, %563, %571, %549, %552, %538, %543, %541, %581, %621, %619, %599, %600, %588, %592, %590, %624, %646, %648, %639, %641, %632, %634, %649, %657, %658, %660, %691, %694, %678, %684, %682, %667, %672, %670, %695, %707, %704, %702, %710, %717, %722, %720, %725, %729, %731, %735, %747, %744, %742, %750, %757, %759, %763, %770, %775, %773, %778, %785, %791, %789, %794, %813, %819, %817, %801, %807, %805, %822, %845, %850, %848, %829, %839, %837, %853, %860, %869, %872, %879, %894, %892, %897, %959, %963, %961, %948, %953, %951, %936, %942, %940, %926, %930, %928, %915, %920, %918, %904, %909, %907, %966, %996, %1001, %999, %984, %990, %988, %973, %978, %976, %1004, %1177, %1182, %1180, %1166, %1171, %1169, %1156, %1161, %1159, %1145, %1150, %1148, %1134, %1139, %1137, %1124, %1129, %1127, %1110, %1115, %1113, %1100, %1105, %1103, %1094, %1091, %1089, %1080, %1082, %1073, %1077, %1063, %1067, %1065, %1052, %1057, %1055, %1041, %1046, %1044, %1031, %1035, %1033, %1021, %1025, %1023, %1011, %1015, %1013, %1184, %1118, %1202, %1206, %1204, %1191, %1195, %1193, %1210, %1318, %1326, %1324, %1303, %1308, %1306, %1282, %1294, %1298, %1284, %1260, %1273, %1277, %1263, %1254, %1255, %1247, %1248, %1240, %1241, %1217, %1230, %1234, %1220, %1327, %1313, %1311, %1334, %1339, %1337, %1342, %1373, %1371, %611, %605, %145
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %2549
 
 1378:                                             ; preds = %proto_item_set_hidden.exit
@@ -7127,10 +7121,10 @@ proto_item_set_generated.exit1934:                ; preds = %1409, %1406, %1403,
   br label %2549
 
 1419:                                             ; preds = %proto_item_set_hidden.exit, %proto_item_set_hidden.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr null, ptr %20, align 8
   %1420 = load i32, ptr @ett_mbim_frag_header, align 4
   %1421 = call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %0, i32 noundef %89, i32 noundef 8, i32 noundef %1420, ptr noundef null, ptr noundef nonnull @.str.2617)
@@ -8351,7 +8345,7 @@ proto_item_set_generated.exit1937:                ; preds = %1487, %1484, %1481,
   br i1 %.old48.not, label %2055, label %2046
 
 2046:                                             ; preds = %2045, %2039
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %2047 = load i32, ptr @hf_mbim_usbprofile_rsp_length, align 4
   %2048 = load i32, ptr %5, align 4
   %2049 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1517, i32 noundef %2047, ptr noundef %.01673, i32 noundef %2048, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %21)
@@ -8361,7 +8355,7 @@ proto_item_set_generated.exit1937:                ; preds = %1487, %1484, %1481,
   %2052 = load i32, ptr @hf_mbim_usbprofile_rsp_buffer, align 4
   %2053 = load i32, ptr %21, align 4
   %2054 = call ptr @proto_tree_add_item(ptr noundef %1517, i32 noundef %2052, ptr noundef %.01673, i32 noundef %2051, i32 noundef %2053, i32 noundef -2147483644)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %2548
 
 2055:                                             ; preds = %2039, %2045, %2035
@@ -9291,7 +9285,7 @@ proto_item_set_generated.exit1937:                ; preds = %1487, %1484, %1481,
   br label %2548
 
 2517:                                             ; preds = %1515
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %2518 = load ptr, ptr %20, align 8
   %2519 = getelementptr inbounds nuw i8, ptr %2518, i64 24
   %2520 = load ptr, ptr %2519, align 8
@@ -9334,7 +9328,7 @@ proto_item_set_generated.exit1937:                ; preds = %1487, %1484, %1481,
   br label %2542
 
 2542:                                             ; preds = %2532, %2536, %2534, %2539
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %2548
 
 2543:                                             ; preds = %1515
@@ -9345,10 +9339,10 @@ proto_item_set_generated.exit1937:                ; preds = %1487, %1484, %1481,
   br label %2548
 
 2548:                                             ; preds = %2542, %2543, %1656, %1657, %1641, %1645, %1635, %1636, %1628, %1629, %1621, %1622, %1608, %1613, %1580, %1581, %1571, %1572, %1564, %1565, %1557, %1523, %1524, %1661, %1659, %1648, %1615, %1593, %1590, %1588, %1585, %1583, %1574, %1528, %1526, %1687, %1684, %1682, %1672, %1676, %1699, %1690, %1667, %1665, %1705, %1704, %1725, %1722, %1720, %1714, %1715, %1728, %1708, %1765, %1769, %1759, %1760, %1735, %1772, %1794, %1795, %1787, %1788, %1780, %1781, %1797, %1809, %1806, %1804, %1812, %1842, %1843, %1829, %1835, %1833, %1820, %1824, %1846, %1866, %1861, %1863, %1858, %1869, %1876, %1882, %1880, %1885, %1889, %1891, %1895, %1907, %1904, %1902, %1910, %1922, %1924, %1926, %1934, %1936, %1938, %1952, %1955, %1957, %1974, %1978, %1964, %1968, %1981, %2029, %.critedge1921, %2026, %2024, %2021, %2008, %.critedge, %2000, %1998, %1995, %2031, %2046, %2055, %2058, %2081, %.critedge1923, %2077, %2075, %2072, %2084, %2205, %.critedge1929, %2203, %2201, %2198, %2185, %2183, %2180, %2169, %.critedge1927, %2165, %2163, %2160, %2147, %.critedge1925, %2145, %2143, %2140, %2127, %2115, %2112, %2101, %2099, %2096, %2208, %2248, %2251, %2235, %2239, %2228, %2223, %2220, %2253, %2385, %2390, %2388, %2369, %2372, %2359, %2362, %2351, %2346, %2348, %2343, %2319, %2322, %2311, %2312, %2304, %2300, %2302, %2289, %2278, %2276, %2273, %2406, %2404, %2401, %2398, %2395, %2392, %2377, %2330, %2263, %2261, %2259, %2257, %2413, %2412, %2411, %2506, %2504, %2501, %2486, %2484, %2481, %2466, %2470, %2460, %2461, %2453, %2454, %2442, %2446, %2436, %2437, %2429, %2427, %2424, %2509, %2491, %2489, %2515, %2514, %1555, %1553, %1748, %1737, %1507, %1444
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %2549
 
 2549:                                             ; preds = %113, %118, %115, %2548, %1377, %proto_item_set_hidden.exit, %1416, %proto_item_set_generated.exit1934
@@ -9357,10 +9351,10 @@ proto_item_set_generated.exit1937:                ; preds = %1487, %1484, %1481,
 
 2551:                                             ; preds = %35, %2549
   %.0 = phi i32 [ %2550, %2549 ], [ 0, %35 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -9445,12 +9439,12 @@ define internal i32 @dissect_mbim_bulk(ptr noundef %0, ptr noundef %1, ptr nound
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %12 = icmp ult i32 %11, 12
   br i1 %12, label %365, label %13
@@ -10075,20 +10069,20 @@ proto_item_set_generated.exit:                    ; preds = %.loopexit, %346, %3
 
 365:                                              ; preds = %.sink.split, %13, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %13 ], [ %364, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_mbim() #0 {
@@ -10173,16 +10167,16 @@ define hidden void @proto_reg_handoff_mbim() #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mbim_decode_as(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
@@ -10251,17 +10245,17 @@ define internal i32 @dissect_mbim_decode_as(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_dissector(ptr noundef) local_unnamed_addr #2
+declare ptr @find_dissector(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mbim_bulk_ndp_ctrl(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 35, ptr noundef nonnull @.str.2785)
@@ -10327,13 +10321,13 @@ proto_item_set_hidden.exit:                       ; preds = %4, %16, %19
 
 46:                                               ; preds = %37, %39, %41
   %47 = call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %47
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @dissect_mbim_bulk_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
@@ -10365,110 +10359,110 @@ define internal zeroext i1 @dissect_mbim_bulk_heur(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_delete_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_delete_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wmem_strong_hash(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @wmem_strong_hash(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #2
+declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #6
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_get_parent_tree(ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_get_parent_tree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #2
+declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_file_scope() local_unnamed_addr #2
+declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wmem_int64_hash(ptr noundef) #2
+declare i32 @wmem_int64_hash(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_int64_equal(ptr noundef, ptr noundef) #2
+declare i32 @g_int64_equal(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wmem_tree_insert32(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @wmem_tree_insert32(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @fragment_add_seq_check(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @fragment_add_seq_check(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(address_is_null) %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca %struct._e_guid_t, align 4
   %9 = alloca [4 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr %4, align 4
   br i1 %6, label %11, label %12
 
@@ -10560,8 +10554,8 @@ define internal fastcc noundef zeroext i8 @mbim_dissect_service_id_uuid(ptr noun
 
 58:                                               ; preds = %.thread, %38
   %.038 = phi i8 [ -1, %38 ], [ %57, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i8 %.038
 }
 
@@ -10631,7 +10625,7 @@ define internal fastcc i32 @mbim_dissect_cid(ptr noundef %0, ptr noundef readonl
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @mbim_dissect_set_pin(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
@@ -10639,10 +10633,10 @@ define internal fastcc void @mbim_dissect_set_pin(ptr noundef %0, ptr noundef %1
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @hf_mbim_set_pin_pin_type, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %11 = add i32 %3, 4
@@ -10700,10 +10694,10 @@ define internal fastcc void @mbim_dissect_set_pin(ptr noundef %0, ptr noundef %1
   br label %51
 
 51:                                               ; preds = %43, %49, %38
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -10713,10 +10707,10 @@ define internal fastcc void @mbim_dissect_provider(ptr noundef %0, ptr noundef %
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @hf_mbim_provider_provider_id_offset, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %5)
   %11 = add i32 %3, 4
@@ -10781,10 +10775,10 @@ define internal fastcc void @mbim_dissect_provider(ptr noundef %0, ptr noundef %
   br label %58
 
 58:                                               ; preds = %50, %56, %45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -10792,8 +10786,8 @@ define internal fastcc void @mbim_dissect_provider(ptr noundef %0, ptr noundef %
 define internal fastcc void @mbim_dissect_providers(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.mbim_pair_list, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_mbim_providers_elem_count, align 4
   %8 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %5)
   %9 = load i32, ptr %5, align 4
@@ -10866,8 +10860,8 @@ define internal fastcc void @mbim_dissect_providers(ptr noundef %0, ptr noundef 
   br i1 %47, label %.lr.ph44, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %44, %10, %.preheader, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -10875,8 +10869,8 @@ define internal fastcc void @mbim_dissect_providers(ptr noundef %0, ptr noundef 
 define internal fastcc void @mbim_dissect_set_register_state(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_mbim_set_register_state_provider_id_offset, align 4
   %8 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %5)
   %9 = add i32 %3, 4
@@ -10909,8 +10903,8 @@ define internal fastcc void @mbim_dissect_set_register_state(ptr noundef %0, ptr
   br label %31
 
 31:                                               ; preds = %23, %29, %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -11016,7 +11010,7 @@ define internal fastcc void @mbim_dissect_set_connect_v3_and_higher(ptr noundef 
 
 59:                                               ; preds = %51, %55
   %60 = load i32, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %60, ptr %7, align 4
   %61 = sub i32 %60, %3
   %62 = icmp slt i32 %61, %4
@@ -11033,7 +11027,7 @@ define internal fastcc void @mbim_dissect_set_connect_v3_and_higher(ptr noundef 
   br i1 %68, label %.lr.ph.i, label %mbim_dissect_tlv_ie_list.exit, !llvm.loop !14
 
 mbim_dissect_tlv_ie_list.exit:                    ; preds = %.lr.ph.i, %59
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -11046,12 +11040,12 @@ define internal fastcc void @mbim_dissect_set_connect(ptr noundef %0, ptr nounde
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = load i32, ptr @hf_mbim_set_connect_session_id, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %14 = add i32 %3, 4
@@ -11147,12 +11141,12 @@ define internal fastcc void @mbim_dissect_set_connect(ptr noundef %0, ptr nounde
   br label %83
 
 83:                                               ; preds = %75, %81, %70
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -11167,15 +11161,15 @@ define internal fastcc void @mbim_dissect_context(ptr noundef %0, ptr noundef %1
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4
   %15 = load i32, ptr @hf_mbim_context_context_id, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
@@ -11298,14 +11292,14 @@ define internal fastcc void @mbim_dissect_context(ptr noundef %0, ptr noundef %1
   br label %101
 
 101:                                              ; preds = %93, %99, %88
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -11316,8 +11310,8 @@ define internal fastcc void @mbim_dissect_device_service_subscribe_list(ptr noun
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca %struct.mbim_pair_list, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @hf_mbim_device_service_subscribe_element_count, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %8)
   %12 = load i32, ptr %8, align 4
@@ -11380,10 +11374,10 @@ define internal fastcc void @mbim_dissect_device_service_subscribe_list(ptr noun
   %44 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %41, i32 noundef %39, i32 noundef %42, ptr noundef null, ptr noundef nonnull @.str.2689, i32 noundef %43)
   %45 = load i32, ptr %35, align 4
   %46 = add i32 %45, %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %46, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %47 = load i32, ptr @hf_mbim_event_entry_device_service_id, align 4
   %48 = call fastcc zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr noundef readonly %1, ptr noundef %44, i32 noundef %47, ptr noundef nonnull %5, ptr noundef nonnull %7, i1 noundef zeroext true)
@@ -11463,9 +11457,9 @@ define internal fastcc void @mbim_dissect_device_service_subscribe_list(ptr noun
   br i1 %94, label %.lr.ph.split.split.i, label %mbim_dissect_event_entry.exit, !llvm.loop !19
 
 mbim_dissect_event_entry.exit:                    ; preds = %.lr.ph.split.split.i, %.lr.ph.split.split.us.i, %70, %40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %95
 
 95:                                               ; preds = %.lr.ph46, %37, %mbim_dissect_event_entry.exit
@@ -11475,8 +11469,8 @@ mbim_dissect_event_entry.exit:                    ; preds = %.lr.ph.split.split.
   br i1 %98, label %.lr.ph46, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %95, %13, %.preheader, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -11487,8 +11481,8 @@ define internal fastcc void @mbim_dissect_packet_filters(ptr noundef %0, ptr nou
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca %struct.mbim_pair_list, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load i32, ptr @hf_mbim_packet_filters_session_id, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %13 = add i32 %3, 4
@@ -11558,9 +11552,9 @@ define internal fastcc void @mbim_dissect_packet_filters(ptr noundef %0, ptr nou
   %50 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %47, i32 noundef %45, i32 noundef %48, ptr noundef null, ptr noundef nonnull @.str.2691, i32 noundef %49)
   %51 = load i32, ptr %41, align 4
   %52 = add i32 %51, %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %53 = load i32, ptr @hf_mbim_single_packet_filter_filter_size, align 4
   %54 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %50, i32 noundef %53, ptr noundef %0, i32 noundef %52, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6)
   %55 = add i32 %52, 4
@@ -11615,9 +11609,9 @@ define internal fastcc void @mbim_dissect_packet_filters(ptr noundef %0, ptr nou
   br label %mbim_dissect_single_packet_filter.exit
 
 mbim_dissect_single_packet_filter.exit:           ; preds = %71, %79, %81
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %86
 
 86:                                               ; preds = %40, %43, %mbim_dissect_single_packet_filter.exit
@@ -11627,8 +11621,8 @@ mbim_dissect_single_packet_filter.exit:           ; preds = %71, %79, %81
   br i1 %89, label %40, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %86, %17, %.preheader, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -11636,8 +11630,8 @@ mbim_dissect_single_packet_filter.exit:           ; preds = %71, %79, %81
 define internal fastcc void @mbim_dissect_set_sms_configuration(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_mbim_set_sms_configuration_format, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %9 = add i32 %3, 4
@@ -11666,8 +11660,8 @@ define internal fastcc void @mbim_dissect_set_sms_configuration(ptr noundef %0, 
   br label %27
 
 27:                                               ; preds = %19, %25, %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -11695,7 +11689,7 @@ define internal fastcc void @mbim_dissect_set_sms_send(ptr noundef %0, ptr nound
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %15 = load i32, ptr @hf_mbim_set_sms_send_format, align 4
   %16 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %14)
   %17 = add i32 %3, 4
@@ -11706,8 +11700,8 @@ define internal fastcc void @mbim_dissect_set_sms_send(ptr noundef %0, ptr nound
   ]
 
 19:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %20 = load i32, ptr @hf_mbim_sms_send_pdu_pdu_data_offset, align 4
   %21 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %12)
   %22 = add i32 %3, 8
@@ -11845,17 +11839,17 @@ define internal fastcc void @mbim_dissect_set_sms_send(ptr noundef %0, ptr nound
   br label %mbim_dissect_sms_send_pdu.exit
 
 mbim_dissect_sms_send_pdu.exit:                   ; preds = %19, %66, %69, %87, %91, %96, %97
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %161
 
 104:                                              ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %105 = load i32, ptr @hf_mbim_sms_send_cdma_encoding_id, align 4
   %106 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %105, ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6)
   %107 = add i32 %3, 8
@@ -11928,12 +11922,12 @@ mbim_dissect_sms_send_pdu.exit:                   ; preds = %19, %66, %69, %87, 
   br label %mbim_dissect_sms_send_cdma.exit
 
 mbim_dissect_sms_send_cdma.exit:                  ; preds = %137, %150
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %161
 
 159:                                              ; preds = %5
@@ -11941,7 +11935,7 @@ mbim_dissect_sms_send_cdma.exit:                  ; preds = %137, %150
   br label %161
 
 161:                                              ; preds = %mbim_dissect_sms_send_cdma.exit, %159, %mbim_dissect_sms_send_pdu.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void
 }
 
@@ -11949,8 +11943,8 @@ mbim_dissect_sms_send_cdma.exit:                  ; preds = %137, %150
 define internal fastcc void @mbim_dissect_set_ussd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_mbim_set_ussd_ussd_action, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %9 = add i32 %3, 4
@@ -12006,8 +12000,8 @@ switch.lookup:                                    ; preds = %34
   br label %46
 
 46:                                               ; preds = %34, %switch.lookup, %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -12017,10 +12011,10 @@ define internal fastcc void @mbim_dissect_set_phonebook_write(ptr noundef %0, pt
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_mbim_set_phonebook_write_save_flag, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648)
   %10 = add i32 %2, 4
@@ -12066,10 +12060,10 @@ define internal fastcc void @mbim_dissect_set_phonebook_write(ptr noundef %0, pt
   br label %42
 
 42:                                               ; preds = %38, %33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12185,7 +12179,7 @@ define internal fastcc void @mbim_dissect_set_stk_pac(ptr noundef %0, ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @mbim_dissect_set_stk_terminal_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @hf_mbim_set_stk_terminal_response_response_length, align 4
   %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %5)
   %8 = add i32 %3, 4
@@ -12206,15 +12200,15 @@ define internal fastcc void @mbim_dissect_set_stk_terminal_response(ptr noundef 
   br label %20
 
 20:                                               ; preds = %13, %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @mbim_dissect_aka_auth_req(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
@@ -12230,8 +12224,8 @@ define internal fastcc void @mbim_dissect_aka_auth_req(ptr noundef %0, ptr nound
 define internal fastcc void @mbim_dissect_akap_auth_req(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @hf_mbim_akap_auth_req_rand, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef 16, i32 noundef 0)
   %8 = add i32 %2, 16
@@ -12257,8 +12251,8 @@ define internal fastcc void @mbim_dissect_akap_auth_req(ptr noundef %0, ptr noun
   br label %25
 
 25:                                               ; preds = %21, %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12283,7 +12277,7 @@ define internal fastcc void @mbim_dissect_set_dss_connect(ptr noundef %0, ptr no
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store i32 %3, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = load i32, ptr @hf_mbim_set_dss_connect_device_service_id, align 4
   %8 = call fastcc zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, ptr noundef nonnull %5, ptr noundef nonnull %6, i1 noundef zeroext true)
@@ -12313,7 +12307,7 @@ define internal fastcc void @mbim_dissect_set_dss_connect(ptr noundef %0, ptr no
   %22 = add i32 %20, 4
   %23 = load i32, ptr @hf_mbim_set_dss_connect_dss_link_state, align 4
   %24 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef -2147483648)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -12321,7 +12315,7 @@ define internal fastcc void @mbim_dissect_set_dss_connect(ptr noundef %0, ptr no
 define internal fastcc void @mbim_dissect_muticarrier_current_cid_list_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct._e_guid_t, align 4
   %6 = load i32, ptr @hf_mbim_multicarrier_current_cid_list_req_uuid, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @tvb_get_ntohguid(ptr noundef %0, i32 noundef %3, ptr noundef nonnull %5)
   br label %7
 
@@ -12348,7 +12342,7 @@ mbim_dissect_service_id_uuid.exit:                ; preds = %10, %.thread.loopex
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @guid_to_str(ptr noundef %14, ptr noundef nonnull %5)
   %16 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format_value(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef 16, ptr noundef nonnull %5, ptr noundef nonnull @.str.2624, ptr noundef %12, ptr noundef %15)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %17 = and i32 %.044.i, 255
   %.not = icmp eq i32 %17, 7
   br i1 %.not, label %20, label %18
@@ -12450,8 +12444,8 @@ define internal fastcc void @mbim_dissect_atds_operators(ptr noundef %0, ptr nou
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca %struct.mbim_pair_list, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load i32, ptr @hf_mbim_atds_operators_elem_count, align 4
   %12 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %9)
   %13 = load i32, ptr %9, align 4
@@ -12514,10 +12508,10 @@ define internal fastcc void @mbim_dissect_atds_operators(ptr noundef %0, ptr nou
   %45 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %42, i32 noundef %40, i32 noundef %43, ptr noundef null, ptr noundef nonnull @.str.2695, i32 noundef %44)
   %46 = load i32, ptr %36, align 4
   %47 = add i32 %46, %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %48 = load i32, ptr @hf_mbim_atds_operator_provider_id_offset, align 4
   %49 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %48, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %5)
   %50 = add i32 %47, 4
@@ -12582,10 +12576,10 @@ define internal fastcc void @mbim_dissect_atds_operators(ptr noundef %0, ptr nou
   br label %mbim_dissect_atds_operator.exit
 
 mbim_dissect_atds_operator.exit:                  ; preds = %84, %89, %95
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %97
 
 97:                                               ; preds = %.lr.ph44, %38, %mbim_dissect_atds_operator.exit
@@ -12595,8 +12589,8 @@ mbim_dissect_atds_operator.exit:                  ; preds = %84, %89, %95
   br i1 %100, label %.lr.ph44, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %97, %14, %.preheader, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -12604,8 +12598,8 @@ mbim_dissect_atds_operator.exit:                  ; preds = %84, %89, %95
 define internal fastcc void @mbim_dissect_atds_projection_tables(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.mbim_pair_list, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_mbim_atds_projection_tables_elem_count, align 4
   %8 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %5)
   %9 = load i32, ptr %5, align 4
@@ -12733,8 +12727,8 @@ define internal fastcc void @mbim_dissect_atds_projection_tables(ptr noundef %0,
   br i1 %103, label %.lr.ph44, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %100, %10, %.preheader, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -12753,8 +12747,8 @@ define internal fastcc void @mbim_dissect_set_ms_provisioned_context_v2(ptr noun
 define internal fastcc void @mbim_dissect_ms_network_blacklist_info(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.mbim_pair_list, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_mbim_ms_network_blacklist_info_blacklist_state, align 4
   %8 = load i32, ptr @ett_mbim_bitmap, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %1, i32 noundef %3, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @mbim_ms_network_blacklist_state_fields, i32 noundef -2147483648)
@@ -12837,8 +12831,8 @@ define internal fastcc void @mbim_dissect_ms_network_blacklist_info(ptr noundef 
   br i1 %58, label %.lr.ph55, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %55, %13, %.preheader, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -12846,8 +12840,8 @@ define internal fastcc void @mbim_dissect_ms_network_blacklist_info(ptr noundef 
 define internal fastcc void @mbim_dissect_set_lte_attach_config(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.mbim_pair_list, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_mbim_ms_set_lte_attach_operation, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %9 = add i32 %3, 4
@@ -12923,8 +12917,8 @@ define internal fastcc void @mbim_dissect_set_lte_attach_config(ptr noundef %0, 
   br i1 %50, label %.lr.ph50, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %47, %13, %.preheader, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -12932,8 +12926,8 @@ define internal fastcc void @mbim_dissect_set_lte_attach_config(ptr noundef %0, 
 define internal fastcc void @mbim_dissect_ms_device_slot_mapping_info(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.mbim_pair_list, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_mbim_ms_device_slot_mapping_info_map_count, align 4
   %8 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %5)
   %9 = load i32, ptr %5, align 4
@@ -13008,8 +13002,8 @@ define internal fastcc void @mbim_dissect_ms_device_slot_mapping_info(ptr nounde
   br i1 %50, label %.lr.ph44, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %47, %10, %.preheader, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -13054,7 +13048,7 @@ define internal fastcc void @mbim_dissect_base_station_info_req(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @mbim_dissect_version(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((24, 28)) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @hf_mbim_version, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648)
   %8 = add i32 %2, 2
@@ -13068,7 +13062,7 @@ define internal fastcc void @mbim_dissect_version(ptr noundef %0, ptr noundef %1
   %.sink = select i1 %14, i32 %switch.offset, i32 0
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %.sink, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -13090,7 +13084,7 @@ define internal fastcc void @mbim_dissect_ms_registration_params_info(ptr nounde
   %19 = load i32, ptr @hf_mbim_ms_registration_params_info_re_register_if_needed, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648)
   %21 = add i32 %3, 20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %21, ptr %6, align 4
   %22 = icmp sgt i32 %4, 20
   br i1 %22, label %.lr.ph.i, label %mbim_dissect_tlv_ie_list.exit
@@ -13106,7 +13100,7 @@ define internal fastcc void @mbim_dissect_ms_registration_params_info(ptr nounde
   br i1 %28, label %.lr.ph.i, label %mbim_dissect_tlv_ie_list.exit, !llvm.loop !14
 
 mbim_dissect_tlv_ie_list.exit:                    ; preds = %.lr.ph.i, %5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -13136,8 +13130,8 @@ define internal fastcc void @mbim_dissect_tlv_ie_list(ptr noundef %0, ptr nounde
 define internal fastcc void @mbim_dissect_ms_sar_config(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.mbim_pair_list, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_mbim_ms_sar_config_sar_mode, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %10 = add i32 %3, 4
@@ -13230,8 +13224,8 @@ define internal fastcc void @mbim_dissect_ms_sar_config(ptr noundef %0, ptr noun
   br i1 %63, label %.lr.ph57, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %60, %22, %.preheader, %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -13259,8 +13253,8 @@ define internal fastcc void @mbim_dissect_ms_transmission_status(ptr noundef %0,
 define internal fastcc void @mbim_dissect_ms_open_channel(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_mbim_ms_open_channel_app_id_size, align 4
   %8 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6)
   %9 = add i32 %2, 4
@@ -13305,8 +13299,8 @@ define internal fastcc void @mbim_dissect_ms_open_channel(ptr noundef %0, ptr no
   br label %38
 
 38:                                               ; preds = %34, %29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -13343,8 +13337,8 @@ define internal fastcc void @mbim_dissect_ms_close_channel(ptr noundef %0, ptr n
 define internal fastcc void @mbim_dissect_ms_apdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_mbim_ms_uicc_channel, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %10 = add i32 %3, 4
@@ -13427,8 +13421,8 @@ define internal fastcc void @mbim_dissect_ms_apdu(ptr noundef %0, ptr noundef %1
   br label %61
 
 61:                                               ; preds = %.sink.split, %44, %49, %33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -13492,14 +13486,14 @@ define internal fastcc void @mbim_dissect_ms_access_binary(ptr noundef %0, ptr n
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = load i32, ptr @hf_mbim_ms_access_binary_version, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648)
   %14 = add i32 %2, 4
@@ -13588,14 +13582,14 @@ define internal fastcc void @mbim_dissect_ms_access_binary(ptr noundef %0, ptr n
   br label %79
 
 79:                                               ; preds = %75, %70
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -13609,14 +13603,14 @@ define internal fastcc void @mbim_dissect_ms_access_record(ptr noundef %0, ptr n
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = load i32, ptr @hf_mbim_ms_access_record_version, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648)
   %14 = add i32 %2, 4
@@ -13702,14 +13696,14 @@ define internal fastcc void @mbim_dissect_ms_access_record(ptr noundef %0, ptr n
   br label %76
 
 76:                                               ; preds = %72, %67
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -13719,10 +13713,10 @@ define internal fastcc void @mbim_dissect_ms_file_path(ptr noundef %0, ptr nound
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_mbim_ms_file_path_version, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648)
   %10 = add i32 %2, 4
@@ -13765,15 +13759,15 @@ define internal fastcc void @mbim_dissect_ms_file_path(ptr noundef %0, ptr nound
   br label %39
 
 39:                                               ; preds = %35, %30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @try_val_to_str_idx(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @try_val_to_str_idx(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @mbim_dissect_device_caps_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) initializes((20, 24)) %4) unnamed_addr #0 {
@@ -13785,14 +13779,14 @@ define internal fastcc void @mbim_dissect_device_caps_info(ptr noundef %0, ptr n
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = load i32, ptr @hf_mbim_device_caps_info_device_type, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %16 = add i32 %3, 4
@@ -13934,14 +13928,14 @@ define internal fastcc void @mbim_dissect_device_caps_info(ptr noundef %0, ptr n
   br label %122
 
 122:                                              ; preds = %114, %120, %109
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -13953,12 +13947,12 @@ define internal fastcc void @mbim_dissect_subscriber_ready_status(ptr noundef %0
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca %struct.mbim_pair_list, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = load i32, ptr @hf_mbim_subscr_ready_status_ready_state, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %14 = add i32 %3, 4
@@ -14139,17 +14133,17 @@ define internal fastcc void @mbim_dissect_subscriber_ready_status(ptr noundef %0
   br i1 %124, label %.lr.ph107, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %121, %106
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @mbim_dissect_pin_list_info(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
@@ -14214,12 +14208,12 @@ define internal fastcc void @mbim_dissect_registration_state_info(ptr noundef %0
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %3)
   %13 = icmp eq i32 %12, 0
   %14 = load i32, ptr @hf_mbim_registration_state_info_nw_error, align 4
@@ -14349,12 +14343,12 @@ define internal fastcc void @mbim_dissect_registration_state_info(ptr noundef %0
   br label %106
 
 106:                                              ; preds = %98, %104, %93
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -14463,7 +14457,7 @@ mbim_dissect_ms_plmn.exit:                        ; preds = %66, %69
   %72 = load i32, ptr @hf_mbim_ms_tai_tac, align 4
   %73 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %72, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef -2147483648)
   %74 = add i32 %.074, 12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %74, ptr %7, align 4
   %75 = sub i32 %74, %3
   %76 = icmp slt i32 %75, %5
@@ -14480,7 +14474,7 @@ mbim_dissect_ms_plmn.exit:                        ; preds = %66, %69
   br i1 %82, label %.lr.ph.i, label %mbim_dissect_tlv_ie_list.exit, !llvm.loop !14
 
 mbim_dissect_tlv_ie_list.exit:                    ; preds = %.lr.ph.i, %mbim_dissect_ms_plmn.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %83
 
 83:                                               ; preds = %.thread, %mbim_dissect_tlv_ie_list.exit
@@ -14492,9 +14486,9 @@ define internal fastcc void @mbim_dissect_signal_state_info(ptr noundef %0, ptr 
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_mbim_signal_state_info_rssi, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648)
   %10 = add i32 %2, 4
@@ -14587,9 +14581,9 @@ define internal fastcc void @mbim_dissect_signal_state_info(ptr noundef %0, ptr 
   br i1 %73, label %.lr.ph, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.lr.ph, %46, %36, %32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -14667,7 +14661,7 @@ define internal fastcc void @mbim_dissect_connect_info(ptr noundef %0, ptr nound
 
 54:                                               ; preds = %46, %50
   %55 = load i32, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %55, ptr %7, align 4
   %56 = sub i32 %55, %3
   %57 = icmp slt i32 %56, %5
@@ -14684,7 +14678,7 @@ define internal fastcc void @mbim_dissect_connect_info(ptr noundef %0, ptr nound
   br i1 %63, label %.lr.ph.i, label %mbim_dissect_tlv_ie_list.exit, !llvm.loop !14
 
 mbim_dissect_tlv_ie_list.exit:                    ; preds = %.lr.ph.i, %54
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %64
 
 64:                                               ; preds = %33, %mbim_dissect_tlv_ie_list.exit
@@ -14695,8 +14689,8 @@ mbim_dissect_tlv_ie_list.exit:                    ; preds = %.lr.ph.i, %54
 define internal fastcc void @mbim_dissect_provisioned_contexts_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.mbim_pair_list, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_mbim_provisioned_contexts_info_elem_count, align 4
   %8 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %5)
   %9 = load i32, ptr %5, align 4
@@ -14769,8 +14763,8 @@ define internal fastcc void @mbim_dissect_provisioned_contexts_info(ptr noundef 
   br i1 %47, label %.lr.ph44, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %44, %10, %.preheader, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -14788,16 +14782,16 @@ define internal fastcc void @mbim_dissect_ip_configuration_info(ptr noundef %0, 
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %17 = load i32, ptr @hf_mbim_ip_configuration_info_session_id, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %19 = add i32 %3, 4
@@ -14858,7 +14852,7 @@ define internal fastcc void @mbim_dissect_ip_configuration_info(ptr noundef %0, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %mbim_dissect_ipv4_element.exit
   %.0107 = phi i32 [ %78, %mbim_dissect_ipv4_element.exit ], [ 0, %.lr.ph.preheader ]
   %.099106 = phi i32 [ %77, %mbim_dissect_ipv4_element.exit ], [ %67, %.lr.ph.preheader ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %68 = load i32, ptr @hf_mbim_ipv4_element_on_link_prefix_length, align 4
   %69 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %68, ptr noundef %0, i32 noundef %.099106, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6)
   %70 = add i32 %.099106, 4
@@ -14874,7 +14868,7 @@ mbim_dissect_ipv4_element.exit:                   ; preds = %.lr.ph, %73
   %75 = load i32, ptr @hf_mbim_ipv4_element_ipv4_address, align 4
   %76 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %75, ptr noundef %0, i32 noundef %70, i32 noundef 4, i32 noundef 0)
   %77 = add i32 %.099106, 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %78 = add nuw i32 %.0107, 1
   %79 = load i32, ptr %7, align 4
   %80 = icmp ult i32 %78, %79
@@ -14895,7 +14889,7 @@ mbim_dissect_ipv4_element.exit:                   ; preds = %.lr.ph, %73
 .lr.ph110:                                        ; preds = %.lr.ph110.preheader, %mbim_dissect_ipv6_element.exit
   %.1109 = phi i32 [ %96, %mbim_dissect_ipv6_element.exit ], [ 0, %.lr.ph110.preheader ]
   %.1100108 = phi i32 [ %95, %mbim_dissect_ipv6_element.exit ], [ %85, %.lr.ph110.preheader ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %86 = load i32, ptr @hf_mbim_ipv6_element_on_link_prefix_length, align 4
   %87 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %86, ptr noundef %0, i32 noundef %.1100108, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %5)
   %88 = add i32 %.1100108, 4
@@ -14911,7 +14905,7 @@ mbim_dissect_ipv6_element.exit:                   ; preds = %.lr.ph110, %91
   %93 = load i32, ptr @hf_mbim_ipv6_element_ipv6_address, align 4
   %94 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %93, ptr noundef %0, i32 noundef %88, i32 noundef 16, i32 noundef 0)
   %95 = add i32 %.1100108, 20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %96 = add nuw i32 %.1109, 1
   %97 = load i32, ptr %9, align 4
   %98 = icmp ult i32 %96, %97
@@ -14986,16 +14980,16 @@ mbim_dissect_ipv6_element.exit:                   ; preds = %.lr.ph110, %91
   br i1 %132, label %.lr.ph116, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.lr.ph116, %.loopexit103
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -15006,8 +15000,8 @@ define internal fastcc void @mbim_dissect_device_services_info(ptr noundef %0, p
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca %struct.mbim_pair_list, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @hf_mbim_device_services_info_device_services_count, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %8)
   %12 = add i32 %3, 4
@@ -15073,10 +15067,10 @@ define internal fastcc void @mbim_dissect_device_services_info(ptr noundef %0, p
   %47 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %44, i32 noundef %42, i32 noundef %45, ptr noundef null, ptr noundef nonnull @.str.2689, i32 noundef %46)
   %48 = load i32, ptr %38, align 4
   %49 = add i32 %48, %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %49, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %50 = load i32, ptr @hf_mbim_device_service_element_device_service_id, align 4
   %51 = call fastcc zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr noundef readonly %1, ptr noundef %47, i32 noundef %50, ptr noundef nonnull %5, ptr noundef nonnull %7, i1 noundef zeroext true)
@@ -15163,9 +15157,9 @@ define internal fastcc void @mbim_dissect_device_services_info(ptr noundef %0, p
   br i1 %104, label %.lr.ph.split.split.i, label %mbim_dissect_device_service_element.exit, !llvm.loop !49
 
 mbim_dissect_device_service_element.exit:         ; preds = %.lr.ph.split.split.i, %.lr.ph.split.split.us.i, %80, %43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %105
 
 105:                                              ; preds = %.lr.ph50, %40, %mbim_dissect_device_service_element.exit
@@ -15175,8 +15169,8 @@ mbim_dissect_device_service_element.exit:         ; preds = %.lr.ph.split.split.
   br i1 %108, label %.lr.ph50, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %105, %16, %.preheader, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -15212,8 +15206,8 @@ define internal fastcc void @mbim_dissect_packet_statistics_info(ptr noundef %0,
 define internal fastcc void @mbim_dissect_sms_configuration_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_mbim_sms_configuration_info_sms_storage_state, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %9 = add i32 %3, 4
@@ -15251,8 +15245,8 @@ define internal fastcc void @mbim_dissect_sms_configuration_info(ptr noundef %0,
   br label %36
 
 36:                                               ; preds = %28, %34, %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -15272,9 +15266,9 @@ define internal fastcc void @mbim_dissect_sms_read_info(ptr noundef %0, ptr noun
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
   %19 = alloca %struct.mbim_pair_list, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %20 = load i32, ptr @hf_mbim_sms_read_info_format, align 4
   %21 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %17)
   %22 = add i32 %3, 4
@@ -15352,9 +15346,9 @@ define internal fastcc void @mbim_dissect_sms_read_info(ptr noundef %0, ptr noun
   ]
 
 64:                                               ; preds = %56
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %65 = load i32, ptr @hf_mbim_sms_pdu_record_message_index, align 4
   %66 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %65, ptr noundef %0, i32 noundef %63, i32 noundef 4, i32 noundef -2147483648)
   %67 = add i32 %63, 4
@@ -15498,20 +15492,20 @@ define internal fastcc void @mbim_dissect_sms_read_info(ptr noundef %0, ptr noun
   br label %mbim_dissect_sms_pdu_record.exit
 
 mbim_dissect_sms_pdu_record.exit:                 ; preds = %64, %116, %119, %139, %143, %147, %148
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %238
 
 155:                                              ; preds = %56
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %156 = load i32, ptr @hf_mbim_sms_cdma_record_message_index, align 4
   %157 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %156, ptr noundef %0, i32 noundef %63, i32 noundef 4, i32 noundef -2147483648)
   %158 = add i32 %63, 4
@@ -15616,14 +15610,14 @@ mbim_dissect_sms_pdu_record.exit:                 ; preds = %64, %116, %119, %13
   br label %mbim_dissect_sms_cdma_record.exit
 
 mbim_dissect_sms_cdma_record.exit:                ; preds = %213, %226
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %238
 
 235:                                              ; preds = %56
@@ -15638,21 +15632,21 @@ mbim_dissect_sms_cdma_record.exit:                ; preds = %213, %226
   br i1 %241, label %50, label %.loopexit, !llvm.loop !52
 
 .loopexit:                                        ; preds = %238, %26, %.preheader, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @mbim_dissect_ussd_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_mbim_ussd_info_ussd_response, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %9 = add i32 %3, 4
@@ -15711,8 +15705,8 @@ switch.lookup:                                    ; preds = %37
   br label %49
 
 49:                                               ; preds = %37, %switch.lookup, %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -15743,8 +15737,8 @@ define internal fastcc void @mbim_dissect_phonebook_read_info(ptr noundef %0, pt
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca %struct.mbim_pair_list, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load i32, ptr @hf_mbim_phonebook_read_info_element_count, align 4
   %12 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %9)
   %13 = load i32, ptr %9, align 4
@@ -15807,10 +15801,10 @@ define internal fastcc void @mbim_dissect_phonebook_read_info(ptr noundef %0, pt
   %45 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %42, i32 noundef %40, i32 noundef %43, ptr noundef null, ptr noundef nonnull @.str.2719, i32 noundef %44)
   %46 = load i32, ptr %36, align 4
   %47 = add i32 %46, %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %48 = load i32, ptr @hf_mbim_phonebook_entry_entry_index, align 4
   %49 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %48, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef -2147483648)
   %50 = add i32 %47, 4
@@ -15853,10 +15847,10 @@ define internal fastcc void @mbim_dissect_phonebook_read_info(ptr noundef %0, pt
   br label %mbim_dissect_phonebook_entry.exit
 
 mbim_dissect_phonebook_entry.exit:                ; preds = %70, %75
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %79
 
 79:                                               ; preds = %.lr.ph44, %38, %mbim_dissect_phonebook_entry.exit
@@ -15866,8 +15860,8 @@ mbim_dissect_phonebook_entry.exit:                ; preds = %70, %75
   br i1 %82, label %.lr.ph44, label %.loopexit, !llvm.loop !54
 
 .loopexit:                                        ; preds = %79, %14, %.preheader, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -16019,8 +16013,8 @@ define internal fastcc void @mbim_dissect_stk_pac_info(ptr noundef %0, ptr nound
 define internal fastcc void @mbim_dissect_stk_terminal_response_info(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @hf_mbim_stk_terminal_response_info_result_data_string_offset, align 4
   %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %4)
   %8 = add i32 %2, 4
@@ -16043,8 +16037,8 @@ define internal fastcc void @mbim_dissect_stk_terminal_response_info(ptr noundef
   br label %22
 
 22:                                               ; preds = %18, %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -16114,7 +16108,7 @@ define internal fastcc void @mbim_dissect_sim_auth_info(ptr noundef %0, ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @mbim_dissect_muticarrier_current_cid_list_info(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i32, ptr @hf_mbim_multicarrier_current_cid_list_info_cid_count, align 4
   %6 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %4)
   %7 = load i32, ptr %4, align 4
@@ -16133,7 +16127,7 @@ define internal fastcc void @mbim_dissect_muticarrier_current_cid_list_info(ptr 
   br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -16166,8 +16160,8 @@ define internal fastcc void @mbim_dissect_thermal_state_info(ptr noundef %0, ptr
 define internal fastcc void @mbim_dissect_adpclk_freq_info(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.mbim_pair_list, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_mbim_adpclk_freq_info_elem_count, align 4
   %8 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %5)
   %9 = load i32, ptr %5, align 4
@@ -16266,8 +16260,8 @@ mbim_dissect_adpclk_freq_value.exit:              ; preds = %61, %56, %51, %37, 
   br i1 %67, label %.lr.ph45, label %.loopexit, !llvm.loop !57
 
 .loopexit:                                        ; preds = %mbim_dissect_adpclk_freq_value.exit, %10, %.preheader, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -16328,8 +16322,8 @@ define internal fastcc void @mbim_dissect_atds_signal_info(ptr noundef %0, ptr n
 define internal fastcc void @mbim_dissect_multiflow_tft_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.mbim_pair_list, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_mbim_multiflow_tft_info_session_id, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %9 = add i32 %3, 4
@@ -16406,8 +16400,8 @@ define internal fastcc void @mbim_dissect_multiflow_tft_info(ptr noundef %0, ptr
   br i1 %52, label %.lr.ph49, label %.loopexit, !llvm.loop !59
 
 .loopexit:                                        ; preds = %49, %13, %.preheader, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -16416,9 +16410,9 @@ define internal fastcc void @mbim_dissect_ms_provisioned_context_info_v2(ptr nou
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca %struct.mbim_pair_list, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @hf_mbim_ms_provisioned_context_info_v2_elem_count, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %7)
   %11 = load i32, ptr %7, align 4
@@ -16495,9 +16489,9 @@ define internal fastcc void @mbim_dissect_ms_provisioned_context_info_v2(ptr nou
   br i1 %52, label %.lr.ph48, label %.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %49, %12, %.preheader, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -16505,8 +16499,8 @@ define internal fastcc void @mbim_dissect_ms_provisioned_context_info_v2(ptr nou
 define internal fastcc void @mbim_dissect_lte_attach_config_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.mbim_pair_list, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_mbim_ms_lte_attach_context_count, align 4
   %8 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %5)
   %9 = load i32, ptr %5, align 4
@@ -16579,8 +16573,8 @@ define internal fastcc void @mbim_dissect_lte_attach_config_info(ptr noundef %0,
   br i1 %47, label %.lr.ph46, label %.loopexit, !llvm.loop !63
 
 .loopexit:                                        ; preds = %44, %10, %.preheader, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -16691,14 +16685,14 @@ define internal fastcc void @mbim_dissect_device_caps_v2_info(ptr noundef %0, pt
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = load i32, ptr @hf_mbim_device_caps_info_device_type, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %16 = add i32 %3, 4
@@ -16843,14 +16837,14 @@ define internal fastcc void @mbim_dissect_device_caps_v2_info(ptr noundef %0, pt
   br label %125
 
 125:                                              ; preds = %117, %123, %112
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -16898,33 +16892,33 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %44 = alloca i32, align 4
   %45 = alloca i32, align 4
   %46 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store i32 0, ptr %42, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store i32 0, ptr %43, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store i32 0, ptr %44, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i32 0, ptr %45, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %47 = load i32, ptr @hf_mbim_base_station_system_type, align 4
   %48 = load i32, ptr @ett_mbim_bitmap, align 4
   %49 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %47, i32 noundef %48, ptr noundef nonnull @mbim_data_class_fields, i32 noundef -2147483648)
@@ -17087,8 +17081,8 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %165 = load i32, ptr @ett_mbim_pair_list, align 4
   %166 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %164, i32 noundef %161, i32 noundef %165, ptr noundef null, ptr noundef nonnull @.str.2730)
   %167 = load i32, ptr %23, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %168 = load i32, ptr @hf_mbim_base_station_provider_id_offset, align 4
   %169 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %166, i32 noundef %168, ptr noundef %0, i32 noundef %167, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %21)
   %170 = add i32 %167, 4
@@ -17117,8 +17111,8 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %193 = add i32 %192, %167
   %194 = load i32, ptr %22, align 4
   %195 = call ptr @proto_tree_add_item(ptr noundef %166, i32 noundef %191, ptr noundef %0, i32 noundef %193, i32 noundef %194, i32 noundef -2147483644)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %196
 
 196:                                              ; preds = %163, %158
@@ -17135,8 +17129,8 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %203 = load i32, ptr @ett_mbim_pair_list, align 4
   %204 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %202, i32 noundef %199, i32 noundef %203, ptr noundef null, ptr noundef nonnull @.str.2731)
   %205 = load i32, ptr %23, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %206 = load i32, ptr @hf_mbim_base_station_provider_id_offset, align 4
   %207 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %204, i32 noundef %206, ptr noundef %0, i32 noundef %205, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %19)
   %208 = add i32 %205, 4
@@ -17177,8 +17171,8 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %243 = add i32 %242, %205
   %244 = load i32, ptr %20, align 4
   %245 = call ptr @proto_tree_add_item(ptr noundef %204, i32 noundef %241, ptr noundef %0, i32 noundef %243, i32 noundef %244, i32 noundef -2147483644)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %246
 
 246:                                              ; preds = %201, %196
@@ -17211,8 +17205,8 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %262 = load i32, ptr @ett_mbim_pair_list, align 4
   %263 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %261, i32 noundef %258, i32 noundef %262, ptr noundef null, ptr noundef nonnull @.str.2733)
   %264 = load i32, ptr %23, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %265 = load i32, ptr @hf_mbim_base_station_provider_id_offset, align 4
   %266 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %263, i32 noundef %265, ptr noundef %0, i32 noundef %264, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %17)
   %267 = add i32 %264, 4
@@ -17244,8 +17238,8 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %293 = add i32 %292, %264
   %294 = load i32, ptr %18, align 4
   %295 = call ptr @proto_tree_add_item(ptr noundef %263, i32 noundef %291, ptr noundef %0, i32 noundef %293, i32 noundef %294, i32 noundef -2147483644)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %296
 
 296:                                              ; preds = %260, %255
@@ -17277,8 +17271,8 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %312 = load i32, ptr @ett_mbim_pair_list, align 4
   %313 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %304, ptr noundef %0, i32 noundef %311, i32 noundef 0, i32 noundef %312, ptr noundef null, ptr noundef nonnull @.str.2735, i32 noundef %.0185205)
   %314 = load i32, ptr %23, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %315 = load i32, ptr @hf_mbim_base_station_provider_id_offset, align 4
   %316 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %313, i32 noundef %315, ptr noundef %0, i32 noundef %314, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %15)
   %317 = load i32, ptr %23, align 4
@@ -17325,8 +17319,8 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %351 = load i32, ptr %23, align 4
   %352 = add i32 %350, %351
   store i32 %352, ptr %23, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %353 = add nuw i32 %.0185205, 1
   %354 = load i32, ptr %46, align 4
   %355 = icmp ult i32 %353, %354
@@ -17361,8 +17355,8 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %371 = load i32, ptr @ett_mbim_pair_list, align 4
   %372 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %363, ptr noundef %0, i32 noundef %370, i32 noundef 0, i32 noundef %371, ptr noundef null, ptr noundef nonnull @.str.2737, i32 noundef %.0184206)
   %373 = load i32, ptr %23, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %374 = load i32, ptr @hf_mbim_base_station_provider_id_offset, align 4
   %375 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %372, i32 noundef %374, ptr noundef %0, i32 noundef %373, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %13)
   %376 = load i32, ptr %23, align 4
@@ -17419,8 +17413,8 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %418 = load i32, ptr %23, align 4
   %419 = add i32 %417, %418
   store i32 %419, ptr %23, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %420 = add nuw i32 %.0184206, 1
   %421 = load i32, ptr %46, align 4
   %422 = icmp ult i32 %420, %421
@@ -17489,8 +17483,8 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %458 = load i32, ptr @ett_mbim_pair_list, align 4
   %459 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %450, ptr noundef %0, i32 noundef %457, i32 noundef 0, i32 noundef %458, ptr noundef null, ptr noundef nonnull @.str.2737, i32 noundef %.0182210)
   %460 = load i32, ptr %23, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %461 = load i32, ptr @hf_mbim_base_station_provider_id_offset, align 4
   %462 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %459, i32 noundef %461, ptr noundef %0, i32 noundef %460, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %11)
   %463 = load i32, ptr %23, align 4
@@ -17542,8 +17536,8 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %501 = load i32, ptr %23, align 4
   %502 = add i32 %500, %501
   store i32 %502, ptr %23, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %503 = add nuw i32 %.0182210, 1
   %504 = load i32, ptr %46, align 4
   %505 = icmp ult i32 %503, %504
@@ -17659,8 +17653,8 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %580 = load i32, ptr @ett_mbim_pair_list, align 4
   %581 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %572, ptr noundef %0, i32 noundef %579, i32 noundef 0, i32 noundef %580, ptr noundef null, ptr noundef nonnull @.str.2742, i32 noundef %.0180214)
   %582 = load i32, ptr %23, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %583 = load i32, ptr @hf_mbim_base_station_provider_id_offset, align 4
   %584 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %581, i32 noundef %583, ptr noundef %0, i32 noundef %582, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %9)
   %585 = load i32, ptr %23, align 4
@@ -17722,8 +17716,8 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %631 = load i32, ptr %23, align 4
   %632 = add i32 %630, %631
   store i32 %632, ptr %23, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %633 = add nuw i32 %.0180214, 1
   %634 = load i32, ptr %46, align 4
   %635 = icmp ult i32 %633, %634
@@ -17759,10 +17753,10 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %652 = load i32, ptr @ett_mbim_pair_list, align 4
   %653 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %644, ptr noundef %0, i32 noundef %651, i32 noundef 0, i32 noundef %652, ptr noundef null, ptr noundef nonnull @.str.2742, i32 noundef %.0216)
   %654 = load i32, ptr %23, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %655 = load i32, ptr @hf_mbim_base_station_system_sub_type, align 4
   %656 = load i32, ptr @ett_mbim_bitmap, align 4
   %657 = call ptr @proto_tree_add_bitmask(ptr noundef %653, ptr noundef %0, i32 noundef %654, i32 noundef %655, i32 noundef %656, ptr noundef nonnull @mbim_data_subclass_fields, i32 noundef -2147483648)
@@ -17836,39 +17830,39 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %714 = load i32, ptr %23, align 4
   %715 = add i32 %713, %714
   store i32 %715, ptr %23, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %716 = add nuw i32 %.0216, 1
   %717 = load i32, ptr %46, align 4
   %718 = icmp ult i32 %716, %717
   br i1 %718, label %.lr.ph217, label %.loopexit, !llvm.loop !70
 
 .loopexit:                                        ; preds = %.lr.ph217, %640, %.loopexit199
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   ret void
 }
 
@@ -17910,7 +17904,7 @@ define internal fastcc void @mbim_dissect_ms_network_params_info(ptr noundef %0,
   %10 = load i32, ptr @hf_mbim_ms_network_params_info_drx_params, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef -2147483648)
   %12 = add i32 %3, 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %12, ptr %6, align 4
   %13 = icmp sgt i32 %4, 8
   br i1 %13, label %.lr.ph.i, label %mbim_dissect_tlv_ie_list.exit
@@ -17926,7 +17920,7 @@ define internal fastcc void @mbim_dissect_ms_network_params_info(ptr noundef %0,
   br i1 %19, label %.lr.ph.i, label %mbim_dissect_tlv_ie_list.exit, !llvm.loop !14
 
 mbim_dissect_tlv_ie_list.exit:                    ; preds = %.lr.ph.i, %5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -17950,8 +17944,8 @@ define internal fastcc void @mbim_dissect_ms_wake_reason(ptr noundef %0, ptr nou
 define internal fastcc void @mbim_dissect_ms_atr_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_mbim_ms_atr_info_atr_size, align 4
   %8 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6)
   %9 = add i32 %3, 4
@@ -17983,8 +17977,8 @@ define internal fastcc void @mbim_dissect_ms_atr_info(ptr noundef %0, ptr nounde
   br label %27
 
 27:                                               ; preds = %18, %23, %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -17992,8 +17986,8 @@ define internal fastcc void @mbim_dissect_ms_atr_info(ptr noundef %0, ptr nounde
 define internal fastcc void @mbim_dissect_ms_open_channel_info(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @hf_mbim_ms_uicc_status, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648)
   %8 = add i32 %2, 4
@@ -18019,8 +18013,8 @@ define internal fastcc void @mbim_dissect_ms_open_channel_info(ptr noundef %0, p
   br label %25
 
 25:                                               ; preds = %21, %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -18028,8 +18022,8 @@ define internal fastcc void @mbim_dissect_ms_open_channel_info(ptr noundef %0, p
 define internal fastcc void @mbim_dissect_ms_apdu_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_mbim_ms_uicc_status, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %9 = add i32 %3, 4
@@ -18087,8 +18081,8 @@ define internal fastcc void @mbim_dissect_ms_apdu_info(ptr noundef %0, ptr nound
   br label %42
 
 42:                                               ; preds = %.sink.split, %25, %30, %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -18096,8 +18090,8 @@ define internal fastcc void @mbim_dissect_ms_apdu_info(ptr noundef %0, ptr nound
 define internal fastcc void @mbim_dissect_ms_terminal_capability_info(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.mbim_pair_list, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_mbim_ms_terminal_capability_count, align 4
   %9 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6)
   %10 = load i32, ptr %6, align 4
@@ -18141,8 +18135,8 @@ define internal fastcc void @mbim_dissect_ms_terminal_capability_info(ptr nounde
   br i1 %32, label %._crit_edge, label %.lr.ph44
 
 ._crit_edge:                                      ; preds = %47, %11, %5, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 .lr.ph44:                                         ; preds = %.loopexit, %47
@@ -18186,8 +18180,8 @@ define internal fastcc void @mbim_dissect_ms_app_list(ptr noundef %0, ptr nounde
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca %struct.mbim_pair_list, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = load i32, ptr @hf_mbim_ms_app_list_version, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %16 = add i32 %3, 4
@@ -18240,8 +18234,8 @@ define internal fastcc void @mbim_dissect_ms_app_list(ptr noundef %0, ptr nounde
   br i1 %47, label %._crit_edge, label %.lr.ph56
 
 ._crit_edge:                                      ; preds = %108, %26, %4, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
 .lr.ph56:                                         ; preds = %.loopexit, %108
@@ -18264,13 +18258,13 @@ define internal fastcc void @mbim_dissect_ms_app_list(ptr noundef %0, ptr nounde
   br i1 %.not52, label %108, label %59
 
 59:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %60 = load i32, ptr @hf_mbim_ms_app_info_app_type, align 4
   %61 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %60, ptr noundef %0, i32 noundef %50, i32 noundef 4, i32 noundef -2147483648)
   %62 = add i32 %50, 4
@@ -18335,13 +18329,13 @@ define internal fastcc void @mbim_dissect_ms_app_list(ptr noundef %0, ptr nounde
   br label %mbim_dissect_ms_app_info_elements.exit
 
 mbim_dissect_ms_app_info_elements.exit:           ; preds = %100, %102
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %108
 
 108:                                              ; preds = %.lr.ph56, %57, %mbim_dissect_ms_app_info_elements.exit
@@ -18354,8 +18348,8 @@ mbim_dissect_ms_app_info_elements.exit:           ; preds = %100, %102
 define internal fastcc void @mbim_dissect_ms_response(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @hf_mbim_ms_response_version, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648)
   %8 = add i32 %2, 4
@@ -18384,8 +18378,8 @@ define internal fastcc void @mbim_dissect_ms_response(ptr noundef %0, ptr nounde
   br label %28
 
 28:                                               ; preds = %24, %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -18463,45 +18457,45 @@ define internal fastcc void @mbim_dissect_ms_nitz(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @tvb_get_ntohguid(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @tvb_get_ntohguid(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @tvb_get_letohguid(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @tvb_get_letohguid(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_guid_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_guid_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @guid_to_str(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @guid_to_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_array_new(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @wmem_array_new(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wmem_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @wmem_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_array_index(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @wmem_array_index(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct._e_guid_t, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr %3, align 4
   call void @tvb_get_ntohguid(ptr noundef %0, i32 noundef %6, ptr noundef nonnull %5)
   br label %7
@@ -18534,7 +18528,7 @@ define internal fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr 
   %19 = load i32, ptr %3, align 4
   %20 = add i32 %19, 16
   store i32 %20, ptr %3, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -18558,9 +18552,9 @@ define internal fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1,
   %20 = alloca i32, align 4
   %21 = alloca i32, align 4
   %22 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i32 0, ptr %22, align 4
   %23 = load i32, ptr @hf_mbim_tlv_ie_type, align 4
   %24 = load i32, ptr %3, align 4
@@ -18616,7 +18610,7 @@ define internal fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1,
 44:                                               ; preds = %41, %41, %41
   %45 = load i32, ptr %3, align 4
   %46 = load i32, ptr %21, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %45, ptr %19, align 4
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.lr.ph.i, label %mbim_dissect_nssai.exit
@@ -18634,13 +18628,13 @@ define internal fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1,
   br i1 %54, label %.lr.ph.i, label %mbim_dissect_nssai.exit, !llvm.loop !78
 
 mbim_dissect_nssai.exit:                          ; preds = %.lr.ph.i, %44
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %mbim_dissect_rej_nssai.exit
 
 55:                                               ; preds = %41
   %56 = load i32, ptr %3, align 4
   %57 = load i32, ptr %21, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 %56, ptr %18, align 4
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %.lr.ph85.preheader, label %mbim_dissect_precfg_dflt_cfg_nssai.exit
@@ -18659,7 +18653,7 @@ mbim_dissect_nssai.exit:                          ; preds = %.lr.ph.i, %44
   br label %mbim_dissect_precfg_dflt_cfg_nssai.exit
 
 mbim_dissect_precfg_dflt_cfg_nssai.exit:          ; preds = %.lr.ph85.preheader, %55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %mbim_dissect_rej_nssai.exit
 
 67:                                               ; preds = %41
@@ -18673,7 +18667,7 @@ mbim_dissect_precfg_dflt_cfg_nssai.exit:          ; preds = %.lr.ph85.preheader,
   %.01213.i = phi i32 [ %.1.i, %mbim_dissect_rej_snssai.exit.i ], [ %68, %67 ]
   %71 = load i32, ptr @ett_mbim_pair_list, align 4
   %72 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.01213.i, i32 noundef 0, i32 noundef %71, ptr noundef null, ptr noundef nonnull @.str.2675, i32 noundef %.014.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %73 = load i32, ptr @hf_mbim_ms_snssai_length, align 4
   %74 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %72, i32 noundef %73, ptr noundef %0, i32 noundef %.01213.i, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %17)
   %75 = add i32 %.01213.i, 1
@@ -18695,7 +18689,7 @@ mbim_dissect_precfg_dflt_cfg_nssai.exit:          ; preds = %.lr.ph85.preheader,
 
 mbim_dissect_rej_snssai.exit.i:                   ; preds = %84, %.lr.ph.i77
   %.1.i = phi i32 [ %87, %84 ], [ %81, %.lr.ph.i77 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %88 = add i32 %.014.i, 1
   %89 = sub i32 %.1.i, %68
   %90 = icmp slt i32 %89, %69
@@ -18704,7 +18698,7 @@ mbim_dissect_rej_snssai.exit.i:                   ; preds = %84, %.lr.ph.i77
 91:                                               ; preds = %41
   %92 = load i32, ptr %3, align 4
   %93 = load i32, ptr %21, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %92, ptr %16, align 4
   %94 = icmp sgt i32 %93, 0
   br i1 %94, label %.lr.ph, label %mbim_dissect_ladn.exit
@@ -18732,13 +18726,13 @@ mbim_dissect_rej_snssai.exit.i:                   ; preds = %84, %.lr.ph.i77
   br i1 %109, label %95, label %mbim_dissect_ladn.exit
 
 mbim_dissect_ladn.exit:                           ; preds = %.lr.ph, %95, %91
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %mbim_dissect_rej_nssai.exit
 
 110:                                              ; preds = %41
   %111 = load i32, ptr %3, align 4
   %112 = load i32, ptr %21, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %111, ptr %15, align 4
   %.not.i = icmp eq i32 %112, 0
   br i1 %.not.i, label %mbim_dissect_ms_tai.exit, label %.lr.ph.i78
@@ -18759,7 +18753,7 @@ mbim_dissect_ladn.exit:                           ; preds = %.lr.ph, %95, %91
   br i1 %121, label %113, label %mbim_dissect_ms_tai.exit
 
 mbim_dissect_ms_tai.exit:                         ; preds = %113, %.lr.ph.i78, %110
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %mbim_dissect_rej_nssai.exit
 
 122:                                              ; preds = %41
@@ -18772,9 +18766,9 @@ mbim_dissect_ms_tai.exit:                         ; preds = %113, %.lr.ph.i78, %
 127:                                              ; preds = %41
   %128 = load i32, ptr %3, align 4
   %129 = load i32, ptr %21, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %128, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %130 = icmp sgt i32 %129, 0
   br i1 %130, label %.lr.ph.i79, label %mbim_dissect_tps.exit
 
@@ -18797,18 +18791,18 @@ mbim_dissect_ms_tai.exit:                         ; preds = %113, %.lr.ph.i78, %
   br i1 %142, label %.lr.ph.i79, label %mbim_dissect_tps.exit, !llvm.loop !82
 
 mbim_dissect_tps.exit:                            ; preds = %.lr.ph.i79, %127
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %mbim_dissect_rej_nssai.exit
 
 143:                                              ; preds = %41
   %144 = load i32, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %144, ptr %9, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %145 = load i32, ptr @ett_mbim_pair_list, align 4
   %146 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %144, i32 noundef 0, i32 noundef %145, ptr noundef null, ptr noundef nonnull @.str.2683)
   %147 = load i32, ptr @hf_mbim_device_service_id, align 4
@@ -18837,16 +18831,16 @@ mbim_dissect_tps.exit:                            ; preds = %.lr.ph.i79, %127
   br label %mbim_dissect_ms_wake_command.exit
 
 mbim_dissect_ms_wake_command.exit:                ; preds = %143, %162
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %mbim_dissect_rej_nssai.exit
 
 166:                                              ; preds = %41
   %167 = load i32, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %168 = load i32, ptr @ett_mbim_pair_list, align 4
   %169 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %167, i32 noundef 0, i32 noundef %168, ptr noundef null, ptr noundef nonnull @.str.2684)
   %170 = load i32, ptr @hf_mbim_single_packet_filter_filter_id, align 4
@@ -18874,8 +18868,8 @@ mbim_dissect_ms_wake_command.exit:                ; preds = %143, %162
   br label %mbim_dissect_ms_wake_packet.exit
 
 mbim_dissect_ms_wake_packet.exit:                 ; preds = %166, %185
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %mbim_dissect_rej_nssai.exit
 
 189:                                              ; preds = %41
@@ -18894,7 +18888,7 @@ mbim_dissect_ms_wake_packet.exit:                 ; preds = %166, %185
 198:                                              ; preds = %41
   %199 = load i32, ptr %3, align 4
   %200 = load i32, ptr %21, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %199, ptr %6, align 4
   %201 = icmp sgt i32 %200, 0
   br i1 %201, label %.lr.ph.i81, label %mbim_dissect_ursp_rules.exit
@@ -18909,7 +18903,7 @@ mbim_dissect_ms_wake_packet.exit:                 ; preds = %166, %185
   %207 = call ptr @proto_tree_add_item(ptr noundef %204, i32 noundef %205, ptr noundef %0, i32 noundef %206, i32 noundef 1, i32 noundef -2147483648)
   %208 = add i32 %206, 1
   store i32 %208, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %209 = load i32, ptr @ett_mbim_pair_list, align 4
   %210 = call ptr @proto_tree_add_subtree(ptr noundef %204, ptr noundef %0, i32 noundef %208, i32 noundef 0, i32 noundef %209, ptr noundef null, ptr noundef nonnull @.str.2687)
   %211 = load i32, ptr @hf_mbim_ms_ursp_tc_length, align 4
@@ -18919,7 +18913,7 @@ mbim_dissect_ms_wake_packet.exit:                 ; preds = %166, %185
   store i32 %214, ptr %6, align 4
   %215 = load i32, ptr %5, align 4
   call fastcc void @mbim_dissect_tcs(ptr noundef %0, ptr noundef %1, ptr noundef %210, ptr noundef nonnull %6, i32 noundef %215)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %216 = add i32 %.010.i82, 1
   %217 = load i32, ptr %6, align 4
   %218 = sub i32 %217, %199
@@ -18927,7 +18921,7 @@ mbim_dissect_ms_wake_packet.exit:                 ; preds = %166, %185
   br i1 %219, label %.lr.ph.i81, label %mbim_dissect_ursp_rules.exit, !llvm.loop !83
 
 mbim_dissect_ursp_rules.exit:                     ; preds = %.lr.ph.i81, %198
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %mbim_dissect_rej_nssai.exit
 
 220:                                              ; preds = %41
@@ -18967,19 +18961,19 @@ mbim_dissect_rej_nssai.exit:                      ; preds = %mbim_dissect_rej_sn
   br label %241
 
 241:                                              ; preds = %235, %232
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #2
+declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @mbim_dissect_snssai(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i32, ptr @hf_mbim_ms_snssai_length, align 4
   %6 = load i32, ptr %2, align 4
   %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %4)
@@ -19031,19 +19025,19 @@ define internal fastcc void @mbim_dissect_snssai(ptr noundef %0, ptr noundef %1,
   br label %.thread
 
 .thread:                                          ; preds = %21, %32, %26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #2
+declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef zeroext i1 @mbim_dissect_ms_single_tai(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_mbim_ms_tai_list_type, align 4
   %9 = load i32, ptr %3, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %9, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %7)
@@ -19058,7 +19052,7 @@ define internal fastcc noundef zeroext i1 @mbim_dissect_ms_single_tai(ptr nounde
   ]
 
 14:                                               ; preds = %4, %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = load i32, ptr @hf_mbim_ms_plmn_mcc, align 4
   %16 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %12, i32 noundef 2, i32 noundef -2147483648)
   %17 = add i32 %11, 3
@@ -19104,11 +19098,11 @@ mbim_dissect_ms_plmn.exit.i:                      ; preds = %24, %21
   br i1 %40, label %.lr.ph.i, label %mbim_dissect_ms_tai_list_single_plmn.exit, !llvm.loop !84
 
 mbim_dissect_ms_tai_list_single_plmn.exit:        ; preds = %.lr.ph.i, %mbim_dissect_ms_plmn.exit.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %72
 
 41:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %42 = load i32, ptr @hf_mbim_ms_tai_list_multi_plmn_tai_element, align 4
   %43 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %42, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %5)
   %44 = load i32, ptr %3, align 4
@@ -19157,7 +19151,7 @@ mbim_dissect_ms_plmn.exit.i20:                    ; preds = %60, %57
   br i1 %69, label %.lr.ph.i18, label %mbim_dissect_ms_tai_list_multi_plmn.exit, !llvm.loop !85
 
 mbim_dissect_ms_tai_list_multi_plmn.exit:         ; preds = %mbim_dissect_ms_plmn.exit.i20, %41
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %72
 
 70:                                               ; preds = %4
@@ -19166,20 +19160,20 @@ mbim_dissect_ms_tai_list_multi_plmn.exit:         ; preds = %mbim_dissect_ms_plm
 
 72:                                               ; preds = %mbim_dissect_ms_tai_list_single_plmn.exit, %mbim_dissect_ms_tai_list_multi_plmn.exit, %70
   %.0 = phi i1 [ false, %70 ], [ true, %mbim_dissect_ms_tai_list_multi_plmn.exit ], [ true, %mbim_dissect_ms_tai_list_single_plmn.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @mbim_dissect_tcs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = load i32, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = icmp sgt i32 %4, 0
   br i1 %9, label %.lr.ph140, label %.loopexit136
 
@@ -19402,19 +19396,19 @@ define internal fastcc void @mbim_dissect_tcs(ptr noundef %0, ptr noundef %1, pt
   br i1 %137, label %.lr.ph140, label %.loopexit136, !llvm.loop !87
 
 .loopexit136:                                     ; preds = %.loopexit, %5, %129
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @de_cld_party_bcd_num(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @de_cld_party_bcd_num(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @mbim_decode_sms_cdma_text(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
@@ -19467,25 +19461,25 @@ define internal fastcc void @mbim_decode_sms_cdma_text(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_ascii_7bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_ascii_7bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_get_ascii_7bits_string(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_get_ascii_7bits_string(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @IA5_7BIT_decode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @IA5_7BIT_decode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_ts_23_038_7bits_packed_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_ts_23_038_7bits_packed_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @dissect_cbs_data_coding_scheme(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i8 @dissect_cbs_data_coding_scheme(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @mbim_dissect_ms_context_v2_base(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
@@ -19495,12 +19489,12 @@ define internal fastcc void @mbim_dissect_ms_context_v2_base(ptr noundef %0, ptr
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   tail call fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %13 = load i32, ptr @hf_mbim_set_ms_provisioned_context_v2_ip_type, align 4
   %14 = load i32, ptr %3, align 4
@@ -19647,12 +19641,12 @@ define internal fastcc void @mbim_dissect_ms_context_v2_base(ptr noundef %0, ptr
   br label %115
 
 115:                                              ; preds = %107, %113, %102
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -19664,12 +19658,12 @@ define internal fastcc void @mbim_dissect_lte_attach_context(ptr noundef %0, ptr
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = load i32, ptr @hf_mbim_ms_lte_attach_context_ip_type, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %15 = add i32 %3, 4
@@ -19769,25 +19763,25 @@ define internal fastcc void @mbim_dissect_lte_attach_context(ptr noundef %0, ptr
   br label %85
 
 85:                                               ; preds = %77, %83, %72
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @de_sm_tflow_temp(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @de_sm_tflow_temp(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @mbim_dissect_base_station_td_scdma_serving_cell_and_mrl_info(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = load i32, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load i32, ptr @hf_mbim_base_station_provider_id_offset, align 4
   %8 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %4)
   %9 = load i32, ptr %2, align 4
@@ -19844,40 +19838,46 @@ define internal fastcc void @mbim_dissect_base_station_td_scdma_serving_cell_and
   %51 = load i32, ptr %2, align 4
   %52 = add i32 %50, %51
   store i32 %52, ptr %2, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_sep_fstr(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_append_sep_fstr(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @dissector_get_uint_handle(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @dissector_get_uint_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #8
@@ -19892,13 +19892,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @llvm.umax.i32(i32, i32) #8
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -17,8 +17,8 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @u_printf_parse_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca %union.ufmt_args, align 8
   %9 = alloca %struct.u_printf_spec, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.preheader504, label %10
 
@@ -93,10 +93,10 @@ define i32 @u_printf_parse_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 36:                                               ; preds = %15
   %37 = zext nneg i32 %.0174.i to i64
   %38 = shl nuw nsw i64 %37, 2
-  %39 = tail call noalias ptr @uprv_malloc_77(i64 noundef %38) #10
-  %40 = tail call noalias ptr @uprv_malloc_77(i64 noundef %37) #10
+  %39 = tail call noalias ptr @uprv_malloc_77(i64 noundef %38) #9
+  %40 = tail call noalias ptr @uprv_malloc_77(i64 noundef %37) #9
   %41 = shl nuw nsw i64 %37, 3
-  %42 = tail call noalias ptr @uprv_malloc_77(i64 noundef %41) #10
+  %42 = tail call noalias ptr @uprv_malloc_77(i64 noundef %41) #9
   %43 = icmp ne ptr %39, null
   %44 = icmp ne ptr %40, null
   %or.cond.i = select i1 %43, i1 %44, i1 false
@@ -1237,26 +1237,20 @@ thread-pre-split337:                              ; preds = %.loopexit342, %324,
 
 _ZL14parseArgumentsPKDsP13__va_list_tagP10UErrorCode.exit: ; preds = %51, %50, %528
   %.0279 = phi i32 [ %533, %528 ], [ -1, %50 ], [ -1, %51 ]
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0279
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-declare noundef i32 @_Z18ufmt_digitvalue_77Ds(i16 noundef zeroext) local_unnamed_addr #3
+declare noundef i32 @_Z18ufmt_digitvalue_77Ds(i16 noundef zeroext) local_unnamed_addr #2
 
-declare void @uprv_free_77(ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @uprv_free_77(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #4
+declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL31u_printf_simple_percent_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
@@ -1268,14 +1262,14 @@ define internal noundef i32 @_ZL31u_printf_simple_percent_handlerPK23u_printf_st
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL22u_printf_uchar_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i64, ptr %4, align 8, !tbaa !20
   %8 = trunc i64 %7 to i16
   store i16 %8, ptr %6, align 2, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !64
   %11 = call noundef i32 %10(ptr noundef %1, ptr noundef %3, ptr noundef nonnull %6, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %11
 }
 
@@ -1289,12 +1283,12 @@ define internal noundef i32 @_ZL27u_printf_scientific_handlerPK23u_printf_stream
   %11 = alloca [8 x i16], align 16
   %12 = alloca i32, align 4
   %13 = load double, ptr %4, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !65
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i16 0, ptr %8, align 16, !tbaa !12
   %14 = tail call ptr @u_locbund_getNumberFormat_77(ptr noundef %2, i32 noundef 4)
   %15 = icmp eq ptr %14, null
@@ -1365,10 +1359,10 @@ define internal noundef i32 @_ZL27u_printf_scientific_handlerPK23u_printf_stream
   br label %_ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
 
 45:                                               ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %46 = call i32 @unum_getSymbol_77(ptr noundef nonnull %14, i32 noundef 7, ptr noundef nonnull %6, i32 noundef 8, ptr noundef nonnull %9)
   call void @unum_setTextAttribute_77(ptr noundef nonnull %14, i32 noundef 0, ptr noundef nonnull %6, i32 noundef %46, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
 
 _ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; preds = %45, %44, %37
@@ -1384,10 +1378,10 @@ _ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; preds 
   br i1 %.not47, label %50, label %_ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
 
 _ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; preds = %_ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !65
   call void @unum_setTextAttribute_77(ptr noundef nonnull %14, i32 noundef 0, ptr noundef nonnull %8, i32 noundef %.0, ptr noundef nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %50
 
 50:                                               ; preds = %_ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit, %_ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
@@ -1398,18 +1392,18 @@ _ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; pred
 
 54:                                               ; preds = %5, %50
   %.041 = phi i32 [ %53, %50 ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.041
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL23u_printf_scidbl_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.u_printf_spec_info, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load double, ptr %4, align 8, !tbaa !20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %6, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false)
   %8 = load i32, ptr %6, align 4, !tbaa !42
@@ -1487,7 +1481,7 @@ thread-pre-split:                                 ; preds = %16, %18
 
 41:                                               ; preds = %13, %37, %32, %34
   %.0 = phi i32 [ 0, %34 ], [ %15, %13 ], [ %33, %32 ], [ %40, %37 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -1499,9 +1493,9 @@ define internal noundef i32 @_ZL24u_printf_percent_handlerPK23u_printf_stream_ha
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = load double, ptr %4, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !65
   store i16 0, ptr %8, align 16, !tbaa !12
   %12 = tail call ptr @u_locbund_getNumberFormat_77(ptr noundef %2, i32 noundef 3)
@@ -1532,10 +1526,10 @@ define internal noundef i32 @_ZL24u_printf_percent_handlerPK23u_printf_stream_ha
   br label %_ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
 
 25:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %26 = call i32 @unum_getSymbol_77(ptr noundef nonnull %12, i32 noundef 7, ptr noundef nonnull %6, i32 noundef 8, ptr noundef nonnull %9)
   call void @unum_setTextAttribute_77(ptr noundef nonnull %12, i32 noundef 0, ptr noundef nonnull %6, i32 noundef %26, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
 
 _ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; preds = %25, %24, %14
@@ -1551,10 +1545,10 @@ _ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; preds 
   br i1 %.not33, label %30, label %_ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
 
 _ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; preds = %_ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !65
   call void @unum_setTextAttribute_77(ptr noundef nonnull %12, i32 noundef 0, ptr noundef nonnull %8, i32 noundef %.0, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %30
 
 30:                                               ; preds = %_ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit, %_ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
@@ -1565,9 +1559,9 @@ _ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; pred
 
 34:                                               ; preds = %5, %30
   %.027 = phi i32 [ %33, %30 ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.027
 }
 
@@ -1595,9 +1589,9 @@ define internal noundef i32 @_ZL25u_printf_spellout_handlerPK23u_printf_stream_h
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = load double, ptr %4, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !65
   store i16 0, ptr %8, align 16, !tbaa !12
   %12 = tail call ptr @u_locbund_getNumberFormat_77(ptr noundef %2, i32 noundef 5)
@@ -1628,10 +1622,10 @@ define internal noundef i32 @_ZL25u_printf_spellout_handlerPK23u_printf_stream_h
   br label %_ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
 
 25:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %26 = call i32 @unum_getSymbol_77(ptr noundef nonnull %12, i32 noundef 7, ptr noundef nonnull %6, i32 noundef 8, ptr noundef nonnull %9)
   call void @unum_setTextAttribute_77(ptr noundef nonnull %12, i32 noundef 0, ptr noundef nonnull %6, i32 noundef %26, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
 
 _ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; preds = %25, %24, %14
@@ -1647,10 +1641,10 @@ _ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; preds 
   br i1 %.not33, label %30, label %_ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
 
 _ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; preds = %_ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !65
   call void @unum_setTextAttribute_77(ptr noundef nonnull %12, i32 noundef 0, ptr noundef nonnull %8, i32 noundef %.0, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %30
 
 30:                                               ; preds = %_ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit, %_ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
@@ -1661,9 +1655,9 @@ _ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; pred
 
 34:                                               ; preds = %5, %30
   %.027 = phi i32 [ %33, %30 ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.027
 }
 
@@ -1672,8 +1666,8 @@ define internal noundef i32 @_ZL20u_printf_hex_handlerPK23u_printf_stream_handle
   %6 = alloca [1024 x i16], align 16
   %7 = alloca i32, align 4
   %8 = load i64, ptr %4, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 1024, ptr %7, align 4, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %10 = load i8, ptr %9, align 4, !tbaa !56
@@ -1744,8 +1738,8 @@ define internal noundef i32 @_ZL20u_printf_hex_handlerPK23u_printf_stream_handle
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !64
   %45 = call noundef i32 %44(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %6, i32 noundef %42)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %45
 }
 
@@ -1753,8 +1747,8 @@ define internal noundef i32 @_ZL20u_printf_hex_handlerPK23u_printf_stream_handle
 define internal noundef i32 @_ZL21u_printf_char_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [3 x i16], align 2
   %7 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i64, ptr %4, align 8, !tbaa !20
   %9 = trunc i64 %8 to i8
   store i8 %9, ptr %7, align 1, !tbaa !20
@@ -1772,8 +1766,8 @@ define internal noundef i32 @_ZL21u_printf_char_handlerPK23u_printf_stream_handl
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !64
   %17 = call noundef i32 %16(ptr noundef %1, ptr noundef %3, ptr noundef nonnull %6, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %17
 }
 
@@ -1785,9 +1779,9 @@ define internal noundef i32 @_ZL24u_printf_integer_handlerPK23u_printf_stream_ha
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = load i64, ptr %4, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !65
   store i16 0, ptr %8, align 16, !tbaa !12
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -1847,10 +1841,10 @@ define internal noundef i32 @_ZL24u_printf_integer_handlerPK23u_printf_stream_ha
   br label %_ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
 
 37:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %38 = call i32 @unum_getSymbol_77(ptr noundef nonnull %22, i32 noundef 7, ptr noundef nonnull %6, i32 noundef 8, ptr noundef nonnull %9)
   call void @unum_setTextAttribute_77(ptr noundef nonnull %22, i32 noundef 0, ptr noundef nonnull %6, i32 noundef %38, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
 
 _ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; preds = %37, %36, %29
@@ -1872,10 +1866,10 @@ _ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; preds 
   br i1 %.not36, label %44, label %_ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
 
 _ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !65
   call void @unum_setTextAttribute_77(ptr noundef nonnull %22, i32 noundef 0, ptr noundef nonnull %8, i32 noundef %.0, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %44
 
 44:                                               ; preds = %_ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit, %42
@@ -1886,9 +1880,9 @@ _ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; pred
 
 48:                                               ; preds = %21, %44
   %.027 = phi i32 [ %47, %44 ], [ 0, %21 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.027
 }
 
@@ -1900,9 +1894,9 @@ define internal noundef i32 @_ZL23u_printf_double_handlerPK23u_printf_stream_han
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = load double, ptr %4, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !65
   store i16 0, ptr %8, align 16, !tbaa !12
   %12 = tail call ptr @u_locbund_getNumberFormat_77(ptr noundef %2, i32 noundef 1)
@@ -1933,10 +1927,10 @@ define internal noundef i32 @_ZL23u_printf_double_handlerPK23u_printf_stream_han
   br label %_ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
 
 25:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %26 = call i32 @unum_getSymbol_77(ptr noundef nonnull %12, i32 noundef 7, ptr noundef nonnull %6, i32 noundef 8, ptr noundef nonnull %9)
   call void @unum_setTextAttribute_77(ptr noundef nonnull %12, i32 noundef 0, ptr noundef nonnull %6, i32 noundef %26, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
 
 _ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; preds = %25, %24, %14
@@ -1952,10 +1946,10 @@ _ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; preds 
   br i1 %.not33, label %30, label %_ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
 
 _ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; preds = %_ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !65
   call void @unum_setTextAttribute_77(ptr noundef nonnull %12, i32 noundef 0, ptr noundef nonnull %8, i32 noundef %.0, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %30
 
 30:                                               ; preds = %_ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit, %_ZL17u_printf_set_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit
@@ -1966,14 +1960,14 @@ _ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; pred
 
 34:                                               ; preds = %5, %30
   %.027 = phi i32 [ %33, %30 ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.027
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL22u_printf_count_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) #5 {
+define internal noundef i32 @_ZL22u_printf_count_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) #4 {
   %6 = load ptr, ptr %4, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !43
@@ -1986,8 +1980,8 @@ define internal noundef i32 @_ZL22u_printf_octal_handlerPK23u_printf_stream_hand
   %6 = alloca [1024 x i16], align 16
   %7 = alloca i32, align 4
   %8 = load i64, ptr %4, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 1024, ptr %7, align 4, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %10 = load i8, ptr %9, align 4, !tbaa !56
@@ -2050,8 +2044,8 @@ define internal noundef i32 @_ZL22u_printf_octal_handlerPK23u_printf_stream_hand
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !64
   %41 = call noundef i32 %40(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %6, i32 noundef %38)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %41
 }
 
@@ -2059,8 +2053,8 @@ define internal noundef i32 @_ZL22u_printf_octal_handlerPK23u_printf_stream_hand
 define internal noundef i32 @_ZL24u_printf_pointer_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [1024 x i16], align 16
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 1024, ptr %7, align 4, !tbaa !30
   %8 = load ptr, ptr %4, align 8, !tbaa !20
   call void @_Z12ufmt_ptou_77PDsPiPva(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %8, i8 noundef signext 1)
@@ -2068,21 +2062,21 @@ define internal noundef i32 @_ZL24u_printf_pointer_handlerPK23u_printf_stream_ha
   %10 = load ptr, ptr %9, align 8, !tbaa !64
   %11 = load i32, ptr %7, align 4, !tbaa !30
   %12 = call noundef i32 %10(ptr noundef %1, ptr noundef %3, ptr noundef nonnull %6, i32 noundef %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %12
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL23u_printf_string_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [128 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %4, align 8, !tbaa !20
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %23, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #11
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #10
   %10 = trunc i64 %9 to i32
   %11 = add nsw i32 %10, 1
   %12 = icmp sgt i32 %10, 62
@@ -2092,7 +2086,7 @@ define internal noundef i32 @_ZL23u_printf_string_handlerPK23u_printf_stream_han
   %14 = shl i64 %9, 2
   %15 = add nuw nsw i64 %14, 8
   %16 = and i64 %15, 8589934588
-  %17 = tail call noalias ptr @uprv_malloc_77(i64 noundef %16) #10
+  %17 = tail call noalias ptr @uprv_malloc_77(i64 noundef %16) #9
   %18 = trunc i64 %15 to i32
   %19 = tail call noundef ptr @_Z26ufmt_defaultCPToUnicode_77PKciPDsi(ptr noundef nonnull %7, i32 noundef %11, ptr noundef %17, i32 noundef %18)
   %20 = icmp eq ptr %19, null
@@ -2123,7 +2117,7 @@ define internal noundef i32 @_ZL23u_printf_string_handlerPK23u_printf_stream_han
 
 33:                                               ; preds = %23, %32, %13
   %.0 = phi i32 [ 0, %13 ], [ %29, %32 ], [ %29, %23 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -2132,8 +2126,8 @@ define internal noundef i32 @_ZL25u_printf_uinteger_handlerPK23u_printf_stream_h
   %6 = alloca [1024 x i16], align 16
   %7 = alloca i32, align 4
   %8 = load i64, ptr %4, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !65
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %10 = load i8, ptr %9, align 4, !tbaa !56
@@ -2190,53 +2184,59 @@ define internal noundef i32 @_ZL25u_printf_uinteger_handlerPK23u_printf_stream_h
 
 33:                                               ; preds = %17, %29
   %.021 = phi i32 [ %32, %29 ], [ 0, %17 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.021
 }
 
-declare ptr @u_locbund_getNumberFormat_77(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @u_locbund_getNumberFormat_77(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @unum_getSymbol_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @unum_getSymbol_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @u_strToLower_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @u_strToLower_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @u_strToUpper_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @u_strToUpper_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @unum_setSymbol_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @unum_setSymbol_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @unum_getAttribute_77(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @unum_getAttribute_77(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @unum_setAttribute_77(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @unum_setAttribute_77(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @unum_formatDouble_77(ptr noundef, double noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @unum_formatDouble_77(ptr noundef, double noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @unum_getTextAttribute_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @unum_getTextAttribute_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @unum_setTextAttribute_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
-
-declare double @uprv_trunc_77(double noundef) local_unnamed_addr #3
-
-declare double @uprv_pow10_77(i32 noundef) local_unnamed_addr #3
-
-declare i32 @u_strlen_77(ptr noundef) local_unnamed_addr #3
-
-declare void @_Z13ufmt_64tou_77PDsPimhai(ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext, i8 noundef signext, i32 noundef) local_unnamed_addr #3
+declare void @unum_setTextAttribute_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare noundef ptr @_Z26ufmt_defaultCPToUnicode_77PKciPDsi(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare double @uprv_trunc_77(double noundef) local_unnamed_addr #2
 
-declare i32 @unum_formatInt64_77(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare double @uprv_pow10_77(i32 noundef) local_unnamed_addr #2
 
-declare void @_Z12ufmt_ptou_77PDsPiPva(ptr noundef, ptr noundef, ptr noundef, i8 noundef signext) local_unnamed_addr #3
+declare i32 @u_strlen_77(ptr noundef) local_unnamed_addr #2
+
+declare void @_Z13ufmt_64tou_77PDsPimhai(ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext, i8 noundef signext, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+
+declare noundef ptr @_Z26ufmt_defaultCPToUnicode_77PKciPDsi(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare i32 @unum_formatInt64_77(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @_Z12ufmt_ptou_77PDsPiPva(ptr noundef, ptr noundef, ptr noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
@@ -2245,17 +2245,16 @@ declare i32 @llvm.smin.i32(i32, i32) #8
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { allocsize(0) }
-attributes #11 = { nounwind willreturn memory(read) }
+attributes #9 = { allocsize(0) }
+attributes #10 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

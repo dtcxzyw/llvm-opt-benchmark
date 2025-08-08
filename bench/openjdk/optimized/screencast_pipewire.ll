@@ -2116,16 +2116,16 @@ checkScreen.exit.i:                               ; preds = %133, %._crit_edge.i
   %204 = load ptr, ptr @screenSpace, align 8
   %205 = getelementptr inbounds nuw %struct.ScreenProps, ptr %204, i64 %indvars.iv.i
   %206 = load i32, ptr %205, align 8
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %77, i8 0, i64 40, i1 false)
   store ptr %4, ptr %5, align 8
   store i32 1024, ptr %77, align 8
@@ -2155,16 +2155,16 @@ checkScreen.exit.i:                               ; preds = %133, %._crit_edge.i
   %208 = load ptr, ptr @fp_pw_stream_connect, align 8
   %209 = call i32 %208(ptr noundef %203, i32 noundef 0, i32 noundef %206, i32 noundef 5, ptr noundef nonnull %6, i32 noundef 1) #16
   %210 = icmp sgt i32 %209, -1
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %210, label %.preheader.i.i, label %211
 
 211:                                              ; preds = %180
@@ -2588,8 +2588,8 @@ define internal void @onStreamParamChanged(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %or.cond, label %149, label %23
 
 23:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = load i32, ptr %2, align 4
   %25 = add i32 %24, 8
   store ptr %2, ptr %6, align 8
@@ -2630,8 +2630,8 @@ spa_pod_parser_current.exit.i.i:                  ; preds = %31
   br i1 %.not16.i.i, label %spa_format_parse.exit, label %spa_format_parse.exit.thread
 
 spa_format_parse.exit.thread:                     ; preds = %spa_pod_parser_current.exit.i.i, %31, %23, %41
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %149
 
 spa_format_parse.exit:                            ; preds = %41
@@ -2642,8 +2642,8 @@ spa_format_parse.exit:                            ; preds = %41
   store ptr %7, ptr %26, align 8
   store i32 %25, ptr %27, align 8
   %45 = call i32 (ptr, ...) @spa_pod_parser_get(ptr noundef %6, i32 noundef 1, ptr noundef nonnull @.str.76, ptr noundef nonnull %8, i32 noundef 2, ptr noundef nonnull @.str.76, ptr noundef nonnull %9, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %149, label %47
 
@@ -2657,8 +2657,8 @@ spa_format_parse.exit:                            ; preds = %41
 
 52:                                               ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 0, ptr %54, align 4
   %55 = load i32, ptr %37, align 4
@@ -2762,8 +2762,8 @@ spa_pod_parser_current.exit.i.i28:                ; preds = %86
   br i1 %.not16.i.i30, label %spa_format_video_raw_parse.exit, label %spa_format_video_raw_parse.exit.thread
 
 spa_format_video_raw_parse.exit.thread:           ; preds = %spa_pod_find_prop.exit.thread.i, %spa_pod_parser_current.exit.i.i28, %86, %99
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %149
 
 spa_format_video_raw_parse.exit:                  ; preds = %99
@@ -2798,8 +2798,8 @@ spa_format_video_raw_parse.exit:                  ; preds = %99
   %123 = add i32 %119, 1
   %124 = add i32 %123, %122
   store i32 %124, ptr %90, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %125 = icmp slt i32 %117, 0
   br i1 %125, label %149, label %126
 
@@ -4386,7 +4386,7 @@ define internal void @spa_pod_builder_add(ptr noundef nonnull captures(none) %0,
   %15 = alloca %struct.spa_pod_frame, align 8
   %16 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
@@ -4837,14 +4837,14 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   %231 = phi ptr [ %225, %222 ], [ %228, %227 ]
   %232 = load i32, ptr %231, align 4
   %233 = icmp ne i32 %232, 0
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 4, ptr %14, align 4
   store i32 2, ptr %60, align 4
   %234 = zext i1 %233 to i32
   store i32 %234, ptr %61, align 4
   store i32 0, ptr %62, align 4
   call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %14)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %spa_pod_builder_primitive.exit.i
 
 235:                                              ; preds = %.lr.ph.i
@@ -4869,13 +4869,13 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
 246:                                              ; preds = %243, %238
   %247 = phi ptr [ %241, %238 ], [ %244, %243 ]
   %248 = load i32, ptr %247, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 4, ptr %13, align 4
   store i32 3, ptr %57, align 4
   store i32 %248, ptr %58, align 4
   store i32 0, ptr %59, align 4
   call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %spa_pod_builder_primitive.exit.i
 
 249:                                              ; preds = %.lr.ph.i
@@ -4900,13 +4900,13 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
 260:                                              ; preds = %257, %252
   %261 = phi ptr [ %255, %252 ], [ %258, %257 ]
   %262 = load i32, ptr %261, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 4, ptr %12, align 4
   store i32 4, ptr %54, align 4
   store i32 %262, ptr %55, align 4
   store i32 0, ptr %56, align 4
   call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %spa_pod_builder_primitive.exit.i
 
 263:                                              ; preds = %.lr.ph.i
@@ -4931,12 +4931,12 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
 274:                                              ; preds = %271, %266
   %275 = phi ptr [ %269, %266 ], [ %272, %271 ]
   %276 = load i64, ptr %275, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 8, ptr %11, align 8
   store i32 5, ptr %52, align 4
   store i64 %276, ptr %53, align 8
   call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %spa_pod_builder_primitive.exit.i
 
 277:                                              ; preds = %.lr.ph.i
@@ -4962,13 +4962,13 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   %289 = phi ptr [ %283, %280 ], [ %286, %285 ]
   %290 = load double, ptr %289, align 8
   %291 = fptrunc double %290 to float
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 4, ptr %10, align 4
   store i32 6, ptr %49, align 4
   store float %291, ptr %50, align 4
   store i32 0, ptr %51, align 4
   call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %spa_pod_builder_primitive.exit.i
 
 292:                                              ; preds = %.lr.ph.i
@@ -4993,12 +4993,12 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
 303:                                              ; preds = %300, %295
   %304 = phi ptr [ %298, %295 ], [ %301, %300 ]
   %305 = load double, ptr %304, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 8, ptr %9, align 8
   store i32 7, ptr %47, align 4
   store double %305, ptr %48, align 8
   call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %spa_pod_builder_primitive.exit.i
 
 306:                                              ; preds = %.lr.ph.i
@@ -5033,10 +5033,10 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   br label %spa_pod_builder_primitive.exit.i
 
 323:                                              ; preds = %317
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 4294967296, ptr %8, align 8
   call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %spa_pod_builder_primitive.exit.i
 
 324:                                              ; preds = %.lr.ph.i
@@ -5215,13 +5215,13 @@ spa_pod_builder_bytes.exit.i:                     ; preds = %.lr.ph.i.i153.i, %.
   %411 = load i32, ptr %410, align 4
   %412 = getelementptr inbounds nuw i8, ptr %410, i64 4
   %413 = load i32, ptr %412, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 8, ptr %7, align 4
   store i32 10, ptr %43, align 4
   store i32 %411, ptr %44, align 4
   store i32 %413, ptr %45, align 4
   call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %spa_pod_builder_primitive.exit.i
 
 414:                                              ; preds = %.lr.ph.i
@@ -5249,13 +5249,13 @@ spa_pod_builder_bytes.exit.i:                     ; preds = %.lr.ph.i.i153.i, %.
   %428 = load i32, ptr %427, align 4
   %429 = getelementptr inbounds nuw i8, ptr %427, i64 4
   %430 = load i32, ptr %429, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 8, ptr %6, align 4
   store i32 11, ptr %40, align 4
   store i32 %428, ptr %41, align 4
   store i32 %430, ptr %42, align 4
   call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %spa_pod_builder_primitive.exit.i
 
 431:                                              ; preds = %.lr.ph.i
@@ -5459,14 +5459,14 @@ spa_pod_builder_array.exit.i:                     ; preds = %.lr.ph.i.i169.i, %.
   %528 = phi i32 [ %517, %519 ], [ %525, %523 ]
   %529 = phi ptr [ %521, %519 ], [ %524, %523 ]
   %530 = load ptr, ptr %529, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 16, ptr %5, align 8
   store i32 17, ptr %36, align 4
   store i32 %528, ptr %37, align 8
   store i32 0, ptr %38, align 4
   store ptr %530, ptr %39, align 8
   call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %spa_pod_builder_primitive.exit.i
 
 531:                                              ; preds = %.lr.ph.i
@@ -5492,12 +5492,12 @@ spa_pod_builder_array.exit.i:                     ; preds = %.lr.ph.i.i169.i, %.
   %543 = phi ptr [ %537, %534 ], [ %540, %539 ]
   %544 = load i32, ptr %543, align 4
   %545 = sext i32 %544 to i64
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 8, ptr %4, align 8
   store i32 18, ptr %34, align 4
   store i64 %545, ptr %35, align 8
   call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %spa_pod_builder_primitive.exit.i
 
 546:                                              ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
@@ -5526,10 +5526,10 @@ spa_pod_builder_array.exit.i:                     ; preds = %.lr.ph.i.i169.i, %.
   br i1 %560, label %561, label %562
 
 561:                                              ; preds = %557
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 4294967296, ptr %3, align 8
   call fastcc void @spa_pod_builder_primitive(ptr noundef nonnull %0, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %spa_pod_builder_primitive.exit.i
 
 562:                                              ; preds = %557
@@ -5621,7 +5621,7 @@ spa_pod_builder_raw.exit.i189.i:                  ; preds = %.lr.ph.i.i185.i, %.
   br i1 %.not.i.i, label %spa_pod_builder_primitive.exit.i, label %603
 
 603:                                              ; preds = %spa_pod_builder_raw.exit.i189.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %604 = add i32 %.014.i.i, -1
   %605 = or i32 %604, 7
@@ -5630,7 +5630,7 @@ spa_pod_builder_raw.exit.i189.i:                  ; preds = %.lr.ph.i.i185.i, %.
   br i1 %.not.i17.i.i, label %spa_pod_builder_pad.exit.thread.i.i, label %607
 
 spa_pod_builder_pad.exit.thread.i.i:              ; preds = %603
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %spa_pod_builder_primitive.exit.i
 
 607:                                              ; preds = %603
@@ -5691,7 +5691,7 @@ spa_pod_builder_pad.exit.thread.i.i:              ; preds = %603
   br i1 %.not34.i.i.i.i, label %spa_pod_builder_pad.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !19
 
 spa_pod_builder_pad.exit.i.i:                     ; preds = %.lr.ph.i.i.i.i, %.critedge.thread.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %spa_pod_builder_primitive.exit.i
 
 spa_pod_builder_primitive.exit.i:                 ; preds = %spa_pod_builder_pad.exit.i.i, %spa_pod_builder_pad.exit.thread.i.i, %spa_pod_builder_raw.exit.i189.i, %561, %542, %527, %spa_pod_builder_array.exit.i, %425, %408, %spa_pod_builder_bytes.exit.i, %345, %323, %320, %303, %288, %274, %260, %246, %230, %.lr.ph.i
@@ -5709,7 +5709,7 @@ spa_pod_builder_primitive.exit.i:                 ; preds = %spa_pod_builder_pad
   br label %63
 
 spa_pod_builder_addv.exit:                        ; preds = %75, %124, %163
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.va_end.p0(ptr nonnull %16)
   ret void
 }
@@ -5821,7 +5821,7 @@ spa_pod_builder_frame.exit.thread:                ; preds = %spa_pod_builder_raw
   %55 = load i32, ptr %54, align 4
   store i32 %55, ptr %4, align 4
   %56 = load i32, ptr %50, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %57 = add i32 %56, -1
   %58 = or i32 %57, 7
@@ -5887,7 +5887,7 @@ spa_pod_builder_frame.exit.thread:                ; preds = %spa_pod_builder_raw
   br i1 %.not34.i.i, label %spa_pod_builder_pad.exit, label %.lr.ph.i.i, !llvm.loop !19
 
 spa_pod_builder_pad.exit:                         ; preds = %.lr.ph.i.i, %spa_pod_builder_frame.exit.thread, %.critedge.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i1621
 }
 
@@ -6094,7 +6094,7 @@ spa_pod_builder_raw.exit24.loopexit.i:            ; preds = %.lr.ph.i17.i
 
 spa_pod_builder_raw.exit24.i:                     ; preds = %spa_pod_builder_raw.exit24.loopexit.i, %.critedge.thread.i13.i
   %88 = phi i32 [ %.pre29.i, %spa_pod_builder_raw.exit24.loopexit.i ], [ %84, %.critedge.thread.i13.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %89 = add i32 %88, -1
   %90 = or i32 %89, 7
@@ -6160,7 +6160,7 @@ spa_pod_builder_raw.exit24.i:                     ; preds = %spa_pod_builder_raw
   br i1 %.not34.i.i.i, label %spa_pod_builder_write_string.exit, label %.lr.ph.i.i.i, !llvm.loop !19
 
 spa_pod_builder_write_string.exit:                ; preds = %.lr.ph.i.i.i, %.critedge.thread.i.i.i, %spa_pod_builder_raw.exit24.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -6261,7 +6261,7 @@ spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedg
   br i1 %.not, label %82, label %50
 
 50:                                               ; preds = %spa_pod_builder_raw.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %51 = add i32 %.014, -1
   %52 = or i32 %51, 7
@@ -6329,7 +6329,7 @@ spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedg
   br i1 %.not34.i.i, label %.sink.split, label %.lr.ph.i.i, !llvm.loop !19
 
 .sink.split:                                      ; preds = %.lr.ph.i.i, %.critedge.thread.i.i, %50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %82
 
 82:                                               ; preds = %.sink.split, %spa_pod_builder_raw.exit
@@ -6406,7 +6406,7 @@ define internal fastcc void @spa_pod_builder_raw_padded(ptr noundef nonnull capt
   br i1 %.not34.i, label %spa_pod_builder_raw.exit, label %.lr.ph.i, !llvm.loop !19
 
 spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedge.thread.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %37 = add i32 %2, -1
   %38 = or i32 %37, 7
@@ -6474,7 +6474,7 @@ spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedg
   br i1 %.not34.i.i, label %spa_pod_builder_pad.exit.thread, label %.lr.ph.i.i, !llvm.loop !19
 
 spa_pod_builder_pad.exit.thread:                  ; preds = %.lr.ph.i.i, %.critedge.thread.i.i, %spa_pod_builder_raw.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -6485,10 +6485,10 @@ declare i32 @llvm.smax.i32(i32, i32) #14
 declare i32 @llvm.smin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }

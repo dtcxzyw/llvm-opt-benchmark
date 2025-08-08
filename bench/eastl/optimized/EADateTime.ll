@@ -102,16 +102,16 @@ init.end:                                         ; preds = %invoke.cont, %init.
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %init.end
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tz.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %nowtm.i)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tmResult.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tz.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nowtm.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmResult.i)
   %call.i = call i32 @gettimeofday(ptr noundef nonnull %tv, ptr noundef nonnull %tz.i) #19
   %3 = load i64, ptr %tv, align 8
   store i64 %3, ptr %nowtm.i, align 8
   %call4.i = call ptr @localtime_r(ptr noundef nonnull %nowtm.i, ptr noundef nonnull %tmResult.i) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tz.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nowtm.i)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tmResult.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tz.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nowtm.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmResult.i)
   %mul = mul i64 %3, 1000000000
   %tv_usec = getelementptr inbounds nuw i8, ptr %tv, i64 8
   %4 = load i64, ptr %tv_usec, align 8
@@ -772,16 +772,16 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br i1 %bSetNanoseconds, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.end
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tz.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %nowtm.i)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tmResult.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tz.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nowtm.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmResult.i)
   %call.i = call i32 @gettimeofday(ptr noundef nonnull %tv, ptr noundef nonnull %tz.i) #19
   %0 = load i64, ptr %tv, align 8
   store i64 %0, ptr %nowtm.i, align 8
   %call4.i = call ptr @localtime_r(ptr noundef nonnull %nowtm.i, ptr noundef nonnull %tmResult.i) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tz.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nowtm.i)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tmResult.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tz.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nowtm.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmResult.i)
   %tv_usec7.phi.trans.insert = getelementptr inbounds nuw i8, ptr %tv, i64 8
   %.pre = load i64, ptr %tv_usec7.phi.trans.insert, align 8
   %1 = trunc i64 %.pre to i32
@@ -2008,7 +2008,7 @@ sw.bb78:                                          ; preds = %if.end12
   br i1 %or.cond, label %if.then82, label %if.else
 
 if.then82:                                        ; preds = %sw.bb78
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i)
   store i8 0, ptr %arrayidx.i, align 1
   store i8 48, ptr %add.ptr.i, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !22)
@@ -2032,15 +2032,15 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %tobool.not.not.i.i, label %_ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit.thread, label %for.body.i.i, !llvm.loop !11
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit.thread: ; preds = %if.then82, %for.inc.i.i
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i)
   br label %return
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit:   ; preds = %for.body.i.i
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i)
   br label %for.inc
 
 if.else:                                          ; preds = %sw.bb78
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i183)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i183)
   store i8 0, ptr %arrayidx.i185, align 1
   %cmp14.i = icmp sgt i32 %39, -1801
   br i1 %cmp14.i, label %for.body.i200.preheader, label %while.cond.preheader.i
@@ -2132,16 +2132,16 @@ for.inc.i.i193:                                   ; preds = %for.body.i.i189
   br i1 %tobool.not.not.i.i196, label %_ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit205.thread, label %for.body.i.i189, !llvm.loop !11
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit205.thread: ; preds = %if.end25.i, %for.inc.i.i193
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i183)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i183)
   br label %return
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit205: ; preds = %for.body.i.i189
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i183)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i183)
   br label %for.inc
 
 sw.bb92:                                          ; preds = %if.end12
   %51 = load i32, ptr %tm_mday107, align 4
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i206)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i206)
   store i8 0, ptr %arrayidx.i208, align 1
   %cmp14.i210 = icmp sgt i32 %51, 0
   br i1 %cmp14.i210, label %for.body.i243, label %while.cond.preheader.i211
@@ -2228,11 +2228,11 @@ for.inc.i.i227:                                   ; preds = %for.body.i.i223
   br i1 %tobool.not.not.i.i230, label %_ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit254.thread, label %for.body.i.i223, !llvm.loop !11
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit254.thread: ; preds = %if.end25.i219, %for.inc.i.i227
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i206)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i206)
   br label %return
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit254: ; preds = %for.body.i.i223
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i206)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i206)
   br label %for.inc
 
 sw.bb98:                                          ; preds = %if.end12
@@ -2247,7 +2247,7 @@ if.end103:                                        ; preds = %sw.bb98
 
 sw.bb106:                                         ; preds = %if.end12
   %62 = load i32, ptr %tm_mday107, align 4
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i255)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i255)
   store i8 0, ptr %arrayidx.i257, align 1
   %cmp14.i259 = icmp sgt i32 %62, 0
   br i1 %cmp14.i259, label %for.body.i292, label %while.cond.preheader.i260
@@ -2334,11 +2334,11 @@ for.inc.i.i276:                                   ; preds = %for.body.i.i272
   br i1 %tobool.not.not.i.i279, label %_ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit303.thread, label %for.body.i.i272, !llvm.loop !11
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit303.thread: ; preds = %if.end25.i268, %for.inc.i.i276
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i255)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i255)
   br label %return
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit303: ; preds = %for.body.i.i272
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i255)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i255)
   br label %for.inc
 
 sw.bb113:                                         ; preds = %if.end12
@@ -2353,7 +2353,7 @@ if.end118:                                        ; preds = %sw.bb113
 
 sw.bb123:                                         ; preds = %if.end12
   %73 = load i32, ptr %tm_hour168, align 8
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i304)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i304)
   store i8 0, ptr %arrayidx.i306, align 1
   %cmp14.i308 = icmp sgt i32 %73, 0
   br i1 %cmp14.i308, label %for.body.i341, label %while.cond.preheader.i309
@@ -2440,11 +2440,11 @@ for.inc.i.i325:                                   ; preds = %for.body.i.i321
   br i1 %tobool.not.not.i.i328, label %_ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit352.thread, label %for.body.i.i321, !llvm.loop !11
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit352.thread: ; preds = %if.end25.i317, %for.inc.i.i325
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i304)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i304)
   br label %return
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit352: ; preds = %for.body.i.i321
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i304)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i304)
   br label %for.inc
 
 sw.bb129:                                         ; preds = %if.end12
@@ -2452,7 +2452,7 @@ sw.bb129:                                         ; preds = %if.end12
   %rem = srem i32 %84, 12
   %tobool131.not = icmp eq i32 %rem, 0
   %spec.select = select i1 %tobool131.not, i32 12, i32 %rem
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i353)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i353)
   store i8 0, ptr %arrayidx.i355, align 1
   %cmp14.i357 = icmp sgt i32 %spec.select, 0
   br i1 %cmp14.i357, label %for.body.i390, label %while.cond.preheader.i358
@@ -2539,16 +2539,16 @@ for.inc.i.i374:                                   ; preds = %for.body.i.i370
   br i1 %tobool.not.not.i.i377, label %_ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit401.thread, label %for.body.i.i370, !llvm.loop !11
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit401.thread: ; preds = %if.end25.i366, %for.inc.i.i374
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i353)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i353)
   br label %return
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit401: ; preds = %for.body.i.i370
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i353)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i353)
   br label %for.inc
 
 sw.bb139:                                         ; preds = %if.end12
   %95 = load i32, ptr %tm_yday290, align 4
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i402)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i402)
   store i8 0, ptr %arrayidx.i404, align 1
   %cmp14.i406 = icmp sgt i32 %95, -1
   br i1 %cmp14.i406, label %for.body.i439.preheader, label %while.cond.preheader.i407
@@ -2639,16 +2639,16 @@ for.inc.i.i423:                                   ; preds = %for.body.i.i419
   br i1 %tobool.not.not.i.i426, label %_ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit450.thread, label %for.body.i.i419, !llvm.loop !11
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit450.thread: ; preds = %if.end25.i415, %for.inc.i.i423
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i402)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i402)
   br label %return
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit450: ; preds = %for.body.i.i419
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i402)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i402)
   br label %for.inc
 
 sw.bb146:                                         ; preds = %if.end12
   %106 = load i32, ptr %tm_min, align 4
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i451)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i451)
   store i8 0, ptr %arrayidx.i453, align 1
   %cmp14.i455 = icmp sgt i32 %106, 0
   br i1 %cmp14.i455, label %for.body.i488, label %while.cond.preheader.i456
@@ -2735,16 +2735,16 @@ for.inc.i.i472:                                   ; preds = %for.body.i.i468
   br i1 %tobool.not.not.i.i475, label %_ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit499.thread, label %for.body.i.i468, !llvm.loop !11
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit499.thread: ; preds = %if.end25.i464, %for.inc.i.i472
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i451)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i451)
   br label %return
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit499: ; preds = %for.body.i.i468
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i451)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i451)
   br label %for.inc
 
 sw.bb152:                                         ; preds = %if.end12
   %117 = load i32, ptr %tm_mon153, align 8
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i500)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i500)
   store i8 0, ptr %arrayidx.i502, align 1
   %cmp14.i504 = icmp sgt i32 %117, -1
   br i1 %cmp14.i504, label %for.body.i537.preheader, label %while.cond.preheader.i505
@@ -2835,11 +2835,11 @@ for.inc.i.i521:                                   ; preds = %for.body.i.i517
   br i1 %tobool.not.not.i.i524, label %_ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit548.thread, label %for.body.i.i517, !llvm.loop !11
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit548.thread: ; preds = %if.end25.i513, %for.inc.i.i521
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i500)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i500)
   br label %return
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit548: ; preds = %for.body.i.i517
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i500)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i500)
   br label %for.inc
 
 sw.bb160:                                         ; preds = %if.end12
@@ -2918,7 +2918,7 @@ if.end188:                                        ; preds = %sw.bb183
 
 sw.bb191:                                         ; preds = %if.end12
   %132 = load i32, ptr %pTM, align 8
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i573)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i573)
   store i8 0, ptr %arrayidx.i575, align 1
   %cmp14.i577 = icmp sgt i32 %132, 0
   br i1 %cmp14.i577, label %for.body.i610, label %while.cond.preheader.i578
@@ -3005,11 +3005,11 @@ for.inc.i.i594:                                   ; preds = %for.body.i.i590
   br i1 %tobool.not.not.i.i597, label %_ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit621.thread, label %for.body.i.i590, !llvm.loop !11
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit621.thread: ; preds = %if.end25.i586, %for.inc.i.i594
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i573)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i573)
   br label %return
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit621: ; preds = %for.body.i.i590
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i573)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i573)
   br label %for.inc
 
 sw.bb197:                                         ; preds = %if.end12
@@ -3053,7 +3053,7 @@ sw.bb212:                                         ; preds = %if.end12
   %143 = load i32, ptr %tm_wday292, align 8
   %tobool214.not = icmp eq i32 %143, 0
   %spec.select142 = select i1 %tobool214.not, i32 7, i32 %143
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i634)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i634)
   store i8 0, ptr %arrayidx.i636, align 1
   %cmp14.i638 = icmp sgt i32 %spec.select142, 0
   br i1 %cmp14.i638, label %for.body.i671, label %while.cond.preheader.i639
@@ -3140,11 +3140,11 @@ for.inc.i.i655:                                   ; preds = %for.body.i.i651
   br i1 %tobool.not.not.i.i658, label %_ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit682.thread, label %for.body.i.i651, !llvm.loop !11
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit682.thread: ; preds = %if.end25.i647, %for.inc.i.i655
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i634)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i634)
   br label %return
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit682: ; preds = %for.body.i.i651
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i634)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i634)
   br label %for.inc
 
 sw.bb225:                                         ; preds = %if.end12
@@ -3158,7 +3158,7 @@ sw.bb225:                                         ; preds = %if.end12
   br i1 %or.cond1, label %if.then235, label %if.else239
 
 if.then235:                                       ; preds = %sw.bb225
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i683)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i683)
   store i8 0, ptr %arrayidx.i685, align 1
   store i8 48, ptr %add.ptr.i686, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !66)
@@ -3182,15 +3182,15 @@ for.inc.i.i703:                                   ; preds = %for.body.i.i699
   br i1 %tobool.not.not.i.i706, label %_ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit713.thread, label %for.body.i.i699, !llvm.loop !11
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit713.thread: ; preds = %if.then235, %for.inc.i.i703
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i683)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i683)
   br label %return
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit713: ; preds = %for.body.i.i699
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i683)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i683)
   br label %for.inc
 
 if.else239:                                       ; preds = %sw.bb225
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i714)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i714)
   store i8 0, ptr %arrayidx.i716, align 1
   %cmp14.i718 = icmp sgt i32 %sub229, 6
   br i1 %cmp14.i718, label %for.body.i751.preheader, label %while.cond.preheader.i719
@@ -3281,11 +3281,11 @@ for.inc.i.i735:                                   ; preds = %for.body.i.i731
   br i1 %tobool.not.not.i.i738, label %_ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit762.thread, label %for.body.i.i731, !llvm.loop !11
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit762.thread: ; preds = %if.end25.i727, %for.inc.i.i735
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i714)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i714)
   br label %return
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit762: ; preds = %for.body.i.i731
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i714)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i714)
   br label %for.inc
 
 sw.bb246:                                         ; preds = %if.end12
@@ -3304,7 +3304,7 @@ sw.bb246:                                         ; preds = %if.end12
   %cmp274 = icmp ult i32 %sub257.off, 13
   %spec.store.select2 = select i1 %cmp274, i32 53, i32 %div258
   %week.0 = select i1 %cmp271, i32 %inc, i32 %spec.store.select2
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i763)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i763)
   store i8 0, ptr %arrayidx.i765, align 1
   %cmp14.i767 = icmp sgt i32 %week.0, 0
   br i1 %cmp14.i767, label %for.body.i800, label %while.cond.preheader.i768
@@ -3391,16 +3391,16 @@ for.inc.i.i784:                                   ; preds = %for.body.i.i780
   br i1 %tobool.not.not.i.i787, label %_ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit811.thread, label %for.body.i.i780, !llvm.loop !11
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit811.thread: ; preds = %if.end25.i776, %for.inc.i.i784
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i763)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i763)
   br label %return
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit811: ; preds = %for.body.i.i780
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i763)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i763)
   br label %for.inc
 
 sw.bb283:                                         ; preds = %if.end12
   %179 = load i32, ptr %tm_wday292, align 8
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i812)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i812)
   store i8 0, ptr %arrayidx.i814, align 1
   %cmp14.i816 = icmp sgt i32 %179, 0
   br i1 %cmp14.i816, label %for.body.i843, label %while.cond.preheader.i817
@@ -3466,11 +3466,11 @@ for.inc.i.i833:                                   ; preds = %for.body.i.i829
   br i1 %tobool.not.not.i.i836, label %_ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit854.thread, label %for.body.i.i829, !llvm.loop !11
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit854.thread: ; preds = %while.end.i823, %for.inc.i.i833
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i812)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i812)
   br label %return
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit854: ; preds = %for.body.i.i829
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i812)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i812)
   br label %for.inc
 
 sw.bb288:                                         ; preds = %if.end12
@@ -3487,7 +3487,7 @@ sw.bb288:                                         ; preds = %if.end12
   br i1 %or.cond3, label %if.then306, label %if.else310
 
 if.then306:                                       ; preds = %sw.bb288
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i855)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i855)
   store i8 0, ptr %arrayidx.i857, align 1
   store i8 48, ptr %add.ptr.i858, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !78)
@@ -3511,15 +3511,15 @@ for.inc.i.i875:                                   ; preds = %for.body.i.i871
   br i1 %tobool.not.not.i.i878, label %_ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit885.thread, label %for.body.i.i871, !llvm.loop !11
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit885.thread: ; preds = %if.then306, %for.inc.i.i875
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i855)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i855)
   br label %return
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit885: ; preds = %for.body.i.i871
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i855)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i855)
   br label %for.inc
 
 if.else310:                                       ; preds = %sw.bb288
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i886)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i886)
   store i8 0, ptr %arrayidx.i888, align 1
   %cmp14.i890 = icmp sgt i32 %sub300, 6
   br i1 %cmp14.i890, label %for.body.i923.preheader, label %while.cond.preheader.i891
@@ -3610,11 +3610,11 @@ for.inc.i.i907:                                   ; preds = %for.body.i.i903
   br i1 %tobool.not.not.i.i910, label %_ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit934.thread, label %for.body.i.i903, !llvm.loop !11
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit934.thread: ; preds = %if.end25.i899, %for.inc.i.i907
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i886)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i886)
   br label %return
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit934: ; preds = %for.body.i.i903
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i886)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i886)
   br label %for.inc
 
 sw.bb317:                                         ; preds = %if.end12
@@ -3742,7 +3742,7 @@ sw.bb351:                                         ; preds = %if.end12
   br i1 %or.cond4, label %if.then360, label %if.else364
 
 if.then360:                                       ; preds = %sw.bb351
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i979)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i979)
   store i8 0, ptr %arrayidx.i981, align 1
   store i8 48, ptr %add.ptr.i982, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !84)
@@ -3766,15 +3766,15 @@ for.inc.i.i999:                                   ; preds = %for.body.i.i995
   br i1 %tobool.not.not.i.i1002, label %_ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit1009.thread, label %for.body.i.i995, !llvm.loop !11
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit1009.thread: ; preds = %if.then360, %for.inc.i.i999
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i979)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i979)
   br label %return
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit1009: ; preds = %for.body.i.i995
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i979)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i979)
   br label %for.inc
 
 if.else364:                                       ; preds = %sw.bb351
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i1010)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i1010)
   store i8 0, ptr %arrayidx.i1012, align 1
   %cmp14.i1014 = icmp sgt i32 %rem355, 0
   br i1 %cmp14.i1014, label %for.body.i1047, label %while.cond.preheader.i1015
@@ -3861,16 +3861,16 @@ for.inc.i.i1031:                                  ; preds = %for.body.i.i1027
   br i1 %tobool.not.not.i.i1034, label %_ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit1058.thread, label %for.body.i.i1027, !llvm.loop !11
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit1058.thread: ; preds = %if.end25.i1023, %for.inc.i.i1031
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i1010)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i1010)
   br label %return
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit1058: ; preds = %for.body.i.i1027
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i1010)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i1010)
   br label %for.inc
 
 sw.bb371:                                         ; preds = %if.end12
   %228 = load i32, ptr %tm_year372, align 4
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i1059)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i1059)
   store i8 0, ptr %arrayidx.i1061, align 1
   %cmp14.i1063 = icmp sgt i32 %228, -1900
   br i1 %cmp14.i1063, label %for.body.i1096.preheader, label %while.cond.preheader.i1064
@@ -3961,21 +3961,21 @@ for.inc.i.i1080:                                  ; preds = %for.body.i.i1076
   br i1 %tobool.not.not.i.i1083, label %_ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit1107.thread, label %for.body.i.i1076, !llvm.loop !11
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit1107.thread: ; preds = %if.end25.i1072, %for.inc.i.i1080
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i1059)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i1059)
   br label %return
 
 _ZN2EA4StdC8InternalL8WriteIntEiicbRrPcRm.exit1107: ; preds = %for.body.i.i1076
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buffer.i1059)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i1059)
   br label %for.inc
 
 sw.bb379:                                         ; preds = %if.end12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %jan3rd1970.i)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tmGM.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %jan3rd1970.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmGM.i)
   store i64 172800, ptr %jan3rd1970.i, align 8
   %call.i = call ptr @gmtime_r(ptr noundef nonnull %jan3rd1970.i, ptr noundef nonnull %tmGM.i) #19
   %call1.i = call i64 @mktime(ptr noundef nonnull %tmGM.i) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %jan3rd1970.i)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tmGM.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %jan3rd1970.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmGM.i)
   %239 = trunc i64 %call1.i to i32
   %conv381 = sub i32 172800, %239
   %div382 = sdiv i32 %conv381, 3600
@@ -4779,7 +4779,7 @@ _ZN2EA4StdCL7ReadIntERPKcRiii.exit267:            ; preds = %sw.bb198
   br label %sw.epilog
 
 sw.bb203:                                         ; preds = %FormatBegin
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %formatBuffer.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %formatBuffer.i)
   store i8 0, ptr %formatBuffer.i, align 16, !noalias !106
   %79 = load ptr, ptr %mDateFormat.i, align 8, !noalias !106
   br i1 %bAlt.0, label %if.then.i270, label %_ZN2EA4StdCL9ParseDateEbRPKcP2tmPKNS0_10TimeLocaleE.exit
@@ -4830,11 +4830,11 @@ _ZN2EA4StdCL9ParseDateEbRPKcP2tmPKNS0_10TimeLocaleE.exit: ; preds = %sw.bb203, %
   %pFormatTemp.0.i = phi ptr [ %cmp5.i341, %_ZN2EA4StdC8InternalL35ConvertFormatSpecifiersToAlternatesEPcmPKc.exit346 ], [ %79, %sw.bb203 ]
   %call1.i = call noundef ptr @_ZN2EA4StdC8StrptimeEPKcS2_P2tmPKNS0_10TimeLocaleE(ptr noundef %p.0512, ptr noundef %pFormatTemp.0.i, ptr noundef %pTM, ptr noundef null)
   %cmp.i269.not = icmp eq ptr %call1.i, null
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %formatBuffer.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %formatBuffer.i)
   br i1 %cmp.i269.not, label %return, label %sw.epilog
 
 sw.bb208:                                         ; preds = %FormatBegin
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %formatBuffer.i271)
+  call void @llvm.lifetime.start.p0(ptr nonnull %formatBuffer.i271)
   store i8 0, ptr %formatBuffer.i271, align 16, !noalias !109
   %86 = load ptr, ptr %mTimeFormat.i, align 8, !noalias !109
   br i1 %bAlt.0, label %if.then.i276, label %_ZN2EA4StdCL9ParseTimeEbRPKcP2tmPKNS0_10TimeLocaleE.exit
@@ -4885,7 +4885,7 @@ _ZN2EA4StdCL9ParseTimeEbRPKcP2tmPKNS0_10TimeLocaleE.exit: ; preds = %sw.bb208, %
   %pFormatTemp.0.i273 = phi ptr [ %cmp5.i362, %_ZN2EA4StdC8InternalL35ConvertFormatSpecifiersToAlternatesEPcmPKc.exit367 ], [ %86, %sw.bb208 ]
   %call1.i274 = call noundef ptr @_ZN2EA4StdC8StrptimeEPKcS2_P2tmPKNS0_10TimeLocaleE(ptr noundef %p.0512, ptr noundef %pFormatTemp.0.i273, ptr noundef %pTM, ptr noundef null)
   %cmp.i275.not = icmp eq ptr %call1.i274, null
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %formatBuffer.i271)
+  call void @llvm.lifetime.end.p0(ptr nonnull %formatBuffer.i271)
   br i1 %cmp.i275.not, label %return, label %sw.epilog
 
 sw.bb213:                                         ; preds = %FormatBegin
@@ -5010,10 +5010,10 @@ declare noundef i64 @_ZN2EA4StdC6StrlenEPKc(ptr noundef) local_unnamed_addr #2
 declare noundef i32 @_ZN2EA4StdC8StrnicmpEPKcS2_m(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #17

@@ -472,7 +472,7 @@ _ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %7, %11, %15
   br i1 %17, label %_ZN10JNIHandles7resolveEP8_jobject.exit.thread, label %18
 
 18:                                               ; preds = %_ZN10JNIHandles7resolveEP8_jobject.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %1) #13
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 808
   %20 = load ptr, ptr %19, align 8
@@ -500,7 +500,7 @@ _ZN14JfrJavaSupport17global_jni_handleEP7oopDescP10JavaThread.exit: ; preds = %2
   store ptr %.0.i, ptr %.0.i.i.i.i.i, align 8
   %32 = call noundef ptr @_ZN10JNIHandles11make_globalE6HandleN17AllocFailStrategy13AllocFailEnumE(ptr nonnull %.0.i.i.i.i.i, i32 noundef 0) #13
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #13
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN10JNIHandles7resolveEP8_jobject.exit.thread
 
 _ZN10JNIHandles7resolveEP8_jobject.exit.thread:   ; preds = %2, %_ZN10JNIHandles7resolveEP8_jobject.exit, %_ZN14JfrJavaSupport17global_jni_handleEP7oopDescP10JavaThread.exit
@@ -595,7 +595,7 @@ _ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %7, %11, %15
   br i1 %17, label %_ZN10JNIHandles7resolveEP8_jobject.exit.thread, label %18
 
 18:                                               ; preds = %_ZN10JNIHandles7resolveEP8_jobject.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %1) #13
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 808
   %20 = load ptr, ptr %19, align 8
@@ -623,7 +623,7 @@ _ZN14JfrJavaSupport22global_weak_jni_handleEP7oopDescP10JavaThread.exit: ; preds
   store ptr %.0.i, ptr %.0.i.i.i.i.i, align 8
   %32 = call noundef ptr @_ZN10JNIHandles16make_weak_globalE6HandleN17AllocFailStrategy13AllocFailEnumE(ptr nonnull %.0.i.i.i.i.i, i32 noundef 0) #13
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #13
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN10JNIHandles7resolveEP8_jobject.exit.thread
 
 _ZN10JNIHandles7resolveEP8_jobject.exit.thread:   ; preds = %2, %_ZN10JNIHandles7resolveEP8_jobject.exit, %_ZN14JfrJavaSupport22global_weak_jni_handleEP7oopDescP10JavaThread.exit
@@ -837,7 +837,7 @@ define internal fastcc void @_ZL13create_objectP16JfrJavaArgumentsP9JavaValueP10
   br i1 %14, label %15, label %27
 
 15:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 208
   %18 = load ptr, ptr %17, align 8
@@ -859,11 +859,11 @@ define internal fastcc void @_ZL13create_objectP16JfrJavaArgumentsP9JavaValueP10
 
 _ZL18array_constructionP16JfrJavaArgumentsP9JavaValueP13InstanceKlassiP10JavaThread.exit: ; preds = %15, %25
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #13
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %53
 
 27:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull %2) #13
   %28 = call noundef ptr @_ZN13InstanceKlass17allocate_instanceEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(464) %6, ptr noundef nonnull %2) #13
   %29 = load ptr, ptr %10, align 8
@@ -927,7 +927,7 @@ _ZNK14instanceHandleclEv.exit.i:                  ; preds = %49, %47
 
 _ZL19object_constructionP16JfrJavaArgumentsP9JavaValueP13InstanceKlassP10JavaThread.exit: ; preds = %27, %_ZN14instanceHandleC2EP6ThreadP15instanceOopDesc.exit.i, %_ZNK14instanceHandleclEv.exit.i
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #13
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %53
 
 53:                                               ; preds = %_ZL18array_constructionP16JfrJavaArgumentsP9JavaValueP13InstanceKlassiP10JavaThread.exit, %3, %_ZL19object_constructionP16JfrJavaArgumentsP9JavaValueP13InstanceKlassP10JavaThread.exit
@@ -979,7 +979,7 @@ define hidden void @_ZN14JfrJavaSupport21new_object_global_refEP16JfrJavaArgumen
   br i1 %10, label %_ZL13handle_resultP9JavaValuebP10JavaThread.exit, label %11
 
 11:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %1) #13
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 808
   %13 = load ptr, ptr %12, align 8
@@ -1007,7 +1007,7 @@ _ZN14JfrJavaSupport17global_jni_handleEP7oopDescP10JavaThread.exit.i: ; preds = 
   store ptr %9, ptr %.0.i.i.i.i.i.i, align 8
   %25 = call noundef ptr @_ZN10JNIHandles11make_globalE6HandleN17AllocFailStrategy13AllocFailEnumE(ptr nonnull %.0.i.i.i.i.i.i, i32 noundef 0) #13
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #13
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %25, ptr %8, align 8
   br label %_ZL13handle_resultP9JavaValuebP10JavaThread.exit
 
@@ -1307,8 +1307,8 @@ _ZN14JfrJavaSupport16resolve_non_nullEP8_jobject.exit5: ; preds = %34, %38, %42
 define hidden void @_ZN14JfrJavaSupport9set_fieldEP16JfrJavaArgumentsP10JavaThread(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.fieldDescriptor, align 8
   %4 = alloca %class.HandleMark, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef ptr @_ZNK16JfrJavaArguments5klassEv(ptr noundef nonnull align 8 dereferenceable(300) %0) #13
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 176
@@ -1551,8 +1551,8 @@ _ZL23write_specialized_fieldP16JfrJavaArgumentsRK6HandleP15fieldDescriptorb.exit
   br label %_ZL11write_fieldP16JfrJavaArgumentsP10JavaThread.exit
 
 _ZL11write_fieldP16JfrJavaArgumentsP10JavaThread.exit: ; preds = %2, %_ZL23write_specialized_fieldP16JfrJavaArgumentsRK6HandleP15fieldDescriptorb.exit.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1580,8 +1580,8 @@ define internal fastcc void @_ZL10read_fieldP16JfrJavaArgumentsP9JavaValueP10Jav
   br i1 %.not, label %13, label %105
 
 13:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = tail call noundef zeroext i1 @_ZNK16JfrJavaArguments12has_receiverEv(ptr noundef nonnull align 8 dereferenceable(300) %0) #13
   %15 = xor i1 %14, true
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -1763,8 +1763,8 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit.i:            ; preds = %_ZN10HandleArea15al
 _ZL10read_fieldP16JfrJavaArgumentsP9JavaValueP6Thread.exit: ; preds = %70, %77, %84, %91, %98
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #13
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #13
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %105
 
 105:                                              ; preds = %3, %_ZL10read_fieldP16JfrJavaArgumentsP9JavaValueP6Thread.exit
@@ -1814,7 +1814,7 @@ define hidden void @_ZN14JfrJavaSupport20get_field_global_refEP16JfrJavaArgument
   br i1 %10, label %_ZL13get_field_refP16JfrJavaArgumentsbP10JavaThread.exit, label %11
 
 11:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %1) #13
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 808
   %13 = load ptr, ptr %12, align 8
@@ -1842,7 +1842,7 @@ _ZN14JfrJavaSupport17global_jni_handleEP7oopDescP10JavaThread.exit.i: ; preds = 
   store ptr %9, ptr %.0.i.i.i.i.i.i, align 8
   %25 = call noundef ptr @_ZN10JNIHandles11make_globalE6HandleN17AllocFailStrategy13AllocFailEnumE(ptr nonnull %.0.i.i.i.i.i.i, i32 noundef 0) #13
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #13
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %25, ptr %8, align 8
   br label %_ZL13get_field_refP16JfrJavaArgumentsbP10JavaThread.exit
 
@@ -2901,11 +2901,11 @@ _ZL17is_virtual_threadP7oopDesc.exit:             ; preds = %17, %27
   %36 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %37 = load ptr, ptr %36, align 8
   call void @_ZN17ThreadsListHandleC1EP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %37) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %38 = call noundef zeroext i1 @_ZN17ThreadsListHandle32cv_internal_thread_to_JavaThreadEP8_jobjectPP10JavaThreadPP7oopDesc(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %2, ptr noundef nonnull %4, ptr noundef null) #13
   %39 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not10 = icmp eq ptr %39, null
   br i1 %.not10, label %41, label %40
 
@@ -2988,11 +2988,11 @@ _ZL17is_virtual_threadP7oopDesc.exit:             ; preds = %17, %27
   %36 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %37 = load ptr, ptr %36, align 8
   call void @_ZN17ThreadsListHandleC1EP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %37) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %38 = call noundef zeroext i1 @_ZN17ThreadsListHandle32cv_internal_thread_to_JavaThreadEP8_jobjectPP10JavaThreadPP7oopDesc(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %2, ptr noundef nonnull %4, ptr noundef null) #13
   %39 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not10 = icmp eq ptr %39, null
   br i1 %.not10, label %41, label %40
 
@@ -7055,10 +7055,10 @@ declare void @llvm.va_end.p0(ptr) #9
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11

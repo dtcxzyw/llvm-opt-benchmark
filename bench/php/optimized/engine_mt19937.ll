@@ -63,9 +63,6 @@ define dso_local void @php_random_mt19937_seed32(ptr noundef captures(none) init
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @mt19937_reload(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -200,11 +197,8 @@ define internal fastcc void @mt19937_reload(ptr noundef captures(none) %0) unnam
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal { i64, i64 } @generate(ptr noundef captures(none) %0) #2 {
+define internal { i64, i64 } @generate(ptr noundef captures(none) %0) #1 {
   %2 = load i32, ptr %0, align 4, !tbaa !8
   %3 = icmp ugt i32 %2, 623
   br i1 %3, label %4, label %5
@@ -239,15 +233,15 @@ define internal { i64, i64 } @generate(ptr noundef captures(none) %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @range(ptr noundef %0, i64 noundef %1, i64 noundef %2) #3 {
+define internal i64 @range(ptr noundef %0, i64 noundef %1, i64 noundef %2) #2 {
   %4 = tail call i64 @php_random_range(ptr nonnull @php_random_algo_mt19937, ptr %0, i64 noundef %1, i64 noundef %2) #7
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @serialize(ptr noundef %0, ptr noundef %1) #3 {
+define internal noundef zeroext i1 @serialize(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca %struct._zval_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %14
@@ -264,7 +258,7 @@ define internal noundef zeroext i1 @serialize(ptr noundef %0, ptr noundef %1) #3
   store i64 %12, ptr %3, align 8, !tbaa !11
   store i32 4, ptr %5, align 8, !tbaa !11
   %13 = call ptr @zend_hash_next_index_insert(ptr noundef %1, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 true
 
 14:                                               ; preds = %2, %14
@@ -285,7 +279,7 @@ define internal noundef zeroext i1 @serialize(ptr noundef %0, ptr noundef %1) #3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) #3 {
+define internal zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4, !tbaa !12
   %.not = icmp eq i32 %4, 626
@@ -367,9 +361,9 @@ define internal zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @php_random_mt19937_seed_default(ptr noundef captures(none) initializes((8, 12)) %0) local_unnamed_addr #3 {
+define dso_local void @php_random_mt19937_seed_default(ptr noundef captures(none) initializes((8, 12)) %0) local_unnamed_addr #2 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !4
   %3 = call i32 @php_random_bytes(ptr noundef nonnull %2, i64 noundef 4, i1 noundef zeroext false) #7
   %4 = icmp eq i32 %3, -1
@@ -407,22 +401,22 @@ define dso_local void @php_random_mt19937_seed_default(ptr noundef captures(none
 php_random_mt19937_seed32.exit:                   ; preds = %11
   store i32 624, ptr %0, align 4, !tbaa !8
   call fastcc void @mt19937_reload(ptr noundef nonnull %0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare i64 @php_random_generate_fallback_seed() local_unnamed_addr #4
+declare i64 @php_random_generate_fallback_seed() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 {
+define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 -8
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !11
@@ -568,26 +562,26 @@ php_random_mt19937_seed32.exit:                   ; preds = %50
   br label %58
 
 58:                                               ; preds = %.thread, %php_random_mt19937_seed32.exit, %41, %33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
+declare void @llvm.assume(i1 noundef) #4
 
-declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @zend_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @zend_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare ptr @zend_throw_exception(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @zend_throw_exception(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Random_Engine_Mt19937_generate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 {
+define hidden void @zim_Random_Engine_Mt19937_generate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4, !tbaa !11
   %.not = icmp eq i32 %4, 0
@@ -655,14 +649,14 @@ zend_string_alloc.exit:                           ; preds = %6
   ret void
 }
 
-declare void @zend_wrong_parameters_none_error() local_unnamed_addr #4
+declare void @zend_wrong_parameters_none_error() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Random_Engine_Mt19937___serialize(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
+define hidden void @zim_Random_Engine_Mt19937___serialize(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %.not = icmp eq i32 %7, 0
@@ -711,18 +705,18 @@ define hidden void @zim_Random_Engine_Mt19937___serialize(ptr noundef readonly c
   br label %33
 
 33:                                               ; preds = %30, %26, %8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare ptr @_zend_new_array_0() local_unnamed_addr #4
+declare ptr @_zend_new_array_0() local_unnamed_addr #3
 
-declare ptr @zend_std_get_properties(ptr noundef) local_unnamed_addr #4
+declare ptr @zend_std_get_properties(ptr noundef) local_unnamed_addr #3
 
-declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 {
+define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = getelementptr inbounds i8, ptr %4, i64 -16
@@ -860,19 +854,19 @@ define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr 
   ret void
 }
 
-declare ptr @zend_throw_exception_ex(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare ptr @zend_throw_exception_ex(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare ptr @zend_hash_index_find(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @zend_hash_index_find(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @object_properties_load(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @object_properties_load(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Random_Engine_Mt19937___debugInfo(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
+define hidden void @zim_Random_Engine_Mt19937___debugInfo(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !11
   %6 = getelementptr inbounds i8, ptr %5, i64 -16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !11
   %.not = icmp eq i32 %8, 0
@@ -940,38 +934,44 @@ zend_std_get_properties_ex.exit:                  ; preds = %14, %16, %19
   br label %42
 
 42:                                               ; preds = %zend_std_get_properties_ex.exit, %39, %35, %9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare ptr @zend_array_dup(ptr noundef) local_unnamed_addr #4
+declare ptr @zend_array_dup(ptr noundef) local_unnamed_addr #3
 
-declare ptr @zend_hash_str_add(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @zend_hash_str_add(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @php_random_range(ptr, ptr, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @php_random_range(ptr, ptr, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @php_random_bin2hex_le(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @php_random_bin2hex_le(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @php_random_hex2bin_le(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @php_random_hex2bin_le(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @php_random_bytes(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare i32 @php_random_bytes(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #6
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #5
 
-declare ptr @zend_lazy_object_get_properties(ptr noundef) local_unnamed_addr #4
+declare ptr @zend_lazy_object_get_properties(ptr noundef) local_unnamed_addr #3
 
-declare ptr @rebuild_object_properties_internal(ptr noundef) local_unnamed_addr #4
+declare ptr @rebuild_object_properties_internal(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #5 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind allocsize(0) }
 

@@ -269,7 +269,7 @@ define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal8DemangleEPKcPc
   br label %71
 
 13:                                               ; preds = %7, %3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !7
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %14, align 8, !tbaa !13
@@ -407,7 +407,7 @@ _ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i: ; preds = %65
 
 _ZN4absl18debugging_internalL24ParseTopLevelMangledNameEPNS0_5StateE.exit: ; preds = %_ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i, %26, %22, %13, %.loopexit
   %70 = phi i1 [ %spec.select, %.loopexit ], [ false, %13 ], [ false, %22 ], [ false, %26 ], [ false, %_ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %71
 
 71:                                               ; preds = %_ZN4absl18debugging_internalL24ParseTopLevelMangledNameEPNS0_5StateE.exit, %11
@@ -417,12 +417,6 @@ _ZN4absl18debugging_internalL24ParseTopLevelMangledNameEPNS0_5StateE.exit: ; pre
 
 declare noundef zeroext i1 @_ZN4absl18debugging_internal26DemangleRustSymbolEncodingEPKcPcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl18debugging_internal14DemangleStringB5cxx11EPKc(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
@@ -431,7 +425,7 @@ define dso_local void @_ZN4absl18debugging_internal14DemangleStringB5cxx11EPKc(p
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %5, align 8, !tbaa !25
   store i8 0, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !28
   %6 = invoke ptr @__cxa_demangle(ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef nonnull %3)
           to label %7 unwind label %17
@@ -461,7 +455,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds =
 17:                                               ; preds = %.invoke, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i9, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i, %2
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %0, align 8, !tbaa !29
   %20 = icmp eq ptr %19, %4
   br i1 %20, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -498,7 +492,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit12 unwind label %17
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit12: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -507,10 +501,10 @@ declare ptr @__cxa_demangle(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
+define internal fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %4, -1
@@ -537,7 +531,7 @@ _ZN4absl18debugging_internalL6StrLenEPKc.exit:    ; preds = %5, %.lr.ph.preheade
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
   %5 = add nsw i32 %4, 1
@@ -582,7 +576,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseEncodingEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseEncodingEPNS0_5StateE(ptr noundef %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i45 = alloca { i32, i32, i32 }, align 8
   %.sroa.0.i = alloca { i32, i32, i32 }, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -638,7 +632,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseE
   br i1 %or.cond.i46, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread.sink.split, label %26
 
 26:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0.i45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i45)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i45, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !30
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -687,7 +681,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i: ; 
 47:                                               ; preds = %38
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0.i45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i45)
   %49 = load i32, ptr %2, align 4, !tbaa !17
   %50 = add nsw i32 %49, -1
   store i32 %50, ptr %2, align 4, !tbaa !17
@@ -700,7 +694,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i: ; 
 52:                                               ; preds = %51, %42
   %storemerge.i = phi i32 [ %46, %42 ], [ %.sroa.5.0.copyload.i, %51 ]
   store i32 %storemerge.i, ptr %.sroa.5.0..sroa_idx.i, align 4
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0.i45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i45)
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread.sink.split.sink.split
 
 53:                                               ; preds = %12
@@ -716,7 +710,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i: ; 
   br i1 %or.cond43, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread.sink.split, label %60
 
 60:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(12) %61, i64 12, i1 false), !tbaa.struct !30
   %.sroa.18.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1472,12 +1466,12 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread131:
 
 373:                                              ; preds = %.critedge.i, %366, %344, %313, %290, %274, %271, %270, %249, %216, %186, %169, %149, %125, %100, %99, %82, %79
   %.1.i = phi i1 [ false, %82 ], [ false, %100 ], [ true, %216 ], [ false, %270 ], [ false, %.critedge.i ], [ true, %79 ], [ true, %99 ], [ true, %125 ], [ true, %149 ], [ true, %169 ], [ true, %186 ], [ true, %249 ], [ true, %271 ], [ false, %274 ], [ true, %290 ], [ true, %313 ], [ true, %344 ], [ true, %366 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread.sink.split.sink.split
 
 374:                                              ; preds = %371, %80
   %.pn105.i = phi { ptr, i32 } [ %81, %80 ], [ %372, %371 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   %375 = load i32, ptr %2, align 4, !tbaa !17
   %376 = add nsw i32 %375, -1
   store i32 %376, ptr %2, align 4, !tbaa !17
@@ -1504,7 +1498,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNameEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNameEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %.sroa.0.i = alloca { i32, i32, i32 }, align 8
   %3 = alloca %"struct.absl::debugging_internal::ParseState", align 4
@@ -1532,7 +1526,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNa
   br i1 %or.cond59, label %.thread, label %17
 
 17:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(12) %18, i64 12, i1 false), !tbaa.struct !30
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1640,7 +1634,7 @@ _ZN4absl18debugging_internalL17ParseRefQualifierEPNS0_5StateE.exit: ; preds = %4
 .thread49:                                        ; preds = %61
   %66 = add nsw i32 %.val7.i, 1
   store i32 %66, ptr %18, align 4, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   %67 = add nsw i32 %storemerge.in.pre.pre, -1
   store i32 %67, ptr %4, align 4, !tbaa !17
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
@@ -1648,7 +1642,7 @@ _ZN4absl18debugging_internalL17ParseRefQualifierEPNS0_5StateE.exit: ; preds = %4
 68:                                               ; preds = %_ZN4absl18debugging_internalL17ParseRefQualifierEPNS0_5StateE.exit, %28
   %69 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   %70 = load i32, ptr %4, align 4, !tbaa !17
   %71 = add nsw i32 %70, -1
   store i32 %71, ptr %4, align 4, !tbaa !17
@@ -1665,7 +1659,7 @@ _ZN4absl18debugging_internalL17ParseRefQualifierEPNS0_5StateE.exit: ; preds = %4
   %storemerge.in.pre = phi i32 [ %storemerge.in.pre.pre, %51 ], [ %.sink, %.sink.split ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %18, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !30
   store i32 %.sroa.5.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   br label %.thread
 
 .thread:                                          ; preds = %12, %72
@@ -1679,7 +1673,7 @@ _ZN4absl18debugging_internalL17ParseRefQualifierEPNS0_5StateE.exit: ; preds = %4
   br i1 %or.cond60, label %.thread55, label %77
 
 77:                                               ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %78, i64 16, i1 false), !tbaa.struct !30
   %79 = add nsw i32 %storemerge.in, 1
@@ -1743,7 +1737,7 @@ _ZN4absl18debugging_internalL17ParseRefQualifierEPNS0_5StateE.exit: ; preds = %4
   br i1 %105, label %.thread57, label %112
 
 .thread57:                                        ; preds = %106
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %107 = add nsw i32 %storemerge.in61.pre.pre68, -1
   store i32 %107, ptr %4, align 4, !tbaa !17
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
@@ -1751,7 +1745,7 @@ _ZN4absl18debugging_internalL17ParseRefQualifierEPNS0_5StateE.exit: ; preds = %4
 108:                                              ; preds = %103, %88
   %109 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %110 = load i32, ptr %4, align 4, !tbaa !17
   %111 = add nsw i32 %110, -1
   store i32 %111, ptr %4, align 4, !tbaa !17
@@ -1765,14 +1759,14 @@ _ZN4absl18debugging_internalL17ParseRefQualifierEPNS0_5StateE.exit: ; preds = %4
 112:                                              ; preds = %.sink.split70, %91, %106
   %storemerge.in61.pre = phi i32 [ %storemerge.in61.pre.pre, %91 ], [ %storemerge.in61.pre.pre68, %106 ], [ %storemerge.in.sink, %.sink.split70 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %78, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread55
 
 .thread55:                                        ; preds = %.thread, %112
   %storemerge.in61 = phi i32 [ %storemerge.in, %.thread ], [ %storemerge.in61.pre, %112 ]
   %storemerge = add nsw i32 %storemerge.in61, -1
   store i32 %storemerge, ptr %4, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %113, i64 16, i1 false), !tbaa.struct !30
   %114 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseSubstitutionEPNS0_5StateEb(ptr noundef nonnull %0, i1 noundef zeroext false)
@@ -1788,7 +1782,7 @@ _ZN4absl18debugging_internalL17ParseRefQualifierEPNS0_5StateE.exit: ; preds = %4
 118:                                              ; preds = %123, %120, %115
   %119 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre64 = load i32, ptr %4, align 4, !tbaa !17
   br label %.body
 
@@ -1806,7 +1800,7 @@ _ZN4absl18debugging_internalL17ParseRefQualifierEPNS0_5StateE.exit: ; preds = %4
 
 125:                                              ; preds = %123, %122, %117
   %.1 = phi i1 [ true, %117 ], [ false, %122 ], [ true, %123 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre65 = load i32, ptr %4, align 4, !tbaa !17
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
@@ -1826,7 +1820,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL21ParseBareFunctionTypeEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL21ParseBareFunctionTypeEPNS0_5StateE(ptr noundef %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %.sroa.0 = alloca { i32, i32, i32 }, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1843,7 +1837,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL21ParseB
   br i1 %or.cond, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread, label %11
 
 11:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %12, i64 12, i1 false), !tbaa.struct !30
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1863,7 +1857,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL21ParseB
   %18 = phi i32 [ %44, %.noexc ], [ %8, %11 ]
   %19 = phi i32 [ %42, %.noexc ], [ %14, %11 ]
   %20 = phi i32 [ %43, %.noexc ], [ %5, %11 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
   %21 = add nsw i32 %20, 2
   store i32 %21, ptr %3, align 4, !tbaa !17
@@ -1906,7 +1900,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL21ParseB
 38:                                               ; preds = %34
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %40 = load i32, ptr %3, align 4, !tbaa !17
   %41 = add nsw i32 %40, -1
   store i32 %41, ptr %3, align 4, !tbaa !17
@@ -1919,11 +1913,11 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL21ParseB
 .noexc.thread26:                                  ; preds = %.noexc.thread26.loopexit, %.thread
   %storemerge.in.pre = phi i32 [ %storemerge.in.pre.pre, %.noexc.thread26.loopexit ], [ %19, %.thread ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit
 
 .noexc:                                           ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %42 = load i32, ptr %3, align 4, !tbaa !17
   %43 = add nsw i32 %42, -1
   %44 = load i32, ptr %6, align 8, !tbaa !15
@@ -1976,7 +1970,7 @@ _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %.no
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %38
   %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   %55 = load i32, ptr %3, align 4, !tbaa !17
   %56 = add nsw i32 %55, -1
   store i32 %56, ptr %3, align 4, !tbaa !17
@@ -1988,7 +1982,7 @@ _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread: ; preds
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
 _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %54, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   %.pre = load i32, ptr %3, align 4, !tbaa !17
   %57 = add nsw i32 %.pre, -1
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
@@ -2001,10 +1995,10 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseSubstitutionEPNS0_5StateEb(ptr noundef captures(none) %0, i1 noundef zeroext %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseSubstitutionEPNS0_5StateEb(ptr noundef captures(none) %0, i1 noundef zeroext %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !17
@@ -2059,7 +2053,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseS
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
 32:                                               ; preds = %23, %17, %12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !30
   store i32 %13, ptr %4, align 4, !tbaa !17
@@ -2255,7 +2249,7 @@ _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit70: ; preds = %10
 
 _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit56: ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit70, %72, %68, %.critedge
   %.132 = phi i1 [ false, %.critedge ], [ true, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit70 ], [ true, %68 ], [ true, %72 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
 _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %2, %31, %27, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit56
@@ -2267,7 +2261,7 @@ _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %2, %
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTemplateArgsEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTemplateArgsEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i = alloca { i32, i32, i32 }, align 8
   %.sroa.0 = alloca { i32, i32, i32 }, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -2284,7 +2278,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseT
   br i1 %or.cond, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread, label %10
 
 10:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !30
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2339,7 +2333,7 @@ _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %.no
   br i1 %or.cond.i27, label %59, label %32
 
 32:                                               ; preds = %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !30
   %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !4
   %33 = and i32 %.sroa.5.0.copyload.i, 2147483647
@@ -2386,7 +2380,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i: ; 
 52:                                               ; preds = %43
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   %54 = load i32, ptr %2, align 4, !tbaa !17
   %55 = add nsw i32 %54, -1
   store i32 %55, ptr %2, align 4, !tbaa !17
@@ -2399,7 +2393,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i: ; 
 57:                                               ; preds = %56, %47
   %storemerge.i = phi i32 [ %51, %47 ], [ %.sroa.5.0.copyload.i, %56 ]
   store i32 %storemerge.i, ptr %.sroa.5.0..sroa_idx, align 4
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   %.pre.i = load i32, ptr %2, align 4, !tbaa !17
   %58 = add nsw i32 %.pre.i, -1
   %.pre28 = load i32, ptr %5, align 8, !tbaa !15
@@ -2454,7 +2448,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i: ; 
 
 .loopexit.split-lp.body:                          ; preds = %.loopexit.split-lp, %52, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %53, %52 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   %77 = load i32, ptr %2, align 4, !tbaa !17
   %78 = add nsw i32 %77, -1
   store i32 %78, ptr %2, align 4, !tbaa !17
@@ -2472,7 +2466,7 @@ _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread: ; preds
 
 _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %76, %70, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread
   %.1 = phi i1 [ false, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread ], [ true, %70 ], [ true, %76 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   %.pre = load i32, ptr %2, align 4, !tbaa !17
   %79 = add nsw i32 %.pre, -1
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
@@ -2485,7 +2479,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseUnscopedNameEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseUnscopedNameEPNS0_5StateE(ptr noundef %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
@@ -2514,7 +2508,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseU
   br label %45
 
 16:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !30
   %18 = add nsw i32 %.pre17, 1
@@ -2569,7 +2563,7 @@ _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %32, 
 39:                                               ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %45
 
 41:                                               ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread, %38
@@ -2578,7 +2572,7 @@ _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %32, 
 
 42:                                               ; preds = %38, %41
   %.1 = phi i1 [ false, %41 ], [ true, %38 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load i32, ptr %3, align 4, !tbaa !17
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
@@ -2598,7 +2592,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef captures(none) %0, i8 noundef signext %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef captures(none) %0, i8 noundef signext %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
   %5 = add nsw i32 %4, 1
@@ -2634,7 +2628,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
@@ -2669,7 +2663,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseC
   %19 = phi i32 [ %11, %.lr.ph ], [ %45, %.preheader ]
   %20 = phi i32 [ %5, %.lr.ph ], [ %46, %.preheader ]
   %.01258 = phi i32 [ 0, %.lr.ph ], [ %47, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !30
   %21 = add nsw i32 %20, 2
   store i32 %21, ptr %3, align 4, !tbaa !17
@@ -2712,7 +2706,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit34.thread: ; 
 .body:                                            ; preds = %39
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %37 = load i32, ptr %3, align 4, !tbaa !17
   %38 = add nsw i32 %37, -2
   store i32 %38, ptr %3, align 4, !tbaa !17
@@ -2725,7 +2719,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit34.thread: ; 
 .thread43:                                        ; preds = %35, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit34.thread
   %.pre = phi i32 [ %.pre.pre, %35 ], [ %22, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit34.thread ]
   %storemerge.in.pre = phi i32 [ %storemerge.in.pre.pre, %35 ], [ %19, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit34.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread
 
 .preheader:                                       ; preds = %39
@@ -2734,7 +2728,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit34.thread: ; 
   %43 = and i32 %41, 2147483647
   %44 = or disjoint i32 %43, %42
   store i32 %44, ptr %16, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %45 = load i32, ptr %3, align 4, !tbaa !17
   %46 = add nsw i32 %45, -1
   %47 = add nuw nsw i32 %.01258, 1
@@ -2839,7 +2833,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParsePrefixEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParsePrefixEPNS0_5StateE(ptr noundef %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -2928,7 +2922,7 @@ _ZN4absl18debugging_internalL20MaybeAppendSeparatorEPNS0_5StateE.exit: ; preds =
   br i1 %or.cond50, label %.thread, label %45
 
 45:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !30
   %46 = add nsw i32 %39, 2
   store i32 %46, ptr %4, align 4, !tbaa !17
@@ -3011,13 +3005,13 @@ _ZN4absl18debugging_internalL20MaybeAppendSeparatorEPNS0_5StateE.exit: ; preds =
 .thread47:                                        ; preds = %78
   %83 = add nsw i32 %.val7.i29, 1
   store i32 %83, ptr %16, align 4, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.sink.split111
 
 84:                                               ; preds = %68
   %85 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %86 = load i32, ptr %4, align 4, !tbaa !17
   %87 = add nsw i32 %86, -1
   store i32 %87, ptr %4, align 4, !tbaa !17
@@ -3031,7 +3025,7 @@ _ZN4absl18debugging_internalL20MaybeAppendSeparatorEPNS0_5StateE.exit: ; preds =
 88:                                               ; preds = %.sink.split, %71
   %storemerge.in.pre = phi i32 [ %storemerge.in.pre.pre, %71 ], [ %.sink, %.sink.split ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %89 = add nsw i32 %storemerge.in.pre, -1
   br label %.thread
 
@@ -3054,7 +3048,7 @@ _ZN4absl18debugging_internalL20MaybeAppendSeparatorEPNS0_5StateE.exit: ; preds =
   br i1 %or.cond.i79, label %.thread81, label %98
 
 98:                                               ; preds = %91
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !30
   %99 = add nsw i32 %92, 2
   store i32 %99, ptr %4, align 4, !tbaa !17
@@ -3095,14 +3089,14 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i: ; 
           to label %.thread83 unwind label %114
 
 .thread83:                                        ; preds = %112
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre.i85 = load i32, ptr %4, align 4, !tbaa !17
   br label %.sink.split111
 
 114:                                              ; preds = %112
   %115 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %116 = load i32, ptr %4, align 4, !tbaa !17
   %117 = add nsw i32 %116, -1
   store i32 %117, ptr %4, align 4, !tbaa !17
@@ -3111,7 +3105,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i: ; 
 118:                                              ; preds = %._crit_edge, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i
   %.pre.i = phi i32 [ %111, %._crit_edge ], [ %92, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread81
 
 .thread81:                                        ; preds = %91, %118
@@ -3245,7 +3239,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseSourceNameEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseSourceNameEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
@@ -3259,7 +3253,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseS
   br i1 %or.cond, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread, label %10
 
 10:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !30
   %12 = add nsw i32 %4, 2
@@ -3411,7 +3405,7 @@ _ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit
 80:                                               ; preds = %76, %.thread
   %81 = phi i32 [ %4, %.thread ], [ %79, %76 ]
   %.1 = phi i1 [ false, %.thread ], [ true, %76 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
 _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %80
@@ -3422,7 +3416,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
   %5 = add nsw i32 %4, 1
@@ -3512,7 +3506,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #8 {
+define internal fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 4
   %6 = icmp slt i32 %5, 0
@@ -3649,7 +3643,7 @@ _ZN4absl18debugging_internalL6AppendEPNS0_5StateEPKcm.exit19: ; preds = %.loopex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
   %5 = add nsw i32 %4, 1
@@ -3702,7 +3696,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseTemplateParamEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseTemplateParamEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
@@ -3757,7 +3751,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseT
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
 31:                                               ; preds = %22, %16, %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !30
   store i32 %12, ptr %3, align 4, !tbaa !17
@@ -4012,7 +4006,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseT
 
 _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit36: ; preds = %157, %143, %139, %81, %77, %158
   %.1 = phi i1 [ false, %158 ], [ true, %157 ], [ true, %77 ], [ true, %81 ], [ true, %139 ], [ true, %143 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
 _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %1, %30, %26, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit36
@@ -4024,7 +4018,7 @@ _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %1, %
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseDecltypeEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseDecltypeEPNS0_5StateE(ptr noundef %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
@@ -4040,7 +4034,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseD
   br i1 %or.cond, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread, label %11
 
 11:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
   %13 = add nsw i32 %4, 2
@@ -4130,7 +4124,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit17: ; preds =
 51:                                               ; preds = %35
   %52 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %53 = load i32, ptr %3, align 4, !tbaa !17
   %54 = add nsw i32 %53, -1
   store i32 %54, ptr %3, align 4, !tbaa !17
@@ -4149,7 +4143,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit17: ; preds =
 56:                                               ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit17, %55
   %.pre = phi i32 [ %.pre.pre, %55 ], [ %.pre.pre.pre, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit17 ]
   %.1 = phi i1 [ false, %55 ], [ true, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit17 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %57 = add nsw i32 %.pre, -1
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
@@ -4161,7 +4155,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseUnnamedTypeNameEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseUnnamedTypeNameEPNS0_5StateE(ptr noundef %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca [20 x i8], align 16
   %.sroa.0 = alloca { i32, i32, i32 }, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -4178,7 +4172,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseU
   br i1 %or.cond, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread, label %11
 
 11:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %12, i64 12, i1 false), !tbaa.struct !30
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4307,18 +4301,18 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseU
   br i1 %.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.thread, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
 _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.thread: ; preds = %73
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread
 
 _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %73
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.247, i64 noundef 14)
   %.pre = load i32, ptr %.sroa.6.0..sroa_idx, align 4
   %75 = icmp sgt i32 %.pre, -1
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br i1 %75, label %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread, label %76
 
 _ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread: ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.thread, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit38
 
 76:                                               ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
@@ -4398,7 +4392,7 @@ _ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread: ; p
 
 _ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit: ; preds = %.loopexit.i.i, %115
   %.pr = load i32, ptr %.sroa.6.0..sroa_idx, align 4
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not.i36 = icmp sgt i32 %.pr, -1
   br i1 %.not.i36, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit38, label %120
 
@@ -4423,7 +4417,7 @@ _ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit: ; preds = 
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit102, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp103, %.loopexit.split-lp.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   %121 = load i32, ptr %3, align 4, !tbaa !17
   %122 = add nsw i32 %121, -1
   store i32 %122, ptr %3, align 4, !tbaa !17
@@ -4630,7 +4624,7 @@ _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread: ; preds
 
 _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit38: ; preds = %207, %120, %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit, %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread
   %.1 = phi i1 [ false, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread ], [ true, %207 ], [ true, %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread ], [ true, %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit ], [ true, %120 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   %.pre121 = load i32, ptr %3, align 4, !tbaa !17
   %210 = add nsw i32 %.pre121, -1
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
@@ -4643,7 +4637,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseExpressionEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseExpressionEPNS0_5StateE(ptr noundef %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %4 = alloca i32, align 4
@@ -4677,7 +4671,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseE
   br label %609
 
 20:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !30
   %22 = load i32, ptr %5, align 4, !tbaa !17
@@ -5559,7 +5553,7 @@ _ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.thread: ; pre
   br i1 %373, label %375, label %402
 
 375:                                              ; preds = %374
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !30
   %376 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 95)
   br i1 %376, label %.preheader230, label %380
@@ -5587,7 +5581,7 @@ _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit197: ; preds =
 
 379:                                              ; preds = %.loopexit.split-lp232, %.loopexit231
   %lpad.phi234 = phi { ptr, i32 } [ %lpad.loopexit233, %.loopexit231 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp232 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit.split-lp
 
 380:                                              ; preds = %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit197, %375
@@ -5596,12 +5590,12 @@ _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit197: ; preds =
           to label %382 unwind label %.loopexit.split-lp232
 
 382:                                              ; preds = %380
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %381, label %606, label %402
 
 383:                                              ; preds = %367, %362, %355
   store i32 %356, ptr %5, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4, !tbaa !28
   %384 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOperatorNameEPNS0_5StateEPi(ptr noundef nonnull %0, ptr noundef nonnull %4)
           to label %385 unwind label %399
@@ -5644,15 +5638,15 @@ _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit197: ; preds =
 399:                                              ; preds = %396, %.thread, %390, %383
   %400 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit.split-lp
 
 .critedge153:                                     ; preds = %398, %395, %392, %385
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %402
 
 401:                                              ; preds = %398
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %606
 
 402:                                              ; preds = %.critedge153, %374, %382
@@ -6173,17 +6167,17 @@ _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit209.thread: ; pr
           to label %606 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .critedge:                                        ; preds = %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit197
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %606
 
 606:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit209.thread, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit209, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit205, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit201, %582, %577, %569, %558, %557, %552, %539, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit199, %523, %524, %518, %498, %479, %459, %440, %421, %401, %.critedge, %354, %330, %283, %287, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit193, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit186, %182, %._crit_edge, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit, %88, %382
   %.1148 = phi i1 [ true, %382 ], [ true, %401 ], [ true, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit ], [ true, %88 ], [ true, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit ], [ true, %._crit_edge ], [ true, %182 ], [ true, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit186 ], [ true, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit193 ], [ true, %287 ], [ true, %283 ], [ true, %330 ], [ true, %354 ], [ true, %.critedge ], [ true, %421 ], [ true, %440 ], [ true, %459 ], [ true, %479 ], [ true, %498 ], [ true, %518 ], [ true, %524 ], [ true, %523 ], [ true, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit199 ], [ true, %539 ], [ true, %552 ], [ true, %557 ], [ true, %558 ], [ true, %569 ], [ true, %577 ], [ true, %582 ], [ true, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit201 ], [ true, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit205 ], [ true, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit209 ], [ %605, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit209.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %399, %379
   %.pn = phi { ptr, i32 } [ %lpad.phi234, %379 ], [ %400, %399 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit221, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit224, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit227, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit235, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit238, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit242, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit246, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit249, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp250, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %609
 
 _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %13, %17, %606
@@ -6202,7 +6196,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseExprPrimaryEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseExprPrimaryEPNS0_5StateE(ptr noundef %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
@@ -6218,7 +6212,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseE
   br i1 %or.cond, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread, label %11
 
 11:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
   %13 = add nsw i32 %4, 2
@@ -6291,7 +6285,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit: ; preds = %
 .body:                                            ; preds = %128, %43
   %45 = phi i32 [ %.pre, %43 ], [ %131, %128 ]
   %eh.lpad-body = phi { ptr, i32 } [ %44, %43 ], [ %129, %128 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %46 = add nsw i32 %45, -1
   store i32 %46, ptr %3, align 4, !tbaa !17
   resume { ptr, i32 } %eh.lpad-body
@@ -6518,7 +6512,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit45: ; preds =
 
 146:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit61, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit45, %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit, %.sink.split, %94
   %.1 = phi i1 [ true, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit ], [ true, %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit ], [ true, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit61 ], [ true, %94 ], [ true, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit45 ], [ false, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre56 = load i32, ptr %3, align 4, !tbaa !17
   %147 = add nsw i32 %.pre56, -1
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
@@ -6531,7 +6525,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %4 = alloca %"struct.absl::debugging_internal::ParseState", align 4
@@ -6970,7 +6964,7 @@ _ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit: ; preds
 
 202:                                              ; preds = %197, %193, %188, %184
   store i32 %.pre-phi, ptr %8, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !28
   %203 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi(ptr noundef nonnull %0, ptr noundef nonnull %6)
   br i1 %203, label %204, label %212
@@ -6991,7 +6985,7 @@ _ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit: ; preds
   br i1 %209, label %.thread138, label %212
 
 .thread138:                                       ; preds = %207, %208
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %210 = load i32, ptr %8, align 4, !tbaa !17
   %211 = add nsw i32 %210, -1
   store i32 %211, ptr %8, align 4, !tbaa !17
@@ -6999,7 +6993,7 @@ _ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit: ; preds
 
 212:                                              ; preds = %208, %202
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %213 = load i32, ptr %8, align 4, !tbaa !17
   br label %.sink.split184
 
@@ -7203,7 +7197,7 @@ _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %.thr
   br i1 %or.cond141, label %.thread133, label %297
 
 297:                                              ; preds = %.sink.split184
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !30
   %298 = add nsw i32 %292, 1
   store i32 %298, ptr %8, align 4, !tbaa !17
@@ -7246,7 +7240,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.i: ; preds
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i.thread
 
 317:                                              ; preds = %312, %307, %302
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !30
   store i32 %303, ptr %8, align 4, !tbaa !17
   %318 = add nsw i32 %293, 4
@@ -7319,7 +7313,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.i: ; preds =
 
 344:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %345 = load i32, ptr %8, align 4, !tbaa !17
   %346 = add nsw i32 %345, -1
   store i32 %346, ptr %8, align 4, !tbaa !17
@@ -7425,7 +7419,7 @@ _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i.thread: ; pre
 379:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.i, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i.thread
   %.pre165 = phi i32 [ %370, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i ], [ %335, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.i ], [ %.pre165.pre, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i.thread ]
   %.pre164 = phi i32 [ %367, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i ], [ %.pre162, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.i ], [ %.pre164.pre, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i.thread
 
 _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i.thread: ; preds = %297, %379, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.i
@@ -7489,7 +7483,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit87.thread: ; 
 .body96:                                          ; preds = %344, %404
   %406 = phi i32 [ %.pre166, %404 ], [ %346, %344 ]
   %eh.lpad-body97 = phi { ptr, i32 } [ %405, %404 ], [ %lpad.phi, %344 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %407 = add nsw i32 %406, -1
   store i32 %407, ptr %8, align 4, !tbaa !17
   br label %.body
@@ -7534,7 +7528,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit: ; preds = %
   br i1 %423, label %.thread135, label %425
 
 .thread135:                                       ; preds = %421
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %424 = add nsw i32 %storemerge.in.pre.pre172, -1
   store i32 %424, ptr %8, align 4, !tbaa !17
   br label %590
@@ -7542,7 +7536,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit: ; preds = %
 425:                                              ; preds = %._crit_edge171, %421, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit87.thread
   %storemerge.in.pre = phi i32 [ %storemerge.in.pre.pre, %._crit_edge171 ], [ %storemerge.in.pre.pre172, %421 ], [ %382, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit87.thread ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread133
 
 .thread133:                                       ; preds = %.sink.split184, %425
@@ -7568,7 +7562,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit: ; preds = %
   br i1 %or.cond.i202, label %.thread229, label %435
 
 435:                                              ; preds = %428
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !30
   %436 = add nsw i32 %429, 2
   store i32 %436, ptr %8, align 4, !tbaa !17
@@ -7688,7 +7682,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit22.thread.i: 
 488:                                              ; preds = %519, %504, %484
   %489 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %490 = load i32, ptr %8, align 4, !tbaa !17
   %491 = add nsw i32 %490, -1
   store i32 %491, ptr %8, align 4, !tbaa !17
@@ -7766,7 +7760,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit22.thread.i: 
   br label %524
 
 .thread231:                                       ; preds = %487, %522
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre40.i233 = load i32, ptr %8, align 4, !tbaa !17
   %523 = add nsw i32 %.pre40.i233, -1
   store i32 %523, ptr %8, align 4, !tbaa !17
@@ -7776,7 +7770,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit22.thread.i: 
   %.pre258 = phi i32 [ %.pre258.pre, %._crit_edge256 ], [ %.pre258263, %.sink.split.i ]
   %.pre40.i = phi i32 [ %.pre40.i.pre, %._crit_edge256 ], [ %.sink.i, %.sink.split.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %525 = add nsw i32 %.pre40.i, -1
   br label %.thread229
 
@@ -7793,7 +7787,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit22.thread.i: 
   br i1 %or.cond.i212, label %.thread234, label %530
 
 530:                                              ; preds = %.thread229
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !30
   %531 = add nsw i32 %storemerge239, 2
   store i32 %531, ptr %8, align 4, !tbaa !17
@@ -7840,7 +7834,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i216:
   br i1 %545, label %.thread236, label %552
 
 .thread236:                                       ; preds = %546
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %547 = add nsw i32 %.pre.i218.pre260, -1
   store i32 %547, ptr %8, align 4, !tbaa !17
   br label %590
@@ -7848,7 +7842,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i216:
 548:                                              ; preds = %544, %540
   %549 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %550 = load i32, ptr %8, align 4, !tbaa !17
   %551 = add nsw i32 %550, -1
   store i32 %551, ptr %8, align 4, !tbaa !17
@@ -7857,7 +7851,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i216:
 552:                                              ; preds = %._crit_edge259, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i216, %546
   %.pre.i218 = phi i32 [ %.pre.i218.pre, %._crit_edge259 ], [ %.pre-phi265, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i216 ], [ %.pre.i218.pre260, %546 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %553 = add nsw i32 %.pre.i218, -1
   br label %.thread234
 
@@ -7970,7 +7964,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseFunctionParamEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseFunctionParamEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
@@ -7986,7 +7980,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseF
   br i1 %or.cond, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread, label %11
 
 11:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
   %13 = add nsw i32 %4, 2
@@ -8107,7 +8101,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit: ; preds = %
 72:                                               ; preds = %129, %26
   %73 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %74 = load i32, ptr %3, align 4, !tbaa !17
   %75 = add nsw i32 %74, -1
   store i32 %75, ptr %3, align 4, !tbaa !17
@@ -8359,7 +8353,7 @@ _ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit: ; preds
   %194 = phi i32 [ %.sink, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit27.thread ], [ %.sink, %179 ], [ %.sink, %184 ], [ %.sink, %188 ], [ %.ph, %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit.sink.split ]
   %.1 = phi i1 [ false, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit27.thread ], [ false, %179 ], [ false, %184 ], [ false, %188 ], [ true, %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit.sink.split ]
   store i32 %194, ptr %3, align 4, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %195 = add nsw i32 %194, -1
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
@@ -8371,7 +8365,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL21ParseBracedExpressionEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL21ParseBracedExpressionEPNS0_5StateE(ptr noundef %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
@@ -8387,7 +8381,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL21ParseB
   br i1 %or.cond, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread, label %11
 
 11:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
   %13 = add nsw i32 %4, 2
@@ -8435,7 +8429,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread: ; 
 32:                                               ; preds = %85, %82, %79, %75, %56, %52, %29
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = load i32, ptr %3, align 4, !tbaa !17
   %35 = add nsw i32 %34, -1
   store i32 %35, ptr %3, align 4, !tbaa !17
@@ -8553,7 +8547,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit30.thread: 
 
 87:                                               ; preds = %85, %84, %58, %31
   %.1 = phi i1 [ true, %31 ], [ true, %58 ], [ true, %84 ], [ %86, %85 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load i32, ptr %3, align 4, !tbaa !17
   %88 = add nsw i32 %.pre, -1
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
@@ -8566,7 +8560,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseInitializerEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseInitializerEPNS0_5StateE(ptr noundef %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
@@ -8582,7 +8576,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseI
   br i1 %or.cond, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread, label %11
 
 11:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
   %13 = add nsw i32 %4, 2
@@ -8661,7 +8655,7 @@ _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %.
 
 43:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %44 = load i32, ptr %3, align 4, !tbaa !17
   %45 = add nsw i32 %44, -1
   store i32 %45, ptr %3, align 4, !tbaa !17
@@ -8744,7 +8738,7 @@ _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit23: ; preds = 
 77:                                               ; preds = %75, %41, %.thread35
   %78 = phi i32 [ %storemerge40, %.thread35 ], [ %30, %41 ], [ %64, %75 ]
   %.1 = phi i1 [ false, %.thread35 ], [ true, %41 ], [ true, %75 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %79 = add nsw i32 %78, -1
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
@@ -8756,7 +8750,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOperatorNameEPNS0_5StateEPi(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOperatorNameEPNS0_5StateEPi(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %.sroa.0 = alloca { i32, i32, i32 }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -8793,7 +8787,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseO
   br i1 %.not.i, label %_ZN4absl18debugging_internalL24AtLeastNumCharsRemainingEPKcm.exit, label %16
 
 20:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %13, i64 12, i1 false), !tbaa.struct !30
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !4
@@ -8851,7 +8845,7 @@ _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %32, 
   br i1 %or.cond108, label %.thread, label %43
 
 43:                                               ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !30
   %.val28.i = load ptr, ptr %0, align 8, !tbaa !7
   %.val29.i = load i32, ptr %13, align 4, !tbaa !16
@@ -8925,7 +8919,7 @@ _ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit: ; preds = %.
 
 .thread104:                                       ; preds = %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %62 = load i32, ptr %4, align 4, !tbaa !17
   %63 = add nsw i32 %62, -1
   store i32 %63, ptr %4, align 4, !tbaa !17
@@ -8935,11 +8929,11 @@ _ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit: ; preds = %.
 .body:                                            ; preds = %.loopexit109
   %64 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %65 = load i32, ptr %4, align 4, !tbaa !17
   %66 = add nsw i32 %65, -1
   store i32 %66, ptr %4, align 4, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   %67 = add nsw i32 %65, -2
   store i32 %67, ptr %4, align 4, !tbaa !17
   resume { ptr, i32 } %64
@@ -9011,7 +9005,7 @@ _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit89: ; preds = %_Z
   br label %86
 
 .thread103:                                       ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit89, %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %storemerge.in = load i32, ptr %4, align 4, !tbaa !17
   %storemerge = add nsw i32 %storemerge.in, -1
   store i32 %storemerge, ptr %4, align 4, !tbaa !17
@@ -9227,7 +9221,7 @@ _ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.i: ; preds = 
 
 .loopexit:                                        ; preds = %170, %167, %137, %143, %135, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit81, %.thread103, %85
   %.1 = phi i1 [ true, %85 ], [ true, %.thread103 ], [ true, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit81 ], [ true, %135 ], [ false, %143 ], [ false, %137 ], [ true, %167 ], [ false, %170 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   %.pre130 = load i32, ptr %4, align 4, !tbaa !17
   %173 = add nsw i32 %.pre130, -1
   br label %_ZN4absl18debugging_internalL24AtLeastNumCharsRemainingEPKcm.exit
@@ -9240,7 +9234,7 @@ _ZN4absl18debugging_internalL24AtLeastNumCharsRemainingEPKcm.exit: ; preds = %.l
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseTemplateArgEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseTemplateArgEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
@@ -9489,7 +9483,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL19ParseUnresolvedNameEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL19ParseUnresolvedNameEPNS0_5StateE(ptr noundef %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %4 = alloca %"struct.absl::debugging_internal::ParseState", align 4
@@ -9508,7 +9502,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL19ParseU
   br i1 %or.cond, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread, label %14
 
 14:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !30
   %16 = add nsw i32 %7, 2
@@ -9557,7 +9551,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit: ; preds =
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit.split-lp, %171, %113, %190
   %33 = phi i32 [ %192, %190 ], [ %115, %113 ], [ %.pre127, %.loopexit.split-lp.loopexit.split-lp ], [ %173, %171 ]
   %lpad.phi = phi { ptr, i32 } [ %.pn.i105, %190 ], [ %.pn.i, %113 ], [ %lpad.loopexit.split-lp91, %.loopexit.split-lp.loopexit.split-lp ], [ %.pn.i98, %171 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %34 = add nsw i32 %33, -1
   store i32 %34, ptr %6, align 4, !tbaa !17
   resume { ptr, i32 } %lpad.phi
@@ -9722,7 +9716,7 @@ _ZN4absl18debugging_internalL19ParseUnresolvedTypeEPNS0_5StateE.exit47.thread: ;
   br label %113
 
 _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.i: ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !30
   %106 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseSubstitutionEPNS0_5StateEb(ptr noundef nonnull %0, i1 noundef zeroext false)
   br i1 %106, label %107, label %.thread
@@ -9737,17 +9731,17 @@ _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.i: ; preds = %.lr
 110:                                              ; preds = %107
   %111 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %113
 
 .thread:                                          ; preds = %_ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.i, %109
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %storemerge.in.pre = load i32, ptr %6, align 4, !tbaa !17
   br label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit
 
 112:                                              ; preds = %109
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.preheader.i.backedge
 
 113:                                              ; preds = %110, %104
@@ -9868,7 +9862,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit54: ; preds
   br label %171
 
 _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.i95: ; preds = %156
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !30
   %162 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseSubstitutionEPNS0_5StateEb(ptr noundef nonnull %0, i1 noundef zeroext false)
   br i1 %162, label %163, label %.thread112
@@ -9883,19 +9877,19 @@ _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.i95: ; preds = %1
 166:                                              ; preds = %163
   %167 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %171
 
 .thread112:                                       ; preds = %_ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.i95, %165
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %168 = load i32, ptr %6, align 4, !tbaa !17
   %169 = add nsw i32 %168, -1
   store i32 %169, ptr %6, align 4, !tbaa !17
   br label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit63.threadthread-pre-split
 
 170:                                              ; preds = %165
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.preheader.i60.preheader
 
 171:                                              ; preds = %166, %160
@@ -9929,7 +9923,7 @@ _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.i95: ; preds = %1
   br label %190
 
 _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.i102: ; preds = %.lr.ph119
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !30
   %183 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseSubstitutionEPNS0_5StateEb(ptr noundef nonnull %0, i1 noundef zeroext false)
   br i1 %183, label %184, label %.thread114
@@ -9944,18 +9938,18 @@ _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.i102: ; preds = %
 187:                                              ; preds = %184
   %188 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %190
 
 .thread114:                                       ; preds = %_ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.i102, %186
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %storemerge116.in.pre = load i32, ptr %6, align 4, !tbaa !17
   %.pre125 = load i32, ptr %9, align 8, !tbaa !15
   br label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit63
 
 189:                                              ; preds = %186
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.preheader.i60.backedge
 
 190:                                              ; preds = %187, %181
@@ -10099,7 +10093,7 @@ _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit: ; preds = %_ZN4a
 
 _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit81.thread: ; preds = %244, %209, %123, %60, %32, %_ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit
   %.1 = phi i1 [ false, %_ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit ], [ true, %32 ], [ true, %60 ], [ true, %123 ], [ true, %209 ], [ true, %244 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load i32, ptr %6, align 4, !tbaa !17
   %246 = add nsw i32 %.pre, -1
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
@@ -10112,7 +10106,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseRequirementEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseRequirementEPNS0_5StateE(ptr noundef %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
@@ -10128,7 +10122,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseR
   br i1 %or.cond, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread, label %11
 
 11:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
   %13 = add nsw i32 %4, 2
@@ -10228,7 +10222,7 @@ _ZN4absl18debugging_internalL19ParseTypeConstraintEPNS0_5StateE.exit._crit_edge:
 48:                                               ; preds = %45, %79, %64, %22
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %50 = load i32, ptr %3, align 4, !tbaa !17
   %51 = add nsw i32 %50, -1
   store i32 %51, ptr %3, align 4, !tbaa !17
@@ -10318,7 +10312,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit38.thread: ; 
 
 84:                                               ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit28.thread, %82, %67, %_ZN4absl18debugging_internalL19ParseTypeConstraintEPNS0_5StateE.exit, %83
   %.1 = phi i1 [ false, %83 ], [ true, %_ZN4absl18debugging_internalL19ParseTypeConstraintEPNS0_5StateE.exit ], [ true, %67 ], [ true, %82 ], [ true, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit28.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre49 = load i32, ptr %3, align 4, !tbaa !17
   %85 = add nsw i32 %.pre49, -1
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
@@ -10331,7 +10325,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL30ParseExprCastValueAndTrailingEEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL30ParseExprCastValueAndTrailingEEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
@@ -10345,7 +10339,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL30ParseE
   br i1 %or.cond, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread, label %10
 
 10:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !30
   %12 = add nsw i32 %4, 2
@@ -10573,7 +10567,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL30ParseE
 
 118:                                              ; preds = %116, %79, %50, %.thread55
   %.1 = phi i1 [ false, %.thread55 ], [ true, %50 ], [ true, %79 ], [ true, %116 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
 _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %118
@@ -10583,7 +10577,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseClassEnumTypeEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseClassEnumTypeEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
@@ -10599,7 +10593,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseC
   br i1 %or.cond, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread, label %11
 
 11:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
   %13 = add nsw i32 %4, 2
@@ -10689,7 +10683,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit21: ; preds
 53:                                               ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit21
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %55 = load i32, ptr %3, align 4, !tbaa !17
   %56 = add nsw i32 %55, -1
   store i32 %56, ptr %3, align 4, !tbaa !17
@@ -10700,7 +10694,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit21: ; preds
   br label %58
 
 58:                                               ; preds = %52, %57
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load i32, ptr %3, align 4, !tbaa !17
   %59 = add nsw i32 %.pre, -1
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
@@ -10713,7 +10707,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL26ParseTemplateTemplateParamEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL26ParseTemplateTemplateParamEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4, !tbaa !17
   %4 = add nsw i32 %3, 1
@@ -10744,7 +10738,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL14ParseLongTokenEPNS0_5StateEPKc(ptr noundef captures(none) %0) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL14ParseLongTokenEPNS0_5StateEPKc(ptr noundef captures(none) %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4, !tbaa !17
   %4 = add nsw i32 %3, 1
@@ -10792,9 +10786,9 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #10 {
+define internal fastcc void @_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #9 {
   %3 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 4
   %.not = icmp sgt i32 %5, -1
@@ -10875,12 +10869,12 @@ define internal fastcc void @_ZN4absl18debugging_internalL18MaybeAppendDecimalEP
   br label %_ZN4absl18debugging_internalL6AppendEPNS0_5StateEPKcm.exit
 
 _ZN4absl18debugging_internalL6AppendEPNS0_5StateEPKcm.exit: ; preds = %44, %.loopexit.i, %2
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL22ParseTemplateParamDeclEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL22ParseTemplateParamDeclEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
@@ -10896,7 +10890,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL22ParseT
   br i1 %or.cond, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread, label %11
 
 11:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
   %13 = add nsw i32 %4, 2
@@ -10941,7 +10935,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit: ; preds =
 
 27:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %28 = load i32, ptr %3, align 4, !tbaa !17
   %29 = add nsw i32 %28, -1
   store i32 %29, ptr %3, align 4, !tbaa !17
@@ -11157,7 +11151,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit44.thread: 
 
 117:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit, %46, %115, %67, %116
   %.1 = phi i1 [ false, %116 ], [ true, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit ], [ true, %67 ], [ true, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit ], [ true, %115 ], [ true, %46 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre56 = load i32, ptr %3, align 4, !tbaa !17
   %118 = add nsw i32 %.pre56, -1
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
@@ -11170,7 +11164,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
@@ -11185,7 +11179,7 @@ define internal fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEP
   br i1 %or.cond, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread, label %11
 
 11:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
   %13 = add nsw i32 %4, 2
@@ -11340,7 +11334,7 @@ _ZN4absl18debugging_internalL10ParseDigitEPNS0_5StateEPi.exit.thread: ; preds = 
   br label %.thread
 
 .thread:                                          ; preds = %11, %17, %82, %_ZN4absl18debugging_internalL10ParseDigitEPNS0_5StateEPi.exit.thread, %.thread33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
 _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %.thread
@@ -11349,7 +11343,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL23ParseBaseUnresolvedNameEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL23ParseBaseUnresolvedNameEPNS0_5StateE(ptr noundef %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
@@ -11378,7 +11372,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL23ParseB
   br label %65
 
 _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit: ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !30
   %18 = load i32, ptr %3, align 4, !tbaa !17
@@ -11430,7 +11424,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread: ; 
 37:                                               ; preds = %.invoke, %57, %33
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %65
 
 39:                                               ; preds = %._crit_edge, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
@@ -11497,7 +11491,7 @@ _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit27: ; preds = %60,
 
 _ZN4absl18debugging_internalL19ParseUnresolvedTypeEPNS0_5StateE.exit.thread: ; preds = %.invoke, %.noexc25, %_ZN4absl18debugging_internalL19ParseUnresolvedTypeEPNS0_5StateE.exit, %_ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit27
   %.1 = phi i1 [ false, %_ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit27 ], [ true, %_ZN4absl18debugging_internalL19ParseUnresolvedTypeEPNS0_5StateE.exit ], [ true, %.noexc25 ], [ true, %.invoke ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
 _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %13, %1, %_ZN4absl18debugging_internalL19ParseUnresolvedTypeEPNS0_5StateE.exit.thread
@@ -11516,7 +11510,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL29ParseUnresolvedQualifierLevelEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL29ParseUnresolvedQualifierLevelEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
@@ -11545,7 +11539,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL29ParseU
   br label %28
 
 _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit: ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !30
   %18 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseSubstitutionEPNS0_5StateEb(ptr noundef nonnull %0, i1 noundef zeroext false)
@@ -11561,7 +11555,7 @@ _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit: ; preds = %11
 22:                                               ; preds = %19
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %28
 
 24:                                               ; preds = %21, %_ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit
@@ -11570,7 +11564,7 @@ _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit: ; preds = %11
 
 25:                                               ; preds = %21, %24
   %.1 = phi i1 [ false, %24 ], [ true, %21 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
 _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %13, %1, %25
@@ -11589,7 +11583,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseLocalNameSuffixEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseLocalNameSuffixEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca [20 x i8], align 16
   %3 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -11606,7 +11600,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseL
   br i1 %or.cond66, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread, label %12
 
 12:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !30
   %14 = add nsw i32 %5, 2
@@ -11720,13 +11714,13 @@ _ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit: ; preds = %31, %
   br i1 %.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.thread, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
 _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.thread: ; preds = %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread
 
 _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.251, i64 noundef 15)
   %.pr = load i32, ptr %67, align 4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not.i41 = icmp sgt i32 %.pr, -1
   br i1 %.not.i41, label %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread, label %69
 
@@ -11805,12 +11799,12 @@ _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %_ZN4
   br label %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit
 
 _ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread: ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.thread, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit45
 
 _ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit: ; preds = %.loopexit.i.i, %107
   %.pr62 = load i32, ptr %67, align 4
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not.i43 = icmp sgt i32 %.pr62, -1
   br i1 %.not.i43, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit45, label %112
 
@@ -11951,14 +11945,14 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit58.thread: ; 
 
 171:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit58.thread, %131, %134, %132, %147, %169
   %.2 = phi i1 [ true, %147 ], [ true, %169 ], [ true, %131 ], [ false, %134 ], [ false, %132 ], [ false, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit58.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load i32, ptr %4, align 4, !tbaa !17
   %172 = add nsw i32 %.pre, -1
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
 173:                                              ; preds = %126, %124
   %.pn = phi { ptr, i32 } [ %127, %126 ], [ %125, %124 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %174 = load i32, ptr %4, align 4, !tbaa !17
   %175 = add nsw i32 %174, -1
   store i32 %175, ptr %4, align 4, !tbaa !17
@@ -11972,7 +11966,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL10ParseSeqIdEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL10ParseSeqIdEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4, !tbaa !17
   %4 = add nsw i32 %3, 1
@@ -12033,7 +12027,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseUnqualifiedNameEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseUnqualifiedNameEPNS0_5StateE(ptr noundef %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %4 = alloca %"struct.absl::debugging_internal::ParseState", align 4
@@ -12071,7 +12065,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseU
   br i1 %or.cond75, label %.thread, label %23
 
 23:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %24, i64 16, i1 false), !tbaa.struct !30
   %25 = add nsw i32 %.pre81, 2
@@ -12144,7 +12138,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseU
 58:                                               ; preds = %70
   %59 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %60 = load i32, ptr %6, align 4, !tbaa !17
   %61 = add nsw i32 %60, -1
   store i32 %61, ptr %6, align 4, !tbaa !17
@@ -12264,7 +12258,7 @@ _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %98, 
   br label %.thread69
 
 .thread69:                                        ; preds = %.thread69.sink.split, %72
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %112 = load i32, ptr %6, align 4, !tbaa !17
   %113 = add nsw i32 %112, -1
   store i32 %113, ptr %6, align 4, !tbaa !17
@@ -12273,7 +12267,7 @@ _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %98, 
 _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread: ; preds = %94, %85, %89, %73, %80
   store i32 %74, ptr %6, align 4, !tbaa !17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %24, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %114 = add nsw i32 %74, -1
   br label %.thread
 
@@ -12295,7 +12289,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread: ; pr
   br i1 %or.cond.i, label %_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread, label %122
 
 122:                                              ; preds = %116
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %123, i64 16, i1 false), !tbaa.struct !30
   %124 = add nsw i32 %.pre80, 2
@@ -12334,7 +12328,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread: ; pr
 
 _ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread72: ; preds = %133
   tail call fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE(ptr noundef nonnull %0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre.i74 = load i32, ptr %6, align 4, !tbaa !17
   %137 = add nsw i32 %.pre.i74, -1
   store i32 %137, ptr %6, align 4, !tbaa !17
@@ -12343,7 +12337,7 @@ _ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread72: 
 _ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit: ; preds = %._ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit_crit_edge, %.thread.i
   %.pre.i = phi i32 [ %136, %._ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit_crit_edge ], [ %.pre80, %.thread.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %123, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread
 
 _ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread: ; preds = %116, %_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit
@@ -12399,7 +12393,7 @@ _ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread: ; 
   %160 = add nsw i32 %.val7.i.i29, 1
   store i32 %160, ptr %151, align 4, !tbaa !16
   store i32 %154, ptr %6, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %151, i64 16, i1 false), !tbaa.struct !30
   %161 = load i32, ptr %152, align 4
   %.not.i.i = icmp sgt i32 %161, -1
@@ -12415,7 +12409,7 @@ _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.i: ; preds = %16
 
 _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit19.thread.i: ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %151, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre.i30 = load i32, ptr %6, align 4, !tbaa !17
   br label %_ZN4absl18debugging_internalL12ParseAbiTagsEPNS0_5StateE.exit
 
@@ -12429,7 +12423,7 @@ _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit19.thread.i: ; pr
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit19.i
 
 _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit19.i: ; preds = %166, %164
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %167 = load i32, ptr %6, align 4, !tbaa !17
   %168 = add nsw i32 %167, 1
   store i32 %168, ptr %6, align 4, !tbaa !17
@@ -12454,7 +12448,7 @@ _ZN4absl18debugging_internalL12ParseAbiTagsEPNS0_5StateE.exit: ; preds = %153, %
   br label %.body
 
 177:                                              ; preds = %139
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %178, i64 16, i1 false), !tbaa.struct !30
   %179 = load i32, ptr %6, align 4, !tbaa !17
@@ -12505,7 +12499,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread: ; 
 200:                                              ; preds = %219
   %201 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.body
 
 _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread, %194, %198
@@ -12564,7 +12558,7 @@ _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit93: ; preds = %21
 
 223:                                              ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit93, %221, %198, %222
   %.1 = phi i1 [ false, %222 ], [ true, %198 ], [ true, %221 ], [ true, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit93 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre82 = load i32, ptr %6, align 4, !tbaa !17
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
@@ -12584,7 +12578,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseCallOffsetEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseCallOffsetEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
@@ -12598,7 +12592,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseC
   br i1 %or.cond, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread, label %10
 
 10:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !30
   %12 = add nsw i32 %4, 2
@@ -12873,7 +12867,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseC
 
 156:                                              ; preds = %154, %63, %.thread51
   %.1 = phi i1 [ false, %.thread51 ], [ true, %63 ], [ true, %154 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
 _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %156
@@ -12883,33 +12877,39 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #15 = { nounwind }
 attributes #16 = { builtin nounwind }

@@ -272,7 +272,7 @@ define void @_ZN10open_spiel10algorithms15PolicyIterationB5cxx11ERKNS_4GameEid(p
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %30, align 8
   %76 = getelementptr inbounds nuw i8, ptr %30, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %76, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %77 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -332,14 +332,14 @@ define void @_ZN10open_spiel10algorithms15PolicyIterationB5cxx11ERKNS_4GameEid(p
 
 .noexc59:                                         ; preds = %105
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %108 = load ptr, ptr %89, align 8
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 48
@@ -897,14 +897,14 @@ common.resume.sink.split.i:                       ; preds = %349, %324
   br label %.body
 
 _ZN10open_spiel10algorithms12_GLOBAL__N_113AddTransitionEPN4absl7debian213flat_hash_mapIlSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdESaISD_EENS3_13hash_internal4HashIlEESt8equal_toIlESaIS6_IKlSF_EEEERKSC_RKSt10unique_ptrINS_5StateESt14default_deleteIST_EE.exit.i: ; preds = %117, %._crit_edge20.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %329 = invoke fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms12_GLOBAL__N_18MDPStateEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SD_EEEixIS9_SE_EEDTclsrT0_5valueclL_ZSt9addressofISK_EPT_RSQ_EclL_ZSt7declvalIRSK_EDTcl9__declvalISQ_ELi0EEEvEEEEERKSQ_(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(32) %88)
           to label %.noexc61 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -956,7 +956,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i:                  ; preds = %341, %338, %.noexc5
   br i1 %.not.i, label %_ZN10open_spiel10algorithms12_GLOBAL__N_114InitializeMapsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS_5StateESt14default_deleteISA_EESt4lessIS8_ESaISt4pairIKS8_SD_EEEPN4absl7debian213flat_hash_mapIS8_NS1_8MDPStateENSO_18container_internal10StringHashENSR_12StringHashEq2EqESaISG_ISH_SQ_EEEE.exit, label %87
 
 _ZN10open_spiel10algorithms12_GLOBAL__N_114InitializeMapsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS_5StateESt14default_deleteISA_EESt4lessIS8_ESaISt4pairIKS8_SD_EEEPN4absl7debian213flat_hash_mapIS8_NS1_8MDPStateENSO_18container_internal10StringHashENSR_12StringHashEq2EqESaISG_ISH_SQ_EEEE.exit: ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit.i, %75
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %352 = fcmp uge double %3, 0.000000e+00
   %353 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %354 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1332,7 +1332,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
           to label %557 unwind label %.loopexit.split-lp.loopexit
 
 557:                                              ; preds = %551
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %558 = load ptr, ptr %544, align 8
   %559 = load ptr, ptr %558, align 8
   %560 = getelementptr inbounds nuw i8, ptr %559, i64 48
@@ -1428,7 +1428,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   br label %591
 
 591:                                              ; preds = %586, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %592 = invoke fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_16QValueERKN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_8MDPStateENS3_18container_internal10StringHashENSC_12StringHashEq2EqESaISt4pairIKSA_SB_EEEERKSt10unique_ptrINS_5StateESt14default_deleteISO_EERKl(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(8) %544, i64 %.0.lcssa.i)
           to label %593 unwind label %.loopexit.split-lp.loopexit
 
@@ -2741,7 +2741,7 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit.i.i.i.i: ; p
   br i1 %.not.i8.i.i.i.i, label %286, label %96
 
 96:                                               ; preds = %91
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3), !noalias !38
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !38
   tail call void @_ZN4absl7debian218container_internal37ConvertDeletedToEmptyAndFullToDeletedEPam(ptr noundef nonnull %60, i64 noundef %61), !noalias !38
   %97 = load i64, ptr %16, align 8, !noalias !38
   %.not40.i.i.i.i.i.i = icmp eq i64 %97, 0
@@ -3047,7 +3047,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   %284 = add i64 %282, %283
   %285 = sub i64 %.lcssa38.i.i.i.i.i.i, %284
   store i64 %285, ptr %81, align 8, !noalias !38
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3), !noalias !38
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !38
   br label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms12_GLOBAL__N_18MDPStateEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SD_EEE28rehash_and_grow_if_necessaryEv.exit.i.i.i.i
 
 286:                                              ; preds = %91
@@ -5337,10 +5337,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 declare i16 @llvm.cttz.i16(i16, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20

@@ -84,16 +84,13 @@ OFFSCREEN_Available.exit:                         ; preds = %2, %0, %5, %7
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @OFFSCREEN_VideoInit(ptr readnone captures(none) %0) #0 {
   %2 = alloca %struct.SDL_DisplayMode, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 370546692, ptr %3, align 4
@@ -103,27 +100,27 @@ define internal zeroext i1 @OFFSCREEN_VideoInit(ptr readnone captures(none) %0) 
   store i32 768, ptr %5, align 4
   %6 = call i32 @SDL_AddBasicVideoDisplay(ptr noundef nonnull %2) #6
   %7 = icmp ne i32 %6, 0
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @OFFSCREEN_VideoQuit(ptr readnone captures(none) %0) #3 {
+define internal void @OFFSCREEN_VideoQuit(ptr readnone captures(none) %0) #2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @OFFSCREEN_SetDisplayMode(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #3 {
+define internal noundef zeroext i1 @OFFSCREEN_SetDisplayMode(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 {
   ret i1 true
 }
 
-declare void @OFFSCREEN_PumpEvents(ptr noundef) #4
+declare void @OFFSCREEN_PumpEvents(ptr noundef) #3
 
-declare zeroext i1 @SDL_OFFSCREEN_CreateWindowFramebuffer(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare zeroext i1 @SDL_OFFSCREEN_CreateWindowFramebuffer(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare zeroext i1 @SDL_OFFSCREEN_UpdateWindowFramebuffer(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #4
+declare zeroext i1 @SDL_OFFSCREEN_UpdateWindowFramebuffer(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #3
 
-declare void @SDL_OFFSCREEN_DestroyWindowFramebuffer(ptr noundef, ptr noundef) #4
+declare void @SDL_OFFSCREEN_DestroyWindowFramebuffer(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @OFFSCREEN_DeleteDevice(ptr noundef %0) #0 {
@@ -131,60 +128,63 @@ define internal void @OFFSCREEN_DeleteDevice(ptr noundef %0) #0 {
   ret void
 }
 
-declare zeroext i1 @OFFSCREEN_GLES_SwapWindow(ptr noundef, ptr noundef) #4
+declare zeroext i1 @OFFSCREEN_GLES_SwapWindow(ptr noundef, ptr noundef) #3
 
-declare zeroext i1 @OFFSCREEN_GLES_MakeCurrent(ptr noundef, ptr noundef, ptr noundef) #4
+declare zeroext i1 @OFFSCREEN_GLES_MakeCurrent(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare ptr @OFFSCREEN_GLES_CreateContext(ptr noundef, ptr noundef) #4
+declare ptr @OFFSCREEN_GLES_CreateContext(ptr noundef, ptr noundef) #3
 
-declare zeroext i1 @SDL_EGL_DestroyContext(ptr noundef, ptr noundef) #4
+declare zeroext i1 @SDL_EGL_DestroyContext(ptr noundef, ptr noundef) #3
 
-declare zeroext i1 @OFFSCREEN_GLES_LoadLibrary(ptr noundef, ptr noundef) #4
+declare zeroext i1 @OFFSCREEN_GLES_LoadLibrary(ptr noundef, ptr noundef) #3
 
-declare void @SDL_EGL_UnloadLibrary(ptr noundef) #4
+declare void @SDL_EGL_UnloadLibrary(ptr noundef) #3
 
-declare ptr @SDL_EGL_GetProcAddressInternal(ptr noundef, ptr noundef) #4
+declare ptr @SDL_EGL_GetProcAddressInternal(ptr noundef, ptr noundef) #3
 
-declare zeroext i1 @SDL_EGL_GetSwapInterval(ptr noundef, ptr noundef) #4
+declare zeroext i1 @SDL_EGL_GetSwapInterval(ptr noundef, ptr noundef) #3
 
-declare zeroext i1 @SDL_EGL_SetSwapInterval(ptr noundef, i32 noundef) #4
+declare zeroext i1 @SDL_EGL_SetSwapInterval(ptr noundef, i32 noundef) #3
 
-declare zeroext i1 @OFFSCREEN_Vulkan_LoadLibrary(ptr noundef, ptr noundef) #4
+declare zeroext i1 @OFFSCREEN_Vulkan_LoadLibrary(ptr noundef, ptr noundef) #3
 
-declare void @OFFSCREEN_Vulkan_UnloadLibrary(ptr noundef) #4
+declare void @OFFSCREEN_Vulkan_UnloadLibrary(ptr noundef) #3
 
-declare ptr @OFFSCREEN_Vulkan_GetInstanceExtensions(ptr noundef, ptr noundef) #4
+declare ptr @OFFSCREEN_Vulkan_GetInstanceExtensions(ptr noundef, ptr noundef) #3
 
-declare zeroext i1 @OFFSCREEN_Vulkan_CreateSurface(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare zeroext i1 @OFFSCREEN_Vulkan_CreateSurface(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare void @OFFSCREEN_Vulkan_DestroySurface(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @OFFSCREEN_Vulkan_DestroySurface(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare zeroext i1 @OFFSCREEN_CreateWindow(ptr noundef, ptr noundef, i32 noundef) #4
+declare zeroext i1 @OFFSCREEN_CreateWindow(ptr noundef, ptr noundef, i32 noundef) #3
 
-declare void @OFFSCREEN_DestroyWindow(ptr noundef, ptr noundef) #4
+declare void @OFFSCREEN_DestroyWindow(ptr noundef, ptr noundef) #3
 
-declare void @OFFSCREEN_SetWindowSize(ptr noundef, ptr noundef) #4
+declare void @OFFSCREEN_SetWindowSize(ptr noundef, ptr noundef) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #3
 
-declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #4
-
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare i32 @SDL_AddBasicVideoDisplay(ptr noundef) local_unnamed_addr #4
+declare i32 @SDL_AddBasicVideoDisplay(ptr noundef) local_unnamed_addr #3
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #4
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind allocsize(0,1) }
 

@@ -8360,7 +8360,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance14ModuleInstanceC2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %8, i8 0, i64 104, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %1, ptr %2) #18
   %12 = extractvalue { i64, ptr } %11, 0
   %13 = extractvalue { i64, ptr } %11, 1
@@ -8372,7 +8372,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance14ModuleInstanceC2
           to label %17 unwind label %92
 
 17:                                               ; preds = %5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -8815,7 +8815,7 @@ _ZNSt6vectorIPKN8WasmEdge3AST7SubTypeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gn
   br i1 %.not.i, label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit, label %73
 
 73:                                               ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 88
   %75 = load i8, ptr %74, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %75, -1
@@ -8834,7 +8834,7 @@ _ZNSt6vectorIPKN8WasmEdge3AST7SubTypeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gn
   unreachable
 
 _ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.exit.i: ; preds = %76, %73
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef 96) #19
   br label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit
 
@@ -8864,7 +8864,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit11:  ; preds = %82, %84
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host11WasiArgsGetEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.166") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -8894,7 +8894,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -8918,7 +8918,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiArgsSizesGetEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.174") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -8948,7 +8948,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -8972,7 +8972,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiEnvironGetEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.182") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -9002,7 +9002,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -9026,7 +9026,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host19WasiEnvironSizesGetEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.190") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -9056,7 +9056,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -9080,7 +9080,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host15WasiClockResGetEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.198") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -9110,7 +9110,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -9134,7 +9134,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiClockTimeGetEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.206") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -9164,7 +9164,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -9188,7 +9188,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host12WasiFdAdviseEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.214") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -9218,7 +9218,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -9242,7 +9242,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiFdAllocateEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.222") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -9272,7 +9272,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -9296,7 +9296,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host11WasiFdCloseEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.230") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -9326,7 +9326,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -9350,7 +9350,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiFdDatasyncEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.238") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -9380,7 +9380,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -9404,7 +9404,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host15WasiFdFdstatGetEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.246") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -9434,7 +9434,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -9458,7 +9458,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host20WasiFdFdstatSetFlagsEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.254") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -9488,7 +9488,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -9512,7 +9512,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host21WasiFdFdstatSetRightsEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.262") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -9542,7 +9542,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -9566,7 +9566,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host17WasiFdFilestatGetEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.270") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -9596,7 +9596,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -9620,7 +9620,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host21WasiFdFilestatSetSizeEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.278") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -9650,7 +9650,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -9674,7 +9674,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host22WasiFdFilestatSetTimesEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.286") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -9704,7 +9704,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -9728,7 +9728,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host11WasiFdPreadEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.294") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -9758,7 +9758,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -9782,7 +9782,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiFdPrestatGetEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.302") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -9812,7 +9812,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -9836,7 +9836,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host20WasiFdPrestatDirNameEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.310") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -9866,7 +9866,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -9890,7 +9890,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host12WasiFdPwriteEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.318") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -9920,7 +9920,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -9944,7 +9944,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host10WasiFdReadEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.326") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -9974,7 +9974,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -9998,7 +9998,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host13WasiFdReadDirEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.334") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -10028,7 +10028,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -10052,7 +10052,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiFdRenumberEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.342") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -10082,7 +10082,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -10106,7 +10106,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host10WasiFdSeekEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.350") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -10136,7 +10136,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -10160,7 +10160,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host10WasiFdSyncEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.358") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -10190,7 +10190,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -10214,7 +10214,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host10WasiFdTellEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.366") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -10244,7 +10244,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -10268,7 +10268,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host11WasiFdWriteEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.374") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -10298,7 +10298,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -10322,7 +10322,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host23WasiPathCreateDirectoryEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.382") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -10352,7 +10352,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -10376,7 +10376,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host19WasiPathFilestatGetEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.390") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -10406,7 +10406,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -10430,7 +10430,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host24WasiPathFilestatSetTimesEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.398") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -10460,7 +10460,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -10484,7 +10484,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host12WasiPathLinkEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.406") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -10514,7 +10514,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -10538,7 +10538,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host12WasiPathOpenEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.414") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -10568,7 +10568,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -10592,7 +10592,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiPathReadLinkEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.422") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -10622,7 +10622,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -10646,7 +10646,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host23WasiPathRemoveDirectoryEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.430") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -10676,7 +10676,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -10700,7 +10700,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiPathRenameEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.438") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -10730,7 +10730,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -10754,7 +10754,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host15WasiPathSymlinkEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.446") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -10784,7 +10784,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -10808,7 +10808,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host18WasiPathUnlinkFileEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.454") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -10838,7 +10838,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -10862,7 +10862,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiPollOneoffILNS1_4WASI11TriggerTypeE0EEEJRNS3_7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.462") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -10892,7 +10892,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -10916,7 +10916,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiPollOneoffILNS1_4WASI11TriggerTypeE1EEEJRNS3_7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.470") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -10946,7 +10946,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -10970,7 +10970,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host12WasiProcExitEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.478") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -11000,7 +11000,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -11024,7 +11024,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host13WasiProcRaiseEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.486") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -11054,7 +11054,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -11078,7 +11078,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSchedYieldEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.494") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -11108,7 +11108,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSchedYieldEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSchedYieldEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -11132,7 +11132,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host13WasiRandomGetEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.502") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -11162,7 +11162,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -11186,7 +11186,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockOpenV1EJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.510") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -11216,7 +11216,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -11240,7 +11240,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockBindV1EJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.518") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -11270,7 +11270,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -11294,7 +11294,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host17WasiSockConnectV1EJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.526") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -11324,7 +11324,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -11348,7 +11348,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiSockListenV1EJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.534") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -11378,7 +11378,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -11402,7 +11402,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiSockAcceptV1EJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.542") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -11432,7 +11432,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -11456,7 +11456,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockRecvV1EJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.550") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -11486,7 +11486,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -11510,7 +11510,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host18WasiSockRecvFromV1EJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.558") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -11540,7 +11540,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -11564,7 +11564,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockSendV1EJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.566") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -11594,7 +11594,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -11618,7 +11618,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiSockSendToV1EJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.574") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -11648,7 +11648,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -11672,7 +11672,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiSockAcceptV2EJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.582") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -11702,7 +11702,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -11726,7 +11726,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockOpenV2EJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.590") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -11756,7 +11756,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -11780,7 +11780,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockBindV2EJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.598") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -11810,7 +11810,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -11834,7 +11834,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host17WasiSockConnectV2EJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.606") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -11864,7 +11864,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -11888,7 +11888,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiSockListenV2EJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.614") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -11918,7 +11918,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -11942,7 +11942,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockRecvV2EJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.622") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -11972,7 +11972,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -11996,7 +11996,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host18WasiSockRecvFromV2EJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.630") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -12026,7 +12026,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -12050,7 +12050,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockSendV2EJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.638") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -12080,7 +12080,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -12104,7 +12104,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiSockSendToV2EJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.646") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -12134,7 +12134,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -12158,7 +12158,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiSockShutdownEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.654") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -12188,7 +12188,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -12212,7 +12212,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockGetOptEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.662") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -12242,7 +12242,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -12266,7 +12266,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockSetOptEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.670") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -12296,7 +12296,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -12320,7 +12320,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host22WasiSockGetLocalAddrV1EJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.678") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -12350,7 +12350,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -12374,7 +12374,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host21WasiSockGetPeerAddrV1EJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.686") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -12404,7 +12404,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -12428,7 +12428,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host22WasiSockGetLocalAddrV2EJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.694") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -12458,7 +12458,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -12482,7 +12482,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host21WasiSockGetPeerAddrV2EJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.702") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -12512,7 +12512,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -12536,7 +12536,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host19WasiSockGetAddrinfoEJRNS1_4WASI7EnvironEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.710") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -12566,7 +12566,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #18
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
@@ -13198,7 +13198,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i, label %7
 
 7:                                                ; preds = %.lr.ph.i.i.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %9 = load i8, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %9, -1
@@ -13217,7 +13217,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8
   unreachable
 
 _ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.exit.i.i.i.i.i: ; preds = %10, %7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 96) #19
   br label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i
 
@@ -13362,8 +13362,8 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance14ModuleInstanceD2
   %.sroa.083.088 = phi ptr [ %16, %15 ], [ %8, %1 ]
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.083.088, i64 32
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %11, ptr %4, align 8
   store ptr %0, ptr %5, align 8
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.083.088, i64 40
@@ -13373,8 +13373,8 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance14ModuleInstanceD2
           to label %15 unwind label %.loopexit
 
 15:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %16 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.083.088) #22
   %.not = icmp eq ptr %16, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -13389,7 +13389,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance14ModuleInstanceD2
 20:                                               ; preds = %._crit_edge
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %22 = load ptr, ptr %21, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %22, ptr %3, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %24 = load ptr, ptr %23, align 8
@@ -13397,7 +13397,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance14ModuleInstanceD2
           to label %25 unwind label %.loopexit.split-lp
 
 25:                                               ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pr = load ptr, ptr %18, align 8
   %.not.i.i12 = icmp eq ptr %.pr, null
   br i1 %.not.i.i12, label %_ZNSt8functionIFvPvEED2Ev.exit, label %26
@@ -14032,7 +14032,7 @@ _ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14defau
   br i1 %.not.i.i.i.i.i.i76, label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i, label %280
 
 280:                                              ; preds = %.lr.ph.i.i.i.i74
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %281 = getelementptr inbounds nuw i8, ptr %279, i64 88
   %282 = load i8, ptr %281, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %282, -1
@@ -14051,7 +14051,7 @@ _ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14defau
   unreachable
 
 _ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %283, %280
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZdlPvm(ptr noundef nonnull %279, i64 noundef 96) #19
   br label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
 
@@ -14328,7 +14328,7 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance16
   br i1 %.not, label %12, label %4
 
 4:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %6 = load i8, ptr %5, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %6, -1
@@ -14347,7 +14347,7 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance16
   unreachable
 
 _ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.exit: ; preds = %4, %7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 96) #19
   br label %12
 
@@ -14799,7 +14799,7 @@ _ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EE17_M_realloc
 
 _ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EE9push_backEOS4_.exit: ; preds = %27, %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %50 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %1, ptr %2) #18
   %51 = extractvalue { i64, ptr } %50, 0
   %52 = extractvalue { i64, ptr } %50, 1
@@ -14811,7 +14811,7 @@ _ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EE9push_backEO
           to label %56 unwind label %61
 
 56:                                               ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EE9push_backEOS4_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %57 = load ptr, ptr %23, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -8
   %59 = invoke { ptr, i8 } @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance16FunctionInstanceESt4lessIvESaISt4pairIKS5_SA_EEE16insert_or_assignIRSA_EESD_ISt17_Rb_tree_iteratorISF_EbEOS5_OT_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(8) %58)
@@ -15575,7 +15575,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i32, ptr %17, align 4, !noalias !47
   %19 = load i32, ptr %3, align 4, !noalias !47
@@ -15599,7 +15599,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %27
 
 27:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -16337,7 +16337,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i32, ptr %17, align 4, !noalias !53
   %19 = load i32, ptr %3, align 4, !noalias !53
@@ -16361,7 +16361,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %27
 
 27:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -16886,7 +16886,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i32, ptr %17, align 4, !noalias !59
   %19 = load i32, ptr %3, align 4, !noalias !59
@@ -16910,7 +16910,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %27
 
 27:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -17435,7 +17435,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i32, ptr %17, align 4, !noalias !65
   %19 = load i32, ptr %3, align 4, !noalias !65
@@ -17459,7 +17459,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %27
 
 27:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -17984,7 +17984,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i32, ptr %17, align 4, !noalias !71
   %19 = load i32, ptr %3, align 4, !noalias !71
@@ -18008,7 +18008,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !68
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %27
 
 27:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -18533,7 +18533,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load i32, ptr %18, align 4, !noalias !77
@@ -18559,7 +18559,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !74
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %29
 
 29:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -19146,7 +19146,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -19174,7 +19174,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %28, %29
   %.sink.i = phi i8 [ 1, %28 ], [ 0, %29 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !80
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %31
 
 31:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -19823,7 +19823,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load i64, ptr %18, align 8, !noalias !89
@@ -19849,7 +19849,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !86
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %29
 
 29:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -20436,7 +20436,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = load i32, ptr %3, align 4, !noalias !95
   call void @_ZN8WasmEdge4Host11WasiFdClose4bodyERKNS_7Runtime12CallingFrameEi(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %17), !noalias !92
   %18 = load i8, ptr %7, align 4, !noalias !92
@@ -20458,7 +20458,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %22, %23
   %.sink.i = phi i8 [ 1, %22 ], [ 0, %23 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !92
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %25
 
 25:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -20913,7 +20913,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = load i32, ptr %3, align 4, !noalias !101
   call void @_ZN8WasmEdge4Host14WasiFdDatasync4bodyERKNS_7Runtime12CallingFrameEi(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %17), !noalias !98
   %18 = load i8, ptr %7, align 4, !noalias !98
@@ -20935,7 +20935,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %22, %23
   %.sink.i = phi i8 [ 1, %22 ], [ 0, %23 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !98
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %25
 
 25:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -21390,7 +21390,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i32, ptr %17, align 4, !noalias !107
   %19 = load i32, ptr %3, align 4, !noalias !107
@@ -21414,7 +21414,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !104
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %27
 
 27:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -21939,7 +21939,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i32, ptr %17, align 4, !noalias !113
   %19 = load i32, ptr %3, align 4, !noalias !113
@@ -21963,7 +21963,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !110
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %27
 
 27:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -22488,7 +22488,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load i64, ptr %18, align 8, !noalias !119
@@ -22514,7 +22514,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !116
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %29
 
 29:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -23101,7 +23101,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !122)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i32, ptr %17, align 4, !noalias !125
   %19 = load i32, ptr %3, align 4, !noalias !125
@@ -23125,7 +23125,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !122
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %27
 
 27:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -23650,7 +23650,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i64, ptr %17, align 8, !noalias !131
   %19 = load i32, ptr %3, align 4, !noalias !131
@@ -23674,7 +23674,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !128
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %27
 
 27:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -24199,7 +24199,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -24227,7 +24227,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %28, %29
   %.sink.i = phi i8 [ 1, %28 ], [ 0, %29 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !134
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %31
 
 31:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -24876,7 +24876,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -24906,7 +24906,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %30, %31
   %.sink.i = phi i8 [ 1, %30 ], [ 0, %31 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !140
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %33
 
 33:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -25617,7 +25617,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i32, ptr %17, align 4, !noalias !149
   %19 = load i32, ptr %3, align 4, !noalias !149
@@ -25641,7 +25641,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !146
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %27
 
 27:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -26166,7 +26166,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !152)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load i32, ptr %18, align 4, !noalias !155
@@ -26192,7 +26192,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !152
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %29
 
 29:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -26779,7 +26779,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -26809,7 +26809,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %30, %31
   %.sink.i = phi i8 [ 1, %30 ], [ 0, %31 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !158
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %33
 
 33:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -27520,7 +27520,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -27548,7 +27548,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %28, %29
   %.sink.i = phi i8 [ 1, %28 ], [ 0, %29 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !164
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %31
 
 31:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -28197,7 +28197,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -28227,7 +28227,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %30, %31
   %.sink.i = phi i8 [ 1, %30 ], [ 0, %31 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !170
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %33
 
 33:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -28938,7 +28938,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i32, ptr %17, align 4, !noalias !179
   %19 = load i32, ptr %3, align 4, !noalias !179
@@ -28962,7 +28962,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !176
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %27
 
 27:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -29487,7 +29487,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !182)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -29515,7 +29515,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %28, %29
   %.sink.i = phi i8 [ 1, %28 ], [ 0, %29 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !182
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %31
 
 31:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -30164,7 +30164,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !188)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = load i32, ptr %3, align 4, !noalias !191
   call void @_ZN8WasmEdge4Host10WasiFdSync4bodyERKNS_7Runtime12CallingFrameEi(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %17), !noalias !188
   %18 = load i8, ptr %7, align 4, !noalias !188
@@ -30186,7 +30186,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %22, %23
   %.sink.i = phi i8 [ 1, %22 ], [ 0, %23 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !188
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %25
 
 25:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -30641,7 +30641,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i32, ptr %17, align 4, !noalias !197
   %19 = load i32, ptr %3, align 4, !noalias !197
@@ -30665,7 +30665,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !194
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %27
 
 27:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -31190,7 +31190,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -31218,7 +31218,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %28, %29
   %.sink.i = phi i8 [ 1, %28 ], [ 0, %29 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !200
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %31
 
 31:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -31867,7 +31867,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load i32, ptr %18, align 4, !noalias !209
@@ -31893,7 +31893,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !206
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %29
 
 29:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -32480,7 +32480,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !212)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -32510,7 +32510,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %30, %31
   %.sink.i = phi i8 [ 1, %30 ], [ 0, %31 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !212
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %33
 
 33:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -33221,7 +33221,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !218)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -33255,7 +33255,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %34, %35
   %.sink.i = phi i8 [ 1, %34 ], [ 0, %35 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !218
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %37
 
 37:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -34090,7 +34090,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -34124,7 +34124,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %34, %35
   %.sink.i = phi i8 [ 1, %34 ], [ 0, %35 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !224
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %37
 
 37:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -34959,7 +34959,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !230)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -34997,7 +34997,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm9EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %38, %39
   %.sink.i = phi i8 [ 1, %38 ], [ 0, %39 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !230
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %41
 
 41:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm9EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -35956,7 +35956,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !236)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -35988,7 +35988,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %32, %33
   %.sink.i = phi i8 [ 1, %32 ], [ 0, %33 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !236
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %35
 
 35:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -36761,7 +36761,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load i32, ptr %18, align 4, !noalias !245
@@ -36787,7 +36787,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !242
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %29
 
 29:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -37374,7 +37374,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !248)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -37406,7 +37406,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %32, %33
   %.sink.i = phi i8 [ 1, %32 ], [ 0, %33 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !248
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %35
 
 35:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -38179,7 +38179,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !254)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -38209,7 +38209,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %30, %31
   %.sink.i = phi i8 [ 1, %30 ], [ 0, %31 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !254
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %33
 
 33:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -38920,7 +38920,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !260)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load i32, ptr %18, align 4, !noalias !263
@@ -38946,7 +38946,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !260
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %29
 
 29:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -39533,7 +39533,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !266)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -39561,7 +39561,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %28, %29
   %.sink.i = phi i8 [ 1, %28 ], [ 0, %29 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !266
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %31
 
 31:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -40210,7 +40210,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !272)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -40238,7 +40238,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %28, %29
   %.sink.i = phi i8 [ 1, %28 ], [ 0, %29 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !272
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %31
 
 31:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -40886,7 +40886,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
 
 15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !278)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %16 = load i32, ptr %3, align 4, !noalias !281
   call void @_ZN8WasmEdge4Host12WasiProcExit4bodyERKNS_7Runtime12CallingFrameEj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %16), !noalias !278
   %17 = load i8, ptr %7, align 4, !noalias !278
@@ -40907,7 +40907,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm0EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %19, %23
   %.sink.i = phi i8 [ 1, %23 ], [ 0, %19 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !278
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %24
 
 24:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm0EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -41260,7 +41260,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !287)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = load i32, ptr %3, align 4, !noalias !290
   call void @_ZN8WasmEdge4Host13WasiProcRaise4bodyERKNS_7Runtime12CallingFrameEj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %17), !noalias !287
   %18 = load i8, ptr %7, align 4, !noalias !287
@@ -41282,7 +41282,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %22, %23
   %.sink.i = phi i8 [ 1, %22 ], [ 0, %23 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !287
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %25
 
 25:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -41737,7 +41737,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !293)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN8WasmEdge4Host14WasiSchedYield4bodyERKNS_7Runtime12CallingFrameE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2), !noalias !293
   %17 = load i8, ptr %7, align 4, !noalias !293
   %18 = trunc i8 %17 to i1
@@ -41758,7 +41758,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSchedYieldEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm0EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %21, %22
   %.sink.i = phi i8 [ 1, %21 ], [ 0, %22 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !293
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %24
 
 24:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSchedYieldEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm0EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -42111,7 +42111,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !296)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i32, ptr %17, align 4, !noalias !299
   %19 = load i32, ptr %3, align 4, !noalias !299
@@ -42135,7 +42135,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !296
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %27
 
 27:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -42660,7 +42660,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !302)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load i32, ptr %18, align 4, !noalias !305
@@ -42686,7 +42686,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !302
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %29
 
 29:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -43273,7 +43273,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !308)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load i32, ptr %18, align 4, !noalias !311
@@ -43299,7 +43299,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !308
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %29
 
 29:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -43886,7 +43886,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !314)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load i32, ptr %18, align 4, !noalias !317
@@ -43912,7 +43912,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !314
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %29
 
 29:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -44499,7 +44499,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !320)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i32, ptr %17, align 4, !noalias !323
   %19 = load i32, ptr %3, align 4, !noalias !323
@@ -44523,7 +44523,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !320
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %27
 
 27:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -45048,7 +45048,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !326)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i32, ptr %17, align 4, !noalias !329
   %19 = load i32, ptr %3, align 4, !noalias !329
@@ -45072,7 +45072,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !326
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %27
 
 27:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -45597,7 +45597,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !332)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -45629,7 +45629,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %32, %33
   %.sink.i = phi i8 [ 1, %32 ], [ 0, %33 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !332
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %35
 
 35:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -46402,7 +46402,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !338)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -46436,7 +46436,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %34, %35
   %.sink.i = phi i8 [ 1, %34 ], [ 0, %35 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !338
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %37
 
 37:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -47271,7 +47271,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !344)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -47301,7 +47301,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %30, %31
   %.sink.i = phi i8 [ 1, %30 ], [ 0, %31 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !344
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %33
 
 33:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -48012,7 +48012,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !350)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -48046,7 +48046,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %34, %35
   %.sink.i = phi i8 [ 1, %34 ], [ 0, %35 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !350
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %37
 
 37:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -48881,7 +48881,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !356)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load i32, ptr %18, align 4, !noalias !359
@@ -48907,7 +48907,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !356
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %29
 
 29:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -49494,7 +49494,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !362)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load i32, ptr %18, align 4, !noalias !365
@@ -49520,7 +49520,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !362
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %29
 
 29:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -50107,7 +50107,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !368)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load i32, ptr %18, align 4, !noalias !371
@@ -50133,7 +50133,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !368
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %29
 
 29:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -50720,7 +50720,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !374)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load i32, ptr %18, align 4, !noalias !377
@@ -50746,7 +50746,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !374
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %29
 
 29:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -51333,7 +51333,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !380)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i32, ptr %17, align 4, !noalias !383
   %19 = load i32, ptr %3, align 4, !noalias !383
@@ -51357,7 +51357,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !380
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %27
 
 27:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -51882,7 +51882,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !386)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -51914,7 +51914,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %32, %33
   %.sink.i = phi i8 [ 1, %32 ], [ 0, %33 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !386
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %35
 
 35:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -52687,7 +52687,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !392)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -52723,7 +52723,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %36, %37
   %.sink.i = phi i8 [ 1, %36 ], [ 0, %37 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !392
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %39
 
 39:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -53620,7 +53620,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !398)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -53650,7 +53650,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %30, %31
   %.sink.i = phi i8 [ 1, %30 ], [ 0, %31 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !398
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %33
 
 33:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -54361,7 +54361,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !404)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -54395,7 +54395,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %34, %35
   %.sink.i = phi i8 [ 1, %34 ], [ 0, %35 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !404
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %37
 
 37:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -55230,7 +55230,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !410)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i32, ptr %17, align 4, !noalias !413
   %19 = load i32, ptr %3, align 4, !noalias !413
@@ -55254,7 +55254,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !410
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %27
 
 27:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -55779,7 +55779,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !416)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -55809,7 +55809,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %30, %31
   %.sink.i = phi i8 [ 1, %30 ], [ 0, %31 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !416
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %33
 
 33:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -56520,7 +56520,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !422)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -56550,7 +56550,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %30, %31
   %.sink.i = phi i8 [ 1, %30 ], [ 0, %31 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !422
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %33
 
 33:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -57261,7 +57261,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !428)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -57289,7 +57289,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %28, %29
   %.sink.i = phi i8 [ 1, %28 ], [ 0, %29 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !428
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %31
 
 31:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -57938,7 +57938,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !434)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -57966,7 +57966,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %28, %29
   %.sink.i = phi i8 [ 1, %28 ], [ 0, %29 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !434
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %31
 
 31:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -58615,7 +58615,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !440)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load i32, ptr %18, align 4, !noalias !443
@@ -58641,7 +58641,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !440
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %29
 
 29:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -59228,7 +59228,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !446)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load i32, ptr %18, align 4, !noalias !449
@@ -59254,7 +59254,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !446
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %29
 
 29:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -59841,7 +59841,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19Wa
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !452)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -59877,7 +59877,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19Wa
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %36, %37
   %.sink.i = phi i8 [ 1, %36 ], [ 0, %37 ]
   store i8 %.sink.i, ptr %0, align 4, !alias.scope !452
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %39
 
 39:                                               ; preds = %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit, %13, %8
@@ -60646,10 +60646,10 @@ declare void @_ZN8WasmEdge4Host19WasiSockGetAddrinfo4bodyERKNS_7Runtime12Calling
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15

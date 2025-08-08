@@ -28,7 +28,7 @@ define hidden void @_cmsAllocCurvesPluginChunk(ptr noundef captures(none) %0, pt
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %1, i64 64
   %.val = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.02.i = load ptr, ptr %.val, align 8
   %.not3.i = icmp eq ptr %.02.i, null
   br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i
@@ -76,7 +76,7 @@ define hidden void @_cmsAllocCurvesPluginChunk(ptr noundef captures(none) %0, pt
   br label %DupPluginCurvesList.exit
 
 DupPluginCurvesList.exit:                         ; preds = %7, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
 
 23:                                               ; preds = %2
@@ -527,8 +527,8 @@ define hidden ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef %1, pt
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = uitofp nneg i32 %28 to double
   %30 = fdiv double %29, %21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %31 = load i32, ptr %22, align 8
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph.i, label %EvalSegmentedFn.exit.thread
@@ -598,8 +598,8 @@ define hidden ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef %1, pt
   br i1 %75, label %.thread, label %EvalSegmentedFn.exit
 
 .thread:                                          ; preds = %73
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_cmsQuickSaturateWord.exit
 
 76:                                               ; preds = %40, %35
@@ -607,15 +607,15 @@ define hidden ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef %1, pt
   br i1 %77, label %35, label %EvalSegmentedFn.exit.thread, !llvm.loop !13
 
 EvalSegmentedFn.exit.thread:                      ; preds = %76, %27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_cmsQuickSaturateWord.exit
 
 EvalSegmentedFn.exit:                             ; preds = %73
   %78 = fmul double %.0.i, 6.553500e+04
   %79 = fadd double %78, 5.000000e-01
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %80 = fcmp ugt double %79, 0.000000e+00
   br i1 %80, label %81, label %_cmsQuickSaturateWord.exit
 
@@ -976,7 +976,7 @@ define hidden ptr @cmsJoinToneCurve(ptr noundef %0, ptr noundef readonly capture
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %.preheader
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %.thread37
 
 .lr.ph:                                           ; preds = %.preheader
@@ -999,7 +999,7 @@ define hidden ptr @cmsJoinToneCurve(ptr noundef %0, ptr noundef readonly capture
   br i1 %exitcond.not, label %20, label %13, !llvm.loop !16
 
 20:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float 0xC480F0CF00000000, ptr %5, align 16
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float 0.000000e+00, ptr %21, align 4
@@ -1049,7 +1049,7 @@ define hidden ptr @cmsJoinToneCurve(ptr noundef %0, ptr noundef readonly capture
 
 .thread37:                                        ; preds = %._crit_edge.thread, %20
   %.0.i = phi ptr [ %46, %20 ], [ null, %._crit_edge.thread ]
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %9) #13
   br label %47
 
@@ -1381,23 +1381,23 @@ define hidden float @cmsEvalToneCurveFloat(ptr noundef readonly captures(none) %
 
 _cmsQuickSaturateWord.exit:                       ; preds = %11, %15, %17
   %.0.i = phi i16 [ %22, %17 ], [ 0, %11 ], [ -1, %15 ]
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 %.0.i, ptr %5, align 2
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 208
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %23) #13
   %26 = load i16, ptr %6, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %27 = uitofp i16 %26 to double
   %28 = fdiv double %27, 6.553500e+04
   br label %77
 
 29:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = icmp sgt i32 %8, 0
   br i1 %30, label %.lr.ph.i, label %EvalSegmentedFn.exit
 
@@ -1474,8 +1474,8 @@ _cmsQuickSaturateWord.exit:                       ; preds = %11, %15, %17
 
 EvalSegmentedFn.exit:                             ; preds = %75, %29, %71, %74
   %.037.i = phi double [ %.0.i7, %74 ], [ 0x4480F0CF00000000, %71 ], [ 0xC480F0CF00000000, %29 ], [ 0xC480F0CF00000000, %75 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %77
 
 77:                                               ; preds = %EvalSegmentedFn.exit, %_cmsQuickSaturateWord.exit
@@ -2978,10 +2978,10 @@ declare double @llvm.log.f64(double) #10
 declare double @llvm.log10.f64(double) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10

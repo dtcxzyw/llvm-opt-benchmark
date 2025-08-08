@@ -242,13 +242,10 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %16, %18, %12, %6, %
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco19DecodeTaggedSymbolsINS_17RAnsSymbolDecoderEEEbjiPNS_13DecoderBufferEPj(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.draco::RAnsSymbolDecoder", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, i8 0, i64 28, i1 false)
@@ -465,7 +462,7 @@ _ZN5draco13DecoderBuffer10BitDecoder6GetBitEv.exit.i.i: ; preds = %79, %73
   %103 = ptrtoint ptr %102 to i64
   %104 = ptrtoint ptr %99 to i64
   %105 = sub i64 %103, %104
-  call void @_ZdlPvm(ptr noundef nonnull %99, i64 noundef %105) #16
+  call void @_ZdlPvm(ptr noundef nonnull %99, i64 noundef %105) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %100, %.loopexit62.split
@@ -479,7 +476,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %100, %.loopexit6
   %110 = ptrtoint ptr %109 to i64
   %111 = ptrtoint ptr %106 to i64
   %112 = sub i64 %110, %111
-  call void @_ZdlPvm(ptr noundef nonnull %106, i64 noundef %112) #16
+  call void @_ZdlPvm(ptr noundef nonnull %106, i64 noundef %112) #15
   br label %_ZN5draco11RAnsDecoderILi12EED2Ev.exit.i
 
 _ZN5draco11RAnsDecoderILi12EED2Ev.exit.i:         ; preds = %107, %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
@@ -493,17 +490,17 @@ _ZN5draco11RAnsDecoderILi12EED2Ev.exit.i:         ; preds = %107, %_ZNSt6vectorI
   %117 = ptrtoint ptr %116 to i64
   %118 = ptrtoint ptr %113 to i64
   %119 = sub i64 %117, %118
-  call void @_ZdlPvm(ptr noundef nonnull %113, i64 noundef %119) #16
+  call void @_ZdlPvm(ptr noundef nonnull %113, i64 noundef %119) #15
   br label %_ZN5draco17RAnsSymbolDecoderILi5EED2Ev.exit
 
 _ZN5draco17RAnsSymbolDecoderILi5EED2Ev.exit:      ; preds = %_ZN5draco11RAnsDecoderILi12EED2Ev.exit.i, %114
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.025
 
 120:                                              ; preds = %96, %9
   %.pn43.pn = phi { ptr, i32 } [ %10, %9 ], [ %97, %96 ]
-  call void @_ZN5draco17RAnsSymbolDecoderILi5EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #15
+  call void @_ZN5draco17RAnsSymbolDecoderILi5EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn43.pn
 }
 
@@ -619,9 +616,6 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %3, %9, %47, %45, %4
   %.0 = phi i1 [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ false, %9 ], [ false, %3 ]
   ret i1 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi5EE6CreateEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -921,7 +915,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi5EE13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %5 = load i16, ptr %4, align 2, !tbaa !50
   %6 = icmp ult i16 %5, 512
@@ -1061,7 +1055,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
   %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
@@ -1070,7 +1064,7 @@ declare noundef zeroext i1 @_ZN5draco13DecoderBuffer16StartBitDecodingEbPm(ptr n
 declare void @_ZN5draco13DecoderBuffer14EndBitDecodingEv(ptr noundef nonnull align 8 dereferenceable(52)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi5EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi5EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !46
@@ -1083,7 +1077,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi5EED2Ev(ptr noundef non
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
@@ -1097,7 +1091,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #15
   br label %_ZN5draco11RAnsDecoderILi12EED2Ev.exit
 
 _ZN5draco11RAnsDecoderILi12EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i, %12
@@ -1111,7 +1105,7 @@ _ZN5draco11RAnsDecoderILi12EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5drac
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
   %24 = sub i64 %22, %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco11RAnsDecoderILi12EED2Ev.exit, %19
@@ -1119,10 +1113,10 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco11RAnsDeco
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef range(i32 1, 7) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #7 {
+define internal fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef range(i32 1, 7) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #6 {
   %4 = icmp samesign ugt i32 %0, 5
   br i1 %4, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %5
 
@@ -1256,7 +1250,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 40:                                               ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit
   %41 = sub i64 %13, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %41) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %41) #15
   br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %40
@@ -1272,13 +1266,13 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36: ; preds = %_ZNSt6vectorIj
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1379,7 +1373,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds
 
 44:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %45 = sub i64 %13, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %45) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %45) #15
   br label %_ZNSt12_Vector_baseIN5draco8rans_symESaIS1_EE13_M_deallocateEPS1_m.exit38
 
 _ZNSt12_Vector_baseIN5draco8rans_symESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %44
@@ -1395,10 +1389,10 @@ _ZNSt12_Vector_baseIN5draco8rans_symESaIS1_EE13_M_deallocateEPS1_m.exit38: ; pre
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedImEEbiPT_PNS_13DecoderBufferE(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #7 {
+define internal fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedImEEbiPT_PNS_13DecoderBufferE(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #6 {
   %4 = icmp ugt i32 %0, 10
   br i1 %4, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %5
 
@@ -1449,7 +1443,7 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %26, %15, %5, %3
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_17RAnsSymbolDecoderILi1EEEEEbjPNS_13DecoderBufferEPj(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.draco::RAnsSymbolDecoder.5", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
@@ -1462,8 +1456,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
 8:                                                ; preds = %14, %3
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5draco17RAnsSymbolDecoderILi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @_ZN5draco17RAnsSymbolDecoderILi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %7
@@ -1567,7 +1561,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %55 to i64
   %61 = sub i64 %59, %60
-  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #16
+  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
@@ -1581,7 +1575,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64
   %68 = sub i64 %66, %67
-  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #16
+  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #15
   br label %_ZN5draco11RAnsDecoderILi12EED2Ev.exit.i
 
 _ZN5draco11RAnsDecoderILi12EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
@@ -1595,18 +1589,18 @@ _ZN5draco11RAnsDecoderILi12EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
-  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #16
+  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #15
   br label %_ZN5draco17RAnsSymbolDecoderILi1EED2Ev.exit
 
 _ZN5draco17RAnsSymbolDecoderILi1EED2Ev.exit:      ; preds = %_ZN5draco11RAnsDecoderILi12EED2Ev.exit.i, %70
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_17RAnsSymbolDecoderILi2EEEEEbjPNS_13DecoderBufferEPj(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.draco::RAnsSymbolDecoder.6", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
@@ -1619,8 +1613,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
 8:                                                ; preds = %14, %3
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5draco17RAnsSymbolDecoderILi2EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @_ZN5draco17RAnsSymbolDecoderILi2EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %7
@@ -1724,7 +1718,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %55 to i64
   %61 = sub i64 %59, %60
-  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #16
+  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
@@ -1738,7 +1732,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64
   %68 = sub i64 %66, %67
-  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #16
+  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #15
   br label %_ZN5draco11RAnsDecoderILi12EED2Ev.exit.i
 
 _ZN5draco11RAnsDecoderILi12EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
@@ -1752,18 +1746,18 @@ _ZN5draco11RAnsDecoderILi12EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
-  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #16
+  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #15
   br label %_ZN5draco17RAnsSymbolDecoderILi2EED2Ev.exit
 
 _ZN5draco17RAnsSymbolDecoderILi2EED2Ev.exit:      ; preds = %_ZN5draco11RAnsDecoderILi12EED2Ev.exit.i, %70
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_17RAnsSymbolDecoderILi3EEEEEbjPNS_13DecoderBufferEPj(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.draco::RAnsSymbolDecoder.7", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
@@ -1776,8 +1770,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
 8:                                                ; preds = %14, %3
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5draco17RAnsSymbolDecoderILi3EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @_ZN5draco17RAnsSymbolDecoderILi3EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %7
@@ -1881,7 +1875,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %55 to i64
   %61 = sub i64 %59, %60
-  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #16
+  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
@@ -1895,7 +1889,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64
   %68 = sub i64 %66, %67
-  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #16
+  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #15
   br label %_ZN5draco11RAnsDecoderILi12EED2Ev.exit.i
 
 _ZN5draco11RAnsDecoderILi12EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
@@ -1909,18 +1903,18 @@ _ZN5draco11RAnsDecoderILi12EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
-  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #16
+  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #15
   br label %_ZN5draco17RAnsSymbolDecoderILi3EED2Ev.exit
 
 _ZN5draco17RAnsSymbolDecoderILi3EED2Ev.exit:      ; preds = %_ZN5draco11RAnsDecoderILi12EED2Ev.exit.i, %70
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_17RAnsSymbolDecoderILi4EEEEEbjPNS_13DecoderBufferEPj(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.draco::RAnsSymbolDecoder.8", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
@@ -1933,8 +1927,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
 8:                                                ; preds = %14, %3
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5draco17RAnsSymbolDecoderILi4EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @_ZN5draco17RAnsSymbolDecoderILi4EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %7
@@ -2038,7 +2032,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %55 to i64
   %61 = sub i64 %59, %60
-  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #16
+  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
@@ -2052,7 +2046,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64
   %68 = sub i64 %66, %67
-  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #16
+  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #15
   br label %_ZN5draco11RAnsDecoderILi12EED2Ev.exit.i
 
 _ZN5draco11RAnsDecoderILi12EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
@@ -2066,18 +2060,18 @@ _ZN5draco11RAnsDecoderILi12EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
-  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #16
+  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #15
   br label %_ZN5draco17RAnsSymbolDecoderILi4EED2Ev.exit
 
 _ZN5draco17RAnsSymbolDecoderILi4EED2Ev.exit:      ; preds = %_ZN5draco11RAnsDecoderILi12EED2Ev.exit.i, %70
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_17RAnsSymbolDecoderILi5EEEEEbjPNS_13DecoderBufferEPj(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.draco::RAnsSymbolDecoder", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
@@ -2090,8 +2084,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
 8:                                                ; preds = %14, %3
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5draco17RAnsSymbolDecoderILi5EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @_ZN5draco17RAnsSymbolDecoderILi5EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %7
@@ -2195,7 +2189,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %55 to i64
   %61 = sub i64 %59, %60
-  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #16
+  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
@@ -2209,7 +2203,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64
   %68 = sub i64 %66, %67
-  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #16
+  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #15
   br label %_ZN5draco11RAnsDecoderILi12EED2Ev.exit.i
 
 _ZN5draco11RAnsDecoderILi12EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
@@ -2223,18 +2217,18 @@ _ZN5draco11RAnsDecoderILi12EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
-  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #16
+  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #15
   br label %_ZN5draco17RAnsSymbolDecoderILi5EED2Ev.exit
 
 _ZN5draco17RAnsSymbolDecoderILi5EED2Ev.exit:      ; preds = %_ZN5draco11RAnsDecoderILi12EED2Ev.exit.i, %70
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_17RAnsSymbolDecoderILi6EEEEEbjPNS_13DecoderBufferEPj(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.draco::RAnsSymbolDecoder.9", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
@@ -2247,8 +2241,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
 8:                                                ; preds = %14, %3
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5draco17RAnsSymbolDecoderILi6EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @_ZN5draco17RAnsSymbolDecoderILi6EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %7
@@ -2352,7 +2346,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %55 to i64
   %61 = sub i64 %59, %60
-  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #16
+  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
@@ -2366,7 +2360,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64
   %68 = sub i64 %66, %67
-  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #16
+  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #15
   br label %_ZN5draco11RAnsDecoderILi12EED2Ev.exit.i
 
 _ZN5draco11RAnsDecoderILi12EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
@@ -2380,18 +2374,18 @@ _ZN5draco11RAnsDecoderILi12EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
-  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #16
+  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #15
   br label %_ZN5draco17RAnsSymbolDecoderILi6EED2Ev.exit
 
 _ZN5draco17RAnsSymbolDecoderILi6EED2Ev.exit:      ; preds = %_ZN5draco11RAnsDecoderILi12EED2Ev.exit.i, %70
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_17RAnsSymbolDecoderILi7EEEEEbjPNS_13DecoderBufferEPj(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.draco::RAnsSymbolDecoder.10", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
@@ -2404,8 +2398,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
 8:                                                ; preds = %14, %3
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5draco17RAnsSymbolDecoderILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @_ZN5draco17RAnsSymbolDecoderILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %7
@@ -2509,7 +2503,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %55 to i64
   %61 = sub i64 %59, %60
-  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #16
+  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
@@ -2523,7 +2517,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64
   %68 = sub i64 %66, %67
-  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #16
+  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #15
   br label %_ZN5draco11RAnsDecoderILi12EED2Ev.exit.i
 
 _ZN5draco11RAnsDecoderILi12EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
@@ -2537,18 +2531,18 @@ _ZN5draco11RAnsDecoderILi12EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
-  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #16
+  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #15
   br label %_ZN5draco17RAnsSymbolDecoderILi7EED2Ev.exit
 
 _ZN5draco17RAnsSymbolDecoderILi7EED2Ev.exit:      ; preds = %_ZN5draco11RAnsDecoderILi12EED2Ev.exit.i, %70
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_17RAnsSymbolDecoderILi8EEEEEbjPNS_13DecoderBufferEPj(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.draco::RAnsSymbolDecoder.11", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
@@ -2561,8 +2555,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
 8:                                                ; preds = %14, %3
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5draco17RAnsSymbolDecoderILi8EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @_ZN5draco17RAnsSymbolDecoderILi8EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %7
@@ -2666,7 +2660,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %55 to i64
   %61 = sub i64 %59, %60
-  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #16
+  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
@@ -2680,7 +2674,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64
   %68 = sub i64 %66, %67
-  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #16
+  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #15
   br label %_ZN5draco11RAnsDecoderILi12EED2Ev.exit.i
 
 _ZN5draco11RAnsDecoderILi12EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
@@ -2694,18 +2688,18 @@ _ZN5draco11RAnsDecoderILi12EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
-  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #16
+  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #15
   br label %_ZN5draco17RAnsSymbolDecoderILi8EED2Ev.exit
 
 _ZN5draco17RAnsSymbolDecoderILi8EED2Ev.exit:      ; preds = %_ZN5draco11RAnsDecoderILi12EED2Ev.exit.i, %70
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_17RAnsSymbolDecoderILi9EEEEEbjPNS_13DecoderBufferEPj(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.draco::RAnsSymbolDecoder.12", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
@@ -2718,8 +2712,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
 8:                                                ; preds = %14, %3
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5draco17RAnsSymbolDecoderILi9EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @_ZN5draco17RAnsSymbolDecoderILi9EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %7
@@ -2823,7 +2817,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %55 to i64
   %61 = sub i64 %59, %60
-  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #16
+  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
@@ -2837,7 +2831,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64
   %68 = sub i64 %66, %67
-  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #16
+  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #15
   br label %_ZN5draco11RAnsDecoderILi13EED2Ev.exit.i
 
 _ZN5draco11RAnsDecoderILi13EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
@@ -2851,18 +2845,18 @@ _ZN5draco11RAnsDecoderILi13EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
-  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #16
+  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #15
   br label %_ZN5draco17RAnsSymbolDecoderILi9EED2Ev.exit
 
 _ZN5draco17RAnsSymbolDecoderILi9EED2Ev.exit:      ; preds = %_ZN5draco11RAnsDecoderILi13EED2Ev.exit.i, %70
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_17RAnsSymbolDecoderILi10EEEEEbjPNS_13DecoderBufferEPj(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.draco::RAnsSymbolDecoder.14", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
@@ -2875,8 +2869,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
 8:                                                ; preds = %14, %3
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5draco17RAnsSymbolDecoderILi10EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @_ZN5draco17RAnsSymbolDecoderILi10EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %7
@@ -2980,7 +2974,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %55 to i64
   %61 = sub i64 %59, %60
-  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #16
+  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
@@ -2994,7 +2988,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64
   %68 = sub i64 %66, %67
-  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #16
+  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #15
   br label %_ZN5draco11RAnsDecoderILi15EED2Ev.exit.i
 
 _ZN5draco11RAnsDecoderILi15EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
@@ -3008,18 +3002,18 @@ _ZN5draco11RAnsDecoderILi15EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
-  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #16
+  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #15
   br label %_ZN5draco17RAnsSymbolDecoderILi10EED2Ev.exit
 
 _ZN5draco17RAnsSymbolDecoderILi10EED2Ev.exit:     ; preds = %_ZN5draco11RAnsDecoderILi15EED2Ev.exit.i, %70
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_17RAnsSymbolDecoderILi11EEEEEbjPNS_13DecoderBufferEPj(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.draco::RAnsSymbolDecoder.16", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
@@ -3032,8 +3026,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
 8:                                                ; preds = %14, %3
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5draco17RAnsSymbolDecoderILi11EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @_ZN5draco17RAnsSymbolDecoderILi11EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %7
@@ -3137,7 +3131,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %55 to i64
   %61 = sub i64 %59, %60
-  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #16
+  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
@@ -3151,7 +3145,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64
   %68 = sub i64 %66, %67
-  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #16
+  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #15
   br label %_ZN5draco11RAnsDecoderILi16EED2Ev.exit.i
 
 _ZN5draco11RAnsDecoderILi16EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
@@ -3165,18 +3159,18 @@ _ZN5draco11RAnsDecoderILi16EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
-  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #16
+  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #15
   br label %_ZN5draco17RAnsSymbolDecoderILi11EED2Ev.exit
 
 _ZN5draco17RAnsSymbolDecoderILi11EED2Ev.exit:     ; preds = %_ZN5draco11RAnsDecoderILi16EED2Ev.exit.i, %70
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_17RAnsSymbolDecoderILi12EEEEEbjPNS_13DecoderBufferEPj(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.draco::RAnsSymbolDecoder.18", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
@@ -3189,8 +3183,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
 8:                                                ; preds = %14, %3
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5draco17RAnsSymbolDecoderILi12EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @_ZN5draco17RAnsSymbolDecoderILi12EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %7
@@ -3294,7 +3288,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %55 to i64
   %61 = sub i64 %59, %60
-  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #16
+  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
@@ -3308,7 +3302,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64
   %68 = sub i64 %66, %67
-  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #16
+  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #15
   br label %_ZN5draco11RAnsDecoderILi18EED2Ev.exit.i
 
 _ZN5draco11RAnsDecoderILi18EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
@@ -3322,18 +3316,18 @@ _ZN5draco11RAnsDecoderILi18EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
-  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #16
+  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #15
   br label %_ZN5draco17RAnsSymbolDecoderILi12EED2Ev.exit
 
 _ZN5draco17RAnsSymbolDecoderILi12EED2Ev.exit:     ; preds = %_ZN5draco11RAnsDecoderILi18EED2Ev.exit.i, %70
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_17RAnsSymbolDecoderILi13EEEEEbjPNS_13DecoderBufferEPj(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.draco::RAnsSymbolDecoder.20", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
@@ -3346,8 +3340,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
 8:                                                ; preds = %14, %3
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5draco17RAnsSymbolDecoderILi13EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @_ZN5draco17RAnsSymbolDecoderILi13EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %7
@@ -3451,7 +3445,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %55 to i64
   %61 = sub i64 %59, %60
-  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #16
+  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
@@ -3465,7 +3459,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64
   %68 = sub i64 %66, %67
-  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #16
+  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #15
   br label %_ZN5draco11RAnsDecoderILi19EED2Ev.exit.i
 
 _ZN5draco11RAnsDecoderILi19EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
@@ -3479,18 +3473,18 @@ _ZN5draco11RAnsDecoderILi19EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
-  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #16
+  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #15
   br label %_ZN5draco17RAnsSymbolDecoderILi13EED2Ev.exit
 
 _ZN5draco17RAnsSymbolDecoderILi13EED2Ev.exit:     ; preds = %_ZN5draco11RAnsDecoderILi19EED2Ev.exit.i, %70
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_17RAnsSymbolDecoderILi14EEEEEbjPNS_13DecoderBufferEPj(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.draco::RAnsSymbolDecoder.22", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
@@ -3503,8 +3497,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
 8:                                                ; preds = %14, %3
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5draco17RAnsSymbolDecoderILi14EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @_ZN5draco17RAnsSymbolDecoderILi14EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %7
@@ -3608,7 +3602,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %55 to i64
   %61 = sub i64 %59, %60
-  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #16
+  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
@@ -3622,7 +3616,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64
   %68 = sub i64 %66, %67
-  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #16
+  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #15
   br label %_ZN5draco11RAnsDecoderILi20EED2Ev.exit.i
 
 _ZN5draco11RAnsDecoderILi20EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
@@ -3636,18 +3630,18 @@ _ZN5draco11RAnsDecoderILi20EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
-  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #16
+  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #15
   br label %_ZN5draco17RAnsSymbolDecoderILi14EED2Ev.exit
 
 _ZN5draco17RAnsSymbolDecoderILi14EED2Ev.exit:     ; preds = %_ZN5draco11RAnsDecoderILi20EED2Ev.exit.i, %70
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_17RAnsSymbolDecoderILi15EEEEEbjPNS_13DecoderBufferEPj(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.draco::RAnsSymbolDecoder.24", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
@@ -3660,8 +3654,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
 8:                                                ; preds = %14, %3
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5draco17RAnsSymbolDecoderILi15EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @_ZN5draco17RAnsSymbolDecoderILi15EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %7
@@ -3765,7 +3759,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %55 to i64
   %61 = sub i64 %59, %60
-  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #16
+  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
@@ -3779,7 +3773,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64
   %68 = sub i64 %66, %67
-  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #16
+  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #15
   br label %_ZN5draco11RAnsDecoderILi20EED2Ev.exit.i
 
 _ZN5draco11RAnsDecoderILi20EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
@@ -3793,18 +3787,18 @@ _ZN5draco11RAnsDecoderILi20EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
-  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #16
+  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #15
   br label %_ZN5draco17RAnsSymbolDecoderILi15EED2Ev.exit
 
 _ZN5draco17RAnsSymbolDecoderILi15EED2Ev.exit:     ; preds = %_ZN5draco11RAnsDecoderILi20EED2Ev.exit.i, %70
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_17RAnsSymbolDecoderILi16EEEEEbjPNS_13DecoderBufferEPj(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.draco::RAnsSymbolDecoder.25", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
@@ -3817,8 +3811,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
 8:                                                ; preds = %14, %3
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5draco17RAnsSymbolDecoderILi16EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @_ZN5draco17RAnsSymbolDecoderILi16EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %7
@@ -3922,7 +3916,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %55 to i64
   %61 = sub i64 %59, %60
-  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #16
+  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
@@ -3936,7 +3930,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64
   %68 = sub i64 %66, %67
-  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #16
+  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #15
   br label %_ZN5draco11RAnsDecoderILi20EED2Ev.exit.i
 
 _ZN5draco11RAnsDecoderILi20EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
@@ -3950,18 +3944,18 @@ _ZN5draco11RAnsDecoderILi20EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
-  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #16
+  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #15
   br label %_ZN5draco17RAnsSymbolDecoderILi16EED2Ev.exit
 
 _ZN5draco17RAnsSymbolDecoderILi16EED2Ev.exit:     ; preds = %_ZN5draco11RAnsDecoderILi20EED2Ev.exit.i, %70
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_17RAnsSymbolDecoderILi17EEEEEbjPNS_13DecoderBufferEPj(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.draco::RAnsSymbolDecoder.26", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
@@ -3974,8 +3968,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
 8:                                                ; preds = %14, %3
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5draco17RAnsSymbolDecoderILi17EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @_ZN5draco17RAnsSymbolDecoderILi17EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %7
@@ -4079,7 +4073,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %55 to i64
   %61 = sub i64 %59, %60
-  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #16
+  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
@@ -4093,7 +4087,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64
   %68 = sub i64 %66, %67
-  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #16
+  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #15
   br label %_ZN5draco11RAnsDecoderILi20EED2Ev.exit.i
 
 _ZN5draco11RAnsDecoderILi20EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
@@ -4107,18 +4101,18 @@ _ZN5draco11RAnsDecoderILi20EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
-  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #16
+  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #15
   br label %_ZN5draco17RAnsSymbolDecoderILi17EED2Ev.exit
 
 _ZN5draco17RAnsSymbolDecoderILi17EED2Ev.exit:     ; preds = %_ZN5draco11RAnsDecoderILi20EED2Ev.exit.i, %70
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_17RAnsSymbolDecoderILi18EEEEEbjPNS_13DecoderBufferEPj(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.draco::RAnsSymbolDecoder.27", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 28, i1 false)
@@ -4131,8 +4125,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
 8:                                                ; preds = %14, %3
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5draco17RAnsSymbolDecoderILi18EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @_ZN5draco17RAnsSymbolDecoderILi18EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %7
@@ -4236,7 +4230,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %55 to i64
   %61 = sub i64 %59, %60
-  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #16
+  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
@@ -4250,7 +4244,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i: ; preds = %56, %.loopexit17
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64
   %68 = sub i64 %66, %67
-  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #16
+  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #15
   br label %_ZN5draco11RAnsDecoderILi20EED2Ev.exit.i
 
 _ZN5draco11RAnsDecoderILi20EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i.i
@@ -4264,11 +4258,11 @@ _ZN5draco11RAnsDecoderILi20EED2Ev.exit.i:         ; preds = %63, %_ZNSt6vectorIN
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
-  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #16
+  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #15
   br label %_ZN5draco17RAnsSymbolDecoderILi18EED2Ev.exit
 
 _ZN5draco17RAnsSymbolDecoderILi18EED2Ev.exit:     ; preds = %_ZN5draco11RAnsDecoderILi20EED2Ev.exit.i, %70
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -4568,7 +4562,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi1EE13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %5 = load i16, ptr %4, align 2, !tbaa !50
   %6 = icmp ult i16 %5, 512
@@ -4708,12 +4702,12 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
   %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !46
@@ -4726,7 +4720,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi1EED2Ev(ptr noundef non
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
@@ -4740,7 +4734,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #15
   br label %_ZN5draco11RAnsDecoderILi12EED2Ev.exit
 
 _ZN5draco11RAnsDecoderILi12EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i, %12
@@ -4754,7 +4748,7 @@ _ZN5draco11RAnsDecoderILi12EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5drac
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
   %24 = sub i64 %22, %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco11RAnsDecoderILi12EED2Ev.exit, %19
@@ -5057,7 +5051,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi2EE13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %5 = load i16, ptr %4, align 2, !tbaa !50
   %6 = icmp ult i16 %5, 512
@@ -5197,12 +5191,12 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
   %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi2EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi2EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !46
@@ -5215,7 +5209,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi2EED2Ev(ptr noundef non
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
@@ -5229,7 +5223,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #15
   br label %_ZN5draco11RAnsDecoderILi12EED2Ev.exit
 
 _ZN5draco11RAnsDecoderILi12EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i, %12
@@ -5243,7 +5237,7 @@ _ZN5draco11RAnsDecoderILi12EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5drac
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
   %24 = sub i64 %22, %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco11RAnsDecoderILi12EED2Ev.exit, %19
@@ -5546,7 +5540,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi3EE13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %5 = load i16, ptr %4, align 2, !tbaa !50
   %6 = icmp ult i16 %5, 512
@@ -5686,12 +5680,12 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
   %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi3EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi3EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !46
@@ -5704,7 +5698,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi3EED2Ev(ptr noundef non
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
@@ -5718,7 +5712,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #15
   br label %_ZN5draco11RAnsDecoderILi12EED2Ev.exit
 
 _ZN5draco11RAnsDecoderILi12EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i, %12
@@ -5732,7 +5726,7 @@ _ZN5draco11RAnsDecoderILi12EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5drac
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
   %24 = sub i64 %22, %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco11RAnsDecoderILi12EED2Ev.exit, %19
@@ -6035,7 +6029,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi4EE13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %5 = load i16, ptr %4, align 2, !tbaa !50
   %6 = icmp ult i16 %5, 512
@@ -6175,12 +6169,12 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
   %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi4EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi4EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !46
@@ -6193,7 +6187,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi4EED2Ev(ptr noundef non
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
@@ -6207,7 +6201,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #15
   br label %_ZN5draco11RAnsDecoderILi12EED2Ev.exit
 
 _ZN5draco11RAnsDecoderILi12EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i, %12
@@ -6221,7 +6215,7 @@ _ZN5draco11RAnsDecoderILi12EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5drac
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
   %24 = sub i64 %22, %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco11RAnsDecoderILi12EED2Ev.exit, %19
@@ -6524,7 +6518,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi6EE13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %5 = load i16, ptr %4, align 2, !tbaa !50
   %6 = icmp ult i16 %5, 512
@@ -6664,12 +6658,12 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
   %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi6EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi6EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !46
@@ -6682,7 +6676,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi6EED2Ev(ptr noundef non
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
@@ -6696,7 +6690,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #15
   br label %_ZN5draco11RAnsDecoderILi12EED2Ev.exit
 
 _ZN5draco11RAnsDecoderILi12EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i, %12
@@ -6710,7 +6704,7 @@ _ZN5draco11RAnsDecoderILi12EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5drac
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
   %24 = sub i64 %22, %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco11RAnsDecoderILi12EED2Ev.exit, %19
@@ -7013,7 +7007,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi7EE13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %5 = load i16, ptr %4, align 2, !tbaa !50
   %6 = icmp ult i16 %5, 512
@@ -7153,12 +7147,12 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
   %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !46
@@ -7171,7 +7165,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi7EED2Ev(ptr noundef non
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
@@ -7185,7 +7179,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #15
   br label %_ZN5draco11RAnsDecoderILi12EED2Ev.exit
 
 _ZN5draco11RAnsDecoderILi12EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i, %12
@@ -7199,7 +7193,7 @@ _ZN5draco11RAnsDecoderILi12EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5drac
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
   %24 = sub i64 %22, %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco11RAnsDecoderILi12EED2Ev.exit, %19
@@ -7502,7 +7496,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi8EE13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %5 = load i16, ptr %4, align 2, !tbaa !50
   %6 = icmp ult i16 %5, 512
@@ -7642,12 +7636,12 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
   %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi8EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi8EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !46
@@ -7660,7 +7654,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi8EED2Ev(ptr noundef non
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
@@ -7674,7 +7668,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #15
   br label %_ZN5draco11RAnsDecoderILi12EED2Ev.exit
 
 _ZN5draco11RAnsDecoderILi12EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i, %12
@@ -7688,7 +7682,7 @@ _ZN5draco11RAnsDecoderILi12EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5drac
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
   %24 = sub i64 %22, %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco11RAnsDecoderILi12EED2Ev.exit, %19
@@ -7991,7 +7985,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi9EE13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %5 = load i16, ptr %4, align 2, !tbaa !50
   %6 = icmp ult i16 %5, 512
@@ -8131,12 +8125,12 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
   %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi9EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi9EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !46
@@ -8149,7 +8143,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi9EED2Ev(ptr noundef non
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
@@ -8163,7 +8157,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #15
   br label %_ZN5draco11RAnsDecoderILi13EED2Ev.exit
 
 _ZN5draco11RAnsDecoderILi13EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i, %12
@@ -8177,7 +8171,7 @@ _ZN5draco11RAnsDecoderILi13EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5drac
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
   %24 = sub i64 %22, %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco11RAnsDecoderILi13EED2Ev.exit, %19
@@ -8480,7 +8474,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi10EE13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %5 = load i16, ptr %4, align 2, !tbaa !50
   %6 = icmp ult i16 %5, 512
@@ -8620,12 +8614,12 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
   %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi10EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi10EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !46
@@ -8638,7 +8632,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi10EED2Ev(ptr noundef no
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
@@ -8652,7 +8646,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #15
   br label %_ZN5draco11RAnsDecoderILi15EED2Ev.exit
 
 _ZN5draco11RAnsDecoderILi15EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i, %12
@@ -8666,7 +8660,7 @@ _ZN5draco11RAnsDecoderILi15EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5drac
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
   %24 = sub i64 %22, %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco11RAnsDecoderILi15EED2Ev.exit, %19
@@ -8969,7 +8963,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi11EE13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %5 = load i16, ptr %4, align 2, !tbaa !50
   %6 = icmp ult i16 %5, 512
@@ -9109,12 +9103,12 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
   %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi11EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi11EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !46
@@ -9127,7 +9121,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi11EED2Ev(ptr noundef no
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
@@ -9141,7 +9135,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #15
   br label %_ZN5draco11RAnsDecoderILi16EED2Ev.exit
 
 _ZN5draco11RAnsDecoderILi16EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i, %12
@@ -9155,7 +9149,7 @@ _ZN5draco11RAnsDecoderILi16EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5drac
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
   %24 = sub i64 %22, %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco11RAnsDecoderILi16EED2Ev.exit, %19
@@ -9458,7 +9452,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi12EE13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %5 = load i16, ptr %4, align 2, !tbaa !50
   %6 = icmp ult i16 %5, 512
@@ -9598,12 +9592,12 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
   %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi12EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi12EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !46
@@ -9616,7 +9610,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi12EED2Ev(ptr noundef no
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
@@ -9630,7 +9624,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #15
   br label %_ZN5draco11RAnsDecoderILi18EED2Ev.exit
 
 _ZN5draco11RAnsDecoderILi18EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i, %12
@@ -9644,7 +9638,7 @@ _ZN5draco11RAnsDecoderILi18EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5drac
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
   %24 = sub i64 %22, %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco11RAnsDecoderILi18EED2Ev.exit, %19
@@ -9947,7 +9941,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi13EE13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %5 = load i16, ptr %4, align 2, !tbaa !50
   %6 = icmp ult i16 %5, 512
@@ -10087,12 +10081,12 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
   %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi13EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi13EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !46
@@ -10105,7 +10099,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi13EED2Ev(ptr noundef no
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
@@ -10119,7 +10113,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #15
   br label %_ZN5draco11RAnsDecoderILi19EED2Ev.exit
 
 _ZN5draco11RAnsDecoderILi19EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i, %12
@@ -10133,7 +10127,7 @@ _ZN5draco11RAnsDecoderILi19EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5drac
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
   %24 = sub i64 %22, %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco11RAnsDecoderILi19EED2Ev.exit, %19
@@ -10436,7 +10430,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi14EE13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %5 = load i16, ptr %4, align 2, !tbaa !50
   %6 = icmp ult i16 %5, 512
@@ -10576,12 +10570,12 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
   %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi14EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi14EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !46
@@ -10594,7 +10588,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi14EED2Ev(ptr noundef no
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
@@ -10608,7 +10602,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #15
   br label %_ZN5draco11RAnsDecoderILi20EED2Ev.exit
 
 _ZN5draco11RAnsDecoderILi20EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i, %12
@@ -10622,7 +10616,7 @@ _ZN5draco11RAnsDecoderILi20EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5drac
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
   %24 = sub i64 %22, %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco11RAnsDecoderILi20EED2Ev.exit, %19
@@ -10925,7 +10919,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi15EE13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %5 = load i16, ptr %4, align 2, !tbaa !50
   %6 = icmp ult i16 %5, 512
@@ -11065,12 +11059,12 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
   %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi15EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi15EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !46
@@ -11083,7 +11077,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi15EED2Ev(ptr noundef no
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
@@ -11097,7 +11091,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #15
   br label %_ZN5draco11RAnsDecoderILi20EED2Ev.exit
 
 _ZN5draco11RAnsDecoderILi20EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i, %12
@@ -11111,7 +11105,7 @@ _ZN5draco11RAnsDecoderILi20EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5drac
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
   %24 = sub i64 %22, %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco11RAnsDecoderILi20EED2Ev.exit, %19
@@ -11414,7 +11408,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi16EE13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %5 = load i16, ptr %4, align 2, !tbaa !50
   %6 = icmp ult i16 %5, 512
@@ -11554,12 +11548,12 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
   %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi16EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi16EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !46
@@ -11572,7 +11566,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi16EED2Ev(ptr noundef no
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
@@ -11586,7 +11580,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #15
   br label %_ZN5draco11RAnsDecoderILi20EED2Ev.exit
 
 _ZN5draco11RAnsDecoderILi20EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i, %12
@@ -11600,7 +11594,7 @@ _ZN5draco11RAnsDecoderILi20EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5drac
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
   %24 = sub i64 %22, %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco11RAnsDecoderILi20EED2Ev.exit, %19
@@ -11903,7 +11897,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi17EE13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %5 = load i16, ptr %4, align 2, !tbaa !50
   %6 = icmp ult i16 %5, 512
@@ -12043,12 +12037,12 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
   %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi17EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi17EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !46
@@ -12061,7 +12055,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi17EED2Ev(ptr noundef no
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
@@ -12075,7 +12069,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #15
   br label %_ZN5draco11RAnsDecoderILi20EED2Ev.exit
 
 _ZN5draco11RAnsDecoderILi20EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i, %12
@@ -12089,7 +12083,7 @@ _ZN5draco11RAnsDecoderILi20EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5drac
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
   %24 = sub i64 %22, %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco11RAnsDecoderILi20EED2Ev.exit, %19
@@ -12392,7 +12386,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi18EE13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %5 = load i16, ptr %4, align 2, !tbaa !50
   %6 = icmp ult i16 %5, 512
@@ -12532,12 +12526,12 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
   %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi18EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi18EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !46
@@ -12550,7 +12544,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolDecoderILi18EED2Ev(ptr noundef no
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #15
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
@@ -12564,7 +12558,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i: ; preds = %5, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #15
   br label %_ZN5draco11RAnsDecoderILi20EED2Ev.exit
 
 _ZN5draco11RAnsDecoderILi20EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EED2Ev.exit.i, %12
@@ -12578,7 +12572,7 @@ _ZN5draco11RAnsDecoderILi20EED2Ev.exit:           ; preds = %_ZNSt6vectorIN5drac
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
   %24 = sub i64 %22, %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco11RAnsDecoderILi20EED2Ev.exit, %19
@@ -12586,11 +12580,17 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco11RAnsDeco
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_symbol_decoding.cc() #12 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_symbol_decoding.cc() #11 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #13
@@ -12608,19 +12608,19 @@ attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind }
-attributes #16 = { builtin nounwind }
+attributes #15 = { builtin nounwind }
+attributes #16 = { nounwind }
 attributes #17 = { noreturn }
 attributes #18 = { builtin allocsize(0) }
 

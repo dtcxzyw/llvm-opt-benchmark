@@ -51,13 +51,10 @@ define void @_ZN5folly6detail17CancellationStateD2Ev(ptr noundef nonnull writeon
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
   tail call void @_ZSt9terminatev() #16
   unreachable
@@ -66,13 +63,10 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @_ZSt9terminatev() local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -123,7 +117,7 @@ define noundef zeroext i1 @_ZN5folly6detail17CancellationState14tryAddCallbackEP
   br label %_ZN5folly6detail7Sleeper4waitEv.exit.i
 
 22:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !15
   store i64 500000, ptr %8, align 8, !tbaa !18
   br label %23
@@ -143,7 +137,7 @@ define noundef zeroext i1 @_ZN5folly6detail17CancellationState14tryAddCallbackEP
   br i1 %29, label %23, label %.critedge.i.i.i, !llvm.loop !21
 
 .critedge.i.i.i:                                  ; preds = %26, %.noexc.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5folly6detail7Sleeper4waitEv.exit.i
 
 30:                                               ; preds = %23
@@ -201,26 +195,26 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly6detail17CancellationState28unlockAndIncrementTokenCountEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN5folly6detail17CancellationState28unlockAndIncrementTokenCountEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = atomicrmw sub ptr %2, i64 -6 release, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly6detail17CancellationState6unlockEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN5folly6detail17CancellationState6unlockEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = atomicrmw sub ptr %2, i64 2 release, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #9
+declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly6detail17CancellationState14removeCallbackEPNS_20CancellationCallbackE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -249,7 +243,7 @@ define void @_ZN5folly6detail17CancellationState14removeCallbackEPNS_20Cancellat
   br label %_ZN5folly6detail7Sleeper4waitEv.exit.i
 
 13:                                               ; preds = %.lr.ph.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !15
   store i64 500000, ptr %7, align 8, !tbaa !18
   br label %14
@@ -269,7 +263,7 @@ define void @_ZN5folly6detail17CancellationState14removeCallbackEPNS_20Cancellat
   br i1 %20, label %14, label %.critedge.i.i.i, !llvm.loop !21
 
 .critedge.i.i.i:                                  ; preds = %17, %.noexc.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5folly6detail7Sleeper4waitEv.exit.i
 
 21:                                               ; preds = %14
@@ -383,7 +377,7 @@ _ZN5folly6detail17CancellationState4lockEv.exit:  ; preds = %._crit_edge.i
   br label %_ZN5folly6detail7Sleeper4waitEv.exit
 
 70:                                               ; preds = %66
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !15
   store i64 500000, ptr %61, align 8, !tbaa !18
   br label %71
@@ -403,7 +397,7 @@ _ZN5folly6detail17CancellationState4lockEv.exit:  ; preds = %._crit_edge.i
   br i1 %77, label %71, label %.critedge.i.i, !llvm.loop !21
 
 .critedge.i.i:                                    ; preds = %74, %.noexc.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5folly6detail7Sleeper4waitEv.exit
 
 78:                                               ; preds = %71
@@ -478,7 +472,7 @@ define void @_ZN5folly6detail17CancellationState4lockEv(ptr noundef nonnull alig
   br label %_ZN5folly6detail7Sleeper4waitEv.exit
 
 11:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !15
   store i64 500000, ptr %5, align 8, !tbaa !18
   br label %12
@@ -498,7 +492,7 @@ define void @_ZN5folly6detail17CancellationState4lockEv(ptr noundef nonnull alig
   br i1 %18, label %12, label %.critedge.i.i, !llvm.loop !21
 
 .critedge.i.i:                                    ; preds = %15, %.noexc.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN5folly6detail7Sleeper4waitEv.exit
 
 19:                                               ; preds = %12
@@ -567,7 +561,7 @@ define void @_ZN5folly6detail17CancellationState28unlockAndDecrementTokenCountEv
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @pthread_self() local_unnamed_addr #9
+declare i64 @pthread_self() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly6detail24MergingCancellationState7destroyEv(ptr noundef nonnull align 16 dereferenceable(40) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -615,7 +609,7 @@ define noundef zeroext i1 @_ZN5folly6detail17CancellationState19requestCancellat
   br label %_ZN5folly6detail7Sleeper4waitEv.exit.i
 
 15:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !15
   store i64 500000, ptr %8, align 8, !tbaa !18
   br label %16
@@ -635,7 +629,7 @@ define noundef zeroext i1 @_ZN5folly6detail17CancellationState19requestCancellat
   br i1 %22, label %16, label %.critedge.i.i.i, !llvm.loop !21
 
 .critedge.i.i.i:                                  ; preds = %19, %.noexc.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5folly6detail7Sleeper4waitEv.exit.i
 
 23:                                               ; preds = %16
@@ -696,7 +690,7 @@ _ZN5folly6detail17CancellationState31tryLockAndCancelUnlessCancelledEv.exit: ; p
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr null, ptr %45, align 8, !tbaa !30
   %46 = atomicrmw sub ptr %5, i64 2 release, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !46
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 96
   store ptr %4, ptr %47, align 16, !tbaa !45
@@ -728,7 +722,7 @@ _ZN5folly20CancellationCallback14invokeCallbackEv.exit: ; preds = %44
   br i1 %.not13, label %_ZN5folly6detail17CancellationState4lockEv.exit.thread, label %59
 
 _ZN5folly6detail17CancellationState4lockEv.exit.thread: ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5folly6detail17CancellationState31tryLockAndCancelUnlessCancelledEv.exit.thread
 
 59:                                               ; preds = %58
@@ -753,7 +747,7 @@ _ZN5folly6detail17CancellationState4lockEv.exit.thread: ; preds = %58
   br label %_ZN5folly6detail7Sleeper4waitEv.exit.i17
 
 66:                                               ; preds = %.lr.ph.i14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !15
   store i64 500000, ptr %38, align 8, !tbaa !18
   br label %67
@@ -773,7 +767,7 @@ _ZN5folly6detail17CancellationState4lockEv.exit.thread: ; preds = %58
   br i1 %73, label %67, label %.critedge.i.i.i16, !llvm.loop !21
 
 .critedge.i.i.i16:                                ; preds = %70, %.noexc.i.i15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN5folly6detail7Sleeper4waitEv.exit.i17
 
 74:                                               ; preds = %67
@@ -803,7 +797,7 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i20: 
   br label %61
 
 _ZN5folly6detail17CancellationState4lockEv.exit:  ; preds = %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %83 = load ptr, ptr %36, align 8, !tbaa !24
   %.not = icmp eq ptr %83, null
   br i1 %.not, label %._crit_edge, label %39
@@ -847,7 +841,7 @@ define noundef zeroext i1 @_ZN5folly6detail17CancellationState31tryLockAndCancel
   br label %_ZN5folly6detail7Sleeper4waitEv.exit
 
 13:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !15
   store i64 500000, ptr %6, align 8, !tbaa !18
   br label %14
@@ -867,7 +861,7 @@ define noundef zeroext i1 @_ZN5folly6detail17CancellationState31tryLockAndCancel
   br i1 %20, label %14, label %.critedge.i.i, !llvm.loop !21
 
 .critedge.i.i:                                    ; preds = %17, %.noexc.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN5folly6detail7Sleeper4waitEv.exit
 
 21:                                               ; preds = %14
@@ -1036,7 +1030,7 @@ define linkonce_odr noundef i64 @_ZN5folly6detail8function20DispatchSmallTrivial
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly6detail24MergingCancellationStateC2ENS1_7MoveTagEmPPNS_17CancellationTokenE(ptr noundef nonnull align 16 dereferenceable(40) initializes((0, 32)) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -1208,7 +1202,7 @@ define internal void @"_ZN5folly6detail8function5call_IZNS0_24MergingCancellatio
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6detail24MergingCancellationState10createCopyEmPPKNS_17CancellationTokenE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6detail24MergingCancellationState10createCopyEmPPKNS_17CancellationTokenE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
   %4 = mul i64 %1, 112
   %5 = add i64 %4, 48
@@ -1229,13 +1223,13 @@ _ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCanc
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6detail24MergingCancellationState10createMoveEmPPNS_17CancellationTokenE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6detail24MergingCancellationState10createMoveEmPPNS_17CancellationTokenE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %4 = mul i64 %1, 112
   %5 = add i64 %4, 48
@@ -1256,7 +1250,7 @@ _ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCanc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6detail24MergingCancellationState14createCopyMoveEmPPKNS_17CancellationTokenEmPPS2_(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6detail24MergingCancellationState14createCopyMoveEmPPKNS_17CancellationTokenEmPPS2_(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %6 = add i64 %3, %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
   %7 = mul i64 %6, 112
@@ -1277,22 +1271,28 @@ _ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCanc
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold nofree noreturn }
-attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold nofree noreturn }
+attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #14 = { nounwind }
 attributes #15 = { builtin nounwind }

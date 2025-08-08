@@ -118,13 +118,13 @@ define internal void @fn_term() #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @fn_version_fl(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @git_version_string) #8
   call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull @git_version_string, i64 noundef %4) #7
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %3)
   call void @strbuf_release(ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -133,12 +133,12 @@ define internal void @fn_start_fl(ptr noundef %0, i32 noundef %1, i64 noundef %2
   %5 = alloca i64, align 8
   %6 = alloca %struct.strbuf, align 8
   store i64 %2, ptr %5, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call void @sq_append_quote_argv_pretty(ptr noundef nonnull %6, ptr noundef %3) #7
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.15, ptr noundef null, ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef %6)
   call void @strbuf_release(ptr noundef nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -147,12 +147,12 @@ define internal void @fn_exit_fl(ptr noundef %0, i32 noundef %1, i64 noundef %2,
   %5 = alloca i64, align 8
   %6 = alloca %struct.strbuf, align 8
   store i64 %2, ptr %5, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %6, ptr noundef nonnull @.str.17, i32 noundef %3) #7
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.16, ptr noundef null, ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef %6)
   call void @strbuf_release(ptr noundef nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -161,12 +161,12 @@ define internal void @fn_signal(i64 noundef %0, i32 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.strbuf, align 8
   store i64 %0, ptr %3, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.19, i32 noundef %1) #7
   call fastcc void @perf_io_write_fl(ptr noundef nonnull @.str.20, i32 noundef 207, ptr noundef nonnull @.str.18, ptr noundef null, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef %4)
   call void @strbuf_release(ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -175,12 +175,12 @@ define internal void @fn_atexit(i64 noundef %0, i32 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.strbuf, align 8
   store i64 %0, ptr %3, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.17, i32 noundef %1) #7
   call fastcc void @perf_io_write_fl(ptr noundef nonnull @.str.20, i32 noundef 219, ptr noundef nonnull @.str.21, ptr noundef null, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef %4)
   call void @strbuf_release(ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -188,7 +188,7 @@ define internal void @fn_atexit(i64 noundef %0, i32 noundef %1) #0 {
 define internal void @fn_error_va_fl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %maybe_append_string_va.exit, label %7
@@ -199,37 +199,37 @@ define internal void @fn_error_va_fl(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not5.i, label %maybe_append_string_va.exit, label %9
 
 9:                                                ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.va_copy.p0(ptr nonnull %5, ptr %3)
   call void @strbuf_vaddf(ptr noundef nonnull %6, ptr noundef nonnull %2, ptr noundef nonnull %5) #7
   call void @llvm.va_end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %maybe_append_string_va.exit
 
 maybe_append_string_va.exit:                      ; preds = %4, %7, %9
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %6)
   call void @strbuf_release(ptr noundef nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @fn_command_path_fl(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #8
   call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull %2, i64 noundef %5) #7
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.23, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %4)
   call void @strbuf_release(ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @fn_command_ancestry_fl(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull @.str.25, i64 noundef 10) #7
   call void @sq_append_quote_argv_pretty(ptr noundef nonnull %4, ptr noundef %2) #7
@@ -266,14 +266,14 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   store i8 0, ptr %15, align 1, !tbaa !4
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.24, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %4)
   call void @strbuf_release(ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @fn_command_name_fl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #8
   call void @strbuf_add(ptr noundef nonnull %5, ptr noundef nonnull %2, i64 noundef %6) #7
@@ -292,27 +292,27 @@ define internal void @fn_command_name_fl(ptr noundef %0, i32 noundef %1, ptr nou
 10:                                               ; preds = %9, %7, %4
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.26, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %5)
   call void @strbuf_release(ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @fn_command_mode_fl(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #8
   call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull %2, i64 noundef %5) #7
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.28, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %4)
   call void @strbuf_release(ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @fn_alias_fl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %5, ptr noundef nonnull @.str.30, ptr noundef %2) #7
   call void @sq_append_quote_argv_pretty(ptr noundef nonnull %5, ptr noundef %3) #7
@@ -349,7 +349,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   store i8 0, ptr %16, align 1, !tbaa !4
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.29, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %5)
   call void @strbuf_release(ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -358,7 +358,7 @@ define internal void @fn_child_start_fl(ptr noundef %0, i32 noundef %1, i64 noun
   %5 = alloca i64, align 8
   %6 = alloca %struct.strbuf, align 8
   store i64 %2, ptr %5, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !17
@@ -478,7 +478,7 @@ strbuf_addch.exit28:                              ; preds = %strbuf_avail.exit.i
   store i8 0, ptr %53, align 1, !tbaa !4
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.31, ptr noundef null, ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef %6)
   call void @strbuf_release(ptr noundef nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -489,12 +489,12 @@ define internal void @fn_child_exit_fl(ptr noundef %0, i32 noundef %1, i64 nound
   %10 = alloca %struct.strbuf, align 8
   store i64 %2, ptr %8, align 8, !tbaa !9
   store i64 %6, ptr %9, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %10, ptr noundef nonnull @.str.39, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.38, ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef null, ptr noundef %10)
   call void @strbuf_release(ptr noundef nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
@@ -505,12 +505,12 @@ define internal void @fn_child_ready_fl(ptr noundef %0, i32 noundef %1, i64 noun
   %10 = alloca %struct.strbuf, align 8
   store i64 %2, ptr %8, align 8, !tbaa !9
   store i64 %6, ptr %9, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %10, ptr noundef nonnull @.str.41, i32 noundef %3, i32 noundef %4, ptr noundef %5) #7
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.40, ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef null, ptr noundef %10)
   call void @strbuf_release(ptr noundef nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
@@ -519,11 +519,11 @@ define internal void @fn_thread_start_fl(ptr noundef %0, i32 noundef %1, i64 nou
   %4 = alloca i64, align 8
   %5 = alloca %struct.strbuf, align 8
   store i64 %2, ptr %4, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.42, ptr noundef null, ptr noundef nonnull %4, ptr noundef null, ptr noundef null, ptr noundef %5)
   call void @strbuf_release(ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -534,11 +534,11 @@ define internal void @fn_thread_exit_fl(ptr noundef %0, i32 noundef %1, i64 noun
   %7 = alloca %struct.strbuf, align 8
   store i64 %2, ptr %5, align 8, !tbaa !9
   store i64 %3, ptr %6, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.43, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null, ptr noundef %7)
   call void @strbuf_release(ptr noundef nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -547,7 +547,7 @@ define internal void @fn_exec_fl(ptr noundef %0, i32 noundef %1, i64 noundef %2,
   %7 = alloca i64, align 8
   %8 = alloca %struct.strbuf, align 8
   store i64 %2, ptr %7, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %8, ptr noundef nonnull @.str.45, i32 noundef %3) #7
   call void @strbuf_add(ptr noundef nonnull %8, ptr noundef nonnull @.str.46, i64 noundef 6) #7
@@ -630,7 +630,7 @@ strbuf_addch.exit17:                              ; preds = %strbuf_avail.exit.i
   store i8 0, ptr %35, align 1, !tbaa !4
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef nonnull %7, ptr noundef null, ptr noundef null, ptr noundef %8)
   call void @strbuf_release(ptr noundef nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -639,7 +639,7 @@ define internal void @fn_exec_result_fl(ptr noundef %0, i32 noundef %1, i64 noun
   %6 = alloca i64, align 8
   %7 = alloca %struct.strbuf, align 8
   store i64 %2, ptr %6, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %7, ptr noundef nonnull @.str.48, i32 noundef %3, i32 noundef %4) #7
   %8 = icmp sgt i32 %4, 0
@@ -653,7 +653,7 @@ define internal void @fn_exec_result_fl(ptr noundef %0, i32 noundef %1, i64 noun
 11:                                               ; preds = %9, %5
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.47, ptr noundef null, ptr noundef nonnull %6, ptr noundef null, ptr noundef null, ptr noundef %7)
   call void @strbuf_release(ptr noundef nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -661,9 +661,9 @@ define internal void @fn_exec_result_fl(ptr noundef %0, i32 noundef %1, i64 noun
 define internal void @fn_param_fl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.strbuf, align 8
   %7 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !27
@@ -684,15 +684,15 @@ define internal void @fn_param_fl(ptr noundef %0, i32 noundef %1, ptr noundef %2
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.50, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %15, ptr noundef %6)
   call void @strbuf_release(ptr noundef nonnull %6) #7
   call void @strbuf_release(ptr noundef nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @fn_repo_fl(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %4 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull @.str.55, i64 noundef 9) #7
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 240
@@ -700,7 +700,7 @@ define internal void @fn_repo_fl(ptr noundef %0, i32 noundef %1, ptr noundef rea
   call void @sq_quote_buf_pretty(ptr noundef nonnull %4, ptr noundef %6) #7
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.54, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %4)
   call void @strbuf_release(ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -710,7 +710,7 @@ define internal void @fn_region_enter_printf_va_fl(ptr noundef %0, i32 noundef %
   %10 = alloca i64, align 8
   %11 = alloca %struct.strbuf, align 8
   store i64 %2, ptr %10, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %13, label %12
@@ -765,17 +765,17 @@ strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i
   br i1 %.not5.i, label %maybe_append_string_va.exit, label %30
 
 30:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.va_copy.p0(ptr nonnull %9, ptr %7)
   call void @strbuf_vaddf(ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %9) #7
   call void @llvm.va_end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %maybe_append_string_va.exit
 
 maybe_append_string_va.exit:                      ; preds = %30, %20, %14, %13
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.56, ptr noundef %5, ptr noundef nonnull %10, ptr noundef null, ptr noundef %3, ptr noundef %11)
   call void @strbuf_release(ptr noundef nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 }
 
@@ -787,7 +787,7 @@ define internal void @fn_region_leave_printf_va_fl(ptr noundef %0, i32 noundef %
   %13 = alloca %struct.strbuf, align 8
   store i64 %2, ptr %11, align 8, !tbaa !9
   store i64 %3, ptr %12, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %15, label %14
@@ -842,17 +842,17 @@ strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i
   br i1 %.not5.i, label %maybe_append_string_va.exit, label %32
 
 32:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.va_copy.p0(ptr nonnull %10, ptr %8)
   call void @strbuf_vaddf(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %10) #7
   call void @llvm.va_end.p0(ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %maybe_append_string_va.exit
 
 maybe_append_string_va.exit:                      ; preds = %32, %22, %16, %15
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.58, ptr noundef %6, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %4, ptr noundef %13)
   call void @strbuf_release(ptr noundef nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 }
 
@@ -863,12 +863,12 @@ define internal void @fn_data_fl(ptr noundef %0, i32 noundef %1, i64 noundef %2,
   %11 = alloca %struct.strbuf, align 8
   store i64 %2, ptr %9, align 8, !tbaa !9
   store i64 %3, ptr %10, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %11, ptr noundef nonnull @.str.52, ptr noundef %6, ptr noundef %7) #7
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.59, ptr noundef %5, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %4, ptr noundef %11)
   call void @strbuf_release(ptr noundef nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 }
 
@@ -879,14 +879,14 @@ define internal void @fn_data_json_fl(ptr noundef %0, i32 noundef %1, i64 nounde
   %11 = alloca %struct.strbuf, align 8
   store i64 %2, ptr %9, align 8, !tbaa !9
   store i64 %3, ptr %10, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !47
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %11, ptr noundef nonnull @.str.52, ptr noundef %6, ptr noundef %13) #7
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.60, ptr noundef %5, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %4, ptr noundef %11)
   call void @strbuf_release(ptr noundef nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 }
 
@@ -896,7 +896,7 @@ define internal void @fn_printf_va_fl(ptr noundef %0, i32 noundef %1, i64 nounde
   %7 = alloca i64, align 8
   %8 = alloca %struct.strbuf, align 8
   store i64 %2, ptr %7, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %maybe_append_string_va.exit, label %9
@@ -907,17 +907,17 @@ define internal void @fn_printf_va_fl(ptr noundef %0, i32 noundef %1, i64 nounde
   br i1 %.not5.i, label %maybe_append_string_va.exit, label %11
 
 11:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.va_copy.p0(ptr nonnull %6, ptr %4)
   call void @strbuf_vaddf(ptr noundef nonnull %8, ptr noundef nonnull %3, ptr noundef nonnull %6) #7
   call void @llvm.va_end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %maybe_append_string_va.exit
 
 maybe_append_string_va.exit:                      ; preds = %5, %9, %11
   call fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.61, ptr noundef null, ptr noundef nonnull %7, ptr noundef null, ptr noundef null, ptr noundef %8)
   call void @strbuf_release(ptr noundef nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -926,7 +926,7 @@ define internal void @fn_timer(ptr noundef readonly captures(none) %0, ptr nound
   %4 = alloca %struct.strbuf, align 8
   %.not = icmp eq i32 %2, 0
   %5 = select i1 %.not, ptr @.str.63, ptr @.str.62
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   %6 = load i64, ptr %1, align 8, !tbaa !49
   %7 = uitofp i64 %6 to double
@@ -947,7 +947,7 @@ define internal void @fn_timer(ptr noundef readonly captures(none) %0, ptr nound
   %21 = load ptr, ptr %0, align 8, !tbaa !56
   call fastcc void @perf_io_write_fl(ptr noundef nonnull @.str.20, i32 noundef 580, ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %21, ptr noundef %4)
   call void @strbuf_release(ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -956,7 +956,7 @@ define internal void @fn_counter(ptr noundef readonly captures(none) %0, ptr nou
   %4 = alloca %struct.strbuf, align 8
   %.not = icmp eq i32 %2, 0
   %5 = select i1 %.not, ptr @.str.66, ptr @.str.65
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !57
@@ -965,26 +965,20 @@ define internal void @fn_counter(ptr noundef readonly captures(none) %0, ptr nou
   %9 = load ptr, ptr %0, align 8, !tbaa !61
   call fastcc void @perf_io_write_fl(ptr noundef nonnull @.str.20, i32 noundef 596, ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %9, ptr noundef %4)
   call void @strbuf_release(ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @tr2_dst_trace_want(ptr noundef) local_unnamed_addr #1
 
-declare i32 @tr2_dst_trace_want(ptr noundef) local_unnamed_addr #2
+declare ptr @tr2_sysenv_get(i32 noundef) local_unnamed_addr #1
 
-declare ptr @tr2_sysenv_get(i32 noundef) local_unnamed_addr #2
+declare i32 @git_parse_maybe_bool(ptr noundef) local_unnamed_addr #1
 
-declare i32 @git_parse_maybe_bool(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @tr2_dst_trace_disable(ptr noundef) local_unnamed_addr #2
+declare void @tr2_dst_trace_disable(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @perf_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6, ptr noundef nonnull %7) unnamed_addr #0 {
@@ -993,7 +987,7 @@ strbuf_setlen.exit.i:
   %9 = alloca %struct.strbuf, align 8
   %10 = alloca %struct.strbuf, align 8
   %11 = tail call ptr @tr2tls_get_self() #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %12, align 8, !tbaa !15
@@ -1003,7 +997,7 @@ strbuf_setlen.exit.i:
   br i1 %.not.i, label %15, label %54
 
 15:                                               ; preds = %strbuf_setlen.exit.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @tr2_tbuf_local_time(ptr noundef nonnull %8) #7
   %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #8
   call void @strbuf_add(ptr noundef nonnull %10, ptr noundef nonnull %8, i64 noundef %16) #7
@@ -1045,7 +1039,7 @@ strbuf_addch.exit.i:                              ; preds = %strbuf_avail.exit.t
   br i1 %.not47.i, label %41, label %29
 
 29:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %9, ptr noundef nonnull @.str.2, ptr noundef nonnull %0, i32 noundef %1) #7
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1069,7 +1063,7 @@ strbuf_addch.exit.i:                              ; preds = %strbuf_avail.exit.t
 
 40:                                               ; preds = %34, %33
   call void @strbuf_release(ptr noundef nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.pre.i = load i64, ptr %12, align 8, !tbaa !15
   br label %41
 
@@ -1110,7 +1104,7 @@ strbuf_addch.exit62.i:                            ; preds = %strbuf_avail.exit.t
 
 ._crit_edge.i:                                    ; preds = %strbuf_addch.exit62.i, %41
   call void @strbuf_add(ptr noundef nonnull %10, ptr noundef nonnull @.str.4, i64 noundef 3) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
 54:                                               ; preds = %._crit_edge.i, %strbuf_setlen.exit.i
@@ -1217,57 +1211,63 @@ perf_fmt_prepare.exit:                            ; preds = %87, %91
   call void @strbuf_addbuf(ptr noundef nonnull %10, ptr noundef nonnull %7) #7
   call void @tr2_dst_write_line(ptr noundef nonnull @tr2dst_perf, ptr noundef nonnull %10) #7
   call void @strbuf_release(ptr noundef nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
-declare void @strbuf_release(ptr noundef) local_unnamed_addr #2
+declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 
-declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
-declare ptr @tr2tls_get_self() local_unnamed_addr #2
+declare ptr @tr2tls_get_self() local_unnamed_addr #1
 
-declare void @strbuf_addbuf(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @strbuf_addbuf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @tr2_dst_write_line(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @tr2_dst_write_line(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @tr2_tbuf_local_time(ptr noundef) local_unnamed_addr #2
+declare void @tr2_tbuf_local_time(ptr noundef) local_unnamed_addr #1
 
-declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @tr2_sid_depth() local_unnamed_addr #2
+declare i32 @tr2_sid_depth() local_unnamed_addr #1
 
-declare void @strbuf_addchars(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @strbuf_addchars(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @sq_append_quote_argv_pretty(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy.p0(ptr, ptr) #5
-
-declare void @strbuf_vaddf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @sq_append_quote_argv_pretty(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #5
+declare void @llvm.va_copy.p0(ptr, ptr) #4
 
-declare void @sq_quote_buf_pretty(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @strbuf_vaddf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
+
+declare void @sq_quote_buf_pretty(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #6
+declare ptr @strerror(i32 noundef) local_unnamed_addr #5
 
-declare ptr @config_scope_name(i32 noundef) local_unnamed_addr #2
+declare ptr @config_scope_name(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(read) }
 

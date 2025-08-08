@@ -151,20 +151,14 @@ mbedtls_ecjpake_free.exit:                        ; preds = %11, %14
   ret i32 %.016
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @mbedtls_md_info_from_type(i32 noundef) local_unnamed_addr #1
 
 declare i32 @mbedtls_ecp_group_load(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @mbedtls_mpi_read_binary(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 -20352, 1) i32 @mbedtls_ecjpake_set_point_format(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 -20352, 1) i32 @mbedtls_ecjpake_set_point_format(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %switch = icmp ult i32 %1, 2
   br i1 %switch, label %3, label %5
 
@@ -179,7 +173,7 @@ define hidden range(i32 -20352, 1) i32 @mbedtls_ecjpake_set_point_format(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 -20352, 1) i32 @mbedtls_ecjpake_check(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define hidden range(i32 -20352, 1) i32 @mbedtls_ecjpake_check(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 8, !tbaa !3
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %12, label %4
@@ -217,7 +211,7 @@ define hidden i32 @mbedtls_ecjpake_read_round_one(ptr noundef %0, ptr noundef %1
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds nuw [2 x ptr], ptr @ecjpake_id, i64 0, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %18 = call fastcc i32 @ecjpake_kkp_read(i32 noundef %5, ptr noundef nonnull %6, i32 noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef readonly %16, ptr noundef %4, ptr noundef %17)
@@ -238,7 +232,7 @@ define hidden i32 @mbedtls_ecjpake_read_round_one(ptr noundef %0, ptr noundef %1
 
 ecjpake_kkpp_read.exit:                           ; preds = %3, %19, %22
   %.0.i = phi i32 [ %18, %3 ], [ %21, %19 ], [ %spec.select.i, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
 
@@ -261,9 +255,9 @@ define hidden i32 @mbedtls_ecjpake_write_round_one(ptr noundef %0, ptr noundef %
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds nuw [2 x ptr], ptr @ecjpake_id, i64 0, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %25 = tail call i32 @mbedtls_ecp_gen_keypair_base(ptr noundef nonnull %11, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef %4, ptr noundef %5) #15
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %26, label %ecjpake_kkp_write.exit.thread.i
@@ -275,7 +269,7 @@ define hidden i32 @mbedtls_ecjpake_write_round_one(ptr noundef %0, ptr noundef %
 
 ecjpake_kkp_write.exit.thread.i:                  ; preds = %26, %6
   %.027.i.ph.i = phi i32 [ %27, %26 ], [ %25, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %ecjpake_kkpp_write.exit
 
 ecjpake_kkp_write.exit.i:                         ; preds = %26
@@ -283,12 +277,12 @@ ecjpake_kkp_write.exit.i:                         ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 %28
   store ptr %29, ptr %9, align 8, !tbaa !20
   %30 = call fastcc i32 @ecjpake_zkp_write(i32 noundef %10, ptr noundef nonnull %11, i32 noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef readonly %23, ptr noundef nonnull %9, ptr noundef %24, ptr noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %31, label %ecjpake_kkpp_write.exit
 
 31:                                               ; preds = %ecjpake_kkp_write.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %32 = load ptr, ptr %9, align 8, !tbaa !20
   %33 = icmp ult ptr %24, %32
   br i1 %33, label %ecjpake_kkp_write.exit31.thread.i, label %34
@@ -308,7 +302,7 @@ ecjpake_kkp_write.exit.i:                         ; preds = %26
 
 ecjpake_kkp_write.exit31.thread.i:                ; preds = %36, %34, %31
   %.027.i29.ph.i = phi i32 [ %40, %36 ], [ %35, %34 ], [ -20224, %31 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %ecjpake_kkpp_write.exit
 
 ecjpake_kkp_write.exit31.i:                       ; preds = %36
@@ -316,7 +310,7 @@ ecjpake_kkp_write.exit31.i:                       ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 %41
   store ptr %42, ptr %9, align 8, !tbaa !20
   %43 = call fastcc i32 @ecjpake_zkp_write(i32 noundef %10, ptr noundef nonnull %11, i32 noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef readonly %23, ptr noundef nonnull %9, ptr noundef %24, ptr noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not27.i = icmp eq i32 %43, 0
   br i1 %.not27.i, label %44, label %ecjpake_kkpp_write.exit
 
@@ -330,7 +324,7 @@ ecjpake_kkp_write.exit31.i:                       ; preds = %36
 
 ecjpake_kkpp_write.exit:                          ; preds = %ecjpake_kkp_write.exit.thread.i, %ecjpake_kkp_write.exit.i, %ecjpake_kkp_write.exit31.thread.i, %ecjpake_kkp_write.exit31.i, %44
   %.0.i = phi i32 [ %30, %ecjpake_kkp_write.exit.i ], [ %43, %ecjpake_kkp_write.exit31.i ], [ 0, %44 ], [ %.027.i.ph.i, %ecjpake_kkp_write.exit.thread.i ], [ %.027.i29.ph.i, %ecjpake_kkp_write.exit31.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0.i
 }
 
@@ -340,16 +334,16 @@ define hidden i32 @mbedtls_ecjpake_read_round_two(ptr noundef %0, ptr noundef %1
   %5 = alloca ptr, align 8
   %6 = alloca %struct.mbedtls_ecp_group, align 8
   %7 = alloca %struct.mbedtls_ecp_point, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @mbedtls_ecp_group_init(ptr noundef nonnull %6) #15
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %7) #15
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @mbedtls_mpi_init(ptr noundef nonnull %4) #15
   %11 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %4, i64 noundef 1) #15
   %.not.i = icmp eq i32 %11, 0
@@ -365,13 +359,13 @@ define hidden i32 @mbedtls_ecjpake_read_round_two(ptr noundef %0, ptr noundef %1
 ecjpake_ecp_add3.exit.thread:                     ; preds = %3, %12
   %.0.i.ph = phi i32 [ %15, %12 ], [ %11, %3 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %39
 
 ecjpake_ecp_add3.exit:                            ; preds = %12
   %16 = call i32 @mbedtls_ecp_muladd(ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %10) #15
   call void @mbedtls_mpi_free(ptr noundef nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %39
 
@@ -420,9 +414,9 @@ ecjpake_ecp_add3.exit:                            ; preds = %12
   %.0 = phi i32 [ %16, %ecjpake_ecp_add3.exit ], [ %22, %21 ], [ %36, %26 ], [ -20096, %23 ], [ %spec.select, %37 ], [ %.0.i.ph, %ecjpake_ecp_add3.exit.thread ]
   call void @mbedtls_ecp_group_free(ptr noundef nonnull %6) #15
   call void @mbedtls_ecp_point_free(ptr noundef nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -452,10 +446,10 @@ define internal fastcc i32 @ecjpake_kkp_read(i32 noundef %0, ptr noundef %1, i32
   br i1 %.not21, label %22, label %50
 
 22:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #15
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %9) #15
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %10) #15
   call void @mbedtls_mpi_init(ptr noundef nonnull %11) #15
@@ -522,10 +516,10 @@ define internal fastcc i32 @ecjpake_kkp_read(i32 noundef %0, ptr noundef %1, i32
 
 ecjpake_zkp_read.exit:                            ; preds = %22, %49
   %.0.i = phi i32 [ %.032.i, %49 ], [ -20352, %22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %50
 
 50:                                               ; preds = %15, %ecjpake_zkp_read.exit, %20, %8
@@ -541,18 +535,18 @@ define hidden i32 @mbedtls_ecjpake_write_round_two(ptr noundef %0, ptr noundef %
   %10 = alloca %struct.mbedtls_mpi, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %8) #15
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %9) #15
   call void @mbedtls_mpi_init(ptr noundef nonnull %10) #15
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @mbedtls_mpi_init(ptr noundef nonnull %7) #15
   %16 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %7, i64 noundef 1) #15
   %.not.i = icmp eq i32 %16, 0
@@ -568,13 +562,13 @@ define hidden i32 @mbedtls_ecjpake_write_round_two(ptr noundef %0, ptr noundef %
 ecjpake_ecp_add3.exit.thread:                     ; preds = %6, %17
   %.0.i.ph = phi i32 [ %20, %17 ], [ %16, %6 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %63
 
 ecjpake_ecp_add3.exit:                            ; preds = %17
   %21 = call i32 @mbedtls_ecp_muladd(ptr noundef nonnull %14, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %15) #15
   call void @mbedtls_mpi_free(ptr noundef nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %22, label %63
 
@@ -650,18 +644,18 @@ ecjpake_ecp_add3.exit:                            ; preds = %17
   call void @mbedtls_ecp_point_free(ptr noundef nonnull %8) #15
   call void @mbedtls_ecp_point_free(ptr noundef nonnull %9) #15
   call void @mbedtls_mpi_free(ptr noundef nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ecjpake_mul_secret(ptr noundef nonnull %0, i32 noundef range(i32 -1, 2) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.mbedtls_mpi, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @mbedtls_mpi_init(ptr noundef nonnull %8) #15
   %9 = call i32 @mbedtls_mpi_fill_random(ptr noundef nonnull %8, i64 noundef 16, ptr noundef %5, ptr noundef %6) #15
   %.not = icmp eq i32 %9, 0
@@ -694,7 +688,7 @@ define internal fastcc i32 @ecjpake_mul_secret(ptr noundef nonnull %0, i32 nound
 22:                                               ; preds = %16, %14, %12, %10, %7
   %.0 = phi i32 [ %9, %7 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %21, %16 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -710,10 +704,10 @@ define internal fastcc i32 @ecjpake_zkp_write(i32 noundef %0, ptr noundef %1, i3
   %13 = alloca %struct.mbedtls_mpi, align 8
   %14 = alloca %struct.mbedtls_mpi, align 8
   %15 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = load ptr, ptr %7, align 8, !tbaa !20
   %17 = icmp ult ptr %8, %16
   br i1 %17, label %59, label %18
@@ -803,10 +797,10 @@ define internal fastcc i32 @ecjpake_zkp_write(i32 noundef %0, ptr noundef %1, i3
 
 59:                                               ; preds = %11, %58
   %.029 = phi i32 [ %.0, %58 ], [ -20224, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.029
 }
 
@@ -814,8 +808,8 @@ define internal fastcc i32 @ecjpake_zkp_write(i32 noundef %0, ptr noundef %1, i3
 define hidden i32 @mbedtls_ecjpake_derive_secret(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.mbedtls_ecp_point, align 8
   %8 = alloca [66 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #15
-  call void @llvm.lifetime.start.p0(i64 66, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr %0, align 8, !tbaa !3
   %10 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %9) #15
   %11 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %10) #15
@@ -852,8 +846,8 @@ define hidden i32 @mbedtls_ecjpake_derive_secret(ptr noundef %0, ptr noundef %1,
 
 27:                                               ; preds = %6, %26
   %.0 = phi i32 [ %.014, %26 ], [ -20224, %6 ]
-  call void @llvm.lifetime.end.p0(i64 66, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -861,8 +855,8 @@ define hidden i32 @mbedtls_ecjpake_derive_secret(ptr noundef %0, ptr noundef %1,
 define internal fastcc i32 @mbedtls_ecjpake_derive_k(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.mbedtls_mpi, align 8
   %6 = alloca %struct.mbedtls_mpi, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @mbedtls_mpi_init(ptr noundef nonnull %5) #15
   call void @mbedtls_mpi_init(ptr noundef nonnull %6) #15
   %7 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %6, i64 noundef 1) #15
@@ -893,8 +887,8 @@ define internal fastcc i32 @mbedtls_ecjpake_derive_k(ptr noundef %0, ptr noundef
   %.0 = phi i32 [ %7, %4 ], [ %13, %8 ], [ %17, %14 ], [ %19, %18 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %5) #15
   call void @mbedtls_mpi_free(ptr noundef nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -903,7 +897,7 @@ declare i32 @mbedtls_mpi_write_binary(ptr noundef, ptr noundef, i64 noundef) loc
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ecjpake_write_shared_key(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.mbedtls_ecp_point, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %7) #15
   %8 = call fastcc i32 @mbedtls_ecjpake_derive_k(ptr noundef %0, ptr noundef %7, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %8, 0
@@ -919,7 +913,7 @@ define hidden i32 @mbedtls_ecjpake_write_shared_key(ptr noundef %0, ptr noundef 
 14:                                               ; preds = %9, %6
   %.0 = phi i32 [ %8, %6 ], [ %13, %9 ]
   call void @mbedtls_ecp_point_free(ptr noundef nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -934,12 +928,12 @@ define hidden range(i32 0, 2) i32 @mbedtls_ecjpake_self_test(i32 noundef %0) loc
   %6 = alloca [32 x i8], align 16
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 496, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 496, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %3, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @mbedtls_ecp_group_init(ptr noundef nonnull %9) #15
@@ -1023,7 +1017,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_ecjpake_self_test(i32 noundef %0) loc
   %50 = zext i32 %49 to i64
   %51 = getelementptr inbounds nuw [2 x ptr], ptr @ecjpake_id, i64 0, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %5, ptr %2, align 8, !tbaa !20
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 %43
   %54 = call fastcc i32 @ecjpake_kkp_read(i32 noundef %44, ptr noundef nonnull %19, i32 noundef %45, ptr noundef nonnull %46, ptr noundef nonnull %23, ptr noundef readonly %52, ptr noundef %2, ptr noundef nonnull %53)
@@ -1039,11 +1033,11 @@ define hidden range(i32 0, 2) i32 @mbedtls_ecjpake_self_test(i32 noundef %0) loc
   br i1 %or.cond44, label %58, label %mbedtls_ecjpake_read_round_one.exit.thread
 
 mbedtls_ecjpake_read_round_one.exit.thread:       ; preds = %42, %55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.critedge30
 
 58:                                               ; preds = %55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %59 = call i32 @mbedtls_ecjpake_write_round_one(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 512, ptr noundef nonnull %7, ptr noundef nonnull @ecjpake_lgc, ptr noundef null)
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %.critedge30
@@ -1236,20 +1230,20 @@ mbedtls_ecjpake_read_round_one.exit.thread:       ; preds = %42, %55
 
 .thread:                                          ; preds = %.thread.critedge, %.critedge30, %139
   %.140 = phi i32 [ %.143, %139 ], [ 1, %.critedge30 ], [ 0, %.thread.critedge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 496, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 496, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.140
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ecjpake_lgc(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #6 {
+define internal noundef i32 @ecjpake_lgc(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #5 {
   %.not9 = icmp eq i64 %2, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1307,7 +1301,7 @@ define internal fastcc i32 @ecjpake_test_load(ptr noundef nonnull %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @mbedtls_ecp_gen_keypair_base(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1326,18 +1320,18 @@ define internal fastcc i32 @ecjpake_hash(i32 noundef %0, ptr noundef %1, i32 nou
   %11 = alloca i64, align 8
   %12 = alloca [421 x i8], align 16
   %13 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 421, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 421
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %17 = call i32 @mbedtls_ecp_point_write_binary(ptr noundef %1, ptr noundef %3, i32 noundef %2, ptr noundef nonnull %11, ptr noundef nonnull %16, i64 noundef 417) #15
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %18, label %ecjpake_write_len_point.exit
 
 ecjpake_write_len_point.exit:                     ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %75
 
 18:                                               ; preds = %8
@@ -1347,8 +1341,8 @@ ecjpake_write_len_point.exit:                     ; preds = %8
   store i32 %21, ptr %12, align 16
   %22 = getelementptr i8, ptr %12, i64 %19
   %23 = getelementptr i8, ptr %22, i64 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %24 = icmp ult ptr %14, %23
   %notsub = add i64 %19, -418
   %25 = icmp sgt i64 %notsub, -6
@@ -1364,7 +1358,7 @@ ecjpake_write_len_point.exit:                     ; preds = %8
 
 ecjpake_write_len_point.exit44.thread:            ; preds = %18, %26
   %.0.i43.ph = phi i32 [ %28, %26 ], [ -20224, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %75
 
 29:                                               ; preds = %26
@@ -1374,8 +1368,8 @@ ecjpake_write_len_point.exit44.thread:            ; preds = %18, %26
   store i32 %32, ptr %23, align 1
   %33 = add i64 %30, 4
   %34 = getelementptr i8, ptr %23, i64 %33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %35 = icmp ult ptr %14, %34
   %notsub71 = add i64 %notsub, %33
   %36 = icmp sgt i64 %notsub71, -6
@@ -1393,7 +1387,7 @@ ecjpake_write_len_point.exit44.thread:            ; preds = %18, %26
 
 ecjpake_write_len_point.exit47.thread:            ; preds = %29, %37
   %.0.i46.ph = phi i32 [ %42, %37 ], [ -20224, %29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %75
 
 43:                                               ; preds = %37
@@ -1403,7 +1397,7 @@ ecjpake_write_len_point.exit47.thread:            ; preds = %29, %37
   store i32 %46, ptr %34, align 1
   %47 = getelementptr i8, ptr %34, i64 %44
   %48 = getelementptr i8, ptr %47, i64 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %49 = ptrtoint ptr %48 to i64
   %50 = sub i64 %38, %49
   %51 = icmp slt i64 %50, 4
@@ -1447,21 +1441,21 @@ ecjpake_write_len_point.exit47.thread:            ; preds = %29, %37
 
 75:                                               ; preds = %ecjpake_write_len_point.exit47.thread, %ecjpake_write_len_point.exit44.thread, %ecjpake_write_len_point.exit, %60, %67, %72, %52, %43
   %.0 = phi i32 [ -20224, %43 ], [ -20224, %52 ], [ %17, %ecjpake_write_len_point.exit ], [ %66, %60 ], [ %71, %67 ], [ %74, %72 ], [ %.0.i43.ph, %ecjpake_write_len_point.exit44.thread ], [ %.0.i46.ph, %ecjpake_write_len_point.exit47.thread ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #15
-  call void @llvm.lifetime.end.p0(i64 421, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
 
 declare i32 @mbedtls_ecp_point_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #9
+declare i32 @llvm.bswap.i32(i32) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare i32 @mbedtls_mpi_mod_mpi(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1480,7 +1474,7 @@ declare zeroext i8 @mbedtls_md_get_size(ptr noundef) local_unnamed_addr #1
 declare i32 @mbedtls_md(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define internal noundef i32 @self_test_rng(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #11 {
+define internal noundef i32 @self_test_rng(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #10 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %4, label %.lr.ph.preheader
 
@@ -1508,6 +1502,12 @@ define internal noundef i32 @self_test_rng(ptr readnone captures(none) %0, ptr n
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
@@ -1522,16 +1522,16 @@ declare i64 @llvm.umin.i64(i64, i64) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nofree nounwind }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

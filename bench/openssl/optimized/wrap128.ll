@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i64 0, 2147483657) i64 @CRYPTO_128_wrap(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = and i64 %4, 7
   %9 = icmp ne i64 %8, 0
   %10 = add i64 %4, -2147483649
@@ -93,25 +93,19 @@ define range(i64 0, 2147483657) i64 @CRYPTO_128_wrap(ptr noundef %0, ptr noundef
 
 48:                                               ; preds = %6, %.split47.us
   %.039 = phi i64 [ %47, %.split47.us ], [ 0, %6 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.039
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define range(i64 0, 2147483649) i64 @CRYPTO_128_unwrap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca [16 x i8], align 16
   %8 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = add i64 %4, -8
   %10 = and i64 %4, 7
   %11 = icmp ne i64 %10, 0
@@ -121,7 +115,7 @@ define range(i64 0, 2147483649) i64 @CRYPTO_128_unwrap(ptr noundef %0, ptr nound
   br i1 %or.cond3.i, label %crypto_128_unwrap_raw.exit.thread, label %14
 
 crypto_128_unwrap_raw.exit.thread:                ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %52
 
 14:                                               ; preds = %6
@@ -139,7 +133,7 @@ crypto_128_unwrap_raw.exit.thread:                ; preds = %6
   br i1 %.not.i, label %crypto_128_unwrap_raw.exit.thread14, label %.lr.ph.us.preheader.i
 
 crypto_128_unwrap_raw.exit.thread14:              ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %52
 
 .lr.ph.us.preheader.i:                            ; preds = %14
@@ -201,7 +195,7 @@ crypto_128_unwrap_raw.exit.thread14:              ; preds = %14
 crypto_128_unwrap_raw.exit:                       ; preds = %._crit_edge.us.i
   %.pre.i = load i64, ptr %7, align 16
   store i64 %.pre.i, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not = icmp eq ptr %1, null
   %spec.store.select = select i1 %.not, ptr @default_iv, ptr %1
   %50 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %8, ptr noundef nonnull %spec.store.select, i64 noundef 8) #6
@@ -214,13 +208,13 @@ crypto_128_unwrap_raw.exit:                       ; preds = %._crit_edge.us.i
 
 52:                                               ; preds = %crypto_128_unwrap_raw.exit.thread14, %crypto_128_unwrap_raw.exit.thread, %crypto_128_unwrap_raw.exit, %51
   %.0 = phi i64 [ 0, %51 ], [ %9, %crypto_128_unwrap_raw.exit ], [ 0, %crypto_128_unwrap_raw.exit.thread ], [ 0, %crypto_128_unwrap_raw.exit.thread14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.0
 }
 
-declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i64 -2147483648, 2147483648) i64 @CRYPTO_128_wrap_pad(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
@@ -265,7 +259,7 @@ define range(i64 -2147483648, 2147483648) i64 @CRYPTO_128_wrap_pad(ptr noundef %
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %2, ptr align 1 %3, i64 %4, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 %4
   tail call void @llvm.memset.p0.i64(ptr align 1 %24, i8 0, i64 %10, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %25 = add nsw i64 %9, -2147483649
   %26 = icmp ult i64 %25, -2147483633
   br i1 %26, label %CRYPTO_128_wrap.exit, label %.preheader.us.preheader.i
@@ -349,7 +343,7 @@ define range(i64 -2147483648, 2147483648) i64 @CRYPTO_128_wrap_pad(ptr noundef %
 
 CRYPTO_128_wrap.exit:                             ; preds = %23, %.split47.us.i
   %.039.i = phi i64 [ %64, %.split47.us.i ], [ 0, %23 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %65
 
 65:                                               ; preds = %19, %CRYPTO_128_wrap.exit, %6
@@ -358,7 +352,7 @@ CRYPTO_128_wrap.exit:                             ; preds = %23, %.split47.us.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define range(i64 0, 4294967296) i64 @CRYPTO_128_unwrap_pad(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
@@ -366,7 +360,7 @@ define range(i64 0, 4294967296) i64 @CRYPTO_128_unwrap_pad(ptr noundef %0, ptr n
   %8 = alloca [8 x i8], align 8
   %9 = alloca [16 x i8], align 16
   %10 = and i64 %4, -8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = icmp ult i64 %4, 16
   %12 = and i64 %4, -2147483641
   %13 = icmp ne i64 %12, 0
@@ -378,7 +372,7 @@ define range(i64 0, 4294967296) i64 @CRYPTO_128_unwrap_pad(ptr noundef %0, ptr n
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void %5(ptr noundef %3, ptr noundef nonnull %9, ptr noundef %0) #6
   %17 = load i64, ptr %9, align 16
   store i64 %17, ptr %8, align 8
@@ -386,12 +380,12 @@ define range(i64 0, 4294967296) i64 @CRYPTO_128_unwrap_pad(ptr noundef %0, ptr n
   %19 = load i64, ptr %18, align 8
   store i64 %19, ptr %2, align 1
   call void @OPENSSL_cleanse(ptr noundef nonnull %9, i64 noundef 16) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %59
 
 20:                                               ; preds = %14
   %21 = add nsw i64 %4, -8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %22 = icmp samesign ult i64 %4, 24
   br i1 %22, label %58, label %.lr.ph.us.preheader.i
 
@@ -464,11 +458,11 @@ define range(i64 0, 4294967296) i64 @CRYPTO_128_unwrap_pad(ptr noundef %0, ptr n
 crypto_128_unwrap_raw.exit.thread:                ; preds = %._crit_edge.us.i
   %.pre.i = load i64, ptr %7, align 16
   store i64 %.pre.i, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %59
 
 58:                                               ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   tail call void @OPENSSL_cleanse(ptr noundef %2, i64 noundef %4) #6
   br label %92
 
@@ -534,18 +528,24 @@ crypto_128_unwrap_raw.exit.thread:                ; preds = %._crit_edge.us.i
 
 92:                                               ; preds = %87, %6, %91, %86, %63, %58
   %.0 = phi i64 [ 0, %63 ], [ 0, %86 ], [ 0, %91 ], [ 0, %58 ], [ 0, %6 ], [ %82, %87 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

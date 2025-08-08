@@ -69,18 +69,18 @@ define internal range(i32 0, 2) i32 @test_lcidm() #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %3, i8 0, i64 21, i1 false)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 -1, ptr %8, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !10
   %10 = tail call ptr @ossl_quic_lcidm_new(ptr noundef null, i64 noundef 10) #4
   %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 32, ptr noundef nonnull @.str.2, ptr noundef %10) #4
@@ -430,23 +430,20 @@ define internal range(i32 0, 2) i32 @test_lcidm() #0 {
 210:                                              ; preds = %207, %15, %20, %25, %30, %33, %38, %43, %46, %49, %54, %57, %62, %67, %70, %75, %78, %83, %88, %93, %98, %101, %106, %109, %112, %118, %121, %124, %130, %133, %136, %142, %145, %148, %153, %158, %161, %166, %171, %174, %179, %184, %187, %192, %197, %202, %12, %0
   %.0 = phi i32 [ 0, %202 ], [ 0, %197 ], [ 0, %192 ], [ 0, %187 ], [ 0, %184 ], [ 0, %179 ], [ 0, %174 ], [ 0, %171 ], [ 0, %166 ], [ 0, %161 ], [ 0, %158 ], [ 0, %153 ], [ 0, %148 ], [ 0, %145 ], [ 0, %142 ], [ 0, %136 ], [ 0, %133 ], [ 0, %130 ], [ 0, %124 ], [ 0, %121 ], [ 0, %118 ], [ 0, %112 ], [ 0, %109 ], [ 0, %106 ], [ 0, %101 ], [ 0, %98 ], [ 0, %93 ], [ 0, %88 ], [ 0, %83 ], [ 0, %78 ], [ 0, %75 ], [ 0, %70 ], [ 0, %67 ], [ 0, %62 ], [ 0, %57 ], [ 0, %54 ], [ 0, %49 ], [ 0, %46 ], [ 0, %43 ], [ 0, %38 ], [ 0, %33 ], [ 0, %30 ], [ 0, %25 ], [ 0, %20 ], [ 0, %15 ], [ 0, %12 ], [ 0, %0 ], [ %spec.select, %207 ]
   call void @ossl_quic_lcidm_free(ptr noundef %10) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -483,12 +480,15 @@ declare i32 @ossl_quic_lcidm_cull(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @ossl_quic_lcidm_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

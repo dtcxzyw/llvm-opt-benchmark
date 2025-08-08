@@ -77,15 +77,15 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %5 = alloca %struct.JSMemoryUsage, align 8
   %6 = alloca [5 x i64], align 16
   %7 = alloca [5 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load ptr, ptr %1, align 8, !tbaa !7
-  %9 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 47) #16
+  %9 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 47) #15
   %.not = icmp eq ptr %9, null
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %spec.select = select i1 %.not, ptr %8, ptr %10
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(8) @.str.1) #16
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(8) @.str.1) #15
   %.not247 = icmp eq i32 %11, 0
   %12 = zext i1 %.not247 to i32
   %13 = icmp sgt i32 %0, 1
@@ -125,7 +125,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 2
-  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #16
+  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #15
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 %27
   %29 = load i8, ptr %26, align 1, !tbaa !12
   %.not249 = icmp eq i8 %29, 0
@@ -169,12 +169,12 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   ]
 
 36:                                               ; preds = %.critedge2
-  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(5) @.str.3) #16
+  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(5) @.str.3) #15
   %.not253 = icmp eq i32 %37, 0
   br i1 %.not253, label %39, label %40
 
 .thread:                                          ; preds = %32
-  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(5) @.str.3) #16
+  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(5) @.str.3) #15
   %.not253295 = icmp eq i32 %38, 0
   br i1 %.not253295, label %39, label %.thread301
 
@@ -188,12 +188,12 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %41, label %45, label %42
 
 42:                                               ; preds = %40
-  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(5) @.str.4) #16
+  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(5) @.str.4) #15
   %.not254 = icmp eq i32 %43, 0
   br i1 %.not254, label %45, label %57
 
 .thread301:                                       ; preds = %.thread
-  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(5) @.str.4) #16
+  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(5) @.str.4) #15
   %.not254303 = icmp eq i32 %44, 0
   br i1 %.not254303, label %45, label %.thread309
 
@@ -216,7 +216,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 54:                                               ; preds = %47
   %55 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %56 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 31, i64 1, ptr %55) #17
+  %56 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 31, i64 1, ptr %55) #16
   tail call void @exit(i32 noundef 2) #14
   unreachable
 
@@ -225,12 +225,12 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %58, label %62, label %59
 
 59:                                               ; preds = %57
-  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(8) @.str.6) #16
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(8) @.str.6) #15
   %.not255 = icmp eq i32 %60, 0
   br i1 %.not255, label %62, label %79
 
 .thread309:                                       ; preds = %.thread301
-  %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(8) @.str.6) #16
+  %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(8) @.str.6) #15
   %.not255311 = icmp eq i32 %61, 0
   br i1 %.not255311, label %62, label %.thread317
 
@@ -241,7 +241,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 63:                                               ; preds = %62
   %64 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %65 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 18, i64 1, ptr %64) #17
+  %65 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 18, i64 1, ptr %64) #16
   tail call void @exit(i32 noundef 1) #14
   unreachable
 
@@ -251,7 +251,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 68:                                               ; preds = %66
   %69 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %70 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 23, i64 1, ptr %69) #17
+  %70 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 23, i64 1, ptr %69) #16
   tail call void @exit(i32 noundef 1) #14
   unreachable
 
@@ -271,12 +271,12 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %80, label %84, label %81
 
 81:                                               ; preds = %79
-  %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(12) @.str.9) #16
+  %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(12) @.str.9) #15
   %.not256 = icmp eq i32 %82, 0
   br i1 %.not256, label %84, label %86
 
 .thread317:                                       ; preds = %.thread309
-  %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(12) @.str.9) #16
+  %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(12) @.str.9) #15
   %.not256319 = icmp eq i32 %83, 0
   br i1 %.not256319, label %84, label %.thread321
 
@@ -292,12 +292,12 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 .thread321:                                       ; preds = %.thread317, %86
   %88 = phi i32 [ %35, %86 ], [ 0, %.thread317 ]
   %spec.select286292296299304307312315320323 = phi ptr [ %34, %86 ], [ %.1165, %.thread317 ]
-  %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(7) @.str.10) #16
+  %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(7) @.str.10) #15
   %.not257 = icmp eq i32 %89, 0
   br i1 %.not257, label %.backedge, label %90
 
 90:                                               ; preds = %.thread321
-  %91 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(7) @.str.11) #16
+  %91 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(7) @.str.11) #15
   %.not258 = icmp eq i32 %91, 0
   br i1 %.not258, label %.backedge, label %92
 
@@ -306,7 +306,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %93, label %96, label %94
 
 94:                                               ; preds = %92
-  %95 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(5) @.str.12) #16
+  %95 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(5) @.str.12) #15
   %.not259 = icmp eq i32 %95, 0
   br i1 %.not259, label %96, label %98
 
@@ -319,7 +319,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %99, label %102, label %100
 
 100:                                              ; preds = %98
-  %101 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(6) @.str.13) #16
+  %101 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(6) @.str.13) #15
   %.not260 = icmp eq i32 %101, 0
   br i1 %.not260, label %102, label %104
 
@@ -328,17 +328,17 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %.backedge
 
 104:                                              ; preds = %100
-  %105 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(4) @.str.14) #16
+  %105 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(4) @.str.14) #15
   %.not261 = icmp eq i32 %105, 0
   br i1 %.not261, label %.backedge, label %106
 
 106:                                              ; preds = %104
-  %107 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(20) @.str.15) #16
+  %107 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(20) @.str.15) #15
   %.not262 = icmp eq i32 %107, 0
   br i1 %.not262, label %.backedge, label %108
 
 108:                                              ; preds = %106
-  %109 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(7) @.str.16) #16
+  %109 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(7) @.str.16) #15
   %.not263 = icmp eq i32 %109, 0
   br i1 %.not263, label %110, label %111
 
@@ -347,7 +347,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %.backedge
 
 111:                                              ; preds = %108
-  %112 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(8) @.str.1) #16
+  %112 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(8) @.str.1) #15
   %.not264 = icmp eq i32 %112, 0
   br i1 %.not264, label %.backedge, label %113
 
@@ -372,7 +372,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %114, label %117, label %115
 
 115:                                              ; preds = %113
-  %116 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(5) @.str.17) #16
+  %116 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(5) @.str.17) #15
   %.not265 = icmp eq i32 %116, 0
   br i1 %.not265, label %117, label %119
 
@@ -381,7 +381,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %.backedge
 
 119:                                              ; preds = %115
-  %120 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(13) @.str.18) #16
+  %120 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(13) @.str.18) #15
   %.not266 = icmp eq i32 %120, 0
   br i1 %.not266, label %121, label %132
 
@@ -391,7 +391,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 122:                                              ; preds = %121
   %123 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %124 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 22, i64 1, ptr %123) #17
+  %124 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 22, i64 1, ptr %123) #16
   tail call void @exit(i32 noundef 1) #14
   unreachable
 
@@ -400,12 +400,12 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %127 = sext i32 %.3 to i64
   %128 = getelementptr inbounds ptr, ptr %1, i64 %127
   %129 = load ptr, ptr %128, align 8, !tbaa !7
-  %130 = tail call double @strtod(ptr noundef captures(none) %129, ptr noundef null) #15
+  %130 = tail call double @strtod(ptr noundef captures(none) %129, ptr noundef null) #17
   %131 = fptoui double %130 to i64
   br label %.backedge
 
 132:                                              ; preds = %119
-  %133 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(11) @.str.20) #16
+  %133 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(11) @.str.20) #15
   %.not268 = icmp eq i32 %133, 0
   br i1 %.not268, label %134, label %145
 
@@ -415,7 +415,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 135:                                              ; preds = %134
   %136 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %137 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 20, i64 1, ptr %136) #17
+  %137 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 20, i64 1, ptr %136) #16
   tail call void @exit(i32 noundef 1) #14
   unreachable
 
@@ -424,7 +424,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %140 = sext i32 %.3 to i64
   %141 = getelementptr inbounds ptr, ptr %1, i64 %140
   %142 = load ptr, ptr %141, align 8, !tbaa !7
-  %143 = tail call double @strtod(ptr noundef captures(none) %142, ptr noundef null) #15
+  %143 = tail call double @strtod(ptr noundef captures(none) %142, ptr noundef null) #17
   %144 = fptoui double %143 to i64
   br label %.backedge
 
@@ -500,12 +500,12 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 161:                                              ; preds = %160
   %162 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #19
   store ptr %162, ptr %3, align 8, !tbaa !15
-  tail call void @free(ptr noundef %162) #15
-  %163 = call ptr @JS_NewRuntime2(ptr noundef nonnull @trace_mf, ptr noundef nonnull %3) #15
+  tail call void @free(ptr noundef %162) #17
+  %163 = call ptr @JS_NewRuntime2(ptr noundef nonnull @trace_mf, ptr noundef nonnull %3) #17
   br label %166
 
 164:                                              ; preds = %160
-  %165 = tail call ptr @JS_NewRuntime() #15
+  %165 = tail call ptr @JS_NewRuntime() #17
   br label %166
 
 166:                                              ; preds = %164, %161
@@ -515,7 +515,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 167:                                              ; preds = %166
   %168 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %169 = call i64 @fwrite(ptr nonnull @.str.24, i64 32, i64 1, ptr %168) #17
+  %169 = call i64 @fwrite(ptr nonnull @.str.24, i64 32, i64 1, ptr %168) #16
   call void @exit(i32 noundef 2) #14
   unreachable
 
@@ -524,7 +524,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not275, label %172, label %171
 
 171:                                              ; preds = %170
-  call void @JS_SetMemoryLimit(ptr noundef nonnull %.0157, i64 noundef %.0193.lcssa) #15
+  call void @JS_SetMemoryLimit(ptr noundef nonnull %.0157, i64 noundef %.0193.lcssa) #17
   br label %172
 
 172:                                              ; preds = %171, %170
@@ -532,13 +532,13 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not276, label %174, label %173
 
 173:                                              ; preds = %172
-  call void @JS_SetMaxStackSize(ptr noundef nonnull %.0157, i64 noundef %.0174.lcssa) #15
+  call void @JS_SetMaxStackSize(ptr noundef nonnull %.0157, i64 noundef %.0174.lcssa) #17
   br label %174
 
 174:                                              ; preds = %173, %172
-  call void @js_std_set_worker_new_context_func(ptr noundef nonnull @JS_NewCustomContext) #15
-  call void @js_std_init_handlers(ptr noundef nonnull %.0157) #15
-  %175 = call ptr @JS_NewContext(ptr noundef nonnull %.0157) #15
+  call void @js_std_set_worker_new_context_func(ptr noundef nonnull @JS_NewCustomContext) #17
+  call void @js_std_init_handlers(ptr noundef nonnull %.0157) #17
+  %175 = call ptr @JS_NewContext(ptr noundef nonnull %.0157) #17
   %.not.i = icmp eq ptr %175, null
   br i1 %.not.i, label %178, label %176
 
@@ -547,26 +547,26 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.b.i, label %177, label %181
 
 177:                                              ; preds = %176
-  call void @JS_AddIntrinsicBigFloat(ptr noundef nonnull %175) #15
-  call void @JS_AddIntrinsicBigDecimal(ptr noundef nonnull %175) #15
-  call void @JS_AddIntrinsicOperators(ptr noundef nonnull %175) #15
-  call void @JS_EnableBignumExt(ptr noundef nonnull %175, i32 noundef 1) #15
+  call void @JS_AddIntrinsicBigFloat(ptr noundef nonnull %175) #17
+  call void @JS_AddIntrinsicBigDecimal(ptr noundef nonnull %175) #17
+  call void @JS_AddIntrinsicOperators(ptr noundef nonnull %175) #17
+  call void @JS_EnableBignumExt(ptr noundef nonnull %175, i32 noundef 1) #17
   br label %181
 
 178:                                              ; preds = %174
   %179 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %180 = call i64 @fwrite(ptr nonnull @.str.25, i64 32, i64 1, ptr %179) #17
+  %180 = call i64 @fwrite(ptr nonnull @.str.25, i64 32, i64 1, ptr %179) #16
   call void @exit(i32 noundef 2) #14
   unreachable
 
 181:                                              ; preds = %177, %176
-  %182 = call ptr @js_init_module_std(ptr noundef nonnull %175, ptr noundef nonnull @.str.14) #15
-  %183 = call ptr @js_init_module_os(ptr noundef nonnull %175, ptr noundef nonnull @.str.38) #15
-  call void @JS_SetModuleLoaderFunc(ptr noundef nonnull %.0157, ptr noundef null, ptr noundef nonnull @js_module_loader, ptr noundef null) #15
+  %182 = call ptr @js_init_module_std(ptr noundef nonnull %175, ptr noundef nonnull @.str.14) #17
+  %183 = call ptr @js_init_module_os(ptr noundef nonnull %175, ptr noundef nonnull @.str.38) #17
+  call void @JS_SetModuleLoaderFunc(ptr noundef nonnull %.0157, ptr noundef null, ptr noundef nonnull @js_module_loader, ptr noundef null) #17
   br i1 %.0199.lcssa, label %185, label %184
 
 184:                                              ; preds = %181
-  call void @JS_SetHostPromiseRejectionTracker(ptr noundef nonnull %.0157, ptr noundef nonnull @js_std_promise_rejection_tracker, ptr noundef null) #15
+  call void @JS_SetHostPromiseRejectionTracker(ptr noundef nonnull %.0157, ptr noundef nonnull @js_std_promise_rejection_tracker, ptr noundef null) #17
   br label %185
 
 185:                                              ; preds = %184, %181
@@ -578,14 +578,14 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 187:                                              ; preds = %186
   %188 = load i32, ptr @qjsc_qjscalc_size, align 4, !tbaa !17
   %189 = zext i32 %188 to i64
-  call void @js_std_eval_binary(ptr noundef nonnull %175, ptr noundef nonnull @qjsc_qjscalc, i64 noundef %189, i32 noundef 0) #15
+  call void @js_std_eval_binary(ptr noundef nonnull %175, ptr noundef nonnull @qjsc_qjscalc, i64 noundef %189, i32 noundef 0) #17
   br label %190
 
 190:                                              ; preds = %187, %186
   %191 = sub i32 %0, %.1
   %192 = sext i32 %.1 to i64
   %193 = getelementptr inbounds ptr, ptr %1, i64 %192
-  call void @js_std_add_helpers(ptr noundef nonnull %175, i32 noundef %191, ptr noundef nonnull %193) #15
+  call void @js_std_add_helpers(ptr noundef nonnull %175, i32 noundef %191, ptr noundef nonnull %193) #17
   br i1 %.0205.lcssa, label %196, label %194
 
 194:                                              ; preds = %190
@@ -618,10 +618,10 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not280, label %217, label %202
 
 202:                                              ; preds = %._crit_edge
-  %203 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0168.lcssa) #16
+  %203 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0168.lcssa) #15
   %sext = shl i64 %203, 32
   %204 = ashr exact i64 %sext, 32
-  %205 = call { i64, i64 } @JS_Eval(ptr noundef nonnull %175, ptr noundef nonnull %.0168.lcssa, i64 noundef %204, ptr noundef nonnull @.str.28, i32 noundef 0) #15
+  %205 = call { i64, i64 } @JS_Eval(ptr noundef nonnull %175, ptr noundef nonnull %.0168.lcssa, i64 noundef %204, ptr noundef nonnull @.str.28, i32 noundef 0) #17
   %.sroa.12.1.i = extractvalue { i64, i64 } %205, 1
   %.sroa.07.1.i = extractvalue { i64, i64 } %205, 0
   %206 = and i64 %.sroa.12.1.i, 4294967295
@@ -629,7 +629,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not37.i.not, label %207, label %208
 
 207:                                              ; preds = %202
-  call void @js_std_dump_error(ptr noundef nonnull %175) #15
+  call void @js_std_dump_error(ptr noundef nonnull %175) #17
   br label %208
 
 208:                                              ; preds = %207, %202
@@ -646,7 +646,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %215, label %216, label %eval_buf.exit
 
 216:                                              ; preds = %211
-  call void @__JS_FreeValue(ptr noundef nonnull %175, i64 %.sroa.07.1.i, i64 %.sroa.12.1.i) #15
+  call void @__JS_FreeValue(ptr noundef nonnull %175, i64 %.sroa.07.1.i, i64 %.sroa.12.1.i) #17
   br label %eval_buf.exit
 
 eval_buf.exit:                                    ; preds = %208, %211, %216
@@ -668,34 +668,34 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
 .thread359:                                       ; preds = %217, %221
   %222 = load i32, ptr @qjsc_repl_size, align 4, !tbaa !17
   %223 = zext i32 %222 to i64
-  call void @js_std_eval_binary(ptr noundef nonnull %175, ptr noundef nonnull @qjsc_repl, i64 noundef %223, i32 noundef 0) #15
+  call void @js_std_eval_binary(ptr noundef nonnull %175, ptr noundef nonnull @qjsc_repl, i64 noundef %223, i32 noundef 0) #17
   br label %224
 
 224:                                              ; preds = %.thread359, %221
-  call void @js_std_loop(ptr noundef nonnull %175) #15
+  call void @js_std_loop(ptr noundef nonnull %175) #17
   br label %225
 
 225:                                              ; preds = %224, %185
   br i1 %.0229.lcssa, label %226, label %228
 
 226:                                              ; preds = %225
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #15
-  call void @JS_ComputeMemoryUsage(ptr noundef nonnull %.0157, ptr noundef nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @JS_ComputeMemoryUsage(ptr noundef nonnull %.0157, ptr noundef nonnull %5) #17
   %227 = load ptr, ptr @stdout, align 8, !tbaa !13
-  call void @JS_DumpMemoryUsage(ptr noundef %227, ptr noundef nonnull %5, ptr noundef nonnull %.0157) #15
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #15
+  call void @JS_DumpMemoryUsage(ptr noundef %227, ptr noundef nonnull %5, ptr noundef nonnull %.0157) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %228
 
 228:                                              ; preds = %226, %225
-  call void @js_std_free_handlers(ptr noundef nonnull %.0157) #15
-  call void @JS_FreeContext(ptr noundef nonnull %175) #15
-  call void @JS_FreeRuntime(ptr noundef nonnull %.0157) #15
+  call void @js_std_free_handlers(ptr noundef nonnull %.0157) #17
+  call void @JS_FreeContext(ptr noundef nonnull %175) #17
+  call void @JS_FreeRuntime(ptr noundef nonnull %.0157) #17
   %or.cond6 = and i1 %.0229.lcssa, %.0217.lcssa
   br i1 %or.cond6, label %229, label %279
 
 229:                                              ; preds = %228
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %230 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %231 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %232 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -704,19 +704,19 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
 
 234:                                              ; preds = %229, %.split628.us
   %.0156629 = phi i32 [ 0, %229 ], [ %265, %.split628.us ]
-  %235 = call i64 @clock() #15
+  %235 = call i64 @clock() #17
   store i64 %235, ptr %6, align 16, !tbaa !23
-  %236 = call ptr @JS_NewRuntime() #15
-  %237 = call i64 @clock() #15
+  %236 = call ptr @JS_NewRuntime() #17
+  %237 = call i64 @clock() #17
   store i64 %237, ptr %230, align 8, !tbaa !23
-  %238 = call ptr @JS_NewContext(ptr noundef %236) #15
-  %239 = call i64 @clock() #15
+  %238 = call ptr @JS_NewContext(ptr noundef %236) #17
+  %239 = call i64 @clock() #17
   store i64 %239, ptr %231, align 16, !tbaa !23
-  call void @JS_FreeContext(ptr noundef %238) #15
-  %240 = call i64 @clock() #15
+  call void @JS_FreeContext(ptr noundef %238) #17
+  %240 = call i64 @clock() #17
   store i64 %240, ptr %232, align 8, !tbaa !23
-  call void @JS_FreeRuntime(ptr noundef %236) #15
-  %241 = call i64 @clock() #15
+  call void @JS_FreeRuntime(ptr noundef %236) #17
+  %241 = call i64 @clock() #17
   store i64 %241, ptr %233, align 16, !tbaa !23
   %242 = icmp eq i32 %.0156629, 0
   br i1 %242, label %.split.us, label %.split
@@ -777,57 +777,51 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
   %276 = load double, ptr %275, align 16, !tbaa !25
   %277 = fadd double %274, %276
   %278 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, double noundef %277, double noundef %268, double noundef %270, double noundef %273, double noundef %276)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %279
 
 .loopexit:                                        ; preds = %.lr.ph625, %218, %eval_buf.exit
-  call void @js_std_free_handlers(ptr noundef nonnull %.0157) #15
-  call void @JS_FreeContext(ptr noundef nonnull %175) #15
-  call void @JS_FreeRuntime(ptr noundef nonnull %.0157) #15
+  call void @js_std_free_handlers(ptr noundef nonnull %.0157) #17
+  call void @JS_FreeContext(ptr noundef nonnull %175) #17
+  call void @JS_FreeRuntime(ptr noundef nonnull %.0157) #17
   br label %279
 
 279:                                              ; preds = %228, %266, %.loopexit
   %.0 = phi i32 [ 1, %.loopexit ], [ 0, %266 ], [ 0, %228 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #6
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #5
 
-declare ptr @JS_NewRuntime2(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare ptr @JS_NewRuntime2(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare ptr @JS_NewRuntime() local_unnamed_addr #7
+declare ptr @JS_NewRuntime() local_unnamed_addr #6
 
-declare void @JS_SetMemoryLimit(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare void @JS_SetMemoryLimit(ptr noundef, i64 noundef) local_unnamed_addr #6
 
-declare void @JS_SetMaxStackSize(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare void @JS_SetMaxStackSize(ptr noundef, i64 noundef) local_unnamed_addr #6
 
-declare void @js_std_set_worker_new_context_func(ptr noundef) local_unnamed_addr #7
+declare void @js_std_set_worker_new_context_func(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @JS_NewCustomContext(ptr noundef %0) #3 {
-  %2 = tail call ptr @JS_NewContext(ptr noundef %0) #15
+  %2 = tail call ptr @JS_NewContext(ptr noundef %0) #17
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %3
 
@@ -836,34 +830,34 @@ define internal ptr @JS_NewCustomContext(ptr noundef %0) #3 {
   br i1 %.b, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call void @JS_AddIntrinsicBigFloat(ptr noundef nonnull %2) #15
-  tail call void @JS_AddIntrinsicBigDecimal(ptr noundef nonnull %2) #15
-  tail call void @JS_AddIntrinsicOperators(ptr noundef nonnull %2) #15
-  tail call void @JS_EnableBignumExt(ptr noundef nonnull %2, i32 noundef 1) #15
+  tail call void @JS_AddIntrinsicBigFloat(ptr noundef nonnull %2) #17
+  tail call void @JS_AddIntrinsicBigDecimal(ptr noundef nonnull %2) #17
+  tail call void @JS_AddIntrinsicOperators(ptr noundef nonnull %2) #17
+  tail call void @JS_EnableBignumExt(ptr noundef nonnull %2, i32 noundef 1) #17
   br label %5
 
 5:                                                ; preds = %4, %3
-  %6 = tail call ptr @js_init_module_std(ptr noundef nonnull %2, ptr noundef nonnull @.str.14) #15
-  %7 = tail call ptr @js_init_module_os(ptr noundef nonnull %2, ptr noundef nonnull @.str.38) #15
+  %6 = tail call ptr @js_init_module_std(ptr noundef nonnull %2, ptr noundef nonnull @.str.14) #17
+  %7 = tail call ptr @js_init_module_os(ptr noundef nonnull %2, ptr noundef nonnull @.str.38) #17
   br label %8
 
 8:                                                ; preds = %1, %5
   ret ptr %2
 }
 
-declare void @js_std_init_handlers(ptr noundef) local_unnamed_addr #7
+declare void @js_std_init_handlers(ptr noundef) local_unnamed_addr #6
 
-declare void @JS_SetModuleLoaderFunc(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
+declare void @JS_SetModuleLoaderFunc(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare ptr @js_module_loader(ptr noundef, ptr noundef, ptr noundef) #7
+declare ptr @js_module_loader(ptr noundef, ptr noundef, ptr noundef) #6
 
-declare void @JS_SetHostPromiseRejectionTracker(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
+declare void @JS_SetHostPromiseRejectionTracker(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare void @js_std_promise_rejection_tracker(ptr noundef, i64, i64, i64, i64, i32 noundef, ptr noundef) #7
+declare void @js_std_promise_rejection_tracker(ptr noundef, i64, i64, i64, i64, i32 noundef, ptr noundef) #6
 
-declare void @js_std_eval_binary(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
+declare void @js_std_eval_binary(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
-declare void @js_std_add_helpers(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
+declare void @js_std_add_helpers(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @eval_buf(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #3 {
@@ -873,7 +867,7 @@ define internal fastcc range(i32 -1, 1) i32 @eval_buf(ptr noundef nonnull %0, pt
 
 7:                                                ; preds = %5
   %8 = or disjoint i32 %4, 32
-  %9 = tail call { i64, i64 } @JS_Eval(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %6, ptr noundef %3, i32 noundef %8) #15
+  %9 = tail call { i64, i64 } @JS_Eval(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %6, ptr noundef %3, i32 noundef %8) #17
   %10 = extractvalue { i64, i64 } %9, 0
   %11 = extractvalue { i64, i64 } %9, 1
   %12 = and i64 %11, 4294967295
@@ -881,8 +875,8 @@ define internal fastcc range(i32 -1, 1) i32 @eval_buf(ptr noundef nonnull %0, pt
   br i1 %.not36, label %18, label %13
 
 13:                                               ; preds = %7
-  %14 = tail call i32 @js_module_set_import_meta(ptr noundef nonnull %0, i64 %10, i64 %11, i32 noundef 1, i32 noundef 1) #15
-  %15 = tail call { i64, i64 } @JS_EvalFunction(ptr noundef nonnull %0, i64 %10, i64 %11) #15
+  %14 = tail call i32 @js_module_set_import_meta(ptr noundef nonnull %0, i64 %10, i64 %11, i32 noundef 1, i32 noundef 1) #17
+  %15 = tail call { i64, i64 } @JS_EvalFunction(ptr noundef nonnull %0, i64 %10, i64 %11) #17
   %16 = extractvalue { i64, i64 } %15, 0
   %17 = extractvalue { i64, i64 } %15, 1
   br label %18
@@ -890,11 +884,11 @@ define internal fastcc range(i32 -1, 1) i32 @eval_buf(ptr noundef nonnull %0, pt
 18:                                               ; preds = %13, %7
   %.sroa.07.0 = phi i64 [ %10, %7 ], [ %16, %13 ]
   %.sroa.12.0 = phi i64 [ %11, %7 ], [ %17, %13 ]
-  %19 = tail call { i64, i64 } @js_std_await(ptr noundef nonnull %0, i64 %.sroa.07.0, i64 %.sroa.12.0) #15
+  %19 = tail call { i64, i64 } @js_std_await(ptr noundef nonnull %0, i64 %.sroa.07.0, i64 %.sroa.12.0) #17
   br label %22
 
 20:                                               ; preds = %5
-  %21 = tail call { i64, i64 } @JS_Eval(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %6, ptr noundef %3, i32 noundef 0) #15
+  %21 = tail call { i64, i64 } @JS_Eval(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %6, ptr noundef %3, i32 noundef 0) #17
   br label %22
 
 22:                                               ; preds = %20, %18
@@ -906,7 +900,7 @@ define internal fastcc range(i32 -1, 1) i32 @eval_buf(ptr noundef nonnull %0, pt
   br i1 %.not37, label %24, label %25
 
 24:                                               ; preds = %22
-  tail call void @js_std_dump_error(ptr noundef nonnull %0) #15
+  tail call void @js_std_dump_error(ptr noundef nonnull %0) #17
   br label %25
 
 25:                                               ; preds = %22, %24
@@ -924,7 +918,7 @@ define internal fastcc range(i32 -1, 1) i32 @eval_buf(ptr noundef nonnull %0, pt
   br i1 %32, label %33, label %JS_FreeValue.exit
 
 33:                                               ; preds = %28
-  tail call void @__JS_FreeValue(ptr noundef nonnull %0, i64 %.sroa.07.1, i64 %.sroa.12.1) #15
+  tail call void @__JS_FreeValue(ptr noundef nonnull %0, i64 %.sroa.07.1, i64 %.sroa.12.1) #17
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %25, %28, %33
@@ -934,13 +928,13 @@ JS_FreeValue.exit:                                ; preds = %25, %28, %33
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @eval_file(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 -1, 2) %2) unnamed_addr #3 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
-  %5 = call ptr @js_load_file(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %1) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %5 = call ptr @js_load_file(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %1) #17
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %7
 
 6:                                                ; preds = %3
-  call void @perror(ptr noundef %1) #17
+  call void @perror(ptr noundef %1) #16
   call void @exit(i32 noundef 1) #14
   unreachable
 
@@ -949,13 +943,13 @@ define internal fastcc range(i32 -1, 1) i32 @eval_file(ptr noundef nonnull %0, p
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %7
-  %10 = call i32 @has_suffix(ptr noundef %1, ptr noundef nonnull @.str.39) #15
+  %10 = call i32 @has_suffix(ptr noundef %1, ptr noundef nonnull @.str.39) #17
   %.not17 = icmp eq i32 %10, 0
   br i1 %.not17, label %11, label %.thread
 
 11:                                               ; preds = %9
   %12 = load i64, ptr %4, align 8, !tbaa !23
-  %13 = call i32 @JS_DetectModule(ptr noundef nonnull %5, i64 noundef %12) #15
+  %13 = call i32 @JS_DetectModule(ptr noundef nonnull %5, i64 noundef %12) #17
   %.fr22 = freeze i32 %13
   %14 = icmp ne i32 %.fr22, 0
   %15 = zext i1 %14 to i32
@@ -972,33 +966,33 @@ define internal fastcc range(i32 -1, 1) i32 @eval_file(ptr noundef nonnull %0, p
   %18 = load i64, ptr %4, align 8, !tbaa !23
   %19 = trunc i64 %18 to i32
   %20 = call fastcc i32 @eval_buf(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %19, ptr noundef %1, i32 noundef %17)
-  call void @js_free(ptr noundef nonnull %0, ptr noundef nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @js_free(ptr noundef nonnull %0, ptr noundef nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %20
 }
 
-declare void @js_std_loop(ptr noundef) local_unnamed_addr #7
+declare void @js_std_loop(ptr noundef) local_unnamed_addr #6
 
-declare void @JS_ComputeMemoryUsage(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare void @JS_ComputeMemoryUsage(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare void @JS_DumpMemoryUsage(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
+declare void @JS_DumpMemoryUsage(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare void @js_std_free_handlers(ptr noundef) local_unnamed_addr #7
+declare void @js_std_free_handlers(ptr noundef) local_unnamed_addr #6
 
-declare void @JS_FreeContext(ptr noundef) local_unnamed_addr #7
+declare void @JS_FreeContext(ptr noundef) local_unnamed_addr #6
 
-declare void @JS_FreeRuntime(ptr noundef) local_unnamed_addr #7
+declare void @JS_FreeRuntime(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i64 @clock() local_unnamed_addr #8
+declare i64 @clock() local_unnamed_addr #7
 
-declare ptr @JS_NewContext(ptr noundef) local_unnamed_addr #7
+declare ptr @JS_NewContext(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @js_trace_malloc(ptr noundef captures(none) %0, i64 noundef %1) #3 {
@@ -1020,7 +1014,7 @@ define internal noundef ptr @js_trace_malloc(ptr noundef captures(none) %0, i64 
   %12 = load i64, ptr %0, align 8, !tbaa !35
   %13 = add i64 %12, 1
   store i64 %13, ptr %0, align 8, !tbaa !35
-  %14 = tail call i64 @malloc_usable_size(ptr noundef nonnull %10) #15
+  %14 = tail call i64 @malloc_usable_size(ptr noundef nonnull %10) #17
   %15 = add i64 %14, 8
   %16 = load i64, ptr %3, align 8, !tbaa !31
   %17 = add i64 %15, %16
@@ -1042,13 +1036,13 @@ define internal void @js_trace_free(ptr noundef captures(none) %0, ptr noundef %
   %4 = load i64, ptr %0, align 8, !tbaa !35
   %5 = add i64 %4, -1
   store i64 %5, ptr %0, align 8, !tbaa !35
-  %6 = tail call i64 @malloc_usable_size(ptr noundef nonnull %1) #15
+  %6 = tail call i64 @malloc_usable_size(ptr noundef nonnull %1) #17
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !31
   %reass.sub = sub i64 %8, %6
   %9 = add i64 %reass.sub, -8
   store i64 %9, ptr %7, align 8, !tbaa !31
-  tail call void @free(ptr noundef nonnull %1) #15
+  tail call void @free(ptr noundef nonnull %1) #17
   br label %10
 
 10:                                               ; preds = %2, %3
@@ -1083,7 +1077,7 @@ define internal noundef ptr @js_trace_realloc(ptr noundef captures(none) %0, ptr
   %16 = load i64, ptr %0, align 8, !tbaa !35
   %17 = add i64 %16, 1
   store i64 %17, ptr %0, align 8, !tbaa !35
-  %18 = tail call i64 @malloc_usable_size(ptr noundef nonnull %14) #15
+  %18 = tail call i64 @malloc_usable_size(ptr noundef nonnull %14) #17
   %19 = add i64 %18, 8
   %20 = load i64, ptr %7, align 8, !tbaa !31
   %21 = add i64 %19, %20
@@ -1091,7 +1085,7 @@ define internal noundef ptr @js_trace_realloc(ptr noundef captures(none) %0, ptr
   br label %js_trace_malloc.exit
 
 22:                                               ; preds = %3
-  %23 = tail call i64 @malloc_usable_size(ptr noundef nonnull %1) #15
+  %23 = tail call i64 @malloc_usable_size(ptr noundef nonnull %1) #17
   %24 = icmp eq i64 %2, 0
   br i1 %24, label %25, label %31
 
@@ -1105,7 +1099,7 @@ define internal noundef ptr @js_trace_realloc(ptr noundef captures(none) %0, ptr
   %reass.sub = sub i64 %29, %23
   %30 = add i64 %reass.sub, -8
   store i64 %30, ptr %28, align 8, !tbaa !31
-  tail call void @free(ptr noundef nonnull %1) #15
+  tail call void @free(ptr noundef nonnull %1) #17
   br label %js_trace_malloc.exit
 
 31:                                               ; preds = %22
@@ -1126,7 +1120,7 @@ define internal noundef ptr @js_trace_realloc(ptr noundef captures(none) %0, ptr
   br i1 %.not32, label %js_trace_malloc.exit, label %41
 
 41:                                               ; preds = %39
-  %42 = tail call i64 @malloc_usable_size(ptr noundef nonnull %40) #15
+  %42 = tail call i64 @malloc_usable_size(ptr noundef nonnull %40) #17
   %43 = sub i64 %42, %23
   %44 = load i64, ptr %32, align 8, !tbaa !31
   %45 = add i64 %43, %44
@@ -1140,14 +1134,14 @@ js_trace_malloc.exit:                             ; preds = %15, %13, %6, %39, %
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @js_trace_malloc_usable_size(ptr noundef %0) #3 {
-  %2 = tail call i64 @malloc_usable_size(ptr noundef %0) #15
+  %2 = tail call i64 @malloc_usable_size(ptr noundef %0) #17
   ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @js_trace_malloc_printf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ...) unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1206,7 +1200,7 @@ define internal void @js_trace_malloc_printf(ptr noundef readonly captures(none)
   %31 = ptrtoint ptr %25 to i64
   %32 = ptrtoint ptr %.val to i64
   %33 = sub i64 %31, %32
-  %34 = call i64 @malloc_usable_size(ptr noundef nonnull %25) #15
+  %34 = call i64 @malloc_usable_size(ptr noundef nonnull %25) #17
   %35 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i64 noundef %33, i64 noundef %34)
   br label %36
 
@@ -1257,59 +1251,65 @@ define internal void @js_trace_malloc_printf(ptr noundef readonly captures(none)
 
 61:                                               ; preds = %.backedge
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #11
+declare void @llvm.va_start.p0(ptr) #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #11
+declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
-declare i64 @malloc_usable_size(ptr noundef) local_unnamed_addr #8
+declare i64 @malloc_usable_size(ptr noundef) local_unnamed_addr #7
 
-declare void @JS_AddIntrinsicBigFloat(ptr noundef) local_unnamed_addr #7
+declare void @JS_AddIntrinsicBigFloat(ptr noundef) local_unnamed_addr #6
 
-declare void @JS_AddIntrinsicBigDecimal(ptr noundef) local_unnamed_addr #7
+declare void @JS_AddIntrinsicBigDecimal(ptr noundef) local_unnamed_addr #6
 
-declare void @JS_AddIntrinsicOperators(ptr noundef) local_unnamed_addr #7
+declare void @JS_AddIntrinsicOperators(ptr noundef) local_unnamed_addr #6
 
-declare void @JS_EnableBignumExt(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare void @JS_EnableBignumExt(ptr noundef, i32 noundef) local_unnamed_addr #6
 
-declare ptr @js_init_module_std(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare ptr @js_init_module_std(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare ptr @js_init_module_os(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare ptr @js_init_module_os(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare { i64, i64 } @JS_Eval(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
+declare { i64, i64 } @JS_Eval(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
-declare i32 @js_module_set_import_meta(ptr noundef, i64, i64, i32 noundef, i32 noundef) local_unnamed_addr #7
+declare i32 @js_module_set_import_meta(ptr noundef, i64, i64, i32 noundef, i32 noundef) local_unnamed_addr #6
 
-declare { i64, i64 } @JS_EvalFunction(ptr noundef, i64, i64) local_unnamed_addr #7
+declare { i64, i64 } @JS_EvalFunction(ptr noundef, i64, i64) local_unnamed_addr #6
 
-declare { i64, i64 } @js_std_await(ptr noundef, i64, i64) local_unnamed_addr #7
+declare { i64, i64 } @js_std_await(ptr noundef, i64, i64) local_unnamed_addr #6
 
-declare void @js_std_dump_error(ptr noundef) local_unnamed_addr #7
+declare void @js_std_dump_error(ptr noundef) local_unnamed_addr #6
 
-declare void @__JS_FreeValue(ptr noundef, i64, i64) local_unnamed_addr #7
+declare void @__JS_FreeValue(ptr noundef, i64, i64) local_unnamed_addr #6
 
-declare ptr @js_load_file(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
+declare ptr @js_load_file(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
 declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #1
 
-declare i32 @has_suffix(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @has_suffix(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare i32 @JS_DetectModule(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @JS_DetectModule(ptr noundef, i64 noundef) local_unnamed_addr #6
 
-declare void @js_free(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare void @js_free(ptr noundef, ptr noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #13
@@ -1321,20 +1321,20 @@ attributes #0 = { cold nofree noreturn nounwind uwtable "min-legal-vector-width"
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nofree nounwind }
 attributes #14 = { cold noreturn nounwind }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind willreturn memory(read) }
-attributes #17 = { cold }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { cold }
+attributes #17 = { nounwind }
 attributes #18 = { cold nounwind }
 attributes #19 = { nounwind allocsize(0) }
 attributes #20 = { nounwind allocsize(1) }

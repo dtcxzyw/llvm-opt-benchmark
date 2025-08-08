@@ -57,28 +57,28 @@ define hidden i32 @Curl_input_ntlm(ptr noundef %0, i1 noundef zeroext %1, ptr no
   br i1 %.not63, label %.critedge.thread, label %19
 
 19:                                               ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = call i32 @Curl_base64_decode(ptr noundef nonnull %.052, ptr noundef nonnull %4, ptr noundef nonnull %5) #3
   %.not74 = icmp eq i32 %20, 0
   br i1 %.not74, label %21, label %.critedge77
 
 21:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @Curl_bufref_init(ptr noundef nonnull %6) #3
   %22 = load ptr, ptr %4, align 8, !tbaa !78
   %23 = load i64, ptr %5, align 8, !tbaa !79
   call void @Curl_bufref_set(ptr noundef nonnull %6, ptr noundef %22, i64 noundef %23, ptr noundef nonnull @curl_free) #3
   %24 = call i32 @Curl_auth_decode_ntlm_type2_message(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %9) #3
   call void @Curl_bufref_free(ptr noundef nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not75 = icmp eq i32 %24, 0
   br i1 %.not75, label %25, label %.critedge77
 
 25:                                               ; preds = %21
   store i32 2, ptr %10, align 4, !tbaa !80
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %73
 
 .critedge.thread:                                 ; preds = %14, %.critedge
@@ -191,8 +191,8 @@ define hidden i32 @Curl_input_ntlm(ptr noundef %0, i1 noundef zeroext %1, ptr no
 
 .critedge77:                                      ; preds = %19, %21
   %.15181 = phi i32 [ %24, %21 ], [ %20, %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %73
 
 73:                                               ; preds = %25, %3, %72, %59, %60, %67, %71, %.critedge77, %56
@@ -200,27 +200,21 @@ define hidden i32 @Curl_input_ntlm(ptr noundef %0, i1 noundef zeroext %1, ptr no
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @Curl_base64_decode(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @Curl_base64_decode(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Curl_bufref_init(ptr noundef) local_unnamed_addr #1
 
-declare void @Curl_bufref_init(ptr noundef) local_unnamed_addr #2
+declare void @Curl_bufref_set(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @Curl_bufref_set(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @curl_free(ptr noundef) #1
 
-declare void @curl_free(ptr noundef) #2
+declare i32 @Curl_auth_decode_ntlm_type2_message(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @Curl_auth_decode_ntlm_type2_message(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Curl_bufref_free(ptr noundef) local_unnamed_addr #1
 
-declare void @Curl_bufref_free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_http_auth_cleanup_ntlm(ptr noundef %0) local_unnamed_addr #0 {
@@ -236,11 +230,11 @@ define hidden i32 @Curl_output_ntlm(ptr noundef %0, i1 noundef zeroext %1) local
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.bufref, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !78
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !79
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %. = select i1 %1, i64 5008, i64 4936
@@ -368,29 +362,35 @@ define hidden i32 @Curl_output_ntlm(ptr noundef %0, i1 noundef zeroext %1) local
 62:                                               ; preds = %27, %44, %36, %38, %53, %40, %21, %23, %56
   %.0 = phi i32 [ %22, %21 ], [ %26, %23 ], [ 0, %56 ], [ %37, %36 ], [ %43, %40 ], [ 0, %53 ], [ 0, %38 ], [ %spec.select84, %27 ], [ 27, %44 ]
   call void @Curl_bufref_free(ptr noundef nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @Curl_auth_create_ntlm_type1_message(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Curl_auth_create_ntlm_type1_message(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @Curl_base64_encode(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Curl_base64_encode(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Curl_bufref_ptr(ptr noundef) local_unnamed_addr #2
+declare ptr @Curl_bufref_ptr(ptr noundef) local_unnamed_addr #1
 
-declare i64 @Curl_bufref_len(ptr noundef) local_unnamed_addr #2
+declare i64 @Curl_bufref_len(ptr noundef) local_unnamed_addr #1
 
-declare ptr @curl_maprintf(ptr noundef, ...) local_unnamed_addr #2
+declare ptr @curl_maprintf(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @Curl_auth_create_ntlm_type3_message(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Curl_auth_create_ntlm_type3_message(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @Curl_auth_cleanup_ntlm(ptr noundef) local_unnamed_addr #2
+declare void @Curl_auth_cleanup_ntlm(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

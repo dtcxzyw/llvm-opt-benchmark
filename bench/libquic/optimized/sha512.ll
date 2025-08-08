@@ -64,7 +64,7 @@ define hidden noundef i32 @SHA512_Init(ptr noundef writeonly captures(none) init
 ; Function Attrs: nounwind uwtable
 define hidden noundef nonnull ptr @SHA384(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.sha512_state_st, align 8
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 -3766243637369397544, ptr %4, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 7105036623409894663, ptr %5, align 8, !tbaa !6
@@ -122,12 +122,9 @@ SHA384_Update.exit:                               ; preds = %3, %22, %.sink.spli
   %spec.store.select = select i1 %29, ptr @SHA384.buf, ptr %2
   %30 = call range(i32 0, 2) i32 @SHA512_Final(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %4)
   call void @OPENSSL_cleanse(ptr noundef nonnull %4, i64 noundef 216) #6
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %spec.store.select
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @SHA384_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
@@ -217,15 +214,12 @@ define hidden range(i32 0, 2) i32 @SHA384_Final(ptr noundef writeonly captures(a
   ret i32 %3
 }
 
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef nonnull ptr @SHA512(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.sha512_state_st, align 8
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 7640891576956012808, ptr %4, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 -4942790177534073029, ptr %5, align 8, !tbaa !6
@@ -283,7 +277,7 @@ SHA512_Update.exit:                               ; preds = %3, %22, %.sink.spli
   %spec.store.select = select i1 %29, ptr @SHA512.buf, ptr %2
   %30 = call i32 @SHA512_Final(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %4)
   call void @OPENSSL_cleanse(ptr noundef nonnull %4, i64 noundef 216) #6
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %spec.store.select
 }
 
@@ -563,20 +557,26 @@ define hidden void @SHA512_Transform(ptr noundef %0, ptr noundef %1) local_unnam
   ret void
 }
 
-declare void @sha512_block_data_order(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @sha512_block_data_order(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

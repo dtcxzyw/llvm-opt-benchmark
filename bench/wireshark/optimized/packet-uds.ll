@@ -1173,11 +1173,8 @@ define hidden void @proto_register_uds() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @uds_sa_subfunction_format(ptr noundef %0, i32 noundef %1) #2 {
+define internal void @uds_sa_subfunction_format(ptr noundef %0, i32 noundef %1) #1 {
   %3 = trunc i32 %1 to i8
   %4 = and i8 %3, 127
   %5 = icmp eq i8 %4, 0
@@ -1216,16 +1213,16 @@ uds_sa_subfunction_to_string.exit:                ; preds = %2, %6, %9, %10, %ud
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_uds_no_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
@@ -1310,10 +1307,10 @@ define internal i32 @dissect_uds_iso15765(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @uat_fld_chk_num_hex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare zeroext i1 @uat_fld_chk_num_hex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @uds_uat_routine_ids_address_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
@@ -1358,7 +1355,7 @@ define internal void @uds_uat_routine_ids_id_tostr_cb(ptr noundef readonly captu
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @uds_uat_routine_ids_name_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
@@ -1398,7 +1395,7 @@ define internal void @uds_uat_routine_ids_name_tostr_cb(ptr noundef readonly cap
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef ptr @copy_generic_one_id_string_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
@@ -1528,7 +1525,7 @@ define internal void @reset_update_uds_routine_cb() #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @uds_uat_data_ids_address_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
@@ -1999,16 +1996,13 @@ define internal void @reset_uds_address_cb() #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @register_heur_dissector_list_with_description(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @register_heur_dissector_list_with_description(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_uds() local_unnamed_addr #0 {
@@ -2022,16 +2016,16 @@ define hidden void @proto_reg_handoff_uds() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_dissector(ptr noundef) local_unnamed_addr #3
+declare ptr @find_dissector(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #3
+declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal fastcc range(i32 0, 255) i32 @uds_sa_subfunction_to_type(i8 noundef zeroext %0) unnamed_addr #4 {
+define internal fastcc range(i32 0, 255) i32 @uds_sa_subfunction_to_type(i8 noundef zeroext %0) unnamed_addr #3 {
   %2 = and i8 %0, 127
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %13, label %4
@@ -2068,10 +2062,10 @@ define internal fastcc range(i32 0, 255) i32 @uds_sa_subfunction_to_type(i8 noun
 }
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal fastcc noundef nonnull ptr @uds_sa_subfunction_to_string(i8 noundef zeroext %0) unnamed_addr #4 {
+define internal fastcc noundef nonnull ptr @uds_sa_subfunction_to_string(i8 noundef zeroext %0) unnamed_addr #3 {
   %2 = and i8 %0, 127
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %uds_sa_subfunction_to_type.exit.thread, label %4
@@ -2153,8 +2147,8 @@ define internal fastcc i32 @dissect_uds_internal(ptr noundef %0, ptr noundef %1,
   %49 = alloca i64, align 8
   %50 = alloca i32, align 4
   %51 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %52 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load ptr, ptr %53, align 8
@@ -2776,7 +2770,7 @@ uds_proto_tree_add_address_name.exit:             ; preds = %296, %292, %289, %2
   ]
 
 304:                                              ; preds = %uds_proto_tree_add_address_name.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %305 = load i32, ptr @hf_uds_dsc_suppress_pos_rsp_msg_ind, align 4
   %306 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %81, i32 noundef %305, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %12)
   %307 = load i32, ptr @hf_uds_dsc_subfunction, align 4
@@ -2795,7 +2789,7 @@ uds_proto_tree_add_address_name.exit:             ; preds = %296, %292, %289, %2
   br label %316
 
 316:                                              ; preds = %314, %304
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %76, label %317, label %.loopexit
 
 317:                                              ; preds = %316
@@ -2805,7 +2799,7 @@ uds_proto_tree_add_address_name.exit:             ; preds = %296, %292, %289, %2
   store ptr %320, ptr %10, align 8
   %321 = load i32, ptr @ett_uds_dsc_parameter_record, align 4
   %322 = call ptr @proto_item_add_subtree(ptr noundef %320, i32 noundef %321)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %323 = load i32, ptr @hf_uds_dsc_default_p2_server_timer, align 4
   %324 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %322, i32 noundef %323, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %13)
   %325 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef 4, i32 noundef 0)
@@ -2816,7 +2810,7 @@ uds_proto_tree_add_address_name.exit:             ; preds = %296, %292, %289, %2
   %330 = load ptr, ptr %53, align 8
   %331 = load i32, ptr %13, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %330, i32 noundef 25, ptr noundef nonnull @.str.755, i32 noundef %331, i32 noundef %327)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit
 
 332:                                              ; preds = %uds_proto_tree_add_address_name.exit
@@ -2832,7 +2826,7 @@ uds_proto_tree_add_address_name.exit:             ; preds = %296, %292, %289, %2
   br i1 %or.cond5, label %340, label %.loopexit
 
 340:                                              ; preds = %332
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %341 = load i32, ptr @hf_uds_er_power_down_time, align 4
   %342 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %341, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %14)
   store ptr %342, ptr %10, align 8
@@ -2845,7 +2839,7 @@ uds_proto_tree_add_address_name.exit:             ; preds = %296, %292, %289, %2
   br label %346
 
 346:                                              ; preds = %345, %340
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit
 
 347:                                              ; preds = %uds_proto_tree_add_address_name.exit
@@ -2874,7 +2868,7 @@ uds_proto_tree_add_address_name.exit:             ; preds = %296, %292, %289, %2
   br label %381
 
 358:                                              ; preds = %356
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %359 = load i32, ptr @hf_uds_rdbi_data_identifier, align 4
   %360 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %359, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %15)
   %361 = load i32, ptr %15, align 4
@@ -2913,12 +2907,12 @@ uds_proto_tree_add_address_name.exit:             ; preds = %296, %292, %289, %2
   br label %380
 
 380:                                              ; preds = %.critedge, %368
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.thread1211
 
 381:                                              ; preds = %.preheader, %infocol_append_data_name.exit
   %.11061 = phi i32 [ %415, %infocol_append_data_name.exit ], [ 1, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %382 = load i32, ptr @hf_uds_rdbi_data_identifier, align 4
   %383 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %382, ptr noundef %0, i32 noundef %.11061, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %16)
   store ptr %383, ptr %10, align 8
@@ -2929,7 +2923,7 @@ uds_proto_tree_add_address_name.exit:             ; preds = %296, %292, %289, %2
   br i1 %387, label %uds_lookup_data_name.exit.i, label %388
 
 388:                                              ; preds = %381
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %389 = zext nneg i32 %385 to i64
   %390 = shl nuw nsw i64 %389, 32
   %391 = or disjoint i64 %390, %357
@@ -2939,14 +2933,14 @@ uds_proto_tree_add_address_name.exit:             ; preds = %296, %292, %289, %2
   br i1 %393, label %generic_lookup_addr_id.exit.i.i, label %generic_lookup_addr_id.exit.thread6.i.i
 
 generic_lookup_addr_id.exit.thread6.i.i:          ; preds = %388
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %uds_lookup_data_name.exit.thread.i
 
 generic_lookup_addr_id.exit.i.i:                  ; preds = %388
   %394 = or disjoint i64 %390, 4294967295
   store i64 %394, ptr %9, align 8
   %395 = call ptr @g_hash_table_lookup(ptr noundef nonnull %386, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %396 = icmp eq ptr %395, null
   br i1 %396, label %uds_lookup_data_name.exit.i, label %uds_lookup_data_name.exit.thread.i
 
@@ -2971,7 +2965,7 @@ protoitem_append_data_name.exit:                  ; preds = %uds_lookup_data_nam
   br i1 %403, label %uds_lookup_data_name.exit.i1197, label %404
 
 404:                                              ; preds = %protoitem_append_data_name.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %405 = zext nneg i32 %401 to i64
   %406 = shl nuw nsw i64 %405, 32
   %407 = or disjoint i64 %406, %357
@@ -2981,14 +2975,14 @@ protoitem_append_data_name.exit:                  ; preds = %uds_lookup_data_nam
   br i1 %409, label %generic_lookup_addr_id.exit.i.i1196, label %generic_lookup_addr_id.exit.thread6.i.i1193
 
 generic_lookup_addr_id.exit.thread6.i.i1193:      ; preds = %404
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %uds_lookup_data_name.exit.thread.i1194
 
 generic_lookup_addr_id.exit.i.i1196:              ; preds = %404
   %410 = or disjoint i64 %406, 4294967295
   store i64 %410, ptr %8, align 8
   %411 = call ptr @g_hash_table_lookup(ptr noundef nonnull %402, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %412 = icmp eq ptr %411, null
   br i1 %412, label %uds_lookup_data_name.exit.i1197, label %uds_lookup_data_name.exit.thread.i1194
 
@@ -3005,7 +2999,7 @@ uds_lookup_data_name.exit.thread.i1194:           ; preds = %uds_lookup_data_nam
 
 infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_name.exit.i1197, %uds_lookup_data_name.exit.thread.i1194
   %415 = add i32 %.11061, 2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %416 = add i32 %.11061, 4
   %.not1106 = icmp ult i32 %52, %416
   br i1 %.not1106, label %.loopexit, label %381, !llvm.loop !13
@@ -3044,8 +3038,8 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   store ptr %434, ptr %10, align 8
   %435 = load i32, ptr @ett_uds_rsdbi_scaling_byte, align 4
   %436 = call ptr @proto_item_add_subtree(ptr noundef %434, i32 noundef %435)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %437 = load i32, ptr @hf_uds_rsdbi_scaling_byte_data_type, align 4
   %438 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %436, i32 noundef %437, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %17)
   %439 = load i32, ptr @hf_uds_rsdbi_scaling_byte_num_of_bytes, align 4
@@ -3104,8 +3098,8 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 
 .loopexit1219:                                    ; preds = %.lr.ph1230, %452, %468, %446, %.preheader1220
   %.3 = phi i32 [ %444, %.preheader1220 ], [ %451, %446 ], [ %472, %468 ], [ %444, %452 ], [ %458, %.lr.ph1230 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %473 = icmp ult i32 %.3, %52
   br i1 %473, label %.preheader1220, label %.loopexit, !llvm.loop !15
 
@@ -3223,7 +3217,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br i1 %76, label %541, label %678
 
 541:                                              ; preds = %540
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %542 = load i32, ptr @hf_uds_ars_subfunction_no_suppress, align 4
   call fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef %1, ptr noundef %81, ptr noundef nonnull %11, i32 noundef %542, ptr noundef nonnull @uds_ars_types, i1 noundef zeroext false)
   %543 = load i32, ptr %11, align 4
@@ -3411,7 +3405,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 
 677:                                              ; preds = %653, %672, %637, %648, %613, %632, %602, %608, %566, %597, %547, %561, %544, %541
   %.6 = phi i32 [ 2, %541 ], [ 3, %544 ], [ %565, %561 ], [ %559, %547 ], [ %601, %597 ], [ %595, %566 ], [ %612, %608 ], [ 5, %602 ], [ %636, %632 ], [ %630, %613 ], [ %652, %648 ], [ 21, %637 ], [ %676, %672 ], [ %670, %653 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.loopexit
 
 678:                                              ; preds = %540
@@ -3431,7 +3425,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 681:                                              ; preds = %678, %678
   %682 = load i32, ptr @hf_uds_ars_comm_config, align 4
   %683 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %682, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %684 = load i32, ptr @hf_uds_ars_length_of_cert_client, align 4
   %685 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %684, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %20)
   %686 = load i32, ptr @hf_uds_ars_cert_client, align 4
@@ -3442,7 +3436,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   call fastcc void @dissect_uds_certificates_into_tree(ptr noundef %0, ptr noundef %1, ptr noundef %81, ptr noundef %688, i32 noundef 5, i32 noundef %689)
   %690 = load i32, ptr %20, align 4
   %691 = add i32 %690, 5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %692 = load i32, ptr @hf_uds_ars_length_of_challenge_client, align 4
   %693 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %692, ptr noundef %0, i32 noundef %691, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %21)
   %694 = add i32 %690, 7
@@ -3462,12 +3456,12 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 
 704:                                              ; preds = %681, %699
   %.8 = phi i32 [ %703, %699 ], [ %694, %681 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.loopexit
 
 705:                                              ; preds = %678
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %706 = load i32, ptr @hf_uds_ars_length_of_proof_of_ownership_client, align 4
   %707 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %706, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %22)
   %708 = load i32, ptr @hf_uds_ars_proof_of_ownership_client, align 4
@@ -3475,7 +3469,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %710 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %708, ptr noundef %0, i32 noundef 4, i32 noundef %709, i32 noundef 0)
   %711 = load i32, ptr %22, align 4
   %712 = add i32 %711, 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %713 = load i32, ptr @hf_uds_ars_length_of_ephemeral_public_key_client, align 4
   %714 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %713, ptr noundef %0, i32 noundef %712, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %23)
   %715 = add i32 %711, 6
@@ -3492,14 +3486,14 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 
 722:                                              ; preds = %717, %705
   %.9 = phi i32 [ %721, %717 ], [ %715, %705 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.loopexit
 
 723:                                              ; preds = %678
   %724 = load i32, ptr @hf_uds_ars_cert_eval_id, align 4
   %725 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %724, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %726 = load i32, ptr @hf_uds_ars_length_of_cert_data, align 4
   %727 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %726, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %24)
   %728 = load i32, ptr @hf_uds_ars_cert_data, align 4
@@ -3507,7 +3501,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %730 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %728, ptr noundef %0, i32 noundef 6, i32 noundef %729, i32 noundef 0)
   %731 = load i32, ptr %24, align 4
   %732 = add i32 %731, 6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %.loopexit
 
 733:                                              ; preds = %678
@@ -3528,7 +3522,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %744 = load i32, ptr @ett_uds_ars_algo_indicator, align 4
   %745 = call ptr @proto_item_add_subtree(ptr noundef %743, i32 noundef %744)
   %746 = call i32 @dissect_unknown_ber(ptr noundef %1, ptr noundef %0, i32 noundef 2, ptr noundef %745)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %747 = load i32, ptr @hf_uds_ars_length_of_proof_of_ownership_client, align 4
   %748 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %747, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %25)
   %749 = load i32, ptr @hf_uds_ars_proof_of_ownership_client, align 4
@@ -3536,7 +3530,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %751 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %749, ptr noundef %0, i32 noundef 20, i32 noundef %750, i32 noundef 0)
   %752 = load i32, ptr %25, align 4
   %753 = add i32 %752, 20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %754 = load i32, ptr @hf_uds_ars_length_of_challenge_client, align 4
   %755 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %754, ptr noundef %0, i32 noundef %753, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %26)
   %756 = add i32 %752, 22
@@ -3556,7 +3550,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 
 766:                                              ; preds = %741, %761
   %.10 = phi i32 [ %765, %761 ], [ %756, %741 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %767 = load i32, ptr @hf_uds_ars_length_of_additional_parameter, align 4
   %768 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %767, ptr noundef %0, i32 noundef %.10, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %27)
   %769 = add i32 %.10, 2
@@ -3573,9 +3567,9 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 
 776:                                              ; preds = %771, %766
   %.11 = phi i32 [ %775, %771 ], [ %769, %766 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %.loopexit
 
 777:                                              ; preds = %uds_proto_tree_add_address_name.exit
@@ -3590,7 +3584,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br label %.thread1211
 
 784:                                              ; preds = %777
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %785 = load i32, ptr @hf_uds_rdbpi_transmission_mode, align 4
   %786 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %785, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %28)
   %787 = load i32, ptr %28, align 4
@@ -3618,7 +3612,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 
 ._crit_edge:                                      ; preds = %.lr.ph, %792
   %.13.lcssa = phi i32 [ %.12, %792 ], [ %52, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %.loopexit
 
 797:                                              ; preds = %uds_proto_tree_add_address_name.exit
@@ -3653,15 +3647,15 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %.14 = phi i32 [ 4, %806 ], [ %820, %809 ]
   %810 = load i32, ptr @ett_uds_dddi_entry, align 4
   %811 = call ptr @proto_tree_add_subtree(ptr noundef %81, ptr noundef %0, i32 noundef %.14, i32 noundef 4, i32 noundef %810, ptr noundef nonnull %10, ptr noundef nonnull @.str.762)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %812 = load i32, ptr @hf_uds_dddi_source_data_identifier, align 4
   %813 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %811, i32 noundef %812, ptr noundef %0, i32 noundef %.14, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %29)
   %814 = or disjoint i32 %.14, 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %815 = load i32, ptr @hf_uds_dddi_position_in_source_data_record, align 4
   %816 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %811, i32 noundef %815, ptr noundef %0, i32 noundef %814, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %30)
   %817 = or disjoint i32 %.14, 3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %818 = load i32, ptr @hf_uds_dddi_memory_size, align 4
   %819 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %811, i32 noundef %818, ptr noundef %0, i32 noundef %817, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %31)
   %820 = add i32 %.14, 4
@@ -3670,9 +3664,9 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %823 = load i32, ptr %29, align 4
   %824 = load i32, ptr %31, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %821, ptr noundef nonnull @.str.763, i32 noundef %822, i32 noundef %823, i32 noundef %824)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %825 = add i32 %.14, 8
   %.not1095 = icmp ugt i32 %825, %52
   br i1 %.not1095, label %.loopexit, label %809, !llvm.loop !17
@@ -3690,19 +3684,19 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 833:                                              ; preds = %833, %826
   %834 = phi i32 [ %.pre1240, %826 ], [ %844, %833 ]
   %.15 = phi i32 [ 5, %826 ], [ %843, %833 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %835 = load i32, ptr @hf_uds_memory_address, align 4
   %836 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %81, i32 noundef %835, ptr noundef %0, i32 noundef %.15, i32 noundef %834, i32 noundef 0, ptr noundef nonnull %34)
   %837 = load i32, ptr %33, align 4
   %838 = add i32 %837, %.15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %839 = load i32, ptr @hf_uds_memory_size, align 4
   %840 = load i32, ptr %32, align 4
   %841 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %81, i32 noundef %839, ptr noundef %0, i32 noundef %838, i32 noundef %840, i32 noundef 0, ptr noundef nonnull %35)
   %842 = load i32, ptr %32, align 4
   %843 = add i32 %842, %838
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %844 = load i32, ptr %33, align 4
   %845 = add i32 %843, %842
   %846 = add i32 %845, %844
@@ -3761,7 +3755,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br label %.thread1211
 
 875:                                              ; preds = %uds_proto_tree_add_address_name.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %876 = load i32, ptr @hf_uds_iocbi_data_identifier, align 4
   %877 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %876, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %36)
   %878 = load i32, ptr %36, align 4
@@ -3794,7 +3788,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br label %898
 
 898:                                              ; preds = %890, %875
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %.thread1211
 
 899:                                              ; preds = %uds_proto_tree_add_address_name.exit
@@ -3804,7 +3798,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %903 = load i32, ptr %11, align 4
   %904 = call ptr @val_to_str(i32 noundef %903, ptr noundef nonnull @uds_rc_types, ptr noundef nonnull @.str.747)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %902, i32 noundef 25, ptr noundef nonnull @.str.753, ptr noundef %904)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %905 = load i32, ptr @hf_uds_rc_identifier, align 4
   %906 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %905, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %37)
   store ptr %906, ptr %10, align 8
@@ -3824,7 +3818,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br i1 %913, label %915, label %946
 
 915:                                              ; preds = %914
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %916 = load i32, ptr @hf_uds_rc_info, align 4
   %917 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %916, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %38)
   %918 = load ptr, ptr %53, align 8
@@ -3851,7 +3845,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br label %932
 
 932:                                              ; preds = %920, %929, %915
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %946
 
 933:                                              ; preds = %899
@@ -3876,17 +3870,17 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 
 946:                                              ; preds = %934, %943, %933, %914, %932
   %.17 = phi i32 [ %52, %932 ], [ 4, %914 ], [ 4, %933 ], [ %52, %943 ], [ %52, %934 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %.loopexit
 
 947:                                              ; preds = %uds_proto_tree_add_address_name.exit, %uds_proto_tree_add_address_name.exit
   br i1 %76, label %948, label %958
 
 948:                                              ; preds = %947
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %949 = load i32, ptr @hf_uds_max_block_len_len, align 4
   %950 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %949, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %39)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %951 = load i32, ptr @hf_uds_max_block_len, align 4
   %952 = load i32, ptr %39, align 4
   %953 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %81, i32 noundef %951, ptr noundef %0, i32 noundef 2, i32 noundef %952, i32 noundef 0, ptr noundef nonnull %40)
@@ -3895,8 +3889,8 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %956 = load ptr, ptr %53, align 8
   %957 = load i64, ptr %40, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %956, i32 noundef 25, ptr noundef nonnull @.str.768, i64 noundef %957)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %.loopexit
 
 958:                                              ; preds = %947
@@ -3904,7 +3898,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br label %.loopexit
 
 960:                                              ; preds = %uds_proto_tree_add_address_name.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %961 = load i32, ptr @hf_uds_td_sequence_counter, align 4
   %962 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %961, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %41)
   %963 = load ptr, ptr %53, align 8
@@ -3926,7 +3920,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 
 974:                                              ; preds = %966, %960
   %.18 = phi i32 [ %52, %966 ], [ 2, %960 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %.loopexit
 
 975:                                              ; preds = %uds_proto_tree_add_address_name.exit
@@ -3945,7 +3939,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br label %.thread1211
 
 985:                                              ; preds = %uds_proto_tree_add_address_name.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %986 = load i32, ptr @hf_uds_rft_mode_of_operation, align 4
   %987 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %986, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %42)
   br i1 %76, label %988, label %1026
@@ -3956,7 +3950,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br i1 %.not1090, label %.thread1207.thread, label %990
 
 990:                                              ; preds = %988
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %991 = load i32, ptr @hf_uds_rft_length_format_identifier, align 4
   %992 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %991, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %43)
   %993 = load i32, ptr @hf_uds_rft_max_num_of_block_length, align 4
@@ -3964,7 +3958,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %995 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %993, ptr noundef %0, i32 noundef 3, i32 noundef %994, i32 noundef 0)
   %996 = load i32, ptr %43, align 4
   %997 = add i32 %996, 3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   %.pr1203 = load i32, ptr %42, align 4
   %.not1091 = icmp eq i32 %.pr1203, 2
   br i1 %.not1091, label %.thread1207.thread, label %998
@@ -3984,7 +3978,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   ]
 
 1004:                                             ; preds = %998
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %1005 = load i32, ptr @hf_uds_rft_file_size_or_dir_info_param_length, align 4
   %1006 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %1005, ptr noundef %0, i32 noundef %1003, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %44)
   %1007 = add i32 %996, 6
@@ -4008,7 +4002,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 1019:                                             ; preds = %1014, %1004
   %.pre1239 = phi i32 [ %.pre1239.pre, %1014 ], [ 5, %1004 ]
   %.22 = phi i32 [ %1018, %1014 ], [ %1012, %1004 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %.thread1207
 
 .thread1207:                                      ; preds = %998, %998, %998, %998, %1019
@@ -4025,7 +4019,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br label %.thread1207.thread
 
 1026:                                             ; preds = %985
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %1027 = load i32, ptr @hf_uds_rft_length_of_file_path_and_name, align 4
   %1028 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %1027, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %45)
   %1029 = load i32, ptr @hf_uds_rft_file_path_and_name, align 4
@@ -4058,12 +4052,12 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   ]
 
 1043:                                             ; preds = %1041
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %1044 = load i32, ptr @hf_uds_rft_file_size_param_length, align 4
   %1045 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %1044, ptr noundef %0, i32 noundef %.24, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %46)
   %1046 = add i32 %.24, 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %1047 = load i32, ptr @hf_uds_rft_file_size_uncompressed, align 4
   %1048 = load i32, ptr %46, align 4
   %1049 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %81, i32 noundef %1047, ptr noundef %0, i32 noundef %1046, i32 noundef %1048, i32 noundef 0, ptr noundef nonnull %47)
@@ -4073,19 +4067,19 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %1053 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %81, i32 noundef %1052, ptr noundef %0, i32 noundef %1051, i32 noundef %1050, i32 noundef 0, ptr noundef nonnull %48)
   %1054 = load i32, ptr %46, align 4
   %1055 = add i32 %1054, %1051
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %1056
 
 1056:                                             ; preds = %1041, %1041, %1041, %1043
   %.25 = phi i32 [ %1055, %1043 ], [ %.24, %1041 ], [ %.24, %1041 ], [ %.24, %1041 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %.thread1207.thread
 
 .thread1207.thread:                               ; preds = %988, %990, %.thread1207, %1022, %1056
   %.23 = phi i32 [ %1025, %1022 ], [ %.21, %.thread1207 ], [ %.25, %1056 ], [ 2, %988 ], [ %997, %990 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %.loopexit
 
 1057:                                             ; preds = %uds_proto_tree_add_address_name.exit
@@ -4127,13 +4121,13 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br label %.loopexit
 
 1082:                                             ; preds = %uds_proto_tree_add_address_name.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %1083 = load i32, ptr @hf_uds_sdt_administrative_param, align 4
   %1084 = load i32, ptr @ett_uds_sdt_admin_param, align 4
   %1085 = call ptr @proto_tree_add_bitmask_with_flags_ret_uint64(ptr noundef %81, ptr noundef %0, i32 noundef 1, i32 noundef %1083, i32 noundef %1084, ptr noundef nonnull @dissect_uds_internal.admin_param_flags, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %49)
   %1086 = load i32, ptr @hf_uds_sdt_signature_encryption_calculation, align 4
   %1087 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %1086, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %50) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %1088 = load i32, ptr @hf_uds_sdt_signature_length, align 4
   %1089 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %1088, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %50)
   %1090 = load i32, ptr @hf_uds_sdt_anti_replay_counter, align 4
@@ -4175,8 +4169,8 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %1115 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %1114, ptr noundef %0, i32 noundef %.26, i32 noundef %1113, i32 noundef 0)
   %1116 = load i32, ptr %50, align 4
   %1117 = add i32 %1116, %.26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %50) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %.loopexit
 
 1118:                                             ; preds = %uds_proto_tree_add_address_name.exit
@@ -4242,14 +4236,14 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   ]
 
 1159:                                             ; preds = %1155
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %51) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %1160 = load i32, ptr @hf_uds_lc_control_mode_id, align 4
   %1161 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %1160, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %51)
   %1162 = load ptr, ptr %53, align 8
   %1163 = load i32, ptr %51, align 4
   %1164 = call ptr @val_to_str(i32 noundef %1163, ptr noundef nonnull @uds_lc_lcmi_types, ptr noundef nonnull @.str.747)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1162, i32 noundef 25, ptr noundef nonnull @.str.771, ptr noundef %1164)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %.loopexit
 
 1165:                                             ; preds = %1155
@@ -4271,61 +4265,61 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 
 .thread1211:                                      ; preds = %863, %.critedge1109, %489, %489, %498, %490, %515, %507, %1125, %1138, %1060, %977, %898, %778, %420, %380, %.loopexit, %1168, %68
   %.0 = phi i32 [ %70, %68 ], [ %52, %1168 ], [ %52, %.loopexit ], [ %52, %380 ], [ %52, %420 ], [ %52, %778 ], [ %52, %898 ], [ %52, %977 ], [ %52, %1060 ], [ %52, %1138 ], [ 2, %1125 ], [ %52, %507 ], [ %52, %515 ], [ %52, %490 ], [ %52, %498 ], [ %52, %489 ], [ %52, %489 ], [ %52, %.critedge1109 ], [ %52, %863 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #3
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item_ret_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_item_ret_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef range(i32 -1, 65536) %3, i8 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
@@ -4354,7 +4348,7 @@ define internal fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr noundef readon
   %29 = alloca i32, align 4
   %30 = alloca i32, align 4
   %31 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %32 = load i32, ptr @hf_uds_rdtci_subfunction, align 4
   %33 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %12)
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4412,7 +4406,7 @@ define internal fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr noundef readon
   br i1 %.not436476, label %.loopexit, label %.lr.ph478
 
 42:                                               ; preds = %40, %40, %40, %40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %43 = load i32, ptr @hf_uds_rdtci_dtc_status_avail, align 4
   %44 = load i32, ptr @ett_uds_dtc_status_bits, align 4
   %45 = call ptr @proto_tree_add_bitmask_with_flags_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 2, i32 noundef %43, i32 noundef %44, ptr noundef nonnull @dissect_uds_rdtci.dtc_status_avail_mask_flags, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %13)
@@ -4420,26 +4414,26 @@ define internal fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr noundef readon
   %47 = load i64, ptr %13, align 8
   %48 = trunc i64 %47 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %46, i32 noundef 25, ptr noundef nonnull @.str.775, i32 noundef %48)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %49 = load i32, ptr @hf_uds_rdtci_dtc_format_id, align 4
   %50 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %14)
   %51 = load ptr, ptr %34, align 8
   %52 = load i32, ptr %14, align 4
   %53 = call ptr @val_to_str(i32 noundef %52, ptr noundef nonnull @uds_rdtci_format_id_types, ptr noundef nonnull @.str.776)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %51, i32 noundef 25, ptr noundef nonnull @.str.764, ptr noundef %53)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %54 = load i32, ptr @hf_uds_rdtci_dtc_count, align 4
   %55 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %54, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %15)
   %56 = load ptr, ptr %34, align 8
   %57 = load i32, ptr %15, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %56, i32 noundef 25, ptr noundef nonnull @.str.777, i32 noundef %57)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit
 
 58:                                               ; preds = %40, %40, %40, %40, %40, %40, %40, %40, %40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %59 = load i32, ptr @hf_uds_rdtci_dtc_status_avail, align 4
   %60 = load i32, ptr @ett_uds_dtc_status_bits, align 4
   %61 = call ptr @proto_tree_add_bitmask_with_flags_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 2, i32 noundef %59, i32 noundef %60, ptr noundef nonnull @dissect_uds_rdtci.dtc_status_avail_mask_flags, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %16)
@@ -4459,7 +4453,7 @@ define internal fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr noundef readon
 
 ._crit_edge484:                                   ; preds = %.lr.ph483, %58
   %.0.lcssa = phi i32 [ 3, %58 ], [ %65, %.lr.ph483 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.loopexit
 
 .lr.ph478:                                        ; preds = %.preheader, %.lr.ph478
@@ -4503,7 +4497,7 @@ define internal fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr noundef readon
   br label %.loopexit
 
 88:                                               ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %89 = load i32, ptr @hf_uds_rdtci_dtc_stored_data_rec_no, align 4
   %90 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %89, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %17)
   %91 = load ptr, ptr %34, align 8
@@ -4529,7 +4523,7 @@ define internal fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr noundef readon
 
 104:                                              ; preds = %94, %100, %88
   %.4 = phi i32 [ %5, %100 ], [ %98, %94 ], [ 3, %88 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit
 
 105:                                              ; preds = %40
@@ -4574,10 +4568,10 @@ define internal fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr noundef readon
 125:                                              ; preds = %.lr.ph469, %dissect_uds_dtc_and_fault_detection_counter_record.exit
   %126 = phi i32 [ 6, %.lr.ph469 ], [ %171, %dissect_uds_dtc_and_fault_detection_counter_record.exit ]
   %.7468 = phi i32 [ 2, %.lr.ph469 ], [ %126, %dissect_uds_dtc_and_fault_detection_counter_record.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %127 = load i32, ptr @ett_uds_dtc_counter_entry, align 4
   %128 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.7468, i32 noundef 4, i32 noundef %127, ptr noundef nonnull %9, ptr noundef nonnull @.str.790)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %129 = load i32, ptr @hf_uds_rdtci_dtc_id, align 4
   %130 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %128, i32 noundef %129, ptr noundef %0, i32 noundef %.7468, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %10)
   %131 = load i32, ptr %10, align 4
@@ -4586,7 +4580,7 @@ define internal fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr noundef readon
   br i1 %133, label %uds_lookup_dtc_name.exit.i.i, label %134
 
 134:                                              ; preds = %125
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %135 = zext i32 %131 to i64
   %136 = shl nuw i64 %135, 32
   %137 = or disjoint i64 %136, %41
@@ -4596,14 +4590,14 @@ define internal fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr noundef readon
   br i1 %139, label %generic_lookup_addr_id.exit.i.i.i, label %generic_lookup_addr_id.exit.thread6.i.i.i
 
 generic_lookup_addr_id.exit.thread6.i.i.i:        ; preds = %134
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %uds_lookup_dtc_name.exit.thread.i.i
 
 generic_lookup_addr_id.exit.i.i.i:                ; preds = %134
   %140 = or disjoint i64 %136, 4294967295
   store i64 %140, ptr %8, align 8
   %141 = call ptr @g_hash_table_lookup(ptr noundef nonnull %132, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %142 = icmp eq ptr %141, null
   br i1 %142, label %uds_lookup_dtc_name.exit.i.i, label %uds_lookup_dtc_name.exit.thread.i.i
 
@@ -4619,7 +4613,7 @@ uds_lookup_dtc_name.exit.thread.i.i:              ; preds = %uds_lookup_dtc_name
 
 protoitem_append_dtc_name.exit.i:                 ; preds = %uds_lookup_dtc_name.exit.thread.i.i, %uds_lookup_dtc_name.exit.i.i
   %144 = add i32 %.7468, 3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %145 = load i32, ptr @hf_uds_rdtci_dtc_fault_detect_counter, align 4
   %146 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %128, i32 noundef %145, ptr noundef %0, i32 noundef %144, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %11)
   %147 = load i32, ptr %10, align 4
@@ -4628,7 +4622,7 @@ protoitem_append_dtc_name.exit.i:                 ; preds = %uds_lookup_dtc_name
   br i1 %149, label %uds_lookup_dtc_name.exit.i, label %150
 
 150:                                              ; preds = %protoitem_append_dtc_name.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %151 = zext i32 %147 to i64
   %152 = shl nuw i64 %151, 32
   %153 = or disjoint i64 %152, %41
@@ -4638,14 +4632,14 @@ protoitem_append_dtc_name.exit.i:                 ; preds = %uds_lookup_dtc_name
   br i1 %155, label %generic_lookup_addr_id.exit.i.i, label %generic_lookup_addr_id.exit.thread6.i.i
 
 generic_lookup_addr_id.exit.thread6.i.i:          ; preds = %150
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %uds_lookup_dtc_name.exit.thread.i
 
 generic_lookup_addr_id.exit.i.i:                  ; preds = %150
   %156 = or disjoint i64 %152, 4294967295
   store i64 %156, ptr %7, align 8
   %157 = call ptr @g_hash_table_lookup(ptr noundef nonnull %148, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %158 = icmp eq ptr %157, null
   br i1 %158, label %uds_lookup_dtc_name.exit.i, label %uds_lookup_dtc_name.exit.thread.i
 
@@ -4674,9 +4668,9 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %161, %uds_lo
   %169 = load i32, ptr %10, align 4
   %170 = load i32, ptr %11, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %168, i32 noundef 25, ptr noundef nonnull @.str.793, i32 noundef %169, i32 noundef %170)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %171 = add i32 %126, 4
   %.not433 = icmp ugt i32 %171, %5
   br i1 %.not433, label %.loopexit, label %125, !llvm.loop !22
@@ -4735,10 +4729,10 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %161, %uds_lo
   br label %.loopexit
 
 205:                                              ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %206 = load i32, ptr @hf_uds_rdtci_dtc_status_avail, align 4
   %207 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %206, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %208 = load i32, ptr @hf_uds_rdtci_dtc_ext_data_rec_no, align 4
   %209 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %208, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %19)
   %210 = load ptr, ptr %34, align 8
@@ -4757,21 +4751,21 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %161, %uds_lo
 
 ._crit_edge460:                                   ; preds = %.lr.ph459, %205
   %.9.lcssa = phi i32 [ 4, %205 ], [ %213, %.lr.ph459 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.loopexit
 
 215:                                              ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %216 = load i32, ptr @hf_uds_rdtci_functional_group_id, align 4
   %217 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %216, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %218 = load i32, ptr @hf_uds_rdtci_dtc_status_avail, align 4
   %219 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %218, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %220 = load i32, ptr @hf_uds_rdtci_dtc_severity_avail, align 4
   %221 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %220, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %222 = load i32, ptr @hf_uds_rdtci_dtc_format_id, align 4
   %223 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %222, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %23)
   %224 = load ptr, ptr %34, align 8
@@ -4792,20 +4786,20 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %161, %uds_lo
 
 ._crit_edge454:                                   ; preds = %.lr.ph453, %215
   %.10.lcssa = phi i32 [ 6, %215 ], [ %229, %.lr.ph453 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.loopexit
 
 231:                                              ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %232 = load i32, ptr @hf_uds_rdtci_functional_group_id, align 4
   %233 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %232, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %234 = load i32, ptr @hf_uds_rdtci_dtc_status_avail, align 4
   %235 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %234, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %236 = load i32, ptr @hf_uds_rdtci_dtc_format_id, align 4
   %237 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %236, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %26)
   %238 = load ptr, ptr %34, align 8
@@ -4825,22 +4819,22 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %161, %uds_lo
 
 ._crit_edge448:                                   ; preds = %.lr.ph447, %231
   %.11.lcssa = phi i32 [ 5, %231 ], [ %242, %.lr.ph447 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %.loopexit
 
 244:                                              ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %245 = load i32, ptr @hf_uds_rdtci_functional_group_id, align 4
   %246 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %245, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %27)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %247 = load i32, ptr @hf_uds_rdtci_dtc_status_avail, align 4
   %248 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %247, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %249 = load i32, ptr @hf_uds_rdtci_dtc_format_id, align 4
   %250 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %249, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %251 = load i32, ptr @hf_uds_rdtci_dtc_readiness_group_id, align 4
   %252 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %251, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %30)
   %253 = load ptr, ptr %34, align 8
@@ -4861,10 +4855,10 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %161, %uds_lo
 
 ._crit_edge:                                      ; preds = %.lr.ph, %244
   %.12.lcssa = phi i32 [ 6, %244 ], [ %258, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %.loopexit
 
 260:                                              ; preds = %40
@@ -4915,7 +4909,7 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %161, %uds_lo
   ]
 
 271:                                              ; preds = %270, %270, %270, %270, %270, %270
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %272 = load i32, ptr @hf_uds_rdtci_dtc_status_mask, align 4
   %273 = load i32, ptr @ett_uds_dtc_status_bits, align 4
   %274 = call ptr @proto_tree_add_bitmask_with_flags_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 2, i32 noundef %272, i32 noundef %273, ptr noundef nonnull @dissect_uds_rdtci.dtc_status_mask_flags, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %31)
@@ -4923,7 +4917,7 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %161, %uds_lo
   %276 = load i64, ptr %31, align 8
   %277 = trunc i64 %276 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %275, i32 noundef 25, ptr noundef nonnull @.str.775, i32 noundef %277)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %.loopexit
 
 278:                                              ; preds = %270
@@ -5033,7 +5027,7 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %161, %uds_lo
 
 .loopexit:                                        ; preds = %.lr.ph465, %dissect_uds_dtc_and_fault_detection_counter_record.exit, %.lr.ph474, %.lr.ph478, %180, %.preheader439, %120, %.preheader, %270, %271, %278, %283, %286, %291, %297, %300, %303, %309, %316, %323, %326, %334, %337, %270, %270, %270, %270, %270, %270, %270, %344, %342, %42, %._crit_edge484, %104, %118, %._crit_edge460, %._crit_edge454, %._crit_edge448, %._crit_edge, %84, %82, %114, %112, %176, %172, %192, %187, %201, %196, %262, %260
   %.13 = phi i32 [ %5, %262 ], [ 2, %260 ], [ 6, %42 ], [ %.0.lcssa, %._crit_edge484 ], [ %5, %84 ], [ %.3, %82 ], [ %.4, %104 ], [ %5, %114 ], [ %.5, %112 ], [ %119, %118 ], [ %5, %176 ], [ 3, %172 ], [ %5, %192 ], [ %190, %187 ], [ %5, %201 ], [ %199, %196 ], [ %.9.lcssa, %._crit_edge460 ], [ %.10.lcssa, %._crit_edge454 ], [ %.11.lcssa, %._crit_edge448 ], [ %.12.lcssa, %._crit_edge ], [ %5, %344 ], [ 2, %342 ], [ 3, %271 ], [ 6, %278 ], [ 3, %283 ], [ 6, %286 ], [ 4, %291 ], [ 5, %297 ], [ 2, %270 ], [ 2, %270 ], [ 2, %270 ], [ 2, %270 ], [ 2, %270 ], [ 2, %270 ], [ 2, %270 ], [ 2, %270 ], [ 3, %300 ], [ 4, %303 ], [ 7, %309 ], [ 7, %316 ], [ 3, %323 ], [ 5, %326 ], [ 3, %334 ], [ 4, %337 ], [ 2, %.preheader ], [ %121, %120 ], [ 2, %.preheader439 ], [ 4, %180 ], [ %67, %.lr.ph478 ], [ %123, %.lr.ph474 ], [ %126, %dissect_uds_dtc_and_fault_detection_counter_record.exit ], [ %185, %.lr.ph465 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.13
 }
 
@@ -5046,7 +5040,7 @@ define internal fastcc void @protoitem_append_data_name(ptr noundef %0, i32 noun
   br i1 %7, label %uds_lookup_data_name.exit, label %8
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = zext i16 %2 to i64
   %10 = shl nuw nsw i64 %9, 32
   %11 = zext i32 %1 to i64
@@ -5057,14 +5051,14 @@ define internal fastcc void @protoitem_append_data_name(ptr noundef %0, i32 noun
   br i1 %14, label %generic_lookup_addr_id.exit.i, label %generic_lookup_addr_id.exit.thread6.i
 
 generic_lookup_addr_id.exit.thread6.i:            ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %uds_lookup_data_name.exit.thread
 
 generic_lookup_addr_id.exit.i:                    ; preds = %8
   %15 = or disjoint i64 %10, 4294967295
   store i64 %15, ptr %4, align 8
   %16 = call ptr @g_hash_table_lookup(ptr noundef nonnull %6, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %17 = icmp eq ptr %16, null
   br i1 %17, label %uds_lookup_data_name.exit, label %uds_lookup_data_name.exit.thread
 
@@ -5091,7 +5085,7 @@ define internal fastcc void @infocol_append_data_name(ptr noundef readonly captu
   br i1 %7, label %uds_lookup_data_name.exit, label %8
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = zext i16 %2 to i64
   %10 = shl nuw nsw i64 %9, 32
   %11 = zext i32 %1 to i64
@@ -5102,14 +5096,14 @@ define internal fastcc void @infocol_append_data_name(ptr noundef readonly captu
   br i1 %14, label %generic_lookup_addr_id.exit.i, label %generic_lookup_addr_id.exit.thread6.i
 
 generic_lookup_addr_id.exit.thread6.i:            ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %uds_lookup_data_name.exit.thread
 
 generic_lookup_addr_id.exit.i:                    ; preds = %8
   %15 = or disjoint i64 %10, 4294967295
   store i64 %15, ptr %4, align 8
   %16 = call ptr @g_hash_table_lookup(ptr noundef nonnull %6, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %17 = icmp eq ptr %16, null
   br i1 %17, label %uds_lookup_data_name.exit, label %uds_lookup_data_name.exit.thread
 
@@ -5130,16 +5124,16 @@ uds_lookup_data_name.exit.thread:                 ; preds = %generic_lookup_addr
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_bytes_to_str_punct(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #3
+declare ptr @tvb_bytes_to_str_punct(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef zeroext i1 @call_heur_subdissector_uds(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext range(i8 0, -64) %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef range(i32 -1, 65536) %7) unnamed_addr #0 {
   %9 = alloca %struct.uds_info, align 4
   %10 = zext i1 %5 to i8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %6, ptr %9, align 4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %7, ptr %11, align 4
@@ -5202,7 +5196,7 @@ define internal fastcc noundef zeroext i1 @call_heur_subdissector_uds(ptr nounde
 
 44:                                               ; preds = %8, %39, %41, %29, %24, %19
   %.0 = phi i1 [ true, %19 ], [ true, %24 ], [ true, %29 ], [ true, %41 ], [ false, %39 ], [ true, %8 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0
 }
 
@@ -5214,8 +5208,8 @@ define internal fastcc i32 @dissect_uds_memory_addr_size(ptr noundef %0, ptr nou
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %3, label %11, label %16
 
 11:                                               ; preds = %4
@@ -5227,20 +5221,20 @@ define internal fastcc i32 @dissect_uds_memory_addr_size(ptr noundef %0, ptr nou
 
 16:                                               ; preds = %11, %4
   %.0 = phi i32 [ 2, %11 ], [ 1, %4 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %17 = load i32, ptr @hf_uds_memory_size_length, align 4
   %18 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7)
   %19 = load i32, ptr @hf_uds_memory_address_length, align 4
   %20 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8)
   %21 = add nuw nsw i32 %.0, 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %22 = load i32, ptr @hf_uds_memory_address, align 4
   %23 = load i32, ptr %8, align 4
   %24 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef %23, i32 noundef 0, ptr noundef nonnull %9)
   %25 = load i32, ptr %8, align 4
   %26 = add i32 %25, %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %27 = load i32, ptr @hf_uds_memory_size, align 4
   %28 = load i32, ptr %7, align 4
   %29 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef %26, i32 noundef %28, i32 noundef 0, ptr noundef nonnull %10)
@@ -5261,12 +5255,12 @@ define internal fastcc i32 @dissect_uds_memory_addr_size(ptr noundef %0, ptr nou
 
 39:                                               ; preds = %35, %16
   %40 = add i32 %30, %26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %40
 }
 
@@ -5303,7 +5297,7 @@ define internal fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef
   br i1 %6, label %26, label %35
 
 26:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %27 = load i32, ptr @hf_uds_suppress_pos_rsp_msg_ind, align 4
   %28 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %12, i32 noundef %27, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8)
   %29 = load i8, ptr %8, align 1, !range !11, !noundef !12
@@ -5317,7 +5311,7 @@ define internal fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef
   br label %34
 
 34:                                               ; preds = %31, %26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %35
 
 35:                                               ; preds = %34, %25
@@ -5327,7 +5321,7 @@ define internal fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_uds_certificates_into_tree(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %2, null
   %9 = icmp eq ptr %0, null
   %or.cond.not28 = or i1 %9, %8
@@ -5374,18 +5368,18 @@ define internal fastcc void @dissect_uds_certificates_into_tree(ptr noundef %0, 
   br label %31
 
 31:                                               ; preds = %19, %22, %25, %28, %14, %6
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_unknown_ber(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @dissect_unknown_ber(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item_ret_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_item_ret_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @protoitem_append_routine_name(ptr noundef %0, i32 noundef range(i32 -1, 65536) %1, i16 noundef zeroext %2) unnamed_addr #0 {
@@ -5396,7 +5390,7 @@ define internal fastcc void @protoitem_append_routine_name(ptr noundef %0, i32 n
   br i1 %7, label %uds_lookup_routine_name.exit, label %8
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = zext i16 %2 to i64
   %10 = shl nuw nsw i64 %9, 32
   %11 = zext i32 %1 to i64
@@ -5407,14 +5401,14 @@ define internal fastcc void @protoitem_append_routine_name(ptr noundef %0, i32 n
   br i1 %14, label %generic_lookup_addr_id.exit.i, label %generic_lookup_addr_id.exit.thread6.i
 
 generic_lookup_addr_id.exit.thread6.i:            ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %uds_lookup_routine_name.exit.thread
 
 generic_lookup_addr_id.exit.i:                    ; preds = %8
   %15 = or disjoint i64 %10, 4294967295
   store i64 %15, ptr %4, align 8
   %16 = call ptr @g_hash_table_lookup(ptr noundef nonnull %6, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %17 = icmp eq ptr %16, null
   br i1 %17, label %uds_lookup_routine_name.exit, label %uds_lookup_routine_name.exit.thread
 
@@ -5441,7 +5435,7 @@ define internal fastcc void @infocol_append_routine_name(ptr noundef readonly ca
   br i1 %7, label %uds_lookup_routine_name.exit, label %8
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = zext i16 %2 to i64
   %10 = shl nuw nsw i64 %9, 32
   %11 = zext i32 %1 to i64
@@ -5452,14 +5446,14 @@ define internal fastcc void @infocol_append_routine_name(ptr noundef readonly ca
   br i1 %14, label %generic_lookup_addr_id.exit.i, label %generic_lookup_addr_id.exit.thread6.i
 
 generic_lookup_addr_id.exit.thread6.i:            ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %uds_lookup_routine_name.exit.thread
 
 generic_lookup_addr_id.exit.i:                    ; preds = %8
   %15 = or disjoint i64 %10, 4294967295
   store i64 %15, ptr %4, align 8
   %16 = call ptr @g_hash_table_lookup(ptr noundef nonnull %6, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %17 = icmp eq ptr %16, null
   br i1 %17, label %uds_lookup_routine_name.exit, label %uds_lookup_routine_name.exit.thread
 
@@ -5480,19 +5474,19 @@ uds_lookup_routine_name.exit.thread:              ; preds = %generic_lookup_addr
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bitmask_with_flags_ret_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_bitmask_with_flags_ret_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_packet_scope() local_unnamed_addr #3
+declare ptr @wmem_packet_scope() local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_uds_dtc_and_status_record(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -1, 65536) %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 {
@@ -5503,20 +5497,20 @@ define internal fastcc noundef i32 @dissect_uds_dtc_and_status_record(ptr nounde
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %15 = load i32, ptr @ett_uds_dtc_status_entry, align 4
   br i1 %5, label %16, label %32
 
 16:                                               ; preds = %7
   %17 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef %15, ptr noundef nonnull %10, ptr noundef nonnull @.str.783)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %18 = load i32, ptr @hf_uds_rdtci_dtc_severity, align 4
   %19 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %17, i32 noundef %18, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %11)
   %20 = add i32 %3, 1
   br i1 %6, label %21, label %28
 
 21:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %22 = load i32, ptr @hf_uds_rdtci_dtc_functional_unit, align 4
   %23 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %17, i32 noundef %22, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %12)
   %24 = add i32 %3, 2
@@ -5524,7 +5518,7 @@ define internal fastcc noundef i32 @dissect_uds_dtc_and_status_record(ptr nounde
   %26 = load i32, ptr %11, align 4
   %27 = load i32, ptr %12, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef nonnull @.str.784, i32 noundef %26, i32 noundef %27)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %31
 
 28:                                               ; preds = %16
@@ -5535,7 +5529,7 @@ define internal fastcc noundef i32 @dissect_uds_dtc_and_status_record(ptr nounde
 
 31:                                               ; preds = %28, %21
   %.0 = phi i32 [ %24, %21 ], [ %20, %28 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %34
 
 32:                                               ; preds = %7
@@ -5545,7 +5539,7 @@ define internal fastcc noundef i32 @dissect_uds_dtc_and_status_record(ptr nounde
 34:                                               ; preds = %32, %31
   %.030 = phi ptr [ %17, %31 ], [ %33, %32 ]
   %.1 = phi i32 [ %.0, %31 ], [ %3, %32 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %35 = load i32, ptr @hf_uds_rdtci_dtc_id, align 4
   %36 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.030, i32 noundef %35, ptr noundef %0, i32 noundef %.1, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %13)
   %37 = load i32, ptr %13, align 4
@@ -5554,7 +5548,7 @@ define internal fastcc noundef i32 @dissect_uds_dtc_and_status_record(ptr nounde
   br i1 %39, label %uds_lookup_dtc_name.exit.i, label %40
 
 40:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %41 = zext i32 %37 to i64
   %42 = shl nuw i64 %41, 32
   %43 = zext i32 %4 to i64
@@ -5565,14 +5559,14 @@ define internal fastcc noundef i32 @dissect_uds_dtc_and_status_record(ptr nounde
   br i1 %46, label %generic_lookup_addr_id.exit.i.i, label %generic_lookup_addr_id.exit.thread6.i.i
 
 generic_lookup_addr_id.exit.thread6.i.i:          ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %uds_lookup_dtc_name.exit.thread.i
 
 generic_lookup_addr_id.exit.i.i:                  ; preds = %40
   %47 = or disjoint i64 %42, 4294967295
   store i64 %47, ptr %9, align 8
   %48 = call ptr @g_hash_table_lookup(ptr noundef nonnull %38, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %49 = icmp eq ptr %48, null
   br i1 %49, label %uds_lookup_dtc_name.exit.i, label %uds_lookup_dtc_name.exit.thread.i
 
@@ -5588,7 +5582,7 @@ uds_lookup_dtc_name.exit.thread.i:                ; preds = %uds_lookup_dtc_name
 
 protoitem_append_dtc_name.exit:                   ; preds = %uds_lookup_dtc_name.exit.i, %uds_lookup_dtc_name.exit.thread.i
   %51 = add i32 %.1, 3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %52 = load i32, ptr @hf_uds_rdtci_dtc_status, align 4
   %53 = load i32, ptr @ett_uds_dtc_status_bits, align 4
   %54 = call ptr @proto_tree_add_bitmask_with_flags_ret_uint64(ptr noundef %.030, ptr noundef %0, i32 noundef %51, i32 noundef %52, i32 noundef %53, ptr noundef nonnull @dissect_uds_dtc_and_status_record.dtc_status_flags, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %14)
@@ -5598,7 +5592,7 @@ protoitem_append_dtc_name.exit:                   ; preds = %uds_lookup_dtc_name
   br i1 %57, label %uds_lookup_dtc_name.exit, label %58
 
 58:                                               ; preds = %protoitem_append_dtc_name.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %59 = zext i32 %55 to i64
   %60 = shl nuw i64 %59, 32
   %61 = zext i32 %4 to i64
@@ -5609,14 +5603,14 @@ protoitem_append_dtc_name.exit:                   ; preds = %uds_lookup_dtc_name
   br i1 %64, label %generic_lookup_addr_id.exit.i, label %generic_lookup_addr_id.exit.thread6.i
 
 generic_lookup_addr_id.exit.thread6.i:            ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %uds_lookup_dtc_name.exit.thread
 
 generic_lookup_addr_id.exit.i:                    ; preds = %58
   %65 = or disjoint i64 %60, 4294967295
   store i64 %65, ptr %8, align 8
   %66 = call ptr @g_hash_table_lookup(ptr noundef nonnull %56, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %67 = icmp eq ptr %66, null
   br i1 %67, label %uds_lookup_dtc_name.exit, label %uds_lookup_dtc_name.exit.thread
 
@@ -5650,99 +5644,104 @@ uds_lookup_dtc_name.exit.thread:                  ; preds = %generic_lookup_addr
   %84 = load i64, ptr %14, align 8
   %85 = trunc i64 %84 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %82, i32 noundef 25, ptr noundef nonnull @.str.789, i32 noundef %83, i32 noundef %85)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %80
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @try_val_to_str_ext(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @try_val_to_str_ext(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_x509af_Certificate(i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @dissect_x509af_Certificate(i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_x509af_Certificates(i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @dissect_x509af_Certificates(i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #6
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @ws_hexstrtou32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @ws_hexstrtou32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_free(ptr noundef) #3
+declare void @g_free(ptr noundef) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_int64_hash(ptr noundef) #3
+declare i32 @g_int64_hash(ptr noundef) #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_int64_equal(ptr noundef, ptr noundef) #3
+declare i32 @g_int64_equal(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #8
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #3
+declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare i32 @g_direct_hash(ptr noundef) #9
+declare i32 @g_direct_hash(ptr noundef) #8
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare i32 @g_direct_equal(ptr noundef, ptr noundef) #9
+declare i32 @g_direct_equal(ptr noundef, ptr noundef) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #10
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { noreturn }
 attributes #12 = { nounwind willreturn memory(read) }
 attributes #13 = { allocsize(0) }
-attributes #14 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

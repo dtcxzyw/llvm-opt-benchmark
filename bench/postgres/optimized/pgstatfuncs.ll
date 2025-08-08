@@ -97,13 +97,7 @@ define dso_local i64 @pg_stat_get_analyze_count(ptr noundef readonly captures(no
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @pgstat_fetch_stat_tabentry(i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @pgstat_fetch_stat_tabentry(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_stat_get_autoanalyze_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -659,7 +653,7 @@ define dso_local i64 @pg_stat_get_function_calls(ptr noundef captures(none) %0) 
   ret i64 %.0
 }
 
-declare ptr @pgstat_fetch_stat_funcentry(i32 noundef) local_unnamed_addr #2
+declare ptr @pgstat_fetch_stat_funcentry(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_stat_get_function_total_time(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -774,17 +768,17 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_stat_get_backend_ids
   ret i64 %.0
 }
 
-declare ptr @init_MultiFuncCall(ptr noundef) local_unnamed_addr #2
+declare ptr @init_MultiFuncCall(ptr noundef) local_unnamed_addr #1
 
-declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @per_MultiFuncCall(ptr noundef) local_unnamed_addr #2
+declare ptr @per_MultiFuncCall(ptr noundef) local_unnamed_addr #1
 
-declare i32 @pgstat_fetch_stat_numbackends() local_unnamed_addr #2
+declare i32 @pgstat_fetch_stat_numbackends() local_unnamed_addr #1
 
-declare ptr @pgstat_get_local_beentry_by_index(i32 noundef) local_unnamed_addr #2
+declare ptr @pgstat_get_local_beentry_by_index(i32 noundef) local_unnamed_addr #1
 
-declare void @end_MultiFuncCall(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @end_MultiFuncCall(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_stat_get_progress_info(ptr noundef %0) local_unnamed_addr #0 {
@@ -851,9 +845,9 @@ define dso_local noundef i64 @pg_stat_get_progress_info(ptr noundef %0) local_un
 
 39:                                               ; preds = %.lr.ph, %69
   %.03037 = phi i32 [ 1, %.lr.ph ], [ %70, %69 ]
-  call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(184) %2, i8 0, i64 184, i1 false)
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(23) %3, i8 0, i64 23, i1 false)
   %40 = call ptr @pgstat_get_local_beentry_by_index(i32 noundef %.03037) #9
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 256
@@ -911,8 +905,8 @@ define dso_local noundef i64 @pg_stat_get_progress_info(ptr noundef %0) local_un
   br label %69
 
 69:                                               ; preds = %39, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %70 = add i32 %.03037, 1
   %.not = icmp sgt i32 %70, %4
   br i1 %.not, label %._crit_edge, label %39, !llvm.loop !6
@@ -921,31 +915,31 @@ define dso_local noundef i64 @pg_stat_get_progress_info(ptr noundef %0) local_un
   ret i64 0
 }
 
-declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
+declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #1
 
-declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
+declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
 
-declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @InitMaterializedSRF(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @InitMaterializedSRF(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare zeroext i1 @has_privs_of_role(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @has_privs_of_role(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @GetUserId() local_unnamed_addr #2
+declare i32 @GetUserId() local_unnamed_addr #1
 
-declare void @tuplestore_putvalues(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @tuplestore_putvalues(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_stat_get_activity(ptr noundef %0) local_unnamed_addr #0 {
@@ -1034,9 +1028,9 @@ define dso_local noundef i64 @pg_stat_get_activity(ptr noundef %0) local_unnamed
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
   %.0163 = phi i32 [ 1, %.lr.ph ], [ %.0163.be, %.backedge.backedge ]
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(248) %2, i8 0, i64 248, i1 false)
-  call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(31) %3, i8 0, i64 31, i1 false)
   %73 = call ptr @pgstat_get_local_beentry_by_index(i32 noundef %.0163) #9
   br i1 %.not117.not, label %74, label %77
@@ -1048,8 +1042,8 @@ define dso_local noundef i64 @pg_stat_get_activity(ptr noundef %0) local_unnamed
   br i1 %.not118, label %77, label %.thread155
 
 .thread155:                                       ; preds = %74
-  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.old = add i32 %.0163, 1
   %.not.old = icmp sgt i32 %.old, %6
   br i1 %.not.old, label %._crit_edge, label %.backedge.backedge
@@ -1470,8 +1464,8 @@ pg_memory_is_all_zeros.exit:                      ; preds = %.preheader.i
   ]
 
 251:                                              ; preds = %.loopexit, %.loopexit
-  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 16
   store i8 0, ptr %5, align 16
   %252 = getelementptr inbounds nuw i8, ptr %73, i64 184
@@ -1519,8 +1513,8 @@ pg_memory_is_all_zeros.exit:                      ; preds = %.preheader.i
   br label %271
 
 271:                                              ; preds = %270, %267
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %274
 
 272:                                              ; preds = %.loopexit
@@ -1704,8 +1698,8 @@ pg_memory_is_all_zeros.exit:                      ; preds = %.preheader.i
   %359 = load ptr, ptr %71, align 8
   %360 = load ptr, ptr %72, align 8
   call void @tuplestore_putvalues(ptr noundef %359, ptr noundef %360, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %361 = add i32 %.0163, 1
   %.not = icmp sgt i32 %361, %6
   %or.cond = select i1 %.not117.not, i1 true, i1 %.not
@@ -1715,40 +1709,40 @@ pg_memory_is_all_zeros.exit:                      ; preds = %.preheader.i
   ret i64 0
 }
 
-declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #2
+declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 
-declare ptr @pgstat_clip_activity(ptr noundef) local_unnamed_addr #2
+declare ptr @pgstat_clip_activity(ptr noundef) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
-declare ptr @BackendPidGetProc(i32 noundef) local_unnamed_addr #2
+declare ptr @BackendPidGetProc(i32 noundef) local_unnamed_addr #1
 
-declare ptr @AuxiliaryPidGetProc(i32 noundef) local_unnamed_addr #2
+declare ptr @AuxiliaryPidGetProc(i32 noundef) local_unnamed_addr #1
 
-declare ptr @pgstat_get_wait_event_type(i32 noundef) local_unnamed_addr #2
+declare ptr @pgstat_get_wait_event_type(i32 noundef) local_unnamed_addr #1
 
-declare ptr @pgstat_get_wait_event(i32 noundef) local_unnamed_addr #2
+declare ptr @pgstat_get_wait_event(i32 noundef) local_unnamed_addr #1
 
-declare i32 @GetLeaderApplyWorkerPid(i32 noundef) local_unnamed_addr #2
+declare i32 @GetLeaderApplyWorkerPid(i32 noundef) local_unnamed_addr #1
 
-declare i32 @pg_getnameinfo_all(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @pg_getnameinfo_all(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @clean_ipv6_addr(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @clean_ipv6_addr(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @inet_in(ptr noundef) #2
+declare i64 @inet_in(ptr noundef) #1
 
-declare ptr @GetBackgroundWorkerTypeByPid(i32 noundef) local_unnamed_addr #2
+declare ptr @GetBackgroundWorkerTypeByPid(i32 noundef) local_unnamed_addr #1
 
-declare ptr @GetBackendTypeDesc(i32 noundef) local_unnamed_addr #2
+declare ptr @GetBackendTypeDesc(i32 noundef) local_unnamed_addr #1
 
-declare i64 @DirectFunctionCall3Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @DirectFunctionCall3Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @numeric_in(ptr noundef) #2
+declare i64 @numeric_in(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @pg_backend_pid(ptr noundef readnone captures(none) %0) local_unnamed_addr #5 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @pg_backend_pid(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr @MyProcPid, align 4
   %3 = sext i32 %2 to i64
   ret i64 %3
@@ -1779,7 +1773,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_stat_get_backend_pid
   ret i64 %.0
 }
 
-declare ptr @pgstat_get_beentry_by_proc_number(i32 noundef) local_unnamed_addr #2
+declare ptr @pgstat_get_beentry_by_proc_number(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @pg_stat_get_backend_dbid(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -1835,9 +1829,9 @@ define dso_local range(i64 0, 4294967296) i64 @pg_stat_get_backend_userid(ptr no
 define dso_local i64 @pg_stat_get_backend_subxact(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [2 x i64], align 16
   %3 = alloca [2 x i8], align 2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 0, ptr %3, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
@@ -1873,20 +1867,20 @@ define dso_local i64 @pg_stat_get_backend_subxact(ptr noundef readonly captures(
   %22 = getelementptr i8, ptr %21, i64 16
   %.val = load ptr, ptr %22, align 8
   %23 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #9
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %23
 }
 
-declare ptr @CreateTemplateTupleDesc(i32 noundef) local_unnamed_addr #2
+declare ptr @CreateTemplateTupleDesc(i32 noundef) local_unnamed_addr #1
 
-declare void @TupleDescInitEntry(ptr noundef, i16 noundef signext, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @TupleDescInitEntry(ptr noundef, i16 noundef signext, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @BlessTupleDesc(ptr noundef) local_unnamed_addr #2
+declare ptr @BlessTupleDesc(ptr noundef) local_unnamed_addr #1
 
-declare ptr @pgstat_get_local_beentry_by_proc_number(i32 noundef) local_unnamed_addr #2
+declare ptr @pgstat_get_local_beentry_by_proc_number(i32 noundef) local_unnamed_addr #1
 
-declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_stat_get_backend_activity(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -2145,7 +2139,7 @@ define dso_local i64 @pg_stat_get_backend_client_addr(ptr noundef captures(none)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
-  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = tail call ptr @pgstat_get_beentry_by_proc_number(i32 noundef %5) #9
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
@@ -2310,7 +2304,7 @@ pg_memory_is_all_zeros.exit:                      ; preds = %.preheader.i
 
 80:                                               ; preds = %75, %73, %67, %pg_memory_is_all_zeros.exit, %18, %8
   %.0 = phi i64 [ 0, %8 ], [ 0, %pg_memory_is_all_zeros.exit ], [ 0, %67 ], [ 0, %73 ], [ %79, %75 ], [ 0, %18 ]
-  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -2320,7 +2314,7 @@ define dso_local i64 @pg_stat_get_backend_client_port(ptr noundef captures(none)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = tail call ptr @pgstat_get_beentry_by_proc_number(i32 noundef %5) #9
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
@@ -2483,11 +2477,11 @@ pg_memory_is_all_zeros.exit:                      ; preds = %.preheader.i
 
 78:                                               ; preds = %.loopexit, %75, %73, %67, %pg_memory_is_all_zeros.exit, %18, %8
   %.0 = phi i64 [ 0, %8 ], [ 0, %pg_memory_is_all_zeros.exit ], [ 0, %67 ], [ 0, %73 ], [ %77, %75 ], [ 0, %18 ], [ -1, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
-declare i64 @int4in(ptr noundef) #2
+declare i64 @int4in(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @pg_stat_get_db_numbackends(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -2539,7 +2533,7 @@ define dso_local i64 @pg_stat_get_db_blocks_fetched(ptr noundef readonly capture
   ret i64 %.0
 }
 
-declare ptr @pgstat_fetch_stat_dbentry(i32 noundef) local_unnamed_addr #2
+declare ptr @pgstat_fetch_stat_dbentry(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_stat_get_db_blocks_hit(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -3064,7 +3058,7 @@ define dso_local i64 @pg_stat_get_db_checksum_failures(ptr noundef captures(none
   ret i64 %.0
 }
 
-declare zeroext i1 @DataChecksumsEnabled() local_unnamed_addr #2
+declare zeroext i1 @DataChecksumsEnabled() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_stat_get_db_checksum_last_failure(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -3212,7 +3206,7 @@ define dso_local i64 @pg_stat_get_checkpointer_num_timed(ptr noundef readnone ca
   ret i64 %3
 }
 
-declare ptr @pgstat_fetch_stat_checkpointer() local_unnamed_addr #2
+declare ptr @pgstat_fetch_stat_checkpointer() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_stat_get_checkpointer_num_requested(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -3277,7 +3271,7 @@ define dso_local i64 @pg_stat_get_bgwriter_buf_written_clean(ptr noundef readnon
   ret i64 %3
 }
 
-declare ptr @pgstat_fetch_stat_bgwriter() local_unnamed_addr #2
+declare ptr @pgstat_fetch_stat_bgwriter() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_stat_get_bgwriter_maxwritten_clean(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -3361,9 +3355,9 @@ define dso_local noundef i64 @pg_stat_get_io(ptr noundef %0) local_unnamed_addr 
   br i1 %exitcond.not, label %6, label %7, !llvm.loop !15
 }
 
-declare ptr @pgstat_fetch_stat_io() local_unnamed_addr #2
+declare ptr @pgstat_fetch_stat_io() local_unnamed_addr #1
 
-declare zeroext i1 @pgstat_tracks_io_bktype(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @pgstat_tracks_io_bktype(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @pg_stat_io_build_tuples(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
@@ -3440,9 +3434,9 @@ define internal fastcc void @pg_stat_io_build_tuples(ptr noundef readonly captur
   %indvars.iv95 = phi i64 [ 0, %21 ], [ %indvars.iv.next96, %74 ]
   %29 = trunc nuw nsw i64 %indvars.iv95 to i32
   %30 = call ptr @pgstat_get_io_context_name(i32 noundef %29) #9
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %5, i8 0, i64 160, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   %31 = call zeroext i1 @pgstat_tracks_io_object(i32 noundef %2, i32 noundef %22, i32 noundef %29) #9
   br i1 %31, label %32, label %74
@@ -3554,13 +3548,13 @@ pgstat_get_io_byte_index.exit:                    ; preds = %51, %pgstat_get_io_
   br i1 %.not58, label %73, label %64
 
 64:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %65 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %indvars.iv
   %66 = load i64, ptr %65, align 8
   %67 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 256, ptr noundef nonnull @.str.28, i64 noundef %66) #9
   %68 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef %17, i64 noundef 0, i64 noundef -1) #9
   store i64 %68, ptr %.0.i62.sroa.phi151, align 8
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %73
 
 69:                                               ; preds = %.thread, %53
@@ -3583,8 +3577,8 @@ pgstat_get_io_byte_index.exit:                    ; preds = %51, %pgstat_get_io_
   br i1 %exitcond.not, label %43, label %46, !llvm.loop !17
 
 74:                                               ; preds = %28, %43
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next96, 5
   br i1 %exitcond98.not, label %27, label %28, !llvm.loop !18
@@ -3639,17 +3633,17 @@ define dso_local noundef i64 @pg_stat_get_backend_io(ptr noundef %0) local_unnam
   ret i64 0
 }
 
-declare ptr @pgstat_fetch_stat_backend(i32 noundef) local_unnamed_addr #2
+declare ptr @pgstat_fetch_stat_backend(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_stat_get_wal(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [9 x i64], align 16
   %3 = alloca [9 x i8], align 1
   %4 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %3, i8 0, i64 9, i1 false)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @CreateTemplateTupleDesc(i32 noundef 9) #9
   tail call void @TupleDescInitEntry(ptr noundef %5, i16 noundef signext 1, ptr noundef nonnull @.str.19, i32 noundef 20, i32 noundef -1, i32 noundef 0) #9
   tail call void @TupleDescInitEntry(ptr noundef %5, i16 noundef signext 2, ptr noundef nonnull @.str.20, i32 noundef 20, i32 noundef -1, i32 noundef 0) #9
@@ -3707,15 +3701,15 @@ define dso_local i64 @pg_stat_get_wal(ptr noundef readnone captures(none) %0) lo
   %41 = getelementptr i8, ptr %40, i64 16
   %.val = load ptr, ptr %41, align 8
   %42 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #9
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %42
 }
 
-declare ptr @pgstat_fetch_stat_wal() local_unnamed_addr #2
+declare ptr @pgstat_fetch_stat_wal() local_unnamed_addr #1
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_stat_get_slru(ptr noundef %0) local_unnamed_addr #0 {
@@ -3725,9 +3719,9 @@ define dso_local noundef i64 @pg_stat_get_slru(ptr noundef %0) local_unnamed_add
   %5 = load ptr, ptr %4, align 8
   tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #9
   %6 = tail call ptr @pgstat_fetch_slru() #9
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %2, i8 0, i64 72, i1 false)
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %3, i8 0, i64 9, i1 false)
   %7 = tail call ptr @pgstat_get_slru_name(i32 noundef 0) #9
   %.not14 = icmp eq ptr %7, null
@@ -3780,26 +3774,26 @@ define dso_local noundef i64 @pg_stat_get_slru(ptr noundef %0) local_unnamed_add
   %24 = load ptr, ptr %16, align 8
   %25 = load ptr, ptr %17, align 8
   call void @tuplestore_putvalues(ptr noundef %24, ptr noundef %25, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %26 = add i32 %.01015, 1
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %2, i8 0, i64 72, i1 false)
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %3, i8 0, i64 9, i1 false)
   %27 = call ptr @pgstat_get_slru_name(i32 noundef %26) #9
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %._crit_edge, label %18
 
 ._crit_edge:                                      ; preds = %18, %1
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 0
 }
 
-declare ptr @pgstat_fetch_slru() local_unnamed_addr #2
+declare ptr @pgstat_fetch_slru() local_unnamed_addr #1
 
-declare ptr @pgstat_get_slru_name(i32 noundef) local_unnamed_addr #2
+declare ptr @pgstat_get_slru_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_stat_get_xact_numscans(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -3820,7 +3814,7 @@ define dso_local i64 @pg_stat_get_xact_numscans(ptr noundef readonly captures(no
   ret i64 %.0
 }
 
-declare ptr @find_tabstat_entry(i32 noundef) local_unnamed_addr #2
+declare ptr @find_tabstat_entry(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_stat_get_xact_tuples_returned(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -4016,7 +4010,7 @@ define dso_local i64 @pg_stat_get_xact_function_calls(ptr noundef captures(none)
   ret i64 %.0
 }
 
-declare ptr @find_funcstat_entry(i32 noundef) local_unnamed_addr #2
+declare ptr @find_funcstat_entry(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_stat_get_xact_function_total_time(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -4075,7 +4069,7 @@ define dso_local i64 @pg_stat_get_xact_function_self_time(ptr noundef captures(n
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_stat_get_snapshot_timestamp(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i64 @pgstat_get_stat_snapshot_timestamp(ptr noundef nonnull %2) #9
   %4 = load i8, ptr %2, align 1, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
@@ -4088,11 +4082,11 @@ define dso_local i64 @pg_stat_get_snapshot_timestamp(ptr noundef writeonly captu
 
 8:                                                ; preds = %1, %6
   %.0 = phi i64 [ 0, %6 ], [ %3, %1 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
-declare i64 @pgstat_get_stat_snapshot_timestamp(ptr noundef) local_unnamed_addr #2
+declare i64 @pgstat_get_stat_snapshot_timestamp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_stat_clear_snapshot(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -4100,7 +4094,7 @@ define dso_local noundef i64 @pg_stat_clear_snapshot(ptr noundef readnone captur
   ret i64 0
 }
 
-declare void @pgstat_clear_snapshot() local_unnamed_addr #2
+declare void @pgstat_clear_snapshot() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_stat_force_next_flush(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -4108,7 +4102,7 @@ define dso_local noundef i64 @pg_stat_force_next_flush(ptr noundef readnone capt
   ret i64 0
 }
 
-declare void @pgstat_force_next_flush() local_unnamed_addr #2
+declare void @pgstat_force_next_flush() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_stat_reset(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -4116,7 +4110,7 @@ define dso_local noundef i64 @pg_stat_reset(ptr noundef readnone captures(none) 
   ret i64 0
 }
 
-declare void @pgstat_reset_counters() local_unnamed_addr #2
+declare void @pgstat_reset_counters() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_stat_reset_shared(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -4228,14 +4222,14 @@ sub_1:                                            ; preds = %sub_0
   ret i64 0
 }
 
-declare void @pgstat_reset_of_kind(i32 noundef) local_unnamed_addr #2
+declare void @pgstat_reset_of_kind(i32 noundef) local_unnamed_addr #1
 
-declare void @XLogPrefetchResetStats() local_unnamed_addr #2
+declare void @XLogPrefetchResetStats() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
-declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_stat_reset_single_table_counters(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -4250,9 +4244,9 @@ define dso_local noundef i64 @pg_stat_reset_single_table_counters(ptr noundef re
   ret i64 0
 }
 
-declare zeroext i1 @IsSharedRelation(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @IsSharedRelation(i32 noundef) local_unnamed_addr #1
 
-declare void @pgstat_reset(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @pgstat_reset(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_stat_reset_single_function_counters(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -4311,7 +4305,7 @@ define dso_local noundef i64 @pg_stat_reset_slru(ptr noundef readonly captures(n
   ret i64 0
 }
 
-declare void @pgstat_reset_slru(ptr noundef) local_unnamed_addr #2
+declare void @pgstat_reset_slru(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_stat_reset_replication_slot(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -4337,7 +4331,7 @@ define dso_local noundef i64 @pg_stat_reset_replication_slot(ptr noundef readonl
   ret i64 0
 }
 
-declare void @pgstat_reset_replslot(ptr noundef) local_unnamed_addr #2
+declare void @pgstat_reset_replslot(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_stat_reset_subscription_stats(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -4377,9 +4371,9 @@ define dso_local noundef i64 @pg_stat_reset_subscription_stats(ptr noundef reado
 define dso_local i64 @pg_stat_get_archiver(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [7 x i64], align 16
   %3 = alloca [7 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %3, i8 0, i64 7, i1 false)
   %4 = tail call ptr @CreateTemplateTupleDesc(i32 noundef 7) #9
   tail call void @TupleDescInitEntry(ptr noundef %4, i16 noundef signext 1, ptr noundef nonnull @.str.39, i32 noundef 20, i32 noundef -1, i32 noundef 0) #9
@@ -4485,12 +4479,12 @@ define dso_local i64 @pg_stat_get_archiver(ptr noundef readnone captures(none) %
   %56 = getelementptr i8, ptr %55, i64 16
   %.val = load ptr, ptr %56, align 8
   %57 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #9
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %57
 }
 
-declare ptr @pgstat_fetch_stat_archiver() local_unnamed_addr #2
+declare ptr @pgstat_fetch_stat_archiver() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_stat_get_replication_slot(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -4502,12 +4496,12 @@ define dso_local i64 @pg_stat_get_replication_slot(ptr noundef readonly captures
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #9
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %3, i8 0, i64 80, i1 false)
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %4, i8 0, i64 10, i1 false)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = tail call ptr @CreateTemplateTupleDesc(i32 noundef 10) #9
   tail call void @TupleDescInitEntry(ptr noundef %10, i16 noundef signext 1, ptr noundef nonnull @.str.45, i32 noundef 25, i32 noundef -1, i32 noundef 0) #9
   tail call void @TupleDescInitEntry(ptr noundef %10, i16 noundef signext 2, ptr noundef nonnull @.str.46, i32 noundef 20, i32 noundef -1, i32 noundef 0) #9
@@ -4586,18 +4580,18 @@ define dso_local i64 @pg_stat_get_replication_slot(ptr noundef readonly captures
   %50 = getelementptr i8, ptr %49, i64 16
   %.val = load ptr, ptr %50, align 8
   %51 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #9
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %51
 }
 
-declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
+declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 
-declare void @namestrcpy(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @namestrcpy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @pgstat_fetch_replslot(ptr noundef byval(%struct.nameData) align 8) local_unnamed_addr #2
+declare ptr @pgstat_fetch_replslot(ptr noundef byval(%struct.nameData) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_stat_get_subscription_stats(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -4607,11 +4601,11 @@ define dso_local i64 @pg_stat_get_subscription_stats(ptr noundef readonly captur
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %2, i8 0, i64 80, i1 false)
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %3, i8 0, i64 10, i1 false)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = tail call ptr @pgstat_fetch_stat_subscription(i32 noundef %7) #9
   %9 = tail call ptr @CreateTemplateTupleDesc(i32 noundef 10) #9
   tail call void @TupleDescInitEntry(ptr noundef %9, i16 noundef signext 1, ptr noundef nonnull @.str.54, i32 noundef 26, i32 noundef -1, i32 noundef 0) #9
@@ -4683,13 +4677,13 @@ define dso_local i64 @pg_stat_get_subscription_stats(ptr noundef readonly captur
   %34 = getelementptr i8, ptr %33, i64 16
   %.val = load ptr, ptr %34, align 8
   %35 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #9
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %35
 }
 
-declare ptr @pgstat_fetch_stat_subscription(i32 noundef) local_unnamed_addr #2
+declare ptr @pgstat_fetch_stat_subscription(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @pg_stat_have_stats(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -4709,34 +4703,40 @@ define dso_local range(i64 0, 2) i64 @pg_stat_have_stats(ptr noundef readonly ca
   ret i64 %14
 }
 
-declare i32 @pgstat_get_kind_from_str(ptr noundef) local_unnamed_addr #2
+declare i32 @pgstat_get_kind_from_str(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @pgstat_have_entry(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @pgstat_have_entry(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
-declare i64 @HeapTupleHeaderGetDatum(ptr noundef) local_unnamed_addr #2
+declare i64 @HeapTupleHeaderGetDatum(ptr noundef) local_unnamed_addr #1
 
-declare ptr @pgstat_get_io_object_name(i32 noundef) local_unnamed_addr #2
+declare ptr @pgstat_get_io_object_name(i32 noundef) local_unnamed_addr #1
 
-declare ptr @pgstat_get_io_context_name(i32 noundef) local_unnamed_addr #2
+declare ptr @pgstat_get_io_context_name(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @pgstat_tracks_io_object(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @pgstat_tracks_io_object(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @pgstat_tracks_io_op(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @pgstat_tracks_io_op(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nounwind }
 attributes #10 = { cold nounwind }

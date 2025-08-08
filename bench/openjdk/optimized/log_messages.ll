@@ -122,11 +122,11 @@ define hidden void @log_message_end(ptr noundef readonly captures(none) %0, ...)
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 256
   store i8 0, ptr %28, align 16
   call void @llvm.va_end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 57, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %4, align 8
   %29 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -148,11 +148,11 @@ get_time_stamp.exit:                              ; preds = %22, %34
   %40 = call i64 @strftime(ptr noundef nonnull %3, i64 noundef 57, ptr noundef nonnull @.str.10, ptr noundef %39) #8
   %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 20, ptr noundef nonnull @.str.11, i32 noundef %36) #8
   %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 81, ptr noundef nonnull @.str.12, ptr noundef nonnull %2, ptr noundef nonnull %6, ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 57, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %43 = load ptr, ptr @log_file, align 8
   call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %43, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.13, ptr noundef nonnull %8, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull %9, ptr noundef nonnull @.str.4, ptr noundef nonnull %10) #8
   br label %44
@@ -266,10 +266,10 @@ declare ptr @localtime(ptr noundef) local_unnamed_addr #1
 declare void @print_message(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

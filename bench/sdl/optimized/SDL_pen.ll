@@ -53,15 +53,9 @@ define hidden i32 @SDL_FindPenByHandle(ptr noundef readnone captures(address) %0
   ret i32 %.05
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @SDL_LockRWLockForReading_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_LockRWLockForReading_REAL(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @SDL_UnlockRWLock_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_UnlockRWLock_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_FindPenByCallback(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -107,7 +101,7 @@ define hidden zeroext i1 @SDL_InitPen() local_unnamed_addr #0 {
   ret i1 %.not
 }
 
-declare ptr @SDL_CreateRWLock_REAL() local_unnamed_addr #2
+declare ptr @SDL_CreateRWLock_REAL() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_QuitPen() local_unnamed_addr #0 {
@@ -153,9 +147,9 @@ define hidden void @SDL_QuitPen() local_unnamed_addr #0 {
   ret void
 }
 
-declare void @SDL_DestroyRWLock_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroyRWLock_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_GetPenStatus(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -224,13 +218,13 @@ FindPenByInstanceId.exit:                         ; preds = %9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i32 0, 33) i32 @SDL_GetPenCapabilityFromAxis(i32 noundef %0) local_unnamed_addr #5 {
+define hidden range(i32 0, 33) i32 @SDL_GetPenCapabilityFromAxis(i32 noundef %0) local_unnamed_addr #4 {
   %2 = icmp ult i32 %0, 6
   %3 = shl nuw nsw i32 1, %0
   %.0 = select i1 %2, i32 %3, i32 0
@@ -297,7 +291,7 @@ define hidden i32 @SDL_AddPenDevice(i64 noundef %0, ptr noundef %1, ptr noundef 
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 128, i1 false)
   store i32 4864, ptr %5, align 8
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -305,7 +299,7 @@ define hidden i32 @SDL_AddPenDevice(i64 noundef %0, ptr noundef %1, ptr noundef 
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %17, ptr %33, align 4
   %34 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %35
 
 35:                                               ; preds = %.thread34, %26, %29, %31, %4
@@ -313,18 +307,18 @@ define hidden i32 @SDL_AddPenDevice(i64 noundef %0, ptr noundef %1, ptr noundef 
   ret i32 %.0
 }
 
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_LockRWLockForWriting_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_LockRWLockForWriting_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(1)
-declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare i32 @SDL_GetNextObjectID() local_unnamed_addr #2
+declare i32 @SDL_GetNextObjectID() local_unnamed_addr #1
 
-declare zeroext i1 @SDL_EventEnabled_REAL(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_EventEnabled_REAL(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_PushEvent_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_PushEvent_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_RemovePenDevice(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -413,7 +407,7 @@ FindPenByInstanceId.exit:                         ; preds = %9
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   store i32 4865, ptr %3, align 8
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -421,7 +415,7 @@ FindPenByInstanceId.exit:                         ; preds = %9
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %1, ptr %44, align 4
   %45 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %48
 
 .critedge:                                        ; preds = %8, %.preheader.i
@@ -435,7 +429,7 @@ FindPenByInstanceId.exit:                         ; preds = %9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_RemoveAllPenDevices(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -546,7 +540,7 @@ FindPenByInstanceId.exit:                         ; preds = %14
   br i1 %36, label %37, label %51
 
 37:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   store i32 %35, ptr %6, align 8
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -575,7 +569,7 @@ FindPenByInstanceId.exit:                         ; preds = %14
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 37
   store i8 %8, ptr %49, align 1
   %50 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %51
 
 51:                                               ; preds = %41, %34
@@ -669,13 +663,13 @@ FindPenByInstanceId.exit:                         ; preds = %14
   ret void
 }
 
-declare ptr @SDL_GetMouse() local_unnamed_addr #2
+declare ptr @SDL_GetMouse() local_unnamed_addr #1
 
-declare void @SDL_SendMouseMotion(i64 noundef, ptr noundef, i32 noundef, i1 noundef zeroext, float noundef, float noundef) local_unnamed_addr #2
+declare void @SDL_SendMouseMotion(i64 noundef, ptr noundef, i32 noundef, i1 noundef zeroext, float noundef, float noundef) local_unnamed_addr #1
 
-declare void @SDL_SendMouseButton(i64 noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_SendMouseButton(i64 noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_SendTouch(i64 noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, float noundef, float noundef, float noundef) local_unnamed_addr #2
+declare void @SDL_SendTouch(i64 noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, float noundef, float noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_SendPenAxis(i64 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #0 {
@@ -733,7 +727,7 @@ FindPenByInstanceId.exit:                         ; preds = %12
   br i1 %30, label %31, label %66
 
 31:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   store i32 4871, ptr %6, align 8
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -793,7 +787,7 @@ FindPenByInstanceId.exit:                         ; preds = %12
   br label %64
 
 64:                                               ; preds = %49, %51, %55, %36
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %66
 
 .critedge:                                        ; preds = %FindPenByInstanceId.exit.thread, %FindPenByInstanceId.exit
@@ -805,7 +799,7 @@ FindPenByInstanceId.exit:                         ; preds = %12
   ret void
 }
 
-declare void @SDL_SendTouchMotion(i64 noundef, i64 noundef, i64 noundef, ptr noundef, float noundef, float noundef, float noundef) local_unnamed_addr #2
+declare void @SDL_SendTouchMotion(i64 noundef, i64 noundef, i64 noundef, ptr noundef, float noundef, float noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_SendPenMotion(i64 noundef %0, i32 noundef %1, ptr noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #0 {
@@ -865,7 +859,7 @@ FindPenByInstanceId.exit:                         ; preds = %12
   br i1 %29, label %30, label %72
 
 30:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   store i32 4870, ptr %6, align 8
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -941,7 +935,7 @@ FindPenByInstanceId.exit:                         ; preds = %12
   br label %70
 
 70:                                               ; preds = %42, %67, %69, %52, %56, %34
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %72
 
 .critedge:                                        ; preds = %FindPenByInstanceId.exit.thread, %20
@@ -1027,7 +1021,7 @@ FindPenByInstanceId.exit:                         ; preds = %16
   br i1 %38, label %39, label %71
 
 39:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   store i32 %37, ptr %6, align 8
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1086,7 +1080,7 @@ FindPenByInstanceId.exit:                         ; preds = %16
   br label %67
 
 67:                                               ; preds = %56, %58, %63, %53, %43
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %71
 
 .critedge:                                        ; preds = %15, %10, %.preheader.i
@@ -1104,7 +1098,13 @@ FindPenByInstanceId.exit:                         ; preds = %16
   ret void
 }
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
@@ -1113,12 +1113,12 @@ declare i32 @llvm.smax.i32(i32, i32) #7
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind allocsize(1) }

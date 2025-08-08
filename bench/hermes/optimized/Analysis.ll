@@ -2858,7 +2858,7 @@ if.end.i.i810:                                    ; preds = %if.then12.i.i.i.i80
 
 if.then.i1021:                                    ; preds = %if.end.i.i810
   %mul4.i1022 = shl i32 %cond.i.i18.i.i.i.i776, 1
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %TmpStorage.i1126)
+  call void @llvm.lifetime.start.p0(ptr nonnull %TmpStorage.i1126)
   %cmp.i1127 = icmp ugt i32 %mul4.i1022, 15
   br i1 %cmp.i1127, label %if.then.i1171, label %if.end.i1128
 
@@ -3053,7 +3053,7 @@ _ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPKN6hermes10BasicBlockEiLj16ENS_12Dens
   br label %_ZN4llvh13SmallDenseMapIPKN6hermes10BasicBlockEiLj16ENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_iEEE4growEj.exit1186
 
 _ZN4llvh13SmallDenseMapIPKN6hermes10BasicBlockEiLj16ENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_iEEE4growEj.exit1186: ; preds = %if.then5.i1133, %for.end.i1146, %_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPKN6hermes10BasicBlockEiLj16ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_E18moveFromOldBucketsEPSA_SD_.exit
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %TmpStorage.i1126)
+  call void @llvm.lifetime.end.p0(ptr nonnull %TmpStorage.i1126)
   %bf.load.i.i.i.i.i1023 = load i32, ptr %discovered, align 8
   %bf.clear.i.i.i.i.i1024 = and i32 %bf.load.i.i.i.i.i1023, 1
   %tobool.not.i.i.i.i.i1025 = icmp eq i32 %bf.clear.i.i.i.i.i1024, 0
@@ -3116,7 +3116,7 @@ if.else.i1071:                                    ; preds = %if.end.i.i810
   br i1 %cmp9.not.i1077, label %if.end12.i1057, label %if.then10.i1078
 
 if.then10.i1078:                                  ; preds = %if.else.i1071
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %TmpStorage.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %TmpStorage.i)
   %cmp.i1116 = icmp ugt i32 %cond.i.i18.i.i.i.i776, 15
   br i1 %cmp.i1116, label %if.then.i1123, label %if.end.i1117
 
@@ -3209,7 +3209,7 @@ if.end40.i:                                       ; preds = %if.else.i1122, %if.
   br label %_ZN4llvh13SmallDenseMapIPKN6hermes10BasicBlockEiLj16ENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_iEEE4growEj.exit
 
 _ZN4llvh13SmallDenseMapIPKN6hermes10BasicBlockEiLj16ENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_iEEE4growEj.exit: ; preds = %if.then5.i, %for.end.i, %if.end40.i
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %TmpStorage.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %TmpStorage.i)
   %bf.load.i.i.i.i16.i1079 = load i32, ptr %discovered, align 8
   %bf.clear.i.i.i.i17.i1080 = and i32 %bf.load.i.i.i.i16.i1079, 1
   %tobool.not.i.i.i.i18.i1081 = icmp eq i32 %bf.clear.i.i.i.i17.i1080, 0
@@ -5671,10 +5671,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @llvm.umax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -273,12 +273,12 @@ define internal range(i32 0, 28) i32 @tftp_connect(ptr noundef %0, ptr noundef w
   br label %57
 
 53:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %54 = tail call ptr @__errno_location() #14
   %55 = load i32, ptr %54, align 4, !tbaa !100
   %56 = call ptr @Curl_strerror(i32 noundef %55, ptr noundef nonnull %3, i64 noundef 256) #13
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, ptr noundef %56) #13
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %58
 
 57:                                               ; preds = %.thread, %28
@@ -356,16 +356,16 @@ define internal i32 @tftp_multi_statemach(ptr noundef %0, ptr noundef writeonly 
 38:                                               ; preds = %34
   %39 = tail call ptr @__errno_location() #14
   %40 = load i32, ptr %39, align 4, !tbaa !100
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %41 = call ptr @Curl_strerror(i32 noundef %40, ptr noundef nonnull %4, i64 noundef 256) #13
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, ptr noundef %41) #13
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 5, ptr %42, align 4, !tbaa !112
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %225
 
 43:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = load ptr, ptr %5, align 8, !tbaa !86
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1088
   %46 = load ptr, ptr %45, align 8, !tbaa !85
@@ -699,11 +699,11 @@ tftp_parse_option_ack.exit.i:                     ; preds = %.critedge.i.i, %212
 
 tftp_receive_packet.exit.thread:                  ; preds = %89, %214, %171, %174, %179, %168, %.critedge78.i.i, %tftp_option_get.exit.thread.i.i
   %.1.i.ph = phi i32 [ 71, %tftp_option_get.exit.thread.i.i ], [ 71, %.critedge78.i.i ], [ 71, %168 ], [ 71, %179 ], [ 71, %174 ], [ 71, %171 ], [ 42, %214 ], [ %88, %89 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %225
 
 216:                                              ; preds = %tftp_parse_option_ack.exit.i, %62
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %217 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %218 = load i32, ptr %217, align 4, !tbaa !112
   %219 = call fastcc i32 @tftp_state_machine(ptr noundef nonnull %8, i32 noundef %218)
@@ -786,13 +786,7 @@ define internal noundef i32 @tftp_disconnect(ptr readnone captures(none) %0, ptr
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-declare void @Curl_conncontrol(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @Curl_conncontrol(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 29) i32 @tftp_set_timeouts(ptr noundef captures(none) %0) unnamed_addr #0 {
@@ -873,28 +867,28 @@ define internal fastcc range(i32 0, 29) i32 @tftp_set_timeouts(ptr noundef captu
 }
 
 ; Function Attrs: nounwind
-declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #4
+declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #3
 
-declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @Curl_strerror(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @Curl_strerror(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #5
+declare ptr @__errno_location() local_unnamed_addr #4
 
-declare void @Curl_pgrsStartNow(ptr noundef) local_unnamed_addr #3
+declare void @Curl_pgrsStartNow(ptr noundef) local_unnamed_addr #2
 
-declare i64 @Curl_timeleft(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i64 @Curl_timeleft(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #4
+declare i64 @time(ptr noundef) local_unnamed_addr #3
 
-declare i32 @Curl_pgrsDone(ptr noundef) local_unnamed_addr #3
+declare i32 @Curl_pgrsDone(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc range(i32 0, 75) i32 @tftp_translate_code(i32 noundef %0) unnamed_addr #6 {
+define internal fastcc range(i32 0, 75) i32 @tftp_translate_code(i32 noundef %0) unnamed_addr #5 {
   switch i32 %0, label %10 [
     i32 -100, label %11
     i32 1, label %12
@@ -961,8 +955,8 @@ define internal fastcc i32 @tftp_state_machine(ptr noundef %0, i32 noundef %1) u
   ]
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 5036
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 16384
@@ -1062,7 +1056,7 @@ define internal fastcc i32 @tftp_state_machine(ptr noundef %0, i32 noundef %1) u
   br i1 %.not85.i, label %63, label %119
 
 63:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %64 = load i32, ptr %11, align 4
   %65 = and i32 %64, 524288
   %.not86.i = icmp eq i32 %65, 0
@@ -1153,11 +1147,11 @@ define internal fastcc i32 @tftp_state_machine(ptr noundef %0, i32 noundef %1) u
   %117 = load ptr, ptr @Curl_cfree, align 8, !tbaa !95
   %118 = load ptr, ptr %4, align 8, !tbaa !127
   call void %117(ptr noundef %118) #13
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %tftp_send_first.exit
 
 .critedge.i:                                      ; preds = %112
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre.i = load i64, ptr %3, align 8, !tbaa !128
   br label %119
 
@@ -1178,12 +1172,12 @@ define internal fastcc i32 @tftp_state_machine(ptr noundef %0, i32 noundef %1) u
   br i1 %.not89.i, label %136, label %132
 
 132:                                              ; preds = %119
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %133 = tail call ptr @__errno_location() #14
   %134 = load i32, ptr %133, align 4, !tbaa !100
   %135 = call ptr @Curl_strerror(i32 noundef %134, ptr noundef nonnull %6, i64 noundef 256) #13
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %8, ptr noundef nonnull @.str.5, ptr noundef %135) #13
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %136
 
 136:                                              ; preds = %132, %119
@@ -1335,8 +1329,8 @@ define internal fastcc i32 @tftp_state_machine(ptr noundef %0, i32 noundef %1) u
 
 tftp_send_first.exit:                             ; preds = %20, %34, %49, %.thread123.i, %136, %153, %155, %166, %168, %182, %184, %198, %200, %202, %203
   %.0.i = phi i32 [ 0, %20 ], [ 71, %49 ], [ 71, %.thread123.i ], [ %39, %34 ], [ 0, %203 ], [ 0, %136 ], [ 0, %202 ], [ %156, %155 ], [ %154, %153 ], [ %169, %168 ], [ %167, %166 ], [ %185, %184 ], [ %183, %182 ], [ %201, %200 ], [ %199, %198 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %222
 
 204:                                              ; preds = %2
@@ -1383,16 +1377,16 @@ tftp_send_first.exit:                             ; preds = %20, %34, %49, %.thr
   ret i32 %.0
 }
 
-declare void @Curl_xfer_setup_nop(ptr noundef) local_unnamed_addr #3
+declare void @Curl_xfer_setup_nop(ptr noundef) local_unnamed_addr #2
 
-declare i32 @Curl_socket_check(i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @Curl_socket_check(i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 72) i32 @tftp_rx(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [256 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !99
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   switch i32 %1, label %178 [
     i32 3, label %6
     i32 6, label %86
@@ -1679,7 +1673,7 @@ define internal fastcc range(i32 0, 72) i32 @tftp_rx(ptr noundef %0, i32 noundef
 
 179:                                              ; preds = %75, %113, %157, %48, %44, %37, %36, %143, %141, %178, %153, %109, %71
   %.0 = phi i32 [ 71, %178 ], [ 55, %71 ], [ 55, %109 ], [ 55, %153 ], [ 0, %141 ], [ 0, %143 ], [ 0, %36 ], [ 0, %37 ], [ 0, %44 ], [ 0, %48 ], [ 0, %157 ], [ 0, %113 ], [ 0, %75 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -1690,9 +1684,9 @@ define internal fastcc i32 @tftp_tx(ptr noundef %0, i32 noundef %1) unnamed_addr
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !99
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   switch i32 %1, label %205 [
     i32 5, label %184
     i32 7, label %136
@@ -2020,23 +2014,23 @@ define internal fastcc i32 @tftp_tx(ptr noundef %0, i32 noundef %1) unnamed_addr
 
 .thread:                                          ; preds = %99, %42, %59, %45, %130, %184, %205, %181, %161, %177, %126, %93
   %.1 = phi i32 [ 0, %93 ], [ 55, %126 ], [ 55, %177 ], [ 0, %161 ], [ 0, %181 ], [ 0, %205 ], [ 0, %184 ], [ 0, %130 ], [ 0, %45 ], [ 55, %59 ], [ 55, %42 ], [ %104, %99 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }
 
-declare void @Curl_pgrsSetUploadSize(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @Curl_pgrsSetUploadSize(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @Curl_urldecode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @Curl_urldecode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
-declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 72) i32 @tftp_option_add(i32 %.316.val, ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #8 {
+define internal fastcc range(i32 0, 72) i32 @tftp_option_add(i32 %.316.val, ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #7 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #12
   %5 = load i64, ptr %0, align 8, !tbaa !128
   %6 = add i64 %4, 1
@@ -2059,39 +2053,45 @@ define internal fastcc range(i32 0, 72) i32 @tftp_option_add(i32 %.316.val, ptr 
   ret i32 %.0
 }
 
-declare i64 @sendto(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr, i32 noundef) local_unnamed_addr #3
+declare i64 @sendto(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #8
 
-declare i32 @Curl_client_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Curl_client_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @Curl_pgrsSetUploadCounter(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @Curl_pgrsSetUploadCounter(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @recvfrom(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr, ptr noundef) local_unnamed_addr #3
+declare i64 @recvfrom(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr, ptr noundef) local_unnamed_addr #2
 
-declare i32 @Curl_client_write(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @Curl_client_write(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @Curl_pgrsUpdate(ptr noundef) local_unnamed_addr #3
+declare i32 @Curl_pgrsUpdate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
-declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
 
-declare void @Curl_pgrsSetDownloadSize(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @Curl_pgrsSetDownloadSize(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @Curl_speedcheck(ptr noundef, i64, i32) local_unnamed_addr #3
+declare i32 @Curl_speedcheck(ptr noundef, i64, i32) local_unnamed_addr #2
 
-declare { i64, i32 } @Curl_now() local_unnamed_addr #3
+declare { i64, i32 } @Curl_now() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
-declare signext i8 @Curl_raw_toupper(i8 noundef signext) local_unnamed_addr #3
+declare signext i8 @Curl_raw_toupper(i8 noundef signext) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
@@ -2101,15 +2101,15 @@ declare i32 @llvm.smin.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind willreturn memory(read) }
 attributes #13 = { nounwind }

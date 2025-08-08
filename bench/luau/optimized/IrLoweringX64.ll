@@ -170,14 +170,8 @@ declare void @_ZN4Luau7CodeGen23IrValueLocationTrackingC1ERNS0_10IrFunctionE(ptr
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @_ZN4Luau7CodeGen23IrValueLocationTracking17setRestoreCallackEPvPFvS2_RNS0_6IrInstEE(ptr noundef nonnull align 8 dereferenceable(1056), ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -186,7 +180,7 @@ declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX645alignEjNS1_16AlignmentDat
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX6418storeDoubleAsFloatENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1440) %0, i64 %1, i32 %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::CodeGen::X64::ScopedRegX64", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull align 8 dereferenceable(256) %5, i8 noundef zeroext 5)
   %6 = and i32 %2, 15
@@ -222,7 +216,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX6418storeDoubleAsFloatEN
   %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %4) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %22
 
 23:                                               ; preds = %3
@@ -312,7 +306,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX6418storeDoubleAsFloatEN
 
 60:                                               ; preds = %57
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %4) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -323,7 +317,7 @@ declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX646vmovssENS1_10OperandX64ES
 declare i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643f32Ef(ptr noundef nonnull align 8 dereferenceable(252), float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef double @_ZNK4Luau7CodeGen3X6413IrLoweringX648doubleOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1440) %0, i32 %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef double @_ZNK4Luau7CodeGen3X6413IrLoweringX648doubleOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1440) %0, i32 %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !61
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -369,7 +363,7 @@ define dso_local i8 @_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE(ptr no
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9)) unnamed_addr #5
+declare void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrInstEjRKNS0_7IrBlockE(ptr noundef nonnull align 8 dereferenceable(1440) initializes((56, 60)) %0, ptr noundef nonnull align 4 dereferenceable(43) %1, i32 noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -1019,12 +1013,12 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   ]
 
 314:                                              ; preds = %310
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %312, ptr %5, align 4, !tbaa !51
   %315 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %5, i64 1)
   %316 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %315, ptr %316, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %317 = and i8 %315, -8
   %318 = or disjoint i8 %317, 3
   %.sroa.01561.0.copyload = load i32, ptr %311, align 4, !tbaa !51
@@ -1072,14 +1066,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 332:                                              ; preds = %310
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %333 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %334 = load i32, ptr %333, align 4, !tbaa !51
   store i32 %334, ptr %6, align 4, !tbaa !51
   %335 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %6, i64 1)
   %336 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %335, ptr %336, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %337 = load ptr, ptr %0, align 8, !tbaa !60
   %.sroa.01544.0.copyload = load i32, ptr %333, align 4, !tbaa !51
   %338 = call i8 @_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1440) %0, i32 %.sroa.01544.0.copyload)
@@ -1120,7 +1114,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   %351 = tail call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX648allocRegENS1_7SizeX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4, i32 noundef %2)
   %352 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %351, ptr %352, align 2, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
   %353 = load ptr, ptr %0, align 8, !tbaa !60
   %354 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1147,18 +1141,18 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 367:                                              ; preds = %357
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %7) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 368:                                              ; preds = %357, %350
   %369 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %7) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %4494
 
 370:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %371 = tail call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 12, i32 noundef -1)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 %371)
   %372 = invoke i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX648allocRegENS1_7SizeX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4, i32 noundef %2)
@@ -1167,7 +1161,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 373:                                              ; preds = %370
   %374 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %372, ptr %374, align 2, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %9, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
           to label %375 unwind label %422
 
@@ -1297,9 +1291,9 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 419:                                              ; preds = %417
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %9) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %8) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 420:                                              ; preds = %370
@@ -1334,24 +1328,24 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 431:                                              ; preds = %430, %422
   %.pn2989.pn = phi { ptr, i32 } [ %.pn2989, %430 ], [ %423, %422 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %432
 
 432:                                              ; preds = %431, %420
   %.pn2989.pn.pn = phi { ptr, i32 } [ %.pn2989.pn, %431 ], [ %421, %420 ]
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %8) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %4494
 
 433:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %434 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %435 = load i32, ptr %434, align 4, !tbaa !51
   store i32 %435, ptr %10, align 4, !tbaa !51
   %436 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %10, i64 1)
   %437 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %436, ptr %437, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %438 = load i32, ptr %434, align 4
   %439 = and i32 %438, 15
   %440 = icmp eq i32 %439, 1
@@ -1583,7 +1577,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   ]
 
 546:                                              ; preds = %542
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %11, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
   %547 = load ptr, ptr %0, align 8, !tbaa !60
   %548 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -1618,14 +1612,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 561:                                              ; preds = %559
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %11) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 562:                                              ; preds = %559, %558, %546
   %563 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %11) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %4494
 
 564:                                              ; preds = %542
@@ -1967,7 +1961,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   br i1 %730, label %731, label %748
 
 731:                                              ; preds = %726
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %12, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
   %732 = load ptr, ptr %0, align 8, !tbaa !60
   %733 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -2001,14 +1995,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 745:                                              ; preds = %743
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %12) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 746:                                              ; preds = %743, %742, %731
   %747 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %12) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %4494
 
 748:                                              ; preds = %726
@@ -2060,14 +2054,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 765:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %766 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %767 = load i32, ptr %766, align 4, !tbaa !51
   store i32 %767, ptr %13, align 4, !tbaa !51
   %768 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 3, i32 noundef %2, ptr nonnull %13, i64 1)
   %769 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %768, ptr %769, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %770 = load i32, ptr %766, align 4
   %771 = and i32 %770, 15
   switch i32 %771, label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit [
@@ -2196,14 +2190,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 827:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %828 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %829 = load i32, ptr %828, align 4, !tbaa !51
   store i32 %829, ptr %14, align 4, !tbaa !51
   %830 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 3, i32 noundef %2, ptr nonnull %14, i64 1)
   %831 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %830, ptr %831, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.sroa.01347.0.copyload = load i32, ptr %828, align 4, !tbaa !51
   %832 = call i8 @_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1440) %0, i32 %.sroa.01347.0.copyload)
   %833 = load i8, ptr %831, align 2
@@ -2287,7 +2281,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 876:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %877 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %878 = load i32, ptr %877, align 4, !tbaa !51
   store i32 %878, ptr %15, align 4, !tbaa !51
@@ -2298,14 +2292,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   %882 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %15, i64 2)
   %883 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %882, ptr %883, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %884 = load i32, ptr %877, align 4
   %885 = and i32 %884, 15
   %886 = icmp eq i32 %885, 2
   br i1 %886, label %887, label %899
 
 887:                                              ; preds = %876
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %16, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
   %888 = load ptr, ptr %0, align 8, !tbaa !60
   %889 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -2341,14 +2335,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 896:                                              ; preds = %895
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %16) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 897:                                              ; preds = %895, %892, %891, %887
   %898 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %16) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %4494
 
 899:                                              ; preds = %876
@@ -2366,7 +2360,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 903:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %904 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %905 = load i32, ptr %904, align 4, !tbaa !51
   store i32 %905, ptr %17, align 4, !tbaa !51
@@ -2377,14 +2371,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   %909 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %17, i64 2)
   %910 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %909, ptr %910, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %911 = load i32, ptr %904, align 4
   %912 = and i32 %911, 15
   %913 = icmp eq i32 %912, 2
   br i1 %913, label %914, label %926
 
 914:                                              ; preds = %903
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %18, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
   %915 = load ptr, ptr %0, align 8, !tbaa !60
   %916 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -2420,14 +2414,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 923:                                              ; preds = %922
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %18) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 924:                                              ; preds = %922, %919, %918, %914
   %925 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %18) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %4494
 
 926:                                              ; preds = %903
@@ -2445,7 +2439,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 930:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %931 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %932 = load i32, ptr %931, align 4, !tbaa !51
   store i32 %932, ptr %19, align 4, !tbaa !51
@@ -2456,14 +2450,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   %936 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %19, i64 2)
   %937 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %936, ptr %937, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %938 = load i32, ptr %931, align 4
   %939 = and i32 %938, 15
   %940 = icmp eq i32 %939, 2
   br i1 %940, label %941, label %953
 
 941:                                              ; preds = %930
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %20, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
   %942 = load ptr, ptr %0, align 8, !tbaa !60
   %943 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -2499,14 +2493,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 950:                                              ; preds = %949
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %20) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 951:                                              ; preds = %949, %946, %945, %941
   %952 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %20) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %4494
 
 953:                                              ; preds = %930
@@ -2524,7 +2518,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 957:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %958 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %959 = load i32, ptr %958, align 4, !tbaa !51
   store i32 %959, ptr %21, align 4, !tbaa !51
@@ -2535,14 +2529,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   %963 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %21, i64 2)
   %964 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %963, ptr %964, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %965 = load i32, ptr %958, align 4
   %966 = and i32 %965, 15
   %967 = icmp eq i32 %966, 2
   br i1 %967, label %968, label %980
 
 968:                                              ; preds = %957
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %22, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
   %969 = load ptr, ptr %0, align 8, !tbaa !60
   %970 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -2578,14 +2572,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 977:                                              ; preds = %976
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %22) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 978:                                              ; preds = %976, %973, %972, %968
   %979 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %22) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %4494
 
 980:                                              ; preds = %957
@@ -2603,7 +2597,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 984:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %985 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %986 = load i32, ptr %985, align 4, !tbaa !51
   store i32 %986, ptr %23, align 4, !tbaa !51
@@ -2614,14 +2608,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   %990 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %23, i64 2)
   %991 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %990, ptr %991, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %992 = load i32, ptr %985, align 4
   %993 = and i32 %992, 15
   %994 = icmp eq i32 %993, 2
   br i1 %994, label %995, label %1007
 
 995:                                              ; preds = %984
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %24, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
   %996 = load ptr, ptr %0, align 8, !tbaa !60
   %997 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -2657,14 +2651,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 1004:                                             ; preds = %1003
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %24) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %1011
 
 1005:                                             ; preds = %1003, %1000, %999, %995
   %1006 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %24) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %4494
 
 1007:                                             ; preds = %984
@@ -2691,7 +2685,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1013:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %1014 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1015 = load i32, ptr %1014, align 4, !tbaa !51
   store i32 %1015, ptr %25, align 4, !tbaa !51
@@ -2702,8 +2696,8 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   %1019 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %25, i64 2)
   %1020 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1019, ptr %1020, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64E(ptr noundef nonnull align 8 dereferenceable(9) %26, ptr noundef nonnull align 8 dereferenceable(256) %187)
   %1021 = load i32, ptr %1014, align 4
   %1022 = and i32 %1021, 15
@@ -2755,7 +2749,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   br i1 %1040, label %1041, label %1061
 
 1041:                                             ; preds = %1037
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %27, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
           to label %1042 unwind label %1056
 
@@ -2815,7 +2809,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 1055:                                             ; preds = %1053
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %27) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %1086
 
 1056:                                             ; preds = %1041
@@ -2831,16 +2825,16 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 1060:                                             ; preds = %1058, %1056
   %.pn2983 = phi { ptr, i32 } [ %1059, %1058 ], [ %1057, %1056 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %1087
 
 1061:                                             ; preds = %1037
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %28, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
           to label %1062 unwind label %1078
 
 1062:                                             ; preds = %1061
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %29, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
           to label %1063 unwind label %1080
 
@@ -2913,9 +2907,9 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 1077:                                             ; preds = %1075
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %29) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %28) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %1086
 
 1078:                                             ; preds = %1061
@@ -2936,28 +2930,28 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 1084:                                             ; preds = %1082, %1080
   %.pn2980 = phi { ptr, i32 } [ %1083, %1082 ], [ %1081, %1080 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %28) #14
   br label %1085
 
 1085:                                             ; preds = %1084, %1078
   %.pn2980.pn = phi { ptr, i32 } [ %.pn2980, %1084 ], [ %1079, %1078 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %1087
 
 1086:                                             ; preds = %1077, %1055
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %26) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1087:                                             ; preds = %1085, %1060, %1035, %1031
   %.pn2983.pn = phi { ptr, i32 } [ %.pn2983, %1060 ], [ %.pn2980.pn, %1085 ], [ %1032, %1031 ], [ %1036, %1035 ]
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %26) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %4494
 
 1088:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %1089 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1090 = load i32, ptr %1089, align 4, !tbaa !51
   store i32 %1090, ptr %30, align 4, !tbaa !51
@@ -2968,14 +2962,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   %1094 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %30, i64 2)
   %1095 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1094, ptr %1095, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %1096 = load i32, ptr %1089, align 4
   %1097 = and i32 %1096, 15
   %1098 = icmp eq i32 %1097, 2
   br i1 %1098, label %1099, label %1111
 
 1099:                                             ; preds = %1088
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %31, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
   %1100 = load ptr, ptr %0, align 8, !tbaa !60
   %1101 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -3011,14 +3005,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 1108:                                             ; preds = %1107
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %31) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1109:                                             ; preds = %1107, %1104, %1103, %1099
   %1110 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %31) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %4494
 
 1111:                                             ; preds = %1088
@@ -3036,7 +3030,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1115:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %1116 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1117 = load i32, ptr %1116, align 4, !tbaa !51
   store i32 %1117, ptr %32, align 4, !tbaa !51
@@ -3047,14 +3041,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   %1121 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %32, i64 2)
   %1122 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1121, ptr %1122, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %1123 = load i32, ptr %1116, align 4
   %1124 = and i32 %1123, 15
   %1125 = icmp eq i32 %1124, 2
   br i1 %1125, label %1126, label %1138
 
 1126:                                             ; preds = %1115
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %33, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
   %1127 = load ptr, ptr %0, align 8, !tbaa !60
   %1128 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -3090,14 +3084,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 1135:                                             ; preds = %1134
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %33) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1136:                                             ; preds = %1134, %1131, %1130, %1126
   %1137 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %33) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %4494
 
 1138:                                             ; preds = %1115
@@ -3115,14 +3109,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1142:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %1143 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1144 = load i32, ptr %1143, align 4, !tbaa !51
   store i32 %1144, ptr %34, align 4, !tbaa !51
   %1145 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %34, i64 1)
   %1146 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1145, ptr %1146, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %1147 = load ptr, ptr %0, align 8, !tbaa !60
   %.sroa.01181.0.copyload = load i32, ptr %1143, align 4, !tbaa !51
   %1148 = call i8 @_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1440) %0, i32 %.sroa.01181.0.copyload)
@@ -3138,14 +3132,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1151:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %1152 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1153 = load i32, ptr %1152, align 4, !tbaa !51
   store i32 %1153, ptr %35, align 4, !tbaa !51
   %1154 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %35, i64 1)
   %1155 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1154, ptr %1155, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %1156 = load ptr, ptr %0, align 8, !tbaa !60
   %.sroa.01173.0.copyload = load i32, ptr %1152, align 4, !tbaa !51
   %1157 = call i64 @_ZN4Luau7CodeGen3X6413IrLoweringX6414memRegDoubleOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1440) %0, i32 %.sroa.01173.0.copyload)
@@ -3156,14 +3150,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1158:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %1159 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1160 = load i32, ptr %1159, align 4, !tbaa !51
   store i32 %1160, ptr %36, align 4, !tbaa !51
   %1161 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %36, i64 1)
   %1162 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1161, ptr %1162, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %1163 = load ptr, ptr %0, align 8, !tbaa !60
   %.sroa.01166.0.copyload = load i32, ptr %1159, align 4, !tbaa !51
   %1164 = call i64 @_ZN4Luau7CodeGen3X6413IrLoweringX6414memRegDoubleOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1440) %0, i32 %.sroa.01166.0.copyload)
@@ -3174,17 +3168,17 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1165:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %1166 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1167 = load i32, ptr %1166, align 4, !tbaa !51
   store i32 %1167, ptr %37, align 4, !tbaa !51
   %1168 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %37, i64 1)
   %1169 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1168, ptr %1169, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %38, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %39, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
           to label %1170 unwind label %1177
 
@@ -3316,9 +3310,9 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 1206:                                             ; preds = %1204
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %39) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %38) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1207:                                             ; preds = %1188, %1179
@@ -3328,20 +3322,20 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 1208:                                             ; preds = %1207, %1177
   %.pn2977.pn = phi { ptr, i32 } [ %.pn2977, %1207 ], [ %1178, %1177 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %38) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %4494
 
 1209:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %1210 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1211 = load i32, ptr %1210, align 4, !tbaa !51
   store i32 %1211, ptr %40, align 4, !tbaa !51
   %1212 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %40, i64 1)
   %1213 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1212, ptr %1213, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %1214 = load ptr, ptr %0, align 8, !tbaa !60
   %.sroa.01133.0.copyload = load i32, ptr %1210, align 4, !tbaa !51
   %1215 = call i64 @_ZN4Luau7CodeGen3X6413IrLoweringX6414memRegDoubleOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1440) %0, i32 %.sroa.01133.0.copyload)
@@ -3352,14 +3346,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1216:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %1217 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1218 = load i32, ptr %1217, align 4, !tbaa !51
   store i32 %1218, ptr %41, align 4, !tbaa !51
   %1219 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %41, i64 1)
   %1220 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1219, ptr %1220, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   %1221 = load i32, ptr %1217, align 4
   %1222 = and i32 %1221, 15
   %.not2975 = icmp eq i32 %1222, 4
@@ -3404,22 +3398,22 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1234:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %1235 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1236 = load i32, ptr %1235, align 4, !tbaa !51
   store i32 %1236, ptr %42, align 4, !tbaa !51
   %1237 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %42, i64 1)
   %1238 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1237, ptr %1238, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42) #14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %43, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %44, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
           to label %1239 unwind label %1264
 
 1239:                                             ; preds = %1234
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %45, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
           to label %1240 unwind label %1266
 
@@ -3517,11 +3511,11 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 1263:                                             ; preds = %1262
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %45) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %44) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %43) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1264:                                             ; preds = %1234
@@ -3542,19 +3536,19 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 1270:                                             ; preds = %1268, %1266
   %.pn2972 = phi { ptr, i32 } [ %1269, %1268 ], [ %1267, %1266 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %44) #14
   br label %1271
 
 1271:                                             ; preds = %1270, %1264
   %.pn2972.pn = phi { ptr, i32 } [ %.pn2972, %1270 ], [ %1265, %1264 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %43) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %4494
 
 1272:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %46) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %1273 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1274 = load i32, ptr %1273, align 4, !tbaa !51
   store i32 %1274, ptr %46, align 4, !tbaa !51
@@ -3569,8 +3563,8 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   %1281 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %46, i64 3)
   %1282 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1281, ptr %1282, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %46) #14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %47, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
   %1283 = load i32, ptr %1276, align 4
   %1284 = and i32 %1283, 15
@@ -3602,7 +3596,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   %1294 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %47) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %4494
 
 1295:                                             ; preds = %1272
@@ -3686,11 +3680,11 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 1328:                                             ; preds = %.invoke
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %47) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1329:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %1330 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1331 = load i32, ptr %1330, align 4, !tbaa !51
   store i32 %1331, ptr %48, align 4, !tbaa !51
@@ -3701,10 +3695,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   %1335 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %48, i64 2)
   %1336 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1335, ptr %1336, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64E(ptr noundef nonnull align 8 dereferenceable(9) %49, ptr noundef nonnull align 8 dereferenceable(256) %187)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64E(ptr noundef nonnull align 8 dereferenceable(9) %50, ptr noundef nonnull align 8 dereferenceable(256) %187)
           to label %1337 unwind label %1348
 
@@ -3741,9 +3735,9 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 1347:                                             ; preds = %1345
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %50) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %49) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1348:                                             ; preds = %1329
@@ -3768,13 +3762,13 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 1355:                                             ; preds = %1354, %1348
   %.pn2969.pn = phi { ptr, i32 } [ %.pn2969, %1354 ], [ %1349, %1348 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %49) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %4494
 
 1356:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %1357 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1358 = load i32, ptr %1357, align 4, !tbaa !51
   store i32 %1358, ptr %51, align 4, !tbaa !51
@@ -3785,10 +3779,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   %1362 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %51, i64 2)
   %1363 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1362, ptr %1363, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64E(ptr noundef nonnull align 8 dereferenceable(9) %52, ptr noundef nonnull align 8 dereferenceable(256) %187)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %53) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64E(ptr noundef nonnull align 8 dereferenceable(9) %53, ptr noundef nonnull align 8 dereferenceable(256) %187)
           to label %1364 unwind label %1375
 
@@ -3825,9 +3819,9 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 1374:                                             ; preds = %1372
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %53) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %52) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1375:                                             ; preds = %1356
@@ -3852,13 +3846,13 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 1382:                                             ; preds = %1381, %1375
   %.pn2966.pn = phi { ptr, i32 } [ %.pn2966, %1381 ], [ %1376, %1375 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %52) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %4494
 
 1383:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %1384 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1385 = load i32, ptr %1384, align 4, !tbaa !51
   store i32 %1385, ptr %54, align 4, !tbaa !51
@@ -3869,10 +3863,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   %1389 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %54, i64 2)
   %1390 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1389, ptr %1390, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %55) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64E(ptr noundef nonnull align 8 dereferenceable(9) %55, ptr noundef nonnull align 8 dereferenceable(256) %187)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64E(ptr noundef nonnull align 8 dereferenceable(9) %56, ptr noundef nonnull align 8 dereferenceable(256) %187)
           to label %1391 unwind label %1402
 
@@ -3909,9 +3903,9 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 1401:                                             ; preds = %1399
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %56) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %55) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1402:                                             ; preds = %1383
@@ -3936,13 +3930,13 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 1409:                                             ; preds = %1408, %1402
   %.pn2963.pn = phi { ptr, i32 } [ %.pn2963, %1408 ], [ %1403, %1402 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %55) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %4494
 
 1410:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %1411 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1412 = load i32, ptr %1411, align 4, !tbaa !51
   store i32 %1412, ptr %57, align 4, !tbaa !51
@@ -3953,10 +3947,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   %1416 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %57, i64 2)
   %1417 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1416, ptr %1417, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %58) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64E(ptr noundef nonnull align 8 dereferenceable(9) %58, ptr noundef nonnull align 8 dereferenceable(256) %187)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %59) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64E(ptr noundef nonnull align 8 dereferenceable(9) %59, ptr noundef nonnull align 8 dereferenceable(256) %187)
           to label %1418 unwind label %1429
 
@@ -3993,9 +3987,9 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 1428:                                             ; preds = %1426
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %59) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %59) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %58) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1429:                                             ; preds = %1410
@@ -4020,20 +4014,20 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 1436:                                             ; preds = %1435, %1429
   %.pn2960.pn = phi { ptr, i32 } [ %.pn2960, %1435 ], [ %1430, %1429 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %59) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %58) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %4494
 
 1437:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %60) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   %1438 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1439 = load i32, ptr %1438, align 4, !tbaa !51
   store i32 %1439, ptr %60, align 4, !tbaa !51
   %1440 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %60, i64 1)
   %1441 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1440, ptr %1441, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %60) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   %1442 = load ptr, ptr %0, align 8, !tbaa !60
   %.sroa.01016.0.copyload = load i32, ptr %1438, align 4, !tbaa !51
   %1443 = call i8 @_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1440) %0, i32 %.sroa.01016.0.copyload)
@@ -4049,7 +4043,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1446:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %1447 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1448 = load i32, ptr %1447, align 4, !tbaa !51
   store i32 %1448, ptr %61, align 4, !tbaa !51
@@ -4060,10 +4054,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   %1452 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %61, i64 2)
   %1453 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1452, ptr %1453, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61) #14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64E(ptr noundef nonnull align 8 dereferenceable(9) %62, ptr noundef nonnull align 8 dereferenceable(256) %187)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %63) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64E(ptr noundef nonnull align 8 dereferenceable(9) %63, ptr noundef nonnull align 8 dereferenceable(256) %187)
           to label %1454 unwind label %1467
 
@@ -4109,9 +4103,9 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 1466:                                             ; preds = %1464
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %63) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %63) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %62) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1467:                                             ; preds = %1446
@@ -4136,13 +4130,13 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 1474:                                             ; preds = %1473, %1467
   %.pn2957.pn = phi { ptr, i32 } [ %.pn2957, %1473 ], [ %1468, %1467 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %63) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %62) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %4494
 
 1475:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   %1476 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1477 = load i32, ptr %1476, align 4, !tbaa !51
   store i32 %1477, ptr %64, align 4, !tbaa !51
@@ -4153,16 +4147,16 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   %1481 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 3, i32 noundef %2, ptr nonnull %64, i64 2)
   %1482 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1481, ptr %1482, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   store i32 0, ptr %65, align 4, !tbaa !82
   %1483 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store i32 -1, ptr %1483, align 4, !tbaa !84
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   store i32 0, ptr %66, align 4, !tbaa !82
   %1484 = getelementptr inbounds nuw i8, ptr %66, i64 4
   store i32 -1, ptr %1484, align 4, !tbaa !84
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   store i32 0, ptr %67, align 4, !tbaa !82
   %1485 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store i32 -1, ptr %1485, align 4, !tbaa !84
@@ -4246,9 +4240,9 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %1521, i64 %.sroa.25388.0.insert.insert, i64 4571824130)
   %1522 = load ptr, ptr %0, align 8, !tbaa !60
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %1522, ptr noundef nonnull align 4 dereferenceable(8) %67)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1523:                                             ; preds = %4
@@ -4256,7 +4250,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   %.sroa.0985.0.copyload = load i32, ptr %1524, align 4, !tbaa !51
   %1525 = lshr i32 %.sroa.0985.0.copyload, 4
   %1526 = trunc i32 %1525 to i8
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %68) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   %1527 = load ptr, ptr %0, align 8, !tbaa !60
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %68, ptr noundef nonnull align 8 dereferenceable(256) %187, ptr noundef nonnull align 8 dereferenceable(252) %1527, i32 noundef -1)
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %68, i8 noundef zeroext 4, i64 276594688, i32 0)
@@ -4281,24 +4275,24 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   ]
 
 1532:                                             ; preds = %1523
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   store i64 103421870081, ptr %69, align 8
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %68, ptr noundef nonnull align 4 dereferenceable(8) %69)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   br label %1535
 
 1533:                                             ; preds = %1523
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   store i64 69062131713, ptr %70, align 8
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %68, ptr noundef nonnull align 4 dereferenceable(8) %70)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
   br label %1535
 
 1534:                                             ; preds = %1523
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   store i64 137781608449, ptr %71, align 8
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %68, ptr noundef nonnull align 4 dereferenceable(8) %71)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %1535
 
 1535:                                             ; preds = %1523, %1533, %1534, %1532
@@ -4307,7 +4301,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   %1537 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 3, i32 noundef %2)
   %1538 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1537, ptr %1538, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %68) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1539:                                             ; preds = %4
@@ -4720,7 +4714,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   %.sroa.0923.0.copyload = load i32, ptr %1809, align 4, !tbaa !51
   %1810 = lshr i32 %.sroa.0923.0.copyload, 4
   %1811 = trunc i32 %1810 to i8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %72) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %72, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
   %1812 = load ptr, ptr %0, align 8, !tbaa !60
   %1813 = getelementptr inbounds nuw i8, ptr %72, i64 8
@@ -4771,25 +4765,25 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
 
 _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3242: ; preds = %1827, %1839
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %72) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1842:                                             ; preds = %1839, %1819, %1816, %1808
   %1843 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %72) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   br label %4494
 
 1844:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %73) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %73, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %74) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %74, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
           to label %1845 unwind label %1872
 
 1845:                                             ; preds = %1844
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %75) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %75, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
           to label %1846 unwind label %1874
 
@@ -4888,7 +4882,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
           to label %1888 unwind label %1878
 
 1888:                                             ; preds = %1887, %1880
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %76) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   store i32 0, ptr %76, align 4, !tbaa !82
   %1889 = getelementptr inbounds nuw i8, ptr %76, i64 4
   store i32 -1, ptr %1889, align 4, !tbaa !84
@@ -4977,19 +4971,19 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
           to label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3244 unwind label %1938
 
 _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3244: ; preds = %1924, %1935
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %75) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %75) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %74) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %74) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %73) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %73) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1938:                                             ; preds = %1935, %1917, %1915, %1907, %1898, %1897, %1894, %1888
   %1939 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
   br label %1940
 
 1940:                                             ; preds = %1878, %1938, %1876
@@ -4999,19 +4993,19 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 1941:                                             ; preds = %1940, %1874
   %.pn2952.pn.pn = phi { ptr, i32 } [ %.pn2952.pn, %1940 ], [ %1875, %1874 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %75) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %74) #14
   br label %1942
 
 1942:                                             ; preds = %1941, %1872
   %.pn2952.pn.pn.pn = phi { ptr, i32 } [ %.pn2952.pn.pn, %1941 ], [ %1873, %1872 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %74) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %73) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %73) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
   br label %4494
 
 1943:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %77) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   %1944 = load ptr, ptr %0, align 8, !tbaa !60
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %77, ptr noundef nonnull align 8 dereferenceable(256) %187, ptr noundef nonnull align 8 dereferenceable(252) %1944, i32 noundef %2)
   %1945 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -5022,18 +5016,18 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %.sroa.35271.0.insert.shift = shl nuw nsw i64 %.sroa.35271.0.insert.ext, 16
   %.sroa.25270.0.insert.insert = or disjoint i64 %.sroa.35271.0.insert.shift, 268468224
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %77, i8 noundef zeroext 4, i64 %.sroa.25270.0.insert.insert, i32 %.sroa.0887.0.copyload)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %78) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
   store i64 618817945601, ptr %78, align 8
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %77, ptr noundef nonnull align 4 dereferenceable(8) %78)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
   %1947 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 3, i32 noundef %2)
   %1948 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1947, ptr %1948, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %77) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1949:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %79) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   %1950 = load ptr, ptr %0, align 8, !tbaa !60
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %79, ptr noundef nonnull align 8 dereferenceable(256) %187, ptr noundef nonnull align 8 dereferenceable(252) %1950, i32 noundef %2)
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %79, i8 noundef zeroext 4, i64 276594688, i32 0)
@@ -5053,14 +5047,14 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %.sroa.35251.0.insert.shift = shl nuw nsw i64 %.sroa.35251.0.insert.ext, 16
   %.sroa.25250.0.insert.insert = or disjoint i64 %.sroa.35251.0.insert.shift, 268468224
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %79, i8 noundef zeroext 3, i64 %.sroa.25250.0.insert.insert, i32 %.sroa.0877.0.copyload)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   store i64 756256899073, ptr %80, align 8
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %79, ptr noundef nonnull align 4 dereferenceable(8) %80)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   %1955 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 4, i32 noundef %2)
   %1956 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1955, ptr %1956, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %79) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1957:                                             ; preds = %4
@@ -5081,7 +5075,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1963:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %81) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
   %1964 = load ptr, ptr %0, align 8, !tbaa !60
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %81, ptr noundef nonnull align 8 dereferenceable(256) %187, ptr noundef nonnull align 8 dereferenceable(252) %1964, i32 noundef %2)
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %81, i8 noundef zeroext 4, i64 276594688, i32 0)
@@ -5112,18 +5106,18 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %.sroa.55223.0.insert.shift = shl nuw i64 %.sroa.55223.0.insert.ext, 32
   %.sroa.05219.0.insert.insert = or disjoint i64 %.sroa.55223.0.insert.shift, 276856834
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %81, i8 noundef zeroext 3, i64 %.sroa.05219.0.insert.insert, i32 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %82) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   store i64 653177683969, ptr %82, align 8
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %81, ptr noundef nonnull align 4 dereferenceable(8) %82)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   %1982 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 4, i32 noundef %2)
   %1983 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1982, ptr %1983, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %81) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1984:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %83) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
   %1985 = load ptr, ptr %0, align 8, !tbaa !60
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %83, ptr noundef nonnull align 8 dereferenceable(256) %187, ptr noundef nonnull align 8 dereferenceable(252) %1985, i32 noundef %2)
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %83, i8 noundef zeroext 4, i64 276594688, i32 0)
@@ -5135,21 +5129,21 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %.sroa.35205.0.insert.shift = shl nuw nsw i64 %.sroa.35205.0.insert.ext, 16
   %.sroa.25204.0.insert.insert = or disjoint i64 %.sroa.35205.0.insert.shift, 268468224
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %83, i8 noundef zeroext 4, i64 %.sroa.25204.0.insert.insert, i32 %.sroa.0858.0.copyload)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %84) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
   store i64 687537422337, ptr %84, align 8
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %83, ptr noundef nonnull align 4 dereferenceable(8) %84)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   %1988 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 4, i32 noundef %2)
   %1989 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1988, ptr %1989, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %83) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1990:                                             ; preds = %4
   %1991 = tail call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX648allocRegENS1_7SizeX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 3, i32 noundef %2)
   %1992 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %1991, ptr %1992, align 2, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %85) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %85, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
   %1993 = load ptr, ptr %0, align 8, !tbaa !60
   %1994 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -5174,18 +5168,18 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 2005:                                             ; preds = %1997
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %85) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %85) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2006:                                             ; preds = %1997, %1990
   %2007 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %85) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %85) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
   br label %4494
 
 2008:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %86) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %86, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
   %2009 = load ptr, ptr %0, align 8, !tbaa !60
   %2010 = getelementptr inbounds nuw i8, ptr %86, i64 8
@@ -5272,7 +5266,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
           to label %2050 unwind label %2092
 
 2050:                                             ; preds = %2043
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %87) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %87, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
           to label %2051 unwind label %2098
 
@@ -5287,12 +5281,12 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
           to label %2054 unwind label %2102
 
 2054:                                             ; preds = %2051
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %88) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedSpillsC1ERNS1_13IrRegAllocX64E(ptr noundef nonnull align 8 dereferenceable(12) %88, ptr noundef nonnull align 8 dereferenceable(256) %187)
           to label %2055 unwind label %2104
 
 2055:                                             ; preds = %2054
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %89) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
   %2056 = load ptr, ptr %0, align 8, !tbaa !60
   invoke void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %89, ptr noundef nonnull align 8 dereferenceable(256) %187, ptr noundef nonnull align 8 dereferenceable(252) %2056, i32 noundef %2)
           to label %2057 unwind label %2106
@@ -5341,16 +5335,16 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
           to label %2078 unwind label %2108
 
 2078:                                             ; preds = %2068
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %90) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
   store i64 1031134806017, ptr %90, align 8
   invoke void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %89, ptr noundef nonnull align 4 dereferenceable(8) %90)
           to label %2079 unwind label %2110
 
 2079:                                             ; preds = %2078
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %90) #14
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %89) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   call void @_ZN4Luau7CodeGen3X6412ScopedSpillsD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %88) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %88) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
   %2080 = load ptr, ptr %0, align 8, !tbaa !60
   invoke void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX644testENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %2080, i64 268730368, i64 268730368)
           to label %2081 unwind label %2100
@@ -5374,9 +5368,9 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %2091 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %2089, ptr %2091, align 2, !tbaa !51
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %87) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %87) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %86) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %86) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2092:                                             ; preds = %2043, %2024, %2022, %2014
@@ -5427,18 +5421,18 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 2110:                                             ; preds = %2078
   %2111 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %90) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
   br label %2112
 
 2112:                                             ; preds = %2110, %2108, %2106
   %.pn2943 = phi { ptr, i32 } [ %2111, %2110 ], [ %2109, %2108 ], [ %2107, %2106 ]
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %89) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   call void @_ZN4Luau7CodeGen3X6412ScopedSpillsD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %88) #14
   br label %2113
 
 2113:                                             ; preds = %2112, %2104
   %.pn2943.pn = phi { ptr, i32 } [ %.pn2943, %2112 ], [ %2105, %2104 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %88) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
   br label %2116
 
 2114:                                             ; preds = %2088
@@ -5453,17 +5447,17 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 2117:                                             ; preds = %2116, %2098
   %.pn2946.pn = phi { ptr, i32 } [ %.pn2946, %2116 ], [ %2099, %2098 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %87) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
   br label %2118
 
 2118:                                             ; preds = %2117, %2096, %2094, %2092
   %.pn2946.pn.pn = phi { ptr, i32 } [ %.pn2946.pn, %2117 ], [ %2093, %2092 ], [ %2097, %2096 ], [ %2095, %2094 ]
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %86) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %86) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   br label %4494
 
 2119:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %91) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
   %2120 = load ptr, ptr %0, align 8, !tbaa !60
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %91, ptr noundef nonnull align 8 dereferenceable(256) %187, ptr noundef nonnull align 8 dereferenceable(252) %2120, i32 noundef %2)
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %91, i8 noundef zeroext 4, i64 276594688, i32 0)
@@ -5494,14 +5488,14 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %.sroa.55124.0.insert.shift = shl nuw i64 %.sroa.55124.0.insert.ext, 32
   %.sroa.05120.0.insert.insert = or disjoint i64 %.sroa.55124.0.insert.shift, 276856834
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %91, i8 noundef zeroext 3, i64 %.sroa.05120.0.insert.insert, i32 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %92) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
   store i64 1993207480321, ptr %92, align 8
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %91, ptr noundef nonnull align 4 dereferenceable(8) %92)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %92) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   %2138 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 4, i32 noundef %2)
   %2139 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %2138, ptr %2139, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %91) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2140:                                             ; preds = %4
@@ -5539,7 +5533,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br i1 %2158, label %2159, label %2171
 
 2159:                                             ; preds = %2146
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %93) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %93, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 3)
   %2160 = load ptr, ptr %0, align 8, !tbaa !60
   %2161 = getelementptr inbounds nuw i8, ptr %93, i64 8
@@ -5575,14 +5569,14 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 2168:                                             ; preds = %2164
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %93) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %93) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2169:                                             ; preds = %2164, %2163, %2159
   %2170 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %93) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %93) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
   br label %4494
 
 2171:                                             ; preds = %2146
@@ -5674,14 +5668,14 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2214:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %94) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
   %2215 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %2216 = load i32, ptr %2215, align 4, !tbaa !51
   store i32 %2216, ptr %94, align 4, !tbaa !51
   %2217 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %94, i64 1)
   %2218 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %2217, ptr %2218, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %94) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
   %2219 = load ptr, ptr %0, align 8, !tbaa !60
   %.sroa.0767.0.copyload = load i32, ptr %2215, align 4, !tbaa !51
   %2220 = call i8 @_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1440) %0, i32 %.sroa.0767.0.copyload)
@@ -5691,7 +5685,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2223:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %95) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %95, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
   %2224 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2225 = load i32, ptr %2224, align 4
@@ -5817,17 +5811,17 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 2269:                                             ; preds = %2263, %2242, %2223
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %95) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %95) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2270:                                             ; preds = %2267, %2265, %2248, %2246, %2244
   %.pn2941 = phi { ptr, i32 } [ %2249, %2248 ], [ %2247, %2246 ], [ %2268, %2267 ], [ %2266, %2265 ], [ %2245, %2244 ]
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %95) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %95) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
   br label %4494
 
 2271:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %96) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %96, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
   %2272 = load ptr, ptr %0, align 8, !tbaa !60
   %2273 = getelementptr inbounds nuw i8, ptr %96, i64 8
@@ -5859,7 +5853,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 2278:                                             ; preds = %2276
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %96) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %96) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2279:                                             ; preds = %2271
@@ -5880,7 +5874,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 2285:                                             ; preds = %2283, %2281, %2279
   %.pn2939 = phi { ptr, i32 } [ %2284, %2283 ], [ %2282, %2281 ], [ %2280, %2279 ]
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %96) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %96) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
   br label %4494
 
 2286:                                             ; preds = %4
@@ -5921,7 +5915,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %2313 = load ptr, ptr %2310, align 8, !tbaa !62
   %2314 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2313, i64 %2312, i32 1
   %2315 = load i32, ptr %2314, align 8, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %97) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64E(ptr noundef nonnull align 8 dereferenceable(9) %97, ptr noundef nonnull align 8 dereferenceable(256) %187)
   %2316 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %2317 = load i32, ptr %2316, align 4
@@ -5930,7 +5924,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br i1 %.not2923, label %2349, label %2319
 
 2319:                                             ; preds = %2306
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %98) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %98, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
           to label %2320 unwind label %2337
 
@@ -6006,7 +6000,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 2336:                                             ; preds = %2334
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %98) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %98) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   br label %2357
 
 2337:                                             ; preds = %2319
@@ -6041,7 +6035,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 2348:                                             ; preds = %2347, %2337
   %.pn2924.pn = phi { ptr, i32 } [ %.pn2924, %2347 ], [ %2338, %2337 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %98) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   br label %2447
 
 2349:                                             ; preds = %2306
@@ -6086,7 +6080,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %2372 = zext nneg i32 %2371 to i64
   %2373 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2367, i64 %2372, i32 1
   %2374 = load i32, ptr %2373, align 8, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %99) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
   %2375 = load ptr, ptr %0, align 8, !tbaa !60
   invoke void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %99, ptr noundef nonnull align 8 dereferenceable(256) %187, ptr noundef nonnull align 8 dereferenceable(252) %2375, i32 noundef %2)
           to label %2376 unwind label %2384
@@ -6149,7 +6143,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
           to label %2391 unwind label %2406
 
 2391:                                             ; preds = %2389
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %100) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %100, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
           to label %2392 unwind label %2408
 
@@ -6200,7 +6194,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 2405:                                             ; preds = %2402
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %100) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %100) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
   br label %2419
 
 2406:                                             ; preds = %2389
@@ -6235,7 +6229,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 2417:                                             ; preds = %2416, %2408
   %.pn2928.pn = phi { ptr, i32 } [ %.pn2928, %2416 ], [ %2409, %2408 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %100) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
   br label %2446
 
 2418:                                             ; preds = %2387
@@ -6246,7 +6240,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
           to label %2419 unwind label %2384
 
 2419:                                             ; preds = %2418, %2405
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %101) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %101, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
           to label %2420 unwind label %2436
 
@@ -6266,7 +6260,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
           to label %2425 unwind label %2438
 
 2425:                                             ; preds = %2420
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %102) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
   %2426 = invoke i8 @_ZN4Luau7CodeGen3X6412ScopedRegX647releaseEv(ptr noundef nonnull align 8 dereferenceable(9) %101)
           to label %2427 unwind label %2440
 
@@ -6284,7 +6278,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
           to label %2432 unwind label %2440
 
 2432:                                             ; preds = %2427
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %102) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
   %2433 = invoke i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 3, i32 noundef %2)
           to label %2434 unwind label %2442
 
@@ -6292,10 +6286,10 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %2435 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %2433, ptr %2435, align 2, !tbaa !51
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %101) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %101) #14
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %99) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %97) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %97) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2436:                                             ; preds = %2419
@@ -6311,7 +6305,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 2440:                                             ; preds = %2427, %2425
   %2441 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %102) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
   br label %2444
 
 2442:                                             ; preds = %2432
@@ -6326,18 +6320,18 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 2445:                                             ; preds = %2444, %2436
   %.pn2932.pn = phi { ptr, i32 } [ %.pn2932, %2444 ], [ %2437, %2436 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %101) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
   br label %2446
 
 2446:                                             ; preds = %2406, %2417, %2445, %2384
   %.pn2932.pn.pn = phi { ptr, i32 } [ %.pn2932.pn, %2445 ], [ %2385, %2384 ], [ %.pn2928.pn, %2417 ], [ %2407, %2406 ]
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %99) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
   br label %2447
 
 2447:                                             ; preds = %2446, %2348
   %.pn2932.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2924.pn, %2348 ], [ %.pn2932.pn.pn, %2446 ]
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %97) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %97) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
   br label %4494
 
 2448:                                             ; preds = %4
@@ -6433,7 +6427,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2500:                                             ; preds = %2489
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %103) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
   %2501 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store i64 0, ptr %2501, align 8
   %2502 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6457,7 +6451,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %.sroa.0646.0.copyload = load i32, ptr %2516, align 4, !tbaa !51
   %2517 = lshr i32 %.sroa.0646.0.copyload, 4
   call void @_ZN4Luau7CodeGen3X6412callGetTableERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64EiNS1_10OperandX64Ei(ptr noundef nonnull align 8 dereferenceable(256) %187, ptr noundef nonnull align 8 dereferenceable(252) %2512, i32 noundef %2514, i64 %2515, i32 noundef %2517)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %103) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2518:                                             ; preds = %4
@@ -6485,7 +6479,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2529:                                             ; preds = %2518
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %104) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
   %2530 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store i64 0, ptr %2530, align 8
   %2531 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6509,11 +6503,11 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %.sroa.0636.0.copyload = load i32, ptr %2545, align 4, !tbaa !51
   %2546 = lshr i32 %.sroa.0636.0.copyload, 4
   call void @_ZN4Luau7CodeGen3X6412callSetTableERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64EiNS1_10OperandX64Ei(ptr noundef nonnull align 8 dereferenceable(256) %187, ptr noundef nonnull align 8 dereferenceable(252) %2541, i32 noundef %2543, i64 %2544, i32 noundef %2546)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %104) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2547:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %105) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %105, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
   %2548 = load ptr, ptr %0, align 8, !tbaa !60
   %2549 = getelementptr inbounds nuw i8, ptr %105, i64 8
@@ -6525,7 +6519,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
           to label %2550 unwind label %2575
 
 2550:                                             ; preds = %2547
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %106) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
   %2551 = load ptr, ptr %0, align 8, !tbaa !60
   invoke void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %106, ptr noundef nonnull align 8 dereferenceable(256) %187, ptr noundef nonnull align 8 dereferenceable(252) %2551, i32 noundef %2)
           to label %2552 unwind label %2577
@@ -6581,21 +6575,21 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
           to label %2571 unwind label %2577
 
 2571:                                             ; preds = %2570
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %107) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
   store i64 550098468865, ptr %107, align 8
   invoke void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %106, ptr noundef nonnull align 4 dereferenceable(8) %107)
           to label %2572 unwind label %2581
 
 2572:                                             ; preds = %2571
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %107) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
   %2573 = load ptr, ptr %0, align 8, !tbaa !60
   invoke void @_ZN4Luau7CodeGen3X6414emitUpdateBaseERNS1_18AssemblyBuilderX64E(ptr noundef nonnull align 8 dereferenceable(252) %2573)
           to label %2574 unwind label %2577
 
 2574:                                             ; preds = %2572
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %106) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %105) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %105) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2575:                                             ; preds = %2547
@@ -6616,22 +6610,22 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 2581:                                             ; preds = %2571
   %2582 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %107) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
   br label %2583
 
 2583:                                             ; preds = %2581, %2579, %2577
   %.pn2920 = phi { ptr, i32 } [ %2578, %2577 ], [ %2582, %2581 ], [ %2580, %2579 ]
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %106) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
   br label %2584
 
 2584:                                             ; preds = %2583, %2575
   %.pn2920.pn = phi { ptr, i32 } [ %.pn2920, %2583 ], [ %2576, %2575 ]
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %105) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %105) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
   br label %4494
 
 2585:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %108) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
   %2586 = load ptr, ptr %0, align 8, !tbaa !60
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %108, ptr noundef nonnull align 8 dereferenceable(256) %187, ptr noundef nonnull align 8 dereferenceable(252) %2586, i32 noundef %2)
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %108, i8 noundef zeroext 4, i64 276594688, i32 0)
@@ -6666,19 +6660,19 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %.sroa.54760.0.insert.shift = shl nuw i64 %.sroa.54760.0.insert.ext, 32
   %.sroa.04756.0.insert.insert = or disjoint i64 %.sroa.54760.0.insert.shift, 276856834
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %108, i8 noundef zeroext 3, i64 %.sroa.04756.0.insert.insert, i32 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %109) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
   store i64 584458207233, ptr %109, align 8
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %108, ptr noundef nonnull align 4 dereferenceable(8) %109)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %109) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
   %2607 = load ptr, ptr %0, align 8, !tbaa !60
   call void @_ZN4Luau7CodeGen3X6414emitUpdateBaseERNS1_18AssemblyBuilderX64E(ptr noundef nonnull align 8 dereferenceable(252) %2607)
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %108) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2608:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %110) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %110, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %111) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %111, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
           to label %2609 unwind label %2636
 
@@ -6709,7 +6703,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
           to label %2617 unwind label %2638
 
 2617:                                             ; preds = %2612
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %112) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
   store i32 0, ptr %112, align 4, !tbaa !82
   %2618 = getelementptr inbounds nuw i8, ptr %112, i64 4
   store i32 -1, ptr %2618, align 4, !tbaa !84
@@ -6781,11 +6775,11 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
           to label %2635 unwind label %2642
 
 2635:                                             ; preds = %2631
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %112) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %111) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %111) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %110) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %110) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2636:                                             ; preds = %2608
@@ -6825,7 +6819,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 2650:                                             ; preds = %2648, %2646, %2644, %2642, %2640
   %.pn2916 = phi { ptr, i32 } [ %2643, %2642 ], [ %2649, %2648 ], [ %2647, %2646 ], [ %2645, %2644 ], [ %2641, %2640 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %112) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
   br label %2651
 
 2651:                                             ; preds = %2650, %2638
@@ -6835,15 +6829,15 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 2652:                                             ; preds = %2651, %2636
   %.pn2916.pn.pn = phi { ptr, i32 } [ %.pn2916.pn, %2651 ], [ %2637, %2636 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %111) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %110) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %110) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
   br label %4494
 
 2653:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %113) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %113, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %114) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %114, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
           to label %2654 unwind label %2709
 
@@ -6892,7 +6886,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
           to label %2665 unwind label %2715
 
 2665:                                             ; preds = %2663
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %115) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %115, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
           to label %2666 unwind label %2717
 
@@ -6927,7 +6921,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 2673:                                             ; preds = %2671
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %115) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %115) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX644freeEv(ptr noundef nonnull align 8 dereferenceable(9) %113)
           to label %2674 unwind label %2711
 
@@ -7024,14 +7018,14 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 2724:                                             ; preds = %2723, %2717
   %.pn2910.pn = phi { ptr, i32 } [ %.pn2910, %2723 ], [ %2718, %2717 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %115) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
   br label %2726
 
 2725:                                             ; preds = %2707, %2689
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %114) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %114) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %113) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %113) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2726:                                             ; preds = %2724, %2715, %2713, %2711
@@ -7041,9 +7035,9 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 2727:                                             ; preds = %2726, %2709
   %.pn2913.pn = phi { ptr, i32 } [ %.pn2913, %2726 ], [ %2710, %2709 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %114) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %113) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %113) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
   br label %4494
 
 2728:                                             ; preds = %4
@@ -7071,7 +7065,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2742:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %116) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
   store i32 0, ptr %116, align 4, !tbaa !82
   %2743 = getelementptr inbounds nuw i8, ptr %116, i64 4
   store i32 -1, ptr %2743, align 4, !tbaa !84
@@ -7140,7 +7134,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %2777
 
 2777:                                             ; preds = %2775, %2772
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %116) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2778:                                             ; preds = %4
@@ -7172,7 +7166,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2788:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %117) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %117, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
   %2789 = load ptr, ptr %0, align 8, !tbaa !60
   %2790 = getelementptr inbounds nuw i8, ptr %117, i64 8
@@ -7210,7 +7204,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 2797:                                             ; preds = %2795
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %117) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %117) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2798:                                             ; preds = %2795, %2788
@@ -7231,7 +7225,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 2804:                                             ; preds = %2802, %2800, %2798
   %.pn2905 = phi { ptr, i32 } [ %2799, %2798 ], [ %2803, %2802 ], [ %2801, %2800 ]
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %117) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %117) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
   br label %4494
 
 2805:                                             ; preds = %4
@@ -7289,7 +7283,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2828:                                             ; preds = %4, %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %118) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
   store i32 0, ptr %118, align 4, !tbaa !82
   %2829 = getelementptr inbounds nuw i8, ptr %118, i64 4
   store i32 -1, ptr %2829, align 4, !tbaa !84
@@ -7313,7 +7307,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 2844:                                             ; preds = %2828, %2837
   %2845 = phi ptr [ %2843, %2837 ], [ %118, %2828 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %119) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %119, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
   %2846 = load ptr, ptr %0, align 8, !tbaa !60
   %2847 = getelementptr inbounds nuw i8, ptr %119, i64 8
@@ -7460,7 +7454,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br i1 %2904, label %2905, label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3460
 
 2905:                                             ; preds = %2901
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %120) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
   store i32 0, ptr %120, align 4, !tbaa !82
   %2906 = getelementptr inbounds nuw i8, ptr %120, i64 4
   store i32 -1, ptr %2906, align 4, !tbaa !84
@@ -7484,30 +7478,30 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
           to label %2914 unwind label %2915
 
 2914:                                             ; preds = %2912
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %120) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3460
 
 2915:                                             ; preds = %2912, %2910, %2908, %2905
   %2916 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %120) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
   br label %2917
 
 _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3460: ; preds = %2882, %2894, %2901, %2914
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %119) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %119) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %118) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2917:                                             ; preds = %2915, %2899, %2897
   %.pn2903 = phi { ptr, i32 } [ %2898, %2897 ], [ %2916, %2915 ], [ %2900, %2899 ]
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %119) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %119) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %118) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
   br label %4494
 
 2918:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %121) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %121, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 3)
   %2919 = load ptr, ptr %0, align 8, !tbaa !60
   %2920 = getelementptr inbounds nuw i8, ptr %121, i64 8
@@ -7544,7 +7538,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 2928:                                             ; preds = %2926
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %121) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %121) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2929:                                             ; preds = %2926, %2924
@@ -7560,7 +7554,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 2933:                                             ; preds = %2931, %2929
   %.pn2901 = phi { ptr, i32 } [ %2930, %2929 ], [ %2932, %2931 ]
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %121) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %121) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
   br label %4494
 
 2934:                                             ; preds = %4
@@ -7620,9 +7614,9 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2960:                                             ; preds = %2952
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %122) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %122, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %123) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %123)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %123, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 3)
           to label %2961 unwind label %2978
 
@@ -7746,9 +7740,9 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 3004:                                             ; preds = %3002
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %123) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %123) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %122) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %122) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3005:                                             ; preds = %3002, %2997
@@ -7768,9 +7762,9 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 3010:                                             ; preds = %3009, %2978
   %.pn2898.pn = phi { ptr, i32 } [ %.pn2898, %3009 ], [ %2979, %2978 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %123) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %122) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %122) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
   br label %4494
 
 3011:                                             ; preds = %2939
@@ -7851,9 +7845,9 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %3050 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3049, i64 %3048, i32 1
   %3051 = load i32, ptr %3050, align 8, !tbaa !51
   tail call void @_ZN4Luau7CodeGen3X6413IrRegAllocX6425preserveAndFreeInstValuesEv(ptr noundef nonnull align 8 dereferenceable(256) %187)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %124) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %124)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %124, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %125) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %125)
   store i32 0, ptr %125, align 8, !tbaa !82
   %3052 = getelementptr inbounds nuw i8, ptr %125, i64 4
   store i32 -1, ptr %3052, align 4, !tbaa !84
@@ -7887,7 +7881,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 3062:                                             ; preds = %3059
   %3063 = getelementptr inbounds nuw i8, ptr %0, i64 1344
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %126) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %126)
   %3064 = load i64, ptr %125, align 8
   store i64 %3064, ptr %126, align 8
   %3065 = getelementptr inbounds nuw i8, ptr %126, i64 8
@@ -7898,10 +7892,10 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
           to label %3067 unwind label %3076
 
 3067:                                             ; preds = %3062
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %126) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %125) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %124) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %124) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3068:                                             ; preds = %3057
@@ -7927,14 +7921,14 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 3076:                                             ; preds = %3062
   %3077 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %126) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
   br label %3078
 
 3078:                                             ; preds = %3074, %3076, %3072, %3070, %3068
   %.pn2893.pn = phi { ptr, i32 } [ %3069, %3068 ], [ %3073, %3072 ], [ %3071, %3070 ], [ %3077, %3076 ], [ %3075, %3074 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %125) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %124) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %124) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
   br label %4494
 
 3079:                                             ; preds = %4
@@ -7983,11 +7977,11 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3106:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %127) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %127)
   store i32 0, ptr %127, align 4, !tbaa !82
   %3107 = getelementptr inbounds nuw i8, ptr %127, i64 4
   store i32 -1, ptr %3107, align 4, !tbaa !84
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %128) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %128)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %128, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
   %3108 = load ptr, ptr %0, align 8, !tbaa !60
   %3109 = getelementptr inbounds nuw i8, ptr %128, i64 8
@@ -8024,12 +8018,12 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
           to label %3130 unwind label %3142
 
 3130:                                             ; preds = %3128
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %129) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %129)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedSpillsC1ERNS1_13IrRegAllocX64E(ptr noundef nonnull align 8 dereferenceable(12) %129, ptr noundef nonnull align 8 dereferenceable(256) %187)
           to label %3131 unwind label %3144
 
 3131:                                             ; preds = %3130
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %130) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %130)
   %3132 = load ptr, ptr %0, align 8, !tbaa !60
   invoke void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %130, ptr noundef nonnull align 8 dereferenceable(256) %187, ptr noundef nonnull align 8 dereferenceable(252) %3132, i32 noundef %2)
           to label %3133 unwind label %3146
@@ -8056,24 +8050,24 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
           to label %3138 unwind label %3146
 
 3138:                                             ; preds = %3137
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %131) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %131)
   store i64 790616637441, ptr %131, align 8
   invoke void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %130, ptr noundef nonnull align 4 dereferenceable(8) %131)
           to label %3139 unwind label %3148
 
 3139:                                             ; preds = %3138
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %131) #14
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %130) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
   call void @_ZN4Luau7CodeGen3X6412ScopedSpillsD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %129) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %129) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
   %3140 = load ptr, ptr %0, align 8, !tbaa !60
   invoke void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %3140, ptr noundef nonnull align 4 dereferenceable(8) %127)
           to label %3141 unwind label %3142
 
 3141:                                             ; preds = %3139
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %128) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %128) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %127) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3142:                                             ; preds = %3139, %3128, %3106
@@ -8094,31 +8088,31 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 3148:                                             ; preds = %3138
   %3149 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %131) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
   br label %3150
 
 3150:                                             ; preds = %3148, %3146
   %.pn2888 = phi { ptr, i32 } [ %3149, %3148 ], [ %3147, %3146 ]
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %130) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
   call void @_ZN4Luau7CodeGen3X6412ScopedSpillsD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %129) #14
   br label %3151
 
 3151:                                             ; preds = %3150, %3144
   %.pn2888.pn = phi { ptr, i32 } [ %.pn2888, %3150 ], [ %3145, %3144 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %129) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
   br label %3152
 
 3152:                                             ; preds = %3151, %3142
   %.pn2891 = phi { ptr, i32 } [ %3143, %3142 ], [ %.pn2888.pn, %3151 ]
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %128) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %128) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %127) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
   br label %4494
 
 3153:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %132) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %132)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %132, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %133) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %133)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %133, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
           to label %3154 unwind label %3175
 
@@ -8180,9 +8174,9 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 3174:                                             ; preds = %3172
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %133) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %133) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %132) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %132) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3175:                                             ; preds = %3153
@@ -8212,19 +8206,19 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 3184:                                             ; preds = %3183, %3175
   %.pn2885.pn = phi { ptr, i32 } [ %.pn2885, %3183 ], [ %3176, %3175 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %133) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %132) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %132) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
   br label %4494
 
 3185:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %134) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %134)
   store i32 0, ptr %134, align 4, !tbaa !82
   %3186 = getelementptr inbounds nuw i8, ptr %134, i64 4
   store i32 -1, ptr %3186, align 4, !tbaa !84
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %135) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %135)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %135, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %136) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %136)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %136, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
           to label %3187 unwind label %3213
 
@@ -8291,12 +8285,12 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
           to label %3204 unwind label %3215
 
 3204:                                             ; preds = %3203
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %137) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %137)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedSpillsC1ERNS1_13IrRegAllocX64E(ptr noundef nonnull align 8 dereferenceable(12) %137, ptr noundef nonnull align 8 dereferenceable(256) %187)
           to label %3205 unwind label %3223
 
 3205:                                             ; preds = %3204
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %138) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %138)
   %3206 = load ptr, ptr %0, align 8, !tbaa !60
   invoke void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %138, ptr noundef nonnull align 8 dereferenceable(256) %187, ptr noundef nonnull align 8 dereferenceable(252) %3206, i32 noundef %2)
           to label %3207 unwind label %3225
@@ -8310,26 +8304,26 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
           to label %3209 unwind label %3225
 
 3209:                                             ; preds = %3208
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %139) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %139)
   store i64 928055590913, ptr %139, align 8
   invoke void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %138, ptr noundef nonnull align 4 dereferenceable(8) %139)
           to label %3210 unwind label %3227
 
 3210:                                             ; preds = %3209
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %139) #14
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %138) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
   call void @_ZN4Luau7CodeGen3X6412ScopedSpillsD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %137) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %137) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
   %3211 = load ptr, ptr %0, align 8, !tbaa !60
   invoke void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %3211, ptr noundef nonnull align 4 dereferenceable(8) %134)
           to label %3212 unwind label %3215
 
 3212:                                             ; preds = %3210
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %136) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %136) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %135) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %135) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %134) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3213:                                             ; preds = %3185
@@ -8370,18 +8364,18 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 3227:                                             ; preds = %3209
   %3228 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %139) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
   br label %3229
 
 3229:                                             ; preds = %3227, %3225
   %.pn2879 = phi { ptr, i32 } [ %3228, %3227 ], [ %3226, %3225 ]
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %138) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
   call void @_ZN4Luau7CodeGen3X6412ScopedSpillsD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %137) #14
   br label %3230
 
 3230:                                             ; preds = %3229, %3223
   %.pn2879.pn = phi { ptr, i32 } [ %.pn2879, %3229 ], [ %3224, %3223 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %137) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
   br label %3231
 
 3231:                                             ; preds = %3230, %3221, %3219, %3217, %3215
@@ -8391,10 +8385,10 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 3232:                                             ; preds = %3231, %3213
   %.pn2882.pn = phi { ptr, i32 } [ %.pn2882, %3231 ], [ %3214, %3213 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %136) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %135) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %135) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %134) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
   br label %4494
 
 3233:                                             ; preds = %4
@@ -8537,7 +8531,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3334:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %140) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %140)
   %3335 = load ptr, ptr %0, align 8, !tbaa !60
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %140, ptr noundef nonnull align 8 dereferenceable(256) %187, ptr noundef nonnull align 8 dereferenceable(252) %3335, i32 noundef %2)
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %140, i8 noundef zeroext 4, i64 276594688, i32 0)
@@ -8562,10 +8556,10 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %.sroa.54303.0.insert.shift = shl nuw i64 %.sroa.54303.0.insert.ext, 32
   %.sroa.04299.0.insert.insert = or disjoint i64 %.sroa.54303.0.insert.shift, 276856834
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %140, i8 noundef zeroext 3, i64 %.sroa.04299.0.insert.insert, i32 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %141) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %141)
   store i64 1855768526849, ptr %141, align 8
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %140, ptr noundef nonnull align 4 dereferenceable(8) %141)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %141) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
   %3347 = load ptr, ptr %0, align 8, !tbaa !60
   call void @_ZN4Luau7CodeGen3X6414emitUpdateBaseERNS1_18AssemblyBuilderX64E(ptr noundef nonnull align 8 dereferenceable(252) %3347)
   %3348 = load ptr, ptr %0, align 8, !tbaa !60
@@ -8600,11 +8594,11 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3537
 
 _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3537: ; preds = %3334, %3367
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %140) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3370:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %142) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %142)
   %3371 = load ptr, ptr %0, align 8, !tbaa !60
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %142, ptr noundef nonnull align 8 dereferenceable(256) %187, ptr noundef nonnull align 8 dereferenceable(252) %3371, i32 noundef %2)
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %142, i8 noundef zeroext 4, i64 276594688, i32 0)
@@ -8630,10 +8624,10 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %.sroa.54276.0.insert.shift = shl nuw i64 %.sroa.54276.0.insert.ext, 32
   %.sroa.04272.0.insert.insert = or disjoint i64 %.sroa.54276.0.insert.shift, 276856834
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %142, i8 noundef zeroext 3, i64 %.sroa.04272.0.insert.insert, i32 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %143) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %143)
   store i64 1890128265217, ptr %143, align 8
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %142, ptr noundef nonnull align 4 dereferenceable(8) %143)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %143) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
   %3384 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0379.0.copyload = load i32, ptr %3384, align 4, !tbaa !51
   %3385 = load ptr, ptr %3375, align 8, !tbaa !61
@@ -8655,18 +8649,18 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3542
 
 _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3542: ; preds = %3370, %3395
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %142) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3398:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %144) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %144)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %144, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %145) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %145)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %145, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 3)
           to label %3399 unwind label %3440
 
 3399:                                             ; preds = %3398
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %146) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %146)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %146, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 3)
           to label %3400 unwind label %3442
 
@@ -8816,11 +8810,11 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 3439:                                             ; preds = %3437
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %146) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %146) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %145) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %145) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %144) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %144) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3440:                                             ; preds = %3398
@@ -8860,15 +8854,15 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 3453:                                             ; preds = %3452, %3442
   %.pn2873.pn = phi { ptr, i32 } [ %.pn2873, %3452 ], [ %3443, %3442 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %146) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %145) #14
   br label %3454
 
 3454:                                             ; preds = %3453, %3440
   %.pn2873.pn.pn = phi { ptr, i32 } [ %.pn2873.pn, %3453 ], [ %3441, %3440 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %145) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %144) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %144) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
   br label %4494
 
 3455:                                             ; preds = %4
@@ -8976,7 +8970,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br i1 %3531, label %3532, label %3548
 
 3532:                                             ; preds = %3521
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %147) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %147)
   %3533 = load ptr, ptr %0, align 8, !tbaa !60
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %147, ptr noundef nonnull align 8 dereferenceable(256) %187, ptr noundef nonnull align 8 dereferenceable(252) %3533, i32 noundef -1)
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %147, i8 noundef zeroext 4, i64 276594688, i32 0)
@@ -9009,17 +9003,17 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %.sroa.54136.0.insert.shift = shl nuw nsw i64 %.sroa.54136.0.insert.ext, 32
   %.sroa.04132.0.insert.insert = or disjoint i64 %.sroa.54136.0.insert.shift, 276856834
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %147, i8 noundef zeroext 3, i64 %.sroa.04132.0.insert.insert, i32 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %148) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %148)
   store i64 2302445125633, ptr %148, align 8
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %147, ptr noundef nonnull align 4 dereferenceable(8) %148)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %148) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
   %3547 = load ptr, ptr %0, align 8, !tbaa !60
   call void @_ZN4Luau7CodeGen3X6414emitUpdateBaseERNS1_18AssemblyBuilderX64E(ptr noundef nonnull align 8 dereferenceable(252) %3547)
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %147) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %147)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3548:                                             ; preds = %3521
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %149) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %149)
   %3549 = load ptr, ptr %0, align 8, !tbaa !60
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %149, ptr noundef nonnull align 8 dereferenceable(256) %187, ptr noundef nonnull align 8 dereferenceable(252) %3549, i32 noundef -1)
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %149, i8 noundef zeroext 4, i64 276594688, i32 0)
@@ -9043,15 +9037,15 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %.sroa.54108.0.insert.shift = shl nuw i64 %.sroa.54108.0.insert.ext, 32
   %.sroa.04104.0.insert.insert = or disjoint i64 %.sroa.54108.0.insert.shift, 276856834
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %149, i8 noundef zeroext 3, i64 %.sroa.04104.0.insert.insert, i32 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %150) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %150)
   store i64 2336804864001, ptr %150, align 8
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %149, ptr noundef nonnull align 4 dereferenceable(8) %150)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %150) #14
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %149) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
+  call void @llvm.lifetime.end.p0(ptr nonnull %149)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3559:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %151) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %151)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %151, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 4)
   %3560 = load ptr, ptr %0, align 8, !tbaa !60
   %3561 = getelementptr inbounds nuw i8, ptr %151, i64 8
@@ -9107,7 +9101,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
           to label %3578 unwind label %3606
 
 3578:                                             ; preds = %3566
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %152) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %152)
   %3579 = load ptr, ptr %0, align 8, !tbaa !60
   invoke void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %152, ptr noundef nonnull align 8 dereferenceable(256) %187, ptr noundef nonnull align 8 dereferenceable(252) %3579, i32 noundef %2)
           to label %3580 unwind label %3608
@@ -9151,22 +9145,22 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
           to label %3595 unwind label %3608
 
 3595:                                             ; preds = %3594
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %153) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %153)
   store i64 996775067649, ptr %153, align 8
   invoke void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %152, ptr noundef nonnull align 4 dereferenceable(8) %153)
           to label %3596 unwind label %3610
 
 3596:                                             ; preds = %3595
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %153) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
   %3597 = invoke i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 4, i32 noundef %2)
           to label %3598 unwind label %3612
 
 3598:                                             ; preds = %3596
   %3599 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %3597, ptr %3599, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %152) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %151) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %151) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3600:                                             ; preds = %3559
@@ -9197,7 +9191,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 3610:                                             ; preds = %3595
   %3611 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %153) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
   br label %3614
 
 3612:                                             ; preds = %3596
@@ -9207,13 +9201,13 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 3614:                                             ; preds = %3612, %3610, %3608
   %.pn2870 = phi { ptr, i32 } [ %3613, %3612 ], [ %3611, %3610 ], [ %3609, %3608 ]
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %152) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
   br label %3615
 
 3615:                                             ; preds = %3614, %3606, %3604, %3602, %3600
   %.pn2870.pn = phi { ptr, i32 } [ %.pn2870, %3614 ], [ %3607, %3606 ], [ %3605, %3604 ], [ %3603, %3602 ], [ %3601, %3600 ]
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %151) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %151) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
   br label %4494
 
 3616:                                             ; preds = %4
@@ -9265,14 +9259,14 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3652:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %154) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %154)
   %3653 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3654 = load i32, ptr %3653, align 4, !tbaa !51
   store i32 %3654, ptr %154, align 4, !tbaa !51
   %3655 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 3, i32 noundef %2, ptr nonnull %154, i64 1)
   %3656 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %3655, ptr %3656, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %154) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
   %3657 = load i32, ptr %3653, align 4
   %3658 = and i32 %3657, 15
   %.not2869 = icmp eq i32 %3658, 4
@@ -9313,14 +9307,14 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3669:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %155) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %155)
   %3670 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3671 = load i32, ptr %3670, align 4, !tbaa !51
   store i32 %3671, ptr %155, align 4, !tbaa !51
   %3672 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 3, i32 noundef %2, ptr nonnull %155, i64 1)
   %3673 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %3672, ptr %3673, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %155) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
   %3674 = load i32, ptr %3670, align 4
   %3675 = and i32 %3674, 15
   %.not2868 = icmp eq i32 %3675, 4
@@ -9361,14 +9355,14 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3686:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %156) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %156)
   %3687 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3688 = load i32, ptr %3687, align 4, !tbaa !51
   store i32 %3688, ptr %156, align 4, !tbaa !51
   %3689 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 3, i32 noundef %2, ptr nonnull %156, i64 1)
   %3690 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %3689, ptr %3690, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %156) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %156)
   %3691 = load i32, ptr %3687, align 4
   %3692 = and i32 %3691, 15
   %.not2867 = icmp eq i32 %3692, 4
@@ -9409,14 +9403,14 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3703:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %157) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %157)
   %3704 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3705 = load i32, ptr %3704, align 4, !tbaa !51
   store i32 %3705, ptr %157, align 4, !tbaa !51
   %3706 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 3, i32 noundef %2, ptr nonnull %157, i64 1)
   %3707 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %3706, ptr %3707, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %157) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %157)
   %3708 = load i32, ptr %3704, align 4
   %3709 = and i32 %3708, 15
   %.not2866 = icmp eq i32 %3709, 4
@@ -9454,7 +9448,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3718:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %158) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %158)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64E(ptr noundef nonnull align 8 dereferenceable(9) %158, ptr noundef nonnull align 8 dereferenceable(256) %187)
   %3719 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3720 = load i32, ptr %3719, align 4
@@ -9472,7 +9466,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %3770
 
 3725:                                             ; preds = %3722, %3718
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %159) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %159)
   %3726 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3727 = load i32, ptr %3726, align 4, !tbaa !51
   store i32 %3727, ptr %159, align 4, !tbaa !51
@@ -9482,7 +9476,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 3729:                                             ; preds = %3725
   %3730 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %3728, ptr %3730, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %159) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %159)
   %3731 = load i32, ptr %3726, align 4
   %3732 = and i32 %3731, 15
   %.not2862 = icmp eq i32 %3732, 4
@@ -9518,7 +9512,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 3741:                                             ; preds = %3725
   %3742 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %159) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %159)
   br label %3770
 
 3743:                                             ; preds = %3740, %3735
@@ -9585,17 +9579,17 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 3769:                                             ; preds = %3747, %3765
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %158) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %158) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3770:                                             ; preds = %3758, %3741, %3723
   %.pn2864 = phi { ptr, i32 } [ %3759, %3758 ], [ %3724, %3723 ], [ %3742, %3741 ]
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %158) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %158) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
   br label %4494
 
 3771:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %160) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %160)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64E(ptr noundef nonnull align 8 dereferenceable(9) %160, ptr noundef nonnull align 8 dereferenceable(256) %187)
   %3772 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3773 = load i32, ptr %3772, align 4
@@ -9613,7 +9607,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %3823
 
 3778:                                             ; preds = %3775, %3771
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %161) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %161)
   %3779 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3780 = load i32, ptr %3779, align 4, !tbaa !51
   store i32 %3780, ptr %161, align 4, !tbaa !51
@@ -9623,7 +9617,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 3782:                                             ; preds = %3778
   %3783 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %3781, ptr %3783, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %161) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
   %3784 = load i32, ptr %3779, align 4
   %3785 = and i32 %3784, 15
   %.not2857 = icmp eq i32 %3785, 4
@@ -9659,7 +9653,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 3794:                                             ; preds = %3778
   %3795 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %161) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
   br label %3823
 
 3796:                                             ; preds = %3793, %3788
@@ -9726,17 +9720,17 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 3822:                                             ; preds = %3800, %3818
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %160) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %160) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3823:                                             ; preds = %3811, %3794, %3776
   %.pn2859 = phi { ptr, i32 } [ %3812, %3811 ], [ %3777, %3776 ], [ %3795, %3794 ]
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %160) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %160) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
   br label %4494
 
 3824:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %162) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %162)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64E(ptr noundef nonnull align 8 dereferenceable(9) %162, ptr noundef nonnull align 8 dereferenceable(256) %187)
   %3825 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3826 = load i32, ptr %3825, align 4
@@ -9754,7 +9748,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %3876
 
 3831:                                             ; preds = %3828, %3824
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %163) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %163)
   %3832 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3833 = load i32, ptr %3832, align 4, !tbaa !51
   store i32 %3833, ptr %163, align 4, !tbaa !51
@@ -9764,7 +9758,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 3835:                                             ; preds = %3831
   %3836 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %3834, ptr %3836, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %163) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %163)
   %3837 = load i32, ptr %3832, align 4
   %3838 = and i32 %3837, 15
   %.not2852 = icmp eq i32 %3838, 4
@@ -9800,7 +9794,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 3847:                                             ; preds = %3831
   %3848 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %163) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %163)
   br label %3876
 
 3849:                                             ; preds = %3846, %3841
@@ -9867,17 +9861,17 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 3875:                                             ; preds = %3853, %3871
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %162) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %162) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3876:                                             ; preds = %3864, %3847, %3829
   %.pn2854 = phi { ptr, i32 } [ %3865, %3864 ], [ %3830, %3829 ], [ %3848, %3847 ]
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %162) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %162) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
   br label %4494
 
 3877:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %164) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %164)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64E(ptr noundef nonnull align 8 dereferenceable(9) %164, ptr noundef nonnull align 8 dereferenceable(256) %187)
   %3878 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3879 = load i32, ptr %3878, align 4
@@ -9895,7 +9889,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %3929
 
 3884:                                             ; preds = %3881, %3877
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %165) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %165)
   %3885 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3886 = load i32, ptr %3885, align 4, !tbaa !51
   store i32 %3886, ptr %165, align 4, !tbaa !51
@@ -9905,7 +9899,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 3888:                                             ; preds = %3884
   %3889 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %3887, ptr %3889, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %165) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %165)
   %3890 = load i32, ptr %3885, align 4
   %3891 = and i32 %3890, 15
   %.not2847 = icmp eq i32 %3891, 4
@@ -9941,7 +9935,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 3900:                                             ; preds = %3884
   %3901 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %165) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %165)
   br label %3929
 
 3902:                                             ; preds = %3899, %3894
@@ -10008,17 +10002,17 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 3928:                                             ; preds = %3906, %3924
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %164) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %164) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3929:                                             ; preds = %3917, %3900, %3882
   %.pn2849 = phi { ptr, i32 } [ %3918, %3917 ], [ %3883, %3882 ], [ %3901, %3900 ]
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %164) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %164) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
   br label %4494
 
 3930:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %166) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %166)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64E(ptr noundef nonnull align 8 dereferenceable(9) %166, ptr noundef nonnull align 8 dereferenceable(256) %187)
   %3931 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3932 = load i32, ptr %3931, align 4
@@ -10036,7 +10030,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %3982
 
 3937:                                             ; preds = %3934, %3930
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %167) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %167)
   %3938 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3939 = load i32, ptr %3938, align 4, !tbaa !51
   store i32 %3939, ptr %167, align 4, !tbaa !51
@@ -10046,7 +10040,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 3941:                                             ; preds = %3937
   %3942 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %3940, ptr %3942, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %167) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %167)
   %3943 = load i32, ptr %3938, align 4
   %3944 = and i32 %3943, 15
   %.not2843 = icmp eq i32 %3944, 4
@@ -10082,7 +10076,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 3953:                                             ; preds = %3937
   %3954 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %167) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %167)
   br label %3982
 
 3955:                                             ; preds = %3952, %3947
@@ -10149,29 +10143,29 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 3981:                                             ; preds = %3959, %3977
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %166) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %166) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3982:                                             ; preds = %3970, %3953, %3935
   %.pn = phi { ptr, i32 } [ %3971, %3970 ], [ %3936, %3935 ], [ %3954, %3953 ]
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %166) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %166) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
   br label %4494
 
 3983:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %168) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %168)
   %3984 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3985 = load i32, ptr %3984, align 4, !tbaa !51
   store i32 %3985, ptr %168, align 4, !tbaa !51
   %3986 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 3, i32 noundef %2, ptr nonnull %168, i64 1)
   %3987 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %3986, ptr %3987, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %168) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %169) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
+  call void @llvm.lifetime.start.p0(ptr nonnull %169)
   store i32 0, ptr %169, align 4, !tbaa !82
   %3988 = getelementptr inbounds nuw i8, ptr %169, i64 4
   store i32 -1, ptr %3988, align 4, !tbaa !84
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %170) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %170)
   store i32 0, ptr %170, align 4, !tbaa !82
   %3989 = getelementptr inbounds nuw i8, ptr %170, i64 4
   store i32 -1, ptr %3989, align 4, !tbaa !84
@@ -10215,24 +10209,24 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %3999, i64 %.sroa.23806.0.insert.insert, i64 137715810306)
   %4000 = load ptr, ptr %0, align 8, !tbaa !60
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %4000, ptr noundef nonnull align 4 dereferenceable(8) %170)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %170) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %169) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %170)
+  call void @llvm.lifetime.end.p0(ptr nonnull %169)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 4001:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %171) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %171)
   %4002 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4003 = load i32, ptr %4002, align 4, !tbaa !51
   store i32 %4003, ptr %171, align 4, !tbaa !51
   %4004 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 3, i32 noundef %2, ptr nonnull %171, i64 1)
   %4005 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %4004, ptr %4005, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %171) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %172) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %171)
+  call void @llvm.lifetime.start.p0(ptr nonnull %172)
   store i32 0, ptr %172, align 4, !tbaa !82
   %4006 = getelementptr inbounds nuw i8, ptr %172, i64 4
   store i32 -1, ptr %4006, align 4, !tbaa !84
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %173) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %173)
   store i32 0, ptr %173, align 4, !tbaa !82
   %4007 = getelementptr inbounds nuw i8, ptr %173, i64 4
   store i32 -1, ptr %4007, align 4, !tbaa !84
@@ -10270,19 +10264,19 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %4016, i64 %.sroa.23781.0.insert.insert, i64 137715810306)
   %4017 = load ptr, ptr %0, align 8, !tbaa !60
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %4017, ptr noundef nonnull align 4 dereferenceable(8) %173)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %173) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %172) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %173)
+  call void @llvm.lifetime.end.p0(ptr nonnull %172)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 4018:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %174) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %174)
   %4019 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4020 = load i32, ptr %4019, align 4, !tbaa !51
   store i32 %4020, ptr %174, align 4, !tbaa !51
   %4021 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 3, i32 noundef %2, ptr nonnull %174, i64 1)
   %4022 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %4021, ptr %4022, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %174) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
   %4023 = load i32, ptr %4019, align 4
   %4024 = and i32 %4023, 15
   %.not2841 = icmp eq i32 %4024, 4
@@ -10317,7 +10311,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 4033:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %175) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %175)
   %4034 = load ptr, ptr %0, align 8, !tbaa !60
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %175, ptr noundef nonnull align 8 dereferenceable(256) %187, ptr noundef nonnull align 8 dereferenceable(252) %4034, i32 noundef %2)
   %4035 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10374,7 +10368,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %4063
 
 4063:                                             ; preds = %4060, %._crit_edge, %4033
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %176) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %176)
   %4064 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0129.0.copyload = load i32, ptr %4064, align 4, !tbaa !51
   %4065 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10391,11 +10385,11 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %.sroa.03766.0.insert.insert = or disjoint i64 %.sroa.73769.0.insert.shift, 342654977
   store i64 %.sroa.03766.0.insert.insert, ptr %176, align 8
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %175, ptr noundef nonnull align 4 dereferenceable(8) %176)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %176) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %176)
   %4074 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 5, i32 noundef %2)
   %4075 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %4074, ptr %4075, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %175) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %175)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 4076:                                             ; preds = %4
@@ -10455,7 +10449,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 4100:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %177) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %177)
   %4101 = load ptr, ptr %0, align 8, !tbaa !60
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %177, ptr noundef nonnull align 8 dereferenceable(256) %187, ptr noundef nonnull align 8 dereferenceable(252) %4101, i32 noundef -1)
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %177, i8 noundef zeroext 4, i64 276594688, i32 0)
@@ -10466,18 +10460,18 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %.sroa.7.0.insert.shift.i3605 = shl nuw i64 %.sroa.7.0.insert.ext.i3604, 32
   %.sroa.0.0.insert.insert.i3606 = or disjoint i64 %.sroa.7.0.insert.shift.i3605, 276070401
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %177, i8 noundef zeroext 4, i64 %.sroa.0.0.insert.insert.i3606, i32 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %178) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %178)
   store i64 1065494544385, ptr %178, align 8
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %177, ptr noundef nonnull align 4 dereferenceable(8) %178)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %178) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %178)
   %4104 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 4, i32 noundef %2)
   %4105 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %4104, ptr %4105, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %177) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %177)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 4106:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %179) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %179)
   %4107 = load ptr, ptr %0, align 8, !tbaa !60
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %179, ptr noundef nonnull align 8 dereferenceable(256) %187, ptr noundef nonnull align 8 dereferenceable(252) %4107, i32 noundef -1)
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %179, i8 noundef zeroext 4, i64 276594688, i32 0)
@@ -10488,18 +10482,18 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %.sroa.7.0.insert.shift.i3609 = shl nuw i64 %.sroa.7.0.insert.ext.i3608, 32
   %.sroa.0.0.insert.insert.i3610 = or disjoint i64 %.sroa.7.0.insert.shift.i3609, 276070401
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %179, i8 noundef zeroext 4, i64 %.sroa.0.0.insert.insert.i3610, i32 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %180) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %180)
   store i64 962415329281, ptr %180, align 8
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %179, ptr noundef nonnull align 4 dereferenceable(8) %180)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %180) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %180)
   %4110 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 4, i32 noundef %2)
   %4111 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %4110, ptr %4111, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %179) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %179)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 4112:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %181) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %181)
   %4113 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4114 = load i32, ptr %4113, align 4, !tbaa !51
   store i32 %4114, ptr %181, align 4, !tbaa !51
@@ -10510,7 +10504,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %4118 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 3, i32 noundef %2, ptr nonnull %181, i64 2)
   %4119 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %4118, ptr %4119, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %181) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %181)
   %4120 = load ptr, ptr %0, align 8, !tbaa !60
   %.sroa.092.0.copyload = load i32, ptr %4113, align 4, !tbaa !51
   %.sroa.091.0.copyload = load i32, ptr %4116, align 4, !tbaa !51
@@ -10540,7 +10534,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 4137:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %182) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %182)
   %4138 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4139 = load i32, ptr %4138, align 4, !tbaa !51
   store i32 %4139, ptr %182, align 4, !tbaa !51
@@ -10551,7 +10545,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %4143 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 3, i32 noundef %2, ptr nonnull %182, i64 2)
   %4144 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %4143, ptr %4144, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %182) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %182)
   %4145 = load ptr, ptr %0, align 8, !tbaa !60
   %.sroa.084.0.copyload = load i32, ptr %4138, align 4, !tbaa !51
   %.sroa.083.0.copyload = load i32, ptr %4141, align 4, !tbaa !51
@@ -10648,7 +10642,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 4206:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %183) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %183)
   %4207 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4208 = load i32, ptr %4207, align 4, !tbaa !51
   store i32 %4208, ptr %183, align 4, !tbaa !51
@@ -10659,7 +10653,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %4212 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 3, i32 noundef %2, ptr nonnull %183, i64 2)
   %4213 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %4212, ptr %4213, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %183) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %183)
   %4214 = load ptr, ptr %0, align 8, !tbaa !60
   %.sroa.067.0.copyload = load i32, ptr %4207, align 4, !tbaa !51
   %.sroa.066.0.copyload = load i32, ptr %4210, align 4, !tbaa !51
@@ -10689,7 +10683,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 4231:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %184) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %184)
   %4232 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4233 = load i32, ptr %4232, align 4, !tbaa !51
   store i32 %4233, ptr %184, align 4, !tbaa !51
@@ -10700,7 +10694,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %4237 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 3, i32 noundef %2, ptr nonnull %184, i64 2)
   %4238 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %4237, ptr %4238, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %184) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %184)
   %4239 = load ptr, ptr %0, align 8, !tbaa !60
   %.sroa.059.0.copyload = load i32, ptr %4232, align 4, !tbaa !51
   %.sroa.058.0.copyload = load i32, ptr %4235, align 4, !tbaa !51
@@ -10797,7 +10791,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 4300:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %185) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %185)
   %4301 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4302 = load i32, ptr %4301, align 4, !tbaa !51
   store i32 %4302, ptr %185, align 4, !tbaa !51
@@ -10808,7 +10802,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %4306 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 3, i32 noundef %2, ptr nonnull %185, i64 2)
   %4307 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %4306, ptr %4307, align 2, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %185) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %185)
   %4308 = load ptr, ptr %0, align 8, !tbaa !60
   %.sroa.043.0.copyload = load i32, ptr %4301, align 4, !tbaa !51
   %.sroa.042.0.copyload = load i32, ptr %4304, align 4, !tbaa !51
@@ -11019,7 +11013,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   ]
 
 4434:                                             ; preds = %4430
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %186) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %186)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %186, ptr noundef nonnull align 8 dereferenceable(256) %187, i8 noundef zeroext 5)
   %4435 = load ptr, ptr %0, align 8, !tbaa !60
   %4436 = getelementptr inbounds nuw i8, ptr %186, i64 8
@@ -11082,7 +11076,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 
 4467:                                             ; preds = %4466
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %186) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %186) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %186)
   br label %_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 4468:                                             ; preds = %4446, %4434
@@ -11098,7 +11092,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
 4472:                                             ; preds = %4470, %4468
   %.pn2877 = phi { ptr, i32 } [ %4471, %4470 ], [ %4469, %4468 ]
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %186) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %186) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %186)
   br label %4494
 
 4473:                                             ; preds = %4430
@@ -11158,7 +11152,7 @@ declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX646vmovsdENS1_10OperandX64ES
 declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649vcvtss2sdENS1_10OperandX64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(252), i64, i64, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK4Luau7CodeGen3X6413IrLoweringX645intOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1440) %0, i32 %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef i32 @_ZNK4Luau7CodeGen3X6413IrLoweringX645intOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1440) %0, i32 %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !61
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -11183,7 +11177,7 @@ declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643leaENS1_10OperandX64ES3_(
 declare void @_ZN4Luau7CodeGen3X6424getTableNodeAtCachedSlotERNS1_18AssemblyBuilderX64ENS1_11RegisterX64ES4_S4_i(ptr noundef nonnull align 8 dereferenceable(252), i8, i8, i8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK4Luau7CodeGen3X6413IrLoweringX646uintOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1440) %0, i32 %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef i32 @_ZNK4Luau7CodeGen3X6413IrLoweringX646uintOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1440) %0, i32 %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !61
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -11204,7 +11198,7 @@ declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643decENS1_10OperandX64E(ptr
 declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX644and_ENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252), i64, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i8 @_ZNK4Luau7CodeGen3X6413IrLoweringX645tagOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1440) %0, i32 %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i8 @_ZNK4Luau7CodeGen3X6413IrLoweringX645tagOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1440) %0, i32 %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !61
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -11478,7 +11472,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX6418jumpOrAbortOnUndefEN
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4Luau7CodeGen3X6412jumpIfTruthyERNS1_18AssemblyBuilderX64EiRNS0_5LabelES5_(ptr noundef nonnull align 8 dereferenceable(252) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %3) local_unnamed_addr #6 comdat {
+define linkonce_odr dso_local void @_ZN4Luau7CodeGen3X6412jumpIfTruthyERNS1_18AssemblyBuilderX64EiRNS0_5LabelES5_(ptr noundef nonnull align 8 dereferenceable(252) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %3) local_unnamed_addr #5 comdat {
   %5 = shl i32 %1, 4
   %6 = or disjoint i32 %5, 12
   %.sroa.21.0.insert.ext.i.i.i = zext i32 %6 to i64
@@ -11497,7 +11491,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen3X6412jumpIfTruthyERNS1_18As
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4Luau7CodeGen3X6413IrLoweringX647labelOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1440) %0, i32 %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4Luau7CodeGen3X6413IrLoweringX647labelOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1440) %0, i32 %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !61
   %5 = lshr i32 %1, 4
@@ -11527,7 +11521,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(32) ptr @_ZNK4Luau7CodeGen3X6413IrLoweringX647blockOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1440) %0, i32 %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(32) ptr @_ZNK4Luau7CodeGen3X6413IrLoweringX647blockOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1440) %0, i32 %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !61
   %5 = lshr i32 %1, 4
@@ -11538,7 +11532,7 @@ define dso_local noundef nonnull align 4 dereferenceable(32) ptr @_ZNK4Luau7Code
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4Luau7CodeGen3X6411jumpIfFalsyERNS1_18AssemblyBuilderX64EiRNS0_5LabelES5_(ptr noundef nonnull align 8 dereferenceable(252) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %3) local_unnamed_addr #6 comdat {
+define linkonce_odr dso_local void @_ZN4Luau7CodeGen3X6411jumpIfFalsyERNS1_18AssemblyBuilderX64EiRNS0_5LabelES5_(ptr noundef nonnull align 8 dereferenceable(252) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %3) local_unnamed_addr #5 comdat {
   %5 = shl i32 %1, 4
   %6 = or disjoint i32 %5, 12
   %.sroa.21.0.insert.ext.i.i.i = zext i32 %6 to i64
@@ -11621,7 +11615,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit: ; preds = %15, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3X6413IrLoweringX6418isFallthroughBlockERKNS0_7IrBlockES5_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1440) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %2) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3X6413IrLoweringX6418isFallthroughBlockERKNS0_7IrBlockES5_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1440) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !88
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -11647,7 +11641,7 @@ declare void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ER
 declare i8 @_ZN4Luau7CodeGen3X6412ScopedRegX647releaseEv(ptr noundef nonnull align 8 dereferenceable(9)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN4Luau7CodeGen3X6412ScopedSpillsD1Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #5
+declare void @_ZN4Luau7CodeGen3X6412ScopedSpillsD1Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #4
 
 declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649vcvtsi2sdENS1_10OperandX64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(252), i64, i64, i64) local_unnamed_addr #1
 
@@ -11676,7 +11670,7 @@ declare void @_ZN4Luau7CodeGen3X6416callLengthHelperERNS1_13IrRegAllocX64ERNS1_1
 declare void @_ZN4Luau7CodeGen3X6412callGetTableERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64EiNS1_10OperandX64Ei(ptr noundef nonnull align 8 dereferenceable(256), ptr noundef nonnull align 8 dereferenceable(252), i32 noundef, i64, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX645bytesEPKvmm(ptr noundef nonnull align 8 dereferenceable(252), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -11689,7 +11683,7 @@ declare void @_ZN4Luau7CodeGen3X6417callBarrierObjectERNS1_13IrRegAllocX64ERNS1_
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX6418jumpOrAbortOnUndefENS0_12ConditionX64ENS0_4IrOpERKNS0_7IrBlockE(ptr noundef nonnull align 8 dereferenceable(1440) %0, i8 noundef zeroext %1, i32 %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.Luau::CodeGen::Label", align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !82
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 -1, ptr %6, align 4, !tbaa !84
@@ -11938,7 +11932,7 @@ _ZN4Luau7CodeGen19getReverseConditionENS0_12ConditionX64E.exit: ; preds = %_ZN4L
 
 104:                                              ; preds = %102, %.thread26, %90, %56, %_ZN4Luau7CodeGen19getReverseConditionENS0_12ConditionX64E.exit
   call void @_ZN4Luau7CodeGen3X6413IrLoweringX6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1440) %0, i32 %2, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -12138,7 +12132,7 @@ declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643bsfENS1_11RegisterX64ENS1
 declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX645bswapENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(252), i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { i8, i64 } @_ZNK4Luau7CodeGen3X6413IrLoweringX647constOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1440) %0, i32 %1) local_unnamed_addr #4 align 2 {
+define dso_local { i8, i64 } @_ZNK4Luau7CodeGen3X6413IrLoweringX647constOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1440) %0, i32 %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !61
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -12443,7 +12437,7 @@ declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr nounde
 declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643leaENS1_11RegisterX64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252), i8, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrLoweringX648hasErrorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1440) %0) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrLoweringX648hasErrorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1440) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i32, ptr %2, align 8, !tbaa !194
   %4 = icmp ugt i32 %3, 13
@@ -12451,7 +12445,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrLoweringX648hasErr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3X6413IrLoweringX6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1440) %0, i32 %1, ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(8) %2) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3X6413IrLoweringX6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1440) %0, i32 %1, ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(8) %2) local_unnamed_addr #3 align 2 {
   %4 = and i32 %1, 15
   switch i32 %4, label %44 [
     i32 1, label %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit.thread
@@ -12762,22 +12756,22 @@ define dso_local i64 @_ZN4Luau7CodeGen3X6413IrLoweringX6415vectorAndMaskOpEv(ptr
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal void @"_ZZN4Luau7CodeGen3X6413IrLoweringX64C1ERNS1_18AssemblyBuilderX64ERNS0_13ModuleHelpersERNS0_10IrFunctionEPNS0_13LoweringStatsEEN3$_08__invokeEPvRNS0_6IrInstE"(ptr noundef nonnull %0, ptr noundef nonnull align 4 dereferenceable(43) %1) #6 align 2 {
+define internal void @"_ZZN4Luau7CodeGen3X6413IrLoweringX64C1ERNS1_18AssemblyBuilderX64ERNS0_13ModuleHelpersERNS0_10IrFunctionEPNS0_13LoweringStatsEEN3$_08__invokeEPvRNS0_6IrInstE"(ptr noundef nonnull %0, ptr noundef nonnull align 4 dereferenceable(43) %1) #5 align 2 {
   tail call void @_ZN4Luau7CodeGen3X6413IrRegAllocX647restoreERNS0_6IrInstEb(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 4 dereferenceable(43) %1, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEE6rehashEv(ptr noundef nonnull align 8 dereferenceable(30) %0) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -12899,6 +12893,12 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEES
   br label %17
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
 
@@ -12910,16 +12910,16 @@ declare i64 @llvm.umin.i64(i64, i64) #13
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nounwind }

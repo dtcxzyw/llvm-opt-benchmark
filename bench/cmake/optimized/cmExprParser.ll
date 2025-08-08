@@ -82,12 +82,12 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
   %4 = alloca [200 x %"struct.cmExprParserHelper::ParserType"], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 1600, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 128, ptr %6, align 8, !tbaa !4
   %7 = load i32, ptr @cmExpr_yydebug, align 4, !tbaa !8
   %.not = icmp eq i32 %7, 0
@@ -95,7 +95,7 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %10 = tail call i64 @fwrite(ptr nonnull @.str, i64 15, i64 1, ptr %9) #16
+  %10 = tail call i64 @fwrite(ptr nonnull @.str, i64 15, i64 1, ptr %9) #15
   br label %.preheader
 
 .preheader:                                       ; preds = %8, %1
@@ -130,7 +130,7 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.1, i32 noundef %.0185) #17
+  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.1, i32 noundef %.0185) #16
   %.pr = load i32, ptr @cmExpr_yydebug, align 4, !tbaa !8
   %18 = trunc nsw i32 %.0185 to i8
   store i8 %18, ptr %.0202.ptr, align 1, !tbaa !13
@@ -170,7 +170,7 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %36 = call i64 @fwrite(ptr nonnull @.str.2, i64 16, i64 1, ptr %35) #16
+  %36 = call i64 @fwrite(ptr nonnull @.str.2, i64 16, i64 1, ptr %35) #15
   br label %37
 
 37:                                               ; preds = %34, %32
@@ -189,7 +189,7 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
 
 43:                                               ; preds = %41
   %44 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %45 = call i64 @fwrite(ptr nonnull @.str.3, i64 21, i64 1, ptr %44) #16
+  %45 = call i64 @fwrite(ptr nonnull @.str.3, i64 21, i64 1, ptr %44) #15
   br label %63
 
 46:                                               ; preds = %39
@@ -215,7 +215,7 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #17
+  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #16
   %61 = load ptr, ptr @stderr, align 8, !tbaa !10
   call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPKN18cmExprParserHelper10ParserTypeEPv(ptr noundef %61, i32 noundef %56)
   %62 = load ptr, ptr @stderr, align 8, !tbaa !10
@@ -257,7 +257,7 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
 
 80:                                               ; preds = %78
   %81 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7) #17
+  %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7) #16
   %83 = load ptr, ptr @stderr, align 8, !tbaa !10
   call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPKN18cmExprParserHelper10ParserTypeEPv(ptr noundef %83, i32 noundef %.0190)
   %84 = load ptr, ptr @stderr, align 8, !tbaa !10
@@ -416,7 +416,7 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
   br i1 %161, label %162, label %167
 
 162:                                              ; preds = %159
-  %163 = call ptr @__cxa_allocate_exception(i64 16) #15
+  %163 = call ptr @__cxa_allocate_exception(i64 16) #17
   invoke void @_ZNSt14overflow_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %163, ptr noundef nonnull @.str.8)
           to label %164 unwind label %165
 
@@ -427,12 +427,12 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
 165:                                              ; preds = %162
   %166 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %163) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 1600, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @__cxa_free_exception(ptr nonnull %163) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %166
 
 167:                                              ; preds = %159
@@ -489,7 +489,7 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
 
 193:                                              ; preds = %191
   %194 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9) #17
+  %195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9) #16
   %196 = load ptr, ptr @stderr, align 8, !tbaa !10
   %197 = getelementptr inbounds [25 x i8], ptr @_ZL4yyr1, i64 0, i64 %94
   %198 = load i8, ptr %197, align 1, !tbaa !13
@@ -498,7 +498,7 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
   %200 = sext i8 %198 to i64
   %201 = getelementptr inbounds [28 x ptr], ptr @_ZL7yytname, i64 0, i64 %200
   %202 = load ptr, ptr %201, align 8, !tbaa !16
-  %203 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %196, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i, ptr noundef %202) #17
+  %203 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %196, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i, ptr noundef %202) #16
   %fputc.i = call i32 @fputc(i32 41, ptr %196)
   %204 = load ptr, ptr @stderr, align 8, !tbaa !10
   %fputc240 = call i32 @fputc(i32 10, ptr %204)
@@ -580,7 +580,7 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
   br i1 %.not242, label %243, label %242
 
 242:                                              ; preds = %241
-  call void @free(ptr noundef %.0) #15
+  call void @free(ptr noundef %.0) #17
   br label %243
 
 243:                                              ; preds = %242, %241
@@ -621,14 +621,14 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
 
 258:                                              ; preds = %256
   %259 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %260 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %259, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.11) #17
+  %260 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %259, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.11) #16
   %261 = load ptr, ptr @stderr, align 8, !tbaa !10
   %262 = icmp slt i32 %237, 17
   %.str.19..str.20.i.i = select i1 %262, ptr @.str.19, ptr @.str.20
   %263 = sext i32 %237 to i64
   %264 = getelementptr inbounds [28 x ptr], ptr @_ZL7yytname, i64 0, i64 %263
   %265 = load ptr, ptr %264, align 8, !tbaa !16
-  %266 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %261, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i.i, ptr noundef %265) #17
+  %266 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %261, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i.i, ptr noundef %265) #16
   %fputc.i.i = call i32 @fputc(i32 41, ptr %261)
   %267 = load ptr, ptr @stderr, align 8, !tbaa !10
   %fputc.i258 = call i32 @fputc(i32 10, ptr %267)
@@ -679,7 +679,7 @@ _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263
   %284 = getelementptr inbounds [41 x i8], ptr @_ZL6yystos, i64 0, i64 %269
   %285 = load i8, ptr %284, align 1, !tbaa !13
   %286 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %287 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %286, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.12) #17
+  %287 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %286, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.12) #16
   %288 = load ptr, ptr @stderr, align 8, !tbaa !10
   %289 = and i64 %270, 2146959423
   %.not336 = icmp eq i64 %289, 0
@@ -687,7 +687,7 @@ _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263
   %290 = sext i8 %285 to i64
   %291 = getelementptr inbounds [28 x ptr], ptr @_ZL7yytname, i64 0, i64 %290
   %292 = load ptr, ptr %291, align 8, !tbaa !16
-  %293 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %288, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i.i260, ptr noundef %292) #17
+  %293 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %288, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i.i260, ptr noundef %292) #16
   %fputc.i.i261 = call i32 @fputc(i32 41, ptr %288)
   %294 = load ptr, ptr @stderr, align 8, !tbaa !10
   %fputc.i262 = call i32 @fputc(i32 10, ptr %294)
@@ -719,7 +719,7 @@ _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263
 
 304:                                              ; preds = %300
   %305 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %306 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %305, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7) #17
+  %306 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %305, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7) #16
   %307 = load ptr, ptr @stderr, align 8, !tbaa !10
   call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPKN18cmExprParserHelper10ParserTypeEPv(ptr noundef %307, i32 noundef 25)
   %308 = load ptr, ptr @stderr, align 8, !tbaa !10
@@ -767,14 +767,14 @@ _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263
 
 319:                                              ; preds = %316
   %320 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %321 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %320, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.14) #17
+  %321 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %320, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.14) #16
   %322 = load ptr, ptr @stderr, align 8, !tbaa !10
   %323 = icmp slt i32 %317, 17
   %.str.19..str.20.i.i265 = select i1 %323, ptr @.str.19, ptr @.str.20
   %324 = sext i32 %317 to i64
   %325 = getelementptr inbounds [28 x ptr], ptr @_ZL7yytname, i64 0, i64 %324
   %326 = load ptr, ptr %325, align 8, !tbaa !16
-  %327 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %322, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i.i265, ptr noundef %326) #17
+  %327 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %322, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i.i265, ptr noundef %326) #16
   %fputc.i.i266 = call i32 @fputc(i32 41, ptr %322)
   %328 = load ptr, ptr @stderr, align 8, !tbaa !10
   %fputc.i267 = call i32 @fputc(i32 10, ptr %328)
@@ -814,7 +814,7 @@ _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit268
   %336 = getelementptr inbounds [41 x i8], ptr @_ZL6yystos, i64 0, i64 %335
   %337 = load i8, ptr %336, align 1, !tbaa !13
   %338 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %339 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %338, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.15) #17
+  %339 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %338, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.15) #16
   %340 = load ptr, ptr @stderr, align 8, !tbaa !10
   %341 = shl nuw i64 1, %335
   %342 = and i64 %341, 2146959423
@@ -823,7 +823,7 @@ _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit268
   %343 = sext i8 %337 to i64
   %344 = getelementptr inbounds [28 x ptr], ptr @_ZL7yytname, i64 0, i64 %343
   %345 = load ptr, ptr %344, align 8, !tbaa !16
-  %346 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %340, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i.i270, ptr noundef %345) #17
+  %346 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %340, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i.i270, ptr noundef %345) #16
   %fputc.i.i271 = call i32 @fputc(i32 41, ptr %340)
   %347 = load ptr, ptr @stderr, align 8, !tbaa !10
   %fputc.i272 = call i32 @fputc(i32 10, ptr %347)
@@ -841,28 +841,25 @@ _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit273
   br i1 %.not252, label %351, label %350
 
 350:                                              ; preds = %._crit_edge
-  call void @free(ptr noundef %.6284302335) #15
+  call void @free(ptr noundef %.6284302335) #17
   br label %351
 
 351:                                              ; preds = %._crit_edge, %350
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 1600, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0191308332
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL14yy_stack_printPaS_(ptr noundef nonnull readonly captures(address) %0, ptr noundef nonnull readnone captures(address) %1) unnamed_addr #3 {
+define internal fastcc void @_ZL14yy_stack_printPaS_(ptr noundef nonnull readonly captures(address) %0, ptr noundef nonnull readnone captures(address) %1) unnamed_addr #2 {
   %3 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 9, i64 1, ptr %3) #16
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 9, i64 1, ptr %3) #15
   %.not4 = icmp ugt ptr %0, %1
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
@@ -871,7 +868,7 @@ define internal fastcc void @_ZL14yy_stack_printPaS_(ptr noundef nonnull readonl
   %5 = load i8, ptr %.05, align 1, !tbaa !13
   %6 = sext i8 %5 to i32
   %7 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.17, i32 noundef %6) #17
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.17, i32 noundef %6) #16
   %9 = getelementptr inbounds nuw i8, ptr %.05, i64 1
   %.not = icmp ugt ptr %9, %1
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
@@ -882,22 +879,22 @@ define internal fastcc void @_ZL14yy_stack_printPaS_(ptr noundef nonnull readonl
   ret void
 }
 
-declare noundef i32 @_Z12cmExpr_yylexPN18cmExprParserHelper10ParserTypeEPv(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @_Z12cmExpr_yylexPN18cmExprParserHelper10ParserTypeEPv(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPKN18cmExprParserHelper10ParserTypeEPv(ptr noundef captures(none) %0, i32 noundef range(i32 -128, 128) %1) unnamed_addr #5 {
+define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPKN18cmExprParserHelper10ParserTypeEPv(ptr noundef captures(none) %0, i32 noundef range(i32 -128, 128) %1) unnamed_addr #4 {
   %3 = icmp slt i32 %1, 17
   %.str.19..str.20 = select i1 %3, ptr @.str.19, ptr @.str.20
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds [28 x ptr], ptr @_ZL7yytname, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !16
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20, ptr noundef %6) #15
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20, ptr noundef %6) #17
   %fputc = tail call i32 @fputc(i32 41, ptr %0)
   ret void
 }
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15yy_reduce_printPaPN18cmExprParserHelper10ParserTypeEiPv(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 -128, 129) %1) unnamed_addr #3 {
+define internal fastcc void @_ZL15yy_reduce_printPaPN18cmExprParserHelper10ParserTypeEiPv(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 -128, 129) %1) unnamed_addr #2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [25 x i8], ptr @_ZL7yyrline, i64 0, i64 %3
   %5 = load i8, ptr %4, align 1, !tbaa !13
@@ -906,7 +903,7 @@ define internal fastcc void @_ZL15yy_reduce_printPaPN18cmExprParserHelper10Parse
   %8 = load i8, ptr %7, align 1, !tbaa !13
   %9 = load ptr, ptr @stderr, align 8, !tbaa !10
   %10 = add nsw i32 %1, -1
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.49, i32 noundef %10, i32 noundef %6) #17
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.49, i32 noundef %10, i32 noundef %6) #16
   %.not2 = icmp eq i32 %1, 0
   br i1 %.not2, label %._crit_edge, label %.lr.ph.preheader
 
@@ -921,7 +918,7 @@ define internal fastcc void @_ZL15yy_reduce_printPaPN18cmExprParserHelper10Parse
   %14 = load ptr, ptr @stderr, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.50, i32 noundef %15) #17
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.50, i32 noundef %15) #16
   %17 = load ptr, ptr @stderr, align 8, !tbaa !10
   %18 = sub nsw i64 %indvars.iv.next, %12
   %19 = getelementptr inbounds i8, ptr %0, i64 %18
@@ -936,7 +933,7 @@ define internal fastcc void @_ZL15yy_reduce_printPaPN18cmExprParserHelper10Parse
   %26 = sext i8 %23 to i64
   %27 = getelementptr inbounds [28 x ptr], ptr @_ZL7yytname, i64 0, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !16
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i, ptr noundef %28) #17
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i, ptr noundef %28) #16
   %fputc.i = tail call i32 @fputc(i32 41, ptr %17)
   %30 = load ptr, ptr @stderr, align 8, !tbaa !10
   %fputc = tail call i32 @fputc(i32 10, ptr %30)
@@ -947,31 +944,28 @@ define internal fastcc void @_ZL15yy_reduce_printPaPN18cmExprParserHelper10Parse
   ret void
 }
 
-declare noundef ptr @_Z18cmExpr_yyget_extraPv(ptr noundef) local_unnamed_addr #4
+declare noundef ptr @_Z18cmExpr_yyget_extraPv(ptr noundef) local_unnamed_addr #3
 
-declare void @_ZN18cmExprParserHelper9SetResultEl(ptr noundef nonnull align 8 dereferenceable(160), i64 noundef) local_unnamed_addr #4
+declare void @_ZN18cmExprParserHelper9SetResultEl(ptr noundef nonnull align 8 dereferenceable(160), i64 noundef) local_unnamed_addr #3
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
-declare void @_ZNSt14overflow_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #4
+declare void @_ZNSt14overflow_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #3
 
 declare i32 @__gxx_personality_v0(...)
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZNSt14overflow_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
+declare void @_ZNSt14overflow_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull captures(none) %0, ptr %.0.val, ptr readonly captures(none) %.0.val1, i32 %.8.val) unnamed_addr #8 {
+define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull captures(none) %0, ptr %.0.val, ptr readonly captures(none) %.0.val1, i32 %.8.val) unnamed_addr #7 {
   %2 = alloca [5 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6, label %3
 
@@ -1206,7 +1200,7 @@ _ZL9yytnamerrPcPKc.exit:                          ; preds = %.preheader.split.us
   br label %_ZL9yytnamerrPcPKc.exit68
 
 .thread.thread.i:                                 ; preds = %81, %.preheader.split.i, %.preheader.split.i, %69
-  %88 = tail call ptr @stpcpy(ptr noundef nonnull %.039, ptr noundef nonnull readonly %76) #15
+  %88 = tail call ptr @stpcpy(ptr noundef nonnull %.039, ptr noundef nonnull readonly %76) #17
   %89 = ptrtoint ptr %88 to i64
   %90 = ptrtoint ptr %.039 to i64
   %91 = sub i64 %89, %90
@@ -1222,23 +1216,29 @@ _ZL9yytnamerrPcPKc.exit68:                        ; preds = %64, %.preheader, %.
 
 _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8: ; preds = %_ZL9yytnamerrPcPKc.exit, %.preheader, %.critedge.i.i, %61, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit
   %.041 = phi i32 [ -2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ -1, %61 ], [ %.2.i.i, %.critedge.i.i ], [ 0, %.preheader ], [ -2, %_ZL9yytnamerrPcPKc.exit ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.041
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @stpcpy(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #12
+declare ptr @stpcpy(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #11
 
-declare void @_ZN18cmExprParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef) local_unnamed_addr #4
+declare void @_ZN18cmExprParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
@@ -1256,23 +1256,23 @@ declare i8 @llvm.smax.i8(i8, i8) #14
 declare i32 @llvm.usub.sat.i32(i32, i32) #14
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold noreturn }
-attributes #8 = { mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold noreturn }
+attributes #7 = { mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nofree nounwind }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind }
-attributes #16 = { cold }
-attributes #17 = { cold nounwind }
+attributes #15 = { cold }
+attributes #16 = { cold nounwind }
+attributes #17 = { nounwind }
 attributes #18 = { noreturn }
 attributes #19 = { nounwind allocsize(0) }
 attributes #20 = { nounwind willreturn memory(read) }

@@ -393,14 +393,8 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %6, %9
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6icu_7715MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #2 comdat align 2 {
@@ -493,7 +487,7 @@ define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErro
   ret void
 }
 
-declare void @uprv_free_77(ptr noundef) local_unnamed_addr #9
+declare void @uprv_free_77(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_776number4impl20parseIncrementOptionERKNS_13StringSegmentERNS0_9PrecisionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(28) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
@@ -504,16 +498,16 @@ define void @_ZN6icu_776number4impl20parseIncrementOptionERKNS_13StringSegmentER
   %8 = alloca %"class.icu_77::UnicodeString", align 8
   %9 = alloca %"class.icu_77::number::impl::DecimalQuantity", align 8
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %4)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 0, ptr %11, align 8, !tbaa !15
   %12 = load ptr, ptr %4, align 8, !tbaa !3
   store i8 0, ptr %12, align 1, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #22
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZNK6icu_7713StringSegment19toTempUnicodeStringEv(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %8, ptr noundef nonnull align 8 dereferenceable(17) %0)
           to label %13 unwind label %32
 
@@ -557,8 +551,8 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %13, %19, %21
   %29 = load ptr, ptr %7, align 8, !tbaa !18
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %29) #22, !srcloc !21
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #22
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %30 = load i32, ptr %5, align 4, !tbaa !13
   %31 = icmp eq i32 %30, 26
   br i1 %31, label %.critedge, label %41
@@ -588,9 +582,9 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %13, %19, %21
 
 40:                                               ; preds = %38, %32
   %.pn.pn = phi { ptr, i32 } [ %.pn, %38 ], [ %33, %32 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %94
 
 41:                                               ; preds = %28
@@ -598,13 +592,13 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %13, %19, %21
   br i1 %42, label %43, label %.critedge
 
 43:                                               ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN6icu_776number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %9)
           to label %44 unwind label %58
 
 44:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !13
   %45 = load ptr, ptr %4, align 8, !tbaa !3
   %46 = load i32, ptr %11, align 8, !tbaa !15
@@ -726,20 +720,20 @@ _ZN6icu_776number9Precision14incrementExactEms.exit: ; preds = %_ZN6icu_776numbe
   br label %88
 
 88:                                               ; preds = %_ZN6icu_776number9Precision14incrementExactEms.exit, %57
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %9) #22
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %89
 
 .critedge:                                        ; preds = %41, %28
   %storemerge = phi i32 [ 65811, %28 ], [ %30, %41 ]
   store i32 %storemerge, ptr %2, align 4, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %89
 
 89:                                               ; preds = %.critedge, %88
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %4) #22
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 90:                                               ; preds = %.loopexit
@@ -749,47 +743,47 @@ _ZN6icu_776number9Precision14incrementExactEms.exit: ; preds = %_ZN6icu_776numbe
 
 92:                                               ; preds = %67, %79, %90, %60
   %.pn29.pn = phi { ptr, i32 } [ %61, %60 ], [ %91, %90 ], [ %80, %79 ], [ %68, %67 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %9) #22
   br label %93
 
 93:                                               ; preds = %92, %58
   %.pn29.pn.pn = phi { ptr, i32 } [ %.pn29.pn, %92 ], [ %59, %58 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %94
 
 94:                                               ; preds = %93, %40
   %.pn29.pn.pn.pn = phi { ptr, i32 } [ %.pn29.pn.pn, %93 ], [ %.pn.pn, %40 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %4) #22
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn29.pn.pn.pn
 }
 
-declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #8
 
-declare void @_ZNK6icu_7713StringSegment19toTempUnicodeStringEv(ptr dead_on_unwind writable sret(%"class.icu_77::UnicodeString") align 8, ptr noundef nonnull align 8 dereferenceable(17)) local_unnamed_addr #9
+declare void @_ZNK6icu_7713StringSegment19toTempUnicodeStringEv(ptr dead_on_unwind writable sret(%"class.icu_77::UnicodeString") align 8, ptr noundef nonnull align 8 dereferenceable(17)) local_unnamed_addr #8
 
-declare noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17)) local_unnamed_addr #9
+declare noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17)) local_unnamed_addr #8
 
-declare void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef, i32 noundef) unnamed_addr #9
+declare void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef, i32 noundef) unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #10
+declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #9
 
-declare void @_ZN6icu_776number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #9
+declare void @_ZN6icu_776number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #8
 
-declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_776number4impl15DecimalQuantity14setToDecNumberENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66), ptr, i32, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_776number4impl15DecimalQuantity14setToDecNumberENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66), ptr, i32, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #8
 
-declare noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity5isNaNEv(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #9
+declare noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity5isNaNEv(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #8
 
-declare noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity10isInfiniteEv(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #9
+declare noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity10isInfiniteEv(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #8
 
-declare noundef i32 @_ZN6icu_776number4impl15DecimalQuantity17adjustToZeroScaleEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #9
+declare noundef i32 @_ZN6icu_776number4impl15DecimalQuantity17adjustToZeroScaleEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #8
 
-declare noundef zeroext i1 @_ZN6icu_776number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef) local_unnamed_addr #9
+declare noundef zeroext i1 @_ZN6icu_776number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_776number9Precision14incrementExactEms(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::IncrementPrecision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, i64 noundef %1, i16 noundef signext %2) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_776number9Precision14incrementExactEms(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::IncrementPrecision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, i64 noundef %1, i16 noundef signext %2) local_unnamed_addr #10 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %8, label %_ZN6icu_776number9Precision18constructIncrementEms.exit
 
@@ -824,27 +818,27 @@ _ZN6icu_776number9Precision18constructIncrementEms.exit: ; preds = %3
   ret void
 }
 
-declare noundef i64 @_ZNK6icu_776number4impl15DecimalQuantity6toLongEb(ptr noundef nonnull align 8 dereferenceable(66), i1 noundef zeroext) local_unnamed_addr #9
+declare noundef i64 @_ZNK6icu_776number4impl15DecimalQuantity6toLongEb(ptr noundef nonnull align 8 dereferenceable(66), i1 noundef zeroext) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #10
+declare void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6icu_776number4impl18MultiplierProducerD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #12 align 2 {
+define void @_ZN6icu_776number4impl18MultiplierProducerD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_776number4impl18MultiplierProducerD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #13 align 2 {
+define void @_ZN6icu_776number4impl18MultiplierProducerD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #12 align 2 {
   tail call void @llvm.trap() #24
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #14
+declare void @llvm.trap() #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_776number9Precision9unlimitedEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 21), (24, 28)) %0) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_776number9Precision9unlimitedEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 21), (24, 28)) %0) local_unnamed_addr #10 align 2 {
   store i32 1, ptr %0, align 8, !tbaa !27
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -854,7 +848,7 @@ define void @_ZN6icu_776number9Precision9unlimitedEv(ptr dead_on_unwind noalias 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_776number9Precision7integerEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::FractionPrecision") align 8 captures(none) initializes((0, 4), (8, 28)) %0) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_776number9Precision7integerEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::FractionPrecision") align 8 captures(none) initializes((0, 4), (8, 28)) %0) local_unnamed_addr #10 align 2 {
   store i32 2, ptr %0, align 8, !tbaa !27, !alias.scope !32
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %2, align 8, !alias.scope !32
@@ -872,7 +866,7 @@ define void @_ZN6icu_776number9Precision7integerEv(ptr dead_on_unwind noalias wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_776number9Precision17constructFractionEii(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::FractionPrecision") align 8 captures(none) initializes((0, 4), (8, 28)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_776number9Precision17constructFractionEii(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::FractionPrecision") align 8 captures(none) initializes((0, 4), (8, 28)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = trunc i32 %1 to i16
   %5 = trunc i32 %2 to i16
   store i32 2, ptr %0, align 8, !tbaa !27
@@ -892,7 +886,7 @@ define void @_ZN6icu_776number9Precision17constructFractionEii(ptr dead_on_unwin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_776number9Precision13fixedFractionEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::FractionPrecision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, i32 noundef %1) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_776number9Precision13fixedFractionEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::FractionPrecision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %or.cond = icmp ult i32 %1, 1000
   br i1 %or.cond, label %3, label %6
 
@@ -924,7 +918,7 @@ define void @_ZN6icu_776number9Precision13fixedFractionEi(ptr dead_on_unwind noa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_776number9Precision11minFractionEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::FractionPrecision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, i32 noundef %1) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_776number9Precision11minFractionEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::FractionPrecision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %or.cond = icmp ult i32 %1, 1000
   br i1 %or.cond, label %3, label %6
 
@@ -956,7 +950,7 @@ define void @_ZN6icu_776number9Precision11minFractionEi(ptr dead_on_unwind noali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_776number9Precision11maxFractionEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::FractionPrecision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, i32 noundef %1) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_776number9Precision11maxFractionEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::FractionPrecision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %or.cond = icmp ult i32 %1, 1000
   br i1 %or.cond, label %3, label %6
 
@@ -988,7 +982,7 @@ define void @_ZN6icu_776number9Precision11maxFractionEi(ptr dead_on_unwind noali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_776number9Precision14minMaxFractionEii(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::FractionPrecision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_776number9Precision14minMaxFractionEii(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::FractionPrecision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = icmp slt i32 %1, 0
   %5 = icmp sgt i32 %2, 999
   %or.cond.not11 = or i1 %4, %5
@@ -1025,7 +1019,7 @@ define void @_ZN6icu_776number9Precision14minMaxFractionEii(ptr dead_on_unwind n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_776number9Precision22fixedSignificantDigitsEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, i32 noundef %1) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_776number9Precision22fixedSignificantDigitsEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = add i32 %1, -1
   %or.cond = icmp ult i32 %3, 999
   br i1 %or.cond, label %4, label %7
@@ -1058,7 +1052,7 @@ define void @_ZN6icu_776number9Precision22fixedSignificantDigitsEi(ptr dead_on_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_776number9Precision20constructSignificantEii(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 28)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_776number9Precision20constructSignificantEii(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 28)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = trunc i32 %1 to i16
   %5 = trunc i32 %2 to i16
   store i32 3, ptr %0, align 8, !tbaa !27
@@ -1078,7 +1072,7 @@ define void @_ZN6icu_776number9Precision20constructSignificantEii(ptr dead_on_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_776number9Precision20minSignificantDigitsEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, i32 noundef %1) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_776number9Precision20minSignificantDigitsEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = add i32 %1, -1
   %or.cond = icmp ult i32 %3, 999
   br i1 %or.cond, label %4, label %7
@@ -1111,7 +1105,7 @@ define void @_ZN6icu_776number9Precision20minSignificantDigitsEi(ptr dead_on_unw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_776number9Precision20maxSignificantDigitsEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, i32 noundef %1) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_776number9Precision20maxSignificantDigitsEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = add i32 %1, -1
   %or.cond = icmp ult i32 %3, 999
   br i1 %or.cond, label %4, label %7
@@ -1144,7 +1138,7 @@ define void @_ZN6icu_776number9Precision20maxSignificantDigitsEi(ptr dead_on_unw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_776number9Precision23minMaxSignificantDigitsEii(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_776number9Precision23minMaxSignificantDigitsEii(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = icmp slt i32 %1, 1
   %5 = icmp sgt i32 %2, 999
   %or.cond.not11 = or i1 %4, %5
@@ -1181,7 +1175,7 @@ define void @_ZN6icu_776number9Precision23minMaxSignificantDigitsEii(ptr dead_on
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK6icu_776number9Precision19trailingZeroDisplayE26UNumberTrailingZeroDisplay(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1, i32 noundef %2) local_unnamed_addr #15 align 2 {
+define void @_ZNK6icu_776number9Precision19trailingZeroDisplayE26UNumberTrailingZeroDisplay(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1, i32 noundef %2) local_unnamed_addr #14 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %2, ptr %4, align 8, !tbaa !31
@@ -1195,7 +1189,7 @@ define void @_ZN6icu_776number9Precision9incrementEd(ptr dead_on_unwind noalias 
   br i1 %4, label %5, label %24
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN6icu_776number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %3)
   %6 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_776number4impl15DecimalQuantity11setToDoubleEd(ptr noundef nonnull align 8 dereferenceable(66) %3, double noundef %1)
           to label %7 unwind label %19
@@ -1233,7 +1227,7 @@ define void @_ZN6icu_776number9Precision9incrementEd(ptr dead_on_unwind noalias 
   store i32 0, ptr %.sroa.9.0..sroa_idx21.i, align 4, !tbaa !17, !alias.scope !59
   store i32 0, ptr %14, align 8, !tbaa !31, !alias.scope !59
   call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %3) #22
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %27
 
 19:                                               ; preds = %7, %5
@@ -1249,7 +1243,7 @@ define void @_ZN6icu_776number9Precision9incrementEd(ptr dead_on_unwind noalias 
 23:                                               ; preds = %21, %19
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
   call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %3) #22
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 
 24:                                               ; preds = %2
@@ -1264,12 +1258,12 @@ define void @_ZN6icu_776number9Precision9incrementEd(ptr dead_on_unwind noalias 
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_776number4impl15DecimalQuantity11setToDoubleEd(ptr noundef nonnull align 8 dereferenceable(66), double noundef) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_776number4impl15DecimalQuantity11setToDoubleEd(ptr noundef nonnull align 8 dereferenceable(66), double noundef) local_unnamed_addr #8
 
-declare void @_ZN6icu_776number4impl15DecimalQuantity15roundToInfinityEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #9
+declare void @_ZN6icu_776number4impl15DecimalQuantity15roundToInfinityEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_776number9Precision18constructIncrementEms(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::IncrementPrecision") align 8 captures(none) initializes((0, 4), (8, 28)) %0, i64 noundef %1, i16 noundef signext %2) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_776number9Precision18constructIncrementEms(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::IncrementPrecision") align 8 captures(none) initializes((0, 4), (8, 28)) %0, i64 noundef %1, i16 noundef signext %2) local_unnamed_addr #10 align 2 {
   %switch.selectcmp = icmp eq i64 %1, 5
   %switch.select = select i1 %switch.selectcmp, i32 7, i32 5
   %switch.selectcmp30 = icmp eq i64 %1, 1
@@ -1292,7 +1286,7 @@ define void @_ZN6icu_776number9Precision18constructIncrementEms(ptr dead_on_unwi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_776number9Precision8currencyE14UCurrencyUsage(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::CurrencyPrecision") align 8 captures(none) initializes((0, 4), (8, 28)) %0, i32 noundef %1) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_776number9Precision8currencyE14UCurrencyUsage(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::CurrencyPrecision") align 8 captures(none) initializes((0, 4), (8, 28)) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx.i, i8 0, i64 12, i1 false), !alias.scope !62
   store i32 8, ptr %0, align 8, !tbaa !27, !alias.scope !62
@@ -1304,7 +1298,7 @@ define void @_ZN6icu_776number9Precision8currencyE14UCurrencyUsage(ptr dead_on_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_776number9Precision17constructCurrencyE14UCurrencyUsage(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::CurrencyPrecision") align 8 captures(none) initializes((0, 4), (8, 28)) %0, i32 noundef %1) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_776number9Precision17constructCurrencyE14UCurrencyUsage(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::CurrencyPrecision") align 8 captures(none) initializes((0, 4), (8, 28)) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx, i8 0, i64 12, i1 false)
   store i32 8, ptr %0, align 8, !tbaa !27
@@ -1316,7 +1310,7 @@ define void @_ZN6icu_776number9Precision17constructCurrencyE14UCurrencyUsage(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK6icu_776number17FractionPrecision21withSignificantDigitsEii23UNumberRoundingPriority(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #16 align 2 {
+define void @_ZNK6icu_776number17FractionPrecision21withSignificantDigitsEii23UNumberRoundingPriority(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #15 align 2 {
   %6 = load i32, ptr %1, align 8, !tbaa !27
   %7 = icmp eq i32 %6, 9
   br i1 %7, label %8, label %9
@@ -1372,7 +1366,7 @@ define void @_ZNK6icu_776number17FractionPrecision21withSignificantDigitsEii23UN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_776number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 28)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #15 align 2 {
+define void @_ZN6icu_776number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 28)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #14 align 2 {
   %7 = zext i1 %5 to i8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
@@ -1398,7 +1392,7 @@ define void @_ZN6icu_776number9Precision28constructFractionSignificantERKNS0_17F
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK6icu_776number17FractionPrecision13withMinDigitsEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1, i32 noundef %2) local_unnamed_addr #16 align 2 {
+define void @_ZNK6icu_776number17FractionPrecision13withMinDigitsEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1, i32 noundef %2) local_unnamed_addr #15 align 2 {
   %4 = load i32, ptr %1, align 8, !tbaa !27
   %5 = icmp eq i32 %4, 9
   br i1 %5, label %6, label %7
@@ -1448,7 +1442,7 @@ define void @_ZNK6icu_776number17FractionPrecision13withMinDigitsEi(ptr dead_on_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK6icu_776number17FractionPrecision13withMaxDigitsEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1, i32 noundef %2) local_unnamed_addr #16 align 2 {
+define void @_ZNK6icu_776number17FractionPrecision13withMaxDigitsEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1, i32 noundef %2) local_unnamed_addr #15 align 2 {
   %4 = load i32, ptr %1, align 8, !tbaa !27
   %5 = icmp eq i32 %4, 9
   br i1 %5, label %6, label %7
@@ -1550,17 +1544,17 @@ _ZN6icu_776number9Precision13fixedFractionEi.exit: ; preds = %8
   ret void
 }
 
-declare double @ucurr_getRoundingIncrementForUsage_77(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
+declare double @ucurr_getRoundingIncrementForUsage_77(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
-declare i32 @ucurr_getDefaultFractionDigitsForUsage_77(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @ucurr_getDefaultFractionDigitsForUsage_77(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_776number17CurrencyPrecision12withCurrencyERKNS_12CurrencyUnitE(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1, ptr noundef nonnull align 8 dereferenceable(28) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.icu_77::number::Precision", align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
   %6 = load i32, ptr %1, align 8, !tbaa !27, !noalias !74
   %7 = icmp eq i32 %6, 9
@@ -1624,13 +1618,13 @@ _ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exi
   br label %28
 
 28:                                               ; preds = %27, %24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK6icu_776number18IncrementPrecision15withMinFractionEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1, i32 noundef %2) local_unnamed_addr #15 align 2 {
+define void @_ZNK6icu_776number18IncrementPrecision15withMinFractionEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 12), (24, 28)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1, i32 noundef %2) local_unnamed_addr #14 align 2 {
   %4 = load i32, ptr %1, align 8, !tbaa !27
   %5 = icmp eq i32 %4, 9
   br i1 %5, label %6, label %7
@@ -1666,7 +1660,7 @@ define void @_ZNK6icu_776number18IncrementPrecision15withMinFractionEi(ptr dead_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_776number4impl12RoundingImplC2ERKNS0_9PrecisionE25UNumberFormatRoundingModeRKNS_12CurrencyUnitER10UErrorCode(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(37) initializes((0, 37)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) unnamed_addr #1 align 2 {
@@ -1681,7 +1675,7 @@ define void @_ZN6icu_776number4impl12RoundingImplC2ERKNS0_9PrecisionE25UNumberFo
   br i1 %10, label %11, label %26
 
 11:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1720,7 +1714,7 @@ _ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exi
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %24, ptr %25, align 8, !tbaa !31, !alias.scope !82
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(28) %6, i64 28, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %26
 
 26:                                               ; preds = %_ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit, %5
@@ -1728,7 +1722,7 @@ _ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_776number4impl12RoundingImpl11passThroughEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::impl::RoundingImpl") align 8 captures(none) initializes((0, 40)) %0) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_776number4impl12RoundingImpl11passThroughEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::impl::RoundingImpl") align 8 captures(none) initializes((0, 40)) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   store i8 1, ptr %2, align 4, !tbaa !81
@@ -1736,7 +1730,7 @@ define void @_ZN6icu_776number4impl12RoundingImpl11passThroughEv(ptr dead_on_unw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6icu_776number4impl12RoundingImpl19isSignificantDigitsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(37) %0) local_unnamed_addr #18 align 2 {
+define noundef zeroext i1 @_ZNK6icu_776number4impl12RoundingImpl19isSignificantDigitsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(37) %0) local_unnamed_addr #17 align 2 {
   %2 = load i32, ptr %0, align 8, !tbaa !85
   %3 = icmp eq i32 %2, 3
   ret i1 %3
@@ -1783,7 +1777,7 @@ define noundef i32 @_ZN6icu_776number4impl12RoundingImpl24chooseMultiplierAndApp
   ret i32 %.0
 }
 
-declare noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #9
+declare noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_776number4impl12RoundingImpl5applyERNS1_15DecimalQuantityER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(37) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #1 align 2 {
@@ -2070,24 +2064,24 @@ _ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15Decima
   ret void
 }
 
-declare noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #9
+declare noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #8
 
-declare void @_ZN6icu_776number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #9
+declare void @_ZN6icu_776number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #8
 
-declare i32 @uprv_max_77(i32 noundef, i32 noundef) local_unnamed_addr #9
+declare i32 @uprv_max_77(i32 noundef, i32 noundef) local_unnamed_addr #8
 
-declare void @_ZN6icu_776number4impl15DecimalQuantity20increaseMinIntegerToEi(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef) local_unnamed_addr #9
+declare void @_ZN6icu_776number4impl15DecimalQuantity20increaseMinIntegerToEi(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef) local_unnamed_addr #8
 
-declare i32 @uprv_min_77(i32 noundef, i32 noundef) local_unnamed_addr #9
+declare i32 @uprv_min_77(i32 noundef, i32 noundef) local_unnamed_addr #8
 
-declare void @_ZN6icu_776number4impl15DecimalQuantity16roundToIncrementEms25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66), i64 noundef, i16 noundef signext, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #9
+declare void @_ZN6icu_776number4impl15DecimalQuantity16roundToIncrementEms25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66), i64 noundef, i16 noundef signext, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #8
 
-declare void @_ZN6icu_776number4impl15DecimalQuantity13roundToNickelEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #9
+declare void @_ZN6icu_776number4impl15DecimalQuantity13roundToNickelEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #8
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #19
+declare void @abort() local_unnamed_addr #18
 
-declare void @_ZN6icu_776number4impl15DecimalQuantity14setMinFractionEi(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef) local_unnamed_addr #9
+declare void @_ZN6icu_776number4impl15DecimalQuantity14setMinFractionEi(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_776number4impl12RoundingImpl5applyERNS1_15DecimalQuantityEi10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(37) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
@@ -2100,6 +2094,12 @@ define void @_ZN6icu_776number4impl12RoundingImpl5applyERNS1_15DecimalQuantityEi
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #20
@@ -2114,19 +2114,19 @@ attributes #3 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "
 attributes #4 = { cold nofree noreturn }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #22 = { nounwind }

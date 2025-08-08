@@ -17970,7 +17970,7 @@ FindMatchLengthWithLimit.exit126.i337:            ; preds = %71, %.critedge.i121
   %.sroa.18407.7 = phi i64 [ %62, %99 ], [ 0, %95 ], [ 0, %FindMatchLengthWithLimit.exit126.i337 ], [ 0, %65 ], [ 0, %.thread ]
   %.sroa.0398.7 = phi i64 [ %.2.i122.i338, %99 ], [ 0, %95 ], [ 0, %FindMatchLengthWithLimit.exit126.i337 ], [ 0, %65 ], [ 0, %.thread ]
   %.0.i302.in = phi i8 [ %101, %99 ], [ %58, %95 ], [ %58, %FindMatchLengthWithLimit.exit126.i337 ], [ %58, %65 ], [ %58, %.thread ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #8, !noalias !832
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !832
   br label %103
 
 103:                                              ; preds = %102, %103
@@ -18119,7 +18119,7 @@ FindMatchLengthWithLimit.exit.i321:               ; preds = %131, %.critedge.i.i
   br i1 %exitcond916.not, label %FindLongestMatchH54.exit344, label %115, !llvm.loop !834
 
 FindLongestMatchH54.exit344:                      ; preds = %167
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #8, !noalias !832
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !832
   %169 = trunc i64 %.0830 to i32
   %170 = getelementptr inbounds nuw i32, ptr %38, i64 %113
   store i32 %169, ptr %170, align 4, !tbaa !39, !noalias !830
@@ -18783,7 +18783,7 @@ FindMatchLengthWithLimit.exit126.i:               ; preds = %441, %.critedge.i12
   %.sroa.12.5 = phi i64 [ %431, %469 ], [ 0, %465 ], [ 0, %FindMatchLengthWithLimit.exit126.i ], [ 0, %434 ], [ 0, %414 ]
   %.sroa.0.5 = phi i64 [ %.2.i122.i, %469 ], [ %419, %465 ], [ %419, %FindMatchLengthWithLimit.exit126.i ], [ %419, %434 ], [ %419, %414 ]
   %.0.i282.in = phi i8 [ %471, %469 ], [ %427, %465 ], [ %427, %FindMatchLengthWithLimit.exit126.i ], [ %427, %434 ], [ %427, %414 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #8, !noalias !872
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !872
   br label %473
 
 473:                                              ; preds = %472, %473
@@ -18932,7 +18932,7 @@ FindMatchLengthWithLimit.exit.i294:               ; preds = %501, %.critedge.i.i
   br i1 %exitcond925.not, label %FindLongestMatchH54.exit, label %485, !llvm.loop !834
 
 FindLongestMatchH54.exit:                         ; preds = %537
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #8, !noalias !872
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !872
   %539 = trunc i64 %420 to i32
   %540 = getelementptr inbounds nuw i32, ptr %38, i64 %483
   store i32 %539, ptr %540, align 4, !tbaa !39, !noalias !868
@@ -24191,7 +24191,7 @@ FindMatchLengthWithLimit.exit126.i:               ; preds = %62, %.critedge.i121
   %.sroa.13.2 = phi i64 [ %53, %90 ], [ 0, %86 ], [ 0, %FindMatchLengthWithLimit.exit126.i ], [ 0, %56 ], [ 0, %.thread ]
   %.sroa.0253.2 = phi i64 [ %.2.i122.i, %90 ], [ 0, %86 ], [ 0, %FindMatchLengthWithLimit.exit126.i ], [ 0, %56 ], [ 0, %.thread ]
   %.0.i200.in = phi i8 [ %92, %90 ], [ %49, %86 ], [ %49, %FindMatchLengthWithLimit.exit126.i ], [ %49, %56 ], [ %49, %.thread ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #8, !noalias !1135
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1135
   store i64 %51, ptr %13, align 16, !tbaa !28, !noalias !1135
   %93 = add nuw nsw i64 %51, 8
   %94 = and i64 %93, 65535
@@ -24328,7 +24328,7 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %116, %.critedge.i.i
   br i1 %101, label %100, label %FindLongestMatchH3.exit, !llvm.loop !1136
 
 FindLongestMatchH3.exit:                          ; preds = %152
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #8, !noalias !1135
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1135
   %153 = trunc i64 %.0438 to i32
   %154 = getelementptr inbounds nuw i32, ptr %36, i64 %98
   store i32 %153, ptr %154, align 4, !tbaa !39, !noalias !1133
@@ -24463,7 +24463,7 @@ FindMatchLengthWithLimit.exit126.i239:            ; preds = %182, %.critedge.i12
   %.sroa.7.0 = phi i64 [ %157, %210 ], [ 0, %206 ], [ 0, %FindMatchLengthWithLimit.exit126.i239 ], [ 0, %175 ], [ 0, %159 ]
   %.sroa.0.0 = phi i64 [ %.2.i122.i240, %210 ], [ %164, %206 ], [ %164, %FindMatchLengthWithLimit.exit126.i239 ], [ %164, %175 ], [ %164, %159 ]
   %.0.i204.in = phi i8 [ %212, %210 ], [ %170, %206 ], [ %170, %FindMatchLengthWithLimit.exit126.i239 ], [ %170, %175 ], [ %170, %159 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #8, !noalias !1146
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1146
   store i64 %172, ptr %12, align 16, !tbaa !28, !noalias !1146
   %213 = add nuw nsw i64 %172, 8
   %214 = and i64 %213, 65535
@@ -24600,7 +24600,7 @@ FindMatchLengthWithLimit.exit.i223:               ; preds = %236, %.critedge.i.i
   br i1 %221, label %220, label %FindLongestMatchH3.exit246, !llvm.loop !1136
 
 FindLongestMatchH3.exit246:                       ; preds = %272
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #8, !noalias !1146
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1146
   %273 = trunc i64 %165 to i32
   %274 = getelementptr inbounds nuw i32, ptr %36, i64 %218
   store i32 %273, ptr %274, align 4, !tbaa !39, !noalias !1145
@@ -25231,7 +25231,7 @@ FindMatchLengthWithLimit.exit136.i:               ; preds = %101, %.critedge.i13
   %.sroa.14.2 = phi i64 [ %92, %129 ], [ 0, %125 ], [ 0, %FindMatchLengthWithLimit.exit136.i ], [ 0, %95 ], [ 0, %81 ]
   %.sroa.0280.2 = phi i64 [ %.2.i132.i, %129 ], [ 0, %125 ], [ 0, %FindMatchLengthWithLimit.exit136.i ], [ 0, %95 ], [ 0, %81 ]
   %.0.i200.in = phi i8 [ %131, %129 ], [ %88, %125 ], [ %88, %FindMatchLengthWithLimit.exit136.i ], [ %88, %95 ], [ %88, %81 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #8, !noalias !1173
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !1173
   br label %133
 
 133:                                              ; preds = %132, %133
@@ -25380,7 +25380,7 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %161, %.critedge.i.i
   br i1 %exitcond597.not, label %199, label %145, !llvm.loop !1175
 
 199:                                              ; preds = %197
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #8, !noalias !1173
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !1173
   %200 = icmp eq i64 %.sroa.23290.8, 2020
   br i1 %200, label %201, label %FindLongestMatchH4.exit
 
@@ -25712,7 +25712,7 @@ FindMatchLengthWithLimit.exit136.i264:            ; preds = %349, %.critedge.i13
   %.sroa.8.0 = phi i64 [ %302, %377 ], [ 0, %373 ], [ 0, %FindMatchLengthWithLimit.exit136.i264 ], [ 0, %342 ], [ 0, %330 ]
   %.sroa.0.0 = phi i64 [ %.2.i132.i265, %377 ], [ %309, %373 ], [ %309, %FindMatchLengthWithLimit.exit136.i264 ], [ %309, %342 ], [ %309, %330 ]
   %.0.i204.in = phi i8 [ %379, %377 ], [ %337, %373 ], [ %337, %FindMatchLengthWithLimit.exit136.i264 ], [ %337, %342 ], [ %337, %330 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #8, !noalias !1187
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1187
   br label %381
 
 381:                                              ; preds = %380, %381
@@ -25861,7 +25861,7 @@ FindMatchLengthWithLimit.exit.i248:               ; preds = %409, %.critedge.i.i
   br i1 %exitcond602.not, label %447, label %393, !llvm.loop !1175
 
 447:                                              ; preds = %445
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #8, !noalias !1187
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1187
   %448 = icmp eq i64 %.sroa.12.6, 2020
   br i1 %448, label %449, label %FindLongestMatchH4.exit271
 
@@ -35289,7 +35289,7 @@ FindMatchLengthWithLimit.exit126.i:               ; preds = %60, %.critedge.i121
   %.sroa.13.2 = phi i64 [ %51, %88 ], [ 0, %84 ], [ 0, %FindMatchLengthWithLimit.exit126.i ], [ 0, %54 ], [ 0, %.thread ]
   %.sroa.0253.2 = phi i64 [ %.2.i122.i, %88 ], [ 0, %84 ], [ 0, %FindMatchLengthWithLimit.exit126.i ], [ 0, %54 ], [ 0, %.thread ]
   %.0.i200.in = phi i8 [ %90, %88 ], [ %47, %84 ], [ %47, %FindMatchLengthWithLimit.exit126.i ], [ %47, %54 ], [ %47, %.thread ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #8, !noalias !1571
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1571
   br label %92
 
 92:                                               ; preds = %91, %92
@@ -35438,7 +35438,7 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %120, %.critedge.i.i
   br i1 %exitcond474.not, label %FindLongestMatchH54.exit, label %104, !llvm.loop !834
 
 FindLongestMatchH54.exit:                         ; preds = %156
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #8, !noalias !1571
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1571
   %158 = trunc i64 %.0438 to i32
   %159 = getelementptr inbounds nuw i32, ptr %36, i64 %102
   store i32 %158, ptr %159, align 4, !tbaa !39, !noalias !1569
@@ -35573,7 +35573,7 @@ FindMatchLengthWithLimit.exit126.i239:            ; preds = %187, %.critedge.i12
   %.sroa.7.0 = phi i64 [ %162, %215 ], [ 0, %211 ], [ 0, %FindMatchLengthWithLimit.exit126.i239 ], [ 0, %180 ], [ 0, %164 ]
   %.sroa.0.0 = phi i64 [ %.2.i122.i240, %215 ], [ %169, %211 ], [ %169, %FindMatchLengthWithLimit.exit126.i239 ], [ %169, %180 ], [ %169, %164 ]
   %.0.i204.in = phi i8 [ %217, %215 ], [ %175, %211 ], [ %175, %FindMatchLengthWithLimit.exit126.i239 ], [ %175, %180 ], [ %175, %164 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #8, !noalias !1581
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1581
   br label %219
 
 219:                                              ; preds = %218, %219
@@ -35722,7 +35722,7 @@ FindMatchLengthWithLimit.exit.i223:               ; preds = %247, %.critedge.i.i
   br i1 %exitcond478.not, label %FindLongestMatchH54.exit246, label %231, !llvm.loop !834
 
 FindLongestMatchH54.exit246:                      ; preds = %283
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #8, !noalias !1581
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1581
   %285 = trunc i64 %170 to i32
   %286 = getelementptr inbounds nuw i32, ptr %36, i64 %229
   store i32 %285, ptr %286, align 4, !tbaa !39, !noalias !1580
@@ -40208,7 +40208,7 @@ FindMatchLengthWithLimit.exit126.i.i:             ; preds = %67, %.critedge.i121
   %.sroa.15.2 = phi i64 [ %58, %95 ], [ 0, %91 ], [ 0, %FindMatchLengthWithLimit.exit126.i.i ], [ 0, %61 ], [ 0, %.thread ]
   %.sroa.0278.2 = phi i64 [ %.2.i122.i.i, %95 ], [ 0, %91 ], [ 0, %FindMatchLengthWithLimit.exit126.i.i ], [ 0, %61 ], [ 0, %.thread ]
   %.0.i21.i.in = phi i8 [ %97, %95 ], [ %54, %91 ], [ %54, %FindMatchLengthWithLimit.exit126.i.i ], [ %54, %61 ], [ %54, %.thread ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #8, !noalias !1741
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1741
   store i64 %56, ptr %13, align 16, !tbaa !28, !noalias !1741
   %98 = add nuw nsw i64 %56, 8
   %99 = and i64 %98, 65535
@@ -40345,7 +40345,7 @@ FindMatchLengthWithLimit.exit.i32.i:              ; preds = %121, %.critedge.i.i
   br i1 %106, label %105, label %FindLongestMatchH3.exit.i, !llvm.loop !1136
 
 FindLongestMatchH3.exit.i:                        ; preds = %157
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #8, !noalias !1741
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1741
   %158 = trunc i64 %.0545 to i32
   %159 = getelementptr inbounds nuw i32, ptr %36, i64 %103
   store i32 %158, ptr %159, align 4, !tbaa !39, !noalias !1738
@@ -40656,7 +40656,7 @@ FindMatchLengthWithLimit.exit126.i.i260:          ; preds = %262, %.critedge.i12
   %.sroa.9.0 = phi i64 [ %237, %290 ], [ 0, %286 ], [ 0, %FindMatchLengthWithLimit.exit126.i.i260 ], [ 0, %255 ], [ 0, %239 ]
   %.sroa.0.0 = phi i64 [ %.2.i122.i.i261, %290 ], [ %244, %286 ], [ %244, %FindMatchLengthWithLimit.exit126.i.i260 ], [ %244, %255 ], [ %244, %239 ]
   %.0.i21.i202.in = phi i8 [ %292, %290 ], [ %250, %286 ], [ %250, %FindMatchLengthWithLimit.exit126.i.i260 ], [ %250, %255 ], [ %250, %239 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #8, !noalias !1771
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1771
   store i64 %252, ptr %12, align 16, !tbaa !28, !noalias !1771
   %293 = add nuw nsw i64 %252, 8
   %294 = and i64 %293, 65535
@@ -40793,7 +40793,7 @@ FindMatchLengthWithLimit.exit.i32.i244:           ; preds = %316, %.critedge.i.i
   br i1 %301, label %300, label %FindLongestMatchH3.exit.i208, !llvm.loop !1136
 
 FindLongestMatchH3.exit.i208:                     ; preds = %352
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #8, !noalias !1771
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1771
   %353 = trunc i64 %245 to i32
   %354 = getelementptr inbounds nuw i32, ptr %36, i64 %298
   store i32 %353, ptr %354, align 4, !tbaa !39, !noalias !1770
@@ -41544,7 +41544,7 @@ FindMatchLengthWithLimit.exit126.i239:            ; preds = %65, %.critedge.i121
   %.sroa.15.2 = phi i64 [ %56, %93 ], [ 0, %89 ], [ 0, %FindMatchLengthWithLimit.exit126.i239 ], [ 0, %59 ], [ 0, %.thread ]
   %.sroa.0298.2 = phi i64 [ %.2.i122.i240, %93 ], [ 0, %89 ], [ 0, %FindMatchLengthWithLimit.exit126.i239 ], [ 0, %59 ], [ 0, %.thread ]
   %.0.i204.in = phi i8 [ %95, %93 ], [ %52, %89 ], [ %52, %FindMatchLengthWithLimit.exit126.i239 ], [ %52, %59 ], [ %52, %.thread ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #8, !noalias !1811
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1811
   br label %97
 
 97:                                               ; preds = %96, %97
@@ -41693,7 +41693,7 @@ FindMatchLengthWithLimit.exit.i223:               ; preds = %125, %.critedge.i.i
   br i1 %exitcond620.not, label %FindLongestMatchH54.exit246, label %109, !llvm.loop !834
 
 FindLongestMatchH54.exit246:                      ; preds = %161
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #8, !noalias !1811
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1811
   %163 = trunc i64 %.0565 to i32
   %164 = getelementptr inbounds nuw i32, ptr %36, i64 %107
   store i32 %163, ptr %164, align 4, !tbaa !39, !noalias !1809
@@ -42001,7 +42001,7 @@ FindMatchLengthWithLimit.exit126.i:               ; preds = %266, %.critedge.i12
   %.sroa.9.0 = phi i64 [ %256, %294 ], [ 0, %290 ], [ 0, %FindMatchLengthWithLimit.exit126.i ], [ 0, %259 ], [ 0, %.preheader397 ]
   %.sroa.0.0 = phi i64 [ %.2.i122.i, %294 ], [ %246, %290 ], [ %246, %FindMatchLengthWithLimit.exit126.i ], [ %246, %259 ], [ %246, %.preheader397 ]
   %.0.i200.in = phi i8 [ %296, %294 ], [ %252, %290 ], [ %252, %FindMatchLengthWithLimit.exit126.i ], [ %252, %259 ], [ %252, %.preheader397 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #8, !noalias !1829
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1829
   br label %298
 
 298:                                              ; preds = %297, %298
@@ -42150,7 +42150,7 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %326, %.critedge.i.i
   br i1 %exitcond625.not, label %FindLongestMatchH54.exit, label %310, !llvm.loop !834
 
 FindLongestMatchH54.exit:                         ; preds = %362
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #8, !noalias !1829
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1829
   %364 = trunc i64 %247 to i32
   %365 = getelementptr inbounds nuw i32, ptr %36, i64 %308
   store i32 %364, ptr %365, align 4, !tbaa !39, !noalias !1825
@@ -44891,20 +44891,20 @@ StoreRangeH65.exit:                               ; preds = %1085, %1060, %1030,
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #4
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #5
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6
@@ -44930,12 +44930,11 @@ declare i16 @llvm.fshr.i16(i16, i16, i16) #6
 attributes #0 = { nofree norecurse nosync nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree noinline norecurse nosync nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree noinline norecurse nosync nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -397,9 +397,6 @@ declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) 
 ; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
@@ -466,9 +463,6 @@ define internal i32 @dissect_gdsdb(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ %36, %34 ], [ %.036, %14 ], [ 0, %17 ]
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_gdsdb() local_unnamed_addr #0 {
@@ -661,7 +655,7 @@ define internal noundef i32 @gdsdb_response(ptr noundef %0, ptr readnone capture
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = icmp slt i32 %7, 16
   br i1 %8, label %70, label %9
 
@@ -695,7 +689,7 @@ define internal noundef i32 @gdsdb_response(ptr noundef %0, ptr readnone capture
 27:                                               ; preds = %24, %14
   %28 = phi i32 [ %.pre, %24 ], [ 0, %14 ]
   %29 = add i32 %28, %22
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %30 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %29)
   %31 = icmp sgt i32 %30, 3
   br i1 %31, label %.lr.ph.i, label %gdsdb_status_vector.exit
@@ -772,12 +766,12 @@ add_uint_string.exit.i:                           ; preds = %65, %56, %53, %44, 
 
 gdsdb_status_vector.exit:                         ; preds = %.lr.ph.i, %add_uint_string.exit.i, %27
   %.1.i = phi i32 [ %29, %27 ], [ %.2.i, %add_uint_string.exit.i ], [ %34, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %70
 
 70:                                               ; preds = %9, %4, %gdsdb_status_vector.exit
   %.0 = phi i32 [ %.1.i, %gdsdb_status_vector.exit ], [ -1, %4 ], [ -1, %9 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -1008,7 +1002,7 @@ define internal i32 @gdsdb_reconnect(ptr noundef %0, ptr readnone captures(none)
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %16 = load i32, ptr @hf_gdsdb_reconnect_database_size, align 4
   %17 = load i32, ptr @hf_gdsdb_reconnect_database, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %5)
   %19 = add i32 %3, 8
   %20 = load i32, ptr %5, align 4
@@ -1028,7 +1022,7 @@ define internal i32 @gdsdb_reconnect(ptr noundef %0, ptr readnone captures(none)
 add_byte_array.exit:                              ; preds = %13, %21
   %25 = phi i32 [ %.pre.i, %21 ], [ 0, %13 ]
   %26 = add i32 %25, %19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %27
 
 27:                                               ; preds = %8, %4, %add_byte_array.exit
@@ -1584,10 +1578,15 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

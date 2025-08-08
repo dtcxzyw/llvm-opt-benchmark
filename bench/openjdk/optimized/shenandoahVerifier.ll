@@ -1414,8 +1414,8 @@ define linkonce_odr hidden void @_ZN33ShenandoahVerifyHeapRegionClosure14heap_re
   br i1 %.not72, label %42, label %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit
 
 42:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 8200, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load ptr, ptr %43, align 8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %35, ptr noundef nonnull @.str.57, ptr noundef %44, ptr noundef nonnull @.str.42)
@@ -1436,8 +1436,8 @@ define linkonce_odr hidden void @_ZN33ShenandoahVerifyHeapRegionClosure14heap_re
   ]
 
 50:                                               ; preds = %47, %47
-  call void @llvm.lifetime.start.p0(i64 8200, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %33, ptr noundef nonnull @.str.57, ptr noundef %52, ptr noundef nonnull @.str.43)
@@ -1459,8 +1459,8 @@ define linkonce_odr hidden void @_ZN33ShenandoahVerifyHeapRegionClosure14heap_re
   ]
 
 58:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 8200, ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %60 = load ptr, ptr %59, align 8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %31, ptr noundef nonnull @.str.57, ptr noundef %60, ptr noundef nonnull @.str.42)
@@ -1473,8 +1473,8 @@ define linkonce_odr hidden void @_ZN33ShenandoahVerifyHeapRegionClosure14heap_re
   unreachable
 
 63:                                               ; preds = %55, %55
-  call void @llvm.lifetime.start.p0(i64 8200, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %65 = load ptr, ptr %64, align 8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %29, ptr noundef nonnull @.str.57, ptr noundef %65, ptr noundef nonnull @.str.43)
@@ -1505,8 +1505,8 @@ _ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit: 
   br i1 %78, label %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit53, label %79
 
 79:                                               ; preds = %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit
-  call void @llvm.lifetime.start.p0(i64 8200, ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %81 = load ptr, ptr %80, align 8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %27, ptr noundef nonnull @.str.57, ptr noundef %81, ptr noundef nonnull @.str.44)
@@ -1525,8 +1525,8 @@ _ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit53
   br i1 %.not73, label %86, label %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit54
 
 86:                                               ; preds = %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit53
-  call void @llvm.lifetime.start.p0(i64 8200, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %88 = load ptr, ptr %87, align 8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %25, ptr noundef nonnull @.str.57, ptr noundef %88, ptr noundef nonnull @.str.45)
@@ -1552,8 +1552,8 @@ _ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit54
   br i1 %.not74, label %100, label %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit55
 
 100:                                              ; preds = %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit54
-  call void @llvm.lifetime.start.p0(i64 8200, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %102 = load ptr, ptr %101, align 8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %23, ptr noundef nonnull @.str.57, ptr noundef %102, ptr noundef nonnull @.str.46)
@@ -1570,8 +1570,8 @@ _ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit55
   br i1 %.not75, label %105, label %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit56
 
 105:                                              ; preds = %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit55
-  call void @llvm.lifetime.start.p0(i64 8200, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %107 = load ptr, ptr %106, align 8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %21, ptr noundef nonnull @.str.57, ptr noundef %107, ptr noundef nonnull @.str.47)
@@ -1591,8 +1591,8 @@ _ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit56
   br i1 %.not76, label %113, label %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit57
 
 113:                                              ; preds = %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit56
-  call void @llvm.lifetime.start.p0(i64 8200, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %115 = load ptr, ptr %114, align 8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %19, ptr noundef nonnull @.str.57, ptr noundef %115, ptr noundef nonnull @.str.48)
@@ -1614,8 +1614,8 @@ _ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit57
   br i1 %.not77, label %123, label %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit58
 
 123:                                              ; preds = %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit57
-  call void @llvm.lifetime.start.p0(i64 8200, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %125 = load ptr, ptr %124, align 8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %17, ptr noundef nonnull @.str.57, ptr noundef %125, ptr noundef nonnull @.str.49)
@@ -1633,8 +1633,8 @@ _ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit58
   br i1 %.not78, label %129, label %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit59
 
 129:                                              ; preds = %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit58
-  call void @llvm.lifetime.start.p0(i64 8200, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %131 = load ptr, ptr %130, align 8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %15, ptr noundef nonnull @.str.57, ptr noundef %131, ptr noundef nonnull @.str.50)
@@ -1657,8 +1657,8 @@ _ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit59
   br i1 %.not79, label %140, label %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit60
 
 140:                                              ; preds = %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit59
-  call void @llvm.lifetime.start.p0(i64 8200, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %142 = load ptr, ptr %141, align 8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %13, ptr noundef nonnull @.str.57, ptr noundef %142, ptr noundef nonnull @.str.51)
@@ -1681,8 +1681,8 @@ _ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit60
   br i1 %.not80, label %151, label %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit61
 
 151:                                              ; preds = %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit60
-  call void @llvm.lifetime.start.p0(i64 8200, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %153 = load ptr, ptr %152, align 8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %11, ptr noundef nonnull @.str.57, ptr noundef %153, ptr noundef nonnull @.str.52)
@@ -1705,8 +1705,8 @@ _ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit61
   br i1 %.not81, label %162, label %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit62
 
 162:                                              ; preds = %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit61
-  call void @llvm.lifetime.start.p0(i64 8200, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %164 = load ptr, ptr %163, align 8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %9, ptr noundef nonnull @.str.57, ptr noundef %164, ptr noundef nonnull @.str.53)
@@ -1733,8 +1733,8 @@ _ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit62
   br i1 %177, label %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit63, label %178
 
 178:                                              ; preds = %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit62
-  call void @llvm.lifetime.start.p0(i64 8200, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %180 = load ptr, ptr %179, align 8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %7, ptr noundef nonnull @.str.57, ptr noundef %180, ptr noundef nonnull @.str.54)
@@ -1758,8 +1758,8 @@ _ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit63
   br i1 %.not82, label %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit65, label %187
 
 187:                                              ; preds = %185
-  call void @llvm.lifetime.start.p0(i64 8200, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %189 = load ptr, ptr %188, align 8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %5, ptr noundef nonnull @.str.57, ptr noundef %189, ptr noundef nonnull @.str.55)
@@ -1788,8 +1788,8 @@ _ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit65
   br i1 %203, label %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit67, label %204
 
 204:                                              ; preds = %_ZN33ShenandoahVerifyHeapRegionClosure6verifyEP20ShenandoahHeapRegionbPKc.exit65
-  call void @llvm.lifetime.start.p0(i64 8200, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %206 = load ptr, ptr %205, align 8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %3, ptr noundef nonnull @.str.57, ptr noundef %206, ptr noundef nonnull @.str.56)
@@ -5106,9 +5106,9 @@ _ZN26ShenandoahVerifyOopClosure11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %8
   br i1 %130, label %22, label %._crit_edge32, !llvm.loop !27
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop26ShenandoahVerifyOopClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -6881,9 +6881,9 @@ _ZN26ShenandoahVerifyOopClosure11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %80
   br i1 %122, label %22, label %._crit_edge32, !llvm.loop !32
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc26ShenandoahVerifyOopClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -8479,13 +8479,13 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI26ShenandoahVerifyOo
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

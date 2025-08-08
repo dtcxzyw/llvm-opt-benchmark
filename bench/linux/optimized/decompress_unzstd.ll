@@ -31,9 +31,9 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__unzstd(ptr noundef %0, i6
   %8 = alloca %struct.ZSTD_inBuffer_s, align 8
   %9 = alloca %struct.ZSTD_outBuffer_s, align 8
   %10 = alloca %struct.ZSTD_frameHeader, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = ptrtoint ptr %4 to i64
   %12 = xor i64 %11, -1
   %13 = icmp eq ptr %2, null
@@ -50,12 +50,12 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__unzstd(ptr noundef %0, i6
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
-  %21 = tail call noalias dereferenceable_or_null(131072) ptr @vmalloc(i64 noundef 131072) #7
+  %21 = tail call noalias dereferenceable_or_null(131072) ptr @vmalloc(i64 noundef 131072) #6
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.thread19, label %23
 
 .thread19:                                        ; preds = %20
-  tail call void %6(ptr noundef nonnull @.str) #6
+  tail call void %6(ptr noundef nonnull @.str) #7
   br label %113
 
 23:                                               ; preds = %20, %18
@@ -65,7 +65,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__unzstd(ptr noundef %0, i6
   br i1 %13, label %29, label %27
 
 27:                                               ; preds = %23
-  %28 = tail call i64 %2(ptr noundef nonnull %25, i64 noundef 131072) #6
+  %28 = tail call i64 %2(ptr noundef nonnull %25, i64 noundef 131072) #7
   br label %29
 
 29:                                               ; preds = %27, %23
@@ -77,7 +77,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__unzstd(ptr noundef %0, i6
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %29
-  tail call void %6(ptr noundef nonnull @.str.1) #6
+  tail call void %6(ptr noundef nonnull @.str.1) #7
   br label %.loopexit
 
 33:                                               ; preds = %29
@@ -90,12 +90,12 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__unzstd(ptr noundef %0, i6
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %33
-  %38 = tail call noalias dereferenceable_or_null(131072) ptr @vmalloc(i64 noundef 131072) #7
+  %38 = tail call noalias dereferenceable_or_null(131072) ptr @vmalloc(i64 noundef 131072) #6
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %37
-  tail call void %6(ptr noundef nonnull @.str.2) #6
+  tail call void %6(ptr noundef nonnull @.str.2) #7
   br label %.loopexit
 
 41:                                               ; preds = %37, %33
@@ -107,7 +107,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__unzstd(ptr noundef %0, i6
   store i64 0, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %43, ptr %46, align 8
-  %47 = call i64 @zstd_get_frame_header(ptr noundef nonnull %10, ptr noundef nonnull %25, i64 noundef %30) #6
+  %47 = call i64 @zstd_get_frame_header(ptr noundef nonnull %10, ptr noundef nonnull %25, i64 noundef %30) #7
   %48 = call fastcc i32 @handle_zstd_error(i64 noundef %47, ptr noundef %6) #5, !range !5
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %.loopexit
@@ -117,7 +117,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__unzstd(ptr noundef %0, i6
   br i1 %51, label %53, label %52
 
 52:                                               ; preds = %50
-  call void %6(ptr noundef nonnull @.str.3) #6
+  call void %6(ptr noundef nonnull @.str.3) #7
   br label %.loopexit
 
 53:                                               ; preds = %50
@@ -127,19 +127,19 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__unzstd(ptr noundef %0, i6
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %53
-  call void %6(ptr noundef nonnull @.str.4) #6
+  call void %6(ptr noundef nonnull @.str.4) #7
   br label %.loopexit
 
 58:                                               ; preds = %53
-  %59 = call i64 @zstd_dstream_workspace_bound(i64 noundef %55) #6
-  %60 = call noalias ptr @vmalloc(i64 noundef %59) #7
+  %59 = call i64 @zstd_dstream_workspace_bound(i64 noundef %55) #7
+  %60 = call noalias ptr @vmalloc(i64 noundef %59) #6
   %61 = load i64, ptr %54, align 8
-  %62 = call ptr @zstd_init_dstream(i64 noundef %61, ptr noundef %60, i64 noundef %59) #6
+  %62 = call ptr @zstd_init_dstream(i64 noundef %61, ptr noundef %60, i64 noundef %59) #7
   %63 = icmp eq ptr %62, null
   br i1 %63, label %64, label %65
 
 64:                                               ; preds = %58
-  call void %6(ptr noundef nonnull @.str.5) #6
+  call void %6(ptr noundef nonnull @.str.5) #7
   br label %.loopexit
 
 65:                                               ; preds = %58
@@ -172,12 +172,12 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__unzstd(ptr noundef %0, i6
   br i1 %13, label %.thread, label %77
 
 77:                                               ; preds = %76
-  %78 = call i64 %2(ptr noundef nonnull %25, i64 noundef 131072) #6
+  %78 = call i64 %2(ptr noundef nonnull %25, i64 noundef 131072) #7
   %79 = icmp slt i64 %78, 0
   br i1 %79, label %.thread, label %80
 
 .thread:                                          ; preds = %76, %77
-  call void %6(ptr noundef nonnull @.str.1) #6
+  call void %6(ptr noundef nonnull @.str.1) #7
   br label %.loopexit
 
 80:                                               ; preds = %77
@@ -186,7 +186,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__unzstd(ptr noundef %0, i6
   br label %81
 
 81:                                               ; preds = %80, %68
-  %82 = call i64 @zstd_decompress_stream(ptr noundef nonnull %62, ptr noundef nonnull %9, ptr noundef nonnull %8) #6
+  %82 = call i64 @zstd_decompress_stream(ptr noundef nonnull %62, ptr noundef nonnull %9, ptr noundef nonnull %8) #7
   %83 = call fastcc i32 @handle_zstd_error(i64 noundef %82, ptr noundef %6) #5, !range !5
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %85, label %.loopexit
@@ -199,12 +199,12 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__unzstd(ptr noundef %0, i6
 
 89:                                               ; preds = %85
   %90 = load ptr, ptr %9, align 8
-  %91 = call i64 %3(ptr noundef %90, i64 noundef %86) #6
+  %91 = call i64 %3(ptr noundef %90, i64 noundef %86) #7
   %92 = icmp eq i64 %86, %91
   br i1 %92, label %94, label %93
 
 93:                                               ; preds = %89
-  call void %6(ptr noundef nonnull @.str.6) #6
+  call void %6(ptr noundef nonnull @.str.6) #7
   br label %.loopexit
 
 94:                                               ; preds = %89
@@ -233,7 +233,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__unzstd(ptr noundef %0, i6
   br i1 %105, label %107, label %106
 
 106:                                              ; preds = %.loopexit
-  call void @vfree(ptr noundef nonnull %26) #6
+  call void @vfree(ptr noundef nonnull %26) #7
   br label %107
 
 107:                                              ; preds = %106, %.loopexit
@@ -241,7 +241,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__unzstd(ptr noundef %0, i6
   br i1 %108, label %110, label %109
 
 109:                                              ; preds = %107
-  call void @vfree(ptr noundef nonnull %102) #6
+  call void @vfree(ptr noundef nonnull %102) #7
   br label %110
 
 110:                                              ; preds = %109, %107
@@ -249,43 +249,40 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__unzstd(ptr noundef %0, i6
   br i1 %111, label %113, label %112
 
 112:                                              ; preds = %110
-  call void @vfree(ptr noundef nonnull %103) #6
+  call void @vfree(ptr noundef nonnull %103) #7
   br label %113
 
 113:                                              ; preds = %.thread19, %112, %110, %16
   %114 = phi i32 [ %17, %16 ], [ %104, %112 ], [ %104, %110 ], [ -1, %.thread19 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %114
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc noundef range(i32 -1, 1) i32 @decompress_single(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 section ".init.text" align 16 {
-  %7 = tail call i64 @zstd_dctx_workspace_bound() #6
-  %8 = tail call noalias ptr @vmalloc(i64 noundef %7) #7
-  %9 = tail call ptr @zstd_init_dctx(ptr noundef %8, i64 noundef %7) #6
+  %7 = tail call i64 @zstd_dctx_workspace_bound() #7
+  %8 = tail call noalias ptr @vmalloc(i64 noundef %7) #6
+  %9 = tail call ptr @zstd_init_dctx(ptr noundef %8, i64 noundef %7) #7
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %6
-  tail call void %5(ptr noundef nonnull @.str.7) #6
+  tail call void %5(ptr noundef nonnull @.str.7) #7
   br label %23
 
 12:                                               ; preds = %6
-  %13 = tail call i64 @zstd_find_frame_compressed_size(ptr noundef %0, i64 noundef %1) #6
+  %13 = tail call i64 @zstd_find_frame_compressed_size(ptr noundef %0, i64 noundef %1) #7
   %14 = tail call fastcc i32 @handle_zstd_error(i64 noundef %13, ptr noundef %5) #5, !range !5
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %12
-  %17 = tail call i64 @zstd_decompress_dctx(ptr noundef nonnull %9, ptr noundef %2, i64 noundef %3, ptr noundef %0, i64 noundef %13) #6
+  %17 = tail call i64 @zstd_decompress_dctx(ptr noundef nonnull %9, ptr noundef %2, i64 noundef %3, ptr noundef %0, i64 noundef %13) #7
   %18 = tail call fastcc i32 @handle_zstd_error(i64 noundef %17, ptr noundef %5) #5, !range !5
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %23
@@ -304,7 +301,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @decompress_single(ptr nound
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %23
-  tail call void @vfree(ptr noundef nonnull %8) #6
+  tail call void @vfree(ptr noundef nonnull %8) #7
   br label %27
 
 27:                                               ; preds = %26, %23
@@ -312,15 +309,15 @@ define internal fastcc noundef range(i32 -1, 1) i32 @decompress_single(ptr nound
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare dso_local noalias ptr @vmalloc(i64 noundef) local_unnamed_addr #3
+declare dso_local noalias ptr @vmalloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @zstd_get_frame_header(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare dso_local i64 @zstd_get_frame_header(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc noundef range(i32 -1, 1) i32 @handle_zstd_error(i64 noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 section ".init.text" align 16 {
-  %3 = tail call i32 @zstd_get_error_code(i64 noundef %0) #6
-  %4 = tail call i32 @zstd_is_error(i64 noundef %0) #6
+  %3 = tail call i32 @zstd_get_error_code(i64 noundef %0) #7
+  %4 = tail call i32 @zstd_is_error(i64 noundef %0) #7
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %12, label %6
 
@@ -344,7 +341,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @handle_zstd_error(i64 nound
 
 10:                                               ; preds = %9, %8, %7, %6
   %11 = phi ptr [ @.str.9, %7 ], [ @.str.10, %8 ], [ @.str.11, %9 ], [ @.str.8, %6 ]
-  tail call void %1(ptr noundef nonnull %11) #6
+  tail call void %1(ptr noundef nonnull %11) #7
   br label %12
 
 12:                                               ; preds = %10, %2
@@ -353,46 +350,49 @@ define internal fastcc noundef range(i32 -1, 1) i32 @handle_zstd_error(i64 nound
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @zstd_dstream_workspace_bound(i64 noundef) local_unnamed_addr #4
+declare dso_local i64 @zstd_dstream_workspace_bound(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @zstd_init_dstream(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare dso_local ptr @zstd_init_dstream(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @zstd_decompress_stream(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local i64 @zstd_decompress_stream(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @vfree(ptr noundef) local_unnamed_addr #4
+declare dso_local void @vfree(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i64 @zstd_dctx_workspace_bound() local_unnamed_addr #3
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local ptr @zstd_init_dctx(ptr noundef, i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i64 @zstd_find_frame_compressed_size(ptr noundef, i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i64 @zstd_decompress_dctx(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @zstd_get_error_code(i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @zstd_is_error(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
-; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @zstd_dctx_workspace_bound() local_unnamed_addr #4
-
-; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @zstd_init_dctx(ptr noundef, i64 noundef) local_unnamed_addr #4
-
-; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @zstd_find_frame_compressed_size(ptr noundef, i64 noundef) local_unnamed_addr #4
-
-; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @zstd_decompress_dctx(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
-
-; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @zstd_get_error_code(i64 noundef) local_unnamed_addr #4
-
-; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @zstd_is_error(i64 noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #4 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { cold }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind allocsize(0) }
+attributes #6 = { nounwind allocsize(0) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -875,8 +875,8 @@ define noundef i32 @_ZN8AlignSet13createShadersEPKcS1_(ptr nonnull readnone alig
   %13 = tail call i32 %12(i32 noundef 35633)
   %14 = load ptr, ptr @__glewShaderSource, align 8
   call void %14(i32 noundef %13, i32 noundef 1, ptr noundef nonnull %10, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %15 = load ptr, ptr @__glewCompileShader, align 8
   call void %15(i32 noundef %13)
   %16 = load ptr, ptr @__glewGetShaderiv, align 8
@@ -894,14 +894,14 @@ define noundef i32 @_ZN8AlignSet13createShadersEPKcS1_(ptr nonnull readnone alig
   br label %_ZN11ShaderUtils13compileShaderEj.exit
 
 _ZN11ShaderUtils13compileShaderEj.exit:           ; preds = %3, %18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %23 = load ptr, ptr @__glewCreateShader, align 8
   %24 = call i32 %23(i32 noundef 35632)
   %25 = load ptr, ptr @__glewShaderSource, align 8
   call void %25(i32 noundef %24, i32 noundef 1, ptr noundef nonnull %11, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %26 = load ptr, ptr @__glewCompileShader, align 8
   call void %26(i32 noundef %24)
   %27 = load ptr, ptr @__glewGetShaderiv, align 8
@@ -919,16 +919,16 @@ _ZN11ShaderUtils13compileShaderEj.exit:           ; preds = %3, %18
   br label %_ZN11ShaderUtils13compileShaderEj.exit11
 
 _ZN11ShaderUtils13compileShaderEj.exit11:         ; preds = %_ZN11ShaderUtils13compileShaderEj.exit, %29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %34 = load ptr, ptr @__glewCreateProgram, align 8
   %35 = call i32 %34()
   %36 = load ptr, ptr @__glewAttachShader, align 8
   call void %36(i32 noundef %35, i32 noundef %13)
   %37 = load ptr, ptr @__glewAttachShader, align 8
   call void %37(i32 noundef %35, i32 noundef %24)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = load ptr, ptr @__glewLinkProgram, align 8
   call void %38(i32 noundef %35)
   %39 = load ptr, ptr @__glewGetProgramiv, align 8
@@ -946,8 +946,8 @@ _ZN11ShaderUtils13compileShaderEj.exit11:         ; preds = %_ZN11ShaderUtils13c
   br label %_ZN11ShaderUtils17linkShaderProgramEj.exit
 
 _ZN11ShaderUtils17linkShaderProgramEj.exit:       ; preds = %_ZN11ShaderUtils13compileShaderEj.exit11, %41
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %35
 }
 
@@ -962,7 +962,7 @@ define noundef zeroext i1 @_ZN8AlignSet21ProjectedImageChangedERK6QImage(ptr nou
   %6 = load i32, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %6, ptr %3, align 4, !noalias !10
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %8, ptr %9, align 4, !noalias !10
@@ -970,7 +970,7 @@ define noundef zeroext i1 @_ZN8AlignSet21ProjectedImageChangedERK6QImage(ptr nou
           to label %10 unwind label %60
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %11, align 8
@@ -1153,7 +1153,7 @@ define noundef zeroext i1 @_ZN8AlignSet26ProjectedMultiImageChangedEv(ptr nounde
   %15 = load i32, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %17 = load i32, ptr %16, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %15, ptr %4, align 4, !noalias !13
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %17, ptr %18, align 4, !noalias !13
@@ -1161,7 +1161,7 @@ define noundef zeroext i1 @_ZN8AlignSet26ProjectedMultiImageChangedEv(ptr nounde
           to label %19 unwind label %165
 
 19:                                               ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %22 = load ptr, ptr %20, align 8
@@ -1282,7 +1282,7 @@ define noundef zeroext i1 @_ZN8AlignSet26ProjectedMultiImageChangedEv(ptr nounde
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #23
   %67 = load i32, ptr %0, align 8
   %68 = load i32, ptr %16, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %67, ptr %3, align 4, !noalias !16
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %68, ptr %69, align 4, !noalias !16
@@ -1290,7 +1290,7 @@ define noundef zeroext i1 @_ZN8AlignSet26ProjectedMultiImageChangedEv(ptr nounde
           to label %70 unwind label %165
 
 70:                                               ; preds = %63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %72 = load ptr, ptr %20, align 8
   %73 = load ptr, ptr %71, align 8
@@ -1410,7 +1410,7 @@ define noundef zeroext i1 @_ZN8AlignSet26ProjectedMultiImageChangedEv(ptr nounde
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
   %117 = load i32, ptr %0, align 8
   %118 = load i32, ptr %16, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %117, ptr %2, align 4, !noalias !19
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %118, ptr %119, align 4, !noalias !19
@@ -1418,7 +1418,7 @@ define noundef zeroext i1 @_ZN8AlignSet26ProjectedMultiImageChangedEv(ptr nounde
           to label %120 unwind label %165
 
 120:                                              ; preds = %113
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %121 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %122 = load ptr, ptr %20, align 8
   %123 = load ptr, ptr %121, align 8
@@ -1931,7 +1931,7 @@ define linkonce_odr void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(pt
   br label %109
 
 49:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %50 = fsub float %10, %16
   %51 = fdiv float 0x3FF99999A0000000, %50
   store float %51, ptr %5, align 16
@@ -1978,11 +1978,11 @@ define linkonce_odr void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(pt
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 60
   store float 1.000000e+00, ptr %78, align 4
   call void @glLoadMatrixf(ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %109
 
 79:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %80 = fsub float %10, %16
   %81 = fdiv float 2.000000e+00, %80
   store float %81, ptr %4, align 16
@@ -2029,7 +2029,7 @@ define linkonce_odr void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(pt
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 60
   store float 1.000000e+00, ptr %108, align 4
   call void @glLoadMatrixf(ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %109
 
 109:                                              ; preds = %3, %79, %49, %42, %.thread
@@ -2042,8 +2042,8 @@ define linkonce_odr void @_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE11Transform
   %3 = alloca %"class.vcg::Matrix44", align 4
   %4 = alloca %"class.vcg::Matrix44", align 4
   %5 = alloca %"class.vcg::Matrix44", align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(64) %6, i64 64, i1 false), !noalias !32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -2110,9 +2110,9 @@ define linkonce_odr void @_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE11Transform
   br i1 %exitcond32.not.i.i.i, label %37, label %.preheader19.i.i.i, !llvm.loop !30
 
 37:                                               ; preds = %36
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false)
   br label %.preheader.i.i.i2
 
@@ -2143,7 +2143,7 @@ define linkonce_odr void @_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE11Transform
 
 _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %47
   call void @glMultMatrixf(ptr noundef nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -3320,7 +3320,7 @@ define void @_ZN8AlignSet6resizeEi(ptr noundef nonnull align 8 captures(none) de
 
 48:                                               ; preds = %47, %43
   %49 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.2, ptr %3, align 4, !noalias !66
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %.242, ptr %50, align 4, !noalias !66
@@ -3328,7 +3328,7 @@ define void @_ZN8AlignSet6resizeEi(ptr noundef nonnull align 8 captures(none) de
           to label %51 unwind label %.loopexit.split-lp
 
 51:                                               ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %54 = load ptr, ptr %52, align 8
@@ -5003,9 +5003,9 @@ define internal void @_GLOBAL__sub_I_alignset.cpp() #17 section ".text.startup" 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false)
   store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 8), align 8
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN3vcg8ColorMapESaIS1_EED2Ev, ptr nonnull @_ZN3vcgL13ColorMapEnumsE, ptr nonnull @__dso_handle) #23
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #26
   store i8 68, ptr %8, align 1
   %.sroa.2583.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -6525,17 +6525,17 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
   call void @_ZdlPv(ptr noundef nonnull %15) #22
   call void @_ZdlPv(ptr noundef nonnull %8) #22
   %82 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEED2Ev, ptr nonnull @_ZN3vcgL9colorMapsE, ptr nonnull @__dso_handle) #23
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19

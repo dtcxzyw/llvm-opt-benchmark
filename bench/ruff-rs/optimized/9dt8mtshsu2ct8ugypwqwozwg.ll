@@ -23,10 +23,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN70_$LT$core..num..error..TryFromIntError$u20$as$u20$core..fmt..Debug$GT$3fmt17he1c88064cb6e0bd4E"(ptr noalias noundef nonnull readonly align 1 %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %4 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.a8f1c3645297b31afdbd2ee35959efb8.31, i64 noundef 15, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.a8f1c3645297b31afdbd2ee35959efb8.30)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %4
 }
 
@@ -39,7 +39,6 @@ define void @"_ZN69_$LT$str$u20$as$u20$ruff_source_file..newlines..UniversalNewl
   br i1 %5, label %.split.i.i, label %_ZN16ruff_source_file8newlines24UniversalNewlineIterator4from17h00cbf1e51ec4b515E.exit
 
 .split.i.i:                                       ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !9
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.a8f1c3645297b31afdbd2ee35959efb8.27, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.a8f1c3645297b31afdbd2ee35959efb8.26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a8f1c3645297b31afdbd2ee35959efb8.37) #10, !noalias !9
   unreachable
 
@@ -76,7 +75,6 @@ define void @_ZN16ruff_source_file8newlines24UniversalNewlineIterator11with_offs
   ret void
 
 .split:                                           ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.a8f1c3645297b31afdbd2ee35959efb8.27, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.a8f1c3645297b31afdbd2ee35959efb8.26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a8f1c3645297b31afdbd2ee35959efb8.37) #10
   unreachable
 }
@@ -89,7 +87,6 @@ define void @_ZN16ruff_source_file8newlines24UniversalNewlineIterator4from17h00c
   br i1 %5, label %.split.i, label %_ZN16ruff_source_file8newlines24UniversalNewlineIterator11with_offset17he5485eb4ab9dd750E.exit
 
 .split.i:                                         ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !17
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.a8f1c3645297b31afdbd2ee35959efb8.27, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.a8f1c3645297b31afdbd2ee35959efb8.26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a8f1c3645297b31afdbd2ee35959efb8.37) #10, !noalias !17
   unreachable
 
@@ -158,7 +155,7 @@ define void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIterator$u2
   %27 = extractvalue { i64, ptr } %23, 1
   %28 = tail call noundef i64 @"_ZN56_$LT$$BP$const$u20$T$u20$as$u20$memchr..ext..Pointer$GT$8distance17he35963e4595c987cE"(ptr noundef %27, ptr noundef nonnull readonly align 1 %10), !noalias !27
   %29 = add i64 %28, 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !27
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17h46803085811fc72eE.exit.i", label %31
 
@@ -193,7 +190,7 @@ define void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIterator$u2
   %44 = load ptr, ptr %43, align 8, !noalias !27, !nonnull !25, !align !26, !noundef !25
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %46 = load i64, ptr %45, align 8, !noalias !27, !noundef !25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !27
   store ptr %.pr.i, ptr %1, align 8, !alias.scope !23, !noalias !20
   store i64 %42, ptr %5, align 8, !alias.scope !23, !noalias !20
   %47 = icmp ugt i64 %46, 4294967295
@@ -213,7 +210,6 @@ define void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIterator$u2
   br label %53
 
 .split.i:                                         ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !27
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.a8f1c3645297b31afdbd2ee35959efb8.27, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.a8f1c3645297b31afdbd2ee35959efb8.26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a8f1c3645297b31afdbd2ee35959efb8.37) #10, !noalias !27
   unreachable
 
@@ -239,7 +235,6 @@ define void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIterator$u2
   br label %53
 
 .split17.i:                                       ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !27
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.a8f1c3645297b31afdbd2ee35959efb8.27, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.a8f1c3645297b31afdbd2ee35959efb8.26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a8f1c3645297b31afdbd2ee35959efb8.37) #10, !noalias !27
   unreachable
 
@@ -261,7 +256,6 @@ define void @_ZN16ruff_source_file8newlines26NewlineWithTrailingNewline11with_of
   br i1 %7, label %.split.i, label %_ZN16ruff_source_file8newlines24UniversalNewlineIterator11with_offset17he5485eb4ab9dd750E.exit
 
 .split.i:                                         ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5), !noalias !37
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.a8f1c3645297b31afdbd2ee35959efb8.27, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.a8f1c3645297b31afdbd2ee35959efb8.26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a8f1c3645297b31afdbd2ee35959efb8.37) #10, !noalias !37
   unreachable
 
@@ -269,7 +263,7 @@ _ZN16ruff_source_file8newlines24UniversalNewlineIterator11with_offset17he5485eb4
   %8 = trunc nuw i64 %2 to i32
   %9 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %8), !noalias !37
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !41
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !41
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   store i64 42949672973, ptr %6, align 8, !alias.scope !44, !noalias !47
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -369,7 +363,7 @@ _ZN16ruff_source_file8newlines24UniversalNewlineIterator11with_offset17he5485eb4
   br i1 %55, label %.split12, label %.preheader.i.i.i.i
 
 _ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit.thread: ; preds = %.preheader.i.i.i.i, %_ZN16ruff_source_file8newlines24UniversalNewlineIterator11with_offset17he5485eb4ab9dd750E.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !41
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !41
   br label %56
 
 56:                                               ; preds = %_ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit.thread, %.split12
@@ -392,7 +386,7 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit.thread: ; pr
   ret void
 
 .split12:                                         ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !41
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !41
   %59 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %8)
   %60 = add i32 %59, %3
   br label %56
@@ -675,10 +669,10 @@ declare void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias nou
 declare hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h812b6902bc09604dE"(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9

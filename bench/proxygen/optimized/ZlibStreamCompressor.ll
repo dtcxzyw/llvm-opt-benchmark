@@ -284,7 +284,7 @@ while.body18.us.preheader:                        ; preds = %while.body.lr.ph
 
 while.body18.us:                                  ; preds = %while.body18.us.preheader, %while.cond15thread-pre-split.us
   %9 = load ptr, ptr %out, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %10 = load i32, ptr %avail_out.i, align 8
   %cmp.i.us = icmp eq i32 %10, 0
   br i1 %cmp.i.us, label %if.then.i.us, label %if.end.i.us
@@ -318,7 +318,7 @@ if.end.i.us:                                      ; preds = %_ZNSt10unique_ptrIN
           to label %invoke.cont21.us unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
 invoke.cont21.us:                                 ; preds = %if.end.i.us
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   store i32 %call.i8.us, ptr %status_, align 8
   %cmp24.not.us = icmp eq i32 %call.i8.us, 0
   br i1 %cmp24.not.us, label %while.cond15thread-pre-split.us, label %cleanup, !llvm.loop !6
@@ -370,7 +370,7 @@ while.cond15thread-pre-split:                     ; preds = %invoke.cont21
 
 while.body18:                                     ; preds = %while.body18.preheader, %while.cond15thread-pre-split
   %14 = load ptr, ptr %out, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %15 = load i32, ptr %avail_out.i, align 8
   %cmp.i = icmp eq i32 %15, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -414,7 +414,7 @@ if.end.i:                                         ; preds = %_ZNSt10unique_ptrIN
           to label %invoke.cont21 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split
 
 invoke.cont21:                                    ; preds = %if.end.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   store i32 %call.i8, ptr %status_, align 8
   %cmp24.not = icmp eq i32 %call.i8, 0
   br i1 %cmp24.not, label %while.cond15thread-pre-split, label %cleanup, !llvm.loop !6
@@ -495,7 +495,7 @@ do.body41.preheader:                              ; preds = %for.end
 
 do.body:                                          ; preds = %for.end, %invoke.cont32
   %31 = load ptr, ptr %out, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i9)
   %32 = load i32, ptr %avail_out.i10, align 8
   %cmp.i11 = icmp eq i32 %32, 0
   br i1 %cmp.i11, label %if.then.i13, label %if.end.i12
@@ -535,7 +535,7 @@ if.end.i12:                                       ; preds = %_ZNSt10unique_ptrIN
           to label %invoke.cont32 unwind label %lpad.loopexit
 
 invoke.cont32:                                    ; preds = %if.end.i12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i9)
   store i32 %call.i23, ptr %status_34, align 8
   switch i32 %call.i23, label %cleanup [
     i32 0, label %do.body
@@ -545,7 +545,7 @@ invoke.cont32:                                    ; preds = %if.end.i12
 do.body41:                                        ; preds = %do.body41.preheader, %invoke.cont44
   %cmp.i27 = phi i1 [ %30, %do.body41.preheader ], [ true, %invoke.cont44 ]
   %36 = load ptr, ptr %out, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i25)
   br i1 %cmp.i27, label %if.then.i29, label %if.end.i28
 
 if.then.i29:                                      ; preds = %do.body41
@@ -583,7 +583,7 @@ if.end.i28:                                       ; preds = %_ZNSt10unique_ptrIN
           to label %invoke.cont44 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont44:                                    ; preds = %if.end.i28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i25)
   store i32 %call.i39, ptr %status_34, align 8
   %40 = load i32, ptr %avail_out.i10, align 8
   %cmp49 = icmp eq i32 %40, 0
@@ -641,7 +641,7 @@ entry:
   br i1 %cmp.i, label %invoke.cont12, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %comb.i.i)
   call void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i, ptr noundef nonnull @.str.9)
   %1 = load ptr, ptr %comb.i.i, align 8
   %call.i1.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %0)
@@ -667,7 +667,7 @@ lpad.i.i:                                         ; preds = %invoke.cont4.i.i, %
 
 _ZN6google12Check_EQImplIjiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont4.i.i
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   store ptr %call6.i.i, ptr %_result, align 8
   %cmp.i3.not = icmp eq ptr %call6.i.i, null
   br i1 %cmp.i3.not, label %invoke.cont12, label %while.body
@@ -773,10 +773,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

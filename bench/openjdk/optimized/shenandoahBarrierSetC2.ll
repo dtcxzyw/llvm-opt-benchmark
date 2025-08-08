@@ -1646,7 +1646,7 @@ _ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node.exit: ; pre
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = load i8, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %61 = load i8, ptr @ShenandoahSATBBarrier, align 1
   %62 = trunc i8 %61 to i1
   br i1 %62, label %63, label %_ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType.exit
@@ -1663,7 +1663,7 @@ _ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node.exit: ; pre
   br label %_ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType.exit
 
 _ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType.exit: ; preds = %_ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node.exit, %63
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %100
 
 66:                                               ; preds = %15
@@ -1950,7 +1950,7 @@ _ZN4NodenwEm.exit.i:                              ; preds = %35, %33
 
 _ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node.exit: ; preds = %12, %39
   %.0.i = phi ptr [ %42, %39 ], [ %3, %12 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %43 = load i8, ptr @ShenandoahSATBBarrier, align 1
   %44 = trunc i8 %43 to i1
   br i1 %44, label %45, label %_ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType.exit
@@ -1967,7 +1967,7 @@ _ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node.exit: ; pre
   br label %_ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType.exit
 
 _ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType.exit: ; preds = %_ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node.exit, %45
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %48 = call noundef i32 @_ZNK8C2Access11mem_node_moEv(ptr noundef nonnull align 8 dereferenceable(49) %1) #15
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %50 = load ptr, ptr %49, align 8
@@ -2810,7 +2810,7 @@ _ZN4NodenwEm.exit.i:                              ; preds = %35, %33
 
 _ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node.exit: ; preds = %12, %39
   %.0.i = phi ptr [ %42, %39 ], [ %3, %12 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %43 = load i8, ptr @ShenandoahSATBBarrier, align 1
   %44 = trunc i8 %43 to i1
   br i1 %44, label %45, label %_ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType.exit
@@ -2827,7 +2827,7 @@ _ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node.exit: ; pre
   br label %_ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType.exit
 
 _ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType.exit: ; preds = %_ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node.exit, %45
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = call noundef i32 @_ZNK8C2Access11mem_node_moEv(ptr noundef nonnull align 8 dereferenceable(49) %1) #15
@@ -3528,7 +3528,7 @@ _ZN4NodenwEm.exit:                                ; preds = %62, %64
   %71 = load ptr, ptr %46, align 8
   %72 = load ptr, ptr %71, align 8
   %73 = tail call noundef ptr %72(ptr noundef nonnull align 8 dereferenceable(2400) %46, ptr noundef %.0.i.i.i) #15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %74 = load i8, ptr @ShenandoahSATBBarrier, align 1
   %75 = trunc i8 %74 to i1
   br i1 %75, label %76, label %_ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType.exit
@@ -3545,7 +3545,7 @@ _ZN4NodenwEm.exit:                                ; preds = %62, %64
   br label %_ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType.exit
 
 _ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType.exit: ; preds = %70, %76
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %79
 
 79:                                               ; preds = %_ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType.exit, %_ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node.exit
@@ -7371,10 +7371,10 @@ declare i32 @llvm.ctpop.i32(i32) #12
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

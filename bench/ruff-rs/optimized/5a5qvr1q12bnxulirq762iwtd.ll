@@ -28,7 +28,6 @@ define void @_ZN18ruff_python_trivia6cursor6Cursor3new17h5d59c99c3c743c94E(ptr w
   ret void
 
 .split:                                           ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.73fd034fe6e55689901d45fa1bbe67cb.1, i64 43, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.73fd034fe6e55689901d45fa1bbe67cb.0, ptr nonnull align 8 @anon.73fd034fe6e55689901d45fa1bbe67cb.4) #6
   unreachable
 }
@@ -139,7 +138,6 @@ define i32 @_ZN18ruff_python_trivia6cursor6Cursor8text_len17h341be6bd494e6855E(p
   ret i32 %11
 
 .split:                                           ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.73fd034fe6e55689901d45fa1bbe67cb.1, i64 43, ptr nonnull align 1 %2, ptr nonnull align 8 @anon.73fd034fe6e55689901d45fa1bbe67cb.0, ptr nonnull align 8 @anon.73fd034fe6e55689901d45fa1bbe67cb.4) #6
   unreachable
 }
@@ -157,7 +155,6 @@ define i32 @_ZN18ruff_python_trivia6cursor6Cursor9token_len17h7a25922a84aa333bE(
   br i1 %9, label %.split.i, label %_ZN18ruff_python_trivia6cursor6Cursor8text_len17h341be6bd494e6855E.exit
 
 .split.i:                                         ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.73fd034fe6e55689901d45fa1bbe67cb.1, i64 43, ptr nonnull align 1 %2, ptr nonnull align 8 @anon.73fd034fe6e55689901d45fa1bbe67cb.0, ptr nonnull align 8 @anon.73fd034fe6e55689901d45fa1bbe67cb.4) #6
   unreachable
 
@@ -183,7 +180,6 @@ define void @_ZN18ruff_python_trivia6cursor6Cursor11start_token17hea762179b9b9dd
   br i1 %9, label %.split.i, label %_ZN18ruff_python_trivia6cursor6Cursor8text_len17h341be6bd494e6855E.exit
 
 .split.i:                                         ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.73fd034fe6e55689901d45fa1bbe67cb.1, i64 43, ptr nonnull align 1 %2, ptr nonnull align 8 @anon.73fd034fe6e55689901d45fa1bbe67cb.0, ptr nonnull align 8 @anon.73fd034fe6e55689901d45fa1bbe67cb.4) #6
   unreachable
 
@@ -227,7 +223,7 @@ define i32 @_ZN18ruff_python_trivia6cursor6Cursor9bump_back17h32d2c7232e8a625bE(
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17he92948beb33b3e1dE(ptr align 8 %0, i32 %1) unnamed_addr #0 {
   %3 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -239,7 +235,7 @@ define noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17he929
   %10 = trunc i32 %9 to i1
   %11 = extractvalue { i32, i32 } %8, 1
   %.sroa.0.0.i = select i1 %10, i32 %11, i32 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %12 = icmp eq i32 %.sroa.0.0.i, %1
   br i1 %12, label %13, label %15
 
@@ -336,7 +332,7 @@ define noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor9eat_char317hec0
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor13eat_char_back17h392f6c9b7c293e01E(ptr align 8 %0, i32 %1) unnamed_addr #0 {
   %3 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -348,7 +344,7 @@ define noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor13eat_char_back1
   %10 = trunc i32 %9 to i1
   %11 = extractvalue { i32, i32 } %8, 1
   %.sroa.0.0.i = select i1 %10, i32 %11, i32 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %12 = icmp eq i32 %.sroa.0.0.i, %1
   br i1 %12, label %13, label %15
 
@@ -410,10 +406,10 @@ declare hidden { ptr, i64 } @"_ZN4core3str6traits112_$LT$impl$u20$core..slice..i
 declare void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr align 1, i64, i64, i64, ptr align 8) unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

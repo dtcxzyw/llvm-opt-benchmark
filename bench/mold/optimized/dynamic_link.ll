@@ -68,12 +68,6 @@ _ZN3tbb6detail2r1L26GetBoolEnvironmentVariableEPKc.exit.thread: ; preds = %_ZN3t
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define noalias noundef ptr @_ZN3tbb6detail2r112dynamic_loadEPKcPKNS1_23dynamic_link_descriptorEmb(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   ret ptr null
@@ -100,7 +94,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r112dynamic_linkEPKcPKNS1_23dynamic_li
   br i1 %or.cond.i.i, label %_ZN3tbb6detail2r1L15resolve_symbolsEPvPKNS1_23dynamic_link_descriptorEm.exit.thread.i, label %12
 
 12:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not2934.i.i = icmp eq i64 %2, 0
   br i1 %.not2934.i.i, label %.thread, label %.lr.ph.i.i
 
@@ -131,7 +125,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r112dynamic_linkEPKcPKNS1_23dynamic_li
   br i1 %exitcond42.not.i.i, label %.thread, label %.critedge30.i.i, !llvm.loop !15
 
 _ZN3tbb6detail2r1L15resolve_symbolsEPvPKNS1_23dynamic_link_descriptorEm.exit.i: ; preds = %.lr.ph.i.i
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN3tbb6detail2r1L15resolve_symbolsEPvPKNS1_23dynamic_link_descriptorEm.exit.thread.i
 
 _ZN3tbb6detail2r1L15resolve_symbolsEPvPKNS1_23dynamic_link_descriptorEm.exit.thread.i: ; preds = %_ZN3tbb6detail2r1L15resolve_symbolsEPvPKNS1_23dynamic_link_descriptorEm.exit.i, %10
@@ -143,7 +137,7 @@ _ZN3tbb6detail2r1L15resolve_symbolsEPvPKNS1_23dynamic_link_descriptorEm.exit.thr
   br label %26
 
 .thread:                                          ; preds = %.critedge30.i.i, %12
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i24 = icmp eq ptr %3, null
   br i1 %.not.i24, label %_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit, label %40
 
@@ -190,10 +184,10 @@ _ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit: ; p
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare extern_weak ptr @dlopen(ptr noundef, i32 noundef) #2
@@ -201,13 +195,19 @@ declare extern_weak ptr @dlopen(ptr noundef, i32 noundef) #2
 ; Function Attrs: nounwind
 declare extern_weak ptr @dlsym(ptr noundef, ptr noundef) #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind sspstrong willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(read) }
 

@@ -200,7 +200,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i: ; preds = %55
 _ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit: ; preds = %65, %68
   %.sroa.136.1 = phi ptr [ %70, %68 ], [ %67, %65 ]
   %74 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %29) #14, !noalias !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %75 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %29) #14
   %76 = icmp eq i32 %75, 35
   br i1 %76, label %77, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i
@@ -226,7 +226,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit6.i: ; preds = %_ZNSt11unique_lockI
 
 81:                                               ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i
   %82 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %29) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %83 = load ptr, ptr %27, align 8
   %.not.i.i.i.i23 = icmp eq ptr %83, null
   br i1 %.not.i.i.i.i23, label %_ZN8WasmEdge6SymbolIvED2Ev.exit, label %84
@@ -394,7 +394,7 @@ _ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit29: ; preds = %137,
   %162 = ashr exact i64 %161, 5
   store ptr %156, ptr %10, align 8
   store i64 %162, ptr %36, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %163 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %32) #14
   %164 = icmp eq i32 %163, 35
   br i1 %164, label %165, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i34
@@ -417,7 +417,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit7.i: ; preds = %_ZNSt11unique_lockI
 
 _ZN8WasmEdge7Runtime8Instance14ModuleInstance7addFuncIJRKjRKNS_3AST12FunctionTypeEN5cxx204spanIKSt4pairIjNS_7ValTypeEELm18446744073709551615EEENSB_IKNS6_11InstructionELm18446744073709551615EEEEEEvDpOT_.exit: ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i34
   %169 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %32) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %170 = add i32 %.057, 1
   %171 = zext i32 %170 to i64
   %172 = icmp ugt i64 %20, %171
@@ -729,7 +729,7 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance16
   br i1 %.not, label %12, label %4
 
 4:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %6 = load i8, ptr %5, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %6, -1
@@ -748,7 +748,7 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance16
   unreachable
 
 _ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.exit: ; preds = %4, %7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 96) #18
   br label %12
 
@@ -1489,7 +1489,7 @@ _ZNSt12_Vector_baseIN8WasmEdge3AST11InstructionESaIS2_EE13_M_deallocateEPS2_m.ex
   %.012.i.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i.i16 ], [ %56, %_ZN8WasmEdge3AST11InstructionaSERKS1_.exit.i.i.i.i.i ]
   %.0811.i.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i.i16 ], [ %55, %_ZN8WasmEdge3AST11InstructionaSERKS1_.exit.i.i.i.i.i ]
   %.0910.i.i.i.i.i = phi ptr [ %1, %.lr.ph.i.i.i.i.i16 ], [ %54, %_ZN8WasmEdge3AST11InstructionaSERKS1_.exit.i.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i.i.i.i.i.i = icmp eq ptr %.0811.i.i.i.i.i, %.0910.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %_ZN8WasmEdge3AST11InstructionaSERKS1_.exit.i.i.i.i.i, label %45
 
@@ -1517,7 +1517,7 @@ _ZNSt12_Vector_baseIN8WasmEdge3AST11InstructionESaIS2_EE13_M_deallocateEPS2_m.ex
   br label %_ZN8WasmEdge3AST11InstructionaSERKS1_.exit.i.i.i.i.i
 
 _ZN8WasmEdge3AST11InstructionaSERKS1_.exit.i.i.i.i.i: ; preds = %45, %44
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 32
   %56 = add nsw i64 %.012.i.i.i.i.i, -1
@@ -1561,7 +1561,7 @@ _ZSt7advanceIPKN8WasmEdge3AST11InstructionEmEvRT_T0_.exit: ; preds = %34
   %.012.i.i.i.i.i20 = phi i64 [ %60, %.lr.ph.i.i.i.i.i19 ], [ %77, %_ZN8WasmEdge3AST11InstructionaSERKS1_.exit.i.i.i.i.i26 ]
   %.0811.i.i.i.i.i21 = phi ptr [ %12, %.lr.ph.i.i.i.i.i19 ], [ %76, %_ZN8WasmEdge3AST11InstructionaSERKS1_.exit.i.i.i.i.i26 ]
   %.0910.i.i.i.i.i22 = phi ptr [ %1, %.lr.ph.i.i.i.i.i19 ], [ %75, %_ZN8WasmEdge3AST11InstructionaSERKS1_.exit.i.i.i.i.i26 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i.i.i.i.i.i23 = icmp eq ptr %.0811.i.i.i.i.i21, %.0910.i.i.i.i.i22
   br i1 %.not.i.i.i.i.i.i23, label %_ZN8WasmEdge3AST11InstructionaSERKS1_.exit.i.i.i.i.i26, label %66
 
@@ -1589,7 +1589,7 @@ _ZSt7advanceIPKN8WasmEdge3AST11InstructionEmEvRT_T0_.exit: ; preds = %34
   br label %_ZN8WasmEdge3AST11InstructionaSERKS1_.exit.i.i.i.i.i26
 
 _ZN8WasmEdge3AST11InstructionaSERKS1_.exit.i.i.i.i.i26: ; preds = %66, %65
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %75 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i22, i64 32
   %76 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i21, i64 32
   %77 = add nsw i64 %.012.i.i.i.i.i20, -1
@@ -1788,10 +1788,10 @@ declare i64 @llvm.umax.i64(i64, i64) #12
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

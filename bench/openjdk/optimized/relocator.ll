@@ -105,7 +105,7 @@ define hidden void @_ZN9RelocatorC2ERK12methodHandleP17RelocatorListener(ptr nou
   store i32 %13, ptr %14, align 4
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #10
   store ptr null, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = load i32, ptr %14, align 4
   %16 = mul nsw i32 %15, 125
   %17 = sdiv i32 %16, 100
@@ -148,7 +148,7 @@ define hidden void @_ZN9RelocatorC2ERK12methodHandleP17RelocatorListener(ptr nou
   br label %39
 
 37:                                               ; preds = %20, %22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %38 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %38, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 131) #11
@@ -158,7 +158,7 @@ define hidden void @_ZN9RelocatorC2ERK12methodHandleP17RelocatorListener(ptr nou
   store ptr %24, ptr %0, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.010.i, ptr %40, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2412,7 +2412,7 @@ define hidden noundef zeroext i1 @_ZN9Relocator13relocate_codeEiii(ptr noundef n
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = mul nsw i32 %10, 125
   %17 = sdiv i32 %16, 100
   %18 = tail call noundef i32 @llvm.smax.i32(i32 %11, i32 %17)
@@ -2450,13 +2450,13 @@ define hidden noundef zeroext i1 @_ZN9Relocator13relocate_codeEiii(ptr noundef n
   br label %_ZN9Relocator17expand_code_arrayEi.exit
 
 _ZN9Relocator17expand_code_arrayEi.exit.thread:   ; preds = %15, %20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN9Relocator6notifyEiii.exit
 
 _ZN9Relocator17expand_code_arrayEi.exit:          ; preds = %25, %28
   store ptr %22, ptr %0, align 8
   store i32 %18, ptr %12, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
 .thread:                                          ; preds = %_ZN9Relocator17expand_code_arrayEi.exit, %8
@@ -3450,10 +3450,10 @@ declare i32 @llvm.smax.i32(i32, i32) #8
 declare i32 @llvm.ctpop.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -63,7 +63,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @LoadWebP(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca %struct.WebPBitstreamFeatures, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i32 @ImgIoUtilReadFile(ptr noundef %0, ptr noundef %1, ptr noundef %2) #7
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %14, label %7
@@ -87,19 +87,13 @@ define hidden range(i32 0, 2) i32 @LoadWebP(ptr noundef %0, ptr noundef %1, ptr 
 
 14:                                               ; preds = %7, %4, %12
   %.0 = phi i32 [ 0, %12 ], [ 0, %4 ], [ 1, %7 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare i32 @ImgIoUtilReadFile(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @ImgIoUtilReadFile(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
-
-declare void @WebPFree(ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @WebPFree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @DecodeWebP(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
@@ -126,7 +120,7 @@ PrintAnimationWarning.exit:                       ; preds = %5, %7
   ret i32 %.0
 }
 
-declare i32 @WebPDecode(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @WebPDecode(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @DecodeWebPIncremental(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
@@ -164,18 +158,18 @@ PrintAnimationWarning.exit:                       ; preds = %5, %7
   ret i32 %.0
 }
 
-declare ptr @WebPIDecode(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @WebPIDecode(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @WebPIUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @WebPIUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @WebPIDelete(ptr noundef) local_unnamed_addr #4
+declare void @WebPIDelete(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @ReadWebP(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.WebPData, align 8
   %7 = alloca %struct.WebPChunkIterator, align 8
   %8 = alloca %struct.WebPDecoderConfig, align 8
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = icmp eq ptr %0, null
   %11 = icmp eq i64 %1, 0
@@ -426,12 +420,12 @@ DecodeWebP.exit:                                  ; preds = %94, %98
   br i1 %or.cond7, label %133, label %170
 
 133:                                              ; preds = %130
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !45
   %134 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %1, ptr %134, align 8, !tbaa !47
   %135 = call ptr @WebPDemuxInternal(ptr noundef nonnull %6, i32 noundef 0, ptr noundef null, i32 noundef 263) #7
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %136 = icmp eq ptr %135, null
   br i1 %136, label %.thread133, label %137
 
@@ -497,13 +491,13 @@ DecodeWebP.exit:                                  ; preds = %94, %98
 
 .thread137:                                       ; preds = %163, %161, %159
   call void @WebPDemuxDelete(ptr noundef nonnull %135) #7
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %172
 
 .thread133:                                       ; preds = %133
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @PrintWebPError(ptr noundef nonnull @.str.7, i32 noundef 3)
   br label %171
 
@@ -516,33 +510,39 @@ DecodeWebP.exit:                                  ; preds = %94, %98
 
 172:                                              ; preds = %.thread137, %170, %171, %5, %20, %15
   %.0105 = phi i32 [ 0, %20 ], [ 0, %15 ], [ 0, %5 ], [ 0, %171 ], [ 1, %170 ], [ 1, %.thread137 ]
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0105
 }
 
-declare i32 @ImgIoUtilCheckSizeArgumentsOverflow(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @ImgIoUtilCheckSizeArgumentsOverflow(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @WebPPictureAlloc(ptr noundef) local_unnamed_addr #4
+declare i32 @WebPPictureAlloc(ptr noundef) local_unnamed_addr #3
 
-declare void @WebPFreeDecBuffer(ptr noundef) local_unnamed_addr #4
+declare void @WebPFreeDecBuffer(ptr noundef) local_unnamed_addr #3
 
-declare void @WebPPictureFree(ptr noundef) local_unnamed_addr #4
+declare void @WebPPictureFree(ptr noundef) local_unnamed_addr #3
 
-declare i32 @WebPGetFeaturesInternal(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @WebPGetFeaturesInternal(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @WebPInitDecoderConfigInternal(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @WebPInitDecoderConfigInternal(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @WebPDemuxGetI(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @WebPDemuxGetI(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @WebPDemuxGetChunk(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @WebPDemuxGetChunk(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @MetadataCopy(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @MetadataCopy(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @WebPDemuxReleaseChunkIterator(ptr noundef) local_unnamed_addr #4
+declare void @WebPDemuxReleaseChunkIterator(ptr noundef) local_unnamed_addr #3
 
-declare void @WebPDemuxDelete(ptr noundef) local_unnamed_addr #4
+declare void @WebPDemuxDelete(ptr noundef) local_unnamed_addr #3
 
-declare ptr @WebPDemuxInternal(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @WebPDemuxInternal(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
@@ -553,8 +553,8 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 attributes #0 = { cold nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nofree nounwind }
 attributes #6 = { cold nounwind }
 attributes #7 = { nounwind }

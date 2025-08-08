@@ -110,14 +110,8 @@ _ZNK5boost10shared_ptrIN8QuantLib9AlphaFormEEdeEv.exit: ; preds = %for.body, %co
   br i1 %cmp.not.not, label %for.body, label %for.cond.cleanup, !llvm.loop !25
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZN8QuantLib11AlphaFinder20computeQuadraticPartEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, double noundef %alpha) local_unnamed_addr #1 align 2 {
@@ -191,9 +185,9 @@ entry:
   %dum1 = alloca double, align 8
   %dum2 = alloca double, align 8
   %dum3 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dum1) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dum2) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dum3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %dum1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dum2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dum3)
   %stepindex_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %stepindex_, align 8, !tbaa !13
   %ratetwohomogeneousvols_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -266,9 +260,9 @@ _ZN8QuantLib11AlphaFinder20computeQuadraticPartEd.exit: ; preds = %_ZNK5boost10s
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dum3) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dum2) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dum1) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %dum3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dum2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dum1)
   ret double %22
 
 for.body:                                         ; preds = %_ZN8QuantLib11AlphaFinder20computeQuadraticPartEd.exit, %for.body
@@ -291,7 +285,7 @@ entry:
   %q2 = alloca %"class.QuantLib::quadratic", align 8
   %y = alloca double, align 8
   store double %alphaFound, ptr %alpha, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %q2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %q2)
   %targetVariance_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load double, ptr %targetVariance_, align 8, !tbaa !30
   %sub = fsub double %constantPart, %0
@@ -312,7 +306,7 @@ _ZNK5boost10shared_ptrIN8QuantLib9AlphaFormEEptEv.exit: ; preds = %entry, %cond.
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %2, double noundef %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %y) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %y)
   %call2 = call noundef zeroext i1 @_ZNK8QuantLib9quadratic5rootsERdS1_(ptr noundef nonnull align 8 dereferenceable(24) %q2, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %y)
   %cmp.not31 = icmp slt i32 %stepindex, 0
   br i1 %cmp.not31, label %for.cond.cleanup, label %for.body.preheader
@@ -394,17 +388,17 @@ _ZNK5boost10shared_ptrIN8QuantLib9AlphaFormEEdeEv.exit29: ; preds = %if.end, %co
   br label %cleanup
 
 cleanup:                                          ; preds = %for.cond.cleanup, %_ZNK5boost10shared_ptrIN8QuantLib9AlphaFormEEdeEv.exit29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %y) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %q2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %y)
+  call void @llvm.lifetime.end.p0(ptr nonnull %q2)
   ret i1 %cmp18
 }
 
-declare void @_ZN8QuantLib9quadraticC1Eddd(ptr noundef nonnull align 8 dereferenceable(24), double noundef, double noundef, double noundef) unnamed_addr #4
+declare void @_ZN8QuantLib9quadraticC1Eddd(ptr noundef nonnull align 8 dereferenceable(24), double noundef, double noundef, double noundef) unnamed_addr #3
 
-declare noundef zeroext i1 @_ZNK8QuantLib9quadratic5rootsERdS1_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
+declare noundef zeroext i1 @_ZNK8QuantLib9quadratic5rootsERdS1_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #5
+declare double @sqrt(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZN8QuantLib11AlphaFinder19valueAtTurningPointEd(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %this, double noundef %alpha) local_unnamed_addr #1 align 2 {
@@ -475,17 +469,17 @@ _ZN8QuantLib11AlphaFinder20computeQuadraticPartEd.exit: ; preds = %_ZNK5boost10s
   %mul11.i = fmul double %var.0.lcssa.i, %mul10.i
   %quadraticPart_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   store double %mul11.i, ptr %quadraticPart_, align 8, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %q) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %q)
   %14 = load double, ptr %linearPart_, align 8, !tbaa !34
   %constantPart_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %15 = load double, ptr %constantPart_, align 8, !tbaa !28
   call void @_ZN8QuantLib9quadraticC1Eddd(ptr noundef nonnull align 8 dereferenceable(24) %q, double noundef %mul11.i, double noundef %14, double noundef %15)
   %call5 = call noundef double @_ZNK8QuantLib9quadratic19valueAtTurningPointEv(ptr noundef nonnull align 8 dereferenceable(24) %q)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %q) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %q)
   ret double %call5
 }
 
-declare noundef double @_ZNK8QuantLib9quadratic19valueAtTurningPointEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
+declare noundef double @_ZNK8QuantLib9quadratic19valueAtTurningPointEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZN8QuantLib11AlphaFinder24minusValueAtTurningPointEd(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %this, double noundef %alpha) local_unnamed_addr #1 align 2 {
@@ -508,9 +502,9 @@ entry:
   br i1 %cmp, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dum1) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dum2) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dum3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %dum1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dum2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dum3)
   %stepindex_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %stepindex_, align 8, !tbaa !13
   %ratetwohomogeneousvols_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -574,9 +568,9 @@ _ZN8QuantLib11AlphaFinder20computeQuadraticPartEd.exit: ; preds = %_ZNK5boost10s
   %16 = load double, ptr %constantPart_, align 8, !tbaa !28
   %putativevols_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %call4 = call noundef zeroext i1 @_ZN8QuantLib11AlphaFinder9finalPartEdiRKSt6vectorIdSaIdEEdddRdS6_S6_RS3_(ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %alpha, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %ratetwohomogeneousvols_, double noundef %mul11.i, double noundef %call3, double noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %dum1, ptr noundef nonnull align 8 dereferenceable(8) %dum2, ptr noundef nonnull align 8 dereferenceable(8) %dum3, ptr noundef nonnull align 8 dereferenceable(24) %putativevols_)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dum3) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dum2) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dum1) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %dum3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dum2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dum1)
   br label %cleanup
 
 cleanup:                                          ; preds = %entry, %_ZN8QuantLib11AlphaFinder20computeQuadraticPartEd.exit
@@ -1367,24 +1361,24 @@ cleanup97:                                        ; preds = %if.else48, %for.con
   ret i1 %retval.1
 }
 
-declare void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #6
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #5
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #3
+declare double @llvm.fabs.f64(double) #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1489,7 +1483,13 @@ if.end44:                                         ; preds = %_ZSt27__uninitializ
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10
@@ -1508,14 +1508,14 @@ declare i64 @llvm.umin.i64(i64, i64) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

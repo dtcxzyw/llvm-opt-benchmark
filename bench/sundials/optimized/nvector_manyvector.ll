@@ -131,13 +131,10 @@ define ptr @N_VNew_ManyVector(i64 noundef %0, ptr noundef readonly captures(none
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @N_VNewEmpty(ptr noundef) local_unnamed_addr #2
+declare ptr @N_VNewEmpty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @N_VGetVectorID_ManyVector(ptr readnone captures(none) %0) #3 {
+define noundef i32 @N_VGetVectorID_ManyVector(ptr readnone captures(none) %0) #2 {
   ret i32 13
 }
 
@@ -226,8 +223,8 @@ define void @N_VDestroy_ManyVector(ptr noundef captures(address_is_null) %0) #0 
 define void @N_VSpace_ManyVector(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 8)) %1, ptr noundef captures(none) initializes((0, 8)) %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %1, align 8, !tbaa !67
   store i64 0, ptr %2, align 8, !tbaa !67
   %6 = load ptr, ptr %0, align 8, !tbaa !56
@@ -272,13 +269,13 @@ define void @N_VSpace_ManyVector(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %30, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %26, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @N_VGetLength_ManyVector(ptr noundef readonly captures(none) %0) #4 {
+define i64 @N_VGetLength_ManyVector(ptr noundef readonly captures(none) %0) #3 {
   %2 = load ptr, ptr %0, align 8, !tbaa !56
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !66
@@ -1486,7 +1483,7 @@ define noundef i32 @N_VDotProdMultiLocal_ManyVector(i32 noundef %0, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @N_VBufSize_ManyVector(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 8)) %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %1, align 8, !tbaa !67
   %4 = load ptr, ptr %0, align 8, !tbaa !56
   %5 = load i64, ptr %4, align 8, !tbaa !57
@@ -1512,14 +1509,14 @@ define noundef i32 @N_VBufSize_ManyVector(ptr noundef readonly captures(none) %0
   br i1 %19, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @N_VBufPack_ManyVector(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !56
   %5 = load i64, ptr %4, align 8, !tbaa !57
   %6 = icmp sgt i64 %5, 0
@@ -1549,14 +1546,14 @@ define noundef i32 @N_VBufPack_ManyVector(ptr noundef readonly captures(none) %0
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @N_VBufUnpack_ManyVector(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !56
   %5 = load i64, ptr %4, align 8, !tbaa !57
   %6 = icmp sgt i64 %5, 0
@@ -1586,7 +1583,7 @@ define noundef i32 @N_VBufUnpack_ManyVector(ptr noundef readonly captures(none) 
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
@@ -1641,15 +1638,12 @@ define void @N_VPrintFile_ManyVector(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
-declare i64 @N_VGetLength(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @N_VGetLength(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @N_VGetSubvector_ManyVector(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
+define ptr @N_VGetSubvector_ManyVector(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8, !tbaa !56
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !63
@@ -1681,7 +1675,7 @@ define ptr @N_VGetSubvectorArrayPointer_ManyVector(ptr noundef readonly captures
   ret ptr %.0
 }
 
-declare ptr @N_VGetArrayPointer(ptr noundef) local_unnamed_addr #2
+declare ptr @N_VGetArrayPointer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @N_VSetSubvectorArrayPointer_ManyVector(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -1694,18 +1688,18 @@ define noundef i32 @N_VSetSubvectorArrayPointer_ManyVector(ptr noundef %0, ptr n
   ret i32 0
 }
 
-declare void @N_VSetArrayPointer(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VSetArrayPointer(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @N_VGetNumSubvectors_ManyVector(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define i64 @N_VGetNumSubvectors_ManyVector(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !tbaa !56
   %3 = load i64, ptr %2, align 8, !tbaa !57
   ret i64 %3
 }
 
-declare void @N_VPrint(ptr noundef) local_unnamed_addr #2
+declare void @N_VPrint(ptr noundef) local_unnamed_addr #1
 
-declare void @N_VPrintFile(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VPrintFile(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @ManyVectorClone(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
@@ -1772,12 +1766,12 @@ define internal fastcc noundef ptr @ManyVectorClone(ptr noundef %0, i32 noundef 
   ret ptr %5
 }
 
-declare void @N_VDestroy(ptr noundef) local_unnamed_addr #2
+declare void @N_VDestroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
-declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i64 @N_VGetSubvectorLocalLength_ManyVector(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -1790,67 +1784,67 @@ define i64 @N_VGetSubvectorLocalLength_ManyVector(ptr noundef readonly captures(
   ret i64 %8
 }
 
-declare i64 @N_VGetLocalLength(ptr noundef) local_unnamed_addr #2
+declare i64 @N_VGetLocalLength(ptr noundef) local_unnamed_addr #1
 
-declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @N_VProd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VProd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @N_VDiv(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VDiv(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @N_VAbs(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VAbs(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @N_VInv(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VInv(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @N_VAddConst(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VAddConst(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #1
 
-declare double @N_VDotProd(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare double @N_VDotProd(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare double @N_VMaxNormLocal(ptr noundef) local_unnamed_addr #2
+declare double @N_VMaxNormLocal(ptr noundef) local_unnamed_addr #1
 
-declare double @N_VMaxNorm(ptr noundef) local_unnamed_addr #2
+declare double @N_VMaxNorm(ptr noundef) local_unnamed_addr #1
 
-declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #7
+declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #8
+declare double @sqrt(double noundef) local_unnamed_addr #7
 
-declare double @N_VWrmsNormMask(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare double @N_VWrmsNormMask(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare double @N_VMinLocal(ptr noundef) local_unnamed_addr #2
+declare double @N_VMinLocal(ptr noundef) local_unnamed_addr #1
 
-declare double @N_VMin(ptr noundef) local_unnamed_addr #2
+declare double @N_VMin(ptr noundef) local_unnamed_addr #1
 
-declare double @N_VL1Norm(ptr noundef) local_unnamed_addr #2
+declare double @N_VL1Norm(ptr noundef) local_unnamed_addr #1
 
-declare void @N_VCompare(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VCompare(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @N_VInvTestLocal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @N_VInvTestLocal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @N_VInvTest(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @N_VInvTest(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @N_VConstrMaskLocal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @N_VConstrMaskLocal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @N_VConstrMask(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @N_VConstrMask(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare double @N_VMinQuotientLocal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare double @N_VMinQuotientLocal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare double @N_VMinQuotient(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare double @N_VMinQuotient(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @N_VDotProdMultiLocal(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @N_VDotProdMultiLocal(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @N_VLinearCombination(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @N_VLinearCombination(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @N_VScaleAddMulti(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @N_VScaleAddMulti(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare double @N_VDotProdLocal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare double @N_VDotProdLocal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @N_VLinearSumVectorArray_ManyVector(i32 noundef %0, double noundef %1, ptr noundef readonly captures(none) %2, double noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5) #0 {
@@ -1932,7 +1926,7 @@ define noundef i32 @N_VLinearSumVectorArray_ManyVector(i32 noundef %0, double no
   ret i32 0
 }
 
-declare i32 @N_VLinearSumVectorArray(i32 noundef, double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @N_VLinearSumVectorArray(i32 noundef, double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @N_VScaleVectorArray_ManyVector(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
@@ -2003,7 +1997,7 @@ define noundef i32 @N_VScaleVectorArray_ManyVector(i32 noundef %0, ptr noundef %
   ret i32 0
 }
 
-declare i32 @N_VScaleVectorArray(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @N_VScaleVectorArray(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @N_VConstVectorArray_ManyVector(i32 noundef %0, double noundef %1, ptr noundef readonly captures(none) %2) #0 {
@@ -2063,20 +2057,20 @@ define noundef i32 @N_VConstVectorArray_ManyVector(i32 noundef %0, double nounde
   ret i32 0
 }
 
-declare i32 @N_VConstVectorArray(i32 noundef, double noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @N_VConstVectorArray(i32 noundef, double noundef, ptr noundef) local_unnamed_addr #1
 
-declare double @N_VWSqrSumLocal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare double @N_VWSqrSumLocal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare double @N_VWSqrSumMaskLocal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare double @N_VWSqrSumMaskLocal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @N_VBufSize(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @N_VBufSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @N_VBufPack(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @N_VBufPack(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @N_VBufUnpack(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @N_VBufUnpack(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VEnableFusedOps_ManyVector(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
+define noundef i32 @N_VEnableFusedOps_ManyVector(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq i32 %1, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
@@ -2116,7 +2110,7 @@ define noundef i32 @N_VEnableFusedOps_ManyVector(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VEnableLinearCombination_ManyVector(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
+define noundef i32 @N_VEnableLinearCombination_ManyVector(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq i32 %1, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
@@ -2127,7 +2121,7 @@ define noundef i32 @N_VEnableLinearCombination_ManyVector(ptr noundef readonly c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VEnableScaleAddMulti_ManyVector(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
+define noundef i32 @N_VEnableScaleAddMulti_ManyVector(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq i32 %1, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
@@ -2138,7 +2132,7 @@ define noundef i32 @N_VEnableScaleAddMulti_ManyVector(ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VEnableDotProdMulti_ManyVector(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
+define noundef i32 @N_VEnableDotProdMulti_ManyVector(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq i32 %1, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
@@ -2149,7 +2143,7 @@ define noundef i32 @N_VEnableDotProdMulti_ManyVector(ptr noundef readonly captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VEnableLinearSumVectorArray_ManyVector(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
+define noundef i32 @N_VEnableLinearSumVectorArray_ManyVector(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq i32 %1, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
@@ -2160,7 +2154,7 @@ define noundef i32 @N_VEnableLinearSumVectorArray_ManyVector(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VEnableScaleVectorArray_ManyVector(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
+define noundef i32 @N_VEnableScaleVectorArray_ManyVector(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq i32 %1, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
@@ -2171,7 +2165,7 @@ define noundef i32 @N_VEnableScaleVectorArray_ManyVector(ptr noundef readonly ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VEnableConstVectorArray_ManyVector(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
+define noundef i32 @N_VEnableConstVectorArray_ManyVector(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq i32 %1, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
@@ -2182,7 +2176,7 @@ define noundef i32 @N_VEnableConstVectorArray_ManyVector(ptr noundef readonly ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VEnableWrmsNormVectorArray_ManyVector(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
+define noundef i32 @N_VEnableWrmsNormVectorArray_ManyVector(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq i32 %1, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
@@ -2193,7 +2187,7 @@ define noundef i32 @N_VEnableWrmsNormVectorArray_ManyVector(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VEnableWrmsNormMaskVectorArray_ManyVector(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
+define noundef i32 @N_VEnableWrmsNormMaskVectorArray_ManyVector(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq i32 %1, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
@@ -2204,7 +2198,7 @@ define noundef i32 @N_VEnableWrmsNormMaskVectorArray_ManyVector(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VEnableDotProdMultiLocal_ManyVector(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
+define noundef i32 @N_VEnableDotProdMultiLocal_ManyVector(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq i32 %1, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
@@ -2214,11 +2208,17 @@ define noundef i32 @N_VEnableDotProdMultiLocal_ManyVector(ptr noundef readonly c
   ret i32 0
 }
 
-declare i32 @N_VCopyOps(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @N_VCopyOps(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @N_VCloneEmpty(ptr noundef) local_unnamed_addr #2
+declare ptr @N_VCloneEmpty(ptr noundef) local_unnamed_addr #1
 
-declare ptr @N_VClone(ptr noundef) local_unnamed_addr #2
+declare ptr @N_VClone(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
@@ -2227,15 +2227,15 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nounwind }

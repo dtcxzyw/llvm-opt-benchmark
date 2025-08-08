@@ -1149,13 +1149,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionC2ERKNSt7__
   br i1 %17, label %145, label %18
 
 18:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19Sdf_PathExprBuilder6_StackESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr null)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_PathExprBuilderC2Ev.exit.i unwind label %19
@@ -1196,7 +1196,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Sdf_PathExprBuilderC2Ev.exit.i: ; preds =
   br label %.body.i
 
 _ZN21PXR_INTERNAL_NS_pegtl12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRKSA_PKcJEEEOT_OT0_DpOT1_.exit.i: ; preds = %.noexc.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false)
   %33 = invoke fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18PathExprENS_5ascii5blankES7_EELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS6_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull align 8 dereferenceable(24) %4)
@@ -1273,7 +1273,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %.body.i
 
 61:                                               ; preds = %.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJNS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18PathExprENS_5ascii5blankES8_EEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS5_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #25
@@ -1456,13 +1456,13 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19Sdf_PathExprBuilder6_StackES
   unreachable
 
 126:                                              ; preds = %113, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19Sdf_PathExprBuilder6_StackES2_EvT_S4_RSaIT0_E.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %.0.i, label %145, label %127
 
 127:                                              ; preds = %126
@@ -2151,8 +2151,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression14MakeCompl
           to label %9 unwind label %66
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -2218,13 +2218,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression14MakeCompl
           to label %45 unwind label %66
 
 .thread:                                          ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %9, %.noexc
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %68
 
 45:                                               ; preds = %43
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %44, label %46, label %68
 
 46:                                               ; preds = %45
@@ -2312,8 +2312,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression14MakeCompl
 
 79:                                               ; preds = %75, %71, %68
   %80 = load ptr, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression7NothingEvE10theNothing, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %12, ptr %3, align 8, !alias.scope !18
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %11, ptr %81, align 8, !alias.scope !18
@@ -2375,13 +2375,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression14MakeCompl
           to label %112 unwind label %66
 
 .thread35:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i17, %79, %.noexc22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %125
 
 112:                                              ; preds = %110
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %111, label %113, label %125
 
 113:                                              ; preds = %112
@@ -2612,8 +2612,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression6MakeOpENS0
 
 39:                                               ; preds = %35, %31, %28
   %40 = load ptr, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression7NothingEvE10theNothing, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -2679,13 +2679,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression6MakeOpENS0
           to label %76 unwind label %199
 
 .thread:                                          ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %39, %.noexc
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %77
 
 76:                                               ; preds = %74
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br i1 %75, label %196, label %77
 
 77:                                               ; preds = %.thread, %76
@@ -2718,8 +2718,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression6MakeOpENS0
 
 88:                                               ; preds = %84, %80, %77
   %89 = load ptr, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression7NothingEvE10theNothing, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -2785,13 +2785,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression6MakeOpENS0
           to label %125 unwind label %199
 
 .thread164:                                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i46, %88, %.noexc51
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %126
 
 125:                                              ; preds = %123
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br i1 %124, label %196, label %126
 
 126:                                              ; preds = %.thread164, %125
@@ -2799,8 +2799,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression6MakeOpENS0
           to label %128 unwind label %199
 
 128:                                              ; preds = %126
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %43, ptr %15, align 8, !alias.scope !36
   %129 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %42, ptr %129, align 8, !alias.scope !36
@@ -2862,13 +2862,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression6MakeOpENS0
           to label %160 unwind label %199
 
 .thread166:                                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i55, %128, %.noexc60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %161
 
 160:                                              ; preds = %158
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %159, label %196, label %161
 
 161:                                              ; preds = %.thread166, %160
@@ -2876,8 +2876,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression6MakeOpENS0
           to label %163 unwind label %199
 
 163:                                              ; preds = %161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %92, ptr %13, align 8, !alias.scope !42
   %164 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %91, ptr %164, align 8, !alias.scope !42
@@ -2939,13 +2939,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression6MakeOpENS0
           to label %195 unwind label %199
 
 .thread168:                                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i64, %163, %.noexc69
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %201
 
 195:                                              ; preds = %193
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %194, label %196, label %201
 
 196:                                              ; preds = %195, %160, %125, %76
@@ -2993,8 +2993,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression6MakeOpENS0
 
 212:                                              ; preds = %208, %204, %201
   %213 = load ptr, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression7NothingEvE10theNothing, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %214 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %215 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %216 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -3060,13 +3060,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression6MakeOpENS0
           to label %249 unwind label %199
 
 .thread170:                                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i77, %212, %.noexc82
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %278
 
 249:                                              ; preds = %247
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %248, label %250, label %278
 
 250:                                              ; preds = %249
@@ -3167,8 +3167,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression6MakeOpENS0
 
 289:                                              ; preds = %285, %281, %278
   %290 = load ptr, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression7NothingEvE10theNothing, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %291 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %292 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %293 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -3234,13 +3234,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression6MakeOpENS0
           to label %326 unwind label %199
 
 .thread172:                                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i98, %289, %.noexc103
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %355
 
 326:                                              ; preds = %324
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %325, label %327, label %355
 
 327:                                              ; preds = %326
@@ -3316,8 +3316,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression6MakeOpENS0
           to label %357 unwind label %199
 
 357:                                              ; preds = %355
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %216, ptr %7, align 8, !alias.scope !60
   %358 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %215, ptr %358, align 8, !alias.scope !60
@@ -3379,13 +3379,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression6MakeOpENS0
           to label %389 unwind label %199
 
 .thread174:                                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i116, %357, %.noexc121
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %407
 
 389:                                              ; preds = %387
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %388, label %390, label %407
 
 390:                                              ; preds = %389
@@ -3433,8 +3433,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression6MakeOpENS0
           to label %409 unwind label %199
 
 409:                                              ; preds = %407
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %293, ptr %5, align 8, !alias.scope !66
   %410 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %292, ptr %410, align 8, !alias.scope !66
@@ -3496,13 +3496,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression6MakeOpENS0
           to label %441 unwind label %199
 
 .thread176:                                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i130, %409, %.noexc135
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %459
 
 441:                                              ; preds = %439
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %440, label %442, label %459
 
 442:                                              ; preds = %441
@@ -4969,9 +4969,9 @@ define void @_ZNO32pxrInternal_v0_24__pxrReserved__17SdfPathExpression17ResolveR
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %8, ptr %21, align 8
   store ptr %9, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %12, ptr %7, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRKNS_14SdfPathPatternEEE9_InvokeFnIZNOS_17SdfPathExpression17ResolveReferencesENS0_IFS7_RKNS7_19ExpressionReferenceEEEEE3$_2EEvPKvS3_", ptr %.sroa.23.0..sroa_idx, align 8
@@ -4983,9 +4983,9 @@ define void @_ZNO32pxrInternal_v0_24__pxrReserved__17SdfPathExpression17ResolveR
           to label %23 unwind label %64
 
 23:                                               ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 -104
@@ -5581,8 +5581,8 @@ define linkonce_odr noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKSt6ve
 29:                                               ; preds = %38, %.lr.ph.i.i.i.i.i
   %.013.i.i.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i.i.i ], [ %40, %38 ]
   %.0812.i.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i.i ], [ %39, %38 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i, i64 56
@@ -5603,14 +5603,14 @@ define linkonce_odr noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKSt6ve
   br i1 %36, label %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_14SdfPathPatternES2_.exit.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_14SdfPathPatternES2_.exit.thread.i.i.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_14SdfPathPatternES2_.exit.thread.i.i.i.i.i: ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNSt15__tuple_compareISt5tupleIJRKSt6vectorIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression2OpESaIS4_EERKS1_INS3_19ExpressionReferenceESaIS9_EERKS1_INS2_14SdfPathPatternESaISE_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESR_Lm3ELm4EE4__eqERKSR_SU_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_14SdfPathPatternES2_.exit.i.i.i.i.i: ; preds = %29
   %37 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__7SdfPathERKSt6vectorINS1_14SdfPathPattern9ComponentESaIS7_EERKS5_INS1_22SdfPredicateExpressionESaISC_EERKbEESJ_Lm1ELm4EE4__eqERKSJ_SM_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %37, label %38, label %_ZNSt15__tuple_compareISt5tupleIJRKSt6vectorIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression2OpESaIS4_EERKS1_INS3_19ExpressionReferenceESaIS9_EERKS1_INS2_14SdfPathPatternESaISE_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESR_Lm3ELm4EE4__eqERKSR_SU_.exit
 
 38:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_14SdfPathPatternES2_.exit.i.i.i.i.i
@@ -5692,8 +5692,8 @@ define linkonce_odr noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKN32px
 29:                                               ; preds = %35, %.lr.ph.i.i.i.i.i
   %.011.i.i.i.i.i = phi ptr [ %19, %.lr.ph.i.i.i.i.i ], [ %37, %35 ]
   %.0810.i.i.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i.i ], [ %36, %35 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %30 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 32
   %31 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 36
   store ptr %31, ptr %5, align 8, !alias.scope !88
@@ -5705,8 +5705,8 @@ define linkonce_odr noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKN32px
   store ptr %32, ptr %27, align 8, !alias.scope !91
   store ptr %.011.i.i.i.i.i, ptr %28, align 8, !alias.scope !91
   %34 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKiRKbEESD_Lm0ELm3EE4__eqERKSD_SG_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %34, label %35, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9ComponentESaIS2_EEbRKSt6vectorIT_T0_ES9_.exit
 
 35:                                               ; preds = %29
@@ -5749,8 +5749,8 @@ define linkonce_odr noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKN32px
 60:                                               ; preds = %86, %.lr.ph.i.i.i.i.i.i
   %.016.i.i.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i.i.i ], [ %88, %86 ]
   %.0815.i.i.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i.i.i ], [ %87, %86 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %61 = getelementptr inbounds nuw i8, ptr %.0815.i.i.i.i.i.i, i64 24
   %62 = getelementptr inbounds nuw i8, ptr %.0815.i.i.i.i.i.i, i64 48
   store ptr %62, ptr %3, align 8, !alias.scope !95
@@ -5795,14 +5795,14 @@ define linkonce_odr noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKN32px
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22SdfPredicateExpressionES2_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !101
 
 _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22SdfPredicateExpressionES2_.exit.thread.i.i.i.i.i.i: ; preds = %60, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9ComponentESaIS2_EEbRKSt6vectorIT_T0_ES9_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22SdfPredicateExpressionES2_.exit.i.i.i.i.i.i: ; preds = %82, %78
   %85 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESaIS4_EERKS1_INS3_6FnCallESaIS9_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESM_Lm1ELm3EE4__eqERKSM_SP_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %85, label %86, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9ComponentESaIS2_EEbRKSt6vectorIT_T0_ES9_.exit
 
 86:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22SdfPredicateExpressionES2_.exit.i.i.i.i.i.i
@@ -5911,8 +5911,8 @@ define linkonce_odr noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKSt6ve
 27:                                               ; preds = %36, %.lr.ph.i.i.i.i.i
   %.013.i.i.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i.i.i ], [ %38, %36 ]
   %.0812.i.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i.i ], [ %37, %36 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i, i64 40
   store ptr %29, ptr %3, align 8, !alias.scope !103
@@ -5929,14 +5929,14 @@ define linkonce_odr noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKSt6ve
   br i1 %34, label %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22SdfPredicateExpression6FnCallES3_.exit.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22SdfPredicateExpression6FnCallES3_.exit.thread.i.i.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22SdfPredicateExpression6FnCallES3_.exit.thread.i.i.i.i.i: ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNSt15__tuple_compareISt5tupleIJRKSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESaIS4_EERKS1_INS3_6FnCallESaIS9_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESM_Lm2ELm3EE4__eqERKSM_SP_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22SdfPredicateExpression6FnCallES3_.exit.i.i.i.i.i: ; preds = %27
   %35 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCall4KindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS2_5FnArgESaISG_EEEESL_Lm1ELm3EE4__eqERKSL_SO_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %35, label %36, label %_ZNSt15__tuple_compareISt5tupleIJRKSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESaIS4_EERKS1_INS3_6FnCallESaIS9_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESM_Lm2ELm3EE4__eqERKSM_SP_.exit
 
 36:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22SdfPredicateExpression6FnCallES3_.exit.i.i.i.i.i
@@ -6028,8 +6028,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 36:                                               ; preds = %36, %.lr.ph.i.i.i.i.i.i
   %.011.i.i.i.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i.i.i.i ], [ %41, %36 ]
   %.0810.i.i.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i.i.i ], [ %40, %36 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %37 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 32
   store ptr %37, ptr %3, align 8, !alias.scope !110
   store ptr %.0810.i.i.i.i.i.i, ptr %34, align 8, !alias.scope !110
@@ -6037,8 +6037,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   store ptr %38, ptr %4, align 8, !alias.scope !113
   store ptr %.011.i.i.i.i.i.i, ptr %35, align 8, !alias.scope !113
   %39 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN32pxrInternal_v0_24__pxrReserved__7VtValueEEESD_Lm0ELm2EE4__eqERKSD_SG_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %40 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 48
   %41 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i.i = icmp ne ptr %40, %21
@@ -10337,9 +10337,9 @@ define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvNS
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", align 8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq i32 %1, 0
   br i1 %7, label %8, label %20
 
@@ -10443,9 +10443,9 @@ define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvNS
   br label %"_ZZNO32pxrInternal_v0_24__pxrReserved__17SdfPathExpression17ResolveReferencesENS_13TfFunctionRefIFS0_RKNS0_19ExpressionReferenceEEEEENK3$_0clENS0_2OpEi.exit"
 
 "_ZZNO32pxrInternal_v0_24__pxrReserved__17SdfPathExpression17ResolveReferencesENS_13TfFunctionRefIFS0_RKNS0_19ExpressionReferenceEEEEENK3$_0clENS0_2OpEi.exit": ; preds = %8, %20, %.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -10458,7 +10458,7 @@ define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRK
   %.val2.val = load ptr, ptr %.val2, align 8, !noalias !151
   %5 = getelementptr i8, ptr %.val2, i64 8
   %.val2.val3 = load ptr, ptr %5, align 8, !noalias !151
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void %.val2.val3(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression") align 8 %3, ptr noundef %.val2.val, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -10525,7 +10525,7 @@ define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRK
 
 "_ZZNO32pxrInternal_v0_24__pxrReserved__17SdfPathExpression17ResolveReferencesENS_13TfFunctionRefIFS0_RKNS0_19ExpressionReferenceEEEEENK3$_1clES4_.exit": ; preds = %10, %40
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #25
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -10737,7 +10737,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
 define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRKNS_14SdfPathPatternEEE9_InvokeFnIZNOS_17SdfPathExpression17ResolveReferencesENS0_IFS7_RKNS7_19ExpressionReferenceEEEEE3$_2EEvPKvS3_"(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", align 8
   %.val = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression8MakeAtomERKNS_14SdfPathPatternE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression") align 8 %3, ptr noundef nonnull align 8 dereferenceable(57) %1)
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -10804,7 +10804,7 @@ define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRK
 
 "_ZZNO32pxrInternal_v0_24__pxrReserved__17SdfPathExpression17ResolveReferencesENS_13TfFunctionRefIFS0_RKNS0_19ExpressionReferenceEEEEENK3$_2clERKNS_14SdfPathPatternE.exit": ; preds = %8, %38
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #25
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -11035,10 +11035,10 @@ define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRK
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath11GetAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, ptr noundef nonnull @.str.25)
           to label %9 unwind label %31
@@ -11067,7 +11067,7 @@ define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRK
           to label %.noexc17.i unwind label %36
 
 .noexc17.i:                                       ; preds = %.noexc.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %22 unwind label %19
 
@@ -11097,7 +11097,7 @@ define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRK
   br label %40
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit: ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
 
 26:                                               ; preds = %12
@@ -11158,10 +11158,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   resume { ptr, i32 } %.pn14.pn.i
 
 "_ZZNK32pxrInternal_v0_24__pxrReserved__17SdfPathExpression7GetTextB5cxx11EvENK3$_1clERKNS0_19ExpressionReferenceE.exit": ; preds = %29, %30
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -11225,7 +11225,7 @@ declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRKNS_14SdfPathPatternEEE9_InvokeFnIZNKS_17SdfPathExpression7GetTextB5cxx11EvE3$_2EEvPKvS3_"(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern7GetTextB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(57) %1)
   %4 = load ptr, ptr %0, align 8
   %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -11239,7 +11239,7 @@ define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRK
 
 "_ZZNK32pxrInternal_v0_24__pxrReserved__17SdfPathExpression7GetTextB5cxx11EvENK3$_2clERKNS_14SdfPathPatternE.exit": ; preds = %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -11876,7 +11876,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInt
   %5 = alloca %"class.std::allocator", align 1
   %6 = tail call ptr @__cxa_allocate_exception(i64 32) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 123, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.54, i64 56)) #25
   %8 = extractvalue { i64, ptr } %7, 0
   %9 = extractvalue { i64, ptr } %7, 1
@@ -11888,7 +11888,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInt
           to label %13 unwind label %.thread
 
 13:                                               ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %14 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0, ptr noundef nonnull @.str.32)
           to label %15 unwind label %18
 
@@ -11987,7 +11987,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchI
   br i1 %19, label %.preheader, label %20
 
 20:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %21 = load ptr, ptr %3, align 8
   %22 = load ptr, ptr %4, align 8
@@ -12040,7 +12040,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %common.resume
 
 43:                                               ; preds = %41, %38
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
   %44 = load ptr, ptr %4, align 8
   %.promoted.i.i.i.i.i.i = load ptr, ptr %3, align 8
   %45 = icmp eq ptr %.promoted.i.i.i.i.i.i, %44
@@ -12128,7 +12128,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInternal_v0_24__pxrReserved__12_
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJNS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18PathExprENS_5ascii5blankES8_EEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS5_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i12.i.i, %59
   %70 = phi ptr [ %.promoted.i.i.i.i7.i.i, %59 ], [ %64, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i ], [ %66, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i12.i.i ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %71 = icmp eq ptr %70, %60
   br i1 %71, label %81, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i
@@ -12156,12 +12156,12 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %common.resume
 
 81:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJNS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18PathExprENS_5ascii5blankES8_EEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS5_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
   tail call fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118PathExprCloseGroupEE5raiseINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(120) %0) #28
   unreachable
 
 82:                                               ; preds = %74
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
   br label %.preheader
 
 .preheader:                                       ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i, %18, %82
@@ -12172,7 +12172,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br i1 %84, label %83, label %85, !llvm.loop !181
 
 _ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18PathExprELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS2_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i, %20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS0_4starINS_5ascii5blankEJEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18PathExprES5_EE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS7_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS6_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit
 
 85:                                               ; preds = %83
@@ -12217,7 +12217,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS0_4starINS_5ascii5blankEJEEEN32pxrInt
 define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117PathSetComplementENS_5ascii5blankES6_EEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %.sroa.0.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -12255,7 +12255,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %2
   %17 = phi ptr [ %.promoted.i.i.i.i.i.i.i.i, %2 ], [ %13, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i ], [ %11, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %18 = icmp eq ptr %17, %5
   br i1 %18, label %43, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i
@@ -12290,7 +12290,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   resume { ptr, i32 } %31
 
 32:                                               ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
   %33 = load ptr, ptr %4, align 8
   %.promoted.i.i.i.i8.i.i.i.i = load ptr, ptr %3, align 8
   %34 = icmp eq ptr %.promoted.i.i.i.i8.i.i.i.i, %33
@@ -12322,12 +12322,12 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS
   br i1 %42, label %_ZN21PXR_INTERNAL_NS_pegtl5matchINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117PathSetComplementENS_5ascii5blankES6_EELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12.i.i.i.i, !llvm.loop !182
 
 43:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i, i64 32, i1 false)
   br label %_ZN21PXR_INTERNAL_NS_pegtl5matchINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117PathSetComplementENS_5ascii5blankES6_EELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit
 
 _ZN21PXR_INTERNAL_NS_pegtl5matchINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117PathSetComplementENS_5ascii5blankES6_EELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i13.i.i.i.i, %32, %43
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i)
   ret void
 }
 
@@ -12721,10 +12721,10 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   %15 = alloca %"class.std::allocator", align 1
   %16 = alloca [2 x i8], align 1
   %.sroa.0.i.i.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %17, align 8
@@ -12743,7 +12743,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   br i1 %27, label %28, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii6stringIJLc37ELc95EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i.i.i.i.i.i
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii6stringIJLc37ELc95EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i.i.i.i.i.i: ; preds = %25, %2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %76
 
 28:                                               ; preds = %25
@@ -12757,7 +12757,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii6stringIJLc37ELc95EEEEE5matchILNS_10a
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, 2
   store i64 %35, ptr %33, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %36 = icmp eq ptr %29, %19
   br i1 %36, label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19WeakerRefELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.thread19.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -12779,9 +12779,9 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
   ]
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19WeakerRefELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.thread19.i.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19WeakerRefELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.i.i.i.i.i.i.i, %28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 0, ptr %13, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #25
   %42 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14)
@@ -12792,7 +12792,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
           to label %.noexc4.i.i.i.i.i.i.i.i.i unwind label %72
 
 .noexc4.i.i.i.i.i.i.i.i.i:                        ; preds = %.noexc.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %43 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %47 unwind label %44
 
@@ -12822,7 +12822,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
   br label %.body.i.i.i.i.i.i.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i.i.i.i.i.i: ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 -48
@@ -12886,16 +12886,16 @@ common.resume.i.i.i.i.i:                          ; preds = %221, %212, %177, %.
   br label %common.resume.i.i.i.i.i
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.thread.i: ; preds = %68, %55, %_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_PathExprBuilder17PushExpressionRefEONS_7SdfPathEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit
 
 76:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19WeakerRefELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19WeakerRefELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii6stringIJLc37ELc95EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
   %77 = load ptr, ptr %17, align 8
   %78 = icmp eq ptr %77, %19
@@ -12917,9 +12917,9 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   %87 = load i64, ptr %86, align 8
   %88 = add i64 %87, 1
   store i64 %88, ptr %86, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.4.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %83, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
   %89 = icmp eq ptr %82, %19
   br i1 %89, label %97, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i4.i.i.i.i.i
@@ -12945,15 +12945,15 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   br label %97
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120AbsExpressionRefPathEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %92
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117ExpressionRefPathELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i
 
 97:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i4.i.i.i.i.i, %81
   %.pre-phi.i.i.i.i.i = phi i64 [ %.pre.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %21, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i4.i.i.i.i.i ], [ %21, %81 ]
   %98 = phi ptr [ %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %19, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i4.i.i.i.i.i ], [ %19, %81 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %99 = load ptr, ptr %17, align 8
   %100 = ptrtoint ptr %99 to i64
   %101 = sub i64 %.pre-phi.i.i.i.i.i, %100
@@ -12977,8 +12977,8 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__
   %110 = load i64, ptr %86, align 8
   %111 = add i64 %110, 2
   store i64 %111, ptr %86, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
   %112 = icmp eq ptr %107, %98
   br i1 %112, label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -13002,7 +13002,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   store i64 %121, ptr %83, align 8
   %122 = add i64 %114, 1
   store i64 %122, ptr %86, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %123 = ptrtoint ptr %120 to i64
   %124 = sub i64 %.pre-phi.i.i.i.i.i, %123
   %125 = icmp ugt i64 %124, 1
@@ -13016,7 +13016,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   br i1 %127, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc47EEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16DotDotEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS7_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS6_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.thread3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .thread3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %126, %119
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc47EEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16DotDotEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS7_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS6_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %126
@@ -13026,21 +13026,21 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc47EEEEN32px
   store i64 %129, ptr %83, align 8
   %130 = add i64 %114, 3
   store i64 %130, ptr %86, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
   %131 = icmp eq ptr %128, %98
   br i1 %131, label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !184
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc47EEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16DotDotEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS7_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS6_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.thread3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %17, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17DotDotsEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 132:                                              ; preds = %103, %97
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17DotDotsEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17DotDotsEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %132, %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -13130,12 +13130,12 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
   br i1 %172, label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117ExpressionRefPathELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i, label %222
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117ExpressionRefPathELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6rangesINS1_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117ExpressionRefPathELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %149, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120AbsExpressionRefPathEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %173 = load ptr, ptr %17, align 8, !noalias !186
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %82 to i64
@@ -13152,7 +13152,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
 
 _ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6stringEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117ExpressionRefPathELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__23TfStringGetBeforeSuffixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i8 noundef signext 58)
           to label %179 unwind label %212
 
@@ -13170,7 +13170,7 @@ _ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13track
           to label %183 unwind label %214
 
 183:                                              ; preds = %182, %181
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %184 = load ptr, ptr %17, align 8, !noalias !189
   %185 = ptrtoint ptr %184 to i64
   %186 = sub i64 %185, %175
@@ -13186,7 +13186,7 @@ _ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13track
 
 189:                                              ; preds = %183
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17TfStringGetSuffixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %9, i8 noundef signext 58)
           to label %190 unwind label %216
 
@@ -13270,23 +13270,23 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Sdf_PathExprBuilder17PushExpressionRefEON
 222:                                              ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117ExpressionRefPathELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %136, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17DotDotsEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %82, ptr %17, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i.i.i.i.i.i.i.i.i.i.i.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.4.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i.i.i.i.i.i.i.i.i.i.i)
   br label %223
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.thread12.i: ; preds = %208, %195, %_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_PathExprBuilder17PushExpressionRefEONS_7SdfPathEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.4.i.i.i.i.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit
 
 223:                                              ; preds = %222, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit
 
 _ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.thread.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.thread12.i, %223
@@ -13297,7 +13297,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser11PathPatternEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS1_12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::SdfPathPatternActions::PatternBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 0, i64 176, i1 false)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternC1Ev(ptr noundef nonnull align 8 dereferenceable(176) %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -13345,7 +13345,7 @@ _ZN21PXR_INTERNAL_NS_pegtl24change_action_and_statesIN32pxrInternal_v0_24__pxrRe
 _ZN21PXR_INTERNAL_NS_pegtl24change_action_and_statesIN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternActions17PathPatternActionEJNS2_14PatternBuilderEEE5matchINS1_20SdfPathPatternParser11PathPatternELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS1_12_GLOBAL__N_114PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT4_DpOT5_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl24change_action_and_statesIN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternActions17PathPatternActionEJNS2_14PatternBuilderEEE5matchINS1_20SdfPathPatternParser11PathPatternELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS1_12_GLOBAL__N_114PathExprActionETtTpTyENS_6normalEJLm0EENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJS4_RNS1_19Sdf_PathExprBuilderEEEEbSt16integer_sequenceImJXspT4_EEERT5_DpOT6_.exit.i, %13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %3) #25
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %7
 }
 
@@ -13546,7 +13546,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6rangesINS1_9peek_charEJLc97ELc122
   %.promoted6.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %20, %13 ], [ %22, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %33, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6rangesINS1_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.promoted5.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %17, %13 ], [ %23, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %32, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6rangesINS1_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.promoted.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %14, %13 ], [ %24, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6rangesINS1_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %35 = icmp eq ptr %.promoted.i.i.i.i.i.i.i.i.i.i.i.i.i, %5
   br i1 %35, label %.loopexit.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i
@@ -13623,15 +13623,15 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc47EEEENS3_1
   %70 = phi i64 [ %55, %52 ], [ %57, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %68, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6rangesINS1_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %71 = phi i64 [ %54, %52 ], [ %58, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %67, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6rangesINS1_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %72 = phi ptr [ %53, %52 ], [ %59, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %66, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6rangesINS1_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %73 = icmp eq ptr %72, %5
   br i1 %73, label %.loopexit.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i, !llvm.loop !192
 
 .loopexit.i.i.i.i:                                ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc47EEEENS3_10identifierEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSC_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %41, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %74 = load ptr, ptr %2, align 8
   %75 = icmp eq ptr %74, %5
   br i1 %75, label %_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124ExpressionRefPathAndNameELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -13757,7 +13757,7 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   br i1 %6, label %36, label %7
 
 7:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   %9 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser19PrimPathPatternElemELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS6_14PatternBuilderEEEEDaRT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(176) %1)
@@ -13781,7 +13781,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_12if_must_elseINS_5ascii3oneIJLc46EEEEN32px
   br i1 %11, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser16PathPatternElemsEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread, label %12
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser16PathPatternElemsEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_12if_must_elseINS_5ascii3oneIJLc46EEEEN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser19PropPathPatternElemENS_3optIJNS6_14PathPatStretchEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS5_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSG_14PatternBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   br label %36
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit9.loopexit.i.i.i.i.i: ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i
@@ -13802,11 +13802,11 @@ common.resume:                                    ; preds = %_ZN21PXR_INTERNAL_N
 
 12:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_12if_must_elseINS_5ascii3oneIJLc46EEEEN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser19PropPathPatternElemENS_3optIJNS6_14PathPatStretchEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS5_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSG_14PatternBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i, %.noexc.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i8)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i8, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   %14 = load ptr, ptr %8, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -13830,7 +13830,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, 1
   store i64 %27, ptr %25, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i, i64 32, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %13, ptr %28, align 8
@@ -13844,8 +13844,8 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %common.resume
 
 30:                                               ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   %31 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser14PathPatStretchENS_3optIJNS3_16PathPatternElemsEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_21SdfPathPatternActions17PathPatternActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSC_14PatternBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(176) %1)
           to label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3seqIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser17ReflexiveRelativeENS_3optIJNS3_14PathPatStretchENS5_IJNS3_16PathPatternElemsEEEEEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSF_14PatternBuilderEEEEbRT3_DpOT4_.exit unwind label %32
 
@@ -13855,12 +13855,12 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %common.resume
 
 34:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i, %12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3seqIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser17ReflexiveRelativeENS_3optIJNS3_14PathPatStretchENS5_IJNS3_16PathPatternElemsEEEEEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSF_14PatternBuilderEEEEbRT3_DpOT4_.exit
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3seqIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser17ReflexiveRelativeENS_3optIJNS3_14PathPatStretchENS5_IJNS3_16PathPatternElemsEEEEEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSF_14PatternBuilderEEEEbRT3_DpOT4_.exit: ; preds = %30, %34
   %35 = phi i1 [ false, %34 ], [ true, %30 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i8)
   br label %36
 
 36:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser16PathPatternElemsEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread, %5, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3seqIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser17ReflexiveRelativeENS_3optIJNS3_14PathPatStretchENS5_IJNS3_16PathPatternElemsEEEEEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSF_14PatternBuilderEEEEbRT3_DpOT4_.exit, %2
@@ -13873,7 +13873,7 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal7if_m
   %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %3 = alloca %"class.PXR_INTERNAL_NS_pegtl::internal::action_input", align 8
   %.sroa.0.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
@@ -13889,7 +13889,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
   br i1 %11, label %12, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser13AbsoluteStartEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread
 
 12:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser13AbsoluteStartELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_21SdfPathPatternActions17PathPatternActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_14PatternBuilderEEEEDaRT4_DpOT5_.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %4, ptr %13, align 8
@@ -13908,17 +13908,17 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %common.resume
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser13AbsoluteStartEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %2, %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser13AbsoluteStartELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_21SdfPathPatternActions17PathPatternActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_14PatternBuilderEEEEDaRT4_DpOT5_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %22
 
 15:                                               ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   %16 = call noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser14PathPatStretchENS_5ascii3oneIJLc47EEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS2_21SdfPathPatternActions17PathPatternActionETtTpTyENS_6normalEJLm0ELm1EENS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSC_14PatternBuilderEEEEbSt16integer_sequenceImJXspT3_EEERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(176) %1)
   br i1 %16, label %17, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser14AbsPathPatternEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i
 
 17:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %18 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser19PrimPathPatternElemELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS6_14PatternBuilderEEEEDaRT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(176) %1)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit9.loopexit.split-lp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -13959,7 +13959,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPa
   unreachable
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser14AbsPathPatternEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_14PatternBuilderEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_12if_must_elseINS_5ascii3oneIJLc46EEEEN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser19PropPathPatternElemENS_3optIJNS6_14PathPatStretchEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS5_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSG_14PatternBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   br label %22
 
 22:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser13AbsoluteStartEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser14AbsPathPatternEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_14PatternBuilderEEEEbRT3_DpOT4_.exit
@@ -13971,7 +13971,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJN32pxrInternal_v0_24__pxrRe
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternActions17PathPatternActionINS_20SdfPathPatternParser13AbsoluteStartEE5applyIN21PXR_INTERNAL_NS_pegtl8internal12action_inputINS6_12memory_inputILNS6_13tracking_modeE0ENS6_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEvRKT_RNS0_14PatternBuilderE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(176) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   %4 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath16AbsoluteRootPathEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load i32, ptr %4, align 4
   store i32 %5, ptr %3, align 4
   %.not.i.i.i = icmp eq i32 %5, 0
@@ -14036,7 +14036,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %6, %2
   resume { ptr, i32 } %41
 
 _ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9SetPrefixERKNS_7SdfPathE.exit: ; preds = %21, %23, %36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -14050,7 +14050,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24
   %6 = alloca %"class.std::allocator", align 1
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 70, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.33, i64 56)) #25
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -14062,7 +14062,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24
           to label %14 unwind label %.thread
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, ptr noundef nonnull @.str.32)
           to label %16 unwind label %19
 
@@ -14118,10 +14118,10 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca [2 x i8], align 1
   %.sroa.0.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
@@ -14150,8 +14150,8 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 2
   store i64 %23, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = invoke noundef nonnull align 8 dereferenceable(57) ptr @_ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern23AppendStretchIfPossibleEv(ptr noundef nonnull align 8 dereferenceable(176) %1)
           to label %.noexc.i.i unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit.i.i
 
@@ -14180,13 +14180,13 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   resume { ptr, i32 } %32
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser14PathPatStretchEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %.noexc.i.i, %26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii3oneIJLc47EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_14PatternBuilderEEEEbRT3_DpOT4_.exit
 
 33:                                               ; preds = %13, %2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   %34 = icmp eq ptr %8, %7
   br i1 %34, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii3oneIJLc47EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_14PatternBuilderEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i
 
@@ -14239,7 +14239,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl11parse_errorC2INS_12string_
   store i64 %14, ptr %12, align 8, !alias.scope !200
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
   %17 = load i64, ptr %5, align 8
   store i64 %17, ptr %4, align 8
@@ -14263,7 +14263,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl11parse_errorC2INS_12string_
 
 24:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #25
   ret void
 }
@@ -14951,9 +14951,9 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqI
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
@@ -14982,8 +14982,8 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqI
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, 2
   store i64 %24, ptr %22, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i, i64 32, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %5, ptr %25, align 8
@@ -14997,13 +14997,13 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit10
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser7DotDotsEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %2, %14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser7DotDotsELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_21SdfPathPatternActions17PathPatternActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_14PatternBuilderEEEEDaRT4_DpOT5_.exit.i.i: ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   %27 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal4starINS0_3seqIJNS_5ascii3oneIJLc47EEEEN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser6DotDotEEEEJEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS6_21SdfPathPatternActions17PathPatternActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSE_14PatternBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(176) %1)
           to label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser7DotDotsEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit unwind label %36
 
@@ -15018,7 +15018,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPa
   br i1 %29, label %30, label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit
 
 30:                                               ; preds = %.noexc6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %31 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser19PrimPathPatternElemELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS6_14PatternBuilderEEEEDaRT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(176) %1)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit9.loopexit.split-lp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -15060,7 +15060,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser16PathPatternElemsEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_14PatternBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser16PathPatternElemsEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_14PatternBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i: ; preds = %34, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_12if_must_elseINS_5ascii3oneIJLc46EEEEN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser19PropPathPatternElemENS_3optIJNS6_14PathPatStretchEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS5_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSG_14PatternBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser7DotDotsEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser7DotDotsEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit
@@ -15141,7 +15141,7 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal4star
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %8 = load ptr, ptr %6, align 8
   %9 = load ptr, ptr %7, align 8
@@ -15171,9 +15171,9 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   %23 = load i64, ptr %12, align 8
   %24 = add i64 %23, 1
   store i64 %24, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = ptrtoint ptr %15 to i64
   %26 = ptrtoint ptr %20 to i64
   %27 = sub i64 %25, %26
@@ -15194,8 +15194,8 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   store i64 %33, ptr %11, align 8
   %34 = add i64 %23, 3
   store i64 %34, ptr %12, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i, i64 32, i1 false)
   store ptr %5, ptr %14, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternActions17PathPatternActionINS_20SdfPathPatternParser6DotDotEE5applyIN21PXR_INTERNAL_NS_pegtl8internal12action_inputINS6_12memory_inputILNS6_13tracking_modeE0ENS6_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEvRKT_RNS0_14PatternBuilderE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(176) %1)
@@ -15209,15 +15209,15 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   resume { ptr, i32 } %35
 
 36:                                               ; preds = %29, %19
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
   br label %.loopexit
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc47EEEEN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser6DotDotEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS6_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSE_14PatternBuilderEEEEbRT3_DpOT4_.exit: ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %37 = load ptr, ptr %6, align 8
   %38 = load ptr, ptr %7, align 8
@@ -15226,7 +15226,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc47EEEEN32px
 
 .loopexit:                                        ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc47EEEEN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser6DotDotEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS6_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSE_14PatternBuilderEEEEbRT3_DpOT4_.exit, %2, %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i)
   ret i1 true
 }
 
@@ -15235,10 +15235,10 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca [2 x i8], align 1
   %.sroa.0.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
@@ -15267,8 +15267,8 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 2
   store i64 %23, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = invoke noundef nonnull align 8 dereferenceable(57) ptr @_ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern23AppendStretchIfPossibleEv(ptr noundef nonnull align 8 dereferenceable(176) %1)
           to label %.noexc.i.i unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit.i.i
 
@@ -15297,13 +15297,13 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   resume { ptr, i32 } %32
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser14PathPatStretchEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %.noexc.i.i, %26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii3oneIJLc47EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_14PatternBuilderEEEEbRT3_DpOT4_.exit
 
 33:                                               ; preds = %13, %2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   %34 = icmp eq ptr %8, %7
   br i1 %34, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii3oneIJLc47EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_14PatternBuilderEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i
 
@@ -15392,7 +15392,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
           to label %35 unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit
 
 35:                                               ; preds = %11, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %14, %26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %4, ptr %36, align 8
@@ -15406,7 +15406,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   resume { ptr, i32 } %37
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit.thread: ; preds = %35
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit20
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %23
@@ -15434,8 +15434,8 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
   br i1 %6, label %7, label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit
 
 7:                                                ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser23PrimPathPatternElemTextELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_21SdfPathPatternActions17PathPatternActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_14PatternBuilderEEEEDaRT4_DpOT5_.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = load ptr, ptr %5, align 8, !noalias !217
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %.sroa.0.0.copyload to i64
@@ -15463,11 +15463,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit.thread: ; preds = %7
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %17 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %4) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit17
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser23PrimPathPatternElemTextELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_21SdfPathPatternActions17PathPatternActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_14PatternBuilderEEEEDaRT4_DpOT5_.exit
@@ -15804,7 +15804,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrIntern
   %6 = alloca %"class.std::allocator", align 1
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 130, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.48, i64 56)) #25
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -15816,7 +15816,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrIntern
           to label %14 unwind label %.thread
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, ptr noundef nonnull @.str.32)
           to label %16 unwind label %19
 
@@ -15884,9 +15884,9 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl24change_actio
   br label %6
 
 6:                                                ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internalL16match_no_controlINS0_3seqIJNS_2atIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredOperatorENS5_10PredFactorEEEES6_S7_EEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS5_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_23SdfPredicateExprBuilderEEEEDTclsrT_5matchIXT0_EXT1_ET2_T3_Efp_spfp0_EERT4_DpOT5_.exit.i.i.i, %.preheader.i.i.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %7 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredOperatorENS4_10PredFactorEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS4_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %3)
           to label %9 unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit5.i.i.i.i.i.i.i.i.i.i
@@ -15899,7 +15899,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 
 9:                                                ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
   br i1 %7, label %10, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser8PredExprEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i
 
 10:                                               ; preds = %9
@@ -15927,12 +15927,12 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %.body
 
 _ZN21PXR_INTERNAL_NS_pegtl8internalL16match_no_controlINS0_3seqIJNS_2atIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredOperatorENS5_10PredFactorEEEES6_S7_EEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS5_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_23SdfPredicateExprBuilderEEEEDTclsrT_5matchIXT0_EXT1_ET2_T3_Efp_spfp0_EERT4_DpOT5_.exit.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredFactorEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   br label %6, !llvm.loop !223
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser8PredExprEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredFactorEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredOperatorEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i, %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternActions17PathPatternActionINS_28SdfPredicateExpressionParser8PredExprEE7successIN21PXR_INTERNAL_NS_pegtl12string_inputILNS6_13tracking_modeE0ENS6_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvRKT_RNS_23SdfPredicateExprBuilderERNS0_14PatternBuilderE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(176) %1)
           to label %_ZN21PXR_INTERNAL_NS_pegtl24change_action_and_statesIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionEJNS1_23SdfPredicateExprBuilderEEE5matchINS2_8PredExprELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyENS_6normalEJLm0EENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJS4_RNSA_14PatternBuilderEEEEbSt16integer_sequenceImJXspT4_EEERT5_DpOT6_.exit unwind label %16
 
@@ -16124,7 +16124,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternA
 _ZN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionaSEOS0_.exit: ; preds = %3, %16
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = load ptr, ptr %20, align 8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %24 = load ptr, ptr %23, align 8
@@ -16145,7 +16145,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionaSEOS0_.exit: ; pre
   store ptr %26, ptr %33, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %36 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %35) #25
@@ -16172,7 +16172,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internalL1
   %.sroa.0.i.i.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %.sroa.0.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %.sroa.0.i.i.i.i.i.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -16264,7 +16264,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %common.resume
 
 .loopexit:                                        ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i13.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_3padINS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWENS_4plusINS_5ascii5blankEJEEEvEES9_S9_EELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS5_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS8_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.thread12.i.i.i.i.i.i.i, %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
   %32 = tail call noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredColonCallELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
   br i1 %32, label %_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS_3optIJNS_3padINS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWENS_4plusINS_5ascii5blankEJEEEvEESA_SA_EEEEENS6_8PredAtomEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS6_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit, label %33
 
@@ -16277,7 +16277,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br i1 %36, label %_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS_3optIJNS_3padINS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWENS_4plusINS_5ascii5blankEJEEEvEESA_SA_EEEEENS6_8PredAtomEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS6_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit, label %37
 
 37:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %38 = load ptr, ptr %3, align 8
   %39 = load ptr, ptr %4, align 8
@@ -16324,7 +16324,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %common.resume
 
 _ZN21PXR_INTERNAL_NS_pegtl5matchINS_3padIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser8PredExprENS_5ascii5blankES6_EELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i.i: ; preds = %58, %55
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i)
   %60 = tail call fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internalL16match_no_controlINS_3padIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser8PredExprENS_5ascii5blankES7_EELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS6_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEDTclsrT_5matchIXT0_EXT1_ET2_T3_Efp_spfp0_EERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
   br i1 %60, label %_ZN21PXR_INTERNAL_NS_pegtl8internal4mustIJNS_3padIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser8PredExprENS_5ascii5blankES7_EEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS6_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i, label %61
 
@@ -16333,7 +16333,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchINS_3padIN32pxrInternal_v0_24__pxrReserved__28Sd
   unreachable
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal4mustIJNS_3padIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser8PredExprENS_5ascii5blankES7_EEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS6_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl5matchINS_3padIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser8PredExprENS_5ascii5blankES6_EELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %62 = load ptr, ptr %3, align 8
   %63 = load ptr, ptr %4, align 8
@@ -16363,16 +16363,16 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %common.resume
 
 74:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal4mustIJNS_3padIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser8PredExprENS_5ascii5blankES7_EEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS6_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   tail call void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser14PredCloseGroupEE5raiseINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) #28
   unreachable
 
 75:                                               ; preds = %67
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS_3optIJNS_3padINS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWENS_4plusINS_5ascii5blankEJEEEvEESA_SA_EEEEENS6_8PredAtomEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS6_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 76:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i, %37
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS_3optIJNS_3padINS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWENS_4plusINS_5ascii5blankEJEEEvEESA_SA_EEEEENS6_8PredAtomEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS6_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS_3optIJNS_3padINS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWENS_4plusINS_5ascii5blankEJEEEvEESA_SA_EEEEENS6_8PredAtomEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS6_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %76, %.loopexit, %33, %35, %75
@@ -16384,10 +16384,10 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS_3optIJNS_3padINS_4listIN32pxrInterna
 define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWENS0_4starINS_4plusINS_5ascii5blankEJEEEJS4_EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [3 x i8], align 1
   %.sroa.0.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
@@ -16408,7 +16408,7 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqI
   br i1 %15, label %16, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc110ELc111ELc116EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc110ELc111ELc116EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i: ; preds = %12, %2
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 16:                                               ; preds = %12
@@ -16422,7 +16422,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc110ELc111ELc116EEEEE5ma
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 3
   store i64 %23, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %24 = icmp eq ptr %17, %6
   br i1 %24, label %31, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -16455,11 +16455,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc110ELc111ELc116EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_4plusINS_5ascii5blankEJEEEJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS8_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS4_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 36:                                               ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %37
 
 37:                                               ; preds = %37, %36
@@ -17133,9 +17133,9 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS
   %26 = phi i64 [ %16, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i ], [ %24, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i ], [ %18, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i5.i.i.i.i.i ]
   %27 = phi i64 [ %13, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i ], [ %23, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i ], [ %19, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i5.i.i.i.i.i ]
   %28 = phi ptr [ %10, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i ], [ %22, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i ], [ %20, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i5.i.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %29 = ptrtoint ptr %7 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
@@ -17153,7 +17153,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS
   br i1 %36, label %37, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc110ELc111ELc116EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc110ELc111ELc116EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i: ; preds = %33, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_4plusINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 37:                                               ; preds = %33
@@ -17163,7 +17163,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc110ELc111ELc116EEEEE5ma
   store i64 %39, ptr %11, align 8
   %40 = add i64 %26, 3
   store i64 %40, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %41 = icmp eq ptr %38, %7
   br i1 %41, label %48, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -17197,11 +17197,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_4plusINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc110ELc111ELc116EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_4plusINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread11
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit: ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_4plusINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread11: ; preds = %2, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_4plusINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
@@ -17298,7 +17298,7 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal7if_m
   %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %3 = alloca %"class.PXR_INTERNAL_NS_pegtl::internal::action_input", align 8
   %.sroa.0.i.i.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
@@ -17309,7 +17309,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
   br i1 %6, label %7, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredFuncNameEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i
 
 7:                                                ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredFuncNameELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i.i.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i, i64 32, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %4, ptr %8, align 8
@@ -17329,12 +17329,12 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredFuncNameEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredFuncNameELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3seqIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredFuncNameENS_5ascii3oneIJLc58EEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread
 
 10:                                               ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   %11 = load ptr, ptr %5, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load ptr, ptr %12, align 8
@@ -17361,7 +17361,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   br i1 %25, label %26, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredColonArgsEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i
 
 26:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %27 = load ptr, ptr %5, align 8
   %28 = load ptr, ptr %12, align 8
@@ -17395,8 +17395,8 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %common.resume
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc44EEEEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredArgValEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS7_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS6_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredArgValEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %41 = load ptr, ptr %5, align 8
   %42 = load ptr, ptr %12, align 8
@@ -17412,7 +17412,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredic
   unreachable
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredColonArgsEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %26, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredColonArgsEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3seqIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredFuncNameENS_5ascii3oneIJLc58EEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3seqIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredFuncNameENS_5ascii3oneIJLc58EEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %10, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredFuncNameEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredColonArgsEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
@@ -17504,7 +17504,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6rangesINS1_9peek_charEJLc97ELc122
 40:                                               ; preds = %.loopexit
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i64 0, ptr %41, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 32, i1 false)
   %42 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWENS3_5AndKWENS3_4OrKWENS3_3InfENS3_4TrueENS3_5FalseEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalEJLm0ELm1ELm2ELm3ELm4ELm5EENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbSt16integer_sequenceImJXspT3_EEERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(112) %1)
           to label %44 unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit5.i.i.i.i
@@ -17522,7 +17522,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   %45 = icmp eq ptr %.val.i.i.i.i.i.i.i.i.i.i, %.val2.i.i.i.i.i.i.i.i.i.i
   %.not32 = select i1 %42, i1 %45, i1 false
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #25
   br i1 %.not32, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii10identifierEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread22, label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit
 
@@ -17560,10 +17560,10 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   %.sroa.0.i.i.i.i.i12 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %8 = alloca [3 x i8], align 1
   %.sroa.0.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
@@ -17584,7 +17584,7 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   br i1 %20, label %21, label %.thread.i.i.i.i.i
 
 .thread.i.i.i.i.i:                                ; preds = %17, %2
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %36
 
 21:                                               ; preds = %17
@@ -17598,7 +17598,7 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, 3
   store i64 %28, ptr %26, align 8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %29 = icmp eq ptr %22, %11
   br i1 %29, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -17617,15 +17617,15 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90E
   br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %36, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5FalseEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 36:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %.thread.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i12, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %37 = load ptr, ptr %9, align 8
   %38 = ptrtoint ptr %37 to i64
   %39 = sub i64 %13, %38
@@ -17643,7 +17643,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredic
   br i1 %44, label %45, label %.thread.i.i.i.i.i13
 
 .thread.i.i.i.i.i13:                              ; preds = %41, %36
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %60
 
 45:                                               ; preds = %41
@@ -17657,7 +17657,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredic
   %51 = load i64, ptr %50, align 8
   %52 = add i64 %51, 3
   store i64 %52, ptr %50, align 8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %53 = icmp eq ptr %46, %11
   br i1 %53, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5AndKWEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i15
 
@@ -17676,15 +17676,15 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90E
   br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i18, label %60, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5AndKWEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5AndKWEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i17, %45
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i12)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5FalseEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 60:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i17, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i15, %.thread.i.i.i.i.i13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i12, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i12)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i19, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %61 = load ptr, ptr %9, align 8
   %62 = ptrtoint ptr %61 to i64
   %63 = sub i64 %13, %62
@@ -17700,7 +17700,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredic
   br i1 %67, label %68, label %.thread.i.i.i.i.i20
 
 .thread.i.i.i.i.i20:                              ; preds = %65, %60
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %83
 
 68:                                               ; preds = %65
@@ -17714,7 +17714,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredic
   %74 = load i64, ptr %73, align 8
   %75 = add i64 %74, 2
   store i64 %75, ptr %73, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %76 = icmp eq ptr %69, %11
   br i1 %76, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser4OrKWEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i22
 
@@ -17733,15 +17733,15 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90E
   br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i25, label %83, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser4OrKWEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser4OrKWEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i24, %68
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i19)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5FalseEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 83:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i24, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i22, %.thread.i.i.i.i.i20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i19, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i19)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i26)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i26, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %84 = load ptr, ptr %9, align 8
   %85 = ptrtoint ptr %84 to i64
   %86 = sub i64 %13, %85
@@ -17759,7 +17759,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredic
   br i1 %91, label %92, label %.thread.i.i.i.i.i27
 
 .thread.i.i.i.i.i27:                              ; preds = %88, %83
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %107
 
 92:                                               ; preds = %88
@@ -17773,7 +17773,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredic
   %98 = load i64, ptr %97, align 8
   %99 = add i64 %98, 3
   store i64 %99, ptr %97, align 8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %100 = icmp eq ptr %93, %11
   br i1 %100, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser3InfEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i29
 
@@ -17792,15 +17792,15 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90E
   br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i32, label %107, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser3InfEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser3InfEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i31, %92
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i26)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5FalseEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 107:                                              ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i31, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i29, %.thread.i.i.i.i.i27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i26, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i26)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i33)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i33, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %108 = load ptr, ptr %9, align 8
   %109 = ptrtoint ptr %108 to i64
   %110 = sub i64 %13, %109
@@ -17820,7 +17820,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredic
   br i1 %116, label %117, label %.thread.i.i.i.i.i34
 
 .thread.i.i.i.i.i34:                              ; preds = %112, %107
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %132
 
 117:                                              ; preds = %112
@@ -17834,7 +17834,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredic
   %123 = load i64, ptr %122, align 8
   %124 = add i64 %123, 4
   store i64 %124, ptr %122, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %125 = icmp eq ptr %118, %11
   br i1 %125, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser4TrueEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i36
 
@@ -17853,13 +17853,13 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90E
   br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i39, label %132, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser4TrueEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser4TrueEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i38, %117
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i33)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5FalseEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 132:                                              ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i38, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i36, %.thread.i.i.i.i.i34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i33, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i33)
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %133 = load ptr, ptr %9, align 8
   %134 = ptrtoint ptr %133 to i64
   %135 = sub i64 %13, %134
@@ -17881,7 +17881,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredic
   br i1 %142, label %143, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc102ELc97ELc108ELc115ELc101EEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc102ELc97ELc108ELc115ELc101EEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i: ; preds = %137, %132
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5FalseEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 143:                                              ; preds = %137
@@ -17895,7 +17895,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc102ELc97ELc108ELc115ELc
   %149 = load i64, ptr %148, align 8
   %150 = add i64 %149, 5
   store i64 %150, ptr %148, align 8
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %151 = icmp eq ptr %144, %11
   br i1 %151, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5FalseEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i41
 
@@ -17925,7 +17925,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredic
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionINS0_12PredFuncNameEE5applyIN21PXR_INTERNAL_NS_pegtl8internal12action_inputINS5_12memory_inputILNS5_13tracking_modeE0ENS5_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEvRKT_RNS_23SdfPredicateExprBuilderE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr %0, align 8, !noalias !242
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !noalias !242
@@ -17950,7 +17950,7 @@ common.resume:                                    ; preds = %17, %13
 
 _ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6stringEv.exit: ; preds = %2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__23SdfPredicateExprBuilder11SetFuncNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %17
@@ -17974,7 +17974,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24
   %6 = alloca %"class.std::allocator", align 1
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 77, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.43, i64 56)) #25
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -17986,7 +17986,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24
           to label %14 unwind label %.thread
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, ptr noundef nonnull @.str.32)
           to label %16 unwind label %19
 
@@ -18043,7 +18043,7 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   %.sroa.0.i.i8 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %4 = alloca %"class.PXR_INTERNAL_NS_pegtl::internal::action_input", align 8
   %.sroa.0.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
@@ -18079,7 +18079,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredArgFloatELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %5, ptr %23, align 8
@@ -18098,18 +18098,18 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %common.resume
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredArgFloatEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %34
 
 25:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredArgFloatELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   %26 = tail call noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredArgIntELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
   br i1 %26, label %34, label %27
 
 27:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i8, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %28 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser4TrueENS3_5FalseEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalEJLm0ELm1EENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbSt16integer_sequenceImJXspT3_EEERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
           to label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser11PredArgBoolELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i.i unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit.i.i9
@@ -18118,7 +18118,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser11PredArgBoolELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i8, i64 32, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %5, ptr %30, align 8
@@ -18131,13 +18131,13 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %common.resume
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser11PredArgBoolEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i8)
   br label %34
 
 32:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser11PredArgBoolELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i8, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i8)
   %33 = tail call noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredArgStringELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS2_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
   br label %34
 
@@ -18150,10 +18150,10 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredic
 define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser3InfENS_3seqIJNS3_6DigitsENS_12if_then_elseINS3_4FracENS_3optIJNS3_3ExpEEEESA_EEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalEJLm0ELm1EENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbSt16integer_sequenceImJXspT3_EEERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [3 x i8], align 1
   %.sroa.0.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
@@ -18174,7 +18174,7 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   br i1 %15, label %16, label %.thread.i.i.i.i.i
 
 .thread.i.i.i.i.i:                                ; preds = %12, %2
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %31
 
 16:                                               ; preds = %12
@@ -18188,7 +18188,7 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 3
   store i64 %23, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %24 = icmp eq ptr %17, %6
   br i1 %24, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser3InfEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -18207,12 +18207,12 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90E
   br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %31, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser3InfEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser3InfEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3seqIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser6DigitsENS_12if_then_elseINS3_4FracENS_3optIJNS3_3ExpEEEES8_EEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 31:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %.thread.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   %32 = load ptr, ptr %4, align 8
   %33 = icmp eq ptr %32, %6
   br i1 %33, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3seqIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser6DigitsENS_12if_then_elseINS3_4FracENS_3optIJNS3_3ExpEEEES8_EEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -18353,7 +18353,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24
   %6 = alloca %"class.std::allocator", align 1
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 70, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.36, i64 56)) #25
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -18365,7 +18365,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24
           to label %14 unwind label %.thread
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, ptr noundef nonnull @.str.32)
           to label %16 unwind label %19
 
@@ -18624,7 +18624,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExp
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load ptr, ptr %0, align 8, !noalias !247
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !noalias !247
@@ -18649,7 +18649,7 @@ common.resume:                                    ; preds = %44, %14
 
 _ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6stringEv.exit: ; preds = %2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %16 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.37) #25
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %25, label %20
@@ -19316,7 +19316,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5rangeILc48ELc57EEEE5matchILNS_10appl
   br i1 %42, label %.loopexit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i5.i.i.i.i.i.i.i.i, !llvm.loop !245
 
 .loopexit:                                        ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5rangeILc48ELc57EEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i5.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5rangeILc48ELc57EEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %4, ptr %43, align 8
@@ -19330,7 +19330,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   resume { ptr, i32 } %45
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredArgIntELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit: ; preds = %.loopexit
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %44, label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit17, label %.thread
 
 .thread:                                          ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i5.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_5ascii3oneIJLc45EEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredArgIntELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit
@@ -19349,7 +19349,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__28S
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   store i8 0, ptr %4, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = load ptr, ptr %0, align 8, !noalias !264
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !noalias !264
@@ -19374,7 +19374,7 @@ common.resume:                                    ; preds = %21, %40, %15
 
 _ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6stringEv.exit: ; preds = %2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = invoke noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToInt64ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %4)
           to label %18 unwind label %21
 
@@ -19589,10 +19589,10 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   %3 = alloca [5 x i8], align 1
   %4 = alloca [4 x i8], align 1
   %.sroa.0.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
@@ -19615,7 +19615,7 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   br i1 %17, label %18, label %.thread.i.i.i.i.i
 
 .thread.i.i.i.i.i:                                ; preds = %13, %2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %33
 
 18:                                               ; preds = %13
@@ -19629,7 +19629,7 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, 4
   store i64 %25, ptr %23, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %26 = icmp eq ptr %19, %7
   br i1 %26, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser4TrueEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -19648,13 +19648,13 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90E
   br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %33, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser4TrueEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser4TrueEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5FalseEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 33:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %.thread.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %34 = load ptr, ptr %5, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = sub i64 %9, %35
@@ -19676,7 +19676,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredic
   br i1 %43, label %44, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc102ELc97ELc108ELc115ELc101EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc102ELc97ELc108ELc115ELc101EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i: ; preds = %38, %33
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5FalseEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 44:                                               ; preds = %38
@@ -19690,7 +19690,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc102ELc97ELc108ELc115ELc
   %50 = load i64, ptr %49, align 8
   %51 = add i64 %50, 5
   store i64 %51, ptr %49, align 8
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %52 = icmp eq ptr %45, %7
   br i1 %52, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5FalseEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i5
 
@@ -19721,7 +19721,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExp
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load ptr, ptr %0, align 8, !noalias !270
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !noalias !270
@@ -19746,7 +19746,7 @@ common.resume:                                    ; preds = %41, %14
 
 _ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6stringEv.exit: ; preds = %2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %16 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0)
           to label %17 unwind label %37
 
@@ -20031,7 +20031,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredic
   br i1 %31, label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredArgStringELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !276
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredArgStringELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser18UnquotedStringCharEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i, %.noexc, %7
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %4, ptr %32, align 8
@@ -20045,7 +20045,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   resume { ptr, i32 } %33
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit18: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredArgStringELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 true
 }
 
@@ -20117,7 +20117,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5untilINS_5ascii3
   %6 = alloca %"class.std::allocator", align 1
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 170, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.40, i64 56)) #25
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -20129,7 +20129,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5untilINS_5ascii3
           to label %14 unwind label %.thread
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, ptr noundef nonnull @.str.32)
           to label %16 unwind label %19
 
@@ -20281,7 +20281,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24
   %6 = alloca %"class.std::allocator", align 1
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 104, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.39, i64 56)) #25
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -20293,7 +20293,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24
           to label %14 unwind label %.thread
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, ptr noundef nonnull @.str.32)
           to label %16 unwind label %19
 
@@ -20600,7 +20600,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5untilINS_5ascii3
   %6 = alloca %"class.std::allocator", align 1
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 172, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.42, i64 56)) #25
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -20612,7 +20612,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5untilINS_5ascii3
           to label %14 unwind label %.thread
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, ptr noundef nonnull @.str.32)
           to label %16 unwind label %19
 
@@ -20764,7 +20764,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24
   %6 = alloca %"class.std::allocator", align 1
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 105, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.41, i64 56)) #25
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -20776,7 +20776,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24
           to label %14 unwind label %.thread
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, ptr noundef nonnull @.str.32)
           to label %16 unwind label %19
 
@@ -20963,7 +20963,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExp
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = load ptr, ptr %0, align 8, !noalias !279
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !noalias !279
@@ -20988,7 +20988,7 @@ common.resume:                                    ; preds = %66, %15
 
 _ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6stringEv.exit: ; preds = %2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
   %18 = icmp ugt i64 %17, 1
   br i1 %18, label %19, label %36
@@ -21172,7 +21172,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
 define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_19TfDelegatedCountPtrINS0_8_CountedIS7_EEEENS0_15_RemoteTypeInfoIS7_EEE5_HashERKNSt15aligned_storageILm8ELm8EE4typeE(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Tf_HashState", align 8
   %3 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 0, ptr %4, align 8
@@ -21182,7 +21182,7 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
   %7 = load i64, ptr %2, align 8
   %8 = mul i64 %7, -7046029254386353067
   %9 = call noundef i64 @llvm.bswap.i64(i64 %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %9
 }
 
@@ -21396,7 +21396,7 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   %.sroa.0.i.i8 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %4 = alloca %"class.PXR_INTERNAL_NS_pegtl::internal::action_input", align 8
   %.sroa.0.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
@@ -21432,7 +21432,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredArgFloatELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %5, ptr %23, align 8
@@ -21451,18 +21451,18 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %common.resume
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredArgFloatEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %34
 
 25:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredArgFloatELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   %26 = tail call noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredArgIntELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
   br i1 %26, label %34, label %27
 
 27:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i8, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %28 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser4TrueENS3_5FalseEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalEJLm0ELm1EENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbSt16integer_sequenceImJXspT3_EEERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
           to label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser11PredArgBoolELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i.i unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit.i.i9
@@ -21471,7 +21471,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser11PredArgBoolELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i8, i64 32, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %5, ptr %30, align 8
@@ -21484,13 +21484,13 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %common.resume
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser11PredArgBoolEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i8)
   br label %34
 
 32:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser11PredArgBoolELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i8, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i8)
   %33 = tail call noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredArgStringELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
   br label %34
 
@@ -21564,7 +21564,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredic
   br i1 %31, label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredArgStringELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !276
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredArgStringELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser18UnquotedStringCharEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i, %.noexc, %7
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %4, ptr %32, align 8
@@ -21578,7 +21578,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   resume { ptr, i32 } %33
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit18: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredArgStringELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 true
 }
 
@@ -21832,7 +21832,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredFuncNameENS_3padINS_5ascii3oneIJLc40EEEENS6_5blankES9_EENS_4mustIJNS3_13PredParenArgsENS_4starIS9_JEEENS7_IJLc41EEEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS6_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.PXR_INTERNAL_NS_pegtl::internal::action_input", align 8
   %.sroa.0.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
@@ -21843,7 +21843,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
   br i1 %6, label %7, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredFuncNameEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 7:                                                ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredFuncNameELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %4, ptr %8, align 8
@@ -21858,12 +21858,12 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredFuncNameEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredFuncNameELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padINS_5ascii3oneIJLc40EEEENS2_5blankES5_EEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 10:                                               ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load ptr, ptr %11, align 8
   %.promoted.i.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
@@ -22018,7 +22018,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24
   %6 = alloca %"class.std::allocator", align 1
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 77, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.45, i64 56)) #25
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -22030,7 +22030,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24
           to label %14 unwind label %.thread
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, ptr noundef nonnull @.str.32)
           to label %16 unwind label %19
 
@@ -22085,7 +22085,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24
 define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal12if_then_elseINS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser15PredParenPosArgENS_3padINS_5ascii3oneIJLc44EEEENS7_5blankESA_EEvEENS_3optIJSB_NS2_INS4_9PredKWArgESB_vEEEEENSD_IJSF_EEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %.sroa.0.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %4 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal6not_atIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser15PredKWArgPrefixEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
@@ -22125,14 +22125,14 @@ common.resume:                                    ; preds = %_ZN21PXR_INTERNAL_N
   resume { ptr, i32 } %common.resume.op
 
 7:                                                ; preds = %.noexc7.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   %8 = tail call noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS_3padINS_5ascii3oneIJLc44EEEENS3_5blankES6_EENS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser9PredKWArgES7_vEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENSA_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
   br label %15
 
 9:                                                ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser15PredParenPosArgEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i, %.noexc.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %10 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredKWArgNameENS_3padINS_5ascii3oneIJLc61EEEENS6_5blankES9_EEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS6_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit10.loopexit.split-lp.i.i.i.i.i.i.i.i.i.i
@@ -22176,7 +22176,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %common.resume
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser9PredKWArgENS_3padINS_5ascii3oneIJLc44EEEENS7_5blankESA_EEvEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %.noexc8.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser9PredKWArgENS_3padINS_5ascii3oneIJLc44EEEENS7_5blankESA_EEvEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS4_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.thread.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
   br label %15
 
 15:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser9PredKWArgENS_3padINS_5ascii3oneIJLc44EEEENS7_5blankESA_EEvEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit, %7
@@ -22368,7 +22368,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6rangesINS1_9peek_charEJLc97ELc122
 40:                                               ; preds = %.loopexit
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i64 0, ptr %41, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 32, i1 false)
   %42 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWENS3_5AndKWENS3_4OrKWENS3_3InfENS3_4TrueENS3_5FalseEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalEJLm0ELm1ELm2ELm3ELm4ELm5EENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbSt16integer_sequenceImJXspT3_EEERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(112) %1)
           to label %44 unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit5.i.i.i.i
@@ -22386,7 +22386,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   %45 = icmp eq ptr %.val.i.i.i.i.i.i.i.i.i.i, %.val2.i.i.i.i.i.i.i.i.i.i
   %.not32 = select i1 %42, i1 %45, i1 false
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #25
   br i1 %.not32, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii10identifierEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread22, label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit
 
@@ -22660,7 +22660,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredKWArgNameENS_3padINS_5ascii3oneIJLc61EEEENS6_5blankES9_EEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS6_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.PXR_INTERNAL_NS_pegtl::internal::action_input", align 8
   %.sroa.0.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
@@ -22671,7 +22671,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
   br i1 %6, label %7, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredKWArgNameEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 7:                                                ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredKWArgNameELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %4, ptr %8, align 8
@@ -22686,12 +22686,12 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredKWArgNameEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredKWArgNameELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padINS_5ascii3oneIJLc61EEEENS2_5blankES5_EEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 10:                                               ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load ptr, ptr %11, align 8
   %.promoted.i.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
@@ -22778,7 +22778,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padINS_5ascii3oneIJLc61EEEENS2_5blankES5_E
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionINS0_13PredKWArgNameEE5applyIN21PXR_INTERNAL_NS_pegtl8internal12action_inputINS5_12memory_inputILNS5_13tracking_modeE0ENS5_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEvRKT_RNS_23SdfPredicateExprBuilderE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr %0, align 8, !noalias !293
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !noalias !293
@@ -22803,7 +22803,7 @@ common.resume:                                    ; preds = %17, %13
 
 _ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6stringEv.exit: ; preds = %2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %16 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__23SdfPredicateExprBuilder16SetFuncArgKWNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %17
@@ -22827,7 +22827,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24
   %6 = alloca %"class.std::allocator", align 1
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 74, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.44, i64 56)) #25
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -22839,7 +22839,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24
           to label %14 unwind label %.thread
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, ptr noundef nonnull @.str.32)
           to label %16 unwind label %19
 
@@ -23016,7 +23016,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii3oneIJLc41E
   %6 = alloca %"class.std::allocator", align 1
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 31, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.47, i64 56)) #25
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -23028,7 +23028,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii3oneIJLc41E
           to label %14 unwind label %.thread
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, ptr noundef nonnull @.str.32)
           to label %16 unwind label %19
 
@@ -23366,7 +23366,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrIntern
   %6 = alloca %"class.std::allocator", align 1
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 130, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.48, i64 56)) #25
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -23378,7 +23378,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrIntern
           to label %14 unwind label %.thread
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, ptr noundef nonnull @.str.32)
           to label %16 unwind label %19
 
@@ -23472,9 +23472,9 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchI
   br i1 %17, label %.preheader, label %_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS0_4starINS_5ascii5blankEJEEEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser8PredExprES5_EE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS7_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS6_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 .preheader:                                       ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit8, %_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS_2atIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredOperatorENS4_10PredFactorEEEES5_S6_EE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS4_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.010)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.010)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.010, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %18 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredOperatorENS4_10PredFactorEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS4_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
           to label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_2atIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredOperatorENS3_10PredFactorEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit5.i.i.i.i.i.i
@@ -23487,7 +23487,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_2atIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredOperatorENS3_10PredFactorEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i: ; preds = %.preheader
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
   br i1 %18, label %20, label %_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredFactorELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i.thread
 
 20:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_2atIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredOperatorENS3_10PredFactorEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i
@@ -23515,12 +23515,12 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   resume { ptr, i32 } %eh.lpad-body.i
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS_2atIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredOperatorENS4_10PredFactorEEEES5_S6_EE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS4_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredFactorELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.010)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.010)
   br label %.preheader
 
 _ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredFactorELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i.thread: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredOperatorEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_2atIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredOperatorENS3_10PredFactorEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i, %_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredFactorELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.010, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.010)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.010)
   %26 = load ptr, ptr %4, align 8
   %.promoted.i.i.i.i = load ptr, ptr %3, align 8
   %27 = icmp eq ptr %.promoted.i.i.i.i, %26
@@ -23565,7 +23565,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24
   %6 = alloca %"class.std::allocator", align 1
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 78, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.49, i64 56)) #25
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -23577,7 +23577,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24
           to label %14 unwind label %.thread
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, ptr noundef nonnull @.str.32)
           to label %16 unwind label %19
 
@@ -23941,7 +23941,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i, %2
   %18 = phi ptr [ %.promoted.i.i.i.i, %2 ], [ %12, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i ], [ %14, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = ptrtoint ptr %6 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
@@ -23959,7 +23959,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchI
   br i1 %26, label %27, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc97ELc110ELc100EEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc97ELc110ELc100EEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i: ; preds = %23, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit
 
 27:                                               ; preds = %23
@@ -23973,7 +23973,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc97ELc110ELc100EEEEE5mat
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, 3
   store i64 %34, ptr %32, align 8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %35 = icmp eq ptr %28, %6
   br i1 %35, label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -24061,7 +24061,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i, %2
   %18 = phi ptr [ %.promoted.i.i.i.i, %2 ], [ %12, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i ], [ %14, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = ptrtoint ptr %6 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
@@ -24077,7 +24077,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchI
   br i1 %25, label %26, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc111ELc114EEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc111ELc114EEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i: ; preds = %23, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit
 
 26:                                               ; preds = %23
@@ -24091,7 +24091,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc111ELc114EEEEE5matchILN
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, 2
   store i64 %33, ptr %31, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %34 = icmp eq ptr %27, %6
   br i1 %34, label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -24179,7 +24179,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i, %2
   %18 = phi ptr [ %.promoted.i.i.i.i, %2 ], [ %12, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i ], [ %14, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = ptrtoint ptr %6 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
@@ -24197,7 +24197,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchI
   br i1 %26, label %27, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc110ELc111ELc116EEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i.i.i.i.i.i
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc110ELc111ELc116EEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i.i.i.i.i.i: ; preds = %23, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit
 
 27:                                               ; preds = %23
@@ -24211,7 +24211,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc110ELc111ELc116EEEEE5ma
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, 3
   store i64 %34, ptr %32, align 8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %35 = icmp eq ptr %28, %6
   br i1 %35, label %.preheader, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -24342,7 +24342,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
   %26 = phi i64 [ %16, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i ], [ %24, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i ], [ %18, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i5.i.i.i.i.i ]
   %27 = phi i64 [ %13, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i ], [ %23, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i ], [ %19, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i5.i.i.i.i.i ]
   %28 = phi ptr [ %10, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i ], [ %22, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i ], [ %20, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i5.i.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %29 = ptrtoint ptr %7 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
@@ -24360,7 +24360,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
   br i1 %36, label %37, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc110ELc111ELc116EEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc110ELc111ELc116EEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i: ; preds = %33, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit
 
 37:                                               ; preds = %33
@@ -24370,7 +24370,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc110ELc111ELc116EEEEE5ma
   store i64 %39, ptr %11, align 8
   %40 = add i64 %26, 3
   store i64 %40, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %41 = icmp eq ptr %38, %7
   br i1 %41, label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -24401,7 +24401,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal7if_mustILb0ENS_3seqIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredFuncNameENS_5ascii3oneIJLc58EEEEEEEJNS4_13PredColonArgsEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS4_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS6_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %.sroa.0.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %4 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal7rematchINS_5ascii10identifierEJNS0_6not_atIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12ReservedWordENS0_3eofEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS6_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
@@ -24435,7 +24435,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3seqIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredFuncNameENS_5ascii3oneIJLc58EEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS3_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredFuncNameEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i, %5, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   br label %40
 
 13:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i
@@ -24449,12 +24449,12 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3seqIJN32pxrInternal_v0_24__pxrReserved__28
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   %21 = tail call noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredArgFloatENS3_10PredArgIntENS3_11PredArgBoolENS3_13PredArgStringEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS3_10PredActionETtTpTyENS_6normalEJLm0ELm1ELm2ELm3EENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbSt16integer_sequenceImJXspT3_EEERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
   br i1 %21, label %22, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredColonArgsEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i
 
 22:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %23 = load ptr, ptr %3, align 8
   %24 = load ptr, ptr %7, align 8
@@ -24488,8 +24488,8 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %common.resume
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc44EEEEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredArgValEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS7_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS6_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredArgValEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %37 = load ptr, ptr %3, align 8
   %38 = load ptr, ptr %7, align 8
@@ -24505,7 +24505,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredic
   unreachable
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredColonArgsEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS4_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %22, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredColonArgsEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   br label %40
 
 40:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3seqIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredFuncNameENS_5ascii3oneIJLc58EEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS3_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredColonArgsEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS4_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
@@ -24517,7 +24517,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJN32pxrInternal_v0_24__pxrRe
 define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredArgFloatENS3_10PredArgIntENS3_11PredArgBoolENS3_13PredArgStringEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS3_10PredActionETtTpTyENS_6normalEJLm0ELm1ELm2ELm3EENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbSt16integer_sequenceImJXspT3_EEERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i8 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %.sroa.0.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %4 = load ptr, ptr %3, align 8
@@ -24552,7 +24552,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3sorIJN32pxrInternal_v0_24__pxrReserved__28
   br i1 %18, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredArgFloatEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread, label %20
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredArgFloatEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3sorIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser3InfENS_3seqIJNS3_6DigitsENS_12if_then_elseINS3_4FracENS_3optIJNS3_3ExpEEEESA_EEEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredArgStringEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit7.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_5ascii3oneIJLc45EEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i
@@ -24563,8 +24563,8 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 
 20:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3sorIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser3InfENS_3seqIJNS3_6DigitsENS_12if_then_elseINS3_4FracENS_3optIJNS3_3ExpEEEESA_EEEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i8, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %21 = load ptr, ptr %3, align 8
   %22 = load ptr, ptr %5, align 8
@@ -24634,12 +24634,12 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5rangeILc48ELc57EEEE5matchILNS_10appl
   br i1 %56, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredArgIntEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i, !llvm.loop !311
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredArgIntEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5rangeILc48ELc57EEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5rangeILc48ELc57EEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i8)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredArgStringEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 57:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i6.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_5ascii3oneIJLc45EEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i8, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i8)
   %58 = tail call noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser4TrueENS3_5FalseEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS3_10PredActionETtTpTyENS_6normalEJLm0ELm1EENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbSt16integer_sequenceImJXspT3_EEERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
   br i1 %58, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredArgStringEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit, label %59
 
@@ -24705,10 +24705,10 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredic
 define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser3InfENS_3seqIJNS3_6DigitsENS_12if_then_elseINS3_4FracENS_3optIJNS3_3ExpEEEESA_EEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalEJLm0ELm1EENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbSt16integer_sequenceImJXspT3_EEERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [3 x i8], align 1
   %.sroa.0.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
@@ -24729,7 +24729,7 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   br i1 %15, label %16, label %.thread.i.i.i.i.i
 
 .thread.i.i.i.i.i:                                ; preds = %12, %2
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %31
 
 16:                                               ; preds = %12
@@ -24743,7 +24743,7 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 3
   store i64 %23, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %24 = icmp eq ptr %17, %6
   br i1 %24, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser3InfEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -24762,12 +24762,12 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90E
   br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %31, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser3InfEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser3InfEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3seqIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser6DigitsENS_12if_then_elseINS3_4FracENS_3optIJNS3_3ExpEEEES8_EEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 31:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %.thread.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   %32 = load ptr, ptr %4, align 8
   %33 = icmp eq ptr %32, %6
   br i1 %33, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3seqIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser6DigitsENS_12if_then_elseINS3_4FracENS_3optIJNS3_3ExpEEEES8_EEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -25109,10 +25109,10 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   %.sroa.0.i.i.i.i.i4 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %4 = alloca [4 x i8], align 1
   %.sroa.0.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
@@ -25135,7 +25135,7 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   br i1 %17, label %18, label %.thread.i.i.i.i.i
 
 .thread.i.i.i.i.i:                                ; preds = %13, %2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %33
 
 18:                                               ; preds = %13
@@ -25149,7 +25149,7 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, 4
   store i64 %25, ptr %23, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %26 = icmp eq ptr %19, %7
   br i1 %26, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser4TrueEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -25168,15 +25168,15 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90E
   br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %33, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser4TrueEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser4TrueEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   br label %61
 
 33:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %.thread.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %34 = load ptr, ptr %5, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = sub i64 %9, %35
@@ -25198,7 +25198,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredic
   br i1 %43, label %44, label %.thread.i.i.i.i.i5
 
 .thread.i.i.i.i.i5:                               ; preds = %38, %33
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %59
 
 44:                                               ; preds = %38
@@ -25212,7 +25212,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredic
   %50 = load i64, ptr %49, align 8
   %51 = add i64 %50, 5
   store i64 %51, ptr %49, align 8
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %52 = icmp eq ptr %45, %7
   br i1 %52, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5FalseEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i7
 
@@ -25236,7 +25236,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90E
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5FalseEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %44, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i9, %59
   %60 = phi i1 [ false, %59 ], [ true, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i9 ], [ true, %44 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i4)
   br label %61
 
 61:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser4TrueEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5FalseEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
@@ -25694,7 +25694,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredArgFloatENS3_10PredArgIntENS3_11PredArgBoolENS3_13PredArgStringEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalEJLm0ELm1ELm2ELm3EENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbSt16integer_sequenceImJXspT3_EEERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i8 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %.sroa.0.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %4 = load ptr, ptr %3, align 8
@@ -25729,7 +25729,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3sorIJN32pxrInternal_v0_24__pxrReserved__28
   br i1 %18, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredArgFloatEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread, label %20
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredArgFloatEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3sorIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser3InfENS_3seqIJNS3_6DigitsENS_12if_then_elseINS3_4FracENS_3optIJNS3_3ExpEEEESA_EEEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredArgStringEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit7.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_5ascii3oneIJLc45EEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i
@@ -25740,8 +25740,8 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 
 20:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3sorIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser3InfENS_3seqIJNS3_6DigitsENS_12if_then_elseINS3_4FracENS_3optIJNS3_3ExpEEEESA_EEEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i8, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %21 = load ptr, ptr %3, align 8
   %22 = load ptr, ptr %5, align 8
@@ -25811,12 +25811,12 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5rangeILc48ELc57EEEE5matchILNS_10appl
   br i1 %56, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredArgIntEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i, !llvm.loop !311
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredArgIntEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5rangeILc48ELc57EEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5rangeILc48ELc57EEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i8)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredArgStringEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 57:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i6.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_5ascii3oneIJLc45EEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i8, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i8)
   %58 = tail call noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser4TrueENS3_5FalseEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS3_10PredActionETtTpTyENS_6normalEJLm0ELm1EENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbSt16integer_sequenceImJXspT3_EEERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
   br i1 %58, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredArgStringEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit, label %59
 
@@ -26059,7 +26059,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal12if_then_elseINS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser15PredParenPosArgENS_3padINS_5ascii3oneIJLc44EEEENS7_5blankESA_EEvEENS_3optIJSB_NS2_INS4_9PredKWArgESB_vEEEEENSD_IJSF_EEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS4_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %.sroa.0.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %4 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal6not_atIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser15PredKWArgPrefixEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
@@ -26099,14 +26099,14 @@ common.resume:                                    ; preds = %_ZN21PXR_INTERNAL_N
   resume { ptr, i32 } %common.resume.op
 
 7:                                                ; preds = %.noexc7.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   %8 = tail call noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS_3padINS_5ascii3oneIJLc44EEEENS3_5blankES6_EENS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser9PredKWArgES7_vEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENSA_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
   br label %12
 
 9:                                                ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser15PredParenPosArgEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i, %.noexc.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %10 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal7if_mustILb0EN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser15PredKWArgPrefixEJNS3_10PredArgValEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
           to label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser9PredKWArgEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit7.loopexit.split-lp.i.i.i.i.i.i.i.i.i.i
@@ -26136,7 +26136,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %common.resume
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser9PredKWArgENS_3padINS_5ascii3oneIJLc44EEEENS7_5blankESA_EEvEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS4_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser9PredKWArgENS_3padINS_5ascii3oneIJLc44EEEENS7_5blankESA_EEvEELNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS4_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.thread.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
   br label %12
 
 12:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser9PredKWArgENS_3padINS_5ascii3oneIJLc44EEEENS7_5blankESA_EEvEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS4_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit, %7
@@ -26760,7 +26760,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6rangesINS1_9peek_charEJLc97ELc122
 40:                                               ; preds = %.loopexit
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i64 0, ptr %41, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 32, i1 false)
   %42 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWENS3_5AndKWENS3_4OrKWENS3_3InfENS3_4TrueENS3_5FalseEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyENS_6normalEJLm0ELm1ELm2ELm3ELm4ELm5EENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbSt16integer_sequenceImJXspT3_EEERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(112) %1)
           to label %44 unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit5.i.i.i.i
@@ -26778,7 +26778,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   %45 = icmp eq ptr %.val.i.i.i.i.i.i.i.i.i.i, %.val2.i.i.i.i.i.i.i.i.i.i
   %.not32 = select i1 %42, i1 %45, i1 false
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #25
   br i1 %.not32, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii10identifierEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread22, label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit
 
@@ -27266,7 +27266,7 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqI
   %.sroa.0 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.038)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.038)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.038, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %4 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS0_4starINS_5ascii5blankEJEEEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5AndKWES5_EE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS7_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS6_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
           to label %.noexc31 unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit.i
@@ -27388,12 +27388,12 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_2atIJN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser12PredOperatorENS3_10PredFactorEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i27, %7, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.038, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.038)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.038)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit
 
 52:                                               ; preds = %42, %.noexc23, %.noexc22, %.noexc21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.038, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.038)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.038)
   %53 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS0_4starINS_5ascii5blankEJEEEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5AndKWES5_EE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS7_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS6_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
           to label %.noexc unwind label %113
 
@@ -27568,7 +27568,7 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   br i1 %5, label %33, label %6
 
 6:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %8 = load ptr, ptr %7, align 8
@@ -27633,7 +27633,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10ImpliedAndEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %6, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i, %.loopexit.i.i
   %.0.i.i.i13.i.i8.i.i.i202428.i.i = phi i1 [ true, %.loopexit.i.i ], [ false, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i ], [ false, %6 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %33
 
 33:                                               ; preds = %4, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10ImpliedAndEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit, %2
@@ -27683,9 +27683,9 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i, %2
   %18 = phi ptr [ %.promoted.i.i.i.i, %2 ], [ %12, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i ], [ %14, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = ptrtoint ptr %6 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
@@ -27703,7 +27703,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchI
   br i1 %26, label %27, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc97ELc110ELc100EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc97ELc110ELc100EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i: ; preds = %23, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %58
 
 27:                                               ; preds = %23
@@ -27717,7 +27717,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc97ELc110ELc100EEEEE5mat
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, 3
   store i64 %34, ptr %32, align 8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %35 = icmp eq ptr %28, %6
   br i1 %35, label %42, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -27750,7 +27750,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   resume { ptr, i32 } %46
 
 47:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   %48 = load ptr, ptr %5, align 8
   %.promoted.i.i.i.i8 = load ptr, ptr %4, align 8
   %49 = icmp eq ptr %.promoted.i.i.i.i8, %48
@@ -27782,7 +27782,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS
   br i1 %57, label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12, !llvm.loop !225
 
 58:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc97ELc110ELc100EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit
 
@@ -27833,9 +27833,9 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i, %2
   %18 = phi ptr [ %.promoted.i.i.i.i, %2 ], [ %12, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i ], [ %14, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = ptrtoint ptr %6 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
@@ -27851,7 +27851,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchI
   br i1 %25, label %26, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc111ELc114EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc111ELc114EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i: ; preds = %23, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %57
 
 26:                                               ; preds = %23
@@ -27865,7 +27865,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc111ELc114EEEEE5matchILN
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, 2
   store i64 %33, ptr %31, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %34 = icmp eq ptr %27, %6
   br i1 %34, label %41, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -27898,7 +27898,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   resume { ptr, i32 } %45
 
 46:                                               ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   %47 = load ptr, ptr %5, align 8
   %.promoted.i.i.i.i8 = load ptr, ptr %4, align 8
   %48 = icmp eq ptr %.promoted.i.i.i.i8, %47
@@ -27930,7 +27930,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS
   br i1 %56, label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12, !llvm.loop !225
 
 57:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc111ELc114EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit
 
@@ -27944,7 +27944,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internalL1
   %.sroa.0.i.i.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %.sroa.0.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %.sroa.0.i.i.i.i.i.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -28036,7 +28036,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %common.resume
 
 .loopexit:                                        ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i13.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_3padINS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWENS_4plusINS_5ascii5blankEJEEEvEES9_S9_EELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS5_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS8_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.thread12.i.i.i.i.i.i.i, %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
   %32 = tail call noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser13PredColonCallELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
   br i1 %32, label %_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS_3optIJNS_3padINS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWENS_4plusINS_5ascii5blankEJEEEvEESA_SA_EEEEENS6_8PredAtomEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS6_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit, label %33
 
@@ -28049,7 +28049,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br i1 %36, label %_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS_3optIJNS_3padINS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWENS_4plusINS_5ascii5blankEJEEEvEESA_SA_EEEEENS6_8PredAtomEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS6_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit, label %37
 
 37:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %38 = load ptr, ptr %3, align 8
   %39 = load ptr, ptr %4, align 8
@@ -28096,7 +28096,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %common.resume
 
 _ZN21PXR_INTERNAL_NS_pegtl5matchINS_3padIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser8PredExprENS_5ascii5blankES6_EELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i.i: ; preds = %58, %55
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i)
   %60 = tail call fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internalL16match_no_controlINS_3padIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser8PredExprENS_5ascii5blankES7_EELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS6_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEDTclsrT_5matchIXT0_EXT1_ET2_T3_Efp_spfp0_EERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
   br i1 %60, label %_ZN21PXR_INTERNAL_NS_pegtl8internal4mustIJNS_3padIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser8PredExprENS_5ascii5blankES7_EEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS6_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i, label %61
 
@@ -28105,7 +28105,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchINS_3padIN32pxrInternal_v0_24__pxrReserved__28Sd
   unreachable
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal4mustIJNS_3padIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser8PredExprENS_5ascii5blankES7_EEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS6_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl5matchINS_3padIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser8PredExprENS_5ascii5blankES6_EELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDaRT4_DpOT5_.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %62 = load ptr, ptr %3, align 8
   %63 = load ptr, ptr %4, align 8
@@ -28135,16 +28135,16 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %common.resume
 
 74:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal4mustIJNS_3padIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser8PredExprENS_5ascii5blankES7_EEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS6_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   tail call void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser14PredCloseGroupEE5raiseINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_23SdfPredicateExprBuilderEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) #28
   unreachable
 
 75:                                               ; preds = %67
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS_3optIJNS_3padINS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWENS_4plusINS_5ascii5blankEJEEEvEESA_SA_EEEEENS6_8PredAtomEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS6_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 76:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i, %37
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS_3optIJNS_3padINS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWENS_4plusINS_5ascii5blankEJEEEvEESA_SA_EEEEENS6_8PredAtomEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS6_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS_3optIJNS_3padINS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWENS_4plusINS_5ascii5blankEJEEEvEESA_SA_EEEEENS6_8PredAtomEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS6_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %76, %.loopexit, %33, %35, %75
@@ -28271,7 +28271,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii3oneIJLc125
   %6 = alloca %"class.std::allocator", align 1
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 31, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.50, i64 56)) #25
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -28283,7 +28283,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii3oneIJLc125
           to label %14 unwind label %.thread
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, ptr noundef nonnull @.str.32)
           to label %16 unwind label %19
 
@@ -28476,7 +28476,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternA
 _ZN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionaSEOS0_.exit: ; preds = %2, %18
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = load ptr, ptr %22, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %26 = load ptr, ptr %25, align 8
@@ -28497,7 +28497,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionaSEOS0_.exit: ; pre
   store ptr %28, ptr %35, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %37 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %8) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #25
@@ -28527,9 +28527,9 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqI
   %.sroa.0 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
@@ -28558,11 +28558,11 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPa
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, 2
   store i64 %21, ptr %19, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %34
 
 22:                                               ; preds = %12, %2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %23 = icmp eq ptr %7, %6
   br i1 %23, label %.thread, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -28595,12 +28595,12 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit9
 
 .thread:                                          ; preds = %22, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser19PrimPathPatternElemEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread
 
 37:                                               ; preds = %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   br i1 %35, label %38, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser19PrimPathPatternElemEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread
 
 38:                                               ; preds = %37
@@ -28936,7 +28936,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, 1
   store i64 %17, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %18 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS0_4starINS_5ascii5blankEJEEEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser8PredExprES5_EE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS6_21SdfPathPatternActions17PathPatternActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSD_14PatternBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(176) %1)
           to label %.noexc.i.i.i.i unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit9.i.i.i.i
@@ -28984,7 +28984,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJNS_3padIN32pxrInternal_v0_2
   %30 = load i64, ptr %15, align 8
   %31 = add i64 %30, 1
   store i64 %31, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii3oneIJLc123EEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii3oneIJLc123EEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %2, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJNS_3padIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser8PredExprENS_5ascii5blankES8_EENS7_3oneIJLc125EEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS4_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSH_14PatternBuilderEEEEbRT3_DpOT4_.exit
@@ -29030,7 +29030,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
   br i1 %17, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_14PatternBuilderEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !323
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_14PatternBuilderEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i, %2
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__23SdfPredicateExprBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
   %18 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS_3optIJNS_3padINS_4listIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser5NotKWENS_4plusINS_5ascii5blankEJEEEvEESA_SA_EEEEENS6_8PredAtomEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS6_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %3)
           to label %.noexc.i.i unwind label %.loopexit.split-lp.i.i
@@ -29040,7 +29040,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchI
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser8PredExprEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %.noexc.i.i
   call void @_ZN32pxrInternal_v0_24__pxrReserved__23SdfPredicateExprBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #25
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_14PatternBuilderEEEEbRT3_DpOT4_.exit13
 
 .preheader.i.i.i.i.i:                             ; preds = %.noexc.i.i, %.noexc3.i.i
@@ -29067,7 +29067,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredic
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser8PredExprEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit: ; preds = %.noexc3.i.i
   call void @_ZN32pxrInternal_v0_24__pxrReserved__23SdfPredicateExprBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #25
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %21 = load ptr, ptr %5, align 8
   %.promoted.i.i.i.i7 = load ptr, ptr %4, align 8
   %22 = icmp eq ptr %.promoted.i.i.i.i7, %21
@@ -29109,10 +29109,10 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca [2 x i8], align 1
   %.sroa.0.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
@@ -29141,8 +29141,8 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorI
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 2
   store i64 %23, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = invoke noundef nonnull align 8 dereferenceable(57) ptr @_ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern23AppendStretchIfPossibleEv(ptr noundef nonnull align 8 dereferenceable(176) %1)
           to label %.noexc.i.i unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit.i.i
 
@@ -29171,13 +29171,13 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   resume { ptr, i32 } %32
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser14PathPatStretchEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %.noexc.i.i, %26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii3oneIJLc47EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_14PatternBuilderEEEEbRT3_DpOT4_.exit
 
 33:                                               ; preds = %13, %2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   %34 = icmp eq ptr %8, %7
   br i1 %34, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii3oneIJLc47EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_14PatternBuilderEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i
 
@@ -29240,9 +29240,9 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   unreachable
 
 22:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i, %2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = ptrtoint ptr %8 to i64
   %24 = ptrtoint ptr %6 to i64
   %25 = sub i64 %23, %24
@@ -29268,8 +29268,8 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, 2
   store i64 %37, ptr %35, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %38 = invoke noundef nonnull align 8 dereferenceable(57) ptr @_ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern23AppendStretchIfPossibleEv(ptr noundef nonnull align 8 dereferenceable(176) %1)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i
 
@@ -29298,15 +29298,15 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   resume { ptr, i32 } %46
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit.thread.i.i.i.i.i.i.i.i.i.i.i: ; preds = %40, %.noexc.i.i.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJNS_3optIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser14PathPatStretchEEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSD_14PatternBuilderEEEEbRT3_DpOT4_.exit
 
 47:                                               ; preds = %27, %22
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJNS_3optIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser14PathPatStretchEEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSD_14PatternBuilderEEEEbRT3_DpOT4_.exit
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJNS_3optIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser14PathPatStretchEEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSD_14PatternBuilderEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit.thread.i.i.i.i.i.i.i.i.i.i.i, %47
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser19PropPathPatternElemEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_14PatternBuilderEEEEbRT3_DpOT4_.exit
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser19PropPathPatternElemEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_14PatternBuilderEEEEbRT3_DpOT4_.exit: ; preds = %12, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJNS_3optIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser14PathPatStretchEEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSD_14PatternBuilderEEEEbRT3_DpOT4_.exit
@@ -29321,7 +29321,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24
   %6 = alloca %"class.std::allocator", align 1
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 75, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.51, i64 56)) #25
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -29333,7 +29333,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24
           to label %14 unwind label %.thread
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, ptr noundef nonnull @.str.32)
           to label %16 unwind label %19
 
@@ -29446,7 +29446,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
           to label %35 unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit
 
 35:                                               ; preds = %11, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %14, %26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %4, ptr %36, align 8
@@ -29460,7 +29460,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   resume { ptr, i32 } %37
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit.thread: ; preds = %35
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit20
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %23
@@ -29559,8 +29559,8 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3sorIJNS_5ascii16identifier_otherENS2_3oneI
           to label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser23PropPathPatternElemTextELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_21SdfPathPatternActions17PathPatternActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_14PatternBuilderEEEEDaRT4_DpOT5_.exit unwind label %42
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser23PropPathPatternElemTextELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_21SdfPathPatternActions17PathPatternActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_14PatternBuilderEEEEDaRT4_DpOT5_.exit: ; preds = %.loopexit.i.i.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %36 = load ptr, ptr %5, align 8, !noalias !325
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %.sroa.0.0.copyload to i64
@@ -29588,11 +29588,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit.thread: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser23PropPathPatternElemTextELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_21SdfPathPatternActions17PathPatternActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_14PatternBuilderEEEEDaRT4_DpOT5_.exit
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %45 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %4) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit17
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit17: ; preds = %2, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit.thread
@@ -29749,7 +29749,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternA
 _ZN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionaSEOS0_.exit: ; preds = %2, %18
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = load ptr, ptr %22, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %26 = load ptr, ptr %25, align 8
@@ -29770,7 +29770,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionaSEOS0_.exit: ; pre
   store ptr %28, ptr %35, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %37 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %8) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #25
@@ -29797,7 +29797,7 @@ declare noundef nonnull align 8 dereferenceable(57) ptr @_ZN32pxrInternal_v0_24_
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternActions17PathPatternActionINS_20SdfPathPatternParser17ReflexiveRelativeEE5applyIN21PXR_INTERNAL_NS_pegtl8internal12action_inputINS6_12memory_inputILNS6_13tracking_modeE0ENS6_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEvRKT_RNS0_14PatternBuilderE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(176) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   %4 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath21ReflexiveRelativePathEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load i32, ptr %4, align 4
   store i32 %5, ptr %3, align 4
   %.not.i.i.i = icmp eq i32 %5, 0
@@ -29862,7 +29862,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %6, %2
   resume { ptr, i32 } %41
 
 _ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9SetPrefixERKNS_7SdfPathE.exit: ; preds = %21, %23, %36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -29877,9 +29877,9 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqI
   %.sroa.0 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
@@ -29908,8 +29908,8 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqI
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 2
   store i64 %23, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = invoke noundef nonnull align 8 dereferenceable(57) ptr @_ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern23AppendStretchIfPossibleEv(ptr noundef nonnull align 8 dereferenceable(176) %1)
           to label %.noexc.i.i unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit.i.i
 
@@ -29937,9 +29937,9 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit9
 
 33:                                               ; preds = %.noexc.i.i, %26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %34 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser19PrimPathPatternElemELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS6_14PatternBuilderEEEEDaRT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(176) %1)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit9.loopexit.split-lp.i.i.i.i.i.i.i.i.i.i
@@ -29976,12 +29976,12 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit.thread
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit.thread: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_12if_must_elseINS_5ascii3oneIJLc46EEEEN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser19PropPathPatternElemENS_3optIJNS6_14PathPatStretchEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS5_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSG_14PatternBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i, %37
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit
 
 38:                                               ; preds = %13, %2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit.thread, %38
@@ -30075,7 +30075,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternC1Ev(ptr noun
 define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internalL16match_no_controlINS_7if_mustIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117PathExprOpenGroupEJNS_3padINS4_8PathExprENS_5ascii5blankES9_EENS4_18PathExprCloseGroupEEEELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS8_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_19Sdf_PathExprBuilderEEEEDTclsrT_5matchIXT0_EXT1_ET2_T3_Efp_spfp0_EERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %.sroa.0.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %4 = load ptr, ptr %3, align 8
@@ -30130,11 +30130,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %common.resume
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117PathExprOpenGroupEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS2_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %2, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal7if_mustILb0EN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117PathExprOpenGroupEJNS_3padINS3_8PathExprENS_5ascii5blankES8_EENS3_18PathExprCloseGroupEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit
 
 27:                                               ; preds = %25, %22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   %28 = load ptr, ptr %5, align 8
   %.promoted.i.i.i.i.i.i = load ptr, ptr %3, align 8
   %29 = icmp eq ptr %.promoted.i.i.i.i.i.i, %28
@@ -30222,7 +30222,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInternal_v0_24__pxrReserved__12_
 
 _ZN21PXR_INTERNAL_NS_pegtl8internalL16match_no_controlINS0_4mustIJNS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18PathExprENS_5ascii5blankES8_EEEEELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS5_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_19Sdf_PathExprBuilderEEEEDTclsrT_5matchIXT0_EXT1_ET2_T3_Efp_spfp0_EERT4_DpOT5_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i12.i.i, %43
   %54 = phi ptr [ %.promoted.i.i.i.i7.i.i, %43 ], [ %48, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i ], [ %50, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i12.i.i ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %55 = icmp eq ptr %54, %44
   br i1 %55, label %65, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i
@@ -30250,12 +30250,12 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %common.resume
 
 65:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internalL16match_no_controlINS0_4mustIJNS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18PathExprENS_5ascii5blankES8_EEEEELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS5_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_19Sdf_PathExprBuilderEEEEDTclsrT_5matchIXT0_EXT1_ET2_T3_Efp_spfp0_EERT4_DpOT5_.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   tail call fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118PathExprCloseGroupEE5raiseINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(120) %0) #28
   unreachable
 
 _ZN21PXR_INTERNAL_NS_pegtl8internalL16match_no_controlINS0_4mustIJNS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18PathExprENS_5ascii5blankES8_EENS5_18PathExprCloseGroupEEEELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS5_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_19Sdf_PathExprBuilderEEEEDTclsrT_5matchIXT0_EXT1_ET2_T3_Efp_spfp0_EERT4_DpOT5_.exit: ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal7if_mustILb0EN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117PathExprOpenGroupEJNS_3padINS3_8PathExprENS_5ascii5blankES8_EENS3_18PathExprCloseGroupEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal7if_mustILb0EN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117PathExprOpenGroupEJNS_3padINS3_8PathExprENS_5ascii5blankES8_EENS3_18PathExprCloseGroupEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117PathExprOpenGroupEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS2_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit, %_ZN21PXR_INTERNAL_NS_pegtl8internalL16match_no_controlINS0_4mustIJNS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18PathExprENS_5ascii5blankES8_EENS5_18PathExprCloseGroupEEEELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS5_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_19Sdf_PathExprBuilderEEEEDTclsrT_5matchIXT0_EXT1_ET2_T3_Efp_spfp0_EERT4_DpOT5_.exit
@@ -30271,7 +30271,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0
   %5 = alloca %"class.std::allocator", align 1
   %6 = tail call ptr @__cxa_allocate_exception(i64 32) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 75, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.53, i64 56)) #25
   %8 = extractvalue { i64, ptr } %7, 0
   %9 = extractvalue { i64, ptr } %7, 1
@@ -30283,7 +30283,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0
           to label %13 unwind label %.thread
 
 13:                                               ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %14 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0, ptr noundef nonnull @.str.32)
           to label %15 unwind label %18
 
@@ -30553,14 +30553,14 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3s
   %.sroa.0 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %4 = tail call fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathOperatorEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0)
   br i1 %4, label %5, label %.thread
 
 .thread:                                          ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit
 
 5:                                                ; preds = %2
@@ -30575,11 +30575,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 
 8:                                                ; preds = %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   br i1 %6, label %9, label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit
 
 9:                                                ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
@@ -30684,13 +30684,13 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS
   br i1 %48, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathSetUnionENS_5ascii5blankES6_EEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !182
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathSetUnionENS_5ascii5blankES6_EEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i13.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12.i.i.i.i.i.i.i.i.i.i.i, %38
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i)
   br label %148
 
 49:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i9.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i9.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i9.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %.promoted.i.i.i.i.i.i.i.i.i10.i.i.i.i.i.i = load ptr, ptr %3, align 8
   %50 = icmp eq ptr %.promoted.i.i.i.i.i.i.i.i.i10.i.i.i.i.i.i, %11
@@ -30787,13 +30787,13 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS
   br i1 %86, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119PathSetIntersectionENS_5ascii5blankES6_EEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12.i.i.i.i.i25.i.i.i.i.i.i, !llvm.loop !182
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119PathSetIntersectionENS_5ascii5blankES6_EEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i13.i.i.i.i.i26.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12.i.i.i.i.i25.i.i.i.i.i.i, %76
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i9.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i9.i.i.i.i.i.i)
   br label %148
 
 87:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i17.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i16.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i9.i.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i9.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i28.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i9.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i28.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i28.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %.promoted.i.i.i.i.i.i.i.i.i29.i.i.i.i.i.i = load ptr, ptr %3, align 8
   %88 = icmp eq ptr %.promoted.i.i.i.i.i.i.i.i.i29.i.i.i.i.i.i, %11
@@ -30890,13 +30890,13 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS
   br i1 %124, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117PathSetDifferenceENS_5ascii5blankES6_EEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12.i.i.i.i.i44.i.i.i.i.i.i, !llvm.loop !182
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117PathSetDifferenceENS_5ascii5blankES6_EEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i13.i.i.i.i.i45.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12.i.i.i.i.i44.i.i.i.i.i.i, %114
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i28.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i28.i.i.i.i.i.i)
   br label %148
 
 125:                                              ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i36.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i35.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i28.i.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i28.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i28.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %126 = load ptr, ptr %3, align 8
   %127 = icmp eq ptr %126, %11
@@ -30956,11 +30956,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %common.resume.i.i.i.i.i.i
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathOperatorELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.i.i: ; preds = %.loopexit.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
   br label %148
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathOperatorEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %125, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i46.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit
 
 148:                                              ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathOperatorELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathSetUnionENS_5ascii5blankES6_EEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119PathSetIntersectionENS_5ascii5blankES6_EEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117PathSetDifferenceENS_5ascii5blankES6_EEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i.i
@@ -30982,7 +30982,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__
   br i1 %151, label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit, label %152
 
 152:                                              ; preds = %.noexc15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %153 = load ptr, ptr %3, align 8
   %154 = load ptr, ptr %10, align 8
@@ -31030,7 +31030,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit11
 
 175:                                              ; preds = %173, %170
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
   %176 = invoke fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18PathExprENS_5ascii5blankES7_EELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS6_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18PathExprENS_5ascii5blankES6_EEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i unwind label %194
 
@@ -31045,7 +31045,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInternal_v0_24__pxrReserved__12_
   unreachable
 
 _ZN21PXR_INTERNAL_NS_pegtl8internalL16match_no_controlINS0_4mustIJNS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18PathExprENS_5ascii5blankES8_EEEEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS5_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_19Sdf_PathExprBuilderEEEEDTclsrT_5matchIXT0_EXT1_ET2_T3_Efp_spfp0_EERT4_DpOT5_.exit.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18PathExprENS_5ascii5blankES6_EEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %178 = load ptr, ptr %3, align 8
   %179 = load ptr, ptr %10, align 8
@@ -31076,7 +31076,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit11
 
 190:                                              ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internalL16match_no_controlINS0_4mustIJNS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18PathExprENS_5ascii5blankES8_EEEEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS5_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_19Sdf_PathExprBuilderEEEEDTclsrT_5matchIXT0_EXT1_ET2_T3_Efp_spfp0_EERT4_DpOT5_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i17)
   invoke fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118PathExprCloseGroupEE5raiseINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(120) %0) #28
           to label %.noexc23 unwind label %194
 
@@ -31084,11 +31084,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   unreachable
 
 191:                                              ; preds = %183
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i17)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit
 
 192:                                              ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i, %152
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit: ; preds = %192, %.thread, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathOperatorEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit, %8
@@ -31115,7 +31115,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   %.sroa.0.i.i.i.i.i20.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %.sroa.0.i.i.i.i.i8.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %.sroa.0.i.i.i.i.i.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -31196,13 +31196,13 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
   br i1 %36, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathSetUnionENS_5ascii5blankES6_EEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12.i.i.i.i.i.i.i.i.i.i, !llvm.loop !331
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathSetUnionENS_5ascii5blankES6_EEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i13.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12.i.i.i.i.i.i.i.i.i.i, %20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathOperatorELNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit
 
 37:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i8.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i8.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i8.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %.promoted.i.i.i.i.i.i.i.i.i9.i.i.i.i.i = load ptr, ptr %2, align 8
   %38 = icmp eq ptr %.promoted.i.i.i.i.i.i.i.i.i9.i.i.i.i.i, %4
@@ -31280,13 +31280,13 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
   br i1 %69, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119PathSetIntersectionENS_5ascii5blankES6_EEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12.i.i.i.i.i18.i.i.i.i.i, !llvm.loop !331
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119PathSetIntersectionENS_5ascii5blankES6_EEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i13.i.i.i.i.i19.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12.i.i.i.i.i18.i.i.i.i.i, %53
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i8.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i8.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathOperatorELNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit
 
 70:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i16.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i15.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i8.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i8.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i20.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i8.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i20.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i20.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %.promoted.i.i.i.i.i.i.i.i.i21.i.i.i.i.i = load ptr, ptr %2, align 8
   %71 = icmp eq ptr %.promoted.i.i.i.i.i.i.i.i.i21.i.i.i.i.i, %4
@@ -31364,12 +31364,12 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
   br i1 %102, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117PathSetDifferenceENS_5ascii5blankES6_EEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12.i.i.i.i.i30.i.i.i.i.i, !llvm.loop !331
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117PathSetDifferenceENS_5ascii5blankES6_EEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i13.i.i.i.i.i31.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12.i.i.i.i.i30.i.i.i.i.i, %86
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i20.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i20.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathOperatorELNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit
 
 103:                                              ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i28.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i27.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i20.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i20.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i20.i.i.i.i.i)
   %104 = load ptr, ptr %2, align 8
   %105 = icmp eq ptr %104, %4
   br i1 %105, label %_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathOperatorELNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i32.i.i.i.i.i
@@ -31423,7 +31423,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS_3optIJNS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117PathSetComplementENS_5ascii5blankES8_EEEEENS5_12PathExprAtomEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS5_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -31508,7 +31508,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117PathSetComplementENS_5ascii5blankES7_EEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS4_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS6_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117PathSetComplementENS_5ascii5blankES7_EEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS4_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS6_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i13.i.i.i.i.i.i.i.i.i.i, %20, %37
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
   %38 = tail call fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0)
   br i1 %38, label %_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathExprAtomELNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit, label %39
 
@@ -31585,10 +31585,10 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   %.sroa.0.i.i.i.i.i4.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %4 = alloca [2 x i8], align 1
   %.sroa.0.i.i.i.i.i.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
@@ -31607,7 +31607,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   br i1 %15, label %16, label %.thread.i.i.i.i.i.i.i.i.i.i
 
 .thread.i.i.i.i.i.i.i.i.i.i:                      ; preds = %13, %1
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %30
 
 16:                                               ; preds = %13
@@ -31621,7 +31621,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 2
   store i64 %23, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %24 = icmp eq ptr %17, %7
   br i1 %24, label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceELNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.thread.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -31643,13 +31643,13 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_6not_atIJNS_3sorIJNS_5ascii16identifier_oth
   ]
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceELNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.thread.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_6not_atIJNS_3sorIJNS_5ascii16identifier_otherENS3_3oneIJLc58EEEEEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSD_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i, %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceELNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit
 
 30:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_6not_atIJNS_3sorIJNS_5ascii16identifier_otherENS3_3oneIJLc58EEEEEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSD_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_6not_atIJNS_3sorIJNS_5ascii16identifier_otherENS3_3oneIJLc58EEEEEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSD_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i4.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i4.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i4.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %31 = load ptr, ptr %5, align 8
   %32 = icmp eq ptr %31, %7
@@ -31671,7 +31671,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   %41 = load i64, ptr %40, align 8
   %42 = add i64 %41, 1
   store i64 %42, ptr %40, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %43 = icmp eq ptr %36, %7
   br i1 %43, label %51, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i
@@ -31697,15 +31697,15 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   br label %51
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120AbsExpressionRefPathEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %46
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceELNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.thread1.i
 
 51:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i, %35
   %.pre-phi.i.i.i.i.i = phi i64 [ %.pre.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %9, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i ], [ %9, %35 ]
   %52 = phi ptr [ %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %7, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i ], [ %7, %35 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %53 = load ptr, ptr %5, align 8
   %54 = ptrtoint ptr %53 to i64
   %55 = sub i64 %.pre-phi.i.i.i.i.i, %54
@@ -31729,8 +31729,8 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__
   %64 = load i64, ptr %40, align 8
   %65 = add i64 %64, 2
   store i64 %65, ptr %40, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %66 = icmp eq ptr %61, %52
   br i1 %66, label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -31754,7 +31754,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   store i64 %75, ptr %37, align 8
   %76 = add i64 %68, 1
   store i64 %76, ptr %40, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %77 = ptrtoint ptr %74 to i64
   %78 = sub i64 %.pre-phi.i.i.i.i.i, %77
   %79 = icmp ugt i64 %78, 1
@@ -31768,7 +31768,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   br i1 %81, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc47EEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16DotDotEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS7_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS6_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.thread3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .thread3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %80, %73
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc47EEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16DotDotEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS7_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS6_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %80
@@ -31778,21 +31778,21 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc47EEEEN32px
   store i64 %83, ptr %37, align 8
   %84 = add i64 %68, 3
   store i64 %84, ptr %40, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %85 = icmp eq ptr %82, %52
   br i1 %85, label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !333
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc47EEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16DotDotEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS7_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS6_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.thread3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17DotDotsEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 86:                                               ; preds = %57, %51
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17DotDotsEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17DotDotsEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %86, %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -31882,12 +31882,12 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__
   br i1 %126, label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceELNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.thread1.i, label %127
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceELNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.thread1.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6rangesINS1_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117ExpressionRefPathEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i, %103, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120AbsExpressionRefPathEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i4.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i4.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceELNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit
 
 127:                                              ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117ExpressionRefPathEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %90, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17DotDotsEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i4.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i4.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i4.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceELNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit
 
 _ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceELNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceELNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.thread.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceELNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.thread1.i, %127
@@ -31898,7 +31898,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser11PathPatternEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS1_12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::SdfPathPatternActions::PatternBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %2, i8 0, i64 176, i1 false)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternC1Ev(ptr noundef nonnull align 8 dereferenceable(176) %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -31936,7 +31936,7 @@ _ZN21PXR_INTERNAL_NS_pegtl24change_action_and_statesIN32pxrInternal_v0_24__pxrRe
 _ZN21PXR_INTERNAL_NS_pegtl24change_action_and_statesIN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternActions17PathPatternActionEJNS2_14PatternBuilderEEE5matchINS1_20SdfPathPatternParser11PathPatternELNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS1_12_GLOBAL__N_114PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT4_DpOT5_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl24change_action_and_statesIN32pxrInternal_v0_24__pxrReserved__21SdfPathPatternActions17PathPatternActionEJNS2_14PatternBuilderEEE5matchINS1_20SdfPathPatternParser11PathPatternELNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS1_12_GLOBAL__N_114PathExprActionETtTpTyENS_6normalEJLm0EENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJS4_RNS1_19Sdf_PathExprBuilderEEEEbSt16integer_sequenceImJXspT4_EEERT5_DpOT6_.exit.i, %9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #25
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %6
 }
 
@@ -32008,7 +32008,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6rangesINS1_9peek_charEJLc97ELc122
   %.promoted6.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %20, %13 ], [ %22, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %33, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6rangesINS1_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.promoted5.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %17, %13 ], [ %23, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %32, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6rangesINS1_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.promoted.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %14, %13 ], [ %24, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6rangesINS1_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %35 = icmp eq ptr %.promoted.i.i.i.i.i.i.i.i.i.i.i.i.i, %5
   br i1 %35, label %.loopexit.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i
@@ -32085,15 +32085,15 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc47EEEENS3_1
   %70 = phi i64 [ %55, %52 ], [ %57, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %68, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6rangesINS1_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %71 = phi i64 [ %54, %52 ], [ %58, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %67, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6rangesINS1_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %72 = phi ptr [ %53, %52 ], [ %59, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %66, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6rangesINS1_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %73 = icmp eq ptr %72, %5
   br i1 %73, label %.loopexit.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i, !llvm.loop !335
 
 .loopexit.i.i.i.i:                                ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc47EEEENS3_10identifierEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSC_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %41, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %74 = load ptr, ptr %2, align 8
   %75 = icmp eq ptr %74, %5
   br i1 %75, label %_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124ExpressionRefPathAndNameELNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -32189,7 +32189,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPa
   br i1 %11, label %12, label %36
 
 12:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser13AbsoluteStartEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = ptrtoint ptr %8 to i64
   %14 = ptrtoint ptr %6 to i64
   %15 = sub i64 %13, %14
@@ -32215,11 +32215,11 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPa
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, 2
   store i64 %26, ptr %24, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_7if_mustIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser13AbsoluteStartEJNS3_14AbsPathPatternEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_14PatternBuilderEEEEbRT3_DpOT4_.exit
 
 27:                                               ; preds = %17, %12
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store ptr %28, ptr %5, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -32245,7 +32245,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_7if_mustIN32pxrInternal_v0_24__pxrReserved_
   br i1 %39, label %70, label %40
 
 40:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %41 = load ptr, ptr %5, align 8
   %42 = load ptr, ptr %7, align 8
@@ -32268,9 +32268,9 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   %52 = load i64, ptr %51, align 8
   %53 = add i64 %52, 1
   store i64 %53, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %54 = ptrtoint ptr %42 to i64
   %55 = ptrtoint ptr %47 to i64
   %56 = sub i64 %54, %55
@@ -32292,12 +32292,12 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   store i64 %63, ptr %48, align 8
   %64 = add i64 %52, 3
   store i64 %64, ptr %51, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %65 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS_3seqIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser19PrimPathPatternElemENS_4starINS_2atIJNS4_10PathPatSepES5_EEEJS8_S5_EEEEEENS_12if_must_elseINS_5ascii3oneIJLc46EEEENS4_19PropPathPatternElemENS_3optIJNS4_14PathPatStretchEEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS3_21SdfPathPatternActions17PathPatternActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENSD_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSP_14PatternBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(176) %1)
           to label %68 unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit7.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 66:                                               ; preds = %58, %46
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %68
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit7.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %61
@@ -32308,12 +32308,12 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   resume { ptr, i32 } %67
 
 68:                                               ; preds = %66, %61
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3seqIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser17ReflexiveRelativeENS_3optIJNS3_14PathPatStretchENS5_IJNS3_16PathPatternElemsEEEEEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSF_14PatternBuilderEEEEbRT3_DpOT4_.exit
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3seqIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser17ReflexiveRelativeENS_3optIJNS3_14PathPatStretchENS5_IJNS3_16PathPatternElemsEEEEEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSF_14PatternBuilderEEEEbRT3_DpOT4_.exit: ; preds = %40, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i, %68
   %69 = phi i1 [ true, %68 ], [ false, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i ], [ false, %40 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   br label %70
 
 70:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_7if_mustIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser13AbsoluteStartEJNS3_14AbsPathPatternEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_14PatternBuilderEEEEbRT3_DpOT4_.exit, %36, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3seqIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser17ReflexiveRelativeENS_3optIJNS3_14PathPatStretchENS5_IJNS3_16PathPatternElemsEEEEEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSF_14PatternBuilderEEEEbRT3_DpOT4_.exit, %38
@@ -32334,7 +32334,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPa
   br i1 %5, label %6, label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit
 
 6:                                                ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser7DotDotsEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %4, align 8
@@ -32363,11 +32363,11 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPa
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 2
   store i64 %23, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %36
 
 24:                                               ; preds = %14, %6
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = icmp eq ptr %9, %8
   br i1 %25, label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -32412,7 +32412,7 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqI
   %3 = alloca [2 x i8], align 1
   %.sroa.0.i.i.i.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %4 = alloca [2 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -32432,7 +32432,7 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqI
   br i1 %15, label %16, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser6DotDotEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser6DotDotEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread: ; preds = %13, %2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %44
 
 16:                                               ; preds = %13
@@ -32446,8 +32446,8 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPa
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 2
   store i64 %23, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %24 = icmp eq ptr %17, %6
   br i1 %24, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii3oneIJLc47EEEEJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser6DotDotEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS6_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSE_14PatternBuilderEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.lr.ph.i.i.i.i
@@ -32471,7 +32471,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   store i64 %33, ptr %18, align 8
   %34 = add i64 %26, 1
   store i64 %34, ptr %21, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %35 = ptrtoint ptr %32 to i64
   %36 = sub i64 %9, %35
   %37 = icmp ugt i64 %36, 1
@@ -32485,7 +32485,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   br i1 %39, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc47EEEEN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser6DotDotEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS6_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSE_14PatternBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i, label %.thread11.i.i.i.i.i.i.i.i
 
 .thread11.i.i.i.i.i.i.i.i:                        ; preds = %38, %31
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii3oneIJLc47EEEEJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser6DotDotEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS6_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSE_14PatternBuilderEEEEbRT3_DpOT4_.exit
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc47EEEEN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser6DotDotEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS6_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSE_14PatternBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i: ; preds = %38
@@ -32495,16 +32495,16 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc47EEEEN32px
   store i64 %41, ptr %18, align 8
   %42 = add i64 %26, 3
   store i64 %42, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %43 = icmp eq ptr %40, %6
   br i1 %43, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii3oneIJLc47EEEEJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser6DotDotEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS6_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSE_14PatternBuilderEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !336
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii3oneIJLc47EEEEJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser6DotDotEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS6_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSE_14PatternBuilderEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc47EEEEN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser6DotDotEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS6_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSE_14PatternBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i, %16, %.thread11.i.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
   br label %44
 
 44:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser6DotDotEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii3oneIJLc47EEEEJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser6DotDotEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS6_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSE_14PatternBuilderEEEEbRT3_DpOT4_.exit
@@ -32568,7 +32568,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   unreachable
 
 23:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3seqIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser19PrimPathPatternElemENS_4starINS_2atIJNS3_10PathPatSepES4_EEEJS7_S4_EEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSF_14PatternBuilderEEEEbRT3_DpOT4_.exit
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = ptrtoint ptr %9 to i64
   %25 = ptrtoint ptr %7 to i64
   %26 = sub i64 %24, %25
@@ -32597,7 +32597,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJNS_3optIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser14PathPatStretchEEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS4_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSD_14PatternBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJNS_3optIJN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser14PathPatStretchEEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS4_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSD_14PatternBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i: ; preds = %31, %28, %23
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit: ; preds = %.noexc
@@ -32631,9 +32631,9 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqI
   %.sroa.0 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
@@ -32662,11 +32662,11 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPa
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 2
   store i64 %22, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %35
 
 23:                                               ; preds = %13, %2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %24 = icmp eq ptr %8, %7
   br i1 %24, label %.thread, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -32699,16 +32699,16 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit9
 
 .thread:                                          ; preds = %23, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser10PathPatSepEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread12
 
 38:                                               ; preds = %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   br i1 %36, label %39, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser10PathPatSepEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread12
 
 39:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %40 = load ptr, ptr %6, align 8
   %41 = load ptr, ptr %5, align 8
   %42 = ptrtoint ptr %40 to i64
@@ -32736,11 +32736,11 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPa
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %54, 2
   store i64 %55, ptr %53, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %68
 
 56:                                               ; preds = %46, %39
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %57 = icmp eq ptr %41, %40
   br i1 %57, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__20SdfPathPatternParser10PathPatSepEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS1_21SdfPathPatternActions17PathPatternActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_14PatternBuilderEEEEbRT3_DpOT4_.exit.thread12, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i
 
@@ -33107,7 +33107,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i, %1
   %.promoted.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.promoted.i.i.i.i, %1 ], [ %10, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i ], [ %12, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %16 = icmp eq ptr %.promoted.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %4
   br i1 %16, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -33188,7 +33188,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
   br label %_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS_3optIJNS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117PathSetComplementENS_5ascii5blankES8_EEEEENS5_12PathExprAtomEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS5_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS_3optIJNS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117PathSetComplementENS_5ascii5blankES8_EEEEENS5_12PathExprAtomEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS5_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i13.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12.i.i.i.i.i.i.i.i.i.i.i.i, %48, %31
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i)
   %49 = tail call fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0)
   br i1 %49, label %79, label %50
 
@@ -33252,16 +33252,16 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   br label %79
 
 79:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS_3optIJNS_3padIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117PathSetComplementENS_5ascii5blankES8_EEEEENS5_12PathExprAtomEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS5_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i, %50, %73
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.016)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.016)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.016, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.019)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.019)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.019, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %80 = tail call fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathOperatorEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0)
   br i1 %80, label %.lr.ph, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_2atIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathOperatorENS3_10PathFactorEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.thread
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_2atIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathOperatorENS3_10PathFactorEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.thread: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl5matchINS_8internal3seqIJNS_2atIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathOperatorENS5_10PathFactorEEEES6_S7_EEELNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS5_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.i, %79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.019, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.019)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.019)
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110PathFactorEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.thread
 
 .lr.ph:                                           ; preds = %79, %_ZN21PXR_INTERNAL_NS_pegtl5matchINS_8internal3seqIJNS_2atIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathOperatorENS5_10PathFactorEEEES6_S7_EEELNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS5_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.i
@@ -33276,7 +33276,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit.i: ; preds = %.lr.ph
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.019, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.019)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.019)
   br i1 %81, label %83, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110PathFactorEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.thread
 
 83:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit.i
@@ -33301,17 +33301,17 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   resume { ptr, i32 } %eh.lpad-body
 
 _ZN21PXR_INTERNAL_NS_pegtl5matchINS_8internal3seqIJNS_2atIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathOperatorENS5_10PathFactorEEEES6_S7_EEELNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS5_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110PathFactorEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.016)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.016)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.016)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.016)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.016, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.019)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.019)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.019, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %89 = tail call fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathOperatorEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0)
   br i1 %89, label %.lr.ph, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_2atIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathOperatorENS3_10PathFactorEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.thread
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110PathFactorEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.thread: ; preds = %83, %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110PathFactorEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS1_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_2atIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112PathOperatorENS3_10PathFactorEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.016, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.016)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.016)
   %90 = load ptr, ptr %3, align 8
   %.promoted.i.i.i.i7 = load ptr, ptr %2, align 8
   %91 = icmp eq ptr %.promoted.i.i.i.i7, %90
@@ -33357,7 +33357,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_4eolfEE5raiseINS_
   %6 = alloca %"class.std::allocator", align 1
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 27, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.55, i64 56)) #25
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -33369,7 +33369,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_4eolfEE5raiseINS_
           to label %14 unwind label %.thread
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, ptr noundef nonnull @.str.32)
           to label %16 unwind label %19
 
@@ -35299,10 +35299,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

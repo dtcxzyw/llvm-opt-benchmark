@@ -98,7 +98,7 @@ define hidden void @initChildStuff(i32 noundef %0, i32 noundef %1, ptr noundef %
   br i1 %.not45, label %23, label %19
 
 19:                                               ; preds = %16, %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 2, ptr %11, align 4
   %20 = call i64 @write(i32 noundef %1, ptr noundef nonnull %11, i64 noundef 4) #13
   %.not.i = icmp eq i64 %20, 4
@@ -118,7 +118,7 @@ define hidden void @initChildStuff(i32 noundef %0, i32 noundef %1, ptr noundef %
   br i1 %.not46, label %29, label %25
 
 25:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 2, ptr %10, align 4
   %26 = call i64 @write(i32 noundef %1, ptr noundef nonnull %10, i64 noundef 4) #13
   %.not.i49 = icmp eq i64 %26, 4
@@ -138,7 +138,7 @@ define hidden void @initChildStuff(i32 noundef %0, i32 noundef %1, ptr noundef %
   br i1 %.not47, label %35, label %31
 
 31:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 2, ptr %9, align 4
   %32 = call i64 @write(i32 noundef %1, ptr noundef nonnull %9, i64 noundef 4) #13
   %.not.i51 = icmp eq i64 %32, 4
@@ -170,7 +170,7 @@ define hidden void @initChildStuff(i32 noundef %0, i32 noundef %1, ptr noundef %
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 1, ptr %8, align 4
   %51 = call i64 @write(i32 noundef %1, ptr noundef nonnull %8, i64 noundef 4) #13
   %.not.i53 = icmp eq i64 %51, 4
@@ -190,7 +190,7 @@ define hidden void @initChildStuff(i32 noundef %0, i32 noundef %1, ptr noundef %
   br i1 %.not48, label %60, label %56
 
 56:                                               ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 2, ptr %7, align 4
   %57 = call i64 @write(i32 noundef %1, ptr noundef nonnull %7, i64 noundef 4) #13
   %.not.i55 = icmp eq i64 %57, 4
@@ -213,7 +213,7 @@ define hidden void @initChildStuff(i32 noundef %0, i32 noundef %1, ptr noundef %
   br i1 %65, label %66, label %70
 
 66:                                               ; preds = %60
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 1, ptr %6, align 4
   %67 = call i64 @write(i32 noundef %1, ptr noundef nonnull %6, i64 noundef 4) #13
   %.not.i57 = icmp eq i64 %67, 4
@@ -251,7 +251,7 @@ define hidden void @initChildStuff(i32 noundef %0, i32 noundef %1, ptr noundef %
   br i1 %83, label %84, label %88
 
 84:                                               ; preds = %79
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1, ptr %5, align 4
   %85 = call i64 @write(i32 noundef %1, ptr noundef nonnull %5, i64 noundef 4) #13
   %.not.i59 = icmp eq i64 %85, 4
@@ -294,7 +294,7 @@ define hidden void @initChildStuff(i32 noundef %0, i32 noundef %1, ptr noundef %
   br i1 %106, label %107, label %111
 
 107:                                              ; preds = %95
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1, ptr %4, align 4
   %108 = call i64 @write(i32 noundef %1, ptr noundef nonnull %4, i64 noundef 4) #13
   %.not.i61 = icmp eq i64 %108, 4
@@ -485,7 +485,7 @@ declare i32 @childProcess(ptr noundef) local_unnamed_addr #7
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 attributes #0 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

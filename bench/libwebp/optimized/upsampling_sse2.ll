@@ -29,7 +29,7 @@ define internal void @UpsampleRgbaLinePair_SSE2(ptr noalias noundef %0, ptr noal
   %12 = alloca [17 x i8], align 16
   %13 = alloca [17 x i8], align 16
   %14 = alloca [17 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 463, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(463) %10, i8 0, i64 463, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 15
   %16 = ptrtoint ptr %15 to i64
@@ -308,8 +308,8 @@ define internal void @UpsampleRgbaLinePair_SSE2(ptr noalias noundef %0, ptr noal
   %233 = sub nsw i32 %231, %232
   %234 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %235 = getelementptr inbounds nuw i8, ptr %18, i64 384
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %236 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa
   %237 = sext i32 %233 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 1 %236, i64 %237, i1 false)
@@ -381,10 +381,10 @@ define internal void @UpsampleRgbaLinePair_SSE2(ptr noalias noundef %0, ptr noal
   store <16 x i8> %289, ptr %291, align 16, !tbaa !7, !alias.scope !15, !noalias !19
   %292 = getelementptr inbounds nuw i8, ptr %18, i64 80
   store <16 x i8> %290, ptr %292, align 16, !tbaa !7, !alias.scope !15, !noalias !19
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %13) #9
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %293 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.lcssa
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %293, i64 %237, i1 false)
   %294 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.lcssa
@@ -451,8 +451,8 @@ define internal void @UpsampleRgbaLinePair_SSE2(ptr noalias noundef %0, ptr noal
   store <16 x i8> %341, ptr %343, align 16, !tbaa !7, !alias.scope !25, !noalias !29
   %344 = getelementptr inbounds nuw i8, ptr %18, i64 112
   store <16 x i8> %342, ptr %344, align 16, !tbaa !7, !alias.scope !25, !noalias !29
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %14) #9
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %345 = zext nneg i32 %.0255.lcssa to i64
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 %345
   %347 = sub nsw i32 %8, %.0255.lcssa
@@ -488,7 +488,7 @@ define internal void @UpsampleRgbaLinePair_SSE2(ptr noalias noundef %0, ptr noal
   br label %364
 
 364:                                              ; preds = %.thread261, %354, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 463, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
@@ -499,7 +499,7 @@ define internal void @UpsampleBgraLinePair_SSE2(ptr noalias noundef %0, ptr noal
   %12 = alloca [17 x i8], align 16
   %13 = alloca [17 x i8], align 16
   %14 = alloca [17 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 463, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(463) %10, i8 0, i64 463, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 15
   %16 = ptrtoint ptr %15 to i64
@@ -778,8 +778,8 @@ define internal void @UpsampleBgraLinePair_SSE2(ptr noalias noundef %0, ptr noal
   %233 = sub nsw i32 %231, %232
   %234 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %235 = getelementptr inbounds nuw i8, ptr %18, i64 384
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %236 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa
   %237 = sext i32 %233 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 1 %236, i64 %237, i1 false)
@@ -851,10 +851,10 @@ define internal void @UpsampleBgraLinePair_SSE2(ptr noalias noundef %0, ptr noal
   store <16 x i8> %289, ptr %291, align 16, !tbaa !7, !alias.scope !36, !noalias !40
   %292 = getelementptr inbounds nuw i8, ptr %18, i64 80
   store <16 x i8> %290, ptr %292, align 16, !tbaa !7, !alias.scope !36, !noalias !40
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %13) #9
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %293 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.lcssa
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %293, i64 %237, i1 false)
   %294 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.lcssa
@@ -921,8 +921,8 @@ define internal void @UpsampleBgraLinePair_SSE2(ptr noalias noundef %0, ptr noal
   store <16 x i8> %341, ptr %343, align 16, !tbaa !7, !alias.scope !46, !noalias !50
   %344 = getelementptr inbounds nuw i8, ptr %18, i64 112
   store <16 x i8> %342, ptr %344, align 16, !tbaa !7, !alias.scope !46, !noalias !50
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %14) #9
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %345 = zext nneg i32 %.0255.lcssa to i64
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 %345
   %347 = sub nsw i32 %8, %.0255.lcssa
@@ -958,7 +958,7 @@ define internal void @UpsampleBgraLinePair_SSE2(ptr noalias noundef %0, ptr noal
   br label %364
 
 364:                                              ; preds = %.thread261, %354, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 463, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
@@ -969,7 +969,7 @@ define internal void @UpsampleRgbLinePair_SSE2(ptr noalias noundef %0, ptr noali
   %12 = alloca [17 x i8], align 16
   %13 = alloca [17 x i8], align 16
   %14 = alloca [17 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 463, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(463) %10, i8 0, i64 463, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 15
   %16 = ptrtoint ptr %15 to i64
@@ -1244,8 +1244,8 @@ define internal void @UpsampleRgbLinePair_SSE2(ptr noalias noundef %0, ptr noali
   %231 = sub nsw i32 %229, %230
   %232 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %233 = getelementptr inbounds nuw i8, ptr %18, i64 384
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %234 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa
   %235 = sext i32 %231 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 1 %234, i64 %235, i1 false)
@@ -1317,10 +1317,10 @@ define internal void @UpsampleRgbLinePair_SSE2(ptr noalias noundef %0, ptr noali
   store <16 x i8> %287, ptr %289, align 16, !tbaa !7, !alias.scope !57, !noalias !61
   %290 = getelementptr inbounds nuw i8, ptr %18, i64 80
   store <16 x i8> %288, ptr %290, align 16, !tbaa !7, !alias.scope !57, !noalias !61
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %13) #9
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %291 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.lcssa
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %291, i64 %235, i1 false)
   %292 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.lcssa
@@ -1387,8 +1387,8 @@ define internal void @UpsampleRgbLinePair_SSE2(ptr noalias noundef %0, ptr noali
   store <16 x i8> %339, ptr %341, align 16, !tbaa !7, !alias.scope !67, !noalias !71
   %342 = getelementptr inbounds nuw i8, ptr %18, i64 112
   store <16 x i8> %340, ptr %342, align 16, !tbaa !7, !alias.scope !67, !noalias !71
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %14) #9
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %343 = zext nneg i32 %.0255.lcssa to i64
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 %343
   %345 = sub nsw i32 %8, %.0255.lcssa
@@ -1424,7 +1424,7 @@ define internal void @UpsampleRgbLinePair_SSE2(ptr noalias noundef %0, ptr noali
   br label %362
 
 362:                                              ; preds = %.thread261, %352, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 463, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
@@ -1435,7 +1435,7 @@ define internal void @UpsampleBgrLinePair_SSE2(ptr noalias noundef %0, ptr noali
   %12 = alloca [17 x i8], align 16
   %13 = alloca [17 x i8], align 16
   %14 = alloca [17 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 463, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(463) %10, i8 0, i64 463, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 15
   %16 = ptrtoint ptr %15 to i64
@@ -1710,8 +1710,8 @@ define internal void @UpsampleBgrLinePair_SSE2(ptr noalias noundef %0, ptr noali
   %231 = sub nsw i32 %229, %230
   %232 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %233 = getelementptr inbounds nuw i8, ptr %18, i64 384
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %234 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa
   %235 = sext i32 %231 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 1 %234, i64 %235, i1 false)
@@ -1783,10 +1783,10 @@ define internal void @UpsampleBgrLinePair_SSE2(ptr noalias noundef %0, ptr noali
   store <16 x i8> %287, ptr %289, align 16, !tbaa !7, !alias.scope !78, !noalias !82
   %290 = getelementptr inbounds nuw i8, ptr %18, i64 80
   store <16 x i8> %288, ptr %290, align 16, !tbaa !7, !alias.scope !78, !noalias !82
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %13) #9
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %291 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.lcssa
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %291, i64 %235, i1 false)
   %292 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.lcssa
@@ -1853,8 +1853,8 @@ define internal void @UpsampleBgrLinePair_SSE2(ptr noalias noundef %0, ptr noali
   store <16 x i8> %339, ptr %341, align 16, !tbaa !7, !alias.scope !88, !noalias !92
   %342 = getelementptr inbounds nuw i8, ptr %18, i64 112
   store <16 x i8> %340, ptr %342, align 16, !tbaa !7, !alias.scope !88, !noalias !92
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %14) #9
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %343 = zext nneg i32 %.0255.lcssa to i64
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 %343
   %345 = sub nsw i32 %8, %.0255.lcssa
@@ -1890,7 +1890,7 @@ define internal void @UpsampleBgrLinePair_SSE2(ptr noalias noundef %0, ptr noali
   br label %362
 
 362:                                              ; preds = %.thread261, %352, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 463, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
@@ -1901,7 +1901,7 @@ define internal void @UpsampleArgbLinePair_SSE2(ptr noalias noundef %0, ptr noal
   %12 = alloca [17 x i8], align 16
   %13 = alloca [17 x i8], align 16
   %14 = alloca [17 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 463, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(463) %10, i8 0, i64 463, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 15
   %16 = ptrtoint ptr %15 to i64
@@ -2180,8 +2180,8 @@ define internal void @UpsampleArgbLinePair_SSE2(ptr noalias noundef %0, ptr noal
   %233 = sub nsw i32 %231, %232
   %234 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %235 = getelementptr inbounds nuw i8, ptr %18, i64 384
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %236 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa
   %237 = sext i32 %233 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 1 %236, i64 %237, i1 false)
@@ -2253,10 +2253,10 @@ define internal void @UpsampleArgbLinePair_SSE2(ptr noalias noundef %0, ptr noal
   store <16 x i8> %289, ptr %291, align 16, !tbaa !7, !alias.scope !99, !noalias !103
   %292 = getelementptr inbounds nuw i8, ptr %18, i64 80
   store <16 x i8> %290, ptr %292, align 16, !tbaa !7, !alias.scope !99, !noalias !103
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %13) #9
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %293 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.lcssa
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %293, i64 %237, i1 false)
   %294 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.lcssa
@@ -2323,8 +2323,8 @@ define internal void @UpsampleArgbLinePair_SSE2(ptr noalias noundef %0, ptr noal
   store <16 x i8> %341, ptr %343, align 16, !tbaa !7, !alias.scope !109, !noalias !113
   %344 = getelementptr inbounds nuw i8, ptr %18, i64 112
   store <16 x i8> %342, ptr %344, align 16, !tbaa !7, !alias.scope !109, !noalias !113
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %14) #9
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %345 = zext nneg i32 %.0255.lcssa to i64
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 %345
   %347 = sub nsw i32 %8, %.0255.lcssa
@@ -2360,7 +2360,7 @@ define internal void @UpsampleArgbLinePair_SSE2(ptr noalias noundef %0, ptr noal
   br label %364
 
 364:                                              ; preds = %.thread261, %354, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 463, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
@@ -2371,7 +2371,7 @@ define internal void @UpsampleRgb565LinePair_SSE2(ptr noalias noundef %0, ptr no
   %12 = alloca [17 x i8], align 16
   %13 = alloca [17 x i8], align 16
   %14 = alloca [17 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 463, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(463) %10, i8 0, i64 463, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 15
   %16 = ptrtoint ptr %15 to i64
@@ -2652,8 +2652,8 @@ define internal void @UpsampleRgb565LinePair_SSE2(ptr noalias noundef %0, ptr no
   %239 = sub nsw i32 %237, %238
   %240 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %241 = getelementptr inbounds nuw i8, ptr %18, i64 384
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %242 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa
   %243 = sext i32 %239 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 1 %242, i64 %243, i1 false)
@@ -2725,10 +2725,10 @@ define internal void @UpsampleRgb565LinePair_SSE2(ptr noalias noundef %0, ptr no
   store <16 x i8> %295, ptr %297, align 16, !tbaa !7, !alias.scope !120, !noalias !124
   %298 = getelementptr inbounds nuw i8, ptr %18, i64 80
   store <16 x i8> %296, ptr %298, align 16, !tbaa !7, !alias.scope !120, !noalias !124
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %13) #9
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %299 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.lcssa
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %299, i64 %243, i1 false)
   %300 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.lcssa
@@ -2795,8 +2795,8 @@ define internal void @UpsampleRgb565LinePair_SSE2(ptr noalias noundef %0, ptr no
   store <16 x i8> %347, ptr %349, align 16, !tbaa !7, !alias.scope !130, !noalias !134
   %350 = getelementptr inbounds nuw i8, ptr %18, i64 112
   store <16 x i8> %348, ptr %350, align 16, !tbaa !7, !alias.scope !130, !noalias !134
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %14) #9
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %351 = zext nneg i32 %.0255.lcssa to i64
   %352 = getelementptr inbounds nuw i8, ptr %0, i64 %351
   %353 = sub nsw i32 %8, %.0255.lcssa
@@ -2832,7 +2832,7 @@ define internal void @UpsampleRgb565LinePair_SSE2(ptr noalias noundef %0, ptr no
   br label %370
 
 370:                                              ; preds = %.thread261, %360, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 463, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
@@ -2843,7 +2843,7 @@ define internal void @UpsampleRgba4444LinePair_SSE2(ptr noalias noundef %0, ptr 
   %12 = alloca [17 x i8], align 16
   %13 = alloca [17 x i8], align 16
   %14 = alloca [17 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 463, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(463) %10, i8 0, i64 463, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 15
   %16 = ptrtoint ptr %15 to i64
@@ -3118,8 +3118,8 @@ define internal void @UpsampleRgba4444LinePair_SSE2(ptr noalias noundef %0, ptr 
   %233 = sub nsw i32 %231, %232
   %234 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %235 = getelementptr inbounds nuw i8, ptr %18, i64 384
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %236 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa
   %237 = sext i32 %233 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 1 %236, i64 %237, i1 false)
@@ -3191,10 +3191,10 @@ define internal void @UpsampleRgba4444LinePair_SSE2(ptr noalias noundef %0, ptr 
   store <16 x i8> %289, ptr %291, align 16, !tbaa !7, !alias.scope !141, !noalias !145
   %292 = getelementptr inbounds nuw i8, ptr %18, i64 80
   store <16 x i8> %290, ptr %292, align 16, !tbaa !7, !alias.scope !141, !noalias !145
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %13) #9
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %293 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.lcssa
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %293, i64 %237, i1 false)
   %294 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.lcssa
@@ -3261,8 +3261,8 @@ define internal void @UpsampleRgba4444LinePair_SSE2(ptr noalias noundef %0, ptr 
   store <16 x i8> %341, ptr %343, align 16, !tbaa !7, !alias.scope !151, !noalias !155
   %344 = getelementptr inbounds nuw i8, ptr %18, i64 112
   store <16 x i8> %342, ptr %344, align 16, !tbaa !7, !alias.scope !151, !noalias !155
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %14) #9
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %345 = zext nneg i32 %.0255.lcssa to i64
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 %345
   %347 = sub nsw i32 %8, %.0255.lcssa
@@ -3298,7 +3298,7 @@ define internal void @UpsampleRgba4444LinePair_SSE2(ptr noalias noundef %0, ptr 
   br label %364
 
 364:                                              ; preds = %.thread261, %354, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 463, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
@@ -3647,48 +3647,48 @@ define internal void @Yuv444ToRgb565_SSE2(ptr noalias noundef %0, ptr noalias no
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
-declare void @VP8YuvToRgba32_SSE2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @VP8YuvToRgba32_SSE2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8>, <16 x i8>) #7
+declare <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8>, <16 x i8>) #6
 
-declare void @VP8YuvToBgra32_SSE2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @VP8YuvToBgra32_SSE2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @VP8YuvToRgb32_SSE2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @VP8YuvToRgb32_SSE2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @VP8YuvToBgr32_SSE2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @VP8YuvToBgr32_SSE2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @VP8YuvToArgb32_SSE2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @VP8YuvToArgb32_SSE2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @VP8YuvToRgb56532_SSE2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @VP8YuvToRgb56532_SSE2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @VP8YuvToRgba444432_SSE2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @VP8YuvToRgba444432_SSE2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @WebPYuv444ToRgba_C(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @WebPYuv444ToRgba_C(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @WebPYuv444ToBgra_C(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @WebPYuv444ToBgra_C(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @WebPYuv444ToRgb_C(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @WebPYuv444ToRgb_C(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @WebPYuv444ToBgr_C(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @WebPYuv444ToBgr_C(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @WebPYuv444ToArgb_C(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @WebPYuv444ToArgb_C(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @WebPYuv444ToRgba4444_C(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @WebPYuv444ToRgba4444_C(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @WebPYuv444ToRgb565_C(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @WebPYuv444ToRgb565_C(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8
@@ -3696,11 +3696,11 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #9 = { nounwind }
 

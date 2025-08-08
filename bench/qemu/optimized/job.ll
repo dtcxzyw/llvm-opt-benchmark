@@ -131,19 +131,13 @@ define dso_local void @job_lock() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @job_unlock() local_unnamed_addr #0 {
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str, i32 noundef 106) #15
   ret void
 }
 
-declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @job_init() #0 {
@@ -151,7 +145,7 @@ define internal void @job_init() #0 {
   ret void
 }
 
-declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #2
+declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef ptr @job_txn_new() local_unnamed_addr #0 {
@@ -164,7 +158,7 @@ define dso_local noalias noundef ptr @job_txn_new() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @job_txn_unref_locked(ptr noundef %0) local_unnamed_addr #0 {
@@ -187,7 +181,7 @@ define dso_local void @job_txn_unref_locked(ptr noundef %0) local_unnamed_addr #
   ret void
 }
 
-declare void @g_free(ptr noundef) local_unnamed_addr #2
+declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @job_txn_unref(ptr noundef %0) local_unnamed_addr #0 {
@@ -215,7 +209,7 @@ glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %1, %4, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @job_is_internal(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local zeroext i1 @job_is_internal(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   ret i1 %3
@@ -264,7 +258,7 @@ define dso_local range(i32 -1, 1) i32 @job_apply_verb_locked(ptr noundef %0, i32
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !7
   %29 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #15
   %30 = tail call i32 @qemu_get_thread_id() #15
@@ -272,7 +266,7 @@ define dso_local range(i32 -1, 1) i32 @job_apply_verb_locked(ptr noundef %0, i32
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %33 = load i64, ptr %32, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %30, i64 noundef %31, i64 noundef %33, ptr noundef nonnull %0, ptr noundef %10, ptr noundef %11, ptr noundef nonnull %18) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %trace_job_apply_verb.exit
 
 34:                                               ; preds = %25
@@ -297,14 +291,14 @@ trace_job_apply_verb.exit:                        ; preds = %9, %20, %22, %28, %
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @qapi_enum_lookup(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @qapi_enum_lookup(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @job_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define dso_local i32 @job_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -400,7 +394,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @job_is_ready(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -443,7 +437,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @job_next_locked(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define dso_local ptr @job_next_locked(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %.0.in = select i1 %.not, ptr @jobs, ptr %2
@@ -466,7 +460,7 @@ glib_autoptr_cleanup_QemuLockable.exit:
 }
 
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @job_get_locked(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define dso_local noundef ptr @job_get_locked(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %.011 = load ptr, ptr @jobs, align 8
   %.not12 = icmp eq ptr %.011, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph
@@ -494,7 +488,7 @@ define dso_local noundef ptr @job_get_locked(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @job_set_aio_context(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -546,7 +540,7 @@ glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %11, %11, %11, %11, 
   ret void
 }
 
-declare zeroext i1 @qemu_in_main_thread() local_unnamed_addr #2
+declare zeroext i1 @qemu_in_main_thread() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @job_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
@@ -735,13 +729,13 @@ glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %62, %job_txn_add_jo
   ret ptr %.0
 }
 
-declare zeroext i1 @id_wellformed(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @id_wellformed(ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
-declare void @progress_init(ptr noundef) local_unnamed_addr #2
+declare void @progress_init(ptr noundef) local_unnamed_addr #1
 
-declare void @notifier_list_init(ptr noundef) local_unnamed_addr #2
+declare void @notifier_list_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @job_state_transition_locked(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -788,7 +782,7 @@ define internal fastcc void @job_state_transition_locked(ptr noundef %0, i32 nou
   br i1 %28, label %29, label %35
 
 29:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !7
   %30 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #15
   %31 = tail call i32 @qemu_get_thread_id() #15
@@ -796,7 +790,7 @@ define internal fastcc void @job_state_transition_locked(ptr noundef %0, i32 nou
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = load i64, ptr %33, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %31, i64 noundef %32, i64 noundef %34, ptr noundef nonnull %0, i32 noundef %10, ptr noundef nonnull %17, ptr noundef %18, ptr noundef %19) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %trace_job_state_transition.exit
 
 35:                                               ; preds = %26
@@ -828,7 +822,7 @@ trace_job_state_transition.exit:                  ; preds = %8, %21, %23, %29, %
   ret void
 }
 
-declare ptr @qemu_get_aio_context() local_unnamed_addr #2
+declare ptr @qemu_get_aio_context() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @job_sleep_timer_cb(ptr noundef %0) #0 {
@@ -870,7 +864,7 @@ job_enter.exit:                                   ; preds = %1, %5, %9, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @job_ref_locked(ptr noundef captures(none) %0) local_unnamed_addr #10 {
+define dso_local void @job_ref_locked(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, 1
@@ -975,11 +969,11 @@ define dso_local void @job_unref_locked(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare zeroext i1 @timer_pending(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @timer_pending(ptr noundef) local_unnamed_addr #1
 
-declare void @progress_destroy(ptr noundef) local_unnamed_addr #2
+declare void @progress_destroy(ptr noundef) local_unnamed_addr #1
 
-declare void @error_free(ptr noundef) local_unnamed_addr #2
+declare void @error_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @job_progress_update(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -988,7 +982,7 @@ define dso_local void @job_progress_update(ptr noundef %0, i64 noundef %1) local
   ret void
 }
 
-declare void @progress_work_done(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @progress_work_done(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @job_progress_set_remaining(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -997,7 +991,7 @@ define dso_local void @job_progress_set_remaining(ptr noundef %0, i64 noundef %1
   ret void
 }
 
-declare void @progress_set_remaining(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @progress_set_remaining(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @job_progress_increase_remaining(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -1006,7 +1000,7 @@ define dso_local void @job_progress_increase_remaining(ptr noundef %0, i64 nound
   ret void
 }
 
-declare void @progress_increase_remaining(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @progress_increase_remaining(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @job_enter_cond_locked(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -1060,9 +1054,9 @@ define dso_local void @job_enter_cond_locked(ptr noundef %0, ptr noundef readonl
   ret void
 }
 
-declare void @timer_del(ptr noundef) local_unnamed_addr #2
+declare void @timer_del(ptr noundef) local_unnamed_addr #1
 
-declare void @aio_co_wake(ptr noundef) local_unnamed_addr #2
+declare void @aio_co_wake(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @job_enter(ptr noundef %0) local_unnamed_addr #0 {
@@ -1388,7 +1382,7 @@ glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %job_is_cancelled_lo
   ret void
 }
 
-declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #2
+declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @job_pause_locked(ptr noundef %0) local_unnamed_addr #0 {
@@ -1621,7 +1615,7 @@ job_pause_locked.exit:                            ; preds = %26, %22, %18, %16, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @job_user_paused_locked(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local zeroext i1 @job_user_paused_locked(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 182
   %3 = load i8, ptr %2, align 2, !range !4, !noundef !5
   %4 = trunc nuw i8 %3 to i1
@@ -2086,9 +2080,9 @@ qemu_lockable_auto_unlock.exit.us:                ; preds = %15
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare ptr @llvm.ptr.annotation.p0.p0(ptr, ptr, ptr, i32, ptr) #11
+declare ptr @llvm.ptr.annotation.p0.p0(ptr, ptr, ptr, i32, ptr) #10
 
-declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @job_co_entry(ptr noundef %0) #0 {
@@ -2150,7 +2144,7 @@ qemu_lockable_auto_unlock.exit32.us:              ; preds = %.split.us
   unreachable
 }
 
-declare void @aio_co_enter(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @aio_co_enter(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @job_cancel_locked(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
@@ -2475,7 +2469,7 @@ job_update_rc_locked.exit:                        ; preds = %job_is_cancelled_lo
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !7
   %37 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #15
   %38 = tail call i32 @qemu_get_thread_id() #15
@@ -2483,7 +2477,7 @@ job_update_rc_locked.exit:                        ; preds = %job_is_cancelled_lo
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %41 = load i64, ptr %40, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %38, i64 noundef %39, i64 noundef %41, ptr noundef nonnull %0, i32 noundef %26) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %trace_job_completed.exitthread-pre-split
 
 42:                                               ; preds = %33
@@ -2739,7 +2733,7 @@ define dso_local i32 @job_cancel_sync_locked(ptr noundef %0, i1 noundef zeroext 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @job_finish_sync_locked(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %5 = tail call zeroext i1 @qemu_in_main_thread() #15
   br i1 %5, label %7, label %6
@@ -2964,7 +2958,7 @@ job_is_cancelled_locked.exit:                     ; preds = %job_is_completed.ex
 89:                                               ; preds = %job_is_cancelled_locked.exit, %12
   %.0 = phi i32 [ -16, %12 ], [ %88, %job_is_cancelled_locked.exit ]
   call void @job_unref_locked(ptr noundef nonnull %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -3076,33 +3070,33 @@ define dso_local void @job_complete_locked(ptr noundef %0, ptr noundef %1) #0 {
   ret void
 }
 
-declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @aio_poll(ptr noundef, i1 noundef zeroext) #2
+declare zeroext i1 @aio_poll(ptr noundef, i1 noundef zeroext) #1
 
-declare ptr @qemu_get_current_aio_context() local_unnamed_addr #2
+declare ptr @qemu_get_current_aio_context() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
-declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
+declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @qemu_get_thread_id() local_unnamed_addr #2
+declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
-declare void @qapi_event_send_job_status_change(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @qapi_event_send_job_status_change(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @qemu_coroutine_yield() #2
+declare void @qemu_coroutine_yield() #1
 
-declare void @aio_co_reschedule_self(ptr noundef) #2
+declare void @aio_co_reschedule_self(ptr noundef) #1
 
-declare void @notifier_list_notify(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @notifier_list_notify(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef i32 @job_finalize_single_locked(ptr noundef %0) unnamed_addr #0 {
@@ -3418,9 +3412,9 @@ job_conclude_locked.exit:                         ; preds = %87, %job_do_dismiss
 }
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #14
+declare ptr @strerror(i32 noundef) local_unnamed_addr #13
 
-declare void @aio_bh_schedule_oneshot_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @aio_bh_schedule_oneshot_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @job_exit(ptr noundef initializes((180, 181)) %0) #0 {
@@ -3442,23 +3436,29 @@ glib_autoptr_cleanup_QemuLockable.exit:
   ret void
 }
 
-declare zeroext i1 @bql_locked() local_unnamed_addr #2
+declare zeroext i1 @bql_locked() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #3 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #5 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #8 = { nofree norecurse nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #14 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #2 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #7 = { nofree norecurse nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #13 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nounwind }
 attributes #16 = { nounwind allocsize(0) }
 attributes #17 = { noreturn nounwind }

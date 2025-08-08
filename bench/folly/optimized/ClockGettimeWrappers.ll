@@ -21,7 +21,7 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) #0
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZN5folly6chronoL25clock_gettime_ns_fallbackEi(i32 noundef %0) #1 {
   %2 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @_ZN5folly6chrono13clock_gettimeE, align 8, !tbaa !7
   %4 = call noundef i32 %3(i32 noundef %0, ptr noundef nonnull %2)
   %.not = icmp eq i32 %4, 0
@@ -37,18 +37,12 @@ define internal noundef i64 @_ZN5folly6chronoL25clock_gettime_ns_fallbackEi(i32 
 
 11:                                               ; preds = %1, %5
   %.0 = phi i64 [ %10, %5 ], [ -1, %1 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5folly6chrono12_GLOBAL__N_115VdsoInitializerD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN5folly6chrono12_GLOBAL__N_115VdsoInitializerD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !14
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %3
@@ -65,7 +59,7 @@ define internal void @_ZN5folly6chrono12_GLOBAL__N_115VdsoInitializerD2Ev(ptr no
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #4
+declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -77,7 +71,7 @@ declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare i32 @dlclose(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @_GLOBAL__sub_I_ClockGettimeWrappers.cpp() #5 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_ClockGettimeWrappers.cpp() #4 section ".text.startup" {
   %1 = tail call ptr @dlopen(ptr noundef nonnull @.str, i32 noundef 5) #6
   store ptr %1, ptr @_ZN5folly6chrono12_GLOBAL__N_116vdso_initializerE, align 8, !tbaa !14
   %.not.i.i = icmp eq ptr %1, null
@@ -107,12 +101,18 @@ __cxx_global_var_init.exit:                       ; preds = %0, %5, %8
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind }
-attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}

@@ -201,13 +201,13 @@ define void @ITT_DoOneTimeInitialization() local_unnamed_addr #0 personality ptr
   br i1 %3, label %19, label %4
 
 4:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %5 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
   %6 = icmp ne i8 %5, 0
   store i1 %6, ptr %1, align 1
   %.0..0..0..0..0..0..i2.i = load i8, ptr %1, align 1, !tbaa !3, !range !24, !noundef !25
   %7 = trunc nuw i8 %.0..0..0..0..0..0..i2.i to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br i1 %7, label %.lr.ph.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit
 
 .lr.ph.i:                                         ; preds = %4, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i
@@ -231,18 +231,18 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %9
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = tail call noundef i32 @sched_yield() #4
+  %15 = tail call noundef i32 @sched_yield() #3
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i: ; preds = %14, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i
   %.sroa.0.1.i = phi i32 [ %13, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i ], [ %.sroa.0.03.i, %14 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %16 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
   %17 = icmp ne i8 %16, 0
   store i1 %17, ptr %1, align 1
   %.0..0..0..0..0..0..i.i = load i8, ptr %1, align 1, !tbaa !3, !range !24, !noundef !25
   %18 = trunc nuw i8 %.0..0..0..0..0..0..i.i to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br i1 %18, label %.lr.ph.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit, !llvm.loop !27
 
 _ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit:    ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i, %4
@@ -344,13 +344,13 @@ define void @_ZN3tbb6detail2r119itt_make_task_groupENS0_2d115itt_domain_enumEPvy
   br i1 %17, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit, label %18
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %19 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
   %20 = icmp ne i8 %19, 0
   store i1 %20, ptr %8, align 1
   %.0..0..0..0..0..0..0..0..0..0..i2.i.i.i = load i8, ptr %8, align 1, !tbaa !3, !range !24, !noundef !25
   %21 = trunc nuw i8 %.0..0..0..0..0..0..0..0..0..0..i2.i.i.i to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %21, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %18, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
@@ -374,18 +374,18 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
 
 28:                                               ; preds = %.lr.ph.i.i.i
-  %29 = tail call noundef i32 @sched_yield() #4
+  %29 = tail call noundef i32 @sched_yield() #3
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %28, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
   %.sroa.0.1.i.i.i = phi i32 [ %27, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i ], [ %.sroa.0.03.i.i.i, %28 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %30 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
   %31 = icmp ne i8 %30, 0
   store i1 %31, ptr %8, align 1
   %.0..0..0..0..0..0..0..0..0..0..i.i.i.i = load i8, ptr %8, align 1, !tbaa !3, !range !24, !noundef !25
   %32 = trunc nuw i8 %.0..0..0..0..0..0..0..0..0..0..i.i.i.i to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %32, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i, !llvm.loop !27
 
 _ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %18
@@ -401,7 +401,7 @@ _ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit: ; preds = %15
 _ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread: ; preds = %6, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit
   %33 = phi ptr [ %.pr, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit ], [ %13, %6 ]
   %34 = ptrtoint ptr %1 to i64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %34, ptr %7, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8
@@ -419,7 +419,7 @@ _ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread: ; pred
   br label %_ZN3tbb6detail2r1L13itt_id_createEPK13___itt_domain9___itt_id.exit
 
 _ZN3tbb6detail2r1L13itt_id_createEPK13___itt_domain9___itt_id.exit: ; preds = %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread, %39
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not15 = icmp eq ptr %3, null
   %40 = ptrtoint ptr %3 to i64
   %spec.select29 = select i1 %.not15, i64 0, i64 %4
@@ -458,12 +458,6 @@ _ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit: ; preds = %_ZN3tbb6detail2r1L1
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN3tbb6detail2r120itt_metadata_str_addENS0_2d115itt_domain_enumEPvyNS0_2d021string_resource_indexEPKc(i32 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca i8, align 1
@@ -480,13 +474,13 @@ define void @_ZN3tbb6detail2r120itt_metadata_str_addENS0_2d115itt_domain_enumEPv
   br i1 %14, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit, label %15
 
 15:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
   %17 = icmp ne i8 %16, 0
   store i1 %17, ptr %6, align 1
   %.0..0..0..0..0..0..0..0..0..0..i2.i.i.i = load i8, ptr %6, align 1, !tbaa !3, !range !24, !noundef !25
   %18 = trunc nuw i8 %.0..0..0..0..0..0..0..0..0..0..i2.i.i.i to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %18, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %15, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
@@ -510,18 +504,18 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
 
 25:                                               ; preds = %.lr.ph.i.i.i
-  %26 = tail call noundef i32 @sched_yield() #4
+  %26 = tail call noundef i32 @sched_yield() #3
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %25, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
   %.sroa.0.1.i.i.i = phi i32 [ %24, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i ], [ %.sroa.0.03.i.i.i, %25 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
   %28 = icmp ne i8 %27, 0
   store i1 %28, ptr %6, align 1
   %.0..0..0..0..0..0..0..0..0..0..i.i.i.i = load i8, ptr %6, align 1, !tbaa !3, !range !24, !noundef !25
   %29 = trunc nuw i8 %.0..0..0..0..0..0..0..0..0..0..i.i.i.i to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %29, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i, !llvm.loop !27
 
 _ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %15
@@ -569,7 +563,7 @@ _ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit: ; preds = %_ZN3tbb6detail2r1L1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN3tbb6detail2r120itt_metadata_ptr_addENS0_2d115itt_domain_enumEPvyNS0_2d021string_resource_indexES4_(i32 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -587,13 +581,13 @@ define void @_ZN3tbb6detail2r120itt_metadata_ptr_addENS0_2d115itt_domain_enumEPv
   br i1 %14, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit, label %15
 
 15:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
   %17 = icmp ne i8 %16, 0
   store i1 %17, ptr %6, align 1
   %.0..0..0..0..0..0..0..0..0..0..i2.i.i.i = load i8, ptr %6, align 1, !tbaa !3, !range !24, !noundef !25
   %18 = trunc nuw i8 %.0..0..0..0..0..0..0..0..0..0..i2.i.i.i to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %18, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %15, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
@@ -617,18 +611,18 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
 
 25:                                               ; preds = %.lr.ph.i.i.i
-  %26 = tail call noundef i32 @sched_yield() #4
+  %26 = tail call noundef i32 @sched_yield() #3
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %25, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
   %.sroa.0.1.i.i.i = phi i32 [ %24, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i ], [ %.sroa.0.03.i.i.i, %25 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
   %28 = icmp ne i8 %27, 0
   store i1 %28, ptr %6, align 1
   %.0..0..0..0..0..0..0..0..0..0..i.i.i.i = load i8, ptr %6, align 1, !tbaa !3, !range !24, !noundef !25
   %29 = trunc nuw i8 %.0..0..0..0..0..0..0..0..0..0..i.i.i.i to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %29, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i, !llvm.loop !27
 
 _ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %15
@@ -691,13 +685,13 @@ define void @_ZN3tbb6detail2r116itt_relation_addENS0_2d115itt_domain_enumEPvyNS0
   br i1 %16, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit, label %17
 
 17:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
   %19 = icmp ne i8 %18, 0
   store i1 %19, ptr %7, align 1
   %.0..0..0..0..0..0..0..0..0..0..i2.i.i.i = load i8, ptr %7, align 1, !tbaa !3, !range !24, !noundef !25
   %20 = trunc nuw i8 %.0..0..0..0..0..0..0..0..0..0..i2.i.i.i to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %20, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %17, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
@@ -721,18 +715,18 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
 
 27:                                               ; preds = %.lr.ph.i.i.i
-  %28 = tail call noundef i32 @sched_yield() #4
+  %28 = tail call noundef i32 @sched_yield() #3
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %27, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
   %.sroa.0.1.i.i.i = phi i32 [ %26, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i ], [ %.sroa.0.03.i.i.i, %27 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %29 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
   %30 = icmp ne i8 %29, 0
   store i1 %30, ptr %7, align 1
   %.0..0..0..0..0..0..0..0..0..0..i.i.i.i = load i8, ptr %7, align 1, !tbaa !3, !range !24, !noundef !25
   %31 = trunc nuw i8 %.0..0..0..0..0..0..0..0..0..0..i.i.i.i to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %31, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i, !llvm.loop !27
 
 _ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %17
@@ -791,13 +785,13 @@ define void @_ZN3tbb6detail2r114itt_task_beginENS0_2d115itt_domain_enumEPvyS4_yN
   br i1 %16, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit, label %17
 
 17:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
   %19 = icmp ne i8 %18, 0
   store i1 %19, ptr %7, align 1
   %.0..0..0..0..0..0..0..0..0..0..i2.i.i.i = load i8, ptr %7, align 1, !tbaa !3, !range !24, !noundef !25
   %20 = trunc nuw i8 %.0..0..0..0..0..0..0..0..0..0..i2.i.i.i to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %20, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %17, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
@@ -821,18 +815,18 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
 
 27:                                               ; preds = %.lr.ph.i.i.i
-  %28 = tail call noundef i32 @sched_yield() #4
+  %28 = tail call noundef i32 @sched_yield() #3
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %27, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
   %.sroa.0.1.i.i.i = phi i32 [ %26, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i ], [ %.sroa.0.03.i.i.i, %27 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %29 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
   %30 = icmp ne i8 %29, 0
   store i1 %30, ptr %7, align 1
   %.0..0..0..0..0..0..0..0..0..0..i.i.i.i = load i8, ptr %7, align 1, !tbaa !3, !range !24, !noundef !25
   %31 = trunc nuw i8 %.0..0..0..0..0..0..0..0..0..0..i.i.i.i to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %31, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i, !llvm.loop !27
 
 _ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %17
@@ -903,13 +897,13 @@ define void @_ZN3tbb6detail2r112itt_task_endENS0_2d115itt_domain_enumE(i32 nound
   br i1 %9, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit, label %10
 
 10:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
   %12 = icmp ne i8 %11, 0
   store i1 %12, ptr %2, align 1
   %.0..0..0..0..0..0..0..0..0..0..i2.i.i.i = load i8, ptr %2, align 1, !tbaa !3, !range !24, !noundef !25
   %13 = trunc nuw i8 %.0..0..0..0..0..0..0..0..0..0..i2.i.i.i to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %13, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %10, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
@@ -933,18 +927,18 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
 
 20:                                               ; preds = %.lr.ph.i.i.i
-  %21 = tail call noundef i32 @sched_yield() #4
+  %21 = tail call noundef i32 @sched_yield() #3
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %20, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
   %.sroa.0.1.i.i.i = phi i32 [ %19, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i ], [ %.sroa.0.03.i.i.i, %20 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %22 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
   %23 = icmp ne i8 %22, 0
   store i1 %23, ptr %2, align 1
   %.0..0..0..0..0..0..0..0..0..0..i.i.i.i = load i8, ptr %2, align 1, !tbaa !3, !range !24, !noundef !25
   %24 = trunc nuw i8 %.0..0..0..0..0..0..0..0..0..0..i.i.i.i to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %24, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i, !llvm.loop !27
 
 _ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %10
@@ -991,13 +985,13 @@ define void @_ZN3tbb6detail2r116itt_region_beginENS0_2d115itt_domain_enumEPvyS4_
   br i1 %16, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit, label %17
 
 17:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
   %19 = icmp ne i8 %18, 0
   store i1 %19, ptr %7, align 1
   %.0..0..0..0..0..0..0..0..0..0..i2.i.i.i = load i8, ptr %7, align 1, !tbaa !3, !range !24, !noundef !25
   %20 = trunc nuw i8 %.0..0..0..0..0..0..0..0..0..0..i2.i.i.i to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %20, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %17, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
@@ -1021,18 +1015,18 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
 
 27:                                               ; preds = %.lr.ph.i.i.i
-  %28 = tail call noundef i32 @sched_yield() #4
+  %28 = tail call noundef i32 @sched_yield() #3
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %27, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
   %.sroa.0.1.i.i.i = phi i32 [ %26, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i ], [ %.sroa.0.03.i.i.i, %27 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %29 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
   %30 = icmp ne i8 %29, 0
   store i1 %30, ptr %7, align 1
   %.0..0..0..0..0..0..0..0..0..0..i.i.i.i = load i8, ptr %7, align 1, !tbaa !3, !range !24, !noundef !25
   %31 = trunc nuw i8 %.0..0..0..0..0..0..0..0..0..0..i.i.i.i to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %31, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i, !llvm.loop !27
 
 _ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %17
@@ -1092,13 +1086,13 @@ define void @_ZN3tbb6detail2r114itt_region_endENS0_2d115itt_domain_enumEPvy(i32 
   br i1 %12, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit, label %13
 
 13:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
   %15 = icmp ne i8 %14, 0
   store i1 %15, ptr %4, align 1
   %.0..0..0..0..0..0..0..0..0..0..i2.i.i.i = load i8, ptr %4, align 1, !tbaa !3, !range !24, !noundef !25
   %16 = trunc nuw i8 %.0..0..0..0..0..0..0..0..0..0..i2.i.i.i to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %16, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %13, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
@@ -1122,18 +1116,18 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
 
 23:                                               ; preds = %.lr.ph.i.i.i
-  %24 = tail call noundef i32 @sched_yield() #4
+  %24 = tail call noundef i32 @sched_yield() #3
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %23, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
   %.sroa.0.1.i.i.i = phi i32 [ %22, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i ], [ %.sroa.0.03.i.i.i, %23 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
   %26 = icmp ne i8 %25, 0
   store i1 %26, ptr %4, align 1
   %.0..0..0..0..0..0..0..0..0..0..i.i.i.i = load i8, ptr %4, align 1, !tbaa !3, !range !24, !noundef !25
   %27 = trunc nuw i8 %.0..0..0..0..0..0..0..0..0..0..i.i.i.i to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %27, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i, !llvm.loop !27
 
 _ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %13
@@ -1172,17 +1166,23 @@ _ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread: ; pred
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare void @llvm.x86.sse2.pause() #4
+declare void @llvm.x86.sse2.pause() #3
 
 ; Function Attrs: nounwind
-declare i32 @sched_yield() local_unnamed_addr #5
+declare i32 @sched_yield() local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}

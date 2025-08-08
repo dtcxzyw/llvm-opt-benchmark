@@ -684,13 +684,10 @@ err_unwind.exit.thread64:                         ; preds = %41, %err_unwind.exi
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i64 @_Unwind_GetCFA(ptr noundef) local_unnamed_addr #2
+declare i64 @_Unwind_GetCFA(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noinline nounwind uwtable
-define hidden ptr @lj_err_str(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden ptr @lj_err_str(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr @lj_err_allmsg, align 8, !tbaa !41
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %3, i64 %4
@@ -699,20 +696,17 @@ define hidden ptr @lj_err_str(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   ret ptr %7
 }
 
-declare void @_Unwind_DeleteException(ptr noundef) local_unnamed_addr #2
+declare void @_Unwind_DeleteException(ptr noundef) local_unnamed_addr #1
 
-declare void @_Unwind_SetGR(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @_Unwind_SetGR(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare hidden void @lj_vm_unwind_ff_eh() #2
+declare hidden void @lj_vm_unwind_ff_eh() #1
 
-declare hidden void @lj_vm_unwind_c_eh() #2
+declare hidden void @lj_vm_unwind_c_eh() #1
 
-declare void @_Unwind_SetIP(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @_Unwind_SetIP(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare hidden void @lj_vm_unwind_rethrow() #2
+declare hidden void @lj_vm_unwind_rethrow() #1
 
 ; Function Attrs: nounwind uwtable
 define hidden nonnull ptr @lj_err_register_mcode(ptr noundef %0, i64 noundef %1, ptr noundef initializes((0, 60)) %2) local_unnamed_addr #0 {
@@ -754,7 +748,7 @@ define internal range(i32 2, 8) i32 @err_unwind_jit(i32 noundef %0, i32 noundef 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = tail call i64 @_Unwind_GetIP(ptr noundef %4) #15
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 736
   %18 = add i64 %16, -1
@@ -772,7 +766,7 @@ define internal range(i32 2, 8) i32 @err_unwind_jit(i32 noundef %0, i32 noundef 
 
 24:                                               ; preds = %13, %20
   %.1 = phi i32 [ 7, %20 ], [ 2, %13 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %25
 
 25:                                               ; preds = %11, %9, %5, %24
@@ -781,9 +775,9 @@ define internal range(i32 2, 8) i32 @err_unwind_jit(i32 noundef %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare void @__register_frame(ptr noundef) local_unnamed_addr #2
+declare void @__register_frame(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @lj_err_deregister_mcode(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -791,10 +785,10 @@ define hidden void @lj_err_deregister_mcode(ptr noundef readnone captures(none) 
   ret void
 }
 
-declare void @__deregister_frame(ptr noundef) local_unnamed_addr #2
+declare void @__deregister_frame(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define hidden void @lj_err_throw(ptr noundef initializes((11, 12)) %0, i32 noundef %1) local_unnamed_addr #5 {
+define hidden void @lj_err_throw(ptr noundef initializes((11, 12)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !26
   %5 = inttoptr i64 %4 to ptr
@@ -829,15 +823,15 @@ define hidden void @lj_err_throw(ptr noundef initializes((11, 12)) %0, i32 nound
 }
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #6
+declare void @exit(i32 noundef) local_unnamed_addr #5
 
-declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define hidden void @lj_err_mem(ptr noundef %0) local_unnamed_addr #5 {
+define hidden void @lj_err_mem(ptr noundef %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %3 = load i8, ptr %2, align 1, !tbaa !38
   %4 = icmp eq i8 %3, 6
@@ -917,10 +911,10 @@ define hidden void @lj_err_mem(ptr noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: noreturn
-declare hidden void @lj_vm_unwind_c(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare hidden void @lj_vm_unwind_c(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define hidden void @lj_err_run(ptr noundef %0) local_unnamed_addr #5 {
+define hidden void @lj_err_run(ptr noundef %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !tbaa !26
   %4 = inttoptr i64 %3 to ptr
@@ -1165,10 +1159,10 @@ finderrfunc.exit.thread:                          ; preds = %74, %103, %39, %7, 
   unreachable
 }
 
-declare hidden void @lj_vm_call(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden void @lj_vm_call(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @lj_err_stkov(ptr noundef %0) local_unnamed_addr #9 {
+define hidden void @lj_err_stkov(ptr noundef %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr @lj_err_allmsg, align 8, !tbaa !41
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1179,10 +1173,10 @@ define hidden void @lj_err_stkov(ptr noundef %0) local_unnamed_addr #9 {
   unreachable
 }
 
-declare hidden void @lj_debug_addloc(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden void @lj_debug_addloc(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define hidden void @lj_err_trace(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+define hidden void @lj_err_trace(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq i32 %1, 2
   br i1 %3, label %4, label %5
 
@@ -1196,15 +1190,15 @@ define hidden void @lj_err_trace(ptr noundef %0, i32 noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define hidden void @lj_err_msg(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+define hidden void @lj_err_msg(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   tail call void (ptr, i32, ...) @err_msgv(ptr noundef %0, i32 noundef %1) #19
   unreachable
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define internal void @err_msgv(ptr noundef %0, i32 noundef %1, ...) unnamed_addr #5 {
+define internal void @err_msgv(ptr noundef %0, i32 noundef %1, ...) unnamed_addr #4 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !26
@@ -1263,9 +1257,9 @@ define internal void @err_msgv(ptr noundef %0, i32 noundef %1, ...) unnamed_addr
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define hidden void @lj_err_lex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #5 {
+define hidden void @lj_err_lex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #4 {
   %7 = alloca [60 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @lj_debug_shortname(ptr noundef nonnull %7, ptr noundef %1, i32 noundef %3) #15
   %8 = load ptr, ptr @lj_err_allmsg, align 8, !tbaa !41
   %9 = sext i32 %4 to i64
@@ -1286,14 +1280,14 @@ define hidden void @lj_err_lex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   unreachable
 }
 
-declare hidden void @lj_debug_shortname(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden void @lj_debug_shortname(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_strfmt_pushvf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_strfmt_pushvf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_strfmt_pushf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare hidden ptr @lj_strfmt_pushf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define hidden void @lj_err_optype(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define hidden void @lj_err_optype(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = alloca ptr, align 8
   %5 = load i64, ptr %1, align 8, !tbaa !18
   %6 = ashr i64 %5, 47
@@ -1329,7 +1323,7 @@ define hidden void @lj_err_optype(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %33 = load i64, ptr %32, align 8, !tbaa !72
   %34 = inttoptr i64 %33 to ptr
   %35 = getelementptr inbounds i8, ptr %34, i64 -4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !41
   %36 = ptrtoint ptr %1 to i64
   %37 = ptrtoint ptr %14 to i64
@@ -1346,7 +1340,7 @@ define hidden void @lj_err_optype(ptr noundef %0, ptr noundef %1, i32 noundef %2
   unreachable
 
 44:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %45
 
 45:                                               ; preds = %44, %3
@@ -1354,10 +1348,10 @@ define hidden void @lj_err_optype(ptr noundef %0, ptr noundef %1, i32 noundef %2
   unreachable
 }
 
-declare hidden ptr @lj_debug_slotname(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_debug_slotname(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define hidden void @lj_err_comp(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 {
+define hidden void @lj_err_comp(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = load i64, ptr %1, align 8, !tbaa !18
   %5 = ashr i64 %4, 47
   %6 = tail call i64 @llvm.umax.i64(i64 %5, i64 -14)
@@ -1377,7 +1371,7 @@ define hidden void @lj_err_comp(ptr noundef %0, ptr noundef readonly captures(no
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define hidden void @lj_err_optype_call(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define hidden void @lj_err_optype_call(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = ptrtoint ptr %4 to i64
@@ -1415,7 +1409,7 @@ define hidden void @lj_err_optype_call(ptr noundef %0, ptr noundef %1) local_unn
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define hidden void @lj_err_callermsg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define hidden void @lj_err_callermsg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !26
   %5 = inttoptr i64 %4 to ptr
@@ -1495,9 +1489,9 @@ define hidden void @lj_err_callermsg(ptr noundef %0, ptr noundef %1) local_unnam
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define hidden void @lj_err_callerv(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #5 {
+define hidden void @lj_err_callerv(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #4 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr @lj_err_allmsg, align 8, !tbaa !41
   %5 = sext i32 %1 to i64
@@ -1509,13 +1503,13 @@ define hidden void @lj_err_callerv(ptr noundef %0, i32 noundef %1, ...) local_un
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #10
+declare void @llvm.va_start.p0(ptr) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #10
+declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define hidden void @lj_err_caller(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+define hidden void @lj_err_caller(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr @lj_err_allmsg, align 8, !tbaa !41
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %3, i64 %4
@@ -1524,9 +1518,9 @@ define hidden void @lj_err_caller(ptr noundef %0, i32 noundef %1) local_unnamed_
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define hidden void @lj_err_argv(ptr noundef %0, i32 noundef %1, i32 noundef %2, ...) local_unnamed_addr #5 {
+define hidden void @lj_err_argv(ptr noundef %0, i32 noundef %1, i32 noundef %2, ...) local_unnamed_addr #4 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = load ptr, ptr @lj_err_allmsg, align 8, !tbaa !41
   %6 = sext i32 %2 to i64
@@ -1538,9 +1532,9 @@ define hidden void @lj_err_argv(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define internal fastcc void @err_argmsg(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc void @err_argmsg(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #4 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @.str.6, ptr %4, align 8, !tbaa !41
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !15
@@ -1600,7 +1594,7 @@ define internal fastcc void @err_argmsg(ptr noundef %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define hidden void @lj_err_arg(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define hidden void @lj_err_arg(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = load ptr, ptr @lj_err_allmsg, align 8, !tbaa !41
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds i8, ptr %4, i64 %5
@@ -1609,7 +1603,7 @@ define hidden void @lj_err_arg(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define hidden void @lj_err_argtype(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+define hidden void @lj_err_argtype(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = icmp slt i32 %1, -9999
   br i1 %4, label %5, label %23
 
@@ -1685,7 +1679,7 @@ define hidden void @lj_err_argtype(ptr noundef %0, i32 noundef %1, ptr noundef %
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define hidden void @lj_err_argt(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define hidden void @lj_err_argt(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = add nsw i32 %2, 1
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds [12 x ptr], ptr @lj_obj_typename, i64 0, i64 %5
@@ -1695,7 +1689,7 @@ define hidden void @lj_err_argt(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @lua_atpanic(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #11 {
+define dso_local ptr @lua_atpanic(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !26
   %5 = inttoptr i64 %4 to ptr
@@ -1706,19 +1700,19 @@ define dso_local ptr @lua_atpanic(ptr noundef readonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local noundef i32 @lua_error(ptr noundef %0) local_unnamed_addr #9 {
+define dso_local noundef i32 @lua_error(ptr noundef %0) local_unnamed_addr #8 {
   tail call void @lj_err_run(ptr noundef %0) #19
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local noundef i32 @luaL_argerror(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #9 {
+define dso_local noundef i32 @luaL_argerror(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #8 {
   tail call fastcc void @err_argmsg(ptr noundef %0, i32 noundef %1, ptr noundef %2) #19
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local noundef i32 @luaL_typerror(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #9 {
+define dso_local noundef i32 @luaL_typerror(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #8 {
   tail call void @lj_err_argtype(ptr noundef %0, i32 noundef %1, ptr noundef %2) #19
   unreachable
 }
@@ -1726,7 +1720,7 @@ define dso_local noundef i32 @luaL_typerror(ptr noundef %0, i32 noundef %1, ptr 
 ; Function Attrs: nounwind uwtable
 define dso_local void @luaL_where(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call ptr @lj_debug_frame(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %3) #15
   %5 = load i32, ptr %3, align 4, !tbaa !17
   %.not = icmp eq i32 %5, 0
@@ -1734,16 +1728,16 @@ define dso_local void @luaL_where(ptr noundef %0, i32 noundef %1) local_unnamed_
   %7 = getelementptr inbounds %union.TValue, ptr %4, i64 %6
   %8 = select i1 %.not, ptr null, ptr %7
   call void @lj_debug_addloc(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %4, ptr noundef %8) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare hidden ptr @lj_debug_frame(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_debug_frame(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local noundef i32 @luaL_error(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #9 {
+define dso_local noundef i32 @luaL_error(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #8 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call ptr @lj_strfmt_pushvf(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #15
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -1752,7 +1746,7 @@ define dso_local noundef i32 @luaL_error(ptr noundef %0, ptr noundef %1, ...) lo
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc void @unwindstack(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @unwindstack(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   tail call void @lj_func_closeuv(ptr noundef %0, ptr noundef %1) #15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !22
@@ -1772,43 +1766,49 @@ define internal fastcc void @unwindstack(ptr noundef %0, ptr noundef %1) unnamed
   ret void
 }
 
-declare hidden void @lj_func_closeuv(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden void @lj_func_closeuv(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden void @lj_state_relimitstack(ptr noundef) local_unnamed_addr #2
+declare hidden void @lj_state_relimitstack(ptr noundef) local_unnamed_addr #1
 
-declare i64 @_Unwind_GetIP(ptr noundef) local_unnamed_addr #2
+declare i64 @_Unwind_GetIP(ptr noundef) local_unnamed_addr #1
 
-declare hidden i64 @lj_trace_unwind(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare hidden i64 @lj_trace_unwind(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #12
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
-declare i32 @_Unwind_RaiseException(ptr noundef) local_unnamed_addr #2
+declare i32 @_Unwind_RaiseException(ptr noundef) local_unnamed_addr #1
 
-declare hidden void @lj_state_growstack(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden void @lj_state_growstack(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_debug_funcname(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_debug_funcname(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { noinline noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { noinline noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nounwind }
 attributes #16 = { cold noreturn nounwind }

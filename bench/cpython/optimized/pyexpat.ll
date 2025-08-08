@@ -437,7 +437,7 @@ define internal ptr @pyexpat_ParserCreate(ptr noundef %0, ptr noundef %1, i64 no
   %5 = alloca [3 x ptr], align 16
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %.thread
 
@@ -484,7 +484,7 @@ define internal ptr @pyexpat_ParserCreate(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %.not63, label %35, label %26
 
 26:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %19, ptr noundef nonnull %6) #8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.thread82, label %29
@@ -501,11 +501,11 @@ define internal ptr @pyexpat_ParserCreate(ptr noundef %0, ptr noundef %1, i64 no
   br label %.thread82
 
 .thread82:                                        ; preds = %32, %26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %pyexpat_ParserCreate_impl.exit
 
 34:                                               ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %36
 
 35:                                               ; preds = %22
@@ -540,7 +540,7 @@ define internal ptr @pyexpat_ParserCreate(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %.not67, label %56, label %47
 
 47:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %48 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %40, ptr noundef nonnull %7) #8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.thread86, label %50
@@ -557,11 +557,11 @@ define internal ptr @pyexpat_ParserCreate(ptr noundef %0, ptr noundef %1, i64 no
   br label %.thread86
 
 .thread86:                                        ; preds = %53, %47
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %pyexpat_ParserCreate_impl.exit
 
 55:                                               ; preds = %50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %57
 
 56:                                               ; preds = %43
@@ -781,7 +781,7 @@ newxmlparseobject.exit.i:                         ; preds = %clear_handlers.exit
 
 pyexpat_ParserCreate_impl.exit:                   ; preds = %140, %137, %135, %newxmlparseobject.exit.i, %76, %.thread107, %65, %.thread86, %.thread82, %35, %56, %13
   %.049 = phi ptr [ null, %56 ], [ null, %35 ], [ null, %13 ], [ null, %.thread82 ], [ null, %.thread86 ], [ null, %65 ], [ null, %76 ], [ null, %.thread107 ], [ %.0.i.i, %newxmlparseobject.exit.i ], [ %.0.i.i, %135 ], [ %.0.i.i, %137 ], [ %.0.i.i, %140 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.049
 }
 
@@ -818,20 +818,14 @@ pyexpat_ErrorString_impl.exit:                    ; preds = %pyexpat_ErrorString
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -5752,13 +5746,13 @@ define internal fastcc ptr @string_intern(ptr noundef readonly captures(none) %0
   br i1 %4, label %conv_string_to_unicode.exit.thread, label %conv_string_to_unicode.exit
 
 conv_string_to_unicode.exit.thread:               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %7
 
 conv_string_to_unicode.exit:                      ; preds = %2
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   %6 = tail call ptr @PyUnicode_DecodeUTF8(ptr noundef nonnull %1, i64 noundef %5, ptr noundef nonnull @.str.42) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %24, label %7
 
@@ -5801,7 +5795,7 @@ Py_DECREF.exit:                                   ; preds = %17, %19, %22
 
 24:                                               ; preds = %13, %7, %conv_string_to_unicode.exit, %Py_DECREF.exit
   %.0 = phi ptr [ %23, %Py_DECREF.exit ], [ null, %conv_string_to_unicode.exit ], [ %.0.i18, %7 ], [ %.0.i18, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -6052,14 +6046,14 @@ Py_DECREF.exit:                                   ; preds = %89, %86, %84, %7, %
 declare ptr @PyTuple_New(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @noop_character_data_handler(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #4 {
+define internal void @noop_character_data_handler(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #3 {
   ret void
 }
 
 declare ptr @PyUnicode_DecodeUTF8(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @error_external_entity_ref_handler(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #4 {
+define internal noundef i32 @error_external_entity_ref_handler(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #3 {
   ret i32 0
 }
 
@@ -6072,7 +6066,7 @@ declare void @_PyTraceback_Add(ptr noundef, ptr noundef, i32 noundef) local_unna
 declare i32 @PyExpat_XML_StopParser(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 
@@ -7018,7 +7012,7 @@ define internal ptr @pyexpat_xmlparser_Parse(ptr noundef captures(none) %0, ptr 
   %6 = alloca i64, align 8
   %7 = alloca %struct.Py_buffer, align 8
   %8 = alloca [2 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp eq ptr %4, null
   %10 = add i64 %3, -1
   %11 = icmp ult i64 %10, 2
@@ -7047,8 +7041,8 @@ define internal ptr @pyexpat_xmlparser_Parse(ptr noundef captures(none) %0, ptr 
 
 23:                                               ; preds = %18, %.thread
   %.0 = phi i32 [ 0, %.thread ], [ %21, %18 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = call ptr @PyType_GetModuleState(ptr noundef %1) #8
   %25 = getelementptr i8, ptr %16, i64 8
   %.val.i = load ptr, ptr %25, align 8, !tbaa !19
@@ -7169,13 +7163,13 @@ flush_character_buffer.exit.thread.i.i:           ; preds = %flush_character_buf
 
 pyexpat_xmlparser_Parse_impl.exit:                ; preds = %28, %35, %59, %63, %flush_character_buffer.exit.i.i, %flush_character_buffer.exit.thread.i.i
   %.0.i = phi ptr [ null, %28 ], [ null, %35 ], [ null, %63 ], [ %78, %flush_character_buffer.exit.thread.i.i ], [ null, %59 ], [ null, %flush_character_buffer.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %79
 
 79:                                               ; preds = %18, %13, %pyexpat_xmlparser_Parse_impl.exit
   %.022 = phi ptr [ %.0.i, %pyexpat_xmlparser_Parse_impl.exit ], [ null, %18 ], [ null, %13 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.022
 }
 
@@ -7183,7 +7177,7 @@ pyexpat_xmlparser_Parse_impl.exit:                ; preds = %28, %35, %59, %63, 
 define internal ptr @pyexpat_xmlparser_ParseFile(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca [1 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %4, null
   %9 = icmp eq i64 %3, 1
   %or.cond3 = and i1 %9, %8
@@ -7199,7 +7193,7 @@ define internal ptr @pyexpat_xmlparser_ParseFile(ptr noundef captures(none) %0, 
 .thread:                                          ; preds = %5, %11
   %13 = phi ptr [ %12, %11 ], [ %2, %5 ]
   %14 = load ptr, ptr %13, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !14
   %15 = call ptr @PyType_GetModuleState(ptr noundef %1) #8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -7468,12 +7462,12 @@ flush_character_buffer.exit.thread.i.i:           ; preds = %flush_character_buf
 
 pyexpat_xmlparser_ParseFile_impl.exit:            ; preds = %.thread, %24, %Py_XDECREF.exit.i, %38, %readinst.exit.thread.i, %81, %84, %91, %93, %95, %98, %Py_XDECREF.exit37.i, %111, %flush_character_buffer.exit.i.i, %flush_character_buffer.exit.thread.i.i
   %.0.i = phi ptr [ null, %24 ], [ null, %.thread ], [ null, %111 ], [ %125, %flush_character_buffer.exit.thread.i.i ], [ null, %Py_XDECREF.exit37.i ], [ null, %flush_character_buffer.exit.i.i ], [ null, %Py_XDECREF.exit.i ], [ null, %38 ], [ null, %readinst.exit.thread.i ], [ null, %81 ], [ null, %84 ], [ null, %91 ], [ null, %93 ], [ null, %95 ], [ null, %98 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %126
 
 126:                                              ; preds = %11, %pyexpat_xmlparser_ParseFile_impl.exit
   %.0 = phi ptr [ %.0.i, %pyexpat_xmlparser_ParseFile_impl.exit ], [ null, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
 
@@ -7552,8 +7546,8 @@ define internal ptr @pyexpat_xmlparser_GetInputContext(ptr noundef readonly capt
   br i1 %.not.i, label %pyexpat_xmlparser_GetInputContext_impl.exit, label %7
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !39
   %10 = call ptr @PyExpat_XML_GetInputContext(ptr noundef %9, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
@@ -7572,8 +7566,8 @@ define internal ptr @pyexpat_xmlparser_GetInputContext(ptr noundef readonly capt
 
 19:                                               ; preds = %11, %7
   %.0.i = phi ptr [ %18, %11 ], [ @_Py_NoneStruct, %7 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %pyexpat_xmlparser_GetInputContext_impl.exit
 
 pyexpat_xmlparser_GetInputContext_impl.exit:      ; preds = %2, %19
@@ -7586,7 +7580,7 @@ define internal ptr @pyexpat_xmlparser_ExternalEntityParserCreate(ptr noundef re
   %6 = alloca [2 x ptr], align 16
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = icmp eq ptr %4, null
   %10 = add i64 %3, -1
   %11 = icmp ult i64 %10, 2
@@ -7616,7 +7610,7 @@ define internal ptr @pyexpat_xmlparser_ExternalEntityParserCreate(ptr noundef re
   br i1 %.not41, label %31, label %22
 
 22:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %16, ptr noundef nonnull %7) #8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.thread50, label %25
@@ -7633,11 +7627,11 @@ define internal ptr @pyexpat_xmlparser_ExternalEntityParserCreate(ptr noundef re
   br label %.thread50
 
 .thread50:                                        ; preds = %28, %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %pyexpat_xmlparser_ExternalEntityParserCreate_impl.exit
 
 30:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %32
 
 31:                                               ; preds = %18
@@ -7906,7 +7900,7 @@ _Py_NewRef.exit.i:                                ; preds = %142, %139
 
 pyexpat_xmlparser_ExternalEntityParserCreate_impl.exit: ; preds = %._crit_edge.i, %Py_DECREF.exit.i, %Py_DECREF.exit62.i, %Py_DECREF.exit64.i, %49, %.thread50, %31, %40, %47, %13, %41
   %.034 = phi ptr [ null, %41 ], [ null, %47 ], [ null, %40 ], [ null, %31 ], [ null, %13 ], [ null, %.thread50 ], [ %96, %Py_DECREF.exit64.i ], [ %52, %._crit_edge.i ], [ %123, %Py_DECREF.exit.i ], [ %105, %Py_DECREF.exit62.i ], [ null, %49 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.034
 }
 
@@ -7938,7 +7932,7 @@ define internal ptr @pyexpat_xmlparser_SetParamEntityParsing(ptr noundef readonl
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @pyexpat_xmlparser_UseForeignDTD(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
   %6 = alloca [1 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %4, null
   %8 = icmp ult i64 %3, 2
   %or.cond3 = and i1 %8, %7
@@ -7980,7 +7974,7 @@ define internal noundef ptr @pyexpat_xmlparser_UseForeignDTD(ptr noundef readonl
 
 pyexpat_xmlparser_UseForeignDTD_impl.exit:        ; preds = %24, %18, %14, %10
   %.020 = phi ptr [ null, %14 ], [ null, %10 ], [ null, %24 ], [ @_Py_NoneStruct, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.020
 }
 
@@ -8615,7 +8609,7 @@ declare i64 @PyExpat_XML_GetCurrentByteIndex(ptr noundef) local_unnamed_addr #1
 declare void @PyExpat_XML_SetReturnNSTriplet(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @xmlparse_handler_getter(ptr noundef readonly captures(none) %0, ptr noundef %1) #6 {
+define internal noundef nonnull ptr @xmlparse_handler_getter(ptr noundef readonly captures(none) %0, ptr noundef %1) #5 {
   %3 = ptrtoint ptr %1 to i64
   %4 = sub i64 %3, ptrtoint (ptr @handler_info to i64)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -8841,7 +8835,7 @@ Py_DECREF.exit23:                                 ; preds = %29, %26, %Py_DECREF
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare ptr @PyModule_New(ptr noundef) local_unnamed_addr #1
 
@@ -8859,16 +8853,22 @@ declare ptr @PyCapsule_GetPointer(ptr noundef, ptr noundef) local_unnamed_addr #
 
 declare void @PyErr_FormatUnraisable(ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }

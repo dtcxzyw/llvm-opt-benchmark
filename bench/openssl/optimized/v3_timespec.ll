@@ -471,7 +471,7 @@ define void @OSSL_TIME_PERIOD_free(ptr noundef %0) local_unnamed_addr #1 {
 define internal i32 @i2r_OSSL_TIME_SPEC(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %.not = icmp eq ptr %8, null
@@ -627,7 +627,7 @@ i2r_OSSL_TIME_SPEC_ABSOLUTE.exit.thread2.i:       ; preds = %i2r_OSSL_TIME_SPEC_
 83:                                               ; preds = %81, %80
   %84 = load ptr, ptr %73, align 8, !tbaa !17
   %85 = call ptr @OPENSSL_sk_value(ptr noundef %84, i32 noundef %.017.i) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %86 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.57, i32 noundef range(i32 -2147483640, -2147483648) %77, ptr noundef nonnull @.str.45) #4
   %87 = icmp slt i32 %86, 1
   br i1 %87, label %i2r_OSSL_PERIOD.exit.thread.i, label %88
@@ -1201,11 +1201,11 @@ switch.lookup51:                                  ; preds = %323
   br i1 %355, label %i2r_OSSL_PERIOD.exit.thread.i, label %341
 
 i2r_OSSL_PERIOD.exit.thread.i:                    ; preds = %335, %.loopexit.i.i, %327, %306, %299, %296, %.loopexit12.i.i, %256, %249, %246, %243, %237, %print_day_of_week.exit.i.i, %223, %220, %216, %210, %208, %206, %204, %202, %200, %196, %147, %144, %141, %135, %129, %90, %83, %i2r_OSSL_DAY_TIME_BAND.exit.i.i, %118, %116, %111, %109, %107, %.lr.ph.i.i, %190, %188, %170, %switch.lookup, %162, %155, %167, %286, %284, %273, %271, %.lr.ph25.i.i, %switch.lookup51, %321, %.lr.ph27.i.i, %323, %352, %350, %.lr.ph29.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %i2r_OSSL_TIME_SPEC_TIME.exit
 
 .loopexit.i:                                      ; preds = %341, %.preheader.i.i, %332
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %356 = add nuw nsw i32 %.017.i, 1
   %357 = load ptr, ptr %73, align 8, !tbaa !17
   %358 = call i32 @OPENSSL_sk_num(ptr noundef %357) #4
@@ -1218,7 +1218,7 @@ i2r_OSSL_PERIOD.exit.thread.i:                    ; preds = %335, %.loopexit.i.i
 
 i2r_OSSL_TIME_SPEC_TIME.exit:                     ; preds = %81, %._crit_edge.i, %i2r_OSSL_PERIOD.exit.thread.i, %70, %i2r_OSSL_TIME_SPEC_ABSOLUTE.exit.thread2.i, %i2r_OSSL_TIME_SPEC_ABSOLUTE.exit.i, %64, %62, %54, %51, %49, %46, %44, %41, %39, %29, %25, %22, %19, %11, %9
   %.0 = phi i32 [ 0, %9 ], [ 0, %11 ], [ 0, %19 ], [ 0, %22 ], [ %69, %i2r_OSSL_TIME_SPEC_ABSOLUTE.exit.thread2.i ], [ %360, %._crit_edge.i ], [ 0, %29 ], [ 0, %i2r_OSSL_TIME_SPEC_ABSOLUTE.exit.i ], [ 0, %70 ], [ 0, %25 ], [ 0, %i2r_OSSL_PERIOD.exit.thread.i ], [ 0, %39 ], [ 0, %41 ], [ 0, %44 ], [ 0, %46 ], [ 0, %49 ], [ 0, %51 ], [ 0, %54 ], [ 0, %62 ], [ 0, %64 ], [ 0, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -1234,15 +1234,9 @@ declare ptr @ASN1_NULL_it() #2
 
 declare ptr @ASN1_FBOOLEAN_it() #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @ASN1_INTEGER_get_int64(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1354,11 +1348,11 @@ define internal fastcc range(i32 0, 2) i32 @i2r_OSSL_DAY_TIME(ptr noundef nonnul
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !11
   %6 = load ptr, ptr %0, align 8, !tbaa !61
   %.not = icmp eq ptr %6, null
@@ -1407,13 +1401,19 @@ define internal fastcc range(i32 0, 2) i32 @i2r_OSSL_DAY_TIME(ptr noundef nonnul
 
 25:                                               ; preds = %15, %12, %2, %7, %.thread
   %.0 = phi i32 [ %24, %.thread ], [ 0, %7 ], [ 0, %2 ], [ 0, %12 ], [ 0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 declare i32 @ASN1_BIT_STRING_get_bit(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

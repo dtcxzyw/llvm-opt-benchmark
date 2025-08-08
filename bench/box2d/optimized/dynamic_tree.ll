@@ -54,12 +54,6 @@ declare ptr @b2Alloc(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define void @b2DynamicTree_Destroy(ptr noundef captures(none) initializes((8, 16), (20, 32), (68, 72)) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !15
@@ -95,7 +89,7 @@ define void @b2DynamicTree_Destroy(ptr noundef captures(none) initializes((8, 16
 declare void @b2Free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @b2DynamicTree_CreateProxy(ptr noundef captures(none) %0, <2 x float> %1, <2 x float> %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
+define noundef i32 @b2DynamicTree_CreateProxy(ptr noundef captures(none) %0, <2 x float> %1, <2 x float> %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = tail call fastcc i32 @b2AllocateNode(ptr noundef %0)
   %7 = load ptr, ptr %0, align 8, !tbaa !15
   %8 = sext i32 %6 to i64
@@ -205,10 +199,10 @@ define internal fastcc i32 @b2AllocateNode(ptr noundef captures(none) %0) unname
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @b2InsertLeaf(ptr noundef captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #4 {
+define internal fastcc void @b2InsertLeaf(ptr noundef captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !3
   %6 = icmp eq i32 %5, -1
@@ -1211,7 +1205,7 @@ b2RotateNodes.exit:                               ; preds = %.critedge.sink.spli
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @b2DynamicTree_DestroyProxy(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @b2DynamicTree_DestroyProxy(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = icmp eq i32 %1, %4
@@ -1384,14 +1378,14 @@ b2RemoveLeaf.exit:                                ; preds = %.lr.ph.i, %6, %81
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @b2DynamicTree_GetProxyCount(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define i32 @b2DynamicTree_GetProxyCount(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !18
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @b2DynamicTree_MoveProxy(ptr noundef captures(none) %0, i32 noundef %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #4 {
+define void @b2DynamicTree_MoveProxy(ptr noundef captures(none) %0, i32 noundef %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !3
   %7 = icmp eq i32 %1, %6
@@ -1553,7 +1547,7 @@ b2RemoveLeaf.exit:                                ; preds = %.lr.ph.i, %8, %83
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @b2DynamicTree_EnlargeProxy(ptr noundef readonly captures(none) %0, i32 noundef %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #6 {
+define void @b2DynamicTree_EnlargeProxy(ptr noundef readonly captures(none) %0, i32 noundef %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #5 {
   %5 = load ptr, ptr %0, align 8, !tbaa !15
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds %struct.b2TreeNode, ptr %5, i64 %6
@@ -1669,7 +1663,7 @@ b2EnlargeAABB.exit._crit_edge:                    ; preds = %b2EnlargeAABB.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 65536) i32 @b2DynamicTree_GetHeight(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define range(i32 0, 65536) i32 @b2DynamicTree_GetHeight(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !3
   %4 = icmp eq i32 %3, -1
@@ -1689,7 +1683,7 @@ define range(i32 0, 65536) i32 @b2DynamicTree_GetHeight(ptr noundef readonly cap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define float @b2DynamicTree_GetAreaRatio(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
+define float @b2DynamicTree_GetAreaRatio(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !3
   %4 = icmp eq i32 %3, -1
@@ -1760,17 +1754,17 @@ define float @b2DynamicTree_GetAreaRatio(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @b2DynamicTree_Validate(ptr noundef readnone captures(none) %0) local_unnamed_addr #10 {
+define void @b2DynamicTree_Validate(ptr noundef readnone captures(none) %0) local_unnamed_addr #9 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @b2DynamicTree_ValidateNoEnlarged(ptr noundef readnone captures(none) %0) local_unnamed_addr #10 {
+define void @b2DynamicTree_ValidateNoEnlarged(ptr noundef readnone captures(none) %0) local_unnamed_addr #9 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @b2DynamicTree_GetByteCount(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define i32 @b2DynamicTree_GetByteCount(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !13
   %4 = mul i32 %3, 40
@@ -1783,7 +1777,7 @@ define i32 @b2DynamicTree_GetByteCount(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @b2DynamicTree_GetUserData(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
+define i32 @b2DynamicTree_GetUserData(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8, !tbaa !15
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %struct.b2TreeNode, ptr %3, i64 %4, i32 4
@@ -1792,7 +1786,7 @@ define i32 @b2DynamicTree_GetUserData(ptr noundef readonly captures(none) %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { <2 x float>, <2 x float> } @b2DynamicTree_GetAABB(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
+define { <2 x float>, <2 x float> } @b2DynamicTree_GetAABB(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8, !tbaa !15
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %struct.b2TreeNode, ptr %3, i64 %4
@@ -1805,7 +1799,7 @@ define { <2 x float>, <2 x float> } @b2DynamicTree_GetAABB(ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @b2DynamicTree_Query(ptr noundef readonly captures(none) %0, <2 x float> %1, <2 x float> %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #4 {
+define i64 @b2DynamicTree_Query(ptr noundef readonly captures(none) %0, <2 x float> %1, <2 x float> %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #3 {
   %7 = alloca [1024 x i32], align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4, !tbaa !14
@@ -1813,7 +1807,7 @@ define i64 @b2DynamicTree_Query(ptr noundef readonly captures(none) %0, <2 x flo
   br i1 %10, label %61, label %11
 
 11:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !3
   store i32 %13, ptr %7, align 16, !tbaa !39
@@ -1900,7 +1894,7 @@ b2AABB_Overlaps.exit.thread:                      ; preds = %41, %20, %46, %48, 
 .thread:                                          ; preds = %41, %b2AABB_Overlaps.exit.thread
   %.sroa.4.5 = phi i32 [ %.sroa.4.2, %b2AABB_Overlaps.exit.thread ], [ %45, %41 ]
   %.sroa.023.3 = phi i32 [ %.sroa.023.2, %b2AABB_Overlaps.exit.thread ], [ %24, %41 ]
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %57 = zext i32 %.sroa.4.5 to i64
   %58 = shl nuw i64 %57, 32
   %59 = zext i32 %.sroa.023.3 to i64
@@ -1913,7 +1907,7 @@ b2AABB_Overlaps.exit.thread:                      ; preds = %41, %20, %46, %48, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @b2DynamicTree_RayCast(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #4 {
+define i64 @b2DynamicTree_RayCast(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = alloca [1024 x i32], align 16
   %7 = alloca %struct.b2RayCastInput, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1973,12 +1967,12 @@ b2Normalize.exit:                                 ; preds = %11, %18
   %40 = fcmp ogt float %.sroa.02.4.vec.extract.i, %33
   %41 = select i1 %40, float %.sroa.02.4.vec.extract.i, float %33
   %.sroa.02.4.vec.insert.i109 = insertelement <2 x float> %.sroa.02.0.vec.insert.i106, float %41, i64 1
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load i32, ptr %42, align 8, !tbaa !3
   store i32 %43, ptr %6, align 16, !tbaa !39
   %44 = load ptr, ptr %0, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %7, ptr noundef nonnull align 4 dereferenceable(20) %1, i64 16, i1 false), !tbaa.struct !53
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %46
@@ -2156,8 +2150,8 @@ b2AABB_Overlaps.exit.thread:                      ; preds = %60, %98, %95, %52, 
 .thread178:                                       ; preds = %89, %b2AABB_Overlaps.exit.thread
   %.sroa.4.6 = phi i32 [ %.sroa.4.2, %b2AABB_Overlaps.exit.thread ], [ %93, %89 ]
   %.sroa.078.3 = phi i32 [ %.sroa.078.2, %b2AABB_Overlaps.exit.thread ], [ %55, %89 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %154 = zext i32 %.sroa.4.6 to i64
   %155 = shl nuw i64 %154, 32
   %156 = zext i32 %.sroa.078.3 to i64
@@ -2170,7 +2164,7 @@ b2AABB_Overlaps.exit.thread:                      ; preds = %60, %98, %95, %52, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #4 {
+define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.b2ShapeCastInput, align 4
   %7 = alloca [1024 x i32], align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2244,10 +2238,10 @@ define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr 
   %52 = fcmp ogt float %22, %49
   %53 = select i1 %52, float %22, float %49
   %.sroa.02.4.vec.insert.i162 = insertelement <2 x float> %.sroa.02.0.vec.insert.i159, float %53, i64 1
-  call void @llvm.lifetime.start.p0(i64 84, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(84) %6, ptr noundef nonnull align 4 dereferenceable(84) %1, i64 80, i1 false), !tbaa.struct !59
   %54 = load ptr, ptr %0, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = load i32, ptr %55, align 8, !tbaa !3
   store i32 %56, ptr %7, align 16, !tbaa !39
@@ -2462,8 +2456,8 @@ b2AABB_Overlaps.exit.thread:                      ; preds = %82, %125, %122, %74
 .thread257:                                       ; preds = %116, %b2AABB_Overlaps.exit.thread
   %.sroa.4.6 = phi i32 [ %.sroa.4.2, %b2AABB_Overlaps.exit.thread ], [ %120, %116 ]
   %.sroa.0107.3 = phi i32 [ %.sroa.0107.2, %b2AABB_Overlaps.exit.thread ], [ %77, %116 ]
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %184 = zext i32 %.sroa.4.6 to i64
   %185 = shl nuw i64 %184, 32
   %186 = zext i32 %.sroa.0107.3 to i64
@@ -2477,7 +2471,7 @@ b2AABB_Overlaps.exit.thread:                      ; preds = %82, %125, %122, %74
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #4 {
+define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = alloca [1024 x %struct.b2RebuildItem], align 16
   %4 = alloca [1024 x i32], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2519,7 +2513,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
 
 26:                                               ; preds = %._crit_edge80, %12
   %27 = phi ptr [ %.pre, %._crit_edge80 ], [ %25, %12 ]
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !3
   %30 = load ptr, ptr %0, align 8, !tbaa !15
@@ -2725,7 +2719,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
 
 143:                                              ; preds = %.split69.us
   %144 = load ptr, ptr %35, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 20480, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %145 = tail call fastcc i32 @b2AllocateNode(ptr noundef nonnull %0)
   store i32 %145, ptr %3, align 16, !tbaa !65
   %146 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -2964,13 +2958,13 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %285 = or i64 %284, %282
   %286 = getelementptr inbounds nuw i8, ptr %251, i64 16
   store i64 %285, ptr %286, align 8, !tbaa !26
-  call void @llvm.lifetime.end.p0(i64 20480, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %b2BuildTree.exit
 
 b2BuildTree.exit:                                 ; preds = %138, %248
   %.0.i = phi i32 [ %142, %138 ], [ %249, %248 ]
   store i32 %.0.i, ptr %28, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %287
 
 287:                                              ; preds = %2, %b2BuildTree.exit
@@ -2979,7 +2973,7 @@ b2BuildTree.exit:                                 ; preds = %138, %248
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -1073741824, 2147483647) i32 @b2PartitionMid(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #11 {
+define internal fastcc range(i32 -1073741824, 2147483647) i32 @b2PartitionMid(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #10 {
   %4 = icmp slt i32 %2, 3
   br i1 %4, label %5, label %7
 
@@ -3174,6 +3168,12 @@ define internal fastcc range(i32 -1073741824, 2147483647) i32 @b2PartitionMid(pt
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #12
 
@@ -3189,15 +3189,15 @@ declare i32 @llvm.smax.i32(i32, i32) #12
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }
 

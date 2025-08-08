@@ -25,10 +25,10 @@ define internal range(i32 0, 2) i32 @cipher_overhead() #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = tail call i32 @ssl3_num_ciphers() #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -104,15 +104,12 @@ cipher_enabled.exit.thread15:                     ; preds = %10, %cipher_enabled
 
 ._crit_edge:                                      ; preds = %40, %0
   %.0.lcssa = phi i32 [ 1, %0 ], [ %.1, %40 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0.lcssa
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @ssl3_num_ciphers() local_unnamed_addr #1
 
@@ -126,9 +123,6 @@ declare i32 @ssl_cipher_get_overhead(ptr noundef, ptr noundef, ptr noundef, ptr 
 
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @EVP_get_cipherbyname(ptr noundef) local_unnamed_addr #1
 
 declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #1
@@ -138,6 +132,12 @@ declare i32 @SSL_CIPHER_get_cipher_nid(ptr noundef) local_unnamed_addr #1
 declare ptr @EVP_get_digestbyname(ptr noundef) local_unnamed_addr #1
 
 declare i32 @SSL_CIPHER_get_digest_nid(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

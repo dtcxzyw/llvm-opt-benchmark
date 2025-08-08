@@ -63,12 +63,6 @@ define dso_local void @_ZN4llvm22RopePieceBTreeIteratorC2EPKv(ptr noundef nonnul
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4llvm22RopePieceBTreeIterator15MoveToNextPieceEv(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -125,7 +119,7 @@ define dso_local void @_ZN4llvm22RopePieceBTreeIterator15MoveToNextPieceEv(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14RopePieceBTreeC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm14RopePieceBTreeC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #8
   store i32 0, ptr %2, align 4, !tbaa !27
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -139,10 +133,10 @@ define dso_local void @_ZN4llvm14RopePieceBTreeC2Ev(ptr noundef nonnull writeonl
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14RopePieceBTreeC2ERKS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm14RopePieceBTreeC2ERKS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #1 align 2 {
   %3 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #8
   store i32 0, ptr %3, align 4, !tbaa !27
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -156,14 +150,14 @@ define dso_local void @_ZN4llvm14RopePieceBTreeC2ERKS0_(ptr noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14RopePieceBTreeD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm14RopePieceBTreeD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !28
   tail call fastcc void @_ZN12_GLOBAL__N_118RopePieceBTreeNode7DestroyEv(ptr noundef nonnull align 4 dereferenceable(5) %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118RopePieceBTreeNode7DestroyEv(ptr noundef nonnull align 4 dereferenceable(5) %0) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118RopePieceBTreeNode7DestroyEv(ptr noundef nonnull align 4 dereferenceable(5) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.val.val.i.i = load i8, ptr %2, align 4, !tbaa !3, !range !9, !noundef !10
   %3 = trunc nuw i8 %.val.val.i.i to i1
@@ -295,14 +289,14 @@ _ZN12_GLOBAL__N_122RopePieceBTreeInteriorD2Ev.exit: ; preds = %39, %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK4llvm14RopePieceBTree4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef i32 @_ZNK4llvm14RopePieceBTree4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !28
   %.val = load i32, ptr %2, align 4, !tbaa !27
   ret i32 %.val
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14RopePieceBTree5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm14RopePieceBTree5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !28
   %3 = getelementptr i8, ptr %2, i64 4
   %.val.val.i.i = load i8, ptr %3, align 4, !tbaa !3, !range !9, !noundef !10
@@ -373,7 +367,7 @@ _ZN12_GLOBAL__N_118RopePieceBTreeLeaf5clearEv.exit: ; preds = %_ZN4llvm9RopePiec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14RopePieceBTree6insertEjRKNS_9RopePieceE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm14RopePieceBTree6insertEjRKNS_9RopePieceE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !28
   %5 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeNode5splitEj(ptr noundef nonnull align 4 dereferenceable(5) %4, i32 noundef %1)
   %.not = icmp eq ptr %5, null
@@ -431,7 +425,7 @@ define dso_local void @_ZN4llvm14RopePieceBTree6insertEjRKNS_9RopePieceE(ptr nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeNode5splitEj(ptr noundef nonnull align 4 dereferenceable(5) %0, i32 noundef %1) unnamed_addr #2 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeNode5splitEj(ptr noundef nonnull align 4 dereferenceable(5) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = alloca %"struct.llvm::RopePiece", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.val.val.i.i = load i8, ptr %4, align 4, !tbaa !3, !range !9, !noundef !10
@@ -471,7 +465,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeNode5splitE
 
 23:                                               ; preds = %20
   %24 = sub i32 %1, %.024.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = load ptr, ptr %12, align 8, !tbaa !32
   %.not.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit.i, label %26
@@ -509,7 +503,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit.i: ; preds = %26
   br label %_ZN4llvm9RopePieceD2Ev.exit.i
 
 _ZN4llvm9RopePieceD2Ev.exit.i:                    ; preds = %38, %35, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior5splitEj.exit
 
 _ZN12_GLOBAL__N_118RopePieceBTreeLeaf5splitEj.exit: ; preds = %2
@@ -551,7 +545,7 @@ _ZN12_GLOBAL__N_122RopePieceBTreeInterior5splitEj.exit: ; preds = %48, %51, %8, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeNode6insertEjRKN4llvm9RopePieceE(ptr noundef nonnull align 4 dereferenceable(5) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeNode6insertEjRKN4llvm9RopePieceE(ptr noundef nonnull align 4 dereferenceable(5) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.val.val.i.i = load i8, ptr %4, align 4, !tbaa !3, !range !9, !noundef !10
   %5 = trunc nuw i8 %.val.val.i.i to i1
@@ -624,7 +618,7 @@ _ZN12_GLOBAL__N_122RopePieceBTreeInterior6insertEjRKN4llvm9RopePieceE.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14RopePieceBTree5eraseEjj(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm14RopePieceBTree5eraseEjj(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !28
   %5 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeNode5splitEj(ptr noundef nonnull align 4 dereferenceable(5) %4, i32 noundef %1)
   %.not = icmp eq ptr %5, null
@@ -659,7 +653,7 @@ define dso_local void @_ZN4llvm14RopePieceBTree5eraseEjj(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118RopePieceBTreeNode5eraseEjj(ptr noundef nonnull align 4 captures(address) dereferenceable(5) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118RopePieceBTreeNode5eraseEjj(ptr noundef nonnull align 4 captures(address) dereferenceable(5) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.val.val.i.i43 = load i8, ptr %4, align 4, !tbaa !3, !range !9, !noundef !10
   %5 = trunc nuw i8 %.val.val.i.i43 to i1
@@ -948,7 +942,7 @@ _ZN12_GLOBAL__N_122RopePieceBTreeInterior5eraseEjj.exit: ; preds = %.preheader, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11RewriteRope14MakeRopeStringEPKcS2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.llvm::RopePiece") align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(20) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm11RewriteRope14MakeRopeStringEPKcS2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.llvm::RopePiece") align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(20) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %2 to i64
   %7 = sub i64 %5, %6
@@ -1052,19 +1046,19 @@ _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit: ; preds = %_ZN4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #3
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeLeaf6insertEjRKN4llvm9RopePieceE(ptr noundef nonnull align 8 dereferenceable(280) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeLeaf6insertEjRKN4llvm9RopePieceE(ptr noundef nonnull align 8 dereferenceable(280) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %.val367185 = load i8, ptr %4, align 1, !tbaa !14
   %5 = icmp eq i8 %.val367185, 16
@@ -1349,7 +1343,7 @@ _ZN12_GLOBAL__N_118RopePieceBTreeLeaf22insertAfterLeafInOrderEPS0_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noalias noundef ptr @_ZN12_GLOBAL__N_122RopePieceBTreeInterior16HandleChildPieceEjPNS_18RopePieceBTreeNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #2 align 2 {
+define internal fastcc noalias noundef ptr @_ZN12_GLOBAL__N_122RopePieceBTreeInterior16HandleChildPieceEjPNS_18RopePieceBTreeNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %.val20 = load i8, ptr %4, align 1, !tbaa !38
   %5 = icmp eq i8 %.val20, 16
@@ -1463,22 +1457,27 @@ _ZN12_GLOBAL__N_122RopePieceBTreeInterior24FullRecomputeSizeLocallyEv.exit28: ; 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { builtin nounwind allocsize(0) }
 attributes #9 = { builtin nounwind }
-attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

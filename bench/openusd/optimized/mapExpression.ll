@@ -326,7 +326,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %34
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit9: ; preds = %37, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
   store atomic i8 0, ptr %19 release, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %10, label %43, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 43:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit9
@@ -338,12 +338,12 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit9: ; preds = %3
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit9, %43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %48
 
 45:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit, %40
   %.pn.pn = phi { ptr, i32 } [ %42, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit ], [ %41, %40 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br i1 %10, label %46, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit10
 
 46:                                               ; preds = %45
@@ -355,7 +355,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN3t
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit10
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit10: ; preds = %45, %46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn
 
 48:                                               ; preds = %1, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
@@ -690,9 +690,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapEx
 
 _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i: ; preds = %91, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i, %111
   %114 = phi ptr [ %93, %91 ], [ %113, %111 ], [ %95, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %115 = load ptr, ptr %19, align 8
   store ptr %115, ptr %6, align 8
   %116 = load ptr, ptr %24, align 8
@@ -701,8 +701,8 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpM
           to label %.noexc28 unwind label %.loopexit.split-lp
 
 .noexc28:                                         ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %119 = load atomic i64, ptr %118 acquire, align 8
   %120 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1326,7 +1326,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpM
           to label %360 unwind label %.loopexit.split-lp
 
 360:                                              ; preds = %345, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.151.i.i, label %367, label %361
 
 361:                                              ; preds = %360
@@ -2132,8 +2132,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionC2ERKS0_.exit: ; preds = %_
           to label %69 unwind label %126
 
 69:                                               ; preds = %67
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2183,8 +2183,8 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaIS
   %82 = phi i32 [ %73, %78 ], [ %.pre, %.critedge.i._crit_edge ]
   %.sroa.05.0.i = phi ptr [ %.19.i.i.i.i, %78 ], [ %80, %.critedge.i._crit_edge ]
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %84 = load i32, ptr %83, align 4
   %85 = icmp eq i32 %84, %82
   br i1 %85, label %116, label %86
@@ -3189,9 +3189,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapEx
 
 _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i: ; preds = %49, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i, %69
   %72 = phi ptr [ %51, %49 ], [ %71, %69 ], [ %53, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %73 = load ptr, ptr %8, align 8
   store ptr %73, ptr %3, align 8
   %74 = load ptr, ptr %28, align 8
@@ -3201,8 +3201,8 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpM
           to label %.noexc14 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc14:                                         ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %78 = load atomic i64, ptr %77 acquire, align 8
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3428,7 +3428,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpM
   ]
 
 .thread:                                          ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %285
 
 _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i.unreachabledefault: ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i
@@ -3438,7 +3438,7 @@ default.unreachable:                              ; preds = %_ZN3tbb6detail2d219
   unreachable
 
 174:                                              ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not10.i.i, label %175, label %285
 
 175:                                              ; preds = %174
@@ -3505,7 +3505,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapEx
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16PcpMapExpression5_Node8_NodeMapENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit27: ; preds = %199, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i25, %179
   %202 = phi ptr [ %181, %179 ], [ %201, %199 ], [ %183, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i25 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %204 = load atomic i64, ptr %203 acquire, align 8
   %205 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3708,7 +3708,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpM
 _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE5eraseERNSH_8accessorE.exit: ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i
   %.sroa.12.4 = phi i8 [ 1, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i ], [ %.sroa.12.2, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i ]
   %.sroa.0.7 = phi ptr [ %.sroa.0.6, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i ], [ %.sroa.0.5, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %285
 
 285:                                              ; preds = %.thread, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE5eraseERNSH_8accessorE.exit, %175, %174
@@ -5743,7 +5743,7 @@ _ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i: ; preds = %23
   br i1 %31, label %32, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessor7acquireEPSH_mb.exit
 
 32:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store atomic i64 0, ptr %29 release, align 8
   %33 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 true)
   %34 = xor i64 %33, 63
@@ -5783,8 +5783,8 @@ _ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i: ; preds = %23
   %.0.i14 = phi ptr [ null, %.lr.ph ], [ %.1.i, %85 ]
   %.022.i13 = phi ptr [ %.0.i.i18, %.lr.ph ], [ %.123.i, %85 ]
   %48 = getelementptr inbounds nuw i8, ptr %.022.i13, i64 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = getelementptr inbounds nuw i8, ptr %.022.i13, i64 24
   %50 = load ptr, ptr %49, align 8
   store ptr %50, ptr %5, align 8
@@ -5796,8 +5796,8 @@ _ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i: ; preds = %23
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE4hashERKS4_.exit.i unwind label %63
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE4hashERKS4_.exit.i: ; preds = %47
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %55 = and i64 %54, %38
   %56 = icmp eq i64 %55, %2
   br i1 %56, label %57, label %83
@@ -5892,7 +5892,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exi
   br label %.noexc5
 
 .noexc5:                                          ; preds = %94, %92, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessor7acquireEPSH_mb.exit
 
 .noexc.thread:                                    ; preds = %23, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i, %4
@@ -6393,10 +6393,10 @@ declare i64 @llvm.umax.i64(i64, i64) #19
 declare i64 @llvm.bswap.i64(i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

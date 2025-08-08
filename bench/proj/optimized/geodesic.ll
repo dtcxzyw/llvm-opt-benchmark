@@ -325,10 +325,10 @@ define void @geod_lineinit(ptr noundef %0, ptr noundef readonly captures(none) %
   %12 = fcmp oeq double %11, 1.800000e+02
   %13 = tail call double @llvm.copysign.f64(double 1.800000e+02, double %4)
   %14 = select i1 %12, double %13, double %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %15 = tail call double @llvm.fabs.f64(double %14)
   store volatile double %15, ptr %8, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.0..0..0..0..0..0.2.i = load volatile double, ptr %8, align 8, !tbaa !3
   %16 = fsub double 6.250000e-02, %.0..0..0..0..0..0.2.i
   store volatile double %16, ptr %9, align 8, !tbaa !3
@@ -350,9 +350,9 @@ AngRound.exit:                                    ; preds = %18, %20
   store volatile double %21, ptr %8, align 8, !tbaa !3
   %.0..0..0..0..0..0.4.i = load volatile double, ptr %8, align 8, !tbaa !3
   %22 = tail call double @llvm.copysign.f64(double %.0..0..0..0..0..0.4.i, double %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !15
   %23 = call double @remquo(double noundef %22, double noundef 9.000000e+01, ptr noundef nonnull %7) #15
   %24 = load double, ptr @degree, align 8, !tbaa !3
@@ -391,13 +391,10 @@ sincosdx.exit:                                    ; preds = %AngRound.exit, %35,
   %39 = fcmp oeq double %.0, 0.000000e+00
   %40 = tail call double @llvm.copysign.f64(double %.0, double %14)
   %.1 = select i1 %39, double %40, double %.0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   tail call fastcc void @geod_lineinit_int(ptr noundef %0, ptr noundef %1, double noundef %2, double noundef %3, double noundef %14, double noundef %.1, double noundef %38, i32 noundef %5)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, errnomem: readwrite) uwtable
 define internal fastcc void @geod_lineinit_int(ptr noundef initializes((0, 56), (72, 96), (504, 508)) %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, i32 noundef %7) unnamed_addr #3 {
@@ -441,10 +438,10 @@ define internal fastcc void @geod_lineinit_int(ptr noundef initializes((0, 56), 
   store double %5, ptr %35, align 8, !tbaa !29
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %6, ptr %36, align 8, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %37 = tail call double @llvm.fabs.f64(double %32)
   store volatile double %37, ptr %10, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.0..0..0..0..0..0.2.i = load volatile double, ptr %10, align 8, !tbaa !3
   %38 = fsub double 6.250000e-02, %.0..0..0..0..0..0.2.i
   store volatile double %38, ptr %11, align 8, !tbaa !3
@@ -466,9 +463,9 @@ AngRound.exit:                                    ; preds = %40, %42
   store volatile double %43, ptr %10, align 8, !tbaa !3
   %.0..0..0..0..0..0.4.i = load volatile double, ptr %10, align 8, !tbaa !3
   %44 = tail call double @llvm.copysign.f64(double %.0..0..0..0..0..0.4.i, double %32)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !15
   %45 = call double @remquo(double noundef %44, double noundef 9.000000e+01, ptr noundef nonnull %9) #15
   %46 = load double, ptr @degree, align 8, !tbaa !3
@@ -507,7 +504,7 @@ sincosdx.exit:                                    ; preds = %AngRound.exit, %57,
   %61 = fcmp oeq double %.0, 0.000000e+00
   %62 = tail call double @llvm.copysign.f64(double %.0, double %32)
   %.1 = select i1 %61, double %62, double %.0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %63 = load double, ptr %25, align 8, !tbaa !24
   %64 = fmul double %.1, %63
   %65 = tail call double @hypot(double noundef %64, double noundef %60) #15, !tbaa !15
@@ -1040,11 +1037,8 @@ SinCosSeries.exit196:                             ; preds = %338
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: nofree norecurse nounwind uwtable
-define void @geod_gendirectline(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %5, double noundef %6, i32 noundef %7) local_unnamed_addr #5 {
+define void @geod_gendirectline(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %5, double noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   tail call void @geod_lineinit(ptr noundef %0, ptr noundef %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %7)
   %9 = and i32 %5, 1
   %.not.i = icmp eq i32 %9, 0
@@ -1099,7 +1093,7 @@ define void @geod_gensetdistance(ptr noundef initializes((64, 72)) %0, i32 nound
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define void @geod_directline(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, i32 noundef %6) local_unnamed_addr #5 {
+define void @geod_directline(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, i32 noundef %6) local_unnamed_addr #4 {
   tail call void @geod_lineinit(ptr noundef %0, ptr noundef readonly %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %5, ptr %8, align 8, !tbaa !47
@@ -1110,7 +1104,7 @@ define void @geod_directline(ptr noundef %0, ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
-define double @geod_genposition(ptr noundef readonly %0, i32 noundef %1, double noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10) local_unnamed_addr #6 {
+define double @geod_genposition(ptr noundef readonly %0, i32 noundef %1, double noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10) local_unnamed_addr #5 {
   %12 = alloca i32, align 4
   %13 = icmp ne ptr %3, null
   %14 = select i1 %13, i32 128, i32 0
@@ -1154,7 +1148,7 @@ define double @geod_genposition(ptr noundef readonly %0, i32 noundef %1, double 
 42:                                               ; preds = %41
   %43 = load double, ptr @degree, align 8, !tbaa !3
   %44 = fmul double %2, %43
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !15
   %45 = call double @remquo(double noundef %2, double noundef 9.000000e+01, ptr noundef nonnull %12) #15
   %46 = load double, ptr @degree, align 8, !tbaa !3
@@ -1193,7 +1187,7 @@ sincosdx.exit:                                    ; preds = %42, %57, %54, %52
   %61 = fcmp oeq double %.1338, 0.000000e+00
   %62 = tail call double @llvm.copysign.f64(double %.1338, double %2)
   %.2339 = select i1 %61, double %62, double %.1338
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %157
 
 63:                                               ; preds = %41
@@ -1926,7 +1920,7 @@ define void @geod_position(ptr noundef %0, double noundef %1, ptr noundef writeo
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, errnomem: readwrite) uwtable
 define double @geod_gendirect(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, double noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10, ptr noundef writeonly captures(address_is_null) %11, ptr noundef writeonly captures(address_is_null) %12, ptr noundef writeonly captures(address_is_null) %13) local_unnamed_addr #3 {
   %15 = alloca %struct.geod_geodesicline, align 8
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %.not = icmp eq ptr %6, null
   %16 = select i1 %.not, i32 0, i32 128
   %.not23 = icmp eq ptr %7, null
@@ -1955,14 +1949,14 @@ define double @geod_gendirect(ptr noundef readonly captures(none) %0, double nou
   %34 = or i32 %33, %25
   call void @geod_lineinit(ptr noundef nonnull %15, ptr noundef %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %34)
   %35 = call double @geod_genposition(ptr noundef nonnull %15, i32 noundef %4, double noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret double %35
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define void @geod_direct(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #5 {
+define void @geod_direct(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #4 {
   %9 = alloca %struct.geod_geodesicline, align 8
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not.i = icmp eq ptr %5, null
   %.not23.i = icmp eq ptr %6, null
   %10 = select i1 %.not23.i, i32 0, i32 264
@@ -1973,20 +1967,20 @@ define void @geod_direct(ptr noundef readonly captures(none) %0, double noundef 
   %14 = or disjoint i32 %13, %11
   call void @geod_lineinit(ptr noundef nonnull %9, ptr noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %14)
   %15 = call double @geod_genposition(ptr noundef nonnull %9, i32 noundef 0, double noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define double @geod_geninverse(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10, ptr noundef writeonly captures(address_is_null) %11) local_unnamed_addr #5 {
+define double @geod_geninverse(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10, ptr noundef writeonly captures(address_is_null) %11) local_unnamed_addr #4 {
   %13 = alloca double, align 8
   %14 = alloca double, align 8
   %15 = alloca double, align 8
   %16 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %17 = call fastcc double @geod_geninverse_int(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef %5, ptr noundef %13, ptr noundef %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %36, label %18
@@ -2083,15 +2077,15 @@ atan2dx.exit25:                                   ; preds = %37, %48, %51, %53
   br label %55
 
 55:                                               ; preds = %atan2dx.exit25, %36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret double %17
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc double @geod_geninverse_int(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10, ptr noundef writeonly captures(address_is_null) %11, ptr noundef writeonly captures(address_is_null) %12, ptr noundef writeonly captures(address_is_null) %13) unnamed_addr #5 {
+define internal fastcc double @geod_geninverse_int(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10, ptr noundef writeonly captures(address_is_null) %11, ptr noundef writeonly captures(address_is_null) %12, ptr noundef writeonly captures(address_is_null) %13) unnamed_addr #4 {
   %15 = alloca double, align 8
   %16 = alloca double, align 8
   %17 = alloca double, align 8
@@ -2110,16 +2104,16 @@ define internal fastcc double @geod_geninverse_int(ptr noundef readonly captures
   %30 = alloca double, align 8
   %31 = alloca double, align 8
   %32 = alloca [7 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store double 0.000000e+00, ptr %27, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store double 0.000000e+00, ptr %28, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store double 0.000000e+00, ptr %30, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store double 0.000000e+00, ptr %31, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %32) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %.not = icmp eq ptr %5, null
   %.not273 = icmp eq ptr %10, null
   %33 = icmp ne ptr %11, null
@@ -2137,14 +2131,14 @@ define internal fastcc double @geod_geninverse_int(ptr noundef readonly captures
   store double %43, ptr %29, align 8, !tbaa !3
   %44 = load double, ptr @degree, align 8, !tbaa !3
   %45 = fmul double %44, %41
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i32 0, ptr %26, align 4, !tbaa !15
   %46 = call double @remquo(double noundef %41, double noundef 9.000000e+01, ptr noundef nonnull %26) #15
   %47 = fadd double %43, %46
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %48 = call double @llvm.fabs.f64(double %47)
   store volatile double %48, ptr %24, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %.0..0..0..0..0..0..0..0.2.i.i = load volatile double, ptr %24, align 8, !tbaa !3
   %49 = fsub double 6.250000e-02, %.0..0..0..0..0..0..0..0.2.i.i
   store volatile double %49, ptr %25, align 8, !tbaa !3
@@ -2166,8 +2160,8 @@ AngRound.exit.i:                                  ; preds = %53, %51
   store volatile double %54, ptr %24, align 8, !tbaa !3
   %.0..0..0..0..0..0..0..0.4.i.i = load volatile double, ptr %24, align 8, !tbaa !3
   %55 = call double @llvm.copysign.f64(double %.0..0..0..0..0..0..0..0.4.i.i, double %47)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %56 = load double, ptr @degree, align 8, !tbaa !3
   %57 = fmul double %55, %56
   %58 = call double @sin(double noundef %57) #15, !tbaa !15
@@ -2204,7 +2198,7 @@ sincosde.exit:                                    ; preds = %AngRound.exit.i, %6
   %71 = fcmp oeq double %.0477, 0.000000e+00
   %72 = call double @llvm.copysign.f64(double %.0477, double %41)
   %.1478 = select i1 %71, double %72, double %.0477
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %73 = fsub double 1.800000e+02, %41
   %74 = fsub double %73, %43
   store double %74, ptr %29, align 8, !tbaa !3
@@ -2212,10 +2206,10 @@ sincosde.exit:                                    ; preds = %AngRound.exit.i, %6
   %76 = fcmp ogt double %75, 9.000000e+01
   %77 = load double, ptr @NaN, align 8
   %78 = select i1 %76, double %77, double %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %79 = call double @llvm.fabs.f64(double %78)
   store volatile double %79, ptr %22, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %.0..0..0..0..0..0.2.i = load volatile double, ptr %22, align 8, !tbaa !3
   %80 = fsub double 6.250000e-02, %.0..0..0..0..0..0.2.i
   store volatile double %80, ptr %23, align 8, !tbaa !3
@@ -2237,15 +2231,15 @@ AngRound.exit:                                    ; preds = %82, %84
   store volatile double %85, ptr %22, align 8, !tbaa !3
   %.0..0..0..0..0..0.4.i = load volatile double, ptr %22, align 8, !tbaa !3
   %86 = call double @llvm.copysign.f64(double %.0..0..0..0..0..0.4.i, double %78)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %87 = call double @llvm.fabs.f64(double %3)
   %88 = fcmp ogt double %87, 9.000000e+01
   %89 = select i1 %88, double %77, double %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %90 = call double @llvm.fabs.f64(double %89)
   store volatile double %90, ptr %20, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %.0..0..0..0..0..0.2.i286 = load volatile double, ptr %20, align 8, !tbaa !3
   %91 = fsub double 6.250000e-02, %.0..0..0..0..0..0.2.i286
   store volatile double %91, ptr %21, align 8, !tbaa !3
@@ -2267,8 +2261,8 @@ AngRound.exit291:                                 ; preds = %93, %95
   store volatile double %96, ptr %20, align 8, !tbaa !3
   %.0..0..0..0..0..0.4.i289 = load volatile double, ptr %20, align 8, !tbaa !3
   %97 = call double @llvm.copysign.f64(double %.0..0..0..0..0..0.4.i289, double %89)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %98 = call double @llvm.fabs.f64(double %.0..0..0..0..0..0.4.i)
   %99 = call double @llvm.fabs.f64(double %.0..0..0..0..0..0.4.i289)
   %100 = fcmp olt double %98, %99
@@ -2285,7 +2279,7 @@ AngRound.exit291:                                 ; preds = %93, %95
   %107 = sitofp i32 %106 to double
   %108 = fmul double %.0476, %107
   %109 = fmul double %.0485, %107
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 0, ptr %19, align 4, !tbaa !15
   %110 = call double @remquo(double noundef %108, double noundef 9.000000e+01, ptr noundef nonnull %19) #15
   %111 = load double, ptr @degree, align 8, !tbaa !3
@@ -2321,7 +2315,7 @@ sincosdx.exit:                                    ; preds = %AngRound.exit291, %
   %126 = fcmp oeq double %.0483, 0.000000e+00
   %127 = call double @llvm.copysign.f64(double %.0483, double %108)
   %.1484 = select i1 %126, double %127, double %.0483
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %129 = load double, ptr %128, align 8, !tbaa !10
   %130 = fmul double %.1484, %129
@@ -2330,7 +2324,7 @@ sincosdx.exit:                                    ; preds = %AngRound.exit291, %
   %133 = fdiv double %125, %131
   %134 = load double, ptr @tiny, align 8, !tbaa !3
   %135 = call double @llvm.maxnum.f64(double %134, double %133)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !15
   %136 = call double @remquo(double noundef %109, double noundef 9.000000e+01, ptr noundef nonnull %18) #15
   %137 = load double, ptr @degree, align 8, !tbaa !3
@@ -2366,7 +2360,7 @@ sincosdx.exit293:                                 ; preds = %sincosdx.exit, %148
   %152 = fcmp oeq double %.1481, 0.000000e+00
   %153 = call double @llvm.copysign.f64(double %.1481, double %109)
   %.2482 = select i1 %152, double %153, double %.1481
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %154 = load double, ptr %128, align 8, !tbaa !10
   %155 = fmul double %.2482, %154
   %156 = call double @hypot(double noundef %155, double noundef %151) #15, !tbaa !15
@@ -2646,8 +2640,8 @@ A3f.exit.i:                                       ; preds = %.lr.ph.i.i.i
   %340 = fneg double %240
   %341 = call double @llvm.fmuladd.f64(double %.0479, double %135, double %340)
   %342 = call double @atan2(double noundef %263, double noundef %341) #15, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %343 = fadd double %308, %342
   %344 = fneg double %135
   call fastcc void @Lengths(ptr noundef nonnull readonly %0, double noundef %302, double noundef %343, double noundef %132, double noundef %344, double noundef %176, double noundef %.0480, double noundef %.0479, double noundef %179, double noundef %135, double noundef %.0479, ptr noundef null, ptr noundef %16, ptr noundef nonnull %17, ptr noundef null, ptr noundef null, ptr noundef nonnull %32)
@@ -2665,8 +2659,8 @@ A3f.exit.i:                                       ; preds = %.lr.ph.i.i.i
   %356 = select i1 %351, double %352, double %355
   %357 = fdiv double %356, %135
   %358 = fdiv double %316, %357
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %359
 
 359:                                              ; preds = %339, %A3f.exit.i
@@ -2893,7 +2887,7 @@ InverseStart.exit:                                ; preds = %464
   %.b272 = load i1, ptr @maxit1, align 4
   %507 = icmp ult i32 %.0230, 20
   %508 = select i1 %.b272, i1 %507, i1 false
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store double 0.000000e+00, ptr %15, align 8, !tbaa !3
   %509 = fcmp oeq double %.3469, 0.000000e+00
   %or.cond.i294 = and i1 %217, %509
@@ -3085,7 +3079,7 @@ A3f.exit.i301:                                    ; preds = %.lr.ph.i.i114.i
 Lambda12.exit:                                    ; preds = %624, %A3f.exit.i301, %626
   %.0441 = phi double [ %629, %626 ], [ 0.000000e+00, %A3f.exit.i301 ], [ %486, %624 ]
   %630 = fadd double %552, %623
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.not276 = icmp eq i32 %.0250, 0
   br i1 %.not276, label %631, label %702
 
@@ -3563,21 +3557,21 @@ SinCosSeries.exit308:                             ; preds = %790
   br label %883
 
 883:                                              ; preds = %882, %881
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %32) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   ret double %.2549
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define void @geod_inverseline(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, i32 noundef %6) local_unnamed_addr #5 {
+define void @geod_inverseline(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, i32 noundef %6) local_unnamed_addr #4 {
   %8 = alloca double, align 8
   %9 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = call fastcc double @geod_geninverse_int(ptr noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, ptr noundef null, ptr noundef %8, ptr noundef %9, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   %11 = load double, ptr %8, align 8, !tbaa !3
   %12 = load double, ptr %9, align 8, !tbaa !3
@@ -3633,19 +3627,19 @@ atan2dx.exit:                                     ; preds = %7, %21, %24, %26
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %32, ptr %33, align 8, !tbaa !47
   %34 = tail call double @geod_genposition(ptr noundef %0, i32 noundef 1, double noundef %10, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %33, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define void @geod_inverse(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #5 {
+define void @geod_inverse(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #4 {
   %9 = tail call double @geod_geninverse(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @geod_polygon_init(ptr noundef writeonly captures(none) initializes((0, 76)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @geod_polygon_init(ptr noundef writeonly captures(none) initializes((0, 76)) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp ne i32 %1, 0
   %4 = zext i1 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -3668,7 +3662,7 @@ define void @geod_polygon_init(ptr noundef writeonly captures(none) initializes(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @geod_polygon_clear(ptr noundef writeonly captures(none) initializes((0, 64), (68, 76)) %0) local_unnamed_addr #7 {
+define void @geod_polygon_clear(ptr noundef writeonly captures(none) initializes((0, 64), (68, 76)) %0) local_unnamed_addr #6 {
   %2 = load double, ptr @NaN, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %3, align 8, !tbaa !53
@@ -3687,7 +3681,7 @@ define void @geod_polygon_clear(ptr noundef writeonly captures(none) initializes
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define void @geod_polygon_addpoint(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, double noundef %2, double noundef %3) local_unnamed_addr #5 {
+define void @geod_polygon_addpoint(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, double noundef %2, double noundef %3) local_unnamed_addr #4 {
   %5 = alloca double, align 8
   %6 = alloca double, align 8
   %7 = alloca double, align 8
@@ -3710,8 +3704,8 @@ define void @geod_polygon_addpoint(ptr noundef readonly captures(none) %0, ptr n
   br label %61
 
 18:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store double 0.000000e+00, ptr %10, align 8, !tbaa !3
   %19 = load double, ptr %1, align 8, !tbaa !54
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3720,15 +3714,15 @@ define void @geod_polygon_addpoint(ptr noundef readonly captures(none) %0, ptr n
   %23 = load i32, ptr %22, align 8, !tbaa !51
   %.not = icmp eq i32 %23, 0
   %. = select i1 %.not, ptr %10, ptr null
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = call fastcc double @geod_geninverse_int(ptr noundef readonly %0, double noundef %19, double noundef %21, double noundef %2, double noundef %3, ptr noundef nonnull %9, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %.)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %26 = load double, ptr %9, align 8, !tbaa !3
   call fastcc void @accadd(ptr noundef nonnull %25, double noundef %26)
@@ -3787,8 +3781,8 @@ transit.exit:                                     ; preds = %44, %47, %50
 59:                                               ; preds = %transit.exit, %18
   store double %2, ptr %1, align 8, !tbaa !54
   store double %3, ptr %20, align 8, !tbaa !53
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.pre = load i32, ptr %11, align 8, !tbaa !58
   %60 = add i32 %.pre, 1
   br label %61
@@ -3800,7 +3794,7 @@ transit.exit:                                     ; preds = %44, %47, %50
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @accadd(ptr noundef captures(none) %0, double noundef %1) unnamed_addr #8 {
+define internal fastcc void @accadd(ptr noundef captures(none) %0, double noundef %1) unnamed_addr #7 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   %5 = alloca double, align 8
@@ -3809,14 +3803,14 @@ define internal fastcc void @accadd(ptr noundef captures(none) %0, double nounde
   %8 = alloca double, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load double, ptr %9, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = fadd double %1, %10
   store volatile double %11, ptr %6, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.0..0..0..0..0..0.5.i = load volatile double, ptr %6, align 8, !tbaa !3
   %12 = fsub double %.0..0..0..0..0..0.5.i, %10
   store volatile double %12, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.0..0..0..0..0..0.6.i = load volatile double, ptr %6, align 8, !tbaa !3
   %.0..0..0..0..0..0.2.i = load volatile double, ptr %7, align 8, !tbaa !3
   %13 = fsub double %.0..0..0..0..0..0.6.i, %.0..0..0..0..0..0.2.i
@@ -3845,18 +3839,18 @@ define internal fastcc void @accadd(ptr noundef captures(none) %0, double nounde
 sumx.exit:                                        ; preds = %17, %20
   %21 = phi double [ %19, %17 ], [ %.0..0..0..0..0..0.8.i, %20 ]
   %.0..0..0..0..0..0.9.i = load volatile double, ptr %6, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %22 = load double, ptr %0, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = fadd double %.0..0..0..0..0..0.9.i, %22
   store volatile double %23, ptr %3, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.0..0..0..0..0..0.5.i10 = load volatile double, ptr %3, align 8, !tbaa !3
   %24 = fsub double %.0..0..0..0..0..0.5.i10, %22
   store volatile double %24, ptr %4, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.0..0..0..0..0..0.6.i11 = load volatile double, ptr %3, align 8, !tbaa !3
   %.0..0..0..0..0..0.2.i12 = load volatile double, ptr %4, align 8, !tbaa !3
   %25 = fsub double %.0..0..0..0..0..0.6.i11, %.0..0..0..0..0..0.2.i12
@@ -3886,9 +3880,9 @@ sumx.exit20:                                      ; preds = %29, %32
   %33 = phi double [ %31, %29 ], [ %.0..0..0..0..0..0.8.i16, %32 ]
   store double %33, ptr %9, align 8, !tbaa !3
   %.0..0..0..0..0..0.9.i17 = load volatile double, ptr %3, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store double %.0..0..0..0..0..0.9.i17, ptr %0, align 8, !tbaa !3
   %34 = fcmp oeq double %.0..0..0..0..0..0.9.i17, 0.000000e+00
   br i1 %34, label %35, label %36
@@ -3907,7 +3901,7 @@ sumx.exit20:                                      ; preds = %29, %32
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define void @geod_polygon_addedge(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, double noundef %2, double noundef %3) local_unnamed_addr #5 {
+define void @geod_polygon_addedge(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, double noundef %2, double noundef %3) local_unnamed_addr #4 {
   %5 = alloca %struct.geod_geodesicline, align 8
   %6 = alloca double, align 8
   %7 = alloca double, align 8
@@ -3918,11 +3912,11 @@ define void @geod_polygon_addedge(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not, label %42, label %11
 
 11:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store double 0.000000e+00, ptr %6, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store double 0.000000e+00, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store double 0.000000e+00, ptr %8, align 8, !tbaa !3
   %12 = load double, ptr %1, align 8, !tbaa !54
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3931,11 +3925,11 @@ define void @geod_polygon_addedge(ptr noundef readonly captures(none) %0, ptr no
   %16 = load i32, ptr %15, align 8, !tbaa !51
   %.not16.not = icmp eq i32 %16, 0
   %. = select i1 %.not16.not, ptr %8, ptr null
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %17 = select i1 %.not16.not, i32 18843, i32 2443
   call void @geod_lineinit(ptr noundef nonnull %5, ptr noundef readonly %0, double noundef %12, double noundef %14, double noundef %2, i32 noundef %17)
   %18 = call double @geod_genposition(ptr noundef nonnull %5, i32 noundef 32768, double noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %.)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call fastcc void @accadd(ptr noundef nonnull %19, double noundef %3)
   %20 = load i32, ptr %15, align 8, !tbaa !51
@@ -3977,9 +3971,9 @@ define void @geod_polygon_addedge(ptr noundef readonly captures(none) %0, ptr no
   %40 = load i32, ptr %9, align 8, !tbaa !58
   %41 = add i32 %40, 1
   store i32 %41, ptr %9, align 8, !tbaa !58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %42
 
 42:                                               ; preds = %37, %4
@@ -3987,7 +3981,7 @@ define void @geod_polygon_addedge(ptr noundef readonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define i32 @geod_polygon_compute(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #5 {
+define i32 @geod_polygon_compute(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #4 {
   %7 = alloca double, align 8
   %8 = alloca double, align 8
   %9 = alloca double, align 8
@@ -4024,8 +4018,8 @@ define i32 @geod_polygon_compute(ptr noundef readonly captures(none) %0, ptr nou
   %40 = alloca double, align 8
   %41 = alloca double, align 8
   %42 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %44 = load i32, ptr %43, align 8, !tbaa !58
   %45 = icmp ult i32 %44, 2
@@ -4075,15 +4069,15 @@ define i32 @geod_polygon_compute(ptr noundef readonly captures(none) %0, ptr nou
   %66 = load double, ptr %65, align 8, !tbaa !56
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %68 = load double, ptr %67, align 8, !tbaa !55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %69 = call fastcc double @geod_geninverse_int(ptr noundef readonly %0, double noundef %62, double noundef %64, double noundef %66, double noundef %68, ptr noundef nonnull %41, ptr noundef %37, ptr noundef %38, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %42)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %.not34 = icmp eq ptr %5, null
   br i1 %.not34, label %95, label %70
 
@@ -4093,14 +4087,14 @@ define i32 @geod_polygon_compute(ptr noundef readonly captures(none) %0, ptr nou
   %73 = load double, ptr %71, align 8, !tbaa !3
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %75 = load double, ptr %74, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %76 = fadd double %72, %75
   store volatile double %76, ptr %34, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %.0..0..0..0..0..0..0..0..0..0.5.i.i.i = load volatile double, ptr %34, align 8, !tbaa !3
   %77 = fsub double %.0..0..0..0..0..0..0..0..0..0.5.i.i.i, %75
   store volatile double %77, ptr %35, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %.0..0..0..0..0..0..0..0..0..0.6.i.i.i = load volatile double, ptr %34, align 8, !tbaa !3
   %.0..0..0..0..0..0..0..0..0..0.2.i.i.i = load volatile double, ptr %35, align 8, !tbaa !3
   %78 = fsub double %.0..0..0..0..0..0..0..0..0..0.6.i.i.i, %.0..0..0..0..0..0..0..0..0..0.2.i.i.i
@@ -4129,17 +4123,17 @@ define i32 @geod_polygon_compute(ptr noundef readonly captures(none) %0, ptr nou
 sumx.exit.i.i:                                    ; preds = %85, %82
   %86 = phi double [ %84, %82 ], [ %.0..0..0..0..0..0..0..0..0..0.8.i.i.i, %85 ]
   %.0..0..0..0..0..0..0..0..0..0.9.i.i.i = load volatile double, ptr %34, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %87 = fadd double %73, %.0..0..0..0..0..0..0..0..0..0.9.i.i.i
   store volatile double %87, ptr %31, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %.0..0..0..0..0..0..0..0..0..0.5.i10.i.i = load volatile double, ptr %31, align 8, !tbaa !3
   %88 = fsub double %.0..0..0..0..0..0..0..0..0..0.5.i10.i.i, %73
   store volatile double %88, ptr %32, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %.0..0..0..0..0..0..0..0..0..0.6.i11.i.i = load volatile double, ptr %31, align 8, !tbaa !3
   %.0..0..0..0..0..0..0..0..0..0.2.i12.i.i = load volatile double, ptr %32, align 8, !tbaa !3
   %89 = fsub double %.0..0..0..0..0..0..0..0..0..0.6.i11.i.i, %.0..0..0..0..0..0..0..0..0..0.2.i12.i.i
@@ -4162,9 +4156,9 @@ accsum.exit:                                      ; preds = %sumx.exit.i.i, %93
   %.sink.i = phi ptr [ %33, %93 ], [ %31, %sumx.exit.i.i ]
   %.0..0..0..0..0..0..0.8.i16.i.i = load volatile double, ptr %.sink.i, align 8, !tbaa !3
   %.0..0..0..0..0..0..0..0..0..0.9.i17.i.i = load volatile double, ptr %31, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %94 = fcmp oeq double %.0..0..0..0..0..0..0..0..0..0.9.i17.i.i, 0.000000e+00
   %.sroa.0.0.i = select i1 %94, double %86, double %.0..0..0..0..0..0..0..0..0..0.9.i17.i.i
   store double %.sroa.0.0.i, ptr %5, align 8, !tbaa !3
@@ -4176,14 +4170,14 @@ accsum.exit:                                      ; preds = %sumx.exit.i.i, %93
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %99 = load double, ptr %98, align 8, !tbaa !3
   %100 = load double, ptr %42, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %101 = fadd double %99, %100
   store volatile double %101, ptr %28, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %.0..0..0..0..0..0..0..0.5.i.i = load volatile double, ptr %28, align 8, !tbaa !3
   %102 = fsub double %.0..0..0..0..0..0..0..0.5.i.i, %99
   store volatile double %102, ptr %29, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %.0..0..0..0..0..0..0..0.6.i.i = load volatile double, ptr %28, align 8, !tbaa !3
   %.0..0..0..0..0..0..0..0.2.i.i = load volatile double, ptr %29, align 8, !tbaa !3
   %103 = fsub double %.0..0..0..0..0..0..0..0.6.i.i, %.0..0..0..0..0..0..0..0.2.i.i
@@ -4212,17 +4206,17 @@ accsum.exit:                                      ; preds = %sumx.exit.i.i, %93
 sumx.exit.i:                                      ; preds = %110, %107
   %111 = phi double [ %109, %107 ], [ %.0..0..0..0..0..0..0..0.8.i.i, %110 ]
   %.0..0..0..0..0..0..0..0.9.i.i = load volatile double, ptr %28, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %112 = fadd double %97, %.0..0..0..0..0..0..0..0.9.i.i
   store volatile double %112, ptr %25, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %.0..0..0..0..0..0..0..0.5.i10.i = load volatile double, ptr %25, align 8, !tbaa !3
   %113 = fsub double %.0..0..0..0..0..0..0..0.5.i10.i, %97
   store volatile double %113, ptr %26, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %.0..0..0..0..0..0..0..0.6.i11.i = load volatile double, ptr %25, align 8, !tbaa !3
   %.0..0..0..0..0..0..0..0.2.i12.i = load volatile double, ptr %26, align 8, !tbaa !3
   %114 = fsub double %.0..0..0..0..0..0..0..0.6.i11.i, %.0..0..0..0..0..0..0..0.2.i12.i
@@ -4251,9 +4245,9 @@ sumx.exit.i:                                      ; preds = %110, %107
 sumx.exit20.i:                                    ; preds = %121, %118
   %122 = phi double [ %120, %118 ], [ %.0..0..0..0..0..0..0..0.8.i16.i, %121 ]
   %.0..0..0..0..0..0..0..0.9.i17.i = load volatile double, ptr %25, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %123 = fcmp oeq double %.0..0..0..0..0..0..0..0.9.i17.i, 0.000000e+00
   %124 = fadd double %111, %122
   %.sroa.22.0 = select i1 %123, double %122, double %124
@@ -4310,14 +4304,14 @@ transit.exit:                                     ; preds = %147, %150, %153
   %158 = phi i32 [ %157, %153 ], [ 1, %150 ], [ 1, %147 ]
   %159 = add i32 %158, %132
   %160 = call double @remainder(double noundef %.sroa.0.0, double noundef %130) #15, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %161 = fadd double %.sroa.22.0, 0.000000e+00
   store volatile double %161, ptr %10, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.0..0..0..0..0..0..0..0.5.i.i85 = load volatile double, ptr %10, align 8, !tbaa !3
   %162 = fsub double %.0..0..0..0..0..0..0..0.5.i.i85, %.sroa.22.0
   store volatile double %162, ptr %11, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.0..0..0..0..0..0..0..0.6.i.i86 = load volatile double, ptr %10, align 8, !tbaa !3
   %.0..0..0..0..0..0..0..0.2.i.i87 = load volatile double, ptr %11, align 8, !tbaa !3
   %163 = fsub double %.0..0..0..0..0..0..0..0.6.i.i86, %.0..0..0..0..0..0..0..0.2.i.i87
@@ -4345,17 +4339,17 @@ transit.exit:                                     ; preds = %147, %150, %153
 sumx.exit.i92:                                    ; preds = %169, %166
   %170 = phi double [ %168, %166 ], [ %.0..0..0..0..0..0..0..0.8.i.i91, %169 ]
   %.0..0..0..0..0..0..0..0.9.i.i93 = load volatile double, ptr %10, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %171 = fadd double %160, %.0..0..0..0..0..0..0..0.9.i.i93
   store volatile double %171, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.0..0..0..0..0..0..0..0.5.i10.i94 = load volatile double, ptr %7, align 8, !tbaa !3
   %172 = fsub double %.0..0..0..0..0..0..0..0.5.i10.i94, %160
   store volatile double %172, ptr %8, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.0..0..0..0..0..0..0..0.6.i11.i95 = load volatile double, ptr %7, align 8, !tbaa !3
   %.0..0..0..0..0..0..0..0.2.i12.i96 = load volatile double, ptr %8, align 8, !tbaa !3
   %173 = fsub double %.0..0..0..0..0..0..0..0.6.i11.i95, %.0..0..0..0..0..0..0..0.2.i12.i96
@@ -4384,9 +4378,9 @@ sumx.exit.i92:                                    ; preds = %169, %166
 sumx.exit20.i101:                                 ; preds = %180, %177
   %181 = phi double [ %179, %177 ], [ %.0..0..0..0..0..0..0..0.8.i16.i100, %180 ]
   %.0..0..0..0..0..0..0..0.9.i17.i102 = load volatile double, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %182 = fcmp oeq double %.0..0..0..0..0..0..0..0.9.i17.i102, 0.000000e+00
   %183 = fadd double %170, %181
   %.sroa.22.4 = select i1 %182, double %181, double %183
@@ -4400,14 +4394,14 @@ sumx.exit20.i101:                                 ; preds = %180, %177
   %187 = fneg double %130
   %188 = select i1 %186, double %130, double %187
   %189 = fmul double %188, 5.000000e-01
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %190 = fadd double %.sroa.22.4, %189
   store volatile double %190, ptr %16, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.0..0..0..0..0..0..0..0.5.i.i62 = load volatile double, ptr %16, align 8, !tbaa !3
   %191 = fsub double %.0..0..0..0..0..0..0..0.5.i.i62, %.sroa.22.4
   store volatile double %191, ptr %17, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.0..0..0..0..0..0..0..0.6.i.i63 = load volatile double, ptr %16, align 8, !tbaa !3
   %.0..0..0..0..0..0..0..0.2.i.i64 = load volatile double, ptr %17, align 8, !tbaa !3
   %192 = fsub double %.0..0..0..0..0..0..0..0.6.i.i63, %.0..0..0..0..0..0..0..0.2.i.i64
@@ -4436,17 +4430,17 @@ sumx.exit20.i101:                                 ; preds = %180, %177
 sumx.exit.i69:                                    ; preds = %199, %196
   %200 = phi double [ %198, %196 ], [ %.0..0..0..0..0..0..0..0.8.i.i68, %199 ]
   %.0..0..0..0..0..0..0..0.9.i.i70 = load volatile double, ptr %16, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %201 = fadd double %.sroa.0.6, %.0..0..0..0..0..0..0..0.9.i.i70
   store volatile double %201, ptr %13, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %.0..0..0..0..0..0..0..0.5.i10.i71 = load volatile double, ptr %13, align 8, !tbaa !3
   %202 = fsub double %.0..0..0..0..0..0..0..0.5.i10.i71, %.sroa.0.6
   store volatile double %202, ptr %14, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %.0..0..0..0..0..0..0..0.6.i11.i72 = load volatile double, ptr %13, align 8, !tbaa !3
   %.0..0..0..0..0..0..0..0.2.i12.i73 = load volatile double, ptr %14, align 8, !tbaa !3
   %203 = fsub double %.0..0..0..0..0..0..0..0.6.i11.i72, %.0..0..0..0..0..0..0..0.2.i12.i73
@@ -4475,9 +4469,9 @@ sumx.exit.i69:                                    ; preds = %199, %196
 sumx.exit20.i78:                                  ; preds = %210, %207
   %211 = phi double [ %209, %207 ], [ %.0..0..0..0..0..0..0..0.8.i16.i77, %210 ]
   %.0..0..0..0..0..0..0..0.9.i17.i79 = load volatile double, ptr %13, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %212 = fcmp oeq double %.0..0..0..0..0..0..0..0.9.i17.i79, 0.000000e+00
   br i1 %212, label %accadd.exit84, label %213
 
@@ -4524,14 +4518,14 @@ accadd.exit84:                                    ; preds = %213, %sumx.exit20.i
 
 .sink.split.i:                                    ; preds = %229, %227, %222, %220
   %.sink.i38 = phi double [ %228, %227 ], [ %221, %220 ], [ %130, %222 ], [ %130, %229 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %231 = fadd double %.sroa.22.2, %.sink.i38
   store volatile double %231, ptr %22, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %.0..0..0..0..0..0..0..0.5.i.i39 = load volatile double, ptr %22, align 8, !tbaa !3
   %232 = fsub double %.0..0..0..0..0..0..0..0.5.i.i39, %.sroa.22.2
   store volatile double %232, ptr %23, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %.0..0..0..0..0..0..0..0.6.i.i40 = load volatile double, ptr %22, align 8, !tbaa !3
   %.0..0..0..0..0..0..0..0.2.i.i41 = load volatile double, ptr %23, align 8, !tbaa !3
   %233 = fsub double %.0..0..0..0..0..0..0..0.6.i.i40, %.0..0..0..0..0..0..0..0.2.i.i41
@@ -4560,17 +4554,17 @@ accadd.exit84:                                    ; preds = %213, %sumx.exit20.i
 sumx.exit.i46:                                    ; preds = %240, %237
   %241 = phi double [ %239, %237 ], [ %.0..0..0..0..0..0..0..0.8.i.i45, %240 ]
   %.0..0..0..0..0..0..0..0.9.i.i47 = load volatile double, ptr %22, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %242 = fadd double %.sroa.0.2, %.0..0..0..0..0..0..0..0.9.i.i47
   store volatile double %242, ptr %19, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %.0..0..0..0..0..0..0..0.5.i10.i48 = load volatile double, ptr %19, align 8, !tbaa !3
   %243 = fsub double %.0..0..0..0..0..0..0..0.5.i10.i48, %.sroa.0.2
   store volatile double %243, ptr %20, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %.0..0..0..0..0..0..0..0.6.i11.i49 = load volatile double, ptr %19, align 8, !tbaa !3
   %.0..0..0..0..0..0..0..0.2.i12.i50 = load volatile double, ptr %20, align 8, !tbaa !3
   %244 = fsub double %.0..0..0..0..0..0..0..0.6.i11.i49, %.0..0..0..0..0..0..0..0.2.i12.i50
@@ -4593,9 +4587,9 @@ sumx.exit20.i55:                                  ; preds = %sumx.exit.i46, %248
   %.sink = phi ptr [ %21, %248 ], [ %19, %sumx.exit.i46 ]
   %.0..0..0..0..0..0..0.8.i16.i54 = load volatile double, ptr %.sink, align 8, !tbaa !3
   %.0..0..0..0..0..0..0..0.9.i17.i56 = load volatile double, ptr %19, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %249 = fcmp oeq double %.0..0..0..0..0..0..0..0.9.i17.i56, 0.000000e+00
   br i1 %249, label %areareduceA.exit, label %250
 
@@ -4610,13 +4604,13 @@ areareduceA.exit:                                 ; preds = %250, %sumx.exit20.i
 
 252:                                              ; preds = %sumx.exit20.i, %areareduceA.exit, %57, %58, %48, %53
   %.0 = load i32, ptr %43, align 8, !tbaa !58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define i32 @geod_polygon_testpoint(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #5 {
+define i32 @geod_polygon_testpoint(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #4 {
   %9 = alloca double, align 8
   %10 = alloca double, align 8
   %11 = alloca double, align 8
@@ -4673,8 +4667,8 @@ define i32 @geod_polygon_testpoint(ptr noundef readonly captures(none) %0, ptr n
   %.05575 = phi double [ %34, %33 ], [ %.156, %90 ]
   %.05774 = phi double [ %27, %33 ], [ %54, %90 ]
   %.not6178 = icmp eq i32 %.not6178.in, 0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store double 0.000000e+00, ptr %14, align 8, !tbaa !3
   %41 = icmp eq i32 %.05377, 0
   br i1 %41, label %.thread71, label %44
@@ -4695,15 +4689,15 @@ define i32 @geod_polygon_testpoint(ptr noundef readonly captures(none) %0, ptr n
   %50 = phi double [ %3, %44 ], [ %43, %.thread71 ]
   %51 = phi double [ %46, %44 ], [ %3, %.thread71 ]
   %. = select i1 %.not6178, ptr %14, ptr null
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %52 = call fastcc double @geod_geninverse_int(ptr noundef readonly %0, double noundef %49, double noundef %50, double noundef %48, double noundef %51, ptr noundef nonnull %13, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %.)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %53 = load double, ptr %13, align 8, !tbaa !3
   %54 = fadd double %.05774, %53
   %55 = load i32, ptr %28, align 8, !tbaa !51
@@ -4771,8 +4765,8 @@ transit.exit:                                     ; preds = %77, %80, %83
   %91 = phi i32 [ %55, %47 ], [ %.pre, %transit.exit ]
   %.156 = phi double [ %.05575, %47 ], [ %58, %transit.exit ]
   %.1 = phi i32 [ %.05476, %47 ], [ %89, %transit.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %92 = add nuw nsw i32 %.05377, 1
   %93 = or i32 %91, %.05377
   %94 = icmp eq i32 %93, 0
@@ -4869,7 +4863,7 @@ areareduceB.exit:                                 ; preds = %117, %119, %122, %1
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define range(i32 2, 1) i32 @geod_polygon_testedge(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #5 {
+define range(i32 2, 1) i32 @geod_polygon_testedge(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #4 {
   %9 = alloca double, align 8
   %10 = alloca double, align 8
   %11 = alloca double, align 8
@@ -4929,20 +4923,20 @@ define range(i32 2, 1) i32 @geod_polygon_testedge(ptr noundef readonly captures(
   %42 = load double, ptr %41, align 8, !tbaa !3
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %44 = load i32, ptr %43, align 4, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store double 0.000000e+00, ptr %14, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store double 0.000000e+00, ptr %15, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store double 0.000000e+00, ptr %17, align 8, !tbaa !3
   %45 = load double, ptr %1, align 8, !tbaa !54
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load double, ptr %46, align 8, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @geod_lineinit(ptr noundef nonnull %13, ptr noundef readonly %0, double noundef %45, double noundef %47, double noundef %2, i32 noundef 18843)
   %48 = call double @geod_genposition(ptr noundef nonnull %13, i32 noundef 32768, double noundef %3, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %49 = load double, ptr %17, align 8, !tbaa !3
   %50 = fadd double %42, %49
   %51 = load double, ptr %46, align 8, !tbaa !53
@@ -4962,15 +4956,15 @@ define range(i32 2, 1) i32 @geod_polygon_testedge(ptr noundef readonly captures(
   %62 = load double, ptr %61, align 8, !tbaa !56
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %64 = load double, ptr %63, align 8, !tbaa !55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %65 = call fastcc double @geod_geninverse_int(ptr noundef readonly %0, double noundef %60, double noundef %52, double noundef %62, double noundef %64, ptr noundef nonnull %16, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %66 = load double, ptr %16, align 8, !tbaa !3
   %67 = load double, ptr %17, align 8, !tbaa !3
   %68 = fadd double %50, %67
@@ -5015,10 +5009,10 @@ transit.exit:                                     ; preds = %82, %85, %88
   %94 = add i32 %44, %.neg.i
   %95 = add i32 %94, %57
   %96 = add i32 %95, %93
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.not47 = icmp eq ptr %7, null
   br i1 %.not47, label %99, label %97
 
@@ -5104,9 +5098,9 @@ areareduceB.exit:                                 ; preds = %119, %121, %124, %1
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define void @geod_polygonarea(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #5 {
+define void @geod_polygonarea(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #4 {
   %7 = alloca %struct.geod_polygon, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 0, ptr %8, align 8, !tbaa !51
   %9 = load double, ptr @NaN, align 8, !tbaa !3
@@ -5143,7 +5137,7 @@ define void @geod_polygonarea(ptr noundef readonly captures(none) %0, ptr nounde
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %21 = call i32 @geod_polygon_compute(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 1, ptr noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -5151,10 +5145,10 @@ define void @geod_polygonarea(ptr noundef readonly captures(none) %0, ptr nounde
 declare double @remainder(double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write, errnomem: write)
-declare double @remquo(double noundef, double noundef, ptr noundef writeonly captures(none)) local_unnamed_addr #9
+declare double @remquo(double noundef, double noundef, ptr noundef writeonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: write, inaccessiblemem: readwrite, errnomem: write) uwtable
-define internal fastcc double @AngDiff(double noundef %0, double noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #10 {
+define internal fastcc double @AngDiff(double noundef %0, double noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #9 {
   %4 = alloca double, align 8
   %5 = alloca double, align 8
   %6 = alloca double, align 8
@@ -5164,14 +5158,14 @@ define internal fastcc double @AngDiff(double noundef %0, double noundef %1, ptr
   %10 = fneg double %0
   %11 = tail call double @remainder(double noundef %10, double noundef 3.600000e+02) #15, !tbaa !15
   %12 = tail call double @remainder(double noundef %1, double noundef 3.600000e+02) #15, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %13 = fadd double %11, %12
   store volatile double %13, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.0..0..0..0..0..0.5.i = load volatile double, ptr %7, align 8, !tbaa !3
   %14 = fsub double %.0..0..0..0..0..0.5.i, %12
   store volatile double %14, ptr %8, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.0..0..0..0..0..0.6.i = load volatile double, ptr %7, align 8, !tbaa !3
   %.0..0..0..0..0..0.2.i = load volatile double, ptr %8, align 8, !tbaa !3
   %15 = fsub double %.0..0..0..0..0..0.6.i, %.0..0..0..0..0..0.2.i
@@ -5200,18 +5194,18 @@ define internal fastcc double @AngDiff(double noundef %0, double noundef %1, ptr
 sumx.exit:                                        ; preds = %19, %22
   %23 = phi double [ %21, %19 ], [ %.0..0..0..0..0..0.8.i, %22 ]
   %.0..0..0..0..0..0.9.i = load volatile double, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %24 = tail call double @remainder(double noundef %.0..0..0..0..0..0.9.i, double noundef 3.600000e+02) #15, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = fadd double %23, %24
   store volatile double %25, ptr %4, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.0..0..0..0..0..0.5.i15 = load volatile double, ptr %4, align 8, !tbaa !3
   %26 = fsub double %.0..0..0..0..0..0.5.i15, %23
   store volatile double %26, ptr %5, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.0..0..0..0..0..0.6.i16 = load volatile double, ptr %4, align 8, !tbaa !3
   %.0..0..0..0..0..0.2.i17 = load volatile double, ptr %5, align 8, !tbaa !3
   %27 = fsub double %.0..0..0..0..0..0.6.i16, %.0..0..0..0..0..0.2.i17
@@ -5240,9 +5234,9 @@ sumx.exit:                                        ; preds = %19, %22
 sumx.exit25:                                      ; preds = %31, %34
   %35 = phi double [ %33, %31 ], [ %.0..0..0..0..0..0.8.i21, %34 ]
   %.0..0..0..0..0..0.9.i22 = load volatile double, ptr %4, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %36 = fcmp oeq double %.0..0..0..0..0..0.9.i22, 0.000000e+00
   %37 = tail call double @llvm.fabs.f64(double %.0..0..0..0..0..0.9.i22)
   %38 = fcmp oeq double %37, 1.800000e+02
@@ -5271,9 +5265,9 @@ sumx.exit25:                                      ; preds = %31, %34
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Lengths(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10, ptr noundef writeonly captures(address_is_null) %11, ptr noundef nonnull writeonly captures(none) %12, ptr noundef writeonly captures(address_is_null) %13, ptr noundef writeonly captures(address_is_null) %14, ptr noundef writeonly captures(address_is_null) %15, ptr noundef nonnull captures(none) %16) unnamed_addr #11 {
+define internal fastcc void @Lengths(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10, ptr noundef writeonly captures(address_is_null) %11, ptr noundef nonnull writeonly captures(none) %12, ptr noundef writeonly captures(address_is_null) %13, ptr noundef writeonly captures(address_is_null) %14, ptr noundef writeonly captures(address_is_null) %15, ptr noundef nonnull captures(none) %16) unnamed_addr #10 {
   %18 = alloca [7 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %18) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %19 = fmul double %1, %1
   br label %.lr.ph.i.i
 
@@ -5648,12 +5642,18 @@ SinCosSeries.exit169:                             ; preds = %182
   br label %239
 
 239:                                              ; preds = %231, %232, %204
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %18) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare double @cbrt(double noundef) local_unnamed_addr #12
+declare double @cbrt(double noundef) local_unnamed_addr #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13
@@ -5668,15 +5668,15 @@ attributes #0 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: n
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write, errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nounwind memory(argmem: write, inaccessiblemem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write, errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nounwind memory(argmem: write, inaccessiblemem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { nounwind }

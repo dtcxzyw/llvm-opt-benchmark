@@ -111,17 +111,11 @@ tonumeral.exit:                                   ; preds = %tonumeral.exit.sink
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_nil(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define hidden void @luaK_nil(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = add nsw i32 %2, %1
   %5 = add i32 %4, 255
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -194,7 +188,7 @@ previousinstruction.exit:                         ; preds = %3, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2147483647) i32 @luaK_codeABCk(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 {
+define hidden range(i32 -2147483648, 2147483647) i32 @luaK_codeABCk(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = shl i32 %2, 7
   %8 = or i32 %7, %1
   %9 = shl i32 %3, 16
@@ -208,7 +202,7 @@ define hidden range(i32 -2147483648, 2147483647) i32 @luaK_codeABCk(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_concat(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
+define hidden void @luaK_concat(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq i32 %2, -1
   br i1 %4, label %30, label %5
 
@@ -268,13 +262,13 @@ fixjump.exit:                                     ; preds = %19
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2147483647) i32 @luaK_jump(ptr noundef captures(none) %0) local_unnamed_addr #5 {
+define hidden range(i32 -2147483648, 2147483647) i32 @luaK_jump(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %0, i32 noundef 2147483448)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_ret(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define hidden void @luaK_ret(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %switch.selectcmp = icmp eq i32 %2, 1
   %switch.select = select i1 %switch.selectcmp, i32 72, i32 70
   %switch.selectcmp6 = icmp eq i32 %2, 0
@@ -289,10 +283,10 @@ define hidden void @luaK_ret(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   ret void
 }
 
-declare hidden void @luaY_checklimit(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
+declare hidden void @luaY_checklimit(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @luaK_getlabel(ptr noundef captures(none) initializes((44, 48)) %0) local_unnamed_addr #7 {
+define hidden i32 @luaK_getlabel(ptr noundef captures(none) initializes((44, 48)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8, !tbaa !42
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -301,13 +295,13 @@ define hidden i32 @luaK_getlabel(ptr noundef captures(none) initializes((44, 48)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_patchlist(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define hidden void @luaK_patchlist(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   tail call fastcc void @patchlistaux(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 255, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @patchlistaux(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #5 {
+define internal fastcc void @patchlistaux(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 {
   %invariant.op = add i32 %4, 16777215
   %invariant.op20 = add i32 %2, 16777215
   %.not22 = icmp eq i32 %1, -1
@@ -429,7 +423,7 @@ fixjump.exit17:                                   ; preds = %49
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_patchtohere(ptr noundef captures(none) initializes((44, 48)) %0, i32 noundef %1) local_unnamed_addr #5 {
+define hidden void @luaK_patchtohere(ptr noundef captures(none) initializes((44, 48)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8, !tbaa !42
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -439,7 +433,7 @@ define hidden void @luaK_patchtohere(ptr noundef captures(none) initializes((44,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
+define hidden range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8, !tbaa !44
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !27
@@ -521,10 +515,10 @@ savelineinfo.exit:                                ; preds = %28, %33
   ret i32 %59
 }
 
-declare hidden ptr @luaM_growaux_(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
+declare hidden ptr @luaM_growaux_(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2147483647) i32 @luaK_codevABCk(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 {
+define hidden range(i32 -2147483648, 2147483647) i32 @luaK_codevABCk(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = shl i32 %2, 7
   %8 = or i32 %7, %1
   %9 = shl i32 %3, 16
@@ -538,7 +532,7 @@ define hidden range(i32 -2147483648, 2147483647) i32 @luaK_codevABCk(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2147483647) i32 @luaK_codeABx(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define hidden range(i32 -2147483648, 2147483647) i32 @luaK_codeABx(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = shl i32 %2, 7
   %6 = or i32 %5, %1
   %7 = shl i32 %3, 15
@@ -548,7 +542,7 @@ define hidden range(i32 -2147483648, 2147483647) i32 @luaK_codeABx(ptr noundef c
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_checkstack(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+define hidden void @luaK_checkstack(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i8, ptr %3, align 4, !tbaa !64
   %5 = zext i8 %4 to i32
@@ -573,7 +567,7 @@ define hidden void @luaK_checkstack(ptr noundef %0, i32 noundef %1) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_reserveregs(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+define hidden void @luaK_reserveregs(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i8, ptr %3, align 4, !tbaa !64
   %5 = zext i8 %4 to i32
@@ -603,7 +597,7 @@ luaK_checkstack.exit:                             ; preds = %2, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_int(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
+define hidden void @luaK_int(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = alloca %struct.TValue, align 8
   %5 = add i64 %2, -65537
   %6 = icmp ult i64 %5, -131072
@@ -620,12 +614,12 @@ define hidden void @luaK_int(ptr noundef captures(none) %0, i32 noundef %1, i64 
   br label %luaK_codek.exit
 
 15:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %2, ptr %4, align 8, !tbaa !22
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 3, ptr %16, align 8, !tbaa !40
   %17 = call fastcc i32 @k2proto(ptr noundef %0, ptr noundef %4, ptr noundef %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %18 = icmp slt i32 %17, 131072
   %19 = shl i32 %1, 7
   br i1 %18, label %20, label %25
@@ -650,7 +644,7 @@ luaK_codek.exit:                                  ; preds = %25, %20, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_setreturns(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
+define hidden void @luaK_setreturns(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = load ptr, ptr %0, align 8, !tbaa !44
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8, !tbaa !45
@@ -707,7 +701,7 @@ luaK_reserveregs.exit:                            ; preds = %19, %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @luaK_setoneret(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #8 {
+define hidden void @luaK_setoneret(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 {
   %3 = load i32, ptr %1, align 8, !tbaa !21
   switch i32 %3, label %26 [
     i32 18, label %4
@@ -749,7 +743,7 @@ define hidden void @luaK_setoneret(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_dischargevars(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
+define hidden void @luaK_dischargevars(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = load i32, ptr %1, align 8, !tbaa !21
   switch i32 %3, label %const2exp.exit [
     i32 11, label %4
@@ -1009,7 +1003,7 @@ const2exp.exit:                                   ; preds = %2, %126, %115, %20,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_exp2nextreg(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
+define hidden void @luaK_exp2nextreg(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   tail call void @luaK_dischargevars(ptr noundef %0, ptr noundef %1)
   %3 = load i32, ptr %1, align 8, !tbaa !21
   %4 = icmp eq i32 %3, 8
@@ -1061,7 +1055,7 @@ luaK_reserveregs.exit:                            ; preds = %freeexp.exit, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exp2reg(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #5 {
+define internal fastcc void @exp2reg(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #4 {
   tail call fastcc void @discharge2reg(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %4 = load i32, ptr %1, align 8, !tbaa !21
   %5 = icmp eq i32 %4, 16
@@ -1282,7 +1276,7 @@ need_value.exit54.thread:                         ; preds = %select.unfold.i50, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @luaK_exp2anyreg(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
+define hidden i32 @luaK_exp2anyreg(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   tail call void @luaK_dischargevars(ptr noundef %0, ptr noundef %1)
   %3 = load i32, ptr %1, align 8, !tbaa !21
   %4 = icmp eq i32 %3, 8
@@ -1366,10 +1360,10 @@ luaK_exp2nextreg.exit:                            ; preds = %freeexp.exit.i, %34
   ret i32 %.0
 }
 
-declare hidden zeroext i8 @luaY_nvarstack(ptr noundef) local_unnamed_addr #6
+declare hidden zeroext i8 @luaY_nvarstack(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_exp2anyregup(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
+define hidden void @luaK_exp2anyregup(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = load i32, ptr %1, align 8, !tbaa !21
   %.not = icmp eq i32 %3, 10
   br i1 %.not, label %4, label %9
@@ -1391,7 +1385,7 @@ define hidden void @luaK_exp2anyregup(ptr noundef %0, ptr noundef captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_exp2val(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
+define hidden void @luaK_exp2val(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = load i32, ptr %1, align 8, !tbaa !21
   %4 = icmp eq i32 %3, 16
   br i1 %4, label %10, label %5
@@ -1417,7 +1411,7 @@ define hidden void @luaK_exp2val(ptr noundef %0, ptr noundef captures(none) %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_storevar(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #5 {
+define hidden void @luaK_storevar(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #4 {
   %4 = load i32, ptr %1, align 8, !tbaa !21
   switch i32 %4, label %105 [
     i32 9, label %5
@@ -1607,7 +1601,7 @@ freeexp.exit39:                                   ; preds = %113, %108, %105, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_goiftrue(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
+define hidden void @luaK_goiftrue(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   tail call void @luaK_dischargevars(ptr noundef %0, ptr noundef %1)
   %3 = load i32, ptr %1, align 8, !tbaa !21
   switch i32 %3, label %22 [
@@ -1727,7 +1721,7 @@ luaK_concat.exit:                                 ; preds = %2, %2, %2, %2, %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2147483647) i32 @jumponcond(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #5 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @jumponcond(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #4 {
   %4 = load i32, ptr %1, align 8, !tbaa !21
   switch i32 %4, label %.thread.thread [
     i32 17, label %5
@@ -1853,7 +1847,7 @@ freeexp.exit:                                     ; preds = %discharge2anyreg.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_goiffalse(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
+define hidden void @luaK_goiffalse(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   tail call void @luaK_dischargevars(ptr noundef %0, ptr noundef %1)
   %3 = load i32, ptr %1, align 8, !tbaa !21
   switch i32 %3, label %7 [
@@ -1941,7 +1935,7 @@ luaK_concat.exit:                                 ; preds = %2, %2, %9, %16, %fi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_self(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #5 {
+define hidden void @luaK_self(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #4 {
   %4 = tail call i32 @luaK_exp2anyreg(ptr noundef %0, ptr noundef %1)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !22
@@ -2052,7 +2046,7 @@ freeexp.exit27:                                   ; preds = %60, %64, %68
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @luaK_exp2K(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @luaK_exp2K(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #4 {
   %3 = alloca %struct.TValue, align 8
   %4 = alloca %struct.TValue, align 8
   %5 = alloca %struct.TValue, align 8
@@ -2079,24 +2073,24 @@ define internal fastcc range(i32 0, 2) i32 @luaK_exp2K(ptr noundef %0, ptr nound
   ]
 
 15:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 17, ptr %16, align 8, !tbaa !40
   %17 = call fastcc i32 @k2proto(ptr noundef %0, ptr noundef %8, ptr noundef %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %47
 
 18:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 1, ptr %19, align 8, !tbaa !40
   %20 = call fastcc i32 @k2proto(ptr noundef %0, ptr noundef %7, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %47
 
 21:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 0, ptr %22, align 8, !tbaa !40
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2105,19 +2099,19 @@ define internal fastcc range(i32 0, 2) i32 @luaK_exp2K(ptr noundef %0, ptr nound
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 69, ptr %25, align 8, !tbaa !40
   %26 = call fastcc i32 @k2proto(ptr noundef %0, ptr noundef %5, ptr noundef %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %47
 
 27:                                               ; preds = %13
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %29, ptr %4, align 8, !tbaa !22
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 3, ptr %30, align 8, !tbaa !40
   %31 = call fastcc i32 @k2proto(ptr noundef %0, ptr noundef %4, ptr noundef %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %47
 
 32:                                               ; preds = %13
@@ -2129,7 +2123,7 @@ define internal fastcc range(i32 0, 2) i32 @luaK_exp2K(ptr noundef %0, ptr nound
 36:                                               ; preds = %13
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %38, ptr %3, align 8, !tbaa !22
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i8, ptr %39, align 8, !tbaa !23
@@ -2137,7 +2131,7 @@ define internal fastcc range(i32 0, 2) i32 @luaK_exp2K(ptr noundef %0, ptr nound
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %41, ptr %42, align 8, !tbaa !40
   %43 = call fastcc i32 @k2proto(ptr noundef %0, ptr noundef %3, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %47
 
 44:                                               ; preds = %13
@@ -2162,7 +2156,7 @@ define internal fastcc range(i32 0, 2) i32 @luaK_exp2K(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_indexed(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #5 {
+define hidden void @luaK_indexed(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #4 {
   %4 = alloca %struct.TValue, align 8
   %5 = load i32, ptr %2, align 8, !tbaa !21
   %6 = icmp eq i32 %5, 7
@@ -2176,7 +2170,7 @@ define hidden void @luaK_indexed(ptr noundef %0, ptr noundef captures(none) %1, 
 .thread:                                          ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %11, ptr %4, align 8, !tbaa !22
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i8, ptr %12, align 8, !tbaa !23
@@ -2184,7 +2178,7 @@ define hidden void @luaK_indexed(ptr noundef %0, ptr noundef captures(none) %1, 
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %14, ptr %15, align 8, !tbaa !40
   %16 = call fastcc i32 @k2proto(ptr noundef %0, ptr noundef %4, ptr noundef %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i32 %16, ptr %10, align 8, !tbaa !22
   store i32 4, ptr %2, align 8, !tbaa !21
   %17 = load i32, ptr %1, align 8, !tbaa !21
@@ -2326,7 +2320,7 @@ isCint.exit.thread:                               ; preds = %51, %56, %61, %isKs
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_prefix(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #5 {
+define hidden void @luaK_prefix(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #4 {
   tail call void @luaK_dischargevars(ptr noundef %0, ptr noundef %2)
   switch i32 %1, label %codenot.exit [
     i32 0, label %5
@@ -2617,14 +2611,14 @@ codenot.exit:                                     ; preds = %patchtestreg.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @constfolding(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @constfolding(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #4 {
   %5 = alloca i64, align 8
   %6 = alloca %struct.TValue, align 8
   %7 = alloca %struct.TValue, align 8
   %8 = alloca %struct.TValue, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -2687,19 +2681,19 @@ define internal fastcc range(i32 0, 2) i32 @constfolding(ptr noundef readonly ca
   ]
 
 29:                                               ; preds = %25, %25, %25, %25, %25, %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %30 = call i32 @luaV_tointegerns(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 0) #13
   %.not.i26 = icmp eq i32 %30, 0
   br i1 %.not.i26, label %.thread, label %31
 
 .thread:                                          ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 31:                                               ; preds = %29
   %32 = call i32 @luaV_tointegerns(ptr noundef nonnull %7, ptr noundef nonnull %5, i32 noundef 0) #13
   %.not = icmp eq i32 %32, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not, label %.critedge, label %validop.exit.thread
 
 validop.exit:                                     ; preds = %25, %25, %25
@@ -2738,14 +2732,14 @@ validop.exit.thread:                              ; preds = %31, %25, %validop.e
 
 .critedge:                                        ; preds = %.thread, %31, %22, %16, %13, %4, %45, %49, %47, %validop.exit
   %.0 = phi i32 [ 0, %validop.exit ], [ 0, %47 ], [ 1, %49 ], [ 1, %45 ], [ 0, %4 ], [ 0, %13 ], [ 0, %16 ], [ 0, %22 ], [ 0, %31 ], [ 0, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_infix(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #5 {
+define hidden void @luaK_infix(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #4 {
   %4 = alloca i64, align 8
   tail call void @luaK_dischargevars(ptr noundef %0, ptr noundef %2)
   switch i32 %1, label %tonumeral.exit [
@@ -2872,7 +2866,7 @@ luaK_exp2nextreg.exit:                            ; preds = %freeexp.exit.i, %24
   br label %tonumeral.exit
 
 54:                                               ; preds = %3, %3, %3, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %55 = load i32, ptr %2, align 8, !tbaa !21
   switch i32 %55, label %72 [
     i32 6, label %56
@@ -2907,11 +2901,11 @@ luaK_exp2nextreg.exit:                            ; preds = %freeexp.exit.i, %24
   br i1 %71, label %72, label %isSCnumber.exit
 
 isSCnumber.exit:                                  ; preds = %68
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %tonumeral.exit
 
 72:                                               ; preds = %54, %59, %68, %63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %73 = call i32 @luaK_exp2anyreg(ptr noundef %0, ptr noundef nonnull %2)
   br label %tonumeral.exit
 
@@ -2920,7 +2914,7 @@ tonumeral.exit:                                   ; preds = %48, %39, %72, %isSC
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_posfix(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define hidden void @luaK_posfix(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca %struct.expdesc, align 8
@@ -3235,11 +3229,11 @@ freeexp.exit17.i:                                 ; preds = %155, %150, %142
   br i1 %switch.i, label %tonumeral.exit.i, label %tonumeral.exit.thread.i
 
 tonumeral.exit.i:                                 ; preds = %163
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !71
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %tonumeral.exit.thread.i
 
 tonumeral.exit.thread.i:                          ; preds = %tonumeral.exit.i, %163, %158
@@ -3334,11 +3328,11 @@ finishbinexpneg.exit.thread:                      ; preds = %180, %187, %isKint.
   br i1 %.not17.i, label %211, label %212
 
 211:                                              ; preds = %209
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !71
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %212
 
 212:                                              ; preds = %211, %209
@@ -3364,11 +3358,11 @@ finishbinexpneg.exit.thread:                      ; preds = %180, %187, %isKint.
   br i1 %.not17.i, label %223, label %codebinNoK.exit.i
 
 223:                                              ; preds = %222
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !71
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %codebinNoK.exit.i
 
 codebinNoK.exit.i:                                ; preds = %223, %222
@@ -3399,11 +3393,11 @@ isSCint.exit:                                     ; preds = %isKint.exit.i101
   br i1 %237, label %isSCint.exit.thread, label %238
 
 238:                                              ; preds = %isSCint.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !71
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %239 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %240 = load i64, ptr %239, align 8, !tbaa !22
   %241 = trunc i64 %240 to i32
@@ -3456,16 +3450,16 @@ isSCint.exit105.thread:                           ; preds = %245, %isKint.exit.i
   br i1 %.not.i106, label %262, label %261
 
 261:                                              ; preds = %259
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !71
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %262
 
 262:                                              ; preds = %261, %259
   %263 = tail call i32 @luaK_exp2anyreg(ptr noundef %0, ptr noundef nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %264 = load i32, ptr %3, align 8, !tbaa !21
   switch i32 %264, label %284 [
     i32 6, label %265
@@ -3503,12 +3497,12 @@ isSCint.exit105.thread:                           ; preds = %245, %isKint.exit.i
 281:                                              ; preds = %277
   %282 = trunc nsw i64 %278 to i32
   %283 = add nsw i32 %282, 127
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %291
 
 284:                                              ; preds = %277, %272, %268, %262
   %.1.ph.i = phi i32 [ 0, %268 ], [ %.026.i, %272 ], [ %.026.i, %277 ], [ 0, %262 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %285 = call fastcc i32 @luaK_exp2K(ptr noundef %0, ptr noundef nonnull %3)
   %.not.i23.i = icmp eq i32 %285, 0
   br i1 %.not.i23.i, label %288, label %exp2RK.exit.i
@@ -3613,17 +3607,17 @@ codeeq.exit:                                      ; preds = %freereg.exit.i.i.i,
   br label %codeconcat.exit
 
 338:                                              ; preds = %18, %18
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !71
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %339 = add nsw i32 %1, -3
   br label %340
 
 340:                                              ; preds = %338, %18, %18
   %.0 = phi i32 [ %339, %338 ], [ %1, %18 ], [ %1, %18 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %341 = load i32, ptr %3, align 8, !tbaa !21
   switch i32 %341, label %362 [
     i32 6, label %342
@@ -3661,14 +3655,14 @@ codeeq.exit:                                      ; preds = %freereg.exit.i.i.i,
 358:                                              ; preds = %354
   %359 = trunc nsw i64 %355 to i32
   %360 = add nsw i32 %359, 127
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %361 = call i32 @luaK_exp2anyreg(ptr noundef %0, ptr noundef %2)
   br label %387
 
 362:                                              ; preds = %354, %349, %345, %340
   %.2.ph.i = phi i32 [ 0, %345 ], [ %.1.i, %349 ], [ %.1.i, %354 ], [ 0, %340 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %363 = load i32, ptr %2, align 8, !tbaa !21
   switch i32 %363, label %384 [
     i32 6, label %364
@@ -3706,13 +3700,13 @@ codeeq.exit:                                      ; preds = %freereg.exit.i.i.i,
 380:                                              ; preds = %376
   %381 = trunc nsw i64 %377 to i32
   %382 = add nsw i32 %381, 127
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %383 = call i32 @luaK_exp2anyreg(ptr noundef %0, ptr noundef nonnull %3)
   br label %387
 
 384:                                              ; preds = %376, %371, %367, %362
   %.4.ph.i = phi i32 [ %.2.ph.i, %367 ], [ %.3.i, %371 ], [ %.3.i, %376 ], [ %.2.ph.i, %362 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %385 = call i32 @luaK_exp2anyreg(ptr noundef %0, ptr noundef nonnull %2)
   %386 = call i32 @luaK_exp2anyreg(ptr noundef %0, ptr noundef nonnull %3)
   br label %387
@@ -3811,7 +3805,7 @@ codeconcat.exit:                                  ; preds = %codebinNoK.exit.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @finishbinexpneg(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 21, 33) %3, i32 noundef %4, i32 noundef range(i32 7, 17) %5) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @finishbinexpneg(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 21, 33) %3, i32 noundef %4, i32 noundef range(i32 7, 17) %5) unnamed_addr #4 {
   %7 = load i32, ptr %2, align 8, !tbaa !21
   %8 = icmp eq i32 %7, 6
   br i1 %8, label %isKint.exit, label %isKint.exit.thread
@@ -3860,7 +3854,7 @@ isKint.exit.thread:                               ; preds = %6, %19, %13, %isKin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @codearith(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5) unnamed_addr #5 {
+define internal fastcc void @codearith(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5) unnamed_addr #4 {
   %7 = alloca %struct.expdesc, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !18
@@ -3893,11 +3887,11 @@ tonumeral.exit.thread:                            ; preds = %12, %6, %tonumeral.
   br i1 %.not.i15, label %codebinNoK.exit, label %20
 
 20:                                               ; preds = %tonumeral.exit.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !71
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %codebinNoK.exit
 
 codebinNoK.exit:                                  ; preds = %tonumeral.exit.thread, %20
@@ -3912,7 +3906,7 @@ codebinNoK.exit:                                  ; preds = %tonumeral.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @codebinexpval(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) unnamed_addr #5 {
+define internal fastcc void @codebinexpval(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) unnamed_addr #4 {
   %6 = add nsw i32 %1, 34
   %7 = tail call i32 @luaK_exp2anyreg(ptr noundef %0, ptr noundef %3)
   %8 = add nsw i32 %1, 6
@@ -3921,7 +3915,7 @@ define internal fastcc void @codebinexpval(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_fixline(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
+define hidden void @luaK_fixline(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8, !tbaa !44
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !42
@@ -4018,7 +4012,7 @@ savelineinfo.exit:                                ; preds = %31, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_settablesize(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define hidden void @luaK_settablesize(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = load ptr, ptr %0, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8, !tbaa !45
@@ -4053,10 +4047,10 @@ define hidden void @luaK_settablesize(ptr noundef readonly captures(none) %0, i3
   ret void
 }
 
-declare hidden zeroext i8 @luaO_ceillog2(i32 noundef) local_unnamed_addr #6
+declare hidden zeroext i8 @luaO_ceillog2(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_setlist(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define hidden void @luaK_setlist(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = icmp eq i32 %3, -1
   %6 = icmp slt i32 %2, 1024
   %7 = shl i32 %1, 7
@@ -4090,7 +4084,7 @@ define hidden void @luaK_setlist(ptr noundef captures(none) %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_finish(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define hidden void @luaK_finish(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8, !tbaa !42
   %4 = icmp sgt i32 %3, 0
@@ -4220,12 +4214,12 @@ fixjump.exit:                                     ; preds = %finaltarget.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #9
+declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @k2proto(ptr noundef captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #5 {
+define internal fastcc i32 @k2proto(ptr noundef captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #4 {
   %4 = alloca %struct.TValue, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8, !tbaa !44
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !67
@@ -4317,18 +4311,18 @@ addk.exit:                                        ; preds = %._crit_edge.i, %39,
 
 54:                                               ; preds = %addk.exit, %11
   %.0 = phi i32 [ %22, %addk.exit ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare hidden zeroext i8 @luaH_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare hidden zeroext i8 @luaH_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare hidden void @luaH_set(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare hidden void @luaH_set(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare hidden void @luaC_barrier_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare hidden void @luaC_barrier_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @discharge2reg(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #5 {
+define internal fastcc void @discharge2reg(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #4 {
   %4 = alloca i64, align 8
   %5 = alloca %struct.TValue, align 8
   tail call void @luaK_dischargevars(ptr noundef %0, ptr noundef %1)
@@ -4428,7 +4422,7 @@ previousinstruction.exit.i:                       ; preds = %14, %7
 52:                                               ; preds = %3
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %54, ptr %5, align 8, !tbaa !22
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load i8, ptr %55, align 8, !tbaa !23
@@ -4436,7 +4430,7 @@ previousinstruction.exit.i:                       ; preds = %14, %7
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %57, ptr %58, align 8, !tbaa !40
   %59 = call fastcc i32 @k2proto(ptr noundef %0, ptr noundef %5, ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 %59, ptr %53, align 8, !tbaa !22
   store i32 4, ptr %1, align 8, !tbaa !21
   br label %60
@@ -4465,7 +4459,7 @@ previousinstruction.exit.i:                       ; preds = %14, %7
 75:                                               ; preds = %3
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %77 = load double, ptr %76, align 8, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %78 = call i32 @luaV_flttointeger(double noundef %77, ptr noundef nonnull %4, i32 noundef 0) #13
   %.not.i33 = icmp eq i32 %78, 0
   br i1 %.not.i33, label %90, label %79
@@ -4507,7 +4501,7 @@ previousinstruction.exit.i:                       ; preds = %14, %7
 luaK_float.exit:                                  ; preds = %83, %94, %98
   %.sink.i = phi i32 [ %102, %98 ], [ %97, %94 ], [ %89, %83 ]
   %103 = call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %0, i32 noundef %.sink.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %luaK_nil.exit
 
 104:                                              ; preds = %3
@@ -4555,15 +4549,15 @@ luaK_nil.exit:                                    ; preds = %69, %64, %40, %.cri
   ret void
 }
 
-declare hidden i32 @luaV_flttointeger(double noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare hidden i32 @luaV_flttointeger(double noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @luaK_numberK(ptr noundef %0, double noundef %1) unnamed_addr #5 {
+define internal fastcc i32 @luaK_numberK(ptr noundef %0, double noundef %1) unnamed_addr #4 {
   %3 = alloca %struct.TValue, align 8
   %4 = alloca %struct.TValue, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double %1, ptr %3, align 8, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 19, ptr %6, align 8, !tbaa !40
@@ -4581,7 +4575,7 @@ define internal fastcc i32 @luaK_numberK(ptr noundef %0, double noundef %1) unna
   %12 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef -52) #13, !tbaa !53
   %13 = fadd double %12, 1.000000e+00
   %14 = fmul double %1, %13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store double %14, ptr %4, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 19, ptr %15, align 8, !tbaa !40
@@ -4667,27 +4661,27 @@ define internal fastcc i32 @luaK_numberK(ptr noundef %0, double noundef %1) unna
 
 addk.exit:                                        ; preds = %59, %54, %50, %._crit_edge.i, %17
   %.2 = phi i32 [ %18, %17 ], [ %34, %._crit_edge.i ], [ %34, %50 ], [ %34, %54 ], [ %34, %59 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %60
 
 60:                                               ; preds = %addk.exit, %8
   %.0 = phi i32 [ %10, %8 ], [ %.2, %addk.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #10
+declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #9
 
-declare hidden i32 @luaV_equalobj(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare hidden i32 @luaV_equalobj(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare hidden i32 @luaO_rawarith(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare hidden i32 @luaO_rawarith(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare hidden i32 @luaV_tointegerns(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare hidden i32 @luaV_tointegerns(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @finishbinexpval(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 -2147483626, -2147483648) %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6, i32 noundef range(i32 46, 49) %7, i32 noundef range(i32 -2147483642, -2147483648) %8) unnamed_addr #5 {
+define internal fastcc void @finishbinexpval(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 -2147483626, -2147483648) %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6, i32 noundef range(i32 46, 49) %7, i32 noundef range(i32 -2147483642, -2147483648) %8) unnamed_addr #4 {
   %10 = tail call i32 @luaK_exp2anyreg(ptr noundef %0, ptr noundef %1)
   %11 = shl i32 %10, 16
   %12 = shl i32 %4, 24
@@ -4780,6 +4774,12 @@ freeexps.exit:                                    ; preds = %freereg.exit.i.i, %
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11
 
@@ -4789,14 +4789,14 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 attributes #0 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #1 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { noreturn nounwind }
 attributes #13 = { nounwind }

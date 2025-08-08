@@ -125,8 +125,8 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal range(i32 0, 2) i32 @test_rsa_mp(i32 noundef %0) #0 {
   %2 = alloca [256 x i8], align 16
   %3 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @RSA_new() #3
   %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 267, ptr noundef nonnull @.str.10, ptr noundef %4) #3
   %.not = icmp eq i32 %5, 0
@@ -185,13 +185,10 @@ key2048_key.exit:                                 ; preds = %6, %12
 33:                                               ; preds = %29, %26, %21, %key2048_key.exit, %15, %1
   %.0 = phi i32 [ 0, %26 ], [ 0, %21 ], [ 0, %15 ], [ 0, %key2048_key.exit ], [ 0, %1 ], [ %spec.select, %29 ]
   call void @RSA_free(ptr noundef %4) #3
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -210,9 +207,6 @@ declare i32 @RSA_generate_multi_prime_key(ptr noundef, i32 noundef, i32 noundef,
 declare void @BN_free(ptr noundef) #1
 
 declare void @RSA_free(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @key2048p3_v1(ptr noundef %0) #0 {
@@ -504,6 +498,12 @@ declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @RSA_set0_key(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

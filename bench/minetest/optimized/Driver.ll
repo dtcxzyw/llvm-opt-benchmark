@@ -108,9 +108,9 @@ entry:
   %major = alloca i32, align 4
   %minor = alloca i32, align 4
   %profile = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %major) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %minor) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %profile) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %major)
+  call void @llvm.lifetime.start.p0(ptr nonnull %minor)
+  call void @llvm.lifetime.start.p0(ptr nonnull %profile)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 360), align 8, !tbaa !3
   call void %0(i32 noundef 33307, ptr noundef nonnull %major) #13
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 360), align 8, !tbaa !3
@@ -135,9 +135,9 @@ cleanup:                                          ; preds = %if.end12, %if.end, 
   %retval.sroa.0.0 = phi i32 [ 0, %if.end12 ], [ 1, %entry ], [ 0, %if.end ]
   %retval.sroa.4.0.in = load i32, ptr %major, align 4, !tbaa !14
   %retval.sroa.7.0.in = load i32, ptr %minor, align 4, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %profile) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %minor) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %major) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %profile)
+  call void @llvm.lifetime.end.p0(ptr nonnull %minor)
+  call void @llvm.lifetime.end.p0(ptr nonnull %major)
   %retval.sroa.7.0.insert.ext = shl i32 %retval.sroa.7.0.in, 16
   %retval.sroa.7.0.insert.shift = and i32 %retval.sroa.7.0.insert.ext, 16711680
   %retval.sroa.4.0.insert.ext = shl i32 %retval.sroa.4.0.in, 8
@@ -147,13 +147,7 @@ cleanup:                                          ; preds = %if.end12, %if.end, 
   ret i32 %retval.sroa.0.0.insert.insert
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr5video14COpenGL3Driver12initFeaturesEv(ptr noundef nonnull align 8 dereferenceable(2920) %this) unnamed_addr #1 align 2 {
@@ -314,10 +308,10 @@ cleanup.done138.thread224:                        ; preds = %entry
   br label %cleanup.done150
 
 lor.lhs.false:                                    ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp115) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp115)
   %0 = getelementptr inbounds nuw i8, ptr %ref.tmp115, i64 16
   store ptr %0, ptr %ref.tmp115, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i)
   store i64 33, ptr %__dnew.i.i, align 8, !tbaa !25
   %call2.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i, i64 noundef 0) #13
   store ptr %call2.i.i, ptr %ref.tmp115, align 8, !tbaa !26
@@ -328,15 +322,15 @@ lor.lhs.false:                                    ; preds = %entry
   store i64 %1, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !29
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 %1
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i)
   %call120 = call noundef zeroext i1 @_ZNK3irr5video24COpenGL3ExtensionHandler14queryExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115) #13
   br i1 %call120, label %cleanup.done138, label %lor.rhs
 
 lor.rhs:                                          ; preds = %lor.lhs.false
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp122) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp122)
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp122, i64 16
   store ptr %2, ptr %ref.tmp122, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i195) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i195)
   store i64 33, ptr %__dnew.i.i195, align 8, !tbaa !25
   %call2.i.i204 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp122, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i195, i64 noundef 0) #13
   store ptr %call2.i.i204, ptr %ref.tmp122, align 8, !tbaa !26
@@ -347,7 +341,7 @@ lor.rhs:                                          ; preds = %lor.lhs.false
   store i64 %3, ptr %_M_string_length.i.i.i.i199, align 8, !tbaa !29
   %arrayidx.i.i.i200 = getelementptr inbounds i8, ptr %call2.i.i204, i64 %3
   store i8 0, ptr %arrayidx.i.i.i200, align 1, !tbaa !28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i195) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i195)
   %call128 = call noundef zeroext i1 @_ZNK3irr5video24COpenGL3ExtensionHandler14queryExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp122) #13
   %4 = zext i1 %call128 to i8
   %AnisotropicFilterSupported = getelementptr inbounds nuw i8, ptr %this, i64 1260
@@ -367,7 +361,7 @@ if.then.i.i206:                                   ; preds = %lor.rhs
   br label %cleanup.done138.thread
 
 cleanup.done138.thread:                           ; preds = %if.then.i.i206, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp122) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp122)
   br label %cleanup.action140
 
 cleanup.done138:                                  ; preds = %lor.lhs.false
@@ -392,7 +386,7 @@ if.then.i.i208:                                   ; preds = %cleanup.action140
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit212
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit212: ; preds = %if.then.i.i208, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i209
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp115) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp115)
   br label %cleanup.done150
 
 cleanup.done150:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit212, %cleanup.done138.thread224
@@ -401,23 +395,23 @@ cleanup.done150:                                  ; preds = %_ZNSt7__cxx1112basi
   store i8 1, ptr %BlendMinMaxSupported, align 1, !tbaa !30
   %BlendOperation = getelementptr inbounds nuw i8, ptr %this, i64 1192
   store i8 1, ptr %BlendOperation, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i)
   store i32 0, ptr %val.i, align 4, !tbaa !14
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 360), align 8, !tbaa !3
   call void %9(i32 noundef 36063, ptr noundef nonnull %val.i) #13
   %10 = load i32, ptr %val.i, align 4, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i)
   %conv = trunc i32 %10 to i8
   %ColorAttachment = getelementptr inbounds nuw i8, ptr %this, i64 1193
   store i8 %conv, ptr %ColorAttachment, align 1, !tbaa !32
   %MaxTextureUnits = getelementptr inbounds nuw i8, ptr %this, i64 1195
   store i8 4, ptr %MaxTextureUnits, align 1, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i213) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i213)
   store i32 0, ptr %val.i213, align 4, !tbaa !14
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 360), align 8, !tbaa !3
   call void %11(i32 noundef 34852, ptr noundef nonnull %val.i213) #13
   %12 = load i32, ptr %val.i213, align 4, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i213) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i213)
   %conv159 = trunc i32 %12 to i8
   %MultipleRenderTarget = getelementptr inbounds nuw i8, ptr %this, i64 1194
   store i8 %conv159, ptr %MultipleRenderTarget, align 2, !tbaa !34
@@ -426,32 +420,32 @@ cleanup.done150:                                  ; preds = %_ZNSt7__cxx1112basi
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cleanup.done150
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i214) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i214)
   store i32 0, ptr %val.i214, align 4, !tbaa !14
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 360), align 8, !tbaa !3
   call void %14(i32 noundef 34047, ptr noundef nonnull %val.i214) #13
   %15 = load i32, ptr %val.i214, align 4, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i214) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i214)
   %conv165 = trunc i32 %15 to i8
   %MaxAnisotropy = getelementptr inbounds nuw i8, ptr %this, i64 1202
   store i8 %conv165, ptr %MaxAnisotropy, align 2, !tbaa !37
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %cleanup.done150
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i215) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i215)
   store i32 0, ptr %val.i215, align 4, !tbaa !14
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 360), align 8, !tbaa !3
   call void %16(i32 noundef 33001, ptr noundef nonnull %val.i215) #13
   %17 = load i32, ptr %val.i215, align 4, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i215) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i215)
   %MaxIndices = getelementptr inbounds nuw i8, ptr %this, i64 1204
   store i32 %17, ptr %MaxIndices, align 4, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i216) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i216)
   store i32 0, ptr %val.i216, align 4, !tbaa !14
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 360), align 8, !tbaa !3
   call void %18(i32 noundef 3379, ptr noundef nonnull %val.i216) #13
   %19 = load i32, ptr %val.i216, align 4, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i216) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i216)
   %MaxTextureSize = getelementptr inbounds nuw i8, ptr %this, i64 1208
   store i32 %19, ptr %MaxTextureSize, align 8, !tbaa !39
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 352), align 8, !tbaa !40
@@ -465,16 +459,16 @@ if.end:                                           ; preds = %if.then, %cleanup.d
   ret void
 }
 
-declare void @_ZN3irr5video24COpenGL3ExtensionHandler17initExtensionsNewEv(ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #3
+declare void @_ZN3irr5video24COpenGL3ExtensionHandler17initExtensionsNewEv(ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind
-declare noundef zeroext i1 @_ZNK3irr5video18COpenGL3DriverBase16isVersionAtLeastEii(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, i32 noundef) local_unnamed_addr #5
+declare noundef zeroext i1 @_ZNK3irr5video18COpenGL3DriverBase16isVersionAtLeastEii(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare noundef zeroext i1 @_ZNK3irr5video24COpenGL3ExtensionHandler14queryExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
+declare noundef zeroext i1 @_ZNK3irr5video24COpenGL3ExtensionHandler14queryExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull ptr @_ZN3irr5video19createOpenGL3DriverERKNS_27SIrrlichtCreationParametersEPNS_2io11IFileSystemEPNS0_15IContextManagerE(ptr noundef nonnull align 8 dereferenceable(112) %params, ptr noundef %io, ptr noundef %contextManager) local_unnamed_addr #1 {
@@ -505,11 +499,11 @@ entry:
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
-declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase10beginSceneEtNS0_6SColorEfhRKNS0_17SExposedVideoDataEPNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(2920), i16 noundef zeroext, i32, float noundef, i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase10beginSceneEtNS0_6SColorEfhRKNS0_17SExposedVideoDataEPNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(2920), i16 noundef zeroext, i32, float noundef, i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase8endSceneEv(ptr noundef nonnull align 8 dereferenceable(2920)) unnamed_addr #3
+declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase8endSceneEv(ptr noundef nonnull align 8 dereferenceable(2920)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK3irr5video18COpenGL3DriverBase12queryFeatureENS0_22E_VIDEO_DRIVER_FEATUREE(ptr noundef nonnull align 8 dereferenceable(2920) %this, i32 noundef %feature) unnamed_addr #1 comdat align 2 {
@@ -563,9 +557,9 @@ land.end:                                         ; preds = %sw.default.i, %sw.b
   ret i1 %2
 }
 
-declare void @_ZN3irr5video11CNullDriver14disableFeatureENS0_22E_VIDEO_DRIVER_FEATUREEb(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, i1 noundef zeroext) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver14disableFeatureENS0_22E_VIDEO_DRIVER_FEATUREEb(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, i1 noundef zeroext) unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3irr5video11CNullDriver19getDriverAttributesEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3irr5video11CNullDriver19getDriverAttributesEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3irr5video11CNullDriver16checkDriverResetEv(ptr noundef nonnull align 8 dereferenceable(1164) %this) unnamed_addr #1 comdat align 2 {
@@ -573,185 +567,185 @@ entry:
   ret i1 false
 }
 
-declare void @_ZN3irr5video18COpenGL3DriverBase12setTransformENS0_22E_TRANSFORMATION_STATEERKNS_4core8CMatrix4IfEE(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, ptr noundef nonnull align 4 dereferenceable(64)) unnamed_addr #3
+declare void @_ZN3irr5video18COpenGL3DriverBase12setTransformENS0_22E_TRANSFORMATION_STATEERKNS_4core8CMatrix4IfEE(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, ptr noundef nonnull align 4 dereferenceable(64)) unnamed_addr #2
 
-declare noundef nonnull align 4 dereferenceable(64) ptr @_ZNK3irr5video18COpenGL3DriverBase12getTransformENS0_22E_TRANSFORMATION_STATEE(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef) unnamed_addr #3
+declare noundef nonnull align 4 dereferenceable(64) ptr @_ZNK3irr5video18COpenGL3DriverBase12getTransformENS0_22E_TRANSFORMATION_STATEE(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef) unnamed_addr #2
 
-declare noundef i32 @_ZNK3irr5video11CNullDriver19getImageLoaderCountEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare noundef i32 @_ZNK3irr5video11CNullDriver19getImageLoaderCountEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video11CNullDriver14getImageLoaderEj(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video11CNullDriver14getImageLoaderEj(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef) unnamed_addr #2
 
-declare noundef i32 @_ZNK3irr5video11CNullDriver19getImageWriterCountEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare noundef i32 @_ZNK3irr5video11CNullDriver19getImageWriterCountEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video11CNullDriver14getImageWriterEj(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video11CNullDriver14getImageWriterEj(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video18COpenGL3DriverBase11setMaterialERKNS0_9SMaterialE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 8 dereferenceable(178)) unnamed_addr #3
+declare void @_ZN3irr5video18COpenGL3DriverBase11setMaterialERKNS0_9SMaterialE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 8 dereferenceable(178)) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video11CNullDriver10getTextureERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video11CNullDriver10getTextureERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video11CNullDriver10getTextureEPNS_2io9IReadFileE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video11CNullDriver10getTextureEPNS_2io9IReadFileE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #2
 
-declare noundef i32 @_ZNK3irr5video11CNullDriver15getTextureCountEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare noundef i32 @_ZNK3irr5video11CNullDriver15getTextureCountEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video11CNullDriver10addTextureERKNS_4core11dimension2dIjEERKNS2_6stringIcEENS0_13ECOLOR_FORMATE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video11CNullDriver10addTextureERKNS_4core11dimension2dIjEERKNS2_6stringIcEENS0_13ECOLOR_FORMATE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video11CNullDriver10addTextureERKNS_4core6stringIcEEPNS0_6IImageE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video11CNullDriver10addTextureERKNS_4core6stringIcEEPNS0_6IImageE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video11CNullDriver17addTextureCubemapERKNS_4core6stringIcEEPNS0_6IImageES8_S8_S8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video11CNullDriver17addTextureCubemapERKNS_4core6stringIcEEPNS0_6IImageES8_S8_S8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video11CNullDriver17addTextureCubemapEjRKNS_4core6stringIcEENS0_13ECOLOR_FORMATE(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video11CNullDriver17addTextureCubemapEjRKNS_4core6stringIcEENS0_13ECOLOR_FORMATE(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video18COpenGL3DriverBase22addRenderTargetTextureERKNS_4core11dimension2dIjEERKNS2_6stringIcEENS0_13ECOLOR_FORMATE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video18COpenGL3DriverBase22addRenderTargetTextureERKNS_4core11dimension2dIjEERKNS2_6stringIcEENS0_13ECOLOR_FORMATE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video18COpenGL3DriverBase29addRenderTargetTextureCubemapEjRKNS_4core6stringIcEENS0_13ECOLOR_FORMATE(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video18COpenGL3DriverBase29addRenderTargetTextureCubemapEjRKNS_4core6stringIcEENS0_13ECOLOR_FORMATE(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video18COpenGL3DriverBase13removeTextureEPNS0_8ITextureE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef) unnamed_addr #3
+declare void @_ZN3irr5video18COpenGL3DriverBase13removeTextureEPNS0_8ITextureE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver17removeAllTexturesEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver17removeAllTexturesEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver20removeHardwareBufferEPKNS_5scene11IMeshBufferE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver20removeHardwareBufferEPKNS_5scene11IMeshBufferE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver24removeAllHardwareBuffersEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver24removeAllHardwareBuffersEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver17addOcclusionQueryEPNS_5scene10ISceneNodeEPKNS2_5IMeshE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, ptr noundef) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver17addOcclusionQueryEPNS_5scene10ISceneNodeEPKNS2_5IMeshE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, ptr noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver20removeOcclusionQueryEPNS_5scene10ISceneNodeE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver20removeOcclusionQueryEPNS_5scene10ISceneNodeE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver25removeAllOcclusionQueriesEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver25removeAllOcclusionQueriesEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver17runOcclusionQueryEPNS_5scene10ISceneNodeEb(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, i1 noundef zeroext) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver17runOcclusionQueryEPNS_5scene10ISceneNodeEb(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, i1 noundef zeroext) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver22runAllOcclusionQueriesEb(ptr noundef nonnull align 8 dereferenceable(1164), i1 noundef zeroext) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver22runAllOcclusionQueriesEb(ptr noundef nonnull align 8 dereferenceable(1164), i1 noundef zeroext) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver20updateOcclusionQueryEPNS_5scene10ISceneNodeEb(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, i1 noundef zeroext) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver20updateOcclusionQueryEPNS_5scene10ISceneNodeEb(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, i1 noundef zeroext) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver25updateAllOcclusionQueriesEb(ptr noundef nonnull align 8 dereferenceable(1164), i1 noundef zeroext) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver25updateAllOcclusionQueriesEb(ptr noundef nonnull align 8 dereferenceable(1164), i1 noundef zeroext) unnamed_addr #2
 
-declare noundef i32 @_ZNK3irr5video11CNullDriver23getOcclusionQueryResultEPNS_5scene10ISceneNodeE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #3
+declare noundef i32 @_ZNK3irr5video11CNullDriver23getOcclusionQueryResultEPNS_5scene10ISceneNodeE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video18COpenGL3DriverBase15addRenderTargetEv(ptr noundef nonnull align 8 dereferenceable(2920)) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video18COpenGL3DriverBase15addRenderTargetEv(ptr noundef nonnull align 8 dereferenceable(2920)) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver18removeRenderTargetEPNS0_13IRenderTargetE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver18removeRenderTargetEPNS0_13IRenderTargetE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver22removeAllRenderTargetsEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver22removeAllRenderTargetsEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare void @_ZNK3irr5video11CNullDriver19makeColorKeyTextureEPNS0_8ITextureENS0_6SColorE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, i32) unnamed_addr #3
+declare void @_ZNK3irr5video11CNullDriver19makeColorKeyTextureEPNS0_8ITextureENS0_6SColorE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, i32) unnamed_addr #2
 
-declare void @_ZNK3irr5video11CNullDriver19makeColorKeyTextureEPNS0_8ITextureENS_4core8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, i64) unnamed_addr #3
+declare void @_ZNK3irr5video11CNullDriver19makeColorKeyTextureEPNS0_8ITextureENS_4core8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, i64) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase17setRenderTargetExEPNS0_13IRenderTargetEtNS0_6SColorEfh(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef, i16 noundef zeroext, i32, float noundef, i8 noundef zeroext) unnamed_addr #3
+declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase17setRenderTargetExEPNS0_13IRenderTargetEtNS0_6SColorEfh(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef, i16 noundef zeroext, i32, float noundef, i8 noundef zeroext) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN3irr5video11CNullDriver15setRenderTargetEPNS0_8ITextureEtNS0_6SColorEfh(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, i16 noundef zeroext, i32, float noundef, i8 noundef zeroext) unnamed_addr #3
+declare noundef zeroext i1 @_ZN3irr5video11CNullDriver15setRenderTargetEPNS0_8ITextureEtNS0_6SColorEfh(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, i16 noundef zeroext, i32, float noundef, i8 noundef zeroext) unnamed_addr #2
 
-declare void @_ZN3irr5video18COpenGL3DriverBase11setViewPortERKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #3
+declare void @_ZN3irr5video18COpenGL3DriverBase11setViewPortERKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #2
 
-declare noundef nonnull align 4 dereferenceable(16) ptr @_ZNK3irr5video11CNullDriver11getViewPortEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare noundef nonnull align 4 dereferenceable(16) ptr @_ZNK3irr5video11CNullDriver11getViewPortEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare void @_ZN3irr5video18COpenGL3DriverBase23drawVertexPrimitiveListEPKvjS3_jNS0_13E_VERTEX_TYPEENS_5scene16E_PRIMITIVE_TYPEENS0_12E_INDEX_TYPEE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) unnamed_addr #3
+declare void @_ZN3irr5video18COpenGL3DriverBase23drawVertexPrimitiveListEPKvjS3_jNS0_13E_VERTEX_TYPEENS_5scene16E_PRIMITIVE_TYPEENS0_12E_INDEX_TYPEE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver25draw2DVertexPrimitiveListEPKvjS3_jNS0_13E_VERTEX_TYPEENS_5scene16E_PRIMITIVE_TYPEENS0_12E_INDEX_TYPEE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver25draw2DVertexPrimitiveListEPKvjS3_jNS0_13E_VERTEX_TYPEENS_5scene16E_PRIMITIVE_TYPEENS0_12E_INDEX_TYPEE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video18COpenGL3DriverBase10draw3DLineERKNS_4core8vector3dIfEES6_NS0_6SColorE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 4 dereferenceable(12), ptr noundef nonnull align 4 dereferenceable(12), i32) unnamed_addr #3
+declare void @_ZN3irr5video18COpenGL3DriverBase10draw3DLineERKNS_4core8vector3dIfEES6_NS0_6SColorE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 4 dereferenceable(12), ptr noundef nonnull align 4 dereferenceable(12), i32) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver9draw3DBoxERKNS_4core8aabbox3dIfEENS0_6SColorE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 4 dereferenceable(24), i32) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver9draw3DBoxERKNS_4core8aabbox3dIfEENS0_6SColorE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 4 dereferenceable(24), i32) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver11draw2DImageEPKNS0_8ITextureERKNS_4core8vector2dIiEEb(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), i1 noundef zeroext) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver11draw2DImageEPKNS0_8ITextureERKNS_4core8vector2dIiEEb(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), i1 noundef zeroext) unnamed_addr #2
 
-declare void @_ZN3irr5video18COpenGL3DriverBase11draw2DImageEPKNS0_8ITextureERKNS_4core8vector2dIiEERKNS5_4rectIiEEPSC_NS0_6SColorEb(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef, i32, i1 noundef zeroext) unnamed_addr #3
+declare void @_ZN3irr5video18COpenGL3DriverBase11draw2DImageEPKNS0_8ITextureERKNS_4core8vector2dIiEERKNS5_4rectIiEEPSC_NS0_6SColorEb(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef, i32, i1 noundef zeroext) unnamed_addr #2
 
-declare void @_ZN3irr5video18COpenGL3DriverBase16draw2DImageBatchEPKNS0_8ITextureERKNS_4core5arrayINS5_8vector2dIiEEEERKNS6_INS5_4rectIiEEEEPKSD_NS0_6SColorEb(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef, ptr noundef nonnull align 1, ptr noundef nonnull align 1, ptr noundef, i32, i1 noundef zeroext) unnamed_addr #3
+declare void @_ZN3irr5video18COpenGL3DriverBase16draw2DImageBatchEPKNS0_8ITextureERKNS_4core5arrayINS5_8vector2dIiEEEERKNS6_INS5_4rectIiEEEEPKSD_NS0_6SColorEb(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef, ptr noundef nonnull align 1, ptr noundef nonnull align 1, ptr noundef, i32, i1 noundef zeroext) unnamed_addr #2
 
-declare void @_ZN3irr5video18COpenGL3DriverBase11draw2DImageEPKNS0_8ITextureERKNS_4core4rectIiEES9_PS8_PKNS0_6SColorEb(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef, ptr noundef, i1 noundef zeroext) unnamed_addr #3
+declare void @_ZN3irr5video18COpenGL3DriverBase11draw2DImageEPKNS0_8ITextureERKNS_4core4rectIiEES9_PS8_PKNS0_6SColorEb(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef, ptr noundef, i1 noundef zeroext) unnamed_addr #2
 
-declare void @_ZN3irr5video18COpenGL3DriverBase15draw2DRectangleENS0_6SColorERKNS_4core4rectIiEEPS6_(ptr noundef nonnull align 8 dereferenceable(2920), i32, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef) unnamed_addr #3
+declare void @_ZN3irr5video18COpenGL3DriverBase15draw2DRectangleENS0_6SColorERKNS_4core4rectIiEEPS6_(ptr noundef nonnull align 8 dereferenceable(2920), i32, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video18COpenGL3DriverBase15draw2DRectangleERKNS_4core4rectIiEENS0_6SColorES7_S7_S7_PS5_(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 4 dereferenceable(16), i32, i32, i32, i32, ptr noundef) unnamed_addr #3
+declare void @_ZN3irr5video18COpenGL3DriverBase15draw2DRectangleERKNS_4core4rectIiEENS0_6SColorES7_S7_S7_PS5_(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 4 dereferenceable(16), i32, i32, i32, i32, ptr noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video18COpenGL3DriverBase10draw2DLineERKNS_4core8vector2dIiEES6_NS0_6SColorE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), i32) unnamed_addr #3
+declare void @_ZN3irr5video18COpenGL3DriverBase10draw2DLineERKNS_4core8vector2dIiEES6_NS0_6SColorE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), i32) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver14drawMeshBufferEPKNS_5scene11IMeshBufferE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver14drawMeshBufferEPKNS_5scene11IMeshBufferE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver21drawMeshBufferNormalsEPKNS_5scene11IMeshBufferEfNS0_6SColorE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, float noundef, i32) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver21drawMeshBufferNormalsEPKNS_5scene11IMeshBufferEfNS0_6SColorE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, float noundef, i32) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver6setFogENS0_6SColorENS0_10E_FOG_TYPEEfffbb(ptr noundef nonnull align 8 dereferenceable(1164), i32, i32 noundef, float noundef, float noundef, float noundef, i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver6setFogENS0_6SColorENS0_10E_FOG_TYPEEfffbb(ptr noundef nonnull align 8 dereferenceable(1164), i32, i32 noundef, float noundef, float noundef, float noundef, i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver6getFogERNS0_6SColorERNS0_10E_FOG_TYPEERfS6_S6_RbS7_(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver6getFogERNS0_6SColorERNS0_10E_FOG_TYPEERfS6_S6_RbS7_(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
-declare noundef i32 @_ZNK3irr5video18COpenGL3DriverBase14getColorFormatEv(ptr noundef nonnull align 8 dereferenceable(2920)) unnamed_addr #3
+declare noundef i32 @_ZNK3irr5video18COpenGL3DriverBase14getColorFormatEv(ptr noundef nonnull align 8 dereferenceable(2920)) unnamed_addr #2
 
-declare noundef nonnull align 4 dereferenceable(8) ptr @_ZNK3irr5video11CNullDriver13getScreenSizeEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare noundef nonnull align 4 dereferenceable(8) ptr @_ZNK3irr5video11CNullDriver13getScreenSizeEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare noundef nonnull align 4 dereferenceable(8) ptr @_ZNK3irr5video11CNullDriver26getCurrentRenderTargetSizeEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare noundef nonnull align 4 dereferenceable(8) ptr @_ZNK3irr5video11CNullDriver26getCurrentRenderTargetSizeEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare noundef i32 @_ZNK3irr5video11CNullDriver6getFPSEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare noundef i32 @_ZNK3irr5video11CNullDriver6getFPSEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare noundef i32 @_ZNK3irr5video11CNullDriver22getPrimitiveCountDrawnEj(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef) unnamed_addr #3
+declare noundef i32 @_ZNK3irr5video11CNullDriver22getPrimitiveCountDrawnEj(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef) unnamed_addr #2
 
-declare noundef ptr @_ZNK3irr5video18COpenGL3DriverBase7getNameEv(ptr noundef nonnull align 8 dereferenceable(2920)) unnamed_addr #3
+declare noundef ptr @_ZNK3irr5video18COpenGL3DriverBase7getNameEv(ptr noundef nonnull align 8 dereferenceable(2920)) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver22addExternalImageLoaderEPNS0_12IImageLoaderE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver22addExternalImageLoaderEPNS0_12IImageLoaderE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver22addExternalImageWriterEPNS0_12IImageWriterE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver22addExternalImageWriterEPNS0_12IImageWriterE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #2
 
-declare noundef i32 @_ZNK3irr5video18COpenGL3DriverBase24getMaximalPrimitiveCountEv(ptr noundef nonnull align 8 dereferenceable(2920)) unnamed_addr #3
+declare noundef i32 @_ZNK3irr5video18COpenGL3DriverBase24getMaximalPrimitiveCountEv(ptr noundef nonnull align 8 dereferenceable(2920)) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver22setTextureCreationFlagENS0_23E_TEXTURE_CREATION_FLAGEb(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, i1 noundef zeroext) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver22setTextureCreationFlagENS0_23E_TEXTURE_CREATION_FLAGEb(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, i1 noundef zeroext) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZNK3irr5video11CNullDriver22getTextureCreationFlagENS0_23E_TEXTURE_CREATION_FLAGE(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZNK3irr5video11CNullDriver22getTextureCreationFlagENS0_23E_TEXTURE_CREATION_FLAGE(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video11CNullDriver19createImageFromFileERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video11CNullDriver19createImageFromFileERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video11CNullDriver19createImageFromFileEPNS_2io9IReadFileE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video11CNullDriver19createImageFromFileEPNS_2io9IReadFileE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN3irr5video11CNullDriver16writeImageToFileEPNS0_6IImageERKNS_4core6stringIcEEj(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN3irr5video11CNullDriver16writeImageToFileEPNS0_6IImageERKNS_4core6stringIcEEj(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN3irr5video11CNullDriver16writeImageToFileEPNS0_6IImageEPNS_2io10IWriteFileEj(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, ptr noundef, i32 noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN3irr5video11CNullDriver16writeImageToFileEPNS0_6IImageEPNS_2io10IWriteFileEj(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, ptr noundef, i32 noundef) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video11CNullDriver19createImageFromDataENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEPvbb(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef, i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video11CNullDriver19createImageFromDataENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEPvbb(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef, i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video11CNullDriver11createImageENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video11CNullDriver11createImageENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video11CNullDriver11createImageEPNS0_8ITextureERKNS_4core8vector2dIiEERKNS4_11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video11CNullDriver11createImageEPNS0_8ITextureERKNS_4core8vector2dIiEERKNS4_11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #2
 
-declare void @_ZN3irr5video18COpenGL3DriverBase8OnResizeERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #3
+declare void @_ZN3irr5video18COpenGL3DriverBase8OnResizeERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #2
 
-declare noundef i32 @_ZN3irr5video11CNullDriver19addMaterialRendererEPNS0_17IMaterialRendererEPKc(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, ptr noundef) unnamed_addr #3
+declare noundef i32 @_ZN3irr5video11CNullDriver19addMaterialRendererEPNS0_17IMaterialRendererEPKc(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, ptr noundef) unnamed_addr #2
 
-declare noundef ptr @_ZNK3irr5video11CNullDriver19getMaterialRendererEj(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef) unnamed_addr #3
+declare noundef ptr @_ZNK3irr5video11CNullDriver19getMaterialRendererEj(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef) unnamed_addr #2
 
-declare noundef i32 @_ZNK3irr5video11CNullDriver24getMaterialRendererCountEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare noundef i32 @_ZNK3irr5video11CNullDriver24getMaterialRendererCountEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare noundef ptr @_ZNK3irr5video11CNullDriver23getMaterialRendererNameEj(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef) unnamed_addr #3
+declare noundef ptr @_ZNK3irr5video11CNullDriver23getMaterialRendererNameEj(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver23setMaterialRendererNameEjPKc(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, ptr noundef) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver23setMaterialRendererNameEjPKc(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, ptr noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver21swapMaterialRenderersEjjb(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, i32 noundef, i1 noundef zeroext) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver21swapMaterialRenderersEjjb(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, i32 noundef, i1 noundef zeroext) unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN3irr5video11CNullDriver19getExposedVideoDataEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN3irr5video11CNullDriver19getExposedVideoDataEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare noundef i32 @_ZNK3irr5video18COpenGL3DriverBase13getDriverTypeEv(ptr noundef nonnull align 8 dereferenceable(2920)) unnamed_addr #3
+declare noundef i32 @_ZNK3irr5video18COpenGL3DriverBase13getDriverTypeEv(ptr noundef nonnull align 8 dereferenceable(2920)) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video18COpenGL3DriverBase25getGPUProgrammingServicesEv(ptr noundef nonnull align 8 dereferenceable(2920)) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video18COpenGL3DriverBase25getGPUProgrammingServicesEv(ptr noundef nonnull align 8 dereferenceable(2920)) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video11CNullDriver18getMeshManipulatorEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video11CNullDriver18getMeshManipulatorEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare void @_ZN3irr5video18COpenGL3DriverBase12clearBuffersEtNS0_6SColorEfh(ptr noundef nonnull align 8 dereferenceable(2920), i16 noundef zeroext, i32, float noundef, i8 noundef zeroext) unnamed_addr #3
+declare void @_ZN3irr5video18COpenGL3DriverBase12clearBuffersEtNS0_6SColorEfh(ptr noundef nonnull align 8 dereferenceable(2920), i16 noundef zeroext, i32, float noundef, i8 noundef zeroext) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video18COpenGL3DriverBase16createScreenShotENS0_13ECOLOR_FORMATENS0_15E_RENDER_TARGETE(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, i32 noundef) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video18COpenGL3DriverBase16createScreenShotENS0_13ECOLOR_FORMATENS0_15E_RENDER_TARGETE(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, i32 noundef) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video11CNullDriver11findTextureERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video11CNullDriver11findTextureERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase12setClipPlaneEjRKNS_4core7plane3dIfEEb(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, ptr noundef nonnull align 4 dereferenceable(16), i1 noundef zeroext) unnamed_addr #3
+declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase12setClipPlaneEjRKNS_4core7plane3dIfEEb(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, ptr noundef nonnull align 4 dereferenceable(16), i1 noundef zeroext) unnamed_addr #2
 
-declare void @_ZN3irr5video18COpenGL3DriverBase15enableClipPlaneEjb(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, i1 noundef zeroext) unnamed_addr #3
+declare void @_ZN3irr5video18COpenGL3DriverBase15enableClipPlaneEjb(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, i1 noundef zeroext) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver31setMinHardwareBufferVertexCountEj(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver31setMinHardwareBufferVertexCountEj(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef) unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(240) ptr @_ZN3irr5video11CNullDriver19getOverrideMaterialEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(240) ptr @_ZN3irr5video11CNullDriver19getOverrideMaterialEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(178) ptr @_ZN3irr5video11CNullDriver13getMaterial2DEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(178) ptr @_ZN3irr5video11CNullDriver13getMaterial2DEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver16enableMaterial2DEb(ptr noundef nonnull align 8 dereferenceable(1164), i1 noundef zeroext) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver16enableMaterial2DEb(ptr noundef nonnull align 8 dereferenceable(1164), i1 noundef zeroext) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video18COpenGL3DriverBase13getVendorInfoEv(ptr dead_on_unwind noalias writable sret(%"class.irr::core::string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(2920) %this) unnamed_addr #1 comdat align 2 {
@@ -773,9 +767,9 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit:              ; preds = %if.end.i.i, %entry
   ret void
 }
 
-declare void @_ZN3irr5video11CNullDriver15setAmbientLightERKNS0_7SColorfE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver15setAmbientLightERKNS0_7SColorfE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #2
 
-declare noundef nonnull align 4 dereferenceable(16) ptr @_ZNK3irr5video11CNullDriver15getAmbientLightEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare noundef nonnull align 4 dereferenceable(16) ptr @_ZNK3irr5video11CNullDriver15getAmbientLightEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video11CNullDriver27setAllowZWriteOnTransparentEb(ptr noundef nonnull align 8 dereferenceable(1164) %this, i1 noundef zeroext %flag) unnamed_addr #1 comdat align 2 {
@@ -786,141 +780,141 @@ entry:
   ret void
 }
 
-declare i64 @_ZNK3irr5video18COpenGL3DriverBase17getMaxTextureSizeEv(ptr noundef nonnull align 8 dereferenceable(2920)) unnamed_addr #3
+declare i64 @_ZNK3irr5video18COpenGL3DriverBase17getMaxTextureSizeEv(ptr noundef nonnull align 8 dereferenceable(2920)) unnamed_addr #2
 
-declare void @_ZNK3irr5video11CNullDriver12convertColorEPKvNS0_13ECOLOR_FORMATEiPvS4_(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) unnamed_addr #3
+declare void @_ZNK3irr5video11CNullDriver12convertColorEPKvNS0_13ECOLOR_FORMATEiPvS4_(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZNK3irr5video18COpenGL3DriverBase18queryTextureFormatENS0_13ECOLOR_FORMATE(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZNK3irr5video18COpenGL3DriverBase18queryTextureFormatENS0_13ECOLOR_FORMATE(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZNK3irr5video18COpenGL3DriverBase26needsTransparentRenderPassERKNS0_9SMaterialE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 8 dereferenceable(178)) unnamed_addr #3
-
-; Function Attrs: nounwind
-declare void @_ZN3irr5video18COpenGL3DriverBaseD1Ev(ptr noundef nonnull align 8 dereferenceable(2920)) unnamed_addr #5
+declare noundef zeroext i1 @_ZNK3irr5video18COpenGL3DriverBase26needsTransparentRenderPassERKNS0_9SMaterialE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 8 dereferenceable(178)) unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN3irr5video18COpenGL3DriverBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(2920)) unnamed_addr #5
+declare void @_ZN3irr5video18COpenGL3DriverBaseD1Ev(ptr noundef nonnull align 8 dereferenceable(2920)) unnamed_addr #4
 
-declare noundef ptr @_ZN3irr5video11CNullDriver13getBufferLinkEPKNS_5scene11IMeshBufferE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #3
+; Function Attrs: nounwind
+declare void @_ZN3irr5video18COpenGL3DriverBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(2920)) unnamed_addr #4
 
-declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase20updateHardwareBufferEPNS0_11CNullDriver13SHWBufferLinkE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video11CNullDriver13getBufferLinkEPKNS_5scene11IMeshBufferE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video18COpenGL3DriverBase18drawHardwareBufferEPNS0_11CNullDriver13SHWBufferLinkE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase20updateHardwareBufferEPNS0_11CNullDriver13SHWBufferLinkE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video18COpenGL3DriverBase20deleteHardwareBufferEPNS0_11CNullDriver13SHWBufferLinkE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef) unnamed_addr #3
+declare void @_ZN3irr5video18COpenGL3DriverBase18drawHardwareBufferEPNS0_11CNullDriver13SHWBufferLinkE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video18COpenGL3DriverBase20createHardwareBufferEPKNS_5scene11IMeshBufferE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef) unnamed_addr #3
+declare void @_ZN3irr5video18COpenGL3DriverBase20deleteHardwareBufferEPNS0_11CNullDriver13SHWBufferLinkE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver24updateAllHardwareBuffersEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video18COpenGL3DriverBase20createHardwareBufferEPKNS_5scene11IMeshBufferE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN3irr5video11CNullDriver25isHardwareBufferRecommendEPKNS_5scene11IMeshBufferE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver24updateAllHardwareBuffersEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare noundef i32 @_ZN3irr5video18COpenGL3DriverBase26addHighLevelShaderMaterialEPKcS3_NS0_20E_VERTEX_SHADER_TYPEES3_S3_NS0_19E_PIXEL_SHADER_TYPEES3_S3_NS0_22E_GEOMETRY_SHADER_TYPEENS_5scene16E_PRIMITIVE_TYPEES8_jPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN3irr5video11CNullDriver25isHardwareBufferRecommendEPKNS_5scene11IMeshBufferE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #2
 
-declare noundef i32 @_ZN3irr5video11CNullDriver35addHighLevelShaderMaterialFromFilesERKNS_4core6stringIcEEPKcNS0_20E_VERTEX_SHADER_TYPEES6_S8_NS0_19E_PIXEL_SHADER_TYPEES6_S8_NS0_22E_GEOMETRY_SHADER_TYPEENS_5scene16E_PRIMITIVE_TYPEESD_jPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) unnamed_addr #3
+declare noundef i32 @_ZN3irr5video18COpenGL3DriverBase26addHighLevelShaderMaterialEPKcS3_NS0_20E_VERTEX_SHADER_TYPEES3_S3_NS0_19E_PIXEL_SHADER_TYPEES3_S3_NS0_22E_GEOMETRY_SHADER_TYPEENS_5scene16E_PRIMITIVE_TYPEES8_jPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) unnamed_addr #2
 
-declare noundef i32 @_ZN3irr5video11CNullDriver35addHighLevelShaderMaterialFromFilesEPNS_2io9IReadFileEPKcNS0_20E_VERTEX_SHADER_TYPEES4_S6_NS0_19E_PIXEL_SHADER_TYPEES4_S6_NS0_22E_GEOMETRY_SHADER_TYPEENS_5scene16E_PRIMITIVE_TYPEESB_jPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) unnamed_addr #3
+declare noundef i32 @_ZN3irr5video11CNullDriver35addHighLevelShaderMaterialFromFilesERKNS_4core6stringIcEEPKcNS0_20E_VERTEX_SHADER_TYPEES6_S8_NS0_19E_PIXEL_SHADER_TYPEES6_S8_NS0_22E_GEOMETRY_SHADER_TYPEENS_5scene16E_PRIMITIVE_TYPEESD_jPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver20deleteShaderMaterialEi(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef) unnamed_addr #3
+declare noundef i32 @_ZN3irr5video11CNullDriver35addHighLevelShaderMaterialFromFilesEPNS_2io9IReadFileEPKcNS0_20E_VERTEX_SHADER_TYPEES4_S6_NS0_19E_PIXEL_SHADER_TYPEES4_S6_NS0_22E_GEOMETRY_SHADER_TYPEENS_5scene16E_PRIMITIVE_TYPEESB_jPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video18COpenGL3DriverBase28createDeviceDependentTextureERKNS_4core6stringIcEEPNS0_6IImageE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver20deleteShaderMaterialEi(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video18COpenGL3DriverBase35createDeviceDependentTextureCubemapERKNS_4core6stringIcEERKNS2_5arrayIPNS0_6IImageEEE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 1) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video18COpenGL3DriverBase28createDeviceDependentTextureERKNS_4core6stringIcEEPNS0_6IImageE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video18COpenGL3DriverBase11draw2DImageEPKNS0_8ITextureEjb(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef, i32 noundef, i1 noundef zeroext) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video18COpenGL3DriverBase35createDeviceDependentTextureCubemapERKNS_4core6stringIcEERKNS2_5arrayIPNS0_6IImageEEE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 1) unnamed_addr #2
 
-declare void @_ZN3irr5video18COpenGL3DriverBase20setBasicRenderStatesERKNS0_9SMaterialES4_b(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 8 dereferenceable(178), ptr noundef nonnull align 8 dereferenceable(178), i1 noundef zeroext) unnamed_addr #3
+declare void @_ZN3irr5video18COpenGL3DriverBase11draw2DImageEPKNS0_8ITextureEjb(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef, i32 noundef, i1 noundef zeroext) unnamed_addr #2
 
-declare noundef i32 @_ZN3irr5video18COpenGL3DriverBase25getVertexShaderConstantIDEPKc(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef) unnamed_addr #3
+declare void @_ZN3irr5video18COpenGL3DriverBase20setBasicRenderStatesERKNS0_9SMaterialES4_b(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 8 dereferenceable(178), ptr noundef nonnull align 8 dereferenceable(178), i1 noundef zeroext) unnamed_addr #2
 
-declare noundef i32 @_ZN3irr5video18COpenGL3DriverBase24getPixelShaderConstantIDEPKc(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef) unnamed_addr #3
+declare noundef i32 @_ZN3irr5video18COpenGL3DriverBase25getVertexShaderConstantIDEPKc(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase23setVertexShaderConstantEiPKfi(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, ptr noundef, i32 noundef) unnamed_addr #3
+declare noundef i32 @_ZN3irr5video18COpenGL3DriverBase24getPixelShaderConstantIDEPKc(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase23setVertexShaderConstantEiPKii(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, ptr noundef, i32 noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase23setVertexShaderConstantEiPKfi(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, ptr noundef, i32 noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase23setVertexShaderConstantEiPKji(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, ptr noundef, i32 noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase23setVertexShaderConstantEiPKii(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, ptr noundef, i32 noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase22setPixelShaderConstantEiPKfi(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, ptr noundef, i32 noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase23setVertexShaderConstantEiPKji(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, ptr noundef, i32 noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase22setPixelShaderConstantEiPKii(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, ptr noundef, i32 noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase22setPixelShaderConstantEiPKfi(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, ptr noundef, i32 noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase22setPixelShaderConstantEiPKji(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, ptr noundef, i32 noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase22setPixelShaderConstantEiPKii(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, ptr noundef, i32 noundef) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video18COpenGL3DriverBase14getVideoDriverEv(ptr noundef nonnull align 8 dereferenceable(2920)) unnamed_addr #3
+declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase22setPixelShaderConstantEiPKji(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, ptr noundef, i32 noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZNK3irr5video18COpenGL3DriverBase24getColorFormatParametersENS0_13ECOLOR_FORMATERiRjS4_PPFvPKviPvE(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video18COpenGL3DriverBase14getVideoDriverEv(ptr noundef nonnull align 8 dereferenceable(2920)) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase17genericDriverInitERKNS_4core11dimension2dIjEEb(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 4 dereferenceable(8), i1 noundef zeroext) unnamed_addr #3
+declare noundef zeroext i1 @_ZNK3irr5video18COpenGL3DriverBase24getColorFormatParametersENS0_13ECOLOR_FORMATERiRjS4_PPFvPKviPvE(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase17genericDriverInitERKNS_4core11dimension2dIjEEb(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef nonnull align 4 dereferenceable(8), i1 noundef zeroext) unnamed_addr #2
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
-declare void @_ZN3irr5video18COpenGL3DriverBase14setViewPortRawEjj(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, i32 noundef) unnamed_addr #3
+declare void @_ZN3irr5video18COpenGL3DriverBase14setViewPortRawEjj(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, i32 noundef) unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-declare void @_ZTv0_n24_N3irr5video18COpenGL3DriverBaseD1Ev(ptr noundef) unnamed_addr #7 align 2
+declare void @_ZTv0_n24_N3irr5video18COpenGL3DriverBaseD1Ev(ptr noundef) unnamed_addr #6 align 2
 
 ; Function Attrs: nounwind uwtable
-declare void @_ZTv0_n24_N3irr5video18COpenGL3DriverBaseD0Ev(ptr noundef) unnamed_addr #7 align 2
+declare void @_ZTv0_n24_N3irr5video18COpenGL3DriverBaseD0Ev(ptr noundef) unnamed_addr #6 align 2
 
-declare noundef zeroext i1 @_ZN3irr5video11CNullDriver10beginSceneEtNS0_6SColorEfhRKNS0_17SExposedVideoDataEPNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(1164), i16 noundef zeroext, i32, float noundef, i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN3irr5video11CNullDriver10beginSceneEtNS0_6SColorEfhRKNS0_17SExposedVideoDataEPNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(1164), i16 noundef zeroext, i32, float noundef, i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN3irr5video11CNullDriver8endSceneEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare noundef zeroext i1 @_ZN3irr5video11CNullDriver8endSceneEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZNK3irr5video11CNullDriver12queryFeatureENS0_22E_VIDEO_DRIVER_FEATUREE(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZNK3irr5video11CNullDriver12queryFeatureENS0_22E_VIDEO_DRIVER_FEATUREE(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver12setTransformENS0_22E_TRANSFORMATION_STATEERKNS_4core8CMatrix4IfEE(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, ptr noundef nonnull align 4 dereferenceable(64)) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver12setTransformENS0_22E_TRANSFORMATION_STATEERKNS_4core8CMatrix4IfEE(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, ptr noundef nonnull align 4 dereferenceable(64)) unnamed_addr #2
 
-declare noundef nonnull align 4 dereferenceable(64) ptr @_ZNK3irr5video11CNullDriver12getTransformENS0_22E_TRANSFORMATION_STATEE(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef) unnamed_addr #3
+declare noundef nonnull align 4 dereferenceable(64) ptr @_ZNK3irr5video11CNullDriver12getTransformENS0_22E_TRANSFORMATION_STATEE(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver11setMaterialERKNS0_9SMaterialE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 8 dereferenceable(178)) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver11setMaterialERKNS0_9SMaterialE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 8 dereferenceable(178)) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video11CNullDriver22addRenderTargetTextureERKNS_4core11dimension2dIjEERKNS2_6stringIcEENS0_13ECOLOR_FORMATE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video11CNullDriver22addRenderTargetTextureERKNS_4core11dimension2dIjEERKNS2_6stringIcEENS0_13ECOLOR_FORMATE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video11CNullDriver29addRenderTargetTextureCubemapEjRKNS_4core6stringIcEENS0_13ECOLOR_FORMATE(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video11CNullDriver29addRenderTargetTextureCubemapEjRKNS_4core6stringIcEENS0_13ECOLOR_FORMATE(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver13removeTextureEPNS0_8ITextureE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver13removeTextureEPNS0_8ITextureE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video11CNullDriver15addRenderTargetEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video11CNullDriver15addRenderTargetEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN3irr5video11CNullDriver17setRenderTargetExEPNS0_13IRenderTargetEtNS0_6SColorEfh(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, i16 noundef zeroext, i32, float noundef, i8 noundef zeroext) unnamed_addr #3
+declare noundef zeroext i1 @_ZN3irr5video11CNullDriver17setRenderTargetExEPNS0_13IRenderTargetEtNS0_6SColorEfh(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, i16 noundef zeroext, i32, float noundef, i8 noundef zeroext) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver11setViewPortERKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver11setViewPortERKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver23drawVertexPrimitiveListEPKvjS3_jNS0_13E_VERTEX_TYPEENS_5scene16E_PRIMITIVE_TYPEENS0_12E_INDEX_TYPEE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver23drawVertexPrimitiveListEPKvjS3_jNS0_13E_VERTEX_TYPEENS_5scene16E_PRIMITIVE_TYPEENS0_12E_INDEX_TYPEE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver10draw3DLineERKNS_4core8vector3dIfEES6_NS0_6SColorE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 4 dereferenceable(12), ptr noundef nonnull align 4 dereferenceable(12), i32) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver10draw3DLineERKNS_4core8vector3dIfEES6_NS0_6SColorE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 4 dereferenceable(12), ptr noundef nonnull align 4 dereferenceable(12), i32) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver11draw2DImageEPKNS0_8ITextureERKNS_4core8vector2dIiEERKNS5_4rectIiEEPSC_NS0_6SColorEb(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef, i32, i1 noundef zeroext) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver11draw2DImageEPKNS0_8ITextureERKNS_4core8vector2dIiEERKNS5_4rectIiEEPSC_NS0_6SColorEb(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef, i32, i1 noundef zeroext) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver16draw2DImageBatchEPKNS0_8ITextureERKNS_4core5arrayINS5_8vector2dIiEEEERKNS6_INS5_4rectIiEEEEPKSD_NS0_6SColorEb(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, ptr noundef nonnull align 1, ptr noundef nonnull align 1, ptr noundef, i32, i1 noundef zeroext) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver16draw2DImageBatchEPKNS0_8ITextureERKNS_4core5arrayINS5_8vector2dIiEEEERKNS6_INS5_4rectIiEEEEPKSD_NS0_6SColorEb(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, ptr noundef nonnull align 1, ptr noundef nonnull align 1, ptr noundef, i32, i1 noundef zeroext) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver11draw2DImageEPKNS0_8ITextureERKNS_4core4rectIiEES9_PS8_PKNS0_6SColorEb(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef, ptr noundef, i1 noundef zeroext) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver11draw2DImageEPKNS0_8ITextureERKNS_4core4rectIiEES9_PS8_PKNS0_6SColorEb(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef, ptr noundef, i1 noundef zeroext) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver15draw2DRectangleENS0_6SColorERKNS_4core4rectIiEEPS6_(ptr noundef nonnull align 8 dereferenceable(1164), i32, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver15draw2DRectangleENS0_6SColorERKNS_4core4rectIiEEPS6_(ptr noundef nonnull align 8 dereferenceable(1164), i32, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver15draw2DRectangleERKNS_4core4rectIiEENS0_6SColorES7_S7_S7_PS5_(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 4 dereferenceable(16), i32, i32, i32, i32, ptr noundef) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver15draw2DRectangleERKNS_4core4rectIiEENS0_6SColorES7_S7_S7_PS5_(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 4 dereferenceable(16), i32, i32, i32, i32, ptr noundef) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver10draw2DLineERKNS_4core8vector2dIiEES6_NS0_6SColorE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), i32) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver10draw2DLineERKNS_4core8vector2dIiEES6_NS0_6SColorE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), i32) unnamed_addr #2
 
-declare noundef i32 @_ZNK3irr5video11CNullDriver14getColorFormatEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare noundef i32 @_ZNK3irr5video11CNullDriver14getColorFormatEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare noundef ptr @_ZNK3irr5video11CNullDriver7getNameEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare noundef ptr @_ZNK3irr5video11CNullDriver7getNameEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare noundef i32 @_ZNK3irr5video11CNullDriver24getMaximalPrimitiveCountEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare noundef i32 @_ZNK3irr5video11CNullDriver24getMaximalPrimitiveCountEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver8OnResizeERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver8OnResizeERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #2
 
-declare noundef i32 @_ZNK3irr5video11CNullDriver13getDriverTypeEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare noundef i32 @_ZNK3irr5video11CNullDriver13getDriverTypeEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video11CNullDriver25getGPUProgrammingServicesEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video11CNullDriver25getGPUProgrammingServicesEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver12clearBuffersEtNS0_6SColorEfh(ptr noundef nonnull align 8 dereferenceable(1164), i16 noundef zeroext, i32, float noundef, i8 noundef zeroext) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver12clearBuffersEtNS0_6SColorEfh(ptr noundef nonnull align 8 dereferenceable(1164), i16 noundef zeroext, i32, float noundef, i8 noundef zeroext) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video11CNullDriver16createScreenShotENS0_13ECOLOR_FORMATENS0_15E_RENDER_TARGETE(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, i32 noundef) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video11CNullDriver16createScreenShotENS0_13ECOLOR_FORMATENS0_15E_RENDER_TARGETE(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, i32 noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN3irr5video11CNullDriver12setClipPlaneEjRKNS_4core7plane3dIfEEb(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, ptr noundef nonnull align 4 dereferenceable(16), i1 noundef zeroext) unnamed_addr #3
+declare noundef zeroext i1 @_ZN3irr5video11CNullDriver12setClipPlaneEjRKNS_4core7plane3dIfEEb(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, ptr noundef nonnull align 4 dereferenceable(16), i1 noundef zeroext) unnamed_addr #2
 
-declare void @_ZN3irr5video11CNullDriver15enableClipPlaneEjb(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, i1 noundef zeroext) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver15enableClipPlaneEjb(ptr noundef nonnull align 8 dereferenceable(1164), i32 noundef, i1 noundef zeroext) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video11CNullDriver13getVendorInfoEv(ptr dead_on_unwind noalias writable sret(%"class.irr::core::string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1164) %this) unnamed_addr #1 comdat align 2 {
@@ -1020,7 +1014,7 @@ entry:
   ret void
 }
 
-declare i64 @_ZNK3irr5video11CNullDriver17getMaxTextureSizeEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #3
+declare i64 @_ZNK3irr5video11CNullDriver17getMaxTextureSizeEv(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK3irr5video11CNullDriver18queryTextureFormatENS0_13ECOLOR_FORMATE(ptr noundef nonnull align 8 dereferenceable(1164) %this, i32 noundef %format) unnamed_addr #1 comdat align 2 {
@@ -1028,13 +1022,13 @@ entry:
   ret i1 false
 }
 
-declare noundef zeroext i1 @_ZNK3irr5video11CNullDriver26needsTransparentRenderPassERKNS0_9SMaterialE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 8 dereferenceable(178)) unnamed_addr #3
+declare noundef zeroext i1 @_ZNK3irr5video11CNullDriver26needsTransparentRenderPassERKNS0_9SMaterialE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 8 dereferenceable(178)) unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN3irr5video11CNullDriverD1Ev(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #5
+declare void @_ZN3irr5video11CNullDriverD1Ev(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN3irr5video11CNullDriverD0Ev(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #5
+declare void @_ZN3irr5video11CNullDriverD0Ev(ptr noundef nonnull align 8 dereferenceable(1164)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3irr5video11CNullDriver20updateHardwareBufferEPNS1_13SHWBufferLinkE(ptr noundef nonnull align 8 dereferenceable(1164) %this, ptr noundef %HWBuffer) unnamed_addr #1 comdat align 2 {
@@ -1048,7 +1042,7 @@ entry:
   ret void
 }
 
-declare void @_ZN3irr5video11CNullDriver20deleteHardwareBufferEPNS1_13SHWBufferLinkE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #3
+declare void @_ZN3irr5video11CNullDriver20deleteHardwareBufferEPNS1_13SHWBufferLinkE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZN3irr5video11CNullDriver20createHardwareBufferEPKNS_5scene11IMeshBufferE(ptr noundef nonnull align 8 dereferenceable(1164) %this, ptr noundef %mb) unnamed_addr #1 comdat align 2 {
@@ -1056,55 +1050,55 @@ entry:
   ret ptr null
 }
 
-declare noundef i32 @_ZN3irr5video11CNullDriver26addHighLevelShaderMaterialEPKcS3_NS0_20E_VERTEX_SHADER_TYPEES3_S3_NS0_19E_PIXEL_SHADER_TYPEES3_S3_NS0_22E_GEOMETRY_SHADER_TYPEENS_5scene16E_PRIMITIVE_TYPEES8_jPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) unnamed_addr #3
+declare noundef i32 @_ZN3irr5video11CNullDriver26addHighLevelShaderMaterialEPKcS3_NS0_20E_VERTEX_SHADER_TYPEES3_S3_NS0_19E_PIXEL_SHADER_TYPEES3_S3_NS0_22E_GEOMETRY_SHADER_TYPEENS_5scene16E_PRIMITIVE_TYPEES8_jPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video11CNullDriver28createDeviceDependentTextureERKNS_4core6stringIcEEPNS0_6IImageE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) unnamed_addr #3
+declare noundef ptr @_ZN3irr5video11CNullDriver28createDeviceDependentTextureERKNS_4core6stringIcEEPNS0_6IImageE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) unnamed_addr #2
 
-declare noundef ptr @_ZN3irr5video11CNullDriver35createDeviceDependentTextureCubemapERKNS_4core6stringIcEERKNS2_5arrayIPNS0_6IImageEEE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 1) unnamed_addr #3
-
-; Function Attrs: nounwind uwtable
-declare void @_ZTv0_n24_N3irr5video11CNullDriverD1Ev(ptr noundef) unnamed_addr #7 align 2
+declare noundef ptr @_ZN3irr5video11CNullDriver35createDeviceDependentTextureCubemapERKNS_4core6stringIcEERKNS2_5arrayIPNS0_6IImageEEE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 1) unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-declare void @_ZTv0_n24_N3irr5video11CNullDriverD0Ev(ptr noundef) unnamed_addr #7 align 2
+declare void @_ZTv0_n24_N3irr5video11CNullDriverD1Ev(ptr noundef) unnamed_addr #6 align 2
+
+; Function Attrs: nounwind uwtable
+declare void @_ZTv0_n24_N3irr5video11CNullDriverD0Ev(ptr noundef) unnamed_addr #6 align 2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5video12IVideoDriverD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #8 comdat align 2 {
+define linkonce_odr void @_ZN3irr5video12IVideoDriverD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 comdat align 2 {
 entry:
   tail call void @llvm.trap() #16
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5video12IVideoDriverD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #8 comdat align 2 {
+define linkonce_odr void @_ZN3irr5video12IVideoDriverD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 comdat align 2 {
 entry:
   tail call void @llvm.trap() #16
   unreachable
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr5video12IVideoDriverD1Ev(ptr noundef %this) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr5video12IVideoDriverD1Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   tail call void @llvm.trap() #16
   unreachable
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr5video12IVideoDriverD0Ev(ptr noundef %this) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr5video12IVideoDriverD0Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   tail call void @llvm.trap() #16
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5video14COpenGL3DriverD1Ev(ptr noundef nonnull align 8 dereferenceable(2920) %this) unnamed_addr #8 comdat align 2 {
+define linkonce_odr void @_ZN3irr5video14COpenGL3DriverD1Ev(ptr noundef nonnull align 8 dereferenceable(2920) %this) unnamed_addr #7 comdat align 2 {
 entry:
   tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #13
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5video14COpenGL3DriverD0Ev(ptr noundef nonnull align 8 dereferenceable(2920) %this) unnamed_addr #8 comdat align 2 {
+define linkonce_odr void @_ZN3irr5video14COpenGL3DriverD0Ev(ptr noundef nonnull align 8 dereferenceable(2920) %this) unnamed_addr #7 comdat align 2 {
 entry:
   tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #14
@@ -1112,7 +1106,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZThn8_N3irr5video14COpenGL3DriverD1Ev(ptr noundef %this) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3irr5video14COpenGL3DriverD1Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #13
@@ -1120,7 +1114,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZThn8_N3irr5video14COpenGL3DriverD0Ev(ptr noundef %this) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3irr5video14COpenGL3DriverD0Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #13
@@ -1129,19 +1123,19 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-declare noundef i32 @_ZThn8_N3irr5video18COpenGL3DriverBase26addHighLevelShaderMaterialEPKcS3_NS0_20E_VERTEX_SHADER_TYPEES3_S3_NS0_19E_PIXEL_SHADER_TYPEES3_S3_NS0_22E_GEOMETRY_SHADER_TYPEENS_5scene16E_PRIMITIVE_TYPEES8_jPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) unnamed_addr #7 align 2
+declare noundef i32 @_ZThn8_N3irr5video18COpenGL3DriverBase26addHighLevelShaderMaterialEPKcS3_NS0_20E_VERTEX_SHADER_TYPEES3_S3_NS0_19E_PIXEL_SHADER_TYPEES3_S3_NS0_22E_GEOMETRY_SHADER_TYPEENS_5scene16E_PRIMITIVE_TYPEES8_jPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) unnamed_addr #6 align 2
 
 ; Function Attrs: nounwind uwtable
-declare noundef i32 @_ZThn8_N3irr5video11CNullDriver35addHighLevelShaderMaterialFromFilesERKNS_4core6stringIcEEPKcNS0_20E_VERTEX_SHADER_TYPEES6_S8_NS0_19E_PIXEL_SHADER_TYPEES6_S8_NS0_22E_GEOMETRY_SHADER_TYPEENS_5scene16E_PRIMITIVE_TYPEESD_jPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) unnamed_addr #7 align 2
+declare noundef i32 @_ZThn8_N3irr5video11CNullDriver35addHighLevelShaderMaterialFromFilesERKNS_4core6stringIcEEPKcNS0_20E_VERTEX_SHADER_TYPEES6_S8_NS0_19E_PIXEL_SHADER_TYPEES6_S8_NS0_22E_GEOMETRY_SHADER_TYPEENS_5scene16E_PRIMITIVE_TYPEESD_jPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) unnamed_addr #6 align 2
 
 ; Function Attrs: nounwind uwtable
-declare noundef i32 @_ZThn8_N3irr5video11CNullDriver35addHighLevelShaderMaterialFromFilesEPNS_2io9IReadFileEPKcNS0_20E_VERTEX_SHADER_TYPEES4_S6_NS0_19E_PIXEL_SHADER_TYPEES4_S6_NS0_22E_GEOMETRY_SHADER_TYPEENS_5scene16E_PRIMITIVE_TYPEESB_jPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) unnamed_addr #7 align 2
+declare noundef i32 @_ZThn8_N3irr5video11CNullDriver35addHighLevelShaderMaterialFromFilesEPNS_2io9IReadFileEPKcNS0_20E_VERTEX_SHADER_TYPEES4_S6_NS0_19E_PIXEL_SHADER_TYPEES4_S6_NS0_22E_GEOMETRY_SHADER_TYPEENS_5scene16E_PRIMITIVE_TYPEESB_jPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) unnamed_addr #6 align 2
 
 ; Function Attrs: nounwind uwtable
-declare void @_ZThn8_N3irr5video11CNullDriver20deleteShaderMaterialEi(ptr noundef, i32 noundef) unnamed_addr #7 align 2
+declare void @_ZThn8_N3irr5video11CNullDriver20deleteShaderMaterialEi(ptr noundef, i32 noundef) unnamed_addr #6 align 2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZThn1168_N3irr5video14COpenGL3DriverD1Ev(ptr noundef %this) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZThn1168_N3irr5video14COpenGL3DriverD1Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1168
   tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #13
@@ -1149,7 +1143,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZThn1168_N3irr5video14COpenGL3DriverD0Ev(ptr noundef %this) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZThn1168_N3irr5video14COpenGL3DriverD0Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1168
   tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #13
@@ -1158,37 +1152,37 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-declare void @_ZThn1168_N3irr5video18COpenGL3DriverBase20setBasicRenderStatesERKNS0_9SMaterialES4_b(ptr noundef, ptr noundef nonnull align 8 dereferenceable(178), ptr noundef nonnull align 8 dereferenceable(178), i1 noundef zeroext) unnamed_addr #7 align 2
+declare void @_ZThn1168_N3irr5video18COpenGL3DriverBase20setBasicRenderStatesERKNS0_9SMaterialES4_b(ptr noundef, ptr noundef nonnull align 8 dereferenceable(178), ptr noundef nonnull align 8 dereferenceable(178), i1 noundef zeroext) unnamed_addr #6 align 2
 
 ; Function Attrs: nounwind uwtable
-declare noundef i32 @_ZThn1168_N3irr5video18COpenGL3DriverBase25getVertexShaderConstantIDEPKc(ptr noundef, ptr noundef) unnamed_addr #7 align 2
+declare noundef i32 @_ZThn1168_N3irr5video18COpenGL3DriverBase25getVertexShaderConstantIDEPKc(ptr noundef, ptr noundef) unnamed_addr #6 align 2
 
 ; Function Attrs: nounwind uwtable
-declare noundef zeroext i1 @_ZThn1168_N3irr5video18COpenGL3DriverBase23setVertexShaderConstantEiPKfi(ptr noundef, i32 noundef, ptr noundef, i32 noundef) unnamed_addr #7 align 2
+declare noundef zeroext i1 @_ZThn1168_N3irr5video18COpenGL3DriverBase23setVertexShaderConstantEiPKfi(ptr noundef, i32 noundef, ptr noundef, i32 noundef) unnamed_addr #6 align 2
 
 ; Function Attrs: nounwind uwtable
-declare noundef zeroext i1 @_ZThn1168_N3irr5video18COpenGL3DriverBase23setVertexShaderConstantEiPKii(ptr noundef, i32 noundef, ptr noundef, i32 noundef) unnamed_addr #7 align 2
+declare noundef zeroext i1 @_ZThn1168_N3irr5video18COpenGL3DriverBase23setVertexShaderConstantEiPKii(ptr noundef, i32 noundef, ptr noundef, i32 noundef) unnamed_addr #6 align 2
 
 ; Function Attrs: nounwind uwtable
-declare noundef zeroext i1 @_ZThn1168_N3irr5video18COpenGL3DriverBase23setVertexShaderConstantEiPKji(ptr noundef, i32 noundef, ptr noundef, i32 noundef) unnamed_addr #7 align 2
+declare noundef zeroext i1 @_ZThn1168_N3irr5video18COpenGL3DriverBase23setVertexShaderConstantEiPKji(ptr noundef, i32 noundef, ptr noundef, i32 noundef) unnamed_addr #6 align 2
 
 ; Function Attrs: nounwind uwtable
-declare noundef i32 @_ZThn1168_N3irr5video18COpenGL3DriverBase24getPixelShaderConstantIDEPKc(ptr noundef, ptr noundef) unnamed_addr #7 align 2
+declare noundef i32 @_ZThn1168_N3irr5video18COpenGL3DriverBase24getPixelShaderConstantIDEPKc(ptr noundef, ptr noundef) unnamed_addr #6 align 2
 
 ; Function Attrs: nounwind uwtable
-declare noundef zeroext i1 @_ZThn1168_N3irr5video18COpenGL3DriverBase22setPixelShaderConstantEiPKfi(ptr noundef, i32 noundef, ptr noundef, i32 noundef) unnamed_addr #7 align 2
+declare noundef zeroext i1 @_ZThn1168_N3irr5video18COpenGL3DriverBase22setPixelShaderConstantEiPKfi(ptr noundef, i32 noundef, ptr noundef, i32 noundef) unnamed_addr #6 align 2
 
 ; Function Attrs: nounwind uwtable
-declare noundef zeroext i1 @_ZThn1168_N3irr5video18COpenGL3DriverBase22setPixelShaderConstantEiPKii(ptr noundef, i32 noundef, ptr noundef, i32 noundef) unnamed_addr #7 align 2
+declare noundef zeroext i1 @_ZThn1168_N3irr5video18COpenGL3DriverBase22setPixelShaderConstantEiPKii(ptr noundef, i32 noundef, ptr noundef, i32 noundef) unnamed_addr #6 align 2
 
 ; Function Attrs: nounwind uwtable
-declare noundef zeroext i1 @_ZThn1168_N3irr5video18COpenGL3DriverBase22setPixelShaderConstantEiPKji(ptr noundef, i32 noundef, ptr noundef, i32 noundef) unnamed_addr #7 align 2
+declare noundef zeroext i1 @_ZThn1168_N3irr5video18COpenGL3DriverBase22setPixelShaderConstantEiPKji(ptr noundef, i32 noundef, ptr noundef, i32 noundef) unnamed_addr #6 align 2
 
 ; Function Attrs: nounwind uwtable
-declare noundef ptr @_ZThn1168_N3irr5video18COpenGL3DriverBase14getVideoDriverEv(ptr noundef) unnamed_addr #7 align 2
+declare noundef ptr @_ZThn1168_N3irr5video18COpenGL3DriverBase14getVideoDriverEv(ptr noundef) unnamed_addr #6 align 2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZThn1176_N3irr5video14COpenGL3DriverD1Ev(ptr noundef %this) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZThn1176_N3irr5video14COpenGL3DriverD1Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1176
   tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #13
@@ -1196,7 +1190,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZThn1176_N3irr5video14COpenGL3DriverD0Ev(ptr noundef %this) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZThn1176_N3irr5video14COpenGL3DriverD0Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1176
   tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #13
@@ -1205,7 +1199,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr5video14COpenGL3DriverD1Ev(ptr noundef %this) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr5video14COpenGL3DriverD1Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
@@ -1216,7 +1210,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr5video14COpenGL3DriverD0Ev(ptr noundef %this) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr5video14COpenGL3DriverD0Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
@@ -1227,7 +1221,7 @@ entry:
   ret void
 }
 
-declare void @_ZN3irr5video18COpenGL3DriverBaseC2ERKNS_27SIrrlichtCreationParametersEPNS_2io11IFileSystemEPNS0_15IContextManagerE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef, ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, ptr noundef) unnamed_addr #3
+declare void @_ZN3irr5video18COpenGL3DriverBaseC2ERKNS_27SIrrlichtCreationParametersEPNS_2io11IFileSystemEPNS0_15IContextManagerE(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef, ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr17IReferenceCountedD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #1 comdat align 2 {
@@ -1243,36 +1237,42 @@ entry:
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #3
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #11
+declare void @llvm.trap() #10
 
 ; Function Attrs: nounwind
-declare void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef) unnamed_addr #5
+declare void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920), ptr noundef) unnamed_addr #4
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #3
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
+declare void @llvm.assume(i1 noundef) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nounwind }
 attributes #14 = { builtin nounwind }
 attributes #15 = { builtin nounwind allocsize(0) }

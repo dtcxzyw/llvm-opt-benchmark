@@ -2693,7 +2693,7 @@ define internal void @sslmodule_free(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl__test_decode_cert(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @PyUnicode_FSConverter(ptr noundef %1, ptr noundef nonnull %3) #11
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %_ssl__test_decode_cert_impl.exit, label %5
@@ -2766,7 +2766,7 @@ Py_DECREF.exit.i:                                 ; preds = %35, %32, %30
 
 _ssl__test_decode_cert_impl.exit:                 ; preds = %36, %Py_DECREF.exit.i, %2
   %.0 = phi ptr [ null, %2 ], [ %.0.i, %Py_DECREF.exit.i ], [ %.0.i, %36 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -2774,7 +2774,7 @@ _ssl__test_decode_cert_impl.exit:                 ; preds = %36, %Py_DECREF.exit
 define internal noundef ptr @_ssl_RAND_add(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %struct.Py_buffer, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   %or.cond = icmp eq i64 %2, 2
   br i1 %or.cond, label %8, label %6
@@ -2795,7 +2795,7 @@ define internal noundef ptr @_ssl_RAND_add(ptr readnone captures(none) %0, ptr n
   br i1 %.not23, label %22, label %13
 
 13:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %9, ptr noundef nonnull %5) #11
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.thread, label %16
@@ -2808,11 +2808,11 @@ define internal noundef ptr @_ssl_RAND_add(ptr readnone captures(none) %0, ptr n
   br i1 %20, label %.thread, label %21
 
 .thread:                                          ; preds = %13, %16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ssl_RAND_add_impl.exit
 
 21:                                               ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %24
 
 22:                                               ; preds = %8
@@ -2873,7 +2873,7 @@ _ssl_RAND_add_impl.exit:                          ; preds = %37, %.thread, %33, 
   br label %45
 
 45:                                               ; preds = %_ssl_RAND_add_impl.exit, %44
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.020
 }
 
@@ -3083,7 +3083,7 @@ _ssl_get_default_verify_paths_impl.exit:          ; preds = %_Py_NewRef.exit.i, 
 define internal ptr @_ssl_txt2obj(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [2 x ptr], align 16
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %.thread
 
@@ -3187,7 +3187,7 @@ asn1obj2py.exit.i:                                ; preds = %51, %48
 
 _ssl_txt2obj_impl.exit:                           ; preds = %asn1obj2py.exit.i, %41, %32, %23, %13, %29, %22
   %.028 = phi ptr [ null, %23 ], [ null, %29 ], [ null, %32 ], [ null, %22 ], [ null, %13 ], [ null, %41 ], [ %.0.i.i, %asn1obj2py.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.028
 }
 
@@ -3216,13 +3216,7 @@ define internal ptr @_ssl_nid2obj(ptr noundef %0, ptr noundef %1) #0 {
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @PyUnicode_FSConverter(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @BIO_new(ptr noundef) local_unnamed_addr #1
 
@@ -3239,7 +3233,7 @@ declare ptr @PEM_read_bio_X509(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_decode_certificate(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [2048 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @PyDict_New() #11
   %5 = icmp eq ptr %4, null
   br i1 %5, label %Py_XDECREF.exit, label %6
@@ -3681,7 +3675,7 @@ Py_DECREF.exit:                                   ; preds = %62, %6, %Py_DECREF.
 
 Py_XDECREF.exit:                                  ; preds = %197, %194, %Py_DECREF.exit, %2, %190
   %.0 = phi ptr [ %4, %190 ], [ null, %2 ], [ null, %Py_DECREF.exit ], [ null, %194 ], [ null, %197 ]
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -3809,7 +3803,7 @@ _create_tuple_for_attribute.exit.thread:          ; preds = %38
   br label %_create_tuple_for_attribute.exit
 
 56:                                               ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !53
   %57 = call i32 @ASN1_STRING_to_UTF8(ptr noundef nonnull %3, ptr noundef %41) #11
   %58 = icmp sgt i32 %57, -1
@@ -3847,7 +3841,7 @@ _create_tuple_for_attribute.exit.thread:          ; preds = %38
 
 Py_DECREF.exit.i:                                 ; preds = %69, %68, %65, %59
   %spec.select.i = phi ptr [ %72, %69 ], [ null, %59 ], [ null, %65 ], [ null, %68 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_create_tuple_for_attribute.exit
 
 _create_tuple_for_attribute.exit:                 ; preds = %51, %Py_DECREF.exit.i
@@ -4044,7 +4038,7 @@ declare ptr @X509_get0_notAfter(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_get_peer_alt_names(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [2048 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq ptr %1, null
   br i1 %4, label %Py_DECREF.exit, label %5
 
@@ -4624,7 +4618,7 @@ select.unfold:                                    ; preds = %Py_DECREF.exit167, 
 
 Py_DECREF.exit:                                   ; preds = %307, %304, %302, %.thread213, %300, %297, %294, %.thread, %select.unfold, %._crit_edge, %2, %9
   %.0 = phi ptr [ null, %9 ], [ @_Py_NoneStruct, %2 ], [ @_Py_NoneStruct, %._crit_edge ], [ null, %select.unfold ], [ @_Py_NoneStruct, %.thread ], [ %295, %294 ], [ %295, %297 ], [ %295, %300 ], [ null, %.thread213 ], [ null, %302 ], [ null, %304 ], [ null, %307 ]
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -4902,7 +4896,7 @@ declare ptr @X509_NAME_ENTRY_get_data(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_asn1obj2py(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @OBJ_obj2txt(ptr noundef nonnull %4, i32 noundef 256, ptr noundef %1, i32 noundef %2) #11
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %13
@@ -4985,7 +4979,7 @@ _Py_NewRef.exit:                                  ; preds = %38, %35, %40, %26
 
 44:                                               ; preds = %_Py_NewRef.exit, %43, %21, %7
   %.026 = phi ptr [ null, %7 ], [ null, %21 ], [ %.0, %43 ], [ %.0, %_Py_NewRef.exit ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.026
 }
 
@@ -5406,7 +5400,7 @@ declare i32 @PyErr_WarnFormat(ptr noundef, i64 noundef, ptr noundef, ...) local_
 declare i32 @GENERAL_NAME_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -5425,7 +5419,7 @@ declare void @CRL_DIST_POINTS_free(ptr noundef) local_unnamed_addr #1
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -5538,7 +5532,7 @@ declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr no
 declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
 
@@ -6865,7 +6859,7 @@ Py_DECREF.exit:                                   ; preds = %41, %38, %36, %Py_D
 define internal ptr @_ssl__SSLContext__wrap_socket(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [5 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %7
 
@@ -6930,7 +6924,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %.thread, %PyObject_
   br i1 %.not53, label %.thread74, label %39
 
 .thread74:                                        ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !53
   br label %53
 
@@ -6967,7 +6961,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %.thread, %PyObject_
   %.04067 = phi ptr [ %.04073, %47 ], [ %.04073, %46 ], [ %41, %42 ]
   %.039 = phi ptr [ %.1, %47 ], [ %45, %46 ], [ @_Py_NoneStruct, %42 ]
   %.0 = phi ptr [ %49, %47 ], [ @_Py_NoneStruct, %46 ], [ @_Py_NoneStruct, %42 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !53
   %.not.i60 = icmp eq ptr %.04067, @_Py_NoneStruct
   br i1 %.not.i60, label %53, label %51
@@ -6996,12 +6990,12 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %.thread, %PyObject_
 
 _ssl__SSLContext__wrap_socket_impl.exit:          ; preds = %51, %53, %57
   %.0.i = phi ptr [ null, %51 ], [ %55, %57 ], [ %55, %53 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %58
 
 58:                                               ; preds = %PyObject_TypeCheck.exit.thread, %17, %_ssl__SSLContext__wrap_socket_impl.exit, %27
   %.041 = phi ptr [ null, %PyObject_TypeCheck.exit.thread ], [ %.0.i, %_ssl__SSLContext__wrap_socket_impl.exit ], [ null, %27 ], [ null, %17 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.041
 }
 
@@ -7009,7 +7003,7 @@ _ssl__SSLContext__wrap_socket_impl.exit:          ; preds = %51, %53, %57
 define internal ptr @_ssl__SSLContext__wrap_bio(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [6 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %7
 
@@ -7099,7 +7093,7 @@ PyObject_TypeCheck.exit69.thread:                 ; preds = %PyObject_TypeCheck.
   br i1 %.not60, label %.thread85, label %50
 
 .thread85:                                        ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !53
   br label %64
 
@@ -7136,7 +7130,7 @@ PyObject_TypeCheck.exit69.thread:                 ; preds = %PyObject_TypeCheck.
   %.04678 = phi ptr [ %.04684, %58 ], [ %.04684, %57 ], [ %52, %53 ]
   %.045 = phi ptr [ %.1, %58 ], [ %56, %57 ], [ @_Py_NoneStruct, %53 ]
   %.0 = phi ptr [ %60, %58 ], [ @_Py_NoneStruct, %57 ], [ @_Py_NoneStruct, %53 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !53
   %.not.i70 = icmp eq ptr %.04678, @_Py_NoneStruct
   br i1 %.not.i70, label %64, label %62
@@ -7161,12 +7155,12 @@ PyObject_TypeCheck.exit69.thread:                 ; preds = %PyObject_TypeCheck.
 
 _ssl__SSLContext__wrap_bio_impl.exit:             ; preds = %62, %64
   %.0.i = phi ptr [ %66, %64 ], [ null, %62 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %68
 
 68:                                               ; preds = %PyObject_TypeCheck.exit69.thread, %17, %_ssl__SSLContext__wrap_bio_impl.exit, %38, %29
   %.047 = phi ptr [ null, %PyObject_TypeCheck.exit69.thread ], [ %.0.i, %_ssl__SSLContext__wrap_bio_impl.exit ], [ null, %38 ], [ null, %29 ], [ null, %17 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.047
 }
 
@@ -7225,7 +7219,7 @@ _ssl__SSLContext_set_ciphers_impl.exit:           ; preds = %21, %16, %8, %14, %
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl__SSLContext__set_alpn_protocols(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false)
   %4 = call i32 @PyObject_GetBuffer(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 0) #11
   %.not = icmp eq i32 %4, 0
@@ -7292,7 +7286,7 @@ _ssl__SSLContext__set_alpn_protocols_impl.exit:   ; preds = %31, %29, %17, %9, %
   br label %36
 
 36:                                               ; preds = %35, %_ssl__SSLContext__set_alpn_protocols_impl.exit
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -7302,7 +7296,7 @@ define internal noundef ptr @_ssl__SSLContext_load_cert_chain(ptr noundef readon
   %6 = alloca ptr, align 8
   %7 = alloca %struct._PySSLPasswordInfo, align 8
   %8 = alloca [3 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %.thread
 
@@ -7351,16 +7345,16 @@ define internal noundef ptr @_ssl__SSLContext_load_cert_chain(ptr noundef readon
 28:                                               ; preds = %24, %.thread40, %25
   %.027 = phi ptr [ %.1, %25 ], [ %23, %24 ], [ @_Py_NoneStruct, %.thread40 ]
   %.0 = phi ptr [ %27, %25 ], [ @_Py_NoneStruct, %24 ], [ @_Py_NoneStruct, %.thread40 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !94
   %31 = call ptr @SSL_CTX_get_default_passwd_cb(ptr noundef %30) #11
   %32 = load ptr, ptr %29, align 8, !tbaa !94
   %33 = call ptr @SSL_CTX_get_default_passwd_cb_userdata(ptr noundef %32) #11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %34 = tail call ptr @__errno_location() #13
   store i32 0, ptr %34, align 4, !tbaa !106
@@ -7637,14 +7631,14 @@ Py_XDECREF.exit.i:                                ; preds = %148, %145, %143, %1
 
 _ssl__SSLContext_load_cert_chain_impl.exit:       ; preds = %36, %39, %132, %Py_XDECREF.exit.i, %150, %152, %155
   %.0.i = phi ptr [ @_Py_NoneStruct, %132 ], [ null, %39 ], [ null, %36 ], [ null, %Py_XDECREF.exit.i ], [ null, %150 ], [ null, %152 ], [ null, %155 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %156
 
 156:                                              ; preds = %15, %_ssl__SSLContext_load_cert_chain_impl.exit
   %.028 = phi ptr [ %.0.i, %_ssl__SSLContext_load_cert_chain_impl.exit ], [ null, %15 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.028
 }
 
@@ -7721,7 +7715,7 @@ define internal ptr @_ssl__SSLContext_load_verify_locations(ptr noundef readonly
   %6 = alloca ptr, align 8
   %7 = alloca %struct.Py_buffer, align 8
   %8 = alloca [3 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %.thread
 
@@ -7781,9 +7775,9 @@ define internal ptr @_ssl__SSLContext_load_verify_locations(ptr noundef readonly
   %.030 = phi ptr [ %.131, %27 ], [ %.131, %26 ], [ %20, %21 ], [ @_Py_NoneStruct, %.thread49 ]
   %.029 = phi ptr [ %.1, %27 ], [ %25, %26 ], [ @_Py_NoneStruct, %21 ], [ @_Py_NoneStruct, %.thread49 ]
   %.0 = phi ptr [ %29, %27 ], [ @_Py_NoneStruct, %26 ], [ @_Py_NoneStruct, %21 ], [ @_Py_NoneStruct, %.thread49 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !26
   %31 = tail call ptr @__errno_location() #13
   store i32 0, ptr %31, align 4, !tbaa !106
@@ -7893,7 +7887,7 @@ Py_DECREF.exit.i:                                 ; preds = %74, %71, %66
   br i1 %.not53.i, label %93, label %78
 
 78:                                               ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %79 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %.0, ptr noundef nonnull %7, i32 noundef 0) #11
   %.not54.i = icmp eq i32 %79, 0
   br i1 %.not54.i, label %80, label %.thread75.i
@@ -7920,11 +7914,11 @@ Py_DECREF.exit.i:                                 ; preds = %74, %71, %66
   br i1 %91, label %.thread75.i, label %92
 
 .thread75.i:                                      ; preds = %86, %84, %78
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread.i
 
 92:                                               ; preds = %86
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread71.i
 
 93:                                               ; preds = %76, %63
@@ -8009,13 +8003,13 @@ Py_XDECREF.exit.i:                                ; preds = %118, %115, %113, %.
   br label %_ssl__SSLContext_load_verify_locations_impl.exit
 
 _ssl__SSLContext_load_verify_locations_impl.exit: ; preds = %Py_XDECREF.exit.i, %120, %122, %125
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %126
 
 126:                                              ; preds = %14, %_ssl__SSLContext_load_verify_locations_impl.exit
   %.033 = phi ptr [ %.not58.i, %_ssl__SSLContext_load_verify_locations_impl.exit ], [ null, %14 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.033
 }
 
@@ -8402,8 +8396,8 @@ _ssl__SSLContext_set_default_verify_paths_impl.exit: ; preds = %2, %7
 define internal noundef ptr @_ssl__SSLContext_set_ecdh_curve(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @PyUnicode_FSConverter(ptr noundef %1, ptr noundef nonnull %3) #11
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ssl__SSLContext_set_ecdh_curve_impl.exit, label %6
@@ -8459,8 +8453,8 @@ Py_DECREF.exit.i:                                 ; preds = %15, %12, %6
 
 _ssl__SSLContext_set_ecdh_curve_impl.exit:        ; preds = %2, %17, %20, %24
   %.0.i = phi ptr [ null, %17 ], [ null, %24 ], [ null, %2 ], [ @_Py_NoneStruct, %20 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i
 }
 
@@ -8540,7 +8534,7 @@ _ssl__SSLContext_cert_store_stats_impl.exit:      ; preds = %X509_STORE_get1_obj
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl__SSLContext_get_ca_certs(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [1 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %.thread
 
@@ -8743,7 +8737,7 @@ Py_XDECREF.exit.i:                                ; preds = %84, %81, %.split52.
 
 _ssl__SSLContext_get_ca_certs_impl.exit:          ; preds = %89, %86, %Py_XDECREF.exit.i, %._crit_edge.i, %20, %16, %10
   %.022 = phi ptr [ null, %16 ], [ null, %10 ], [ %21, %._crit_edge.i ], [ null, %20 ], [ null, %Py_XDECREF.exit.i ], [ null, %86 ], [ null, %89 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.022
 }
 
@@ -8791,8 +8785,8 @@ Py_DECREF.exit.thread.i:                          ; preds = %2
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %75 ]
   %26 = trunc nuw nsw i64 %indvars.iv.i to i32
   %27 = call ptr @OPENSSL_sk_value(ptr noundef %17, i32 noundef %26) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   %28 = call ptr @SSL_CIPHER_get_name(ptr noundef %27) #11
   %29 = call ptr @SSL_CIPHER_get_version(ptr noundef %27) #11
@@ -8863,8 +8857,8 @@ cipher_to_dict.exit.i:                            ; preds = %61, %58
   %.not36.i.i = icmp eq i32 %44, 0
   %66 = select i1 %.not36.i.i, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   %67 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.148, ptr noundef nonnull @.str.149, i64 noundef %64, ptr noundef nonnull @.str.53, ptr noundef %28, ptr noundef nonnull @.str.150, ptr noundef %29, ptr noundef nonnull @.str.151, ptr noundef nonnull %4, ptr noundef nonnull @.str.152, i32 noundef %43, ptr noundef nonnull @.str.153, i32 noundef %65, ptr noundef nonnull @.str.154, ptr noundef nonnull %66, ptr noundef nonnull @.str.155, ptr noundef %49, ptr noundef nonnull @.str.156, ptr noundef %54, ptr noundef nonnull @.str.157, ptr noundef %59, ptr noundef nonnull @.str.158, ptr noundef %63) #11
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %68 = icmp eq ptr %67, null
   br i1 %68, label %69, label %75
 
@@ -8906,7 +8900,7 @@ _ssl__SSLContext_get_ciphers_impl.exit:           ; preds = %Py_DECREF.exit.thre
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @_ssl__SSLContext_set_psk_client_callback(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [1 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %3, null
   %7 = icmp eq i64 %2, 1
   %or.cond3 = and i1 %7, %6
@@ -8996,7 +8990,7 @@ Py_XINCREF.exit.i:                                ; preds = %39, %36, %Py_XDECRE
 
 _ssl__SSLContext_set_psk_client_callback_impl.exit: ; preds = %Py_XINCREF.exit.i, %25, %16, %9
   %.0 = phi ptr [ null, %9 ], [ null, %16 ], [ @_Py_NoneStruct, %Py_XINCREF.exit.i ], [ null, %25 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -9004,7 +8998,7 @@ _ssl__SSLContext_set_psk_client_callback_impl.exit: ; preds = %Py_XINCREF.exit.i
 define internal noundef ptr @_ssl__SSLContext_set_psk_server_callback(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [2 x ptr], align 16
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %.thread
 
@@ -9050,7 +9044,7 @@ define internal noundef ptr @_ssl__SSLContext_set_psk_server_callback(ptr nounde
   br i1 %.not40, label %36, label %27
 
 27:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %28 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %21, ptr noundef nonnull %6) #11
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.thread49, label %30
@@ -9067,11 +9061,11 @@ define internal noundef ptr @_ssl__SSLContext_set_psk_server_callback(ptr nounde
   br label %.thread49
 
 .thread49:                                        ; preds = %33, %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ssl__SSLContext_set_psk_server_callback_impl.exit
 
 35:                                               ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %37
 
 36:                                               ; preds = %23
@@ -9166,7 +9160,7 @@ Py_XINCREF.exit.i:                                ; preds = %70, %67, %Py_XDECRE
 
 _ssl__SSLContext_set_psk_server_callback_impl.exit: ; preds = %Py_XINCREF.exit.i, %56, %50, %41, %.thread49, %36, %13
   %.032 = phi ptr [ null, %36 ], [ null, %13 ], [ null, %.thread49 ], [ null, %41 ], [ null, %56 ], [ @_Py_NoneStruct, %Py_XINCREF.exit.i ], [ null, %50 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.032
 }
 
@@ -9630,7 +9624,7 @@ Py_DECREF.exit96:                                 ; preds = %229, %226, %224, %2
 declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @PyEval_SaveThread() local_unnamed_addr #1
 
@@ -9824,7 +9818,7 @@ declare ptr @SSL_CTX_get_default_passwd_cb(ptr noundef) local_unnamed_addr #1
 declare ptr @SSL_CTX_get_default_passwd_cb_userdata(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #5
 
 declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #1
 
@@ -10071,7 +10065,7 @@ declare ptr @Py_fopen(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PEM_read_DHparams(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @PyErr_SetFromErrnoWithFilenameObject(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -10337,7 +10331,7 @@ declare ptr @X509_OBJECT_get0_X509_CRL(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_certificate_to_der(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !53
   %4 = call i32 @i2d_X509(ptr noundef %1, ptr noundef nonnull %3) #11
   %5 = icmp slt i32 %4, 0
@@ -10364,7 +10358,7 @@ define internal fastcc ptr @_certificate_to_der(ptr noundef readonly captures(no
 
 17:                                               ; preds = %12, %6
   %.0 = phi ptr [ null, %6 ], [ %15, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -10759,7 +10753,7 @@ define internal ptr @_ssl__SSLContext_check_hostname_get(ptr noundef readonly ca
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_ssl__SSLContext_check_hostname_set(ptr noundef captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %1, ptr noundef nonnull @.str.183, ptr noundef nonnull %4) #11
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ssl__SSLContext_check_hostname_set_impl.exit, label %6
@@ -10793,7 +10787,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLContext_check_hostname_set(ptr no
 
 _ssl__SSLContext_check_hostname_set_impl.exit:    ; preds = %3, %.thread.i
   %.0.i = phi i32 [ -1, %3 ], [ 0, %.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
 
@@ -10809,7 +10803,7 @@ define internal ptr @_ssl__SSLContext__host_flags_get(ptr noundef readonly captu
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_ssl__SSLContext__host_flags_set(ptr noundef captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !106
   %5 = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %1, ptr noundef nonnull @.str.185, ptr noundef nonnull %4) #11
   %.not.i = icmp eq i32 %5, 0
@@ -10827,7 +10821,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLContext__host_flags_set(ptr nound
 
 _ssl__SSLContext__host_flags_set_impl.exit:       ; preds = %3, %6
   %.0.i = phi i32 [ 0, %6 ], [ -1, %3 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
 
@@ -10872,7 +10866,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLContext_maximum_version_set(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal ptr @_PySSLContext_get_keylog_filename(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #8 {
+define internal ptr @_PySSLContext_get_keylog_filename(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !147
   %.not = icmp eq ptr %4, null
@@ -10993,7 +10987,7 @@ _Py_NewRef.exit:                                  ; preds = %31, %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal ptr @_PySSLContext_get_msg_callback(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #8 {
+define internal ptr @_PySSLContext_get_msg_callback(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !101
   %.not = icmp eq ptr %4, null
@@ -11083,7 +11077,7 @@ _Py_NewRef.exit:                                  ; preds = %22, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal ptr @_ssl__SSLContext_sni_callback_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #8 {
+define internal ptr @_ssl__SSLContext_sni_callback_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #7 {
   %3 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %3, align 8, !tbaa !100
   %4 = icmp eq ptr %.val, null
@@ -11197,7 +11191,7 @@ define internal ptr @_ssl__SSLContext_num_tickets_get(ptr noundef readonly captu
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_ssl__SSLContext_num_tickets_set(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %1, ptr noundef nonnull @.str.186, ptr noundef nonnull %4) #11
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ssl__SSLContext_num_tickets_set_impl.exit, label %6
@@ -11228,7 +11222,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLContext_num_tickets_set(ptr nound
 
 _ssl__SSLContext_num_tickets_set_impl.exit:       ; preds = %3, %12, %.sink.split.i
   %.0.i = phi i32 [ -1, %3 ], [ 0, %12 ], [ -1, %.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
 
@@ -11244,7 +11238,7 @@ define internal ptr @_ssl__SSLContext_options_get(ptr noundef readonly captures(
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_ssl__SSLContext_options_set(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %1, ptr noundef nonnull @.str.210, ptr noundef nonnull @PyLong_Type, ptr noundef nonnull %4) #11
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ssl__SSLContext_options_set_impl.exit, label %6
@@ -11298,7 +11292,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLContext_options_set(ptr noundef r
 
 _ssl__SSLContext_options_set_impl.exit:           ; preds = %3, %10, %21, %29, %30
   %.0.i = phi i32 [ -1, %3 ], [ -1, %10 ], [ -1, %21 ], [ 0, %30 ], [ 0, %29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
 
@@ -11358,7 +11352,7 @@ define internal ptr @_ssl__SSLContext_verify_flags_get(ptr noundef readonly capt
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_ssl__SSLContext_verify_flags_set(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %1, ptr noundef nonnull @.str.213, ptr noundef nonnull %4) #11
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ssl__SSLContext_verify_flags_set_impl.exit, label %6
@@ -11406,7 +11400,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLContext_verify_flags_set(ptr noun
 
 _ssl__SSLContext_verify_flags_set_impl.exit:      ; preds = %3, %18, %19, %.sink.split.i
   %.0.i = phi i32 [ -1, %3 ], [ 0, %19 ], [ 0, %18 ], [ -1, %.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
 
@@ -11454,7 +11448,7 @@ _ssl__SSLContext_verify_mode_get_impl.exit:       ; preds = %7, %9, %11, %13
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_ssl__SSLContext_verify_mode_set(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %1, ptr noundef nonnull @.str.215, ptr noundef nonnull %4) #11
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ssl__SSLContext_verify_mode_set_impl.exit, label %6
@@ -11495,7 +11489,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLContext_verify_mode_set(ptr nound
 
 _ssl__SSLContext_verify_mode_set_impl.exit:       ; preds = %3, %11, %14, %.thread.i
   %.0.i = phi i32 [ -1, %11 ], [ -1, %3 ], [ -1, %14 ], [ 0, %.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
 
@@ -11520,7 +11514,7 @@ declare ptr @SSL_CTX_get0_param(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @set_min_max_proto_version(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %1, ptr noundef nonnull @.str.186, ptr noundef nonnull %4) #11
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %56, label %6
@@ -11644,7 +11638,7 @@ define internal fastcc range(i32 -1, 1) i32 @set_min_max_proto_version(ptr nound
 
 56:                                               ; preds = %49, %25, %21, %17, %3, %52, %29, %14, %9
   %.06 = phi i32 [ -1, %9 ], [ -1, %14 ], [ -1, %29 ], [ -1, %52 ], [ -1, %3 ], [ -1, %17 ], [ -1, %21 ], [ -1, %25 ], [ 0, %49 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.06
 }
 
@@ -11738,7 +11732,7 @@ define internal void @_PySSL_msg_callback(i32 noundef %0, i32 noundef %1, i32 no
   br label %79
 
 17:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !138
   %.not = icmp eq ptr %19, null
@@ -11869,7 +11863,7 @@ Py_DECREF.exit:                                   ; preds = %71, %68, %66, %63
 
 Py_XDECREF.exit:                                  ; preds = %Py_DECREF.exit, %73, %75, %78
   call void @PyGILState_Release(i32 noundef %9) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %79
 
 79:                                               ; preds = %Py_XDECREF.exit, %16
@@ -11885,7 +11879,7 @@ declare i64 @SSL_CTX_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @_servername_callback(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @SSL_get_servername(ptr noundef %0, i32 noundef 0) #11
   %6 = tail call i32 @PyGILState_Ensure() #11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -12106,7 +12100,7 @@ Py_DECREF.exit57:                                 ; preds = %Py_DECREF.exit65.th
 
 91:                                               ; preds = %Py_DECREF.exit57, %Py_DECREF.exit55, %10
   %.0 = phi i32 [ 0, %10 ], [ 2, %Py_DECREF.exit57 ], [ %.039, %Py_DECREF.exit55 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -12559,7 +12553,7 @@ define internal ptr @_ssl__SSLSocket_do_handshake(ptr noundef captures(address_i
   br i1 %.not.i.i, label %.critedge.thread.i, label %7
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = call i32 @PyWeakref_GetRef(ptr noundef nonnull %.val.i, ptr noundef nonnull %5) #11
   %.not3.i.i = icmp eq i32 %8, 0
   br i1 %.not3.i.i, label %GET_SOCKET.exit.thread69.i, label %9
@@ -12582,12 +12576,12 @@ define internal ptr @_ssl__SSLSocket_do_handshake(ptr noundef captures(address_i
 
 GET_SOCKET.exit.thread69.i:                       ; preds = %9, %7
   %.ph.i = phi ptr [ %10, %9 ], [ @_Py_NoneStruct, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %16
 
 GET_SOCKET.exit.i:                                ; preds = %15, %12
   %.pr.i = load ptr, ptr %5, align 8, !tbaa !26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %.pr.i, null
   br i1 %.not.i, label %.critedge.thread.i, label %16
 
@@ -12694,7 +12688,7 @@ _PySSL_errno.exit.i:                              ; preds = %59, %54
   ]
 
 73:                                               ; preds = %72
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %74 = icmp eq i64 %.1.i, 0
   %or.cond.i.i = or i1 %.not6874.i, %74
   br i1 %or.cond.i.i, label %PySSL_select.exit.i, label %75
@@ -12728,11 +12722,11 @@ _PySSL_errno.exit.i:                              ; preds = %59, %54
 
 PySSL_select.exit.i:                              ; preds = %83, %80, %77, %73
   %.0.i50.i = phi i32 [ %89, %83 ], [ 0, %73 ], [ %..i.i, %77 ], [ 3, %80 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %107
 
 90:                                               ; preds = %72
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %91 = icmp eq i64 %.1.i, 0
   %or.cond.i51.i = or i1 %.not6874.i, %91
   br i1 %or.cond.i51.i, label %PySSL_select.exit54.i, label %92
@@ -12766,7 +12760,7 @@ PySSL_select.exit.i:                              ; preds = %83, %80, %77, %73
 
 PySSL_select.exit54.i:                            ; preds = %100, %97, %94, %90
   %.0.i52.i = phi i32 [ %106, %100 ], [ 0, %90 ], [ %..i53.i, %94 ], [ 3, %97 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %107
 
 107:                                              ; preds = %PySSL_select.exit54.i, %PySSL_select.exit.i
@@ -12886,14 +12880,14 @@ define internal ptr @_ssl__SSLSocket_write(ptr noundef captures(address_is_null)
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 80, i1 false)
   %9 = call i32 @PyObject_GetBuffer(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 0) #11
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %170
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !40
   %11 = getelementptr i8, ptr %0, i64 16
   %.val.i = load ptr, ptr %11, align 8, !tbaa !137
@@ -12901,7 +12895,7 @@ define internal ptr @_ssl__SSLSocket_write(ptr noundef captures(address_is_null)
   br i1 %.not.i.i, label %PySSL_select.exit.i.sink.split, label %12
 
 12:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = call i32 @PyWeakref_GetRef(ptr noundef nonnull %.val.i, ptr noundef nonnull %6) #11
   %.not3.i.i = icmp eq i32 %13, 0
   br i1 %.not3.i.i, label %GET_SOCKET.exit.thread83.i, label %14
@@ -12924,12 +12918,12 @@ define internal ptr @_ssl__SSLSocket_write(ptr noundef captures(address_is_null)
 
 GET_SOCKET.exit.thread83.i:                       ; preds = %14, %12
   %.ph.i = phi ptr [ %15, %14 ], [ @_Py_NoneStruct, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %21
 
 GET_SOCKET.exit.i:                                ; preds = %20, %17
   %.pr.i = load ptr, ptr %6, align 8, !tbaa !26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i = icmp eq ptr %.pr.i, null
   br i1 %.not.i, label %PySSL_select.exit.i.sink.split, label %21
 
@@ -12977,7 +12971,7 @@ GET_SOCKET.exit.i:                                ; preds = %20, %17
 
 49:                                               ; preds = %.critedge58.i
   %50 = call i64 @_PyDeadline_Init(i64 noundef %47) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %51 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %52 = load i32, ptr %51, align 8, !tbaa !128
   %53 = icmp eq i32 %52, -1
@@ -12999,7 +12993,7 @@ PySSL_select.exit.i.sink.split:                   ; preds = %.critedge58.i, %10,
   %.not828895.i.ph = phi i1 [ true, %GET_SOCKET.exit.i ], [ true, %10 ], [ false, %.critedge58.i ]
   %.0.i818994.i.ph = phi ptr [ null, %GET_SOCKET.exit.i ], [ null, %10 ], [ %22, %.critedge58.i ]
   %.ph = phi i64 [ 0, %GET_SOCKET.exit.i ], [ 0, %10 ], [ %47, %.critedge58.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %PySSL_select.exit.i
 
 PySSL_select.exit.i:                              ; preds = %PySSL_select.exit.i.sink.split, %54
@@ -13008,7 +13002,7 @@ PySSL_select.exit.i:                              ; preds = %PySSL_select.exit.i
   %.0.i818994.i = phi ptr [ %22, %54 ], [ %.0.i818994.i.ph, %PySSL_select.exit.i.sink.split ]
   %61 = phi i64 [ %47, %54 ], [ %.ph, %PySSL_select.exit.i.sink.split ]
   %62 = phi i1 [ true, %54 ], [ false, %PySSL_select.exit.i.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -13019,13 +13013,13 @@ PySSL_select.exit.i:                              ; preds = %PySSL_select.exit.i
   br label %78
 
 select.unfold.i:                                  ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %70 = load ptr, ptr @PyExc_TimeoutError, align 8, !tbaa !26
   call void @PyErr_SetString(ptr noundef %70, ptr noundef nonnull @.str.255) #11
   br label %160
 
 71:                                               ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %73 = load ptr, ptr %72, align 8, !tbaa !125
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 88
@@ -13080,7 +13074,7 @@ _PySSL_errno.exit.i:                              ; preds = %84, %78
   ]
 
 98:                                               ; preds = %97
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %99 = icmp eq i64 %.1.i, 0
   %or.cond.i61.i = or i1 %.not828895.i, %99
   br i1 %or.cond.i61.i, label %PySSL_select.exit64.i, label %100
@@ -13114,11 +13108,11 @@ _PySSL_errno.exit.i:                              ; preds = %84, %78
 
 PySSL_select.exit64.i:                            ; preds = %108, %105, %102, %98
   %.0.i62.i = phi i32 [ %114, %108 ], [ 0, %98 ], [ %..i63.i, %102 ], [ 3, %105 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %132
 
 115:                                              ; preds = %97
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %116 = icmp eq i64 %.1.i, 0
   %or.cond.i65.i = or i1 %.not828895.i, %116
   br i1 %or.cond.i65.i, label %PySSL_select.exit68.i, label %117
@@ -13152,7 +13146,7 @@ PySSL_select.exit64.i:                            ; preds = %108, %105, %102, %9
 
 PySSL_select.exit68.i:                            ; preds = %125, %122, %119, %115
   %.0.i66.i = phi i32 [ %131, %125 ], [ 0, %115 ], [ %..i67.i, %119 ], [ 3, %122 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %132
 
 132:                                              ; preds = %PySSL_select.exit68.i, %PySSL_select.exit64.i
@@ -13256,7 +13250,7 @@ Py_XDECREF.exit76.i:                              ; preds = %165, %162, %160, %1
 
 _ssl__SSLSocket_write_impl.exit:                  ; preds = %24, %151, %PySSL_ChainExceptions.exit.thread.i, %PySSL_ChainExceptions.exit.i, %Py_XDECREF.exit76.i, %169
   %.0.i = phi ptr [ null, %24 ], [ %152, %151 ], [ %158, %PySSL_ChainExceptions.exit.i ], [ null, %PySSL_ChainExceptions.exit.thread.i ], [ null, %Py_XDECREF.exit76.i ], [ null, %169 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %170
 
 170:                                              ; preds = %2, %_ssl__SSLSocket_write_impl.exit
@@ -13271,7 +13265,7 @@ _ssl__SSLSocket_write_impl.exit:                  ; preds = %24, %151, %PySSL_Ch
   br label %174
 
 174:                                              ; preds = %173, %170
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
 }
 
@@ -13284,8 +13278,8 @@ define internal ptr @_ssl__SSLSocket_read(ptr noundef captures(address_is_null) 
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, i8 0, i64 80, i1 false)
   %10 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %10, align 8, !tbaa !51
@@ -13312,9 +13306,9 @@ define internal ptr @_ssl__SSLSocket_read(ptr noundef captures(address_is_null) 
 17:                                               ; preds = %13, %11
   %18 = phi i1 [ true, %11 ], [ false, %13 ]
   %19 = load i64, ptr %8, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !40
   %20 = getelementptr i8, ptr %0, i64 16
   %.val.i = load ptr, ptr %20, align 8, !tbaa !137
@@ -13322,7 +13316,7 @@ define internal ptr @_ssl__SSLSocket_read(ptr noundef captures(address_is_null) 
   br i1 %.not.i.i, label %GET_SOCKET.exit.thread.i, label %21
 
 21:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = call i32 @PyWeakref_GetRef(ptr noundef nonnull %.val.i, ptr noundef nonnull %5) #11
   %.not3.i.i = icmp eq i32 %22, 0
   br i1 %.not3.i.i, label %GET_SOCKET.exit.thread146.i, label %23
@@ -13349,13 +13343,13 @@ GET_SOCKET.exitthread-pre-split.i:                ; preds = %29, %26
 
 GET_SOCKET.exit.i:                                ; preds = %GET_SOCKET.exitthread-pre-split.i, %23
   %30 = phi ptr [ %.pr.i, %GET_SOCKET.exitthread-pre-split.i ], [ %24, %23 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %31 = icmp slt i64 %19, 0
   %or.cond.i = and i1 %18, %31
   br i1 %or.cond.i, label %34, label %36
 
 GET_SOCKET.exit.thread146.i:                      ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %32 = icmp slt i64 %19, 0
   %or.cond147.i = and i1 %18, %32
   br i1 %or.cond147.i, label %34, label %.thread152.i
@@ -13562,7 +13556,7 @@ _PySSL_errno.exit.i:                              ; preds = %105, %101
   ]
 
 119:                                              ; preds = %118
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %120 = icmp eq i64 %.1.i, 0
   %or.cond.i.i = or i1 %.not105106118129.i, %120
   br i1 %or.cond.i.i, label %PySSL_select.exit.i, label %121
@@ -13596,11 +13590,11 @@ _PySSL_errno.exit.i:                              ; preds = %105, %101
 
 PySSL_select.exit.i:                              ; preds = %129, %126, %123, %119
   %.0.i80.i = phi i32 [ %135, %129 ], [ 0, %119 ], [ %..i.i, %123 ], [ 3, %126 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %158
 
 136:                                              ; preds = %118
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %137 = icmp eq i64 %.1.i, 0
   %or.cond.i81.i = or i1 %.not105106118129.i, %137
   br i1 %or.cond.i81.i, label %PySSL_select.exit84.i, label %138
@@ -13634,7 +13628,7 @@ PySSL_select.exit.i:                              ; preds = %129, %126, %123, %1
 
 PySSL_select.exit84.i:                            ; preds = %146, %143, %140, %136
   %.0.i82.i = phi i32 [ %152, %146 ], [ 0, %136 ], [ %..i83.i, %140 ], [ 3, %143 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %158
 
 153:                                              ; preds = %118
@@ -13769,8 +13763,8 @@ Py_XDECREF.exit93.i:                              ; preds = %193, %190, %188, %P
 
 _ssl__SSLSocket_read_impl.exit:                   ; preds = %34, %.thread152.i, %Py_XDECREF.exit.i, %177, %Py_XDECREF.exit88.thread.i, %Py_XDECREF.exit93.i, %194, %196, %198, %201
   %.0.i = phi ptr [ null, %34 ], [ null, %.thread152.i ], [ %182, %Py_XDECREF.exit88.thread.i ], [ %180, %177 ], [ %62, %Py_XDECREF.exit.i ], [ null, %Py_XDECREF.exit93.i ], [ null, %194 ], [ null, %196 ], [ null, %198 ], [ null, %201 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %202
 
 202:                                              ; preds = %13, %11, %_ssl__SSLSocket_read_impl.exit, %15
@@ -13785,8 +13779,8 @@ _ssl__SSLSocket_read_impl.exit:                   ; preds = %34, %.thread152.i, 
   br label %206
 
 206:                                              ; preds = %205, %202
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.05
 }
 
@@ -13913,7 +13907,7 @@ define internal ptr @_ssl__SSLSocket_get_channel_binding(ptr noundef readonly ca
   %5 = alloca [128 x i8], align 16
   %6 = alloca [1 x ptr], align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %.thread
 
@@ -13973,7 +13967,7 @@ define internal ptr @_ssl__SSLSocket_get_channel_binding(ptr noundef readonly ca
 
 32:                                               ; preds = %27, %.thread38
   %.0 = phi ptr [ %25, %27 ], [ @.str.266, %.thread38 ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %33 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(11) @.str.266) #12
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %47
@@ -14014,12 +14008,12 @@ define internal ptr @_ssl__SSLSocket_get_channel_binding(ptr noundef readonly ca
 
 _ssl__SSLSocket_get_channel_binding_impl.exit:    ; preds = %47, %50, %52
   %.08.i = phi ptr [ %53, %52 ], [ null, %47 ], [ @_Py_NoneStruct, %50 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 54:                                               ; preds = %24, %12, %_ssl__SSLSocket_get_channel_binding_impl.exit, %30, %23
   %.025 = phi ptr [ null, %24 ], [ null, %30 ], [ %.08.i, %_ssl__SSLSocket_get_channel_binding_impl.exit ], [ null, %23 ], [ null, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.025
 }
 
@@ -14166,8 +14160,8 @@ define internal ptr @_ssl__SSLSocket_selected_alpn_protocol(ptr noundef readonly
   %4 = alloca i32, align 4
   %5 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @SSL_get0_alpn_selected(ptr noundef %.val, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
   %6 = load ptr, ptr %3, align 8, !tbaa !53
   %7 = icmp eq ptr %6, null
@@ -14181,8 +14175,8 @@ define internal ptr @_ssl__SSLSocket_selected_alpn_protocol(ptr noundef readonly
 
 _ssl__SSLSocket_selected_alpn_protocol_impl.exit: ; preds = %2, %8
   %.0.i = phi ptr [ %11, %8 ], [ @_Py_NoneStruct, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i
 }
 
@@ -14229,7 +14223,7 @@ define internal ptr @_ssl__SSLSocket_shutdown(ptr noundef captures(address_is_nu
   br i1 %.not.i.i, label %.critedge.thread.i, label %7
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = call i32 @PyWeakref_GetRef(ptr noundef nonnull %.val.i, ptr noundef nonnull %5) #11
   %.not3.i.i = icmp eq i32 %8, 0
   br i1 %.not3.i.i, label %GET_SOCKET.exit.thread79.i, label %9
@@ -14252,12 +14246,12 @@ define internal ptr @_ssl__SSLSocket_shutdown(ptr noundef captures(address_is_nu
 
 GET_SOCKET.exit.thread79.i:                       ; preds = %9, %7
   %.ph.i = phi ptr [ %10, %9 ], [ @_Py_NoneStruct, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %16
 
 GET_SOCKET.exit.i:                                ; preds = %15, %12
   %.pr.i = load ptr, ptr %5, align 8, !tbaa !26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %.pr.i, null
   br i1 %.not.i, label %.critedge.thread.i, label %16
 
@@ -14385,7 +14379,7 @@ _PySSL_errno.exit.i:                              ; preds = %64
   br i1 %81, label %82, label %99
 
 82:                                               ; preds = %80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %83 = icmp eq i64 %.1.i, 0
   %or.cond.i.i = or i1 %.not7884.i, %83
   br i1 %or.cond.i.i, label %PySSL_select.exit.i, label %84
@@ -14419,7 +14413,7 @@ _PySSL_errno.exit.i:                              ; preds = %64
 
 PySSL_select.exit.i:                              ; preds = %92, %89, %86, %82
   %.0.i62.i = phi i32 [ %98, %92 ], [ 0, %82 ], [ %..i.i, %86 ], [ 3, %89 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %118
 
 99:                                               ; preds = %80
@@ -14427,7 +14421,7 @@ PySSL_select.exit.i:                              ; preds = %92, %89, %86, %82
   br i1 %100, label %101, label %130
 
 101:                                              ; preds = %99
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %102 = icmp eq i64 %.1.i, 0
   %or.cond.i63.i = or i1 %.not7884.i, %102
   br i1 %or.cond.i63.i, label %PySSL_select.exit66.i, label %103
@@ -14461,7 +14455,7 @@ PySSL_select.exit.i:                              ; preds = %92, %89, %86, %82
 
 PySSL_select.exit66.i:                            ; preds = %111, %108, %105, %101
   %.0.i64.i = phi i32 [ %117, %111 ], [ 0, %101 ], [ %..i65.i, %105 ], [ 3, %108 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %118
 
 118:                                              ; preds = %PySSL_select.exit66.i, %PySSL_select.exit.i
@@ -14921,7 +14915,7 @@ declare ptr @SSL_get1_peer_certificate(ptr noundef) local_unnamed_addr #1
 declare ptr @SSL_get_SSL_CTX(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @SSL_session_reused(ptr noundef) local_unnamed_addr #1
 
@@ -15103,7 +15097,7 @@ declare i32 @X509_up_ref(ptr noundef) local_unnamed_addr #1
 declare ptr @SSL_get0_verified_chain(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ssl__SSLSocket_context_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #8 {
+define internal noundef ptr @_ssl__SSLSocket_context_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #7 {
   %3 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %3, align 8, !tbaa !125
   %4 = load i32, ptr %.val, align 8, !tbaa !25
@@ -15204,7 +15198,7 @@ define internal ptr @_ssl__SSLSocket_server_side_get(ptr noundef readonly captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal ptr @_ssl__SSLSocket_server_hostname_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #8 {
+define internal ptr @_ssl__SSLSocket_server_hostname_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #7 {
   %3 = getelementptr i8, ptr %0, i64 56
   %.val = load ptr, ptr %3, align 8, !tbaa !77
   %4 = icmp eq ptr %.val, null
@@ -15234,12 +15228,12 @@ define internal ptr @_ssl__SSLSocket_owner_get(ptr noundef readonly captures(non
   br i1 %5, label %_ssl__SSLSocket_owner_get_impl.exit, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call i32 @PyWeakref_GetRef(ptr noundef nonnull %.val, ptr noundef nonnull %3) #11
   %.not.i = icmp eq i32 %7, 0
   %8 = load ptr, ptr %3, align 8
   %.1.i = select i1 %.not.i, ptr @_Py_NoneStruct, ptr %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ssl__SSLSocket_owner_get_impl.exit
 
 _ssl__SSLSocket_owner_get_impl.exit:              ; preds = %2, %6
@@ -15485,7 +15479,7 @@ define internal ptr @_ssl_MemoryBIO_read(ptr noundef readonly captures(none) %0,
 
 15:                                               ; preds = %9, %13, %7
   %.0 = phi i32 [ -1, %7 ], [ -1, %13 ], [ %11, %9 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !131
   %18 = tail call i64 @BIO_ctrl_pending(ptr noundef %17) #11
@@ -15559,7 +15553,7 @@ Py_DECREF.exit.i:                                 ; preds = %44, %41, %37
 
 _ssl_MemoryBIO_read_impl.exit:                    ; preds = %24, %Py_DECREF.exit.i, %50, %52
   %.0.i = phi ptr [ null, %Py_DECREF.exit.i ], [ %29, %24 ], [ %.pre.i, %52 ], [ %29, %50 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %55
 
 55:                                               ; preds = %13, %5, %_ssl_MemoryBIO_read_impl.exit
@@ -15570,7 +15564,7 @@ _ssl_MemoryBIO_read_impl.exit:                    ; preds = %24, %Py_DECREF.exit
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl_MemoryBIO_write(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false)
   %4 = call i32 @PyObject_GetBuffer(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 0) #11
   %.not = icmp eq i32 %4, 0
@@ -15647,7 +15641,7 @@ _ssl_MemoryBIO_write_impl.exit:                   ; preds = %36, %28, %18, %14, 
   br label %42
 
 42:                                               ; preds = %41, %_ssl_MemoryBIO_write_impl.exit
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -15745,8 +15739,8 @@ define internal ptr @PySSLSession_richcompare(ptr noundef readonly captures(addr
   br i1 %20, label %35, label %21
 
 21:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !142
   %24 = call ptr @SSL_SESSION_get_id(ptr noundef %23, ptr noundef nonnull %4) #11
@@ -15766,8 +15760,8 @@ define internal ptr @PySSLSession_richcompare(ptr noundef readonly captures(addr
 
 34:                                               ; preds = %21, %31
   %.118 = phi i1 [ %33, %31 ], [ false, %21 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %35
 
 35:                                               ; preds = %19, %34
@@ -15926,12 +15920,12 @@ define internal ptr @_ssl_SSLSession_id_get(ptr noundef readonly captures(none) 
   %3 = alloca i32, align 4
   %4 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %4, align 8, !tbaa !142
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call ptr @SSL_SESSION_get_id(ptr noundef %.val, ptr noundef nonnull %3) #11
   %6 = load i32, ptr %3, align 4, !tbaa !106
   %7 = zext i32 %6 to i64
   %8 = call ptr @PyBytes_FromStringAndSize(ptr noundef %5, i64 noundef %7) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %8
 }
 
@@ -16042,7 +16036,7 @@ define internal ptr @certificate_repr(ptr noundef readonly captures(none) %0) #0
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !53
   %24 = call i64 @BIO_ctrl(ptr noundef nonnull %9, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %2) #11
   %25 = load ptr, ptr %2, align 8, !tbaa !53
@@ -16054,13 +16048,13 @@ define internal ptr @certificate_repr(ptr noundef readonly captures(none) %0) #0
 _x509name_print.exit.thread12:                    ; preds = %23
   %28 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !26
   call void @PyErr_SetString(ptr noundef %28, ptr noundef nonnull @.str.294) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %29 = call i32 @BIO_free(ptr noundef nonnull %9) #11
   br label %Py_DECREF.exit
 
 _x509name_print.exit:                             ; preds = %23
   %30 = call ptr @PyUnicode_DecodeUTF8(ptr noundef nonnull %25, i64 noundef %24, ptr noundef nonnull @.str.94) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %31 = call i32 @BIO_free(ptr noundef nonnull %9) #11
   %32 = icmp eq ptr %30, null
   br i1 %32, label %Py_DECREF.exit, label %33
@@ -16158,7 +16152,7 @@ define internal ptr @_ssl_Certificate_public_bytes(ptr noundef readonly captures
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca [1 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %.thread
 
@@ -16267,7 +16261,7 @@ define internal ptr @_ssl_Certificate_public_bytes(ptr noundef readonly captures
   br i1 %57, label %.thread28.i, label %66
 
 .thread28.i:                                      ; preds = %56, %.thread.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !53
   %58 = call i64 @BIO_ctrl(ptr noundef nonnull %28, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %6) #11
   %59 = load ptr, ptr %6, align 8, !tbaa !53
@@ -16287,11 +16281,11 @@ define internal ptr @_ssl_Certificate_public_bytes(ptr noundef readonly captures
 
 _PySSL_BytesFromBIO.exit.i:                       ; preds = %64, %62
   %.0.i.i = phi ptr [ null, %62 ], [ %65, %64 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %75
 
 66:                                               ; preds = %56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !53
   %67 = call i64 @BIO_ctrl(ptr noundef nonnull %28, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %5) #11
   %68 = load ptr, ptr %5, align 8, !tbaa !53
@@ -16311,7 +16305,7 @@ _PySSL_BytesFromBIO.exit.i:                       ; preds = %64, %62
 
 _PySSL_UnicodeFromBIO.exit.i:                     ; preds = %73, %71
   %.0.i25.i = phi ptr [ null, %71 ], [ %74, %73 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %75
 
 75:                                               ; preds = %_PySSL_UnicodeFromBIO.exit.i, %_PySSL_BytesFromBIO.exit.i
@@ -16321,7 +16315,7 @@ _PySSL_UnicodeFromBIO.exit.i:                     ; preds = %73, %71
 
 _ssl_Certificate_public_bytes_impl.exit:          ; preds = %75, %49, %42, %30, %22, %12
   %.022 = phi ptr [ null, %22 ], [ null, %12 ], [ null, %30 ], [ null, %42 ], [ null, %49 ], [ %.021.i, %75 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.022
 }
 
@@ -16409,6 +16403,12 @@ declare ptr @PyThread_allocate_lock() local_unnamed_addr #1
 
 declare void @PyThread_free_lock(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #9
 
@@ -16423,13 +16423,13 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #11 = { nounwind }

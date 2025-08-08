@@ -53,53 +53,53 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
   %4 = alloca ptr, align 8
   %5 = alloca %struct.app_context, align 8
   %6 = alloca %struct.sigaction, align 8
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp slt i32 %0, 4
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %10 = tail call i64 @fwrite(ptr nonnull @.str, i64 47, i64 1, ptr %9) #22
-  tail call void @exit(i32 noundef 1) #23
+  %10 = tail call i64 @fwrite(ptr nonnull @.str, i64 47, i64 1, ptr %9) #21
+  tail call void @exit(i32 noundef 1) #22
   unreachable
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %12, i8 0, i64 144, i1 false)
   store ptr inttoptr (i64 1 to ptr), ptr %6, align 8, !tbaa !9
-  %13 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %6, ptr noundef null) #21
+  %13 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %6, ptr noundef null) #23
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !10
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #21
-  %20 = call ptr @TLS_server_method() #21
-  %21 = call ptr @SSL_CTX_new(ptr noundef %20) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %20 = call ptr @TLS_server_method() #23
+  %21 = call ptr @SSL_CTX_new(ptr noundef %20) #23
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %22, label %25
 
 22:                                               ; preds = %11
-  %23 = call i64 @ERR_get_error() #21
-  %24 = call ptr @ERR_error_string(i64 noundef %23, ptr noundef null) #21
+  %23 = call i64 @ERR_get_error() #23
+  %24 = call ptr @ERR_error_string(i64 noundef %23, ptr noundef null) #23
   call void (i32, ptr, ...) @errx(i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef %24) #24
   unreachable
 
 25:                                               ; preds = %11
-  %26 = call i64 @SSL_CTX_set_options(ptr noundef nonnull %21, i64 noundef 2181236816) #21
-  %27 = call i64 @SSL_CTX_ctrl(ptr noundef nonnull %21, i32 noundef 92, i64 noundef 0, ptr noundef nonnull @.str.2) #21
+  %26 = call i64 @SSL_CTX_set_options(ptr noundef nonnull %21, i64 noundef 2181236816) #23
+  %27 = call i64 @SSL_CTX_ctrl(ptr noundef nonnull %21, i32 noundef 92, i64 noundef 0, ptr noundef nonnull @.str.2) #23
   %.not11.i.i = icmp eq i64 %27, 1
   br i1 %.not11.i.i, label %31, label %28
 
 28:                                               ; preds = %25
-  %29 = call i64 @ERR_get_error() #21
-  %30 = call ptr @ERR_error_string(i64 noundef %29, ptr noundef null) #21
+  %29 = call i64 @ERR_get_error() #23
+  %30 = call ptr @ERR_error_string(i64 noundef %29, ptr noundef null) #23
   call void (i32, ptr, ...) @errx(i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %30) #24
   unreachable
 
 31:                                               ; preds = %25
-  %32 = call i32 @SSL_CTX_use_PrivateKey_file(ptr noundef nonnull %21, ptr noundef %17, i32 noundef 1) #21
+  %32 = call i32 @SSL_CTX_use_PrivateKey_file(ptr noundef nonnull %21, ptr noundef %17, i32 noundef 1) #23
   %.not12.i.i = icmp eq i32 %32, 1
   br i1 %.not12.i.i, label %34, label %33
 
@@ -108,7 +108,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
   unreachable
 
 34:                                               ; preds = %31
-  %35 = call i32 @SSL_CTX_use_certificate_chain_file(ptr noundef nonnull %21, ptr noundef %19) #21
+  %35 = call i32 @SSL_CTX_use_certificate_chain_file(ptr noundef nonnull %21, ptr noundef %19) #23
   %.not13.i.i = icmp eq i32 %35, 1
   br i1 %.not13.i.i, label %create_ssl_ctx.exit.i, label %36
 
@@ -117,18 +117,18 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
   unreachable
 
 create_ssl_ctx.exit.i:                            ; preds = %34
-  call void @SSL_CTX_set_alpn_select_cb(ptr noundef nonnull %21, ptr noundef nonnull @alpn_select_proto_cb, ptr noundef null) #21
-  %37 = call ptr @event_base_new() #21
+  call void @SSL_CTX_set_alpn_select_cb(ptr noundef nonnull %21, ptr noundef nonnull @alpn_select_proto_cb, ptr noundef null) #23
+  %37 = call ptr @event_base_new() #23
   store ptr %21, ptr %5, align 8, !tbaa !12
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %37, ptr %38, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
   store i32 1, ptr %39, align 8, !tbaa !17
   store i32 33, ptr %3, align 8, !tbaa !22
-  %40 = call i32 @getaddrinfo(ptr noundef null, ptr noundef %15, ptr noundef nonnull %3, ptr noundef nonnull %4) #21
+  %40 = call i32 @getaddrinfo(ptr noundef null, ptr noundef %15, ptr noundef nonnull %3, ptr noundef nonnull %4) #23
   %.not.i9.i = icmp eq i32 %40, 0
   br i1 %.not.i9.i, label %.preheader.i.i, label %41
 
@@ -153,7 +153,7 @@ create_ssl_ctx.exit.i:                            ; preds = %34
   %45 = load ptr, ptr %44, align 8, !tbaa !26
   %46 = getelementptr inbounds nuw i8, ptr %.0914.i.i, i64 16
   %47 = load i32, ptr %46, align 8, !tbaa !27
-  %48 = call ptr @evconnlistener_new_bind(ptr noundef %37, ptr noundef nonnull @acceptcb, ptr noundef nonnull %5, i32 noundef 10, i32 noundef 16, ptr noundef %45, i32 noundef %47) #21
+  %48 = call ptr @evconnlistener_new_bind(ptr noundef %37, ptr noundef nonnull @acceptcb, ptr noundef nonnull %5, i32 noundef 10, i32 noundef 16, ptr noundef %45, i32 noundef %47) #23
   %.not11.i10.i = icmp eq ptr %48, null
   br i1 %.not11.i10.i, label %42, label %run.exit
 
@@ -163,93 +163,87 @@ create_ssl_ctx.exit.i:                            ; preds = %34
 
 run.exit:                                         ; preds = %.critedge.i.i
   %49 = load ptr, ptr %4, align 8, !tbaa !23
-  call void @freeaddrinfo(ptr noundef %49) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #21
-  %50 = call i32 @event_base_loop(ptr noundef %37, i32 noundef 0) #21
-  call void @event_base_free(ptr noundef %37) #21
-  call void @SSL_CTX_free(ptr noundef nonnull %21) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6) #21
+  call void @freeaddrinfo(ptr noundef %49) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  %50 = call i32 @event_base_loop(ptr noundef %37, i32 noundef 0) #23
+  call void @event_base_free(ptr noundef %37) #23
+  call void @SSL_CTX_free(ptr noundef nonnull %21) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #3
+declare void @exit(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind
-declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @event_base_new() local_unnamed_addr #5
 
-declare ptr @event_base_new() local_unnamed_addr #6
+declare i32 @event_base_loop(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @event_base_loop(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare void @event_base_free(ptr noundef) local_unnamed_addr #5
 
-declare void @event_base_free(ptr noundef) local_unnamed_addr #6
+declare void @SSL_CTX_free(ptr noundef) local_unnamed_addr #5
 
-declare void @SSL_CTX_free(ptr noundef) local_unnamed_addr #6
+declare ptr @SSL_CTX_new(ptr noundef) local_unnamed_addr #5
 
-declare ptr @SSL_CTX_new(ptr noundef) local_unnamed_addr #6
-
-declare ptr @TLS_server_method() local_unnamed_addr #6
+declare ptr @TLS_server_method() local_unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare void @errx(i32 noundef, ptr noundef, ...) local_unnamed_addr #7
+declare void @errx(i32 noundef, ptr noundef, ...) local_unnamed_addr #6
 
-declare ptr @ERR_error_string(i64 noundef, ptr noundef) local_unnamed_addr #6
+declare ptr @ERR_error_string(i64 noundef, ptr noundef) local_unnamed_addr #5
 
-declare i64 @ERR_get_error() local_unnamed_addr #6
+declare i64 @ERR_get_error() local_unnamed_addr #5
 
-declare i64 @SSL_CTX_set_options(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i64 @SSL_CTX_set_options(ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare i64 @SSL_CTX_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
+declare i64 @SSL_CTX_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @SSL_CTX_use_PrivateKey_file(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @SSL_CTX_use_PrivateKey_file(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @SSL_CTX_use_certificate_chain_file(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @SSL_CTX_use_certificate_chain_file(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 4) i32 @alpn_select_proto_cb(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
-  %7 = tail call i32 @nghttp2_select_alpn(ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #21
+  %7 = tail call i32 @nghttp2_select_alpn(ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #23
   %.not = icmp eq i32 %7, 1
   %. = select i1 %.not, i32 0, i32 3
   ret i32 %.
 }
 
-declare i32 @nghttp2_select_alpn(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @nghttp2_select_alpn(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare ptr @evconnlistener_new_bind(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare ptr @evconnlistener_new_bind(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @acceptcb(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
   %6 = alloca [1025 x i8], align 16
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %6) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 1, ptr %7, align 4, !tbaa !28
   %8 = load ptr, ptr %4, align 8, !tbaa !12
-  %9 = tail call ptr @SSL_new(ptr noundef %8) #21
+  %9 = tail call ptr @SSL_new(ptr noundef %8) #23
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %10, label %create_http2_session_data.exit
 
 10:                                               ; preds = %5
-  %11 = tail call i64 @ERR_get_error() #21
-  %12 = tail call ptr @ERR_error_string(i64 noundef %11, ptr noundef null) #21
+  %11 = tail call i64 @ERR_get_error() #23
+  %12 = tail call ptr @ERR_error_string(i64 noundef %11, ptr noundef null) #23
   tail call void (i32, ptr, ...) @errx(i32 noundef 1, ptr noundef nonnull @.str.9, ptr noundef %12) #24
   unreachable
 
@@ -257,67 +251,67 @@ create_http2_session_data.exit:                   ; preds = %5
   %calloc.i = tail call dereferenceable_or_null(64) ptr @calloc(i64 1, i64 64)
   %13 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 40
   store ptr %4, ptr %13, align 8, !tbaa !29
-  %14 = call i32 @setsockopt(i32 noundef %1, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %7, i32 noundef 4) #21
+  %14 = call i32 @setsockopt(i32 noundef %1, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %7, i32 noundef 4) #23
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !16
-  %17 = call ptr @bufferevent_openssl_socket_new(ptr noundef %16, i32 noundef %1, ptr noundef nonnull %9, i32 noundef 2, i32 noundef 5) #21
+  %17 = call ptr @bufferevent_openssl_socket_new(ptr noundef %16, i32 noundef %1, ptr noundef nonnull %9, i32 noundef 2, i32 noundef 5) #23
   %18 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 32
   store ptr %17, ptr %18, align 8, !tbaa !36
-  %19 = call i32 @bufferevent_enable(ptr noundef %17, i16 noundef signext 6) #21
-  %20 = call i32 @getnameinfo(ptr noundef %2, i32 noundef %3, ptr noundef nonnull %6, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1) #21
+  %19 = call i32 @bufferevent_enable(ptr noundef %17, i16 noundef signext 6) #23
+  %20 = call i32 @getnameinfo(ptr noundef %2, i32 noundef %3, ptr noundef nonnull %6, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1) #23
   %.not.i = icmp eq i32 %20, 0
   %..str.8.i = select i1 %.not.i, ptr %6, ptr @.str.8
-  %21 = call noalias ptr @strdup(ptr noundef nonnull %..str.8.i) #21
+  %21 = call noalias ptr @strdup(ptr noundef nonnull %..str.8.i) #23
   %22 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 56
   store ptr %21, ptr %22, align 8, !tbaa !37
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #21
-  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %6) #21
-  call void @bufferevent_setcb(ptr noundef %17, ptr noundef nonnull @readcb, ptr noundef nonnull @writecb, ptr noundef nonnull @eventcb, ptr noundef %calloc.i) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @bufferevent_setcb(ptr noundef %17, ptr noundef nonnull @readcb, ptr noundef nonnull @writecb, ptr noundef nonnull @eventcb, ptr noundef %calloc.i) #23
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #5
+declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #4
 
-declare void @bufferevent_setcb(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @bufferevent_setcb(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @readcb(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !36
-  %5 = tail call ptr @bufferevent_get_input(ptr noundef %4) #21
-  %6 = tail call i64 @evbuffer_get_length(ptr noundef %5) #21
-  %7 = tail call ptr @evbuffer_pullup(ptr noundef %5, i64 noundef -1) #21
+  %5 = tail call ptr @bufferevent_get_input(ptr noundef %4) #23
+  %6 = tail call i64 @evbuffer_get_length(ptr noundef %5) #23
+  %7 = tail call ptr @evbuffer_pullup(ptr noundef %5, i64 noundef -1) #23
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !38
-  %10 = tail call i64 @nghttp2_session_mem_recv2(ptr noundef %9, ptr noundef %7, i64 noundef %6) #21
+  %10 = tail call i64 @nghttp2_session_mem_recv2(ptr noundef %9, ptr noundef %7, i64 noundef %6) #23
   %11 = icmp slt i64 %10, 0
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
   %13 = trunc i64 %10 to i32
-  %14 = tail call ptr @nghttp2_strerror(i32 noundef %13) #21
-  tail call void (ptr, ...) @warnx(ptr noundef nonnull @.str.10, ptr noundef %14) #21
+  %14 = tail call ptr @nghttp2_strerror(i32 noundef %13) #23
+  tail call void (ptr, ...) @warnx(ptr noundef nonnull @.str.10, ptr noundef %14) #23
   br label %21
 
 15:                                               ; preds = %2
-  %16 = tail call i32 @evbuffer_drain(ptr noundef %5, i64 noundef %10) #21
+  %16 = tail call i32 @evbuffer_drain(ptr noundef %5, i64 noundef %10) #23
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %18, label %17
 
 17:                                               ; preds = %15
-  tail call void (ptr, ...) @warnx(ptr noundef nonnull @.str.11) #21
+  tail call void (ptr, ...) @warnx(ptr noundef nonnull @.str.11) #23
   br label %21
 
 18:                                               ; preds = %15
   %.val.i = load ptr, ptr %8, align 8, !tbaa !38
-  %19 = tail call i32 @nghttp2_session_send(ptr noundef %.val.i) #21
+  %19 = tail call i32 @nghttp2_session_send(ptr noundef %.val.i) #23
   %.not.i.i = icmp eq i32 %19, 0
   br i1 %.not.i.i, label %session_recv.exit, label %session_send.exit.i
 
 session_send.exit.i:                              ; preds = %18
-  %20 = tail call ptr @nghttp2_strerror(i32 noundef %19) #21
-  tail call void (ptr, ...) @warnx(ptr noundef nonnull @.str.10, ptr noundef %20) #21
+  %20 = tail call ptr @nghttp2_strerror(i32 noundef %19) #23
+  tail call void (ptr, ...) @warnx(ptr noundef nonnull @.str.10, ptr noundef %20) #23
   br label %21
 
 21:                                               ; preds = %12, %17, %session_send.exit.i
@@ -330,33 +324,33 @@ session_recv.exit:                                ; preds = %18, %21
 
 ; Function Attrs: nounwind uwtable
 define internal void @writecb(ptr noundef %0, ptr noundef captures(none) %1) #0 {
-  %3 = tail call ptr @bufferevent_get_output(ptr noundef %0) #21
-  %4 = tail call i64 @evbuffer_get_length(ptr noundef %3) #21
+  %3 = tail call ptr @bufferevent_get_output(ptr noundef %0) #23
+  %4 = tail call i64 @evbuffer_get_length(ptr noundef %3) #23
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %5, label %session_send.exit.thread
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !38
-  %8 = tail call i32 @nghttp2_session_want_read(ptr noundef %7) #21
+  %8 = tail call i32 @nghttp2_session_want_read(ptr noundef %7) #23
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %6, align 8, !tbaa !38
-  %12 = tail call i32 @nghttp2_session_want_write(ptr noundef %11) #21
+  %12 = tail call i32 @nghttp2_session_want_write(ptr noundef %11) #23
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %session_send.exit.thread.sink.split, label %14
 
 14:                                               ; preds = %10, %5
   %.val = load ptr, ptr %6, align 8, !tbaa !38
-  %15 = tail call i32 @nghttp2_session_send(ptr noundef %.val) #21
+  %15 = tail call i32 @nghttp2_session_send(ptr noundef %.val) #23
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %session_send.exit.thread, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call ptr @nghttp2_strerror(i32 noundef %15) #21
-  tail call void (ptr, ...) @warnx(ptr noundef nonnull @.str.10, ptr noundef %17) #21
+  %17 = tail call ptr @nghttp2_strerror(i32 noundef %15) #23
+  tail call void (ptr, ...) @warnx(ptr noundef nonnull @.str.10, ptr noundef %17) #23
   br label %session_send.exit.thread.sink.split
 
 session_send.exit.thread.sink.split:              ; preds = %10, %16
@@ -368,7 +362,7 @@ session_send.exit.thread:                         ; preds = %session_send.exit.t
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal void @eventcb(ptr readnone captures(none) %0, i16 noundef signext %1, ptr noundef %2) #8 {
+define internal void @eventcb(ptr readnone captures(none) %0, i16 noundef signext %1, ptr noundef %2) #7 {
   %4 = alloca [1 x %struct.nghttp2_settings_entry], align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -378,9 +372,9 @@ define internal void @eventcb(ptr readnone captures(none) %0, i16 noundef signex
   br i1 %.not, label %42, label %9
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !28
   %10 = load ptr, ptr @stderr, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -388,8 +382,8 @@ define internal void @eventcb(ptr readnone captures(none) %0, i16 noundef signex
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.13, ptr noundef %12) #25
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !36
-  %16 = tail call ptr @bufferevent_openssl_get_ssl(ptr noundef %15) #21
-  call void @SSL_get0_alpn_selected(ptr noundef %16, ptr noundef nonnull %6, ptr noundef nonnull %7) #21
+  %16 = tail call ptr @bufferevent_openssl_get_ssl(ptr noundef %15) #23
+  call void @SSL_get0_alpn_selected(ptr noundef %16, ptr noundef nonnull %6, ptr noundef nonnull %7) #23
   %17 = load ptr, ptr %6, align 8, !tbaa !10
   %18 = icmp eq ptr %17, null
   %19 = load i32, ptr %7, align 4
@@ -409,47 +403,47 @@ define internal void @eventcb(ptr readnone captures(none) %0, i16 noundef signex
   br label %session_send.exit.thread.sink.split
 
 26:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #21
-  %27 = call i32 @nghttp2_session_callbacks_new(ptr noundef nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %27 = call i32 @nghttp2_session_callbacks_new(ptr noundef nonnull %5) #23
   %28 = load ptr, ptr %5, align 8, !tbaa !39
-  call void @nghttp2_session_callbacks_set_send_callback2(ptr noundef %28, ptr noundef nonnull @send_callback) #21
+  call void @nghttp2_session_callbacks_set_send_callback2(ptr noundef %28, ptr noundef nonnull @send_callback) #23
   %29 = load ptr, ptr %5, align 8, !tbaa !39
-  call void @nghttp2_session_callbacks_set_on_frame_recv_callback(ptr noundef %29, ptr noundef nonnull @on_frame_recv_callback) #21
+  call void @nghttp2_session_callbacks_set_on_frame_recv_callback(ptr noundef %29, ptr noundef nonnull @on_frame_recv_callback) #23
   %30 = load ptr, ptr %5, align 8, !tbaa !39
-  call void @nghttp2_session_callbacks_set_on_stream_close_callback(ptr noundef %30, ptr noundef nonnull @on_stream_close_callback) #21
+  call void @nghttp2_session_callbacks_set_on_stream_close_callback(ptr noundef %30, ptr noundef nonnull @on_stream_close_callback) #23
   %31 = load ptr, ptr %5, align 8, !tbaa !39
-  call void @nghttp2_session_callbacks_set_on_header_callback(ptr noundef %31, ptr noundef nonnull @on_header_callback) #21
+  call void @nghttp2_session_callbacks_set_on_header_callback(ptr noundef %31, ptr noundef nonnull @on_header_callback) #23
   %32 = load ptr, ptr %5, align 8, !tbaa !39
-  call void @nghttp2_session_callbacks_set_on_begin_headers_callback(ptr noundef %32, ptr noundef nonnull @on_begin_headers_callback) #21
+  call void @nghttp2_session_callbacks_set_on_begin_headers_callback(ptr noundef %32, ptr noundef nonnull @on_begin_headers_callback) #23
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %34 = load ptr, ptr %5, align 8, !tbaa !39
-  %35 = call i32 @nghttp2_session_server_new(ptr noundef nonnull %33, ptr noundef %34, ptr noundef nonnull %2) #21
+  %35 = call i32 @nghttp2_session_server_new(ptr noundef nonnull %33, ptr noundef %34, ptr noundef nonnull %2) #23
   %36 = load ptr, ptr %5, align 8, !tbaa !39
-  call void @nghttp2_session_callbacks_del(ptr noundef %36) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
+  call void @nghttp2_session_callbacks_del(ptr noundef %36) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.val = load ptr, ptr %33, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 429496729603, ptr %4, align 8
-  %37 = call i32 @nghttp2_submit_settings(ptr noundef %.val, i8 noundef zeroext 0, ptr noundef nonnull %4, i64 noundef 1) #21
+  %37 = call i32 @nghttp2_submit_settings(ptr noundef %.val, i8 noundef zeroext 0, ptr noundef nonnull %4, i64 noundef 1) #23
   %.not.i = icmp eq i32 %37, 0
   br i1 %.not.i, label %39, label %send_server_connection_header.exit
 
 send_server_connection_header.exit:               ; preds = %26
-  %38 = call ptr @nghttp2_strerror(i32 noundef %37) #21
-  call void (ptr, ...) @warnx(ptr noundef nonnull @.str.10, ptr noundef %38) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
+  %38 = call ptr @nghttp2_strerror(i32 noundef %37) #23
+  call void (ptr, ...) @warnx(ptr noundef nonnull @.str.10, ptr noundef %38) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %session_send.exit.thread.sink.split
 
 39:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.val24 = load ptr, ptr %33, align 8, !tbaa !38
-  %40 = call i32 @nghttp2_session_send(ptr noundef %.val24) #21
+  %40 = call i32 @nghttp2_session_send(ptr noundef %.val24) #23
   %.not.i25 = icmp eq i32 %40, 0
   br i1 %.not.i25, label %session_send.exit.thread, label %session_send.exit
 
 session_send.exit:                                ; preds = %39
-  %41 = call ptr @nghttp2_strerror(i32 noundef %40) #21
-  call void (ptr, ...) @warnx(ptr noundef nonnull @.str.10, ptr noundef %41) #21
+  %41 = call ptr @nghttp2_strerror(i32 noundef %40) #23
+  call void (ptr, ...) @warnx(ptr noundef nonnull @.str.10, ptr noundef %41) #23
   br label %session_send.exit.thread.sink.split
 
 session_send.exit.thread.sink.split:              ; preds = %send_server_connection_header.exit, %session_send.exit, %22
@@ -457,8 +451,8 @@ session_send.exit.thread.sink.split:              ; preds = %send_server_connect
   br label %session_send.exit.thread
 
 session_send.exit.thread:                         ; preds = %session_send.exit.thread.sink.split, %39
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %53
 
 42:                                               ; preds = %3
@@ -493,27 +487,27 @@ session_send.exit.thread:                         ; preds = %session_send.exit.t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @bufferevent_openssl_socket_new(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare ptr @bufferevent_openssl_socket_new(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @bufferevent_enable(ptr noundef, i16 noundef signext) local_unnamed_addr #6
+declare i32 @bufferevent_enable(ptr noundef, i16 noundef signext) local_unnamed_addr #5
 
-declare i32 @getnameinfo(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @getnameinfo(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #10
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
-declare ptr @SSL_new(ptr noundef) local_unnamed_addr #6
+declare ptr @SSL_new(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc void @delete_http2_session_data(ptr noundef captures(none) %0) unnamed_addr #8 {
+define internal fastcc void @delete_http2_session_data(ptr noundef captures(none) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !36
-  %4 = tail call ptr @bufferevent_openssl_get_ssl(ptr noundef %3) #21
+  %4 = tail call ptr @bufferevent_openssl_get_ssl(ptr noundef %3) #23
   %5 = load ptr, ptr @stderr, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8, !tbaa !37
@@ -522,15 +516,15 @@ define internal fastcc void @delete_http2_session_data(ptr noundef captures(none
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %1
-  %10 = tail call i32 @SSL_shutdown(ptr noundef nonnull %4) #21
+  %10 = tail call i32 @SSL_shutdown(ptr noundef nonnull %4) #23
   br label %11
 
 11:                                               ; preds = %9, %1
   %12 = load ptr, ptr %2, align 8, !tbaa !36
-  tail call void @bufferevent_free(ptr noundef %12) #21
+  tail call void @bufferevent_free(ptr noundef %12) #23
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8, !tbaa !38
-  tail call void @nghttp2_session_del(ptr noundef %14) #21
+  tail call void @nghttp2_session_del(ptr noundef %14) #23
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !41
   %.not1415 = icmp eq ptr %16, null
@@ -546,76 +540,76 @@ define internal fastcc void @delete_http2_session_data(ptr noundef captures(none
   br i1 %.not.i, label %delete_http2_stream_data.exit, label %21
 
 21:                                               ; preds = %.lr.ph
-  %22 = tail call i32 @close(i32 noundef %20) #21
+  %22 = tail call i32 @close(i32 noundef %20) #23
   br label %delete_http2_stream_data.exit
 
 delete_http2_stream_data.exit:                    ; preds = %.lr.ph, %21
   %23 = getelementptr inbounds nuw i8, ptr %.016, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !44
-  tail call void @free(ptr noundef %24) #21
-  tail call void @free(ptr noundef nonnull %.016) #21
+  tail call void @free(ptr noundef %24) #23
+  tail call void @free(ptr noundef nonnull %.016) #23
   %.not14 = icmp eq ptr %18, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %delete_http2_stream_data.exit, %11
   %25 = load ptr, ptr %6, align 8, !tbaa !37
-  tail call void @free(ptr noundef %25) #21
-  tail call void @free(ptr noundef %0) #21
+  tail call void @free(ptr noundef %25) #23
+  tail call void @free(ptr noundef %0) #23
   ret void
 }
 
-declare ptr @bufferevent_get_input(ptr noundef) local_unnamed_addr #6
+declare ptr @bufferevent_get_input(ptr noundef) local_unnamed_addr #5
 
-declare i64 @evbuffer_get_length(ptr noundef) local_unnamed_addr #6
+declare i64 @evbuffer_get_length(ptr noundef) local_unnamed_addr #5
 
-declare ptr @evbuffer_pullup(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @evbuffer_pullup(ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare i64 @nghttp2_session_mem_recv2(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i64 @nghttp2_session_mem_recv2(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare void @warnx(ptr noundef, ...) local_unnamed_addr #6
+declare void @warnx(ptr noundef, ...) local_unnamed_addr #5
 
-declare ptr @nghttp2_strerror(i32 noundef) local_unnamed_addr #6
+declare ptr @nghttp2_strerror(i32 noundef) local_unnamed_addr #5
 
-declare i32 @evbuffer_drain(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @evbuffer_drain(ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare i32 @nghttp2_session_send(ptr noundef) local_unnamed_addr #6
+declare i32 @nghttp2_session_send(ptr noundef) local_unnamed_addr #5
 
-declare ptr @bufferevent_openssl_get_ssl(ptr noundef) local_unnamed_addr #6
+declare ptr @bufferevent_openssl_get_ssl(ptr noundef) local_unnamed_addr #5
 
-declare i32 @SSL_shutdown(ptr noundef) local_unnamed_addr #6
+declare i32 @SSL_shutdown(ptr noundef) local_unnamed_addr #5
 
-declare void @bufferevent_free(ptr noundef) local_unnamed_addr #6
+declare void @bufferevent_free(ptr noundef) local_unnamed_addr #5
 
-declare void @nghttp2_session_del(ptr noundef) local_unnamed_addr #6
+declare void @nghttp2_session_del(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
-declare i32 @close(i32 noundef) local_unnamed_addr #6
+declare i32 @close(i32 noundef) local_unnamed_addr #5
 
-declare ptr @bufferevent_get_output(ptr noundef) local_unnamed_addr #6
+declare ptr @bufferevent_get_output(ptr noundef) local_unnamed_addr #5
 
-declare i32 @nghttp2_session_want_read(ptr noundef) local_unnamed_addr #6
+declare i32 @nghttp2_session_want_read(ptr noundef) local_unnamed_addr #5
 
-declare i32 @nghttp2_session_want_write(ptr noundef) local_unnamed_addr #6
+declare i32 @nghttp2_session_want_write(ptr noundef) local_unnamed_addr #5
 
-declare void @SSL_get0_alpn_selected(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @SSL_get0_alpn_selected(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @nghttp2_session_callbacks_new(ptr noundef) local_unnamed_addr #6
+declare i32 @nghttp2_session_callbacks_new(ptr noundef) local_unnamed_addr #5
 
-declare void @nghttp2_session_callbacks_set_send_callback2(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @nghttp2_session_callbacks_set_send_callback2(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @send_callback(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !36
-  %8 = tail call ptr @bufferevent_get_output(ptr noundef %7) #21
-  %9 = tail call i64 @evbuffer_get_length(ptr noundef %8) #21
+  %8 = tail call ptr @bufferevent_get_output(ptr noundef %7) #23
+  %9 = tail call i64 @evbuffer_get_length(ptr noundef %8) #23
   %10 = icmp ugt i64 %9, 65535
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %5
-  %12 = tail call i32 @bufferevent_write(ptr noundef %7, ptr noundef %1, i64 noundef %2) #21
+  %12 = tail call i32 @bufferevent_write(ptr noundef %7, ptr noundef %1, i64 noundef %2) #23
   br label %13
 
 13:                                               ; preds = %5, %11
@@ -623,7 +617,7 @@ define internal noundef i64 @send_callback(ptr readnone captures(none) %0, ptr n
   ret i64 %.0
 }
 
-declare void @nghttp2_session_callbacks_set_on_frame_recv_callback(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @nghttp2_session_callbacks_set_on_frame_recv_callback(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -902, 1) i32 @on_frame_recv_callback(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
@@ -644,12 +638,12 @@ define internal range(i32 -902, 1) i32 @on_frame_recv_callback(ptr noundef %0, p
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !9
-  %15 = tail call ptr @nghttp2_session_get_stream_user_data(ptr noundef %0, i32 noundef %14) #21
+  %15 = tail call ptr @nghttp2_session_get_stream_user_data(ptr noundef %0, i32 noundef %14) #23
   %.not10 = icmp eq ptr %15, null
   br i1 %.not10, label %61, label %16
 
 16:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %5, ptr noundef nonnull align 16 dereferenceable(40) @__const.on_request_recv.hdrs, i64 40, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !44
@@ -718,7 +712,7 @@ check_path.exit.thread.i:                         ; preds = %check_path.exit.i, 
   br i1 %45, label %.preheader.i, label %47, !llvm.loop !46
 
 47:                                               ; preds = %.preheader.i
-  %48 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %.0.i, i32 noundef 0) #21
+  %48 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %.0.i, i32 noundef 0) #23
   %49 = icmp eq i32 %48, -1
   br i1 %49, label %50, label %52
 
@@ -733,28 +727,28 @@ check_path.exit.thread.i:                         ; preds = %check_path.exit.i, 
   store i32 %48, ptr %53, align 4, !tbaa !43
   %54 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %55 = load i32, ptr %54, align 8, !tbaa !47
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %48, ptr %4, align 8, !tbaa !9
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @file_read_callback, ptr %56, align 8, !tbaa !48
-  %57 = call i32 @nghttp2_submit_response2(ptr noundef %0, i32 noundef %55, ptr noundef nonnull %5, i64 noundef 1, ptr noundef nonnull %4) #21
+  %57 = call i32 @nghttp2_submit_response2(ptr noundef %0, i32 noundef %55, ptr noundef nonnull %5, i64 noundef 1, ptr noundef nonnull %4) #23
   %.not.i31.i = icmp eq i32 %57, 0
   br i1 %.not.i31.i, label %send_response.exit.thread.i, label %58
 
 send_response.exit.thread.i:                      ; preds = %52
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %on_request_recv.exit
 
 58:                                               ; preds = %52
-  %59 = call ptr @nghttp2_strerror(i32 noundef %57) #21
-  call void (ptr, ...) @warnx(ptr noundef nonnull @.str.10, ptr noundef %59) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #21
-  %60 = call i32 @close(i32 noundef %48) #21
+  %59 = call ptr @nghttp2_strerror(i32 noundef %57) #23
+  call void (ptr, ...) @warnx(ptr noundef nonnull @.str.10, ptr noundef %59) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %60 = call i32 @close(i32 noundef %48) #23
   br label %on_request_recv.exit
 
 on_request_recv.exit:                             ; preds = %19, %check_path.exit.thread.i, %50, %send_response.exit.thread.i, %58
   %.021.i = phi i32 [ -902, %58 ], [ %..i, %19 ], [ %.29.i, %check_path.exit.thread.i ], [ %.30.i, %50 ], [ 0, %send_response.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %61
 
 61:                                               ; preds = %8, %3, %12, %on_request_recv.exit
@@ -762,11 +756,11 @@ on_request_recv.exit:                             ; preds = %19, %check_path.exi
   ret i32 %.0
 }
 
-declare void @nghttp2_session_callbacks_set_on_stream_close_callback(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @nghttp2_session_callbacks_set_on_stream_close_callback(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @on_stream_close_callback(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call ptr @nghttp2_session_get_stream_user_data(ptr noundef %0, i32 noundef %1) #21
+  %5 = tail call ptr @nghttp2_session_get_stream_user_data(ptr noundef %0, i32 noundef %1) #23
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %18, label %6
 
@@ -790,21 +784,21 @@ remove_stream.exit:                               ; preds = %6, %11
   br i1 %.not.i7, label %delete_http2_stream_data.exit, label %14
 
 14:                                               ; preds = %remove_stream.exit
-  %15 = tail call i32 @close(i32 noundef %13) #21
+  %15 = tail call i32 @close(i32 noundef %13) #23
   br label %delete_http2_stream_data.exit
 
 delete_http2_stream_data.exit:                    ; preds = %remove_stream.exit, %14
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !44
-  tail call void @free(ptr noundef %17) #21
-  tail call void @free(ptr noundef nonnull %5) #21
+  tail call void @free(ptr noundef %17) #23
+  tail call void @free(ptr noundef nonnull %5) #23
   br label %18
 
 18:                                               ; preds = %4, %delete_http2_stream_data.exit
   ret i32 0
 }
 
-declare void @nghttp2_session_callbacks_set_on_header_callback(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @nghttp2_session_callbacks_set_on_header_callback(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @on_header_callback(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, i8 zeroext %6, ptr readnone captures(none) %7) #0 {
@@ -822,7 +816,7 @@ define internal noundef i32 @on_header_callback(ptr noundef %0, ptr noundef read
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !9
-  %17 = tail call ptr @nghttp2_session_get_stream_user_data(ptr noundef %0, i32 noundef %16) #21
+  %17 = tail call ptr @nghttp2_session_get_stream_user_data(ptr noundef %0, i32 noundef %16) #23
   %.not19 = icmp eq ptr %17, null
   br i1 %.not19, label %85, label %18
 
@@ -990,7 +984,7 @@ percent_decode.exit:                              ; preds = %._crit_edge.i, %81
   ret i32 0
 }
 
-declare void @nghttp2_session_callbacks_set_on_begin_headers_callback(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @nghttp2_session_callbacks_set_on_begin_headers_callback(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @on_begin_headers_callback(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
@@ -1028,61 +1022,61 @@ define internal noundef i32 @on_begin_headers_callback(ptr noundef %0, ptr nound
 
 create_http2_stream_data.exit:                    ; preds = %9, %17
   %18 = load i32, ptr %10, align 8, !tbaa !9
-  %19 = tail call i32 @nghttp2_session_set_stream_user_data(ptr noundef %0, i32 noundef %18, ptr noundef nonnull %calloc.i) #21
+  %19 = tail call i32 @nghttp2_session_set_stream_user_data(ptr noundef %0, i32 noundef %18, ptr noundef nonnull %calloc.i) #23
   br label %20
 
 20:                                               ; preds = %3, %6, %create_http2_stream_data.exit
   ret i32 0
 }
 
-declare i32 @nghttp2_session_server_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @nghttp2_session_server_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @nghttp2_session_callbacks_del(ptr noundef) local_unnamed_addr #6
+declare void @nghttp2_session_callbacks_del(ptr noundef) local_unnamed_addr #5
 
-declare i32 @bufferevent_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @bufferevent_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare ptr @nghttp2_session_get_stream_user_data(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare ptr @nghttp2_session_get_stream_user_data(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @error_reply(ptr noundef %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   %3 = alloca %struct.nghttp2_data_provider2, align 8
   %4 = alloca [2 x i32], align 4
   %5 = alloca [1 x %struct.nghttp2_nv], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %5, ptr noundef nonnull align 16 dereferenceable(40) @__const.error_reply.hdrs, i64 40, i1 false)
-  %6 = call i32 @pipe(ptr noundef nonnull %4) #21
+  %6 = call i32 @pipe(ptr noundef nonnull %4) #23
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %2
-  call void (ptr, ...) @warn(ptr noundef nonnull @.str.23) #21
+  call void (ptr, ...) @warn(ptr noundef nonnull @.str.23) #23
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !47
-  %10 = call i32 @nghttp2_submit_rst_stream(ptr noundef %0, i8 noundef zeroext 0, i32 noundef %9, i32 noundef 2) #21
+  %10 = call i32 @nghttp2_submit_rst_stream(ptr noundef %0, i8 noundef zeroext 0, i32 noundef %9, i32 noundef 2) #23
   %.not12 = icmp eq i32 %10, 0
   br i1 %.not12, label %32, label %11
 
 11:                                               ; preds = %7
-  %12 = call ptr @nghttp2_strerror(i32 noundef %10) #21
-  call void (ptr, ...) @warnx(ptr noundef nonnull @.str.10, ptr noundef %12) #21
+  %12 = call ptr @nghttp2_strerror(i32 noundef %10) #23
+  call void (ptr, ...) @warnx(ptr noundef nonnull @.str.10, ptr noundef %12) #23
   br label %32
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !28
-  %16 = call i64 @write(i32 noundef %15, ptr noundef nonnull @ERROR_HTML, i64 noundef 79) #21
+  %16 = call i64 @write(i32 noundef %15, ptr noundef nonnull @ERROR_HTML, i64 noundef 79) #23
   %17 = load i32, ptr %14, align 4, !tbaa !28
-  %18 = call i32 @close(i32 noundef %17) #21
+  %18 = call i32 @close(i32 noundef %17) #23
   %.not10 = icmp eq i64 %16, 79
   %19 = load i32, ptr %4, align 4, !tbaa !28
   br i1 %.not10, label %22, label %20
 
 20:                                               ; preds = %13
-  %21 = call i32 @close(i32 noundef %19) #21
+  %21 = call i32 @close(i32 noundef %19) #23
   br label %32
 
 22:                                               ; preds = %13
@@ -1090,54 +1084,54 @@ define internal fastcc range(i32 -1, 1) i32 @error_reply(ptr noundef %0, ptr nou
   store i32 %19, ptr %23, align 4, !tbaa !43
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load i32, ptr %24, align 8, !tbaa !47
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %19, ptr %3, align 8, !tbaa !9
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @file_read_callback, ptr %26, align 8, !tbaa !48
-  %27 = call i32 @nghttp2_submit_response2(ptr noundef %0, i32 noundef %25, ptr noundef nonnull %5, i64 noundef 1, ptr noundef nonnull %3) #21
+  %27 = call i32 @nghttp2_submit_response2(ptr noundef %0, i32 noundef %25, ptr noundef nonnull %5, i64 noundef 1, ptr noundef nonnull %3) #23
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %send_response.exit.thread, label %28
 
 send_response.exit.thread:                        ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
 
 28:                                               ; preds = %22
-  %29 = call ptr @nghttp2_strerror(i32 noundef %27) #21
-  call void (ptr, ...) @warnx(ptr noundef nonnull @.str.10, ptr noundef %29) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #21
+  %29 = call ptr @nghttp2_strerror(i32 noundef %27) #23
+  call void (ptr, ...) @warnx(ptr noundef nonnull @.str.10, ptr noundef %29) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = load i32, ptr %4, align 4, !tbaa !28
-  %31 = call i32 @close(i32 noundef %30) #21
+  %31 = call i32 @close(i32 noundef %30) #23
   br label %32
 
 32:                                               ; preds = %send_response.exit.thread, %7, %28, %20, %11
   %.0 = phi i32 [ -1, %11 ], [ -1, %20 ], [ -1, %28 ], [ 0, %7 ], [ 0, %send_response.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #13
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
-declare i32 @pipe(ptr noundef) local_unnamed_addr #5
+declare i32 @pipe(ptr noundef) local_unnamed_addr #4
 
-declare void @warn(ptr noundef, ...) local_unnamed_addr #6
+declare void @warn(ptr noundef, ...) local_unnamed_addr #5
 
-declare i32 @nghttp2_submit_rst_stream(ptr noundef, i8 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @nghttp2_submit_rst_stream(ptr noundef, i8 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #13
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #14
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #14
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @ends_with(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #15 {
+define internal fastcc range(i32 0, 2) i32 @ends_with(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #14 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #26
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #26
   %5 = icmp ult i64 %3, %4
@@ -1158,15 +1152,15 @@ define internal fastcc range(i32 0, 2) i32 @ends_with(ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i64 0, -1) i64 @file_read_callback(ptr readnone captures(none) %0, i32 %1, ptr noundef captures(none) %2, i64 noundef %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5, ptr readnone captures(none) %6) #16 {
+define internal range(i64 0, -1) i64 @file_read_callback(ptr readnone captures(none) %0, i32 %1, ptr noundef captures(none) %2, i64 noundef %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5, ptr readnone captures(none) %6) #15 {
   %8 = load i32, ptr %5, align 8, !tbaa !9
   br label %9
 
 9:                                                ; preds = %11, %7
-  %10 = tail call i64 @read(i32 noundef %8, ptr noundef %2, i64 noundef %3) #21
+  %10 = tail call i64 @read(i32 noundef %8, ptr noundef %2, i64 noundef %3) #23
   switch i64 %10, label %.critedge [
     i64 -1, label %11
     i64 0, label %15
@@ -1189,20 +1183,26 @@ define internal range(i64 0, -1) i64 @file_read_callback(ptr readnone captures(n
   ret i64 %.0
 }
 
-declare i32 @nghttp2_submit_response2(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @nghttp2_submit_response2(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #17
+declare ptr @__errno_location() local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #17
+declare ptr @__ctype_b_loc() local_unnamed_addr #16
 
-declare i32 @nghttp2_session_set_stream_user_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @nghttp2_session_set_stream_user_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @nghttp2_submit_settings(ptr noundef, i8 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @nghttp2_submit_settings(ptr noundef, i8 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
@@ -1214,29 +1214,29 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #20
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nofree nounwind }
 attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #20 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #21 = { nounwind }
-attributes #22 = { cold }
-attributes #23 = { cold noreturn nounwind }
+attributes #21 = { cold }
+attributes #22 = { cold noreturn nounwind }
+attributes #23 = { nounwind }
 attributes #24 = { noreturn nounwind }
 attributes #25 = { cold nounwind }
 attributes #26 = { nounwind willreturn memory(read) }

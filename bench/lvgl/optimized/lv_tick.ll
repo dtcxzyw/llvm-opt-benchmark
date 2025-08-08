@@ -25,14 +25,8 @@ define void @lv_tick_inc(i32 noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
-define i32 @lv_tick_get() local_unnamed_addr #2 {
+define i32 @lv_tick_get() local_unnamed_addr #1 {
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 336), align 8, !tbaa !10
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %3
@@ -57,7 +51,7 @@ define i32 @lv_tick_get() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_tick_elaps(i32 noundef %0) local_unnamed_addr #2 {
+define i32 @lv_tick_elaps(i32 noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 336), align 8, !tbaa !10
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %.preheader.i, label %4
@@ -83,7 +77,7 @@ lv_tick_get.exit:                                 ; preds = %6, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_delay_ms(i32 noundef %0) local_unnamed_addr #2 {
+define void @lv_delay_ms(i32 noundef %0) local_unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 344), align 8, !tbaa !13
@@ -132,8 +126,8 @@ lv_tick_get.exit.split.us:                        ; preds = %9, %lv_tick_get.exi
   br label %.preheader.i.i.us, !llvm.loop !35
 
 16:                                               ; preds = %lv_tick_elaps.exit.loopexit.us
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store volatile i32 %0, ptr %3, align 4, !tbaa !37
   store volatile i32 0, ptr %2, align 4, !tbaa !37
   %.0..0..0..0.18.us = load volatile i32, ptr %2, align 4, !tbaa !37
@@ -141,8 +135,8 @@ lv_tick_get.exit.split.us:                        ; preds = %9, %lv_tick_get.exi
   br i1 %17, label %.lr.ph.us, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us, %16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.preheader.i.i.us.backedge
 
 .lr.ph.us:                                        ; preds = %16, %.lr.ph.us
@@ -187,8 +181,8 @@ lv_tick_elaps.exit:                               ; preds = %25, %23
   br i1 %28, label %29, label %.loopexit
 
 29:                                               ; preds = %lv_tick_elaps.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store volatile i32 %0, ptr %3, align 4, !tbaa !37
   store volatile i32 0, ptr %2, align 4, !tbaa !37
   %.0..0..0..0.18 = load volatile i32, ptr %2, align 4, !tbaa !37
@@ -207,8 +201,8 @@ lv_tick_elaps.exit:                               ; preds = %25, %23
   br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %lv_tick_get.exit.split, !llvm.loop !39
 
 .loopexit:                                        ; preds = %lv_tick_elaps.exit, %lv_tick_elaps.exit.loopexit.us, %5
@@ -216,21 +210,27 @@ lv_tick_elaps.exit:                               ; preds = %25, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @lv_tick_set_cb(ptr noundef %0) local_unnamed_addr #3 {
+define void @lv_tick_set_cb(ptr noundef %0) local_unnamed_addr #2 {
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 336), align 8, !tbaa !41
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @lv_delay_set_cb(ptr noundef %0) local_unnamed_addr #3 {
+define void @lv_delay_set_cb(ptr noundef %0) local_unnamed_addr #2 {
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 344), align 8, !tbaa !13
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nofree norecurse nounwind memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

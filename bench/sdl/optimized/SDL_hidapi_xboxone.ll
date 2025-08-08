@@ -138,7 +138,7 @@ define internal zeroext i1 @HIDAPI_DriverXboxOne_UpdateDevice(ptr noundef %0) #0
   %6 = alloca [64 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 0
@@ -499,7 +499,7 @@ switch.lookup52:                                  ; preds = %203
   br label %303
 
 208:                                              ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %209 = icmp samesign ult i32 %54, 4
   br i1 %209, label %HIDAPI_GIP_ProcessData.exit, label %.lr.ph.i
 
@@ -657,7 +657,7 @@ HIDAPI_GIP_DestroyChunkBuffer.exit.i.i.i:         ; preds = %256, %254
 
 HIDAPI_GIP_GetHeaderLength.exit.i.i.i.i:          ; preds = %268, %266, %263
   %.sroa.712.0.i.i.i = phi i16 [ 0, %263 ], [ 0, %266 ], [ %271, %268 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i.i23.i.i = icmp eq i8 %214, 0
   br i1 %.not.i.i23.i.i, label %272, label %.split.loop.exit.i.i.i.i.i.i
 
@@ -692,12 +692,12 @@ SendProtocolPacket.exit.i.i.i.i:                  ; preds = %.split.loop.exit.i.
   br i1 %.not.i26.i.i.i.i, label %HIDAPI_GIP_AcknowledgePacket.exit.thread.i.i, label %HIDAPI_GIP_AcknowledgePacket.exit.i.i
 
 HIDAPI_GIP_AcknowledgePacket.exit.thread.i.i:     ; preds = %SendProtocolPacket.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %281
 
 HIDAPI_GIP_AcknowledgePacket.exit.i.i:            ; preds = %SendProtocolPacket.exit.i.i.i.i, %.split.loop.exit.i.i.i.i.i.i
   %280 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4) #9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %HIDAPI_GIP_ProcessData.exit
 
 281:                                              ; preds = %HIDAPI_GIP_AcknowledgePacket.exit.thread.i.i, %260
@@ -750,7 +750,7 @@ HIDAPI_GIP_AcknowledgePacket.exit.i.i:            ; preds = %SendProtocolPacket.
   br i1 %302, label %HIDAPI_GIP_ProcessData.exit, label %.lr.ph.i, !llvm.loop !7
 
 HIDAPI_GIP_ProcessData.exit:                      ; preds = %HIDAPI_GIP_DestroyChunkBuffer.exit.i.i.i, %282, %284, %297, %208, %HIDAPI_GIP_AcknowledgePacket.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %303
 
 303:                                              ; preds = %198, %switch.lookup52, %59, %HIDAPI_DriverXboxOneBluetooth_HandleStatePacket.exit, %197, %203, %57, %HIDAPI_GIP_ProcessData.exit
@@ -783,7 +783,7 @@ HIDAPI_GIP_ProcessData.exit:                      ; preds = %HIDAPI_GIP_DestroyC
   ]
 
 318:                                              ; preds = %316
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 8196, ptr %3, align 4
   %319 = load i8, ptr %311, align 8
   %320 = add i8 %319, 1
@@ -806,7 +806,7 @@ SendProtocolPacket.exit.thread.i.i:               ; preds = %SendProtocolPacket.
   br label %SendIdentificationRequest.exit.i
 
 SendIdentificationRequest.exit.i:                 ; preds = %SendProtocolPacket.exit.thread.i.i, %SendProtocolPacket.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.sink.split.i
 
 326:                                              ; preds = %316
@@ -819,7 +819,7 @@ SendIdentificationRequest.exit.i:                 ; preds = %SendProtocolPacket.
 330:                                              ; preds = %316
   %331 = load i16, ptr %309, align 8
   %332 = load i16, ptr %310, align 2
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %333
 
 333:                                              ; preds = %373, %330
@@ -920,7 +920,7 @@ SendProtocolPacket.exit.thread.i14.i:             ; preds = %SendProtocolPacket.
   br i1 %exitcond.i.i, label %SendControllerStartup.exit.i, label %333, !llvm.loop !9
 
 SendControllerStartup.exit.i:                     ; preds = %373, %SendProtocolPacket.exit.thread.i14.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.sink.split.i
 
 375:                                              ; preds = %316
@@ -957,7 +957,7 @@ HIDAPI_DriverXboxOne_UpdateInitState.exit:        ; preds = %379
 
 388:                                              ; preds = %1, %386
   %.0 = phi i1 [ %387, %386 ], [ false, %1 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
@@ -1073,7 +1073,7 @@ define internal zeroext i1 @HIDAPI_DriverXboxOne_SetJoystickLED(ptr noundef %0, 
   br i1 %11, label %12, label %21
 
 12:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %6, ptr noundef nonnull align 1 dereferenceable(9) @__const.HIDAPI_DriverXboxOne_SetJoystickLED.led_packet, i64 5, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 5
   store i8 0, ptr %13, align 1
@@ -1093,7 +1093,7 @@ define internal zeroext i1 @HIDAPI_DriverXboxOne_SetJoystickLED(ptr noundef %0, 
 
 20:                                               ; preds = %12, %18
   %.0 = phi i1 [ %19, %18 ], [ true, %12 ]
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %23
 
 21:                                               ; preds = %5
@@ -1151,18 +1151,12 @@ declare void @SDL_RemoveHintCallback_REAL(ptr noundef, ptr noundef, ptr noundef)
 
 declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 declare i64 @SDL_GetTicks_REAL() local_unnamed_addr #3
 
 declare zeroext i1 @HIDAPI_JoystickConnected(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare zeroext i1 @SDL_IsJoystickXboxOneElite(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #3
 
@@ -1239,7 +1233,7 @@ thread-pre-split.thread:                          ; preds = %1, %6, %9, %19
   br i1 %31, label %36, label %48
 
 36:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %2, ptr noundef nonnull align 1 dereferenceable(9) @__const.HIDAPI_DriverXboxOne_UpdateRumble.rumble_packet, i64 9, i1 false)
   %37 = load i8, ptr %32, align 1
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -1258,16 +1252,16 @@ thread-pre-split.thread:                          ; preds = %1, %6, %9, %19
   br i1 %.not33.not, label %.thread36, label %46
 
 .thread36:                                        ; preds = %36
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %60
 
 46:                                               ; preds = %36
   %47 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9) #9
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %61
 
 48:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %3, ptr noundef nonnull align 1 dereferenceable(13) @__const.HIDAPI_DriverXboxOne_UpdateRumble.rumble_packet.10, i64 13, i1 false)
   %49 = load i8, ptr %32, align 1
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 6
@@ -1286,12 +1280,12 @@ thread-pre-split.thread:                          ; preds = %1, %6, %9, %19
   br i1 %.not32.not, label %.thread39, label %58
 
 .thread39:                                        ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %60
 
 58:                                               ; preds = %48
   %59 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9) #9
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %61
 
 60:                                               ; preds = %.thread39, %.thread36
@@ -1312,7 +1306,7 @@ declare void @SDL_SendJoystickHat(i64 noundef, ptr noundef, i8 noundef zeroext, 
 declare void @SDL_SendJoystickAxis(i64 noundef, ptr noundef, i8 noundef zeroext, i16 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @SDL_SendJoystickButton(i64 noundef, ptr noundef, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
@@ -1372,7 +1366,7 @@ define internal fastcc void @HIDAPI_GIP_DispatchPacket(ptr noundef %0, ptr nound
   br label %HIDAPI_DriverXboxOne_HandleStatusPacket.exit
 
 26:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 29, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %27
 
 27:                                               ; preds = %27, %26
@@ -1393,7 +1387,7 @@ HIDAPI_DriverXboxOne_HandleSerialIDPacket.exit:   ; preds = %27
   store i8 0, ptr %35, align 4
   %36 = load ptr, ptr %1, align 8
   call void @HIDAPI_SetDeviceSerial(ptr noundef %36, ptr noundef nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 29, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %HIDAPI_DriverXboxOne_HandleStatusPacket.exit
 
 37:                                               ; preds = %11
@@ -1494,7 +1488,7 @@ declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #3
 declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #3
 
@@ -1530,11 +1524,11 @@ define internal fastcc void @HIDAPI_DriverXboxOne_HandleStatePacket(ptr noundef 
   br i1 %or.cond.not, label %18, label %15
 
 15:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %5, ptr noundef nonnull align 1 dereferenceable(6) @__const.HIDAPI_DriverXboxOne_HandleStatePacket.packet, i64 6, i1 false)
   %16 = load ptr, ptr %1, align 8
   %17 = call i32 @SDL_HIDAPI_SendRumble(ptr noundef %16, ptr noundef nonnull %5, i32 noundef 6) #9
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %18
 
 18:                                               ; preds = %15, %10, %4
@@ -1884,7 +1878,7 @@ define internal void @SDL_HomeLEDHintChanged(ptr noundef readonly captures(none)
 
 10:                                               ; preds = %8
   %11 = tail call zeroext i1 @SDL_GetStringBoolean(ptr noundef nonnull %3, i1 noundef zeroext true) #9
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %11, label %GetHomeLEDBrightness.exit.thread, label %GetHomeLEDBrightness.exit.thread8
 
 GetHomeLEDBrightness.exit.thread8:                ; preds = %10
@@ -1899,7 +1893,7 @@ GetHomeLEDBrightness.exit:                        ; preds = %8
   %12 = tail call double @SDL_atof_REAL(ptr noundef nonnull %3) #9
   %13 = fmul double %12, 5.000000e+01
   %14 = fptosi double %13 to i32
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, ptr noundef nonnull align 1 dereferenceable(7) @__const.SetHomeLED.led_packet, i64 7, i1 false)
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %16, label %SetHomeLED.exit
@@ -1916,12 +1910,18 @@ GetHomeLEDBrightness.exit:                        ; preds = %8
 SetHomeLED.exit:                                  ; preds = %GetHomeLEDBrightness.exit.thread8, %GetHomeLEDBrightness.exit, %16
   %20 = load ptr, ptr %0, align 8
   %21 = call i32 @SDL_HIDAPI_SendRumble(ptr noundef %20, ptr noundef nonnull %5, i32 noundef 7) #9
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %22
 
 22:                                               ; preds = %SetHomeLED.exit, %6, %4
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
@@ -1936,10 +1936,10 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind allocsize(0,1) }

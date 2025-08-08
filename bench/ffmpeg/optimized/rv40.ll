@@ -83,13 +83,10 @@ declare i32 @ff_rv34_decode_end(ptr noundef) #0
 
 declare void @ff_mpeg_flush(ptr noundef) #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @ff_rv34_decode_init(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 1) i32 @rv40_parse_slice_header(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 32)) %2) #3 {
+define internal range(i32 -2147483648, 1) i32 @rv40_parse_slice_header(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 32)) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %5 = load i32, ptr %4, align 8, !tbaa !61
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 492
@@ -357,7 +354,7 @@ rv40_parse_picture_size.exit:                     ; preds = %162, %158, %156, %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @rv40_decode_intra_types(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #4 {
+define internal noundef i32 @rv40_decode_intra_types(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 6008
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4140
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -627,7 +624,7 @@ get_vlc2.exit:                                    ; preds = %68, %90
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -32768, 255) i32 @rv40_decode_mb_info(ptr noundef captures(none) %0) #3 {
+define internal range(i32 -32768, 255) i32 @rv40_decode_mb_info(ptr noundef captures(none) %0) #2 {
   %2 = alloca [12 x i32], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4160
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3348
@@ -746,7 +743,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
   br i1 %.not61, label %129, label %78
 
 78:                                               ; preds = %75
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %2, i8 0, i64 48, i1 false)
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 6692
   %80 = load i32, ptr %79, align 4, !tbaa !71
@@ -837,7 +834,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
 
 128:                                              ; preds = %124, %127
   %.155 = phi i32 [ %126, %124 ], [ %.2, %127 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %139
 
 129:                                              ; preds = %75
@@ -946,7 +943,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i32 noundef %1) #3 {
+define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -976,12 +973,12 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %25 = alloca [4 x i32], align 16
   %.sroa.0 = alloca i32, align 4
   %.sroa.4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 548
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %28 = load i32, ptr %27, align 4, !tbaa !97
@@ -1086,13 +1083,13 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
 96:                                               ; preds = %.lr.ph357, %570
   %indvars.iv378 = phi i64 [ 0, %.lr.ph357 ], [ %indvars.iv.next379, %570 ]
   %indvars.iv376 = phi i64 [ %95, %.lr.ph357 ], [ %indvars.iv.next377, %570 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0400)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4401)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0394)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4395)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0400)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4401)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0394)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4395)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   %97 = load ptr, ptr %59, align 8, !tbaa !103
   %98 = getelementptr inbounds i8, ptr %97, i64 %indvars.iv376
   %99 = load i8, ptr %98, align 1, !tbaa !65
@@ -1363,8 +1360,8 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %270 = and i32 %264, %176
   %.not282 = icmp eq i32 %270, 0
   %271 = select i1 %.not282, i32 0, i32 %260
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %272 = load ptr, ptr %79, align 8, !tbaa !111
   %sext334 = shl i64 %267, 32
   %273 = ashr exact i64 %sext334, 32
@@ -1408,8 +1405,8 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   br label %rv40_adaptive_loop_filter.exit
 
 rv40_adaptive_loop_filter.exit:                   ; preds = %282, %286, %288, %290
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %295
 
 295:                                              ; preds = %rv40_adaptive_loop_filter.exit, %256
@@ -1439,8 +1436,8 @@ rv40_adaptive_loop_filter.exit:                   ; preds = %282, %286, %288, %2
 306:                                              ; preds = %298, %.critedge
   %.0260 = phi i32 [ %305, %.critedge ], [ %252, %298 ]
   %307 = load i64, ptr %78, align 8, !tbaa !110
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %308 = load ptr, ptr %85, align 8, !tbaa !111
   %sext335 = shl i64 %307, 32
   %309 = ashr exact i64 %sext335, 32
@@ -1484,8 +1481,8 @@ rv40_adaptive_loop_filter.exit:                   ; preds = %282, %286, %288, %2
   br label %rv40_adaptive_loop_filter.exit305
 
 rv40_adaptive_loop_filter.exit305:                ; preds = %318, %322, %324, %326
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %331
 
 331:                                              ; preds = %rv40_adaptive_loop_filter.exit305, %298, %295
@@ -1509,8 +1506,8 @@ rv40_adaptive_loop_filter.exit305:                ; preds = %318, %322, %324, %3
   %341 = and i32 %205, %340
   %.not290 = icmp eq i32 %341, 0
   %342 = select i1 %.not290, i32 0, i32 %206
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %343 = load ptr, ptr %79, align 8, !tbaa !111
   %sext336 = shl i64 %339, 32
   %344 = ashr exact i64 %sext336, 32
@@ -1554,8 +1551,8 @@ rv40_adaptive_loop_filter.exit305:                ; preds = %318, %322, %324, %3
   br label %rv40_adaptive_loop_filter.exit309
 
 rv40_adaptive_loop_filter.exit309:                ; preds = %353, %357, %359, %361
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %366
 
 366:                                              ; preds = %rv40_adaptive_loop_filter.exit309, %335, %332, %331
@@ -1571,8 +1568,8 @@ rv40_adaptive_loop_filter.exit309:                ; preds = %353, %357, %359, %3
 
 371:                                              ; preds = %368
   %372 = load i64, ptr %78, align 8, !tbaa !110
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %373 = load ptr, ptr %85, align 8, !tbaa !111
   %sext337 = shl i64 %372, 32
   %374 = ashr exact i64 %sext337, 32
@@ -1615,8 +1612,8 @@ rv40_adaptive_loop_filter.exit309:                ; preds = %353, %357, %359, %3
   br label %rv40_adaptive_loop_filter.exit313
 
 rv40_adaptive_loop_filter.exit313:                ; preds = %383, %387, %389, %391
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %395
 
 395:                                              ; preds = %rv40_adaptive_loop_filter.exit313, %368, %366
@@ -1686,8 +1683,8 @@ rv40_adaptive_loop_filter.exit313:                ; preds = %383, %387, %389, %3
   %432 = load i64, ptr %92, align 8, !tbaa !114
   %433 = shl nsw i64 %432, 2
   %434 = getelementptr inbounds i8, ptr %.0256348, i64 %433
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %435 = load ptr, ptr %79, align 8, !tbaa !111
   %sext = shl i64 %432, 32
   %436 = ashr exact i64 %sext, 32
@@ -1732,8 +1729,8 @@ rv40_adaptive_loop_filter.exit313:                ; preds = %383, %387, %389, %3
   br label %rv40_adaptive_loop_filter.exit317
 
 rv40_adaptive_loop_filter.exit317:                ; preds = %445, %450, %452, %454
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %459
 
 459:                                              ; preds = %rv40_adaptive_loop_filter.exit317, %420
@@ -1770,8 +1767,8 @@ rv40_adaptive_loop_filter.exit317:                ; preds = %445, %450, %452, %4
 475:                                              ; preds = %.critedge301, %466
   %.1261 = phi i32 [ %474, %.critedge301 ], [ %469, %466 ]
   %476 = load i64, ptr %92, align 8, !tbaa !114
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %477 = load ptr, ptr %85, align 8, !tbaa !111
   %sext331 = shl i64 %476, 32
   %478 = ashr exact i64 %sext331, 32
@@ -1815,8 +1812,8 @@ rv40_adaptive_loop_filter.exit317:                ; preds = %445, %450, %452, %4
   br label %rv40_adaptive_loop_filter.exit321
 
 rv40_adaptive_loop_filter.exit321:                ; preds = %487, %491, %493, %495
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %500
 
 500:                                              ; preds = %rv40_adaptive_loop_filter.exit321, %463, %459
@@ -1837,8 +1834,8 @@ rv40_adaptive_loop_filter.exit321:                ; preds = %487, %491, %493, %4
   %.not276 = icmp eq i32 %507, 0
   %508 = select i1 %.not276, i32 0, i32 %241
   %509 = load i64, ptr %92, align 8, !tbaa !114
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %510 = load ptr, ptr %79, align 8, !tbaa !111
   %sext332 = shl i64 %509, 32
   %511 = ashr exact i64 %sext332, 32
@@ -1883,8 +1880,8 @@ rv40_adaptive_loop_filter.exit321:                ; preds = %487, %491, %493, %4
   br label %rv40_adaptive_loop_filter.exit325
 
 rv40_adaptive_loop_filter.exit325:                ; preds = %520, %525, %527, %529
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %534
 
 534:                                              ; preds = %rv40_adaptive_loop_filter.exit325, %502, %500
@@ -1903,8 +1900,8 @@ rv40_adaptive_loop_filter.exit325:                ; preds = %520, %525, %527, %5
   %.not278 = icmp eq i32 %540, 0
   %541 = select i1 %.not278, i32 0, i32 %239
   %542 = load i64, ptr %92, align 8, !tbaa !114
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %543 = load ptr, ptr %85, align 8, !tbaa !111
   %sext333 = shl i64 %542, 32
   %544 = ashr exact i64 %sext333, 32
@@ -1948,8 +1945,8 @@ rv40_adaptive_loop_filter.exit325:                ; preds = %520, %525, %527, %5
   br label %rv40_adaptive_loop_filter.exit329
 
 rv40_adaptive_loop_filter.exit329:                ; preds = %553, %557, %559, %561
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %566
 
 566:                                              ; preds = %rv40_adaptive_loop_filter.exit329, %535, %534
@@ -1963,13 +1960,13 @@ rv40_adaptive_loop_filter.exit329:                ; preds = %553, %557, %559, %5
   br i1 %400, label %.preheader, label %570, !llvm.loop !117
 
 570:                                              ; preds = %569
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0394)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4395)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0400)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4401)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0394)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4395)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0400)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4401)
   %indvars.iv.next379 = add nuw nsw i64 %indvars.iv378, 1
   %indvars.iv.next377 = add nsw i64 %indvars.iv376, 1
   %571 = load i32, ptr %27, align 4, !tbaa !97
@@ -1978,12 +1975,12 @@ rv40_adaptive_loop_filter.exit329:                ; preds = %553, %557, %559, %5
   br i1 %573, label %96, label %._crit_edge358, !llvm.loop !118
 
 ._crit_edge358:                                   ; preds = %570, %2, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret void
 }
 
@@ -1995,7 +1992,7 @@ declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #0
 define internal void @rv40_init_tables() #1 {
   %1 = alloca %struct.VLCInitState, align 8
   %2 = alloca [81 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) @__const.rv40_init_tables.state, i64 16, i1 false)
   %3 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 7, i32 noundef 16, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @rv40_aic_top_vlc_tab, i64 1), i32 noundef 2, ptr noundef nonnull @rv40_aic_top_vlc_tab, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 0) #8
   br label %4
@@ -2022,7 +2019,7 @@ define internal void @rv40_init_tables() #1 {
 
 .preheader29:                                     ; preds = %12, %14
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %14 ], [ 0, %12 ]
-  call void @llvm.lifetime.start.p0(i64 162, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %13 = getelementptr inbounds nuw [20 x [81 x i8]], ptr @aic_mode2_vlc_syms, i64 0, i64 %indvars.iv40
   br label %18
 
@@ -2031,7 +2028,7 @@ define internal void @rv40_init_tables() #1 {
   %16 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 9, i32 noundef 81, ptr noundef nonnull %15, i32 noundef 1, ptr noundef nonnull %2, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0) #8
   %17 = getelementptr inbounds nuw [20 x ptr], ptr @aic_mode2_vlc, i64 0, i64 %indvars.iv40
   store ptr %16, ptr %17, align 8, !tbaa !83
-  call void @llvm.lifetime.end.p0(i64 162, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 20
   br i1 %exitcond43.not, label %.preheader28, label %.preheader29, !llvm.loop !120
@@ -2074,15 +2071,12 @@ define internal void @rv40_init_tables() #1 {
   br i1 %exitcond51.not, label %35, label %.preheader, !llvm.loop !123
 
 35:                                               ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @av_image_check_size(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -2091,9 +2085,15 @@ declare i32 @ff_rv34_get_start_offset(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @ff_vlc_init_tables_from_lengths(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7
@@ -2106,11 +2106,11 @@ declare i8 @llvm.umin.i8(i8, i8) #7
 
 attributes #0 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 

@@ -233,13 +233,7 @@ declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare ptr @lua_topointer(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @luaPushErrorBuff(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -491,7 +485,7 @@ sdsalloc.exit:                                    ; preds = %41, %45, %48, %52, 
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i64 @sdslen(ptr noundef readonly captures(none) %0) unnamed_addr #4 {
+define internal fastcc i64 @sdslen(ptr noundef readonly captures(none) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1
   %3 = load i8, ptr %2, align 1, !tbaa !7
   %4 = zext i8 %3 to i32
@@ -549,11 +543,11 @@ define dso_local ptr @luaGetStringSds(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call ptr @lua_tolstring(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %3) #11
   %7 = load i64, ptr %3, align 8, !tbaa !20
   %8 = call ptr @sdsnewlen(ptr noundef %6, i64 noundef %7) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %9
 
 9:                                                ; preds = %2, %5
@@ -867,7 +861,7 @@ define internal i32 @luaLogCommand(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %32
   %.03038 = phi ptr [ %.1, %32 ], [ %23, %.lr.ph.preheader ]
   %.03137 = phi i32 [ %33, %32 ], [ 1, %.lr.ph.preheader ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %24 = sub nsw i32 %.03137, %3
   %25 = call ptr @lua_tolstring(ptr noundef %0, i32 noundef %24, ptr noundef nonnull %2) #11
   %.not35 = icmp eq ptr %25, null
@@ -889,7 +883,7 @@ define internal i32 @luaLogCommand(ptr noundef %0) #0 {
 
 32:                                               ; preds = %29, %.lr.ph
   %.1 = phi ptr [ %31, %29 ], [ %.03038, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %33 = add nuw nsw i32 %.03137, 1
   %exitcond.not = icmp eq i32 %33, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
@@ -1102,8 +1096,8 @@ define internal i32 @luaRedisSha1hexCommand(ptr noundef %0) #0 {
   %2 = alloca [41 x i8], align 16
   %3 = alloca i64, align 8
   %4 = tail call i32 @lua_gettop(ptr noundef %0) #11
-  call void @llvm.lifetime.start.p0(i64 41, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq i32 %4, 1
   br i1 %.not, label %8, label %5
 
@@ -1122,8 +1116,8 @@ define internal i32 @luaRedisSha1hexCommand(ptr noundef %0) #0 {
 
 11:                                               ; preds = %8, %5
   %.0 = phi i32 [ %7, %5 ], [ 1, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 41, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -1248,8 +1242,8 @@ define internal i32 @luaRedisAclCheckCmdPermissionsCommand(ptr noundef %0) #0 {
   unreachable
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = call fastcc ptr @luaArgsToRedisArgv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %12
@@ -1265,7 +1259,7 @@ define internal i32 @luaRedisAclCheckCmdPermissionsCommand(ptr noundef %0) #0 {
   br i1 %.not21, label %22, label %15
 
 15:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !61
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 160
@@ -1274,7 +1268,7 @@ define internal i32 @luaRedisAclCheckCmdPermissionsCommand(ptr noundef %0) #0 {
   %.not19 = icmp eq i32 %20, 0
   %. = zext i1 %.not19 to i32
   call void @lua_pushboolean(ptr noundef %0, i32 noundef %.) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = load i32, ptr %3, align 4, !tbaa !19
   call void @freeLuaRedisArgv(ptr noundef nonnull %8, i32 noundef %13, i32 noundef %21)
   br label %26
@@ -1289,8 +1283,8 @@ define internal i32 @luaRedisAclCheckCmdPermissionsCommand(ptr noundef %0) #0 {
 
 26:                                               ; preds = %15, %22, %10
   %.0 = phi i32 [ %11, %10 ], [ %25, %22 ], [ 1, %15 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -1706,7 +1700,7 @@ luaCreateArray.exit66:                            ; preds = %sdslen.exit.i62, %5
   br label %124
 
 102:                                              ; preds = %93
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %103 = tail call ptr @sdsempty() #11
   call void @luaExtractErrorInformation(ptr noundef %1, ptr noundef nonnull %7)
@@ -1757,7 +1751,7 @@ luaCreateArray.exit66:                            ; preds = %sdslen.exit.i62, %5
   br label %luaErrorInformationDiscard.exit
 
 luaErrorInformationDiscard.exit:                  ; preds = %122, %123
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %124
 
 124:                                              ; preds = %luaErrorInformationDiscard.exit, %100
@@ -1829,7 +1823,7 @@ declare i32 @lua_pcall(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local
 declare void @addReplyErrorFormat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @addReplyErrorSdsEx(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1904,7 +1898,7 @@ define internal fastcc void @luaReplyToRedisReply(ptr noundef %0, ptr noundef %1
   br i1 %32, label %33, label %47
 
 33:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   call void @luaExtractErrorInformation(ptr noundef %2, ptr noundef nonnull %4)
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1942,7 +1936,7 @@ define internal fastcc void @luaReplyToRedisReply(ptr noundef %0, ptr noundef %1
 
 luaErrorInformationDiscard.exit:                  ; preds = %43, %46
   tail call void @lua_settop(ptr noundef %2, i32 noundef -2) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %133
 
 47:                                               ; preds = %30
@@ -2060,12 +2054,12 @@ sdslen.exit:                                      ; preds = %50, %58, %61, %65, 
   br i1 %.not137, label %.thread, label %101
 
 .thread:                                          ; preds = %96
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %99 = call ptr @lua_tolstring(ptr noundef %2, i32 noundef -1, ptr noundef nonnull %5) #11
   %100 = load i64, ptr %5, align 8, !tbaa !20
   call void @addReplyVerbatim(ptr noundef %0, ptr noundef %99, i64 noundef %100, ptr noundef %97) #11
   call void @lua_settop(ptr noundef %2, i32 noundef -5) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %133
 
 101:                                              ; preds = %96
@@ -2226,7 +2220,7 @@ declare i32 @luaL_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @lua_isnumber(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @lua_rawset(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2280,7 +2274,7 @@ define internal fastcc i32 @luaRedisGenericCommand(ptr noundef %0, i32 noundef r
   unreachable
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !54
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !81
@@ -2447,12 +2441,12 @@ define internal fastcc i32 @luaRedisGenericCommand(ptr noundef %0, i32 noundef r
 
 91:                                               ; preds = %89, %.loopexit
   %.168 = phi i32 [ 0, %.loopexit ], [ %spec.select, %89 ]
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.069, ptr %3, align 8, !tbaa !97
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %92, ptr noundef nonnull align 8 dereferenceable(128) @DefaultLuaTypeParserCallbacks, i64 128, i1 false), !tbaa.struct !100
   %93 = call i32 @parseReply(ptr noundef nonnull %3, ptr noundef %0) #11
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %94 = call i32 @ldbIsEnabled() #11
   %.not85 = icmp eq i32 %94, 0
   br i1 %.not85, label %96, label %95
@@ -2500,7 +2494,7 @@ define internal fastcc i32 @luaRedisGenericCommand(ptr noundef %0, i32 noundef r
 
 111:                                              ; preds = %102, %16, %15, %109, %24
   %.0 = phi i32 [ 1, %24 ], [ %110, %109 ], [ %17, %16 ], [ 1, %15 ], [ 1, %102 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -2543,8 +2537,8 @@ define internal fastcc ptr @luaArgsToRedisArgv(ptr noundef %0, ptr noundef captu
 
 .lr.ph:                                           ; preds = %20, %sdssetlen.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %sdssetlen.exit ], [ 0, %20 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = trunc nuw nsw i64 %indvars.iv.next to i32
   %25 = call i32 @lua_type(ptr noundef %0, i32 noundef %24) #11
@@ -2553,7 +2547,7 @@ define internal fastcc ptr @luaArgsToRedisArgv(ptr noundef %0, ptr noundef captu
 
 27:                                               ; preds = %.lr.ph
   %28 = call double @lua_tonumber(ptr noundef %0, i32 noundef %24) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %29 = call i32 @double2ll(double noundef %28, ptr noundef nonnull %6) #11
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %34, label %30
@@ -2574,7 +2568,7 @@ define internal fastcc ptr @luaArgsToRedisArgv(ptr noundef %0, ptr noundef captu
 38:                                               ; preds = %34, %30
   %.sink = phi i64 [ %36, %34 ], [ %33, %30 ]
   store i64 %.sink, ptr %4, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %43
 
 39:                                               ; preds = %.lr.ph
@@ -2584,8 +2578,8 @@ define internal fastcc ptr @luaArgsToRedisArgv(ptr noundef %0, ptr noundef captu
 
 sdssetlen.exit.thread:                            ; preds = %39
   %42 = trunc nuw nsw i64 %indvars.iv to i32
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre57 = load i32, ptr %1, align 4, !tbaa !19
   br label %.loopexit
 
@@ -2670,8 +2664,8 @@ sdssetlen.exit.thread:                            ; preds = %39
   br label %sdssetlen.exit
 
 sdssetlen.exit:                                   ; preds = %72, %69, %66, %63, %61, %51, %74
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %79 = load i32, ptr %1, align 4, !tbaa !19
   %80 = sext i32 %79 to i64
   %81 = icmp slt i64 %indvars.iv.next, %80
@@ -2710,7 +2704,7 @@ declare void @ldbLogRedisReply(ptr noundef) local_unnamed_addr #1
 declare void @resetClient(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(1)
-declare ptr @zrealloc(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare ptr @zrealloc(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 declare i32 @double2ll(double noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2719,7 +2713,7 @@ declare i32 @ll2string(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr
 declare i32 @fpconv_dtoa(double noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare ptr @createStringObject(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -3197,7 +3191,7 @@ declare i64 @luaL_checkinteger(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @luaL_argerror(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #9
+declare double @llvm.floor.f64(double) #8
 
 declare void @redisSrand48(i32 noundef) local_unnamed_addr #1
 
@@ -3241,19 +3235,25 @@ declare void @setDeferredArrayLen(ptr noundef, ptr noundef, i64 noundef) local_u
 
 declare void @addReplyNull(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr, i32) local_unnamed_addr #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #11 = { nounwind }
 attributes #12 = { noreturn nounwind }

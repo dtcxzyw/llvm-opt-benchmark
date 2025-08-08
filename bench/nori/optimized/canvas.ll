@@ -43,8 +43,8 @@ define hidden void @_ZN7nanogui6CanvasC2EPNS_6WidgetEhbbb(ptr noundef nonnull al
   store ptr null, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i8 1, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %13
 
@@ -57,7 +57,7 @@ define hidden void @_ZN7nanogui6CanvasC2EPNS_6WidgetEhbbb(ptr noundef nonnull al
   br i1 %exitcond.not.i.i.i, label %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i, label %13, !llvm.loop !5
 
 _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %16
 
 16:                                               ; preds = %16, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i
@@ -78,12 +78,12 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %13
   %.fca.0.load.i.i.i = load <2 x float>, ptr %7, align 8
   %.fca.1.gep.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.fca.1.load.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store <2 x float> %.fca.0.load.i.i.i, ptr %25, align 4
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 164
   store <2 x float> %.fca.1.load.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 1073741824250, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -697,10 +697,10 @@ declare void @_ZSt9terminatev() local_unnamed_addr #12
 declare void @_ZNK7nanogui6Object7inc_refEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14

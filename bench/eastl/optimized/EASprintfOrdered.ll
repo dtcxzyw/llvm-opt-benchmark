@@ -30,10 +30,10 @@ entry:
   %spanArgOrder.i = alloca [10 x i32], align 16
   %formatData.i = alloca %"struct.EA::StdC::SprintfLocal::FormatData", align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %arguments.addr.i)
-  call void @llvm.lifetime.start.p0(i64 1680, ptr nonnull %spans.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %spanArgOrder.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %formatData.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arguments.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %spans.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %spanArgOrder.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %formatData.i)
   store ptr %arguments, ptr %arguments.addr.i, align 8, !noalias !8
   br label %arrayctor.loop.i
 
@@ -1003,10 +1003,10 @@ for.end467.i:                                     ; preds = %for.inc465.i, %for.
 
 _ZN2EA4StdC12SprintfLocal8InternalL12OVprintfCoreINS1_4SpanIcEEPFiPKcmPvNS0_18WriteFunctionStateEEcEEiT0_S8_PKT1_P13__va_list_tag.exit: ; preds = %if.else.i, %if.end38.i, %if.then61.i, %for.body119.i, %if.then347.i, %sw.epilog431.i, %if.else452.i, %for.body443.i, %for.end467.i
   %retval.0.i = phi i32 [ %nWriteCountSum.0.lcssa.i, %for.end467.i ], [ -1, %for.body443.i ], [ -1, %if.else452.i ], [ -1, %sw.epilog431.i ], [ -1, %if.then347.i ], [ -1, %for.body119.i ], [ -1, %if.then61.i ], [ -1, %if.end38.i ], [ -1, %if.else.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arguments.addr.i)
-  call void @llvm.lifetime.end.p0(i64 1680, ptr nonnull %spans.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %spanArgOrder.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %formatData.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arguments.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %spans.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %spanArgOrder.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %formatData.i)
   ret i32 %retval.0.i
 }
 
@@ -1032,7 +1032,7 @@ define dso_local noundef i32 @_ZN2EA4StdC9OVsprintfEPcPKcP13__va_list_tag(ptr no
 entry:
   %sc.i = alloca %"struct.EA::StdC::SprintfLocal::SnprintfContext8", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %sc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sc.i)
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = sext i1 %tobool.i to i64
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !19
@@ -1054,7 +1054,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN2EA4StdC10OVsnprintfEPcmPKcP13__va_list_tag.exit
 
 _ZN2EA4StdC10OVsnprintfEPcmPKcP13__va_list_tag.exit: ; preds = %entry, %if.then.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %sc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sc.i)
   ret i32 %call.i
 }
 
@@ -1106,10 +1106,10 @@ declare noundef i32 @_ZN2EA4StdC12SprintfLocal13StringWriter8EPKcmPvNS0_18WriteF
 define dso_local noundef i32 @_ZN2EA4StdC10OVscprintfEPKcP13__va_list_tag(ptr noalias noundef %pFormat, ptr noundef %arguments) local_unnamed_addr #0 {
 entry:
   %sc.i = alloca %"struct.EA::StdC::SprintfLocal::SnprintfContext8", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %sc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sc.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %sc.i, i8 0, i64 25, i1 false)
   %call.i = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL12OVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal13StringWriter8EPKcmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef %arguments)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %sc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sc.i)
   ret i32 %call.i
 }
 
@@ -1148,7 +1148,7 @@ entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %arguments)
   call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %sc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sc.i)
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 2147483647, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !25
@@ -1171,7 +1171,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN2EA4StdC10OVsnprintfEPcmPKcP13__va_list_tag.exit
 
 _ZN2EA4StdC10OVsnprintfEPcmPKcP13__va_list_tag.exit: ; preds = %if.then.i, %entry
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %sc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sc.i)
   ret i32 %call.i
 }
 
@@ -1182,7 +1182,7 @@ entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %arguments)
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %sc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sc.i)
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 %n, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !31
@@ -1218,7 +1218,7 @@ if.then5.i:                                       ; preds = %if.else.i
   br label %_ZN2EA4StdC10OVsnprintfEPcmPKcP13__va_list_tag.exit
 
 _ZN2EA4StdC10OVsnprintfEPcmPKcP13__va_list_tag.exit: ; preds = %entry, %if.then3.i, %if.else.i, %if.then5.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %sc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sc.i)
   ret i32 %call.i
 }
 
@@ -1237,10 +1237,10 @@ entry:
   %spanArgOrder.i = alloca [10 x i32], align 16
   %formatData.i = alloca %"struct.EA::StdC::SprintfLocal::FormatData", align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %arguments.addr.i)
-  call void @llvm.lifetime.start.p0(i64 2016, ptr nonnull %spans.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %spanArgOrder.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %formatData.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arguments.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %spans.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %spanArgOrder.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %formatData.i)
   store ptr %arguments, ptr %arguments.addr.i, align 8, !noalias !37
   br label %arrayctor.loop.i
 
@@ -2206,10 +2206,10 @@ for.end468.i:                                     ; preds = %for.inc466.i, %for.
 
 _ZN2EA4StdC12SprintfLocal8InternalL12OVprintfCoreINS1_4SpanIDsEEPFiPKDsmPvNS0_18WriteFunctionStateEEDsEEiT0_S8_PKT1_P13__va_list_tag.exit: ; preds = %if.else.i, %if.end38.i, %if.then61.i, %for.body119.i, %if.then347.i, %sw.epilog431.i, %if.else452.i, %for.body443.i, %for.end468.i
   %retval.0.i = phi i32 [ %nWriteCountSum.0.lcssa.i, %for.end468.i ], [ -1, %for.body443.i ], [ -1, %if.else452.i ], [ -1, %sw.epilog431.i ], [ -1, %if.then347.i ], [ -1, %for.body119.i ], [ -1, %if.then61.i ], [ -1, %if.end38.i ], [ -1, %if.else.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arguments.addr.i)
-  call void @llvm.lifetime.end.p0(i64 2016, ptr nonnull %spans.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %spanArgOrder.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %formatData.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arguments.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %spans.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %spanArgOrder.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %formatData.i)
   ret i32 %retval.0.i
 }
 
@@ -2235,7 +2235,7 @@ define dso_local noundef i32 @_ZN2EA4StdC9OVsprintfEPDsPKDsP13__va_list_tag(ptr 
 entry:
   %sc.i = alloca %"struct.EA::StdC::SprintfLocal::SnprintfContext16", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sc.i)
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = sext i1 %tobool.i to i64
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !47
@@ -2255,7 +2255,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN2EA4StdC10OVsnprintfEPDsmPKDsP13__va_list_tag.exit
 
 _ZN2EA4StdC10OVsnprintfEPDsmPKDsP13__va_list_tag.exit: ; preds = %entry, %if.then.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sc.i)
   ret i32 %call.i
 }
 
@@ -2305,10 +2305,10 @@ declare noundef i32 @_ZN2EA4StdC12SprintfLocal14StringWriter16EPKDsmPvNS0_18Writ
 define dso_local noundef i32 @_ZN2EA4StdC10OVscprintfEPKDsP13__va_list_tag(ptr noalias noundef %pFormat, ptr noundef %arguments) local_unnamed_addr #0 {
 entry:
   %sc.i = alloca %"struct.EA::StdC::SprintfLocal::SnprintfContext16", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sc.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sc.i, i8 0, i64 24, i1 false)
   %call.i = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL12OVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter16EPKDsmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef %arguments)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sc.i)
   ret i32 %call.i
 }
 
@@ -2347,7 +2347,7 @@ entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %arguments)
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sc.i)
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 2147483647, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !53
@@ -2376,7 +2376,7 @@ if.else.i:                                        ; preds = %if.then.i
   br label %_ZN2EA4StdC10OVsnprintfEPDsmPKDsP13__va_list_tag.exit
 
 _ZN2EA4StdC10OVsnprintfEPDsmPKDsP13__va_list_tag.exit: ; preds = %entry, %if.then3.i, %if.else.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sc.i)
   ret i32 %call.i
 }
 
@@ -2387,7 +2387,7 @@ entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %arguments)
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sc.i)
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 %n, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !59
@@ -2421,7 +2421,7 @@ if.then5.i:                                       ; preds = %if.else.i
   br label %_ZN2EA4StdC10OVsnprintfEPDsmPKDsP13__va_list_tag.exit
 
 _ZN2EA4StdC10OVsnprintfEPDsmPKDsP13__va_list_tag.exit: ; preds = %entry, %if.then3.i, %if.else.i, %if.then5.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sc.i)
   ret i32 %call.i
 }
 
@@ -2440,10 +2440,10 @@ entry:
   %spanArgOrder.i = alloca [10 x i32], align 16
   %formatData.i = alloca %"struct.EA::StdC::SprintfLocal::FormatData", align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %arguments.addr.i)
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %spans.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %spanArgOrder.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %formatData.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arguments.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %spans.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %spanArgOrder.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %formatData.i)
   store ptr %arguments, ptr %arguments.addr.i, align 8, !noalias !65
   br label %arrayctor.loop.i
 
@@ -3404,10 +3404,10 @@ for.end459.i:                                     ; preds = %for.inc457.i, %for.
 
 _ZN2EA4StdC12SprintfLocal8InternalL12OVprintfCoreINS1_4SpanIDiEEPFiPKDimPvNS0_18WriteFunctionStateEEDiEEiT0_S8_PKT1_P13__va_list_tag.exit: ; preds = %if.else.i, %if.end34.i, %if.then56.i, %for.body113.i, %if.then338.i, %sw.epilog422.i, %if.else443.i, %for.body434.i, %for.end459.i
   %retval.0.i = phi i32 [ %nWriteCountSum.0.lcssa.i, %for.end459.i ], [ -1, %for.body434.i ], [ -1, %if.else443.i ], [ -1, %sw.epilog422.i ], [ -1, %if.then338.i ], [ -1, %for.body113.i ], [ -1, %if.then56.i ], [ -1, %if.end34.i ], [ -1, %if.else.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arguments.addr.i)
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %spans.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %spanArgOrder.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %formatData.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arguments.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %spans.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %spanArgOrder.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %formatData.i)
   ret i32 %retval.0.i
 }
 
@@ -3433,7 +3433,7 @@ define dso_local noundef i32 @_ZN2EA4StdC9OVsprintfEPDiPKDiP13__va_list_tag(ptr 
 entry:
   %sc.i = alloca %"struct.EA::StdC::SprintfLocal::SnprintfContext32", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sc.i)
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = sext i1 %tobool.i to i64
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !75
@@ -3453,7 +3453,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN2EA4StdC10OVsnprintfEPDimPKDiP13__va_list_tag.exit
 
 _ZN2EA4StdC10OVsnprintfEPDimPKDiP13__va_list_tag.exit: ; preds = %entry, %if.then.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sc.i)
   ret i32 %call.i
 }
 
@@ -3503,10 +3503,10 @@ declare noundef i32 @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18Writ
 define dso_local noundef i32 @_ZN2EA4StdC10OVscprintfEPKDiP13__va_list_tag(ptr noalias noundef %pFormat, ptr noundef %arguments) local_unnamed_addr #0 {
 entry:
   %sc.i = alloca %"struct.EA::StdC::SprintfLocal::SnprintfContext32", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sc.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sc.i, i8 0, i64 24, i1 false)
   %call.i = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL12OVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef %arguments)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sc.i)
   ret i32 %call.i
 }
 
@@ -3545,7 +3545,7 @@ entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %arguments)
   call void @llvm.experimental.noalias.scope.decl(metadata !78)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sc.i)
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 2147483647, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !81
@@ -3574,7 +3574,7 @@ if.else.i:                                        ; preds = %if.then.i
   br label %_ZN2EA4StdC10OVsnprintfEPDimPKDiP13__va_list_tag.exit
 
 _ZN2EA4StdC10OVsnprintfEPDimPKDiP13__va_list_tag.exit: ; preds = %entry, %if.then3.i, %if.else.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sc.i)
   ret i32 %call.i
 }
 
@@ -3585,7 +3585,7 @@ entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %arguments)
   call void @llvm.experimental.noalias.scope.decl(metadata !84)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sc.i)
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 %n, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !87
@@ -3619,7 +3619,7 @@ if.then5.i:                                       ; preds = %if.else.i
   br label %_ZN2EA4StdC10OVsnprintfEPDimPKDiP13__va_list_tag.exit
 
 _ZN2EA4StdC10OVsnprintfEPDimPKDiP13__va_list_tag.exit: ; preds = %entry, %if.then3.i, %if.else.i, %if.then5.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sc.i)
   ret i32 %call.i
 }
 
@@ -3678,10 +3678,10 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare void @llvm.experimental.noalias.scope.decl(metadata) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8

@@ -250,12 +250,6 @@ define noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal15UTF8GenericS
   ret i32 %.095
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal24UTF8GenericScanFastAsciiEPKNS1_19UTF8StateMachineObjEPKciPi(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
@@ -269,7 +263,7 @@ define noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal24UTF8GenericS
   %10 = icmp slt i32 %2, 7
   %11 = getelementptr inbounds i8, ptr %9, i64 -7
   %12 = select i1 %10, ptr %1, ptr %11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = ptrtoint ptr %1 to i64
   br label %14
 
@@ -357,7 +351,7 @@ define noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal24UTF8GenericS
   %55 = sub i64 %54, %13
   %56 = trunc i64 %55 to i32
   store i32 %56, ptr %3, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %57
 
 57:                                               ; preds = %4, %53
@@ -379,7 +373,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal23IsStructurallyValidUTF8
   %8 = icmp slt i32 %1, 7
   %9 = getelementptr inbounds i8, ptr %7, i64 -7
   %10 = select i1 %8, ptr %0, ptr %9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = ptrtoint ptr %0 to i64
   br label %12
 
@@ -466,7 +460,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal23IsStructurallyValidUTF8
   %52 = ptrtoint ptr %49 to i64
   %53 = sub i64 %52, %11
   %54 = trunc i64 %53 to i32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %55 = icmp eq i32 %1, %54
   br label %_ZN6google8protobuf8internal24UTF8GenericScanFastAsciiEPKNS1_19UTF8StateMachineObjEPKciPi.exit
 
@@ -493,7 +487,7 @@ define noundef i32 @_ZN6google8protobuf8internal24UTF8SpnStructurallyValidENS0_1
   %10 = icmp slt i32 %4, 7
   %11 = getelementptr inbounds i8, ptr %9, i64 -7
   %12 = select i1 %10, ptr %0, ptr %11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = ptrtoint ptr %0 to i64
   br label %14
 
@@ -580,7 +574,7 @@ define noundef i32 @_ZN6google8protobuf8internal24UTF8SpnStructurallyValidENS0_1
   %54 = ptrtoint ptr %51 to i64
   %55 = sub i64 %54, %13
   %56 = trunc i64 %55 to i32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN6google8protobuf8internal24UTF8GenericScanFastAsciiEPKNS1_19UTF8StateMachineObjEPKciPi.exit
 
 _ZN6google8protobuf8internal24UTF8GenericScanFastAsciiEPKNS1_19UTF8StateMachineObjEPKciPi.exit: ; preds = %2, %53, %5
@@ -632,23 +626,29 @@ define noundef ptr @_ZN6google8protobuf8internal29UTF8CoerceToStructurallyValidE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_structurally_valid.cc() #6 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_structurally_valid.cc() #5 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #7
   store i1 true, ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119module_initialized_E, align 1
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

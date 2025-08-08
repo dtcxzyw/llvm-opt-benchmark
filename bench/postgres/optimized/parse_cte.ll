@@ -165,7 +165,7 @@ for_each_cell_setup.exit:                         ; preds = %.lr.ph129, %57
   br i1 %60, label %for_each_cell_setup.exit, label %.critedge
 
 61:                                               ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8
   %62 = load ptr, ptr %5, align 8
   %.not.i93 = icmp eq ptr %62, null
@@ -298,13 +298,13 @@ list_length.exit:                                 ; preds = %61, %63
   br i1 %.not35.i.i, label %128, label %125
 
 125:                                              ; preds = %123
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %126 = getelementptr inbounds nuw %struct.CteItem, ptr %104, i64 %indvars.iv47.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %126, i64 24, i1 false)
   %127 = getelementptr inbounds nuw %struct.CteItem, ptr %104, i64 %indvars.iv23.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %126, ptr noundef nonnull align 8 dereferenceable(24) %127, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %128
 
 128:                                              ; preds = %125, %123
@@ -558,7 +558,7 @@ checkWellFormedRecursion.exit:                    ; preds = %243
   br i1 %264, label %.lr.ph152, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph152, %._crit_edge.i, %makeDependencyGraph.exit, %.critedge89, %checkWellFormedRecursion.exit, %.preheader
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge91
 
 265:                                              ; preds = %.critedge
@@ -602,29 +602,23 @@ checkWellFormedRecursion.exit:                    ; preds = %243
   ret ptr %286
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #4
+declare i32 @errcode(i32 noundef) local_unnamed_addr #3
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #4
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @parser_errposition(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @parser_errposition(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #3
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #4
-
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @analyzeCTE(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -1284,9 +1278,9 @@ list_head.exit246:                                ; preds = %list_head.exit244, 
   ret void
 }
 
-declare ptr @list_copy(ptr noundef) local_unnamed_addr #4
+declare ptr @list_copy(ptr noundef) local_unnamed_addr #3
 
-declare ptr @list_delete_first(ptr noundef) local_unnamed_addr #4
+declare ptr @list_delete_first(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @analyzeCTETargetList(ptr noundef %0, ptr noundef captures(none) initializes((72, 104)) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
@@ -1405,53 +1399,53 @@ list_length.exit:                                 ; preds = %3, %12
   ret void
 }
 
-declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #4
+declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #3
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #4
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #3
 
-declare ptr @makeString(ptr noundef) local_unnamed_addr #4
+declare ptr @makeString(ptr noundef) local_unnamed_addr #3
 
-declare i32 @exprType(ptr noundef) local_unnamed_addr #4
+declare i32 @exprType(ptr noundef) local_unnamed_addr #3
 
-declare i32 @exprTypmod(ptr noundef) local_unnamed_addr #4
+declare i32 @exprTypmod(ptr noundef) local_unnamed_addr #3
 
-declare i32 @exprCollation(ptr noundef) local_unnamed_addr #4
+declare i32 @exprCollation(ptr noundef) local_unnamed_addr #3
 
-declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @lappend_int(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @lappend_int(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @transformExpr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @transformExpr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @select_common_type(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @select_common_type(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #4
+declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #3
 
-declare ptr @coerce_to_common_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @coerce_to_common_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @select_common_typmod(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @select_common_typmod(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @select_common_collation(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare i32 @select_common_collation(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare ptr @lookup_type_cache(i32 noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @lookup_type_cache(i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @format_type_be(i32 noundef) local_unnamed_addr #4
+declare ptr @format_type_be(i32 noundef) local_unnamed_addr #3
 
-declare i32 @get_negator(i32 noundef) local_unnamed_addr #4
+declare i32 @get_negator(i32 noundef) local_unnamed_addr #3
 
-declare ptr @parse_sub_analyze(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #4
+declare ptr @parse_sub_analyze(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #4
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
 
-declare ptr @format_type_with_typemod(i32 noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @format_type_with_typemod(i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #4
+declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @exprLocation(ptr noundef) local_unnamed_addr #4
+declare i32 @exprLocation(ptr noundef) local_unnamed_addr #3
 
-declare ptr @get_collation_name(i32 noundef) local_unnamed_addr #4
+declare ptr @get_collation_name(i32 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @list_member(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @list_member(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @makeDependencyGraphWalker(ptr noundef %0, ptr noundef %1) #0 {
@@ -1699,16 +1693,16 @@ thread-pre-split.thread:                          ; preds = %4, %64
   ret i1 %.0
 }
 
-declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @lcons(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @lcons(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @raw_expression_tree_walker_impl(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @raw_expression_tree_walker_impl(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare ptr @bms_del_member(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @bms_del_member(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @checkWellFormedRecursionWalker(ptr noundef %0, ptr noundef %1) #0 {
@@ -2173,6 +2167,12 @@ define internal fastcc void @checkWellFormedSelectStmt(ptr noundef nonnull %0, p
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
 
@@ -2180,11 +2180,11 @@ declare void @llvm.assume(i1 noundef) #6
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nounwind willreturn memory(read) }

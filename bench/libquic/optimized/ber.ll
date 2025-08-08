@@ -12,8 +12,8 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 0, 2) i32 @CBS_asn1_ber_to_der(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.cbb_st, align 8
   %5 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call fastcc i32 @cbs_find_ber(ptr noundef %0, ptr noundef %5, i32 noundef 0)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %18, label %7
@@ -50,13 +50,10 @@ define hidden range(i32 0, 2) i32 @CBS_asn1_ber_to_der(ptr noundef %0, ptr nound
 
 18:                                               ; preds = %15, %3, %17, %9
   %.0 = phi i32 [ 0, %17 ], [ 1, %9 ], [ 0, %3 ], [ 1, %15 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @cbs_find_ber(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
@@ -64,7 +61,7 @@ define internal fastcc range(i32 0, 2) i32 @cbs_find_ber(ptr noundef %0, ptr nou
   %5 = alloca %struct.cbs_st, align 8
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = icmp ugt i32 %2, 2048
   br i1 %8, label %.loopexit, label %9
 
@@ -82,9 +79,9 @@ define internal fastcc range(i32 0, 2) i32 @cbs_find_ber(ptr noundef %0, ptr nou
   br label %14
 
 14:                                               ; preds = %.lr.ph, %40
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = call i32 @CBS_get_any_ber_asn1_element(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #4
   %.not12 = icmp eq i32 %15, 0
   br i1 %.not12, label %.thread, label %16
@@ -152,28 +149,28 @@ define internal fastcc range(i32 0, 2) i32 @cbs_find_ber(ptr noundef %0, ptr nou
 
 .thread:                                          ; preds = %14, %38, %36, %.thread.sink.split
   %.2.ph = phi i32 [ 1, %.thread.sink.split ], [ 0, %36 ], [ 0, %38 ], [ 0, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 40:                                               ; preds = %28, %38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %41 = call i64 @CBS_len(ptr noundef nonnull %4) #4
   %.not = icmp eq i64 %41, 0
   br i1 %.not, label %.loopexit, label %14, !llvm.loop !16
 
 .loopexit:                                        ; preds = %40, %9, %.thread, %3
   %.010 = phi i32 [ 0, %3 ], [ %.2.ph, %.thread ], [ 1, %9 ], [ 1, %40 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.010
 }
 
-declare i32 @CBB_init(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @CBB_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @CBS_len(ptr noundef) local_unnamed_addr #2
+declare i64 @CBS_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 256) i32 @cbs_convert_ber(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, -32) %2, i8 noundef signext range(i8 0, 2) %3, i32 noundef %4) unnamed_addr #0 {
@@ -195,10 +192,10 @@ define internal fastcc range(i32 0, 256) i32 @cbs_convert_ber(ptr noundef %0, pt
   br i1 %.not, label %65, label %14
 
 14:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %15 = call i32 @CBS_get_any_ber_asn1_element(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #4
   %.not37 = icmp eq i32 %15, 0
   br i1 %.not37, label %.thread, label %16
@@ -317,19 +314,19 @@ is_eoc.exit.thread:                               ; preds = %16, %19, %is_eoc.ex
 
 .thread:                                          ; preds = %34, %14, %26, %49, %51, %57, %59, %23
   %.233.ph = phi i32 [ %24, %23 ], [ 0, %59 ], [ 0, %57 ], [ 0, %51 ], [ 0, %49 ], [ 0, %26 ], [ 0, %14 ], [ 0, %34 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 63:                                               ; preds = %57, %59, %49
   %64 = call i32 @CBB_flush(ptr noundef %1) #4
   %.026 = icmp eq i32 %64, 0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.026, label %.loopexit, label %12
 
 65:                                               ; preds = %12
@@ -342,12 +339,9 @@ is_eoc.exit.thread:                               ; preds = %16, %19, %is_eoc.ex
   ret i32 %.031
 }
 
-declare i32 @CBB_finish(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CBB_finish(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @CBB_cleanup(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @CBB_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @CBS_get_asn1_implicit_string(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -366,8 +360,8 @@ define hidden i32 @CBS_get_asn1_implicit_string(ptr noundef %0, ptr noundef %1, 
   br label %35
 
 14:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = tail call i64 @CBS_len(ptr noundef %0) #4
   %16 = call i32 @CBB_init(ptr noundef nonnull %6, i64 noundef %15) #4
   %.not14 = icmp eq i32 %16, 0
@@ -385,7 +379,7 @@ define hidden i32 @CBS_get_asn1_implicit_string(ptr noundef %0, ptr noundef %1, 
   br i1 %.not1623, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %21 = call i32 @CBS_get_asn1(ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %4) #4
   %.not18 = icmp eq i32 %21, 0
   br i1 %.not18, label %.thread, label %22
@@ -398,11 +392,11 @@ define hidden i32 @CBS_get_asn1_implicit_string(ptr noundef %0, ptr noundef %1, 
   br i1 %.not19, label %.thread, label %26
 
 .thread:                                          ; preds = %.lr.ph, %22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %33
 
 26:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %27 = call i64 @CBS_len(ptr noundef nonnull %7) #4
   %.not16 = icmp eq i64 %27, 0
   br i1 %.not16, label %._crit_edge, label %.lr.ph
@@ -426,8 +420,8 @@ define hidden i32 @CBS_get_asn1_implicit_string(ptr noundef %0, ptr noundef %1, 
 
 34:                                               ; preds = %33, %29
   %.1 = phi i32 [ 0, %33 ], [ 1, %29 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %35
 
 35:                                               ; preds = %34, %12
@@ -435,30 +429,36 @@ define hidden i32 @CBS_get_asn1_implicit_string(ptr noundef %0, ptr noundef %1, 
   ret i32 %.013
 }
 
-declare i32 @CBS_peek_asn1_tag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @CBS_peek_asn1_tag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @CBS_get_asn1(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @CBS_get_asn1(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @CBB_add_bytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @CBB_add_bytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @CBS_data(ptr noundef) local_unnamed_addr #2
+declare ptr @CBS_data(ptr noundef) local_unnamed_addr #1
 
-declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @CBS_get_any_ber_asn1_element(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CBS_get_any_ber_asn1_element(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @CBS_skip(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @CBS_skip(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @CBB_add_asn1(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare i32 @CBB_add_asn1(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @CBB_flush(ptr noundef) local_unnamed_addr #2
+declare i32 @CBB_flush(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #4 = { nounwind }
 

@@ -1580,8 +1580,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %22, %29, %31, %33, 
 80:                                               ; preds = %.lr.ph54, %78
   %.153 = phi i32 [ 0, %.lr.ph54 ], [ %79, %78 ]
   %81 = load i32, ptr %21, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   switch i32 %81, label %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit.thread [
     i32 1, label %82
     i32 2, label %82
@@ -1604,14 +1604,14 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %22, %29, %31, %33, 
   br i1 %87, label %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit.thread, label %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit
 
 _ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit.thread: ; preds = %80, %82, %85
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 _ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit:       ; preds = %85, %82
   %.0.i = phi i32 [ %83, %82 ], [ %86, %85 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not39 = icmp eq i32 %.0.i, 0
   br i1 %.not39, label %.loopexit, label %78
 
@@ -1635,8 +1635,8 @@ _ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit:       ; preds = %85, %82
 100:                                              ; preds = %88
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %102 = load i32, ptr %101, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   switch i32 %102, label %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit44 [
     i32 1, label %103
     i32 2, label %103
@@ -1662,8 +1662,8 @@ _ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit:       ; preds = %85, %82
 
 _ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit44:     ; preds = %100, %103, %106
   %.0.i42 = phi i32 [ %spec.store.select.i.i43, %103 ], [ %spec.store.select.i3.i41, %106 ], [ 0, %100 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %68, %66, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit, %78, %62, %.preheader, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit.thread, %12, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit44, %91
@@ -1820,13 +1820,13 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %20, %27, %29, %31, 
 .lr.ph50:                                         ; preds = %.preheader, %76
   %.149 = phi i32 [ %77, %76 ], [ 0, %.preheader ]
   %78 = load i32, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds [9 x i32], ptr @_ZN3vcg3plyL8TypeSizeE, i64 0, i64 %79
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
   %83 = call i64 @fread(ptr noundef nonnull %6, i64 noundef 1, i64 noundef %82, ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %84 = and i64 %83, 4294967295
   %.not42 = icmp eq i64 %84, 0
   br i1 %.not42, label %.loopexit, label %76
@@ -1851,14 +1851,14 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %20, %27, %29, %31, 
 97:                                               ; preds = %85
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %99 = load i32, ptr %98, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds [9 x i32], ptr @_ZN3vcg3plyL8TypeSizeE, i64 0, i64 %100
   %102 = load i32, ptr %101, align 4
   %103 = sext i32 %102 to i64
   %104 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef %103, ptr noundef %0)
   %105 = trunc i64 %104 to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %66, %64, %.lr.ph50, %76, %60, %.preheader, %10, %97, %88
@@ -3519,10 +3519,10 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %15, %17, %19, %
 define internal noundef zeroext i1 @_ZN3vcg3plyL18cb_skip_list_asciiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 {
   %4 = alloca float, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %0, ptr noundef nonnull @.str.31, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %7 = load i32, ptr %5, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %8 = add i32 %6, 1
   %.not = icmp ult i32 %8, 2
   br i1 %.not, label %.loopexit, label %.preheader
@@ -3533,9 +3533,9 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL18cb_skip_list_asciiEP8_IO_FILEP
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.08 = phi i32 [ %12, %.lr.ph ], [ 0, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %0, ptr noundef nonnull @.str.33, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %11 = add i32 %10, -1
   %.not5 = icmp ult i32 %11, -2
   %12 = add nuw nsw i32 %.08, 1
@@ -11529,13 +11529,13 @@ define internal fastcc noundef i32 @_ZN3vcg3plyL11ReadScalarAEP8_IO_FILEPvii(ptr
   ]
 
 13:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %0, ptr noundef nonnull @.str.31, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %15 = icmp eq i32 %14, -1
   %spec.store.select.i.i = select i1 %15, i32 0, i32 %14
   %16 = load i32, ptr %8, align 4
   %17 = trunc i32 %16 to i8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   switch i32 %3, label %157 [
     i32 1, label %18
     i32 2, label %19
@@ -11588,13 +11588,13 @@ define internal fastcc noundef i32 @_ZN3vcg3plyL11ReadScalarAEP8_IO_FILEPvii(ptr
   br label %157
 
 32:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %33 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %0, ptr noundef nonnull @.str.31, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %34 = icmp eq i32 %33, -1
   %spec.store.select.i.i69 = select i1 %34, i32 0, i32 %33
   %35 = load i32, ptr %7, align 4
   %36 = trunc i32 %35 to i16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   switch i32 %3, label %157 [
     i32 1, label %37
     i32 2, label %39
@@ -11708,13 +11708,13 @@ define internal fastcc noundef i32 @_ZN3vcg3plyL11ReadScalarAEP8_IO_FILEPvii(ptr
   br label %157
 
 76:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %77 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %0, ptr noundef nonnull @.str.32, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %78 = icmp eq i32 %77, -1
   %spec.store.select.i.i71 = select i1 %78, i32 0, i32 %77
   %79 = load i32, ptr %6, align 4
   %80 = trunc i32 %79 to i8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   switch i32 %3, label %157 [
     i32 1, label %81
     i32 2, label %82
@@ -11767,13 +11767,13 @@ define internal fastcc noundef i32 @_ZN3vcg3plyL11ReadScalarAEP8_IO_FILEPvii(ptr
   br label %157
 
 97:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %98 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %0, ptr noundef nonnull @.str.32, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %99 = icmp eq i32 %98, -1
   %spec.store.select.i.i72 = select i1 %99, i32 0, i32 %98
   %100 = load i32, ptr %5, align 4
   %101 = trunc i32 %100 to i16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   switch i32 %3, label %157 [
     i32 1, label %102
     i32 2, label %104
@@ -12681,10 +12681,10 @@ declare void @llvm.assume(i1 noundef) #25
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #27
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #27
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #27
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

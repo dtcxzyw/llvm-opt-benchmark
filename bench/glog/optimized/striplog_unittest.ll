@@ -239,7 +239,7 @@ declare void @_ZN6google14FlagRegistererC1IbEEPKcS3_S3_PT_S5_(ptr noundef nonnul
 define hidden noundef i32 @_Z13CheckNoReturnb(i1 noundef zeroext %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.google::NullStreamFatal", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %4, ptr %2, align 8, !tbaa !40
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -248,7 +248,7 @@ define hidden noundef i32 @_Z13CheckNoReturnb(i1 noundef zeroext %0) local_unnam
   br i1 %0, label %6, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %3, i8 0, i64 360, i1 false)
   invoke void @_ZN6google15NullStreamFatalC1Ev(ptr noundef nonnull align 8 dereferenceable(91) %3)
           to label %7 unwind label %10
@@ -264,7 +264,7 @@ define hidden noundef i32 @_Z13CheckNoReturnb(i1 noundef zeroext %0) local_unnam
 10:                                               ; preds = %6
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %12 = load ptr, ptr %2, align 8, !tbaa !45
   %13 = icmp eq ptr %12, %4
   br i1 %13, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -282,7 +282,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %11
 
 18:                                               ; preds = %7
@@ -292,12 +292,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4: ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
@@ -335,9 +332,6 @@ declare noundef nonnull align 8 dereferenceable(91) ptr @_ZN6google10NullStream6
 ; Function Attrs: noreturn nounwind
 declare void @_ZN6google15NullStreamFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(91)) unnamed_addr #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK1A(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #10 {
   ret ptr %0
@@ -363,15 +357,15 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(no
   ret i32 0
 
 13:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN6google10NullStreamC1Ev(ptr noundef nonnull align 8 dereferenceable(91) %3)
   %14 = invoke noundef nonnull align 8 dereferenceable(91) ptr @_ZN6google10NullStream6streamEv(ptr noundef nonnull align 8 dereferenceable(91) %3)
           to label %15 unwind label %25
 
 15:                                               ; preds = %13
   call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %3) #21
-  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %3) #21
-  call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6google10NullStreamC1Ev(ptr noundef nonnull align 8 dereferenceable(91) %4)
   %16 = invoke noundef nonnull align 8 dereferenceable(91) ptr @_ZN6google10NullStream6streamEv(ptr noundef nonnull align 8 dereferenceable(91) %4)
           to label %17 unwind label %27
@@ -382,24 +376,24 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(no
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %17
   call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %4) #21
-  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %4) #21
-  call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6google10NullStreamC1Ev(ptr noundef nonnull align 8 dereferenceable(91) %5)
   %19 = invoke noundef nonnull align 8 dereferenceable(91) ptr @_ZN6google10NullStream6streamEv(ptr noundef nonnull align 8 dereferenceable(91) %5)
           to label %20 unwind label %32
 
 20:                                               ; preds = %_ZNSolsEPFRSoS_E.exit
   call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %5) #21
-  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %5) #21
-  call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN6google10NullStreamC1Ev(ptr noundef nonnull align 8 dereferenceable(91) %6)
   %21 = invoke noundef nonnull align 8 dereferenceable(91) ptr @_ZN6google10NullStream6streamEv(ptr noundef nonnull align 8 dereferenceable(91) %6)
           to label %22 unwind label %34
 
 22:                                               ; preds = %20
   call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %6) #21
-  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %6) #21
-  call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %7, i8 0, i64 360, i1 false)
   call void @_ZN6google15NullStreamFatalC1Ev(ptr noundef nonnull align 8 dereferenceable(91) %7)
   %23 = invoke noundef nonnull align 8 dereferenceable(91) ptr @_ZN6google10NullStream6streamEv(ptr noundef nonnull align 8 dereferenceable(91) %7)
@@ -413,7 +407,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %17
   %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %3) #21
-  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %38
 
 27:                                               ; preds = %15
@@ -429,21 +423,21 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %17
 31:                                               ; preds = %29, %27
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ]
   call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %4) #21
-  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %38
 
 32:                                               ; preds = %_ZNSolsEPFRSoS_E.exit
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %5) #21
-  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %38
 
 34:                                               ; preds = %20
   %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %6) #21
-  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 
 36:                                               ; preds = %22
@@ -647,6 +641,12 @@ __cxx_global_var_init.exit:                       ; preds = %0, %2
   tail call void @_ZN6google14FlagRegistererC1IbEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLBL12o_check_modeE, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @_ZN3fLB16FLAGS_check_modeE, ptr noundef nonnull @_ZN3fLBL18FLAGS_nocheck_modeE)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #19

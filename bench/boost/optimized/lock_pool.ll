@@ -45,14 +45,8 @@ define hidden noundef i64 @_ZN5boost7atomics6detail20find_address_genericEPVKvPK
   ret i64 %.09.lcssa
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull ptr @_ZN5boost7atomics6detail9lock_pool10short_lockEm(i64 noundef %0) local_unnamed_addr #2 {
+define noundef nonnull ptr @_ZN5boost7atomics6detail9lock_pool10short_lockEm(i64 noundef %0) local_unnamed_addr #1 {
   %2 = and i64 %0, 255
   %3 = getelementptr inbounds nuw [256 x %"struct.boost::atomics::detail::lock_pool::(anonymous namespace)::padded_lock_state"], ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_111g_lock_poolE, i64 0, i64 %2
   br label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i
@@ -120,7 +114,7 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state10short_lockEv.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull ptr @_ZN5boost7atomics6detail9lock_pool9long_lockEm(i64 noundef %0) local_unnamed_addr #2 {
+define noundef nonnull ptr @_ZN5boost7atomics6detail9lock_pool9long_lockEm(i64 noundef %0) local_unnamed_addr #1 {
   %2 = and i64 %0, 255
   %3 = getelementptr inbounds nuw [256 x %"struct.boost::atomics::detail::lock_pool::(anonymous namespace)::padded_lock_state"], ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_111g_lock_poolE, i64 0, i64 %2
   br label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i
@@ -188,7 +182,7 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state9long_lockEv.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state9long_lockEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state9long_lockEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 {
   br label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit
 
 _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit: ; preds = %1, %.critedge
@@ -254,7 +248,7 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state14lock_slow_pathEv.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost7atomics6detail9lock_pool6unlockEPv(ptr noundef %0) local_unnamed_addr #2 {
+define void @_ZN5boost7atomics6detail9lock_pool6unlockEPv(ptr noundef %0) local_unnamed_addr #1 {
   %2 = load atomic volatile i32, ptr %0 monotonic, align 4
   %3 = and i32 %2, -2
   %4 = add i32 %3, 4
@@ -294,7 +288,7 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 {
 _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit:
   %1 = load atomic volatile i32, ptr %0 monotonic, align 8
   %2 = and i32 %1, -2
@@ -335,7 +329,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE23compare_exch
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN5boost7atomics6detail9lock_pool19allocate_wait_stateEPvPVKv(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN5boost7atomics6detail9lock_pool19allocate_wait_stateEPvPVKv(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = icmp eq ptr %4, null
@@ -454,7 +448,7 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list14find_or_creat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost7atomics6detail9lock_pool15free_wait_stateEPvS3_(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
+define void @_ZN5boost7atomics6detail9lock_pool15free_wait_stateEPvS3_(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list5eraseEPNS3_10wait_stateE.exit, label %3, !prof !16
 
@@ -519,7 +513,7 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list5eraseEPNS3_10w
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost7atomics6detail9lock_pool4waitEPvS3_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost7atomics6detail9lock_pool4waitEPvS3_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.timespec, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %58, label %4, !prof !16
@@ -640,7 +634,7 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state4waitERNS3_10lock_st
 
 58:                                               ; preds = %2
   tail call fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %3, align 8
   store i64 1000, ptr %59, align 8, !tbaa !31
@@ -655,7 +649,7 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state4waitERNS3_10lock_st
   unreachable
 
 _ZN5boost7atomics6detail9wait_someEv.exit:        ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state9long_lockEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #17
   br label %64
 
@@ -664,7 +658,7 @@ _ZN5boost7atomics6detail9wait_someEv.exit:        ; preds = %58
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost7atomics6detail9lock_pool10notify_oneEPvPVKv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost7atomics6detail9lock_pool10notify_oneEPvPVKv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %.not.i = icmp eq ptr %4, null
@@ -720,7 +714,7 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_oneERNS3_10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost7atomics6detail9lock_pool10notify_allEPvPVKv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost7atomics6detail9lock_pool10notify_allEPvPVKv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %.not.i = icmp eq ptr %4, null
@@ -776,27 +770,27 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_allERNS3_10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost7atomics6detail9lock_pool12thread_fenceEv() local_unnamed_addr #2 {
+define void @_ZN5boost7atomics6detail9lock_pool12thread_fenceEv() local_unnamed_addr #1 {
   %1 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i8 0, ptr %1, align 1, !tbaa !34
   call void asm sideeffect "lock; notb $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1, ptr nonnull elementtype(i8) %1) #17, !srcloc !35
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn uwtable
-define void @_ZN5boost7atomics6detail9lock_pool12signal_fenceEv() local_unnamed_addr #3 {
+define void @_ZN5boost7atomics6detail9lock_pool12signal_fenceEv() local_unnamed_addr #2 {
 _ZN5boost7atomics6detail27fence_operations_gcc_atomic12signal_fenceENS_12memory_orderE.exit:
   fence syncscope("singlethread") seq_cst
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #4
+declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list15allocate_bufferEmPNS4_6headerE(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #5 align 2 {
+define internal fastcc noundef ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list15allocate_bufferEmPNS4_6headerE(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #4 align 2 {
   %3 = alloca ptr, align 8
   %4 = load atomic volatile i8, ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_125g_pool_cleanup_registeredE monotonic, align 1
   %5 = icmp eq i8 %4, 0
@@ -814,11 +808,11 @@ define internal fastcc noundef ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL_
 11:                                               ; preds = %6, %9, %2
   %12 = shl i64 %0, 4
   %13 = add i64 %12, 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = call i32 @posix_memalign(ptr noundef nonnull %3, i64 noundef 16, i64 noundef %13) #17
   %.not.i = icmp ne i32 %14, 0
   %.pre.i = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = icmp eq ptr %.pre.i, null
   %16 = select i1 %.not.i, i1 true, i1 %15
   br i1 %16, label %39, label %17, !prof !16
@@ -869,13 +863,13 @@ define internal fastcc noundef ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL_
 }
 
 ; Function Attrs: nobuiltin nounwind allocsize(0)
-declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #6
+declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #7
+declare i32 @atexit(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_117cleanup_lock_poolEv() #2 {
+define internal void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_117cleanup_lock_poolEv() #1 {
   br label %2
 
 1:                                                ; preds = %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit
@@ -1033,13 +1027,13 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list10free_spareEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list10free_spareEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !13
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %18, label %3, !prof !16
@@ -1088,20 +1082,20 @@ define internal fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115w
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare i32 @posix_memalign(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @posix_memalign(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
-declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #12
+declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #11
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #13 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
   tail call void @_ZSt9terminatev() #18
   unreachable
@@ -1110,10 +1104,10 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #14
+declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_121find_address_dispatchEPVKvPKS5_m(ptr noundef %0, ptr noundef %1, i64 noundef %2) #15 {
+define internal noundef i64 @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_121find_address_dispatchEPVKvPKS5_m(ptr noundef %0, ptr noundef %1, i64 noundef %2) #14 {
   %4 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,1,2,3,~{dirflag},~{fpsr},~{flags}"(i32 0, i32 0, i32 0, i32 0) #17, !srcloc !40
   %5 = extractvalue { i32, i32, i32, i32 } %4, 0
   %.not = icmp eq i32 %5, 0
@@ -1139,29 +1133,35 @@ define internal noundef i64 @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_121f
   ret i64 %14
 }
 
-declare noundef i64 @_ZN5boost7atomics6detail17find_address_sse2EPVKvPKS3_m(ptr noundef, ptr noundef, i64 noundef) #12
+declare noundef i64 @_ZN5boost7atomics6detail17find_address_sse2EPVKvPKS3_m(ptr noundef, ptr noundef, i64 noundef) #11
 
-declare noundef i64 @_ZN5boost7atomics6detail18find_address_sse41EPVKvPKS3_m(ptr noundef, ptr noundef, i64 noundef) #12
+declare noundef i64 @_ZN5boost7atomics6detail18find_address_sse41EPVKvPKS3_m(ptr noundef, ptr noundef, i64 noundef) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { cold nofree noreturn }
-attributes #15 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { cold nofree noreturn }
+attributes #14 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nounwind }
 attributes #18 = { noreturn nounwind }

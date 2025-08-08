@@ -47,8 +47,8 @@ define internal void @_ZL17_CompoundTextOpenP10UConverterP18UConverterLoadArgsP1
   br i1 %.not, label %62, label %8
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 40, ptr %5, align 8
   store ptr null, ptr %6, align 8, !tbaa !12
@@ -152,8 +152,8 @@ define internal void @_ZL17_CompoundTextOpenP10UConverterP18UConverterLoadArgsP1
   br label %_ZL18_CompoundTextCloseP10UConverter.exit
 
 _ZL18_CompoundTextCloseP10UConverter.exit:        ; preds = %58, %52, %60
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %63
 
 62:                                               ; preds = %3
@@ -215,7 +215,7 @@ define internal void @_ZL41UConverter_toUnicode_CompoundText_OFFSETSP23UConverte
   %11 = load ptr, ptr %10, align 8, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = load i16, ptr %0, align 8, !tbaa !31
   %narrow = tail call i16 @llvm.umin.i16(i16 %14, i16 56)
   %15 = zext nneg i16 %narrow to i64
@@ -355,7 +355,7 @@ _ZL19findStateFromEscSeqPKcS0_PKhiP10UErrorCode.exit.thread: ; preds = %.loopexi
   %sext96 = shl i64 %indvars.iv44.i, 32
   %72 = ashr exact i64 %sext96, 32
   %73 = getelementptr inbounds [20 x [5 x i8]], ptr @_ZL18escSeqCompoundText, i64 0, i64 %72
-  %74 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #11
+  %74 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #10
   %75 = sub i64 %74, %36
   %sext = shl i64 %75, 32
   %76 = ashr exact i64 %sext, 32
@@ -497,7 +497,7 @@ _ZL11findNextEscPKcS0_.exit:                      ; preds = %.lr.ph.i90, %99, %9
   store i32 %.177, ptr %16, align 8, !tbaa !20
   store ptr %.182, ptr %6, align 8, !tbaa !28
   store ptr %.1, ptr %4, align 8, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -517,8 +517,8 @@ define internal void @_ZL43UConverter_fromUnicode_CompoundText_OFFSETSP25UConver
   %14 = load ptr, ptr %13, align 8, !tbaa !50
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 63
   %16 = load i8, ptr %15, align 1, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 160
@@ -1067,8 +1067,8 @@ thread-pre-split:                                 ; preds = %150, %.loopexit155
   store i32 %.2118, ptr %19, align 8, !tbaa !20
   store ptr %.2106, ptr %11, align 8, !tbaa !49
   store ptr %.2, ptr %7, align 8, !tbaa !47
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1116,32 +1116,32 @@ define internal void @_ZL27_CompoundText_GetUnicodeSetPK10UConverterPK9USetAdder
 ; Function Attrs: allocsize(0)
 declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare ptr @ucnv_loadSharedData_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @ucnv_loadSharedData_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @ucnv_unloadSharedDataIfReady_77(ptr noundef) local_unnamed_addr #4
 
-declare void @ucnv_unloadSharedDataIfReady_77(ptr noundef) local_unnamed_addr #5
-
-declare void @uprv_free_77(ptr noundef) local_unnamed_addr #5
+declare void @uprv_free_77(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
-declare void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @ucnv_MBCSFromUChar32_77(ptr noundef, i32 noundef, ptr noundef, i8 noundef signext) local_unnamed_addr #5
+declare i32 @ucnv_MBCSFromUChar32_77(ptr noundef, i32 noundef, ptr noundef, i8 noundef signext) local_unnamed_addr #4
 
-declare void @ucnv_MBCSGetUnicodeSetForUnicode_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @ucnv_MBCSGetUnicodeSetForUnicode_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #8
@@ -1149,15 +1149,14 @@ declare i16 @llvm.umin.i16(i16, i16) #8
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { allocsize(0) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
+attributes #10 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

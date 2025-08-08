@@ -250,7 +250,7 @@ _ZTH13threadContext.exit:                         ; preds = %0, %1
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @_ZN12UpcallLinker8on_entryEPN10UpcallStub9FrameDataEP8_jobject(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -288,7 +288,7 @@ _ZTW13threadContext.exit.i:                       ; preds = %17, %15
 
 _ZN12UpcallLinker27maybe_attach_and_get_threadEv.exit: ; preds = %2, %_ZTW13threadContext.exit.i
   %.0.i = phi ptr [ %16, %_ZTW13threadContext.exit.i ], [ %5, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1092
   %21 = load volatile i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 4
@@ -2535,10 +2535,10 @@ define hidden void @_ZTH13threadContext() local_unnamed_addr #7 {
 declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind }

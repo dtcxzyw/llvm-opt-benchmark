@@ -43,7 +43,7 @@ define void @_ZN7RSCoder4InitEi(ptr noundef nonnull align 4 captures(none) deref
   br i1 %exitcond24.not.i, label %_ZN7RSCoder6gfInitEv.exit, label %.preheader.i, !llvm.loop !13
 
 _ZN7RSCoder6gfInitEv.exit:                        ; preds = %.preheader.i
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = load i32, ptr %5, align 4, !tbaa !3
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph32.i, label %_ZN7RSCoder6pnInitEv.exit
@@ -60,7 +60,7 @@ _ZN7RSCoder6gfInitEv.exit:                        ; preds = %.preheader.i
 26:                                               ; preds = %._crit_edge27.i, %.lr.ph32.i
   %27 = phi i32 [ %20, %.lr.ph32.i ], [ %70, %._crit_edge27.i ]
   %indvars.iv.i1 = phi i64 [ 1, %.lr.ph32.i ], [ %indvars.iv.next.i2, %._crit_edge27.i ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph.i.preheader.i, label %._crit_edge27.i
 
@@ -160,14 +160,14 @@ _ZN7RSCoder6pnMultEPiS0_S0_.exit.i:               ; preds = %.loopexit.i.i
 
 ._crit_edge27.i:                                  ; preds = %.lr.ph26.preheader.i, %_ZN7RSCoder6pnMultEPiS0_S0_.exit.i, %.preheader20.i.i, %26
   %70 = phi i32 [ %65, %.lr.ph26.preheader.i ], [ %65, %_ZN7RSCoder6pnMultEPiS0_S0_.exit.i ], [ %35, %.preheader20.i.i ], [ %27, %26 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next.i2 = add nuw nsw i64 %indvars.iv.i1, 1
   %71 = sext i32 %70 to i64
   %.not.not.i = icmp slt i64 %indvars.iv.i1, %71
   br i1 %.not.not.i, label %26, label %_ZN7RSCoder6pnInitEv.exit, !llvm.loop !17
 
 _ZN7RSCoder6pnInitEv.exit:                        ; preds = %._crit_edge27.i, %_ZN7RSCoder6gfInitEv.exit
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -212,7 +212,7 @@ define void @_ZN7RSCoder6gfInitEv(ptr noundef nonnull align 4 captures(none) der
 define void @_ZN7RSCoder6pnInitEv(ptr noundef nonnull align 4 captures(none) dereferenceable(11273) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca [256 x i32], align 16
   %3 = alloca [256 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 9220
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %6 = icmp sgt i32 %5, 0
@@ -229,13 +229,13 @@ define void @_ZN7RSCoder6pnInitEv(ptr noundef nonnull align 4 captures(none) der
   br label %12
 
 ._crit_edge33:                                    ; preds = %._crit_edge27, %1
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 12:                                               ; preds = %.lr.ph32, %._crit_edge27
   %13 = phi i32 [ %5, %.lr.ph32 ], [ %56, %._crit_edge27 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph32 ], [ %indvars.iv.next, %._crit_edge27 ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph.i.preheader, label %._crit_edge27
 
@@ -335,18 +335,12 @@ _ZN7RSCoder6pnMultEPiS0_S0_.exit:                 ; preds = %.loopexit.i
 
 ._crit_edge27:                                    ; preds = %12, %.preheader20.i, %.lr.ph26.preheader, %_ZN7RSCoder6pnMultEPiS0_S0_.exit
   %56 = phi i32 [ %51, %.lr.ph26.preheader ], [ %51, %_ZN7RSCoder6pnMultEPiS0_S0_.exit ], [ %21, %.preheader20.i ], [ %13, %12 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = sext i32 %56 to i64
   %.not.not = icmp slt i64 %indvars.iv, %57
   br i1 %.not.not, label %12, label %._crit_edge33, !llvm.loop !17
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN7RSCoder6pnMultEPiS0_S0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(11273) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 align 2 {
@@ -439,7 +433,7 @@ _ZN7RSCoder6gfMultEii.exit:                       ; preds = %.lr.ph23, %26
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN7RSCoder6EncodeEPhiS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(11273) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [256 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 9220
   %7 = load i32, ptr %6, align 4, !tbaa !3
   %.not28 = icmp slt i32 %7, 0
@@ -590,7 +584,7 @@ _ZN7RSCoder6gfMultEii.exit:                       ; preds = %.lr.ph33.split.spli
   br i1 %exitcond.not, label %.preheader, label %.lr.ph33.split.split, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph42, %.preheader
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 .lr.ph42:                                         ; preds = %.preheader, %.lr.ph42
@@ -616,7 +610,7 @@ _ZN7RSCoder6gfMultEii.exit:                       ; preds = %.lr.ph33.split.spli
 define noundef zeroext i1 @_ZN7RSCoder6DecodeEPhiPii(ptr noundef nonnull align 4 dereferenceable(11273) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca [512 x i32], align 16
   %7 = alloca [512 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 9220
   %9 = load i32, ptr %8, align 4, !tbaa !3
   %10 = icmp sgt i32 %9, 0
@@ -899,7 +893,7 @@ _ZN7RSCoder6gfMultEii.exit88:                     ; preds = %.lr.ph137, %133
 
 .loopexit95:                                      ; preds = %152, %39
   %156 = phi i32 [ %9, %39 ], [ %154, %152 ]
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 9224
   %158 = icmp sgt i32 %156, 0
   br i1 %158, label %.lr.ph.i.preheader, label %_ZN7RSCoder6pnMultEPiS0_S0_.exit
@@ -1087,14 +1081,20 @@ _ZN7RSCoder6gfMultEii.exit93:                     ; preds = %223, %235
   %256 = phi i32 [ %.pre199, %.loopexit.loopexit ], [ %156, %_ZN7RSCoder6pnMultEPiS0_S0_.exit ]
   %257 = phi i32 [ %253, %.loopexit.loopexit ], [ %186, %_ZN7RSCoder6pnMultEPiS0_S0_.exit ]
   %258 = icmp sle i32 %257, %256
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %._crit_edge105.thread
 
 ._crit_edge105.thread:                            ; preds = %.preheader96.lr.ph, %5, %._crit_edge105, %.loopexit
   %.0 = phi i1 [ %258, %.loopexit ], [ true, %._crit_edge105 ], [ true, %5 ], [ true, %.preheader96.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
@@ -1110,7 +1110,6 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

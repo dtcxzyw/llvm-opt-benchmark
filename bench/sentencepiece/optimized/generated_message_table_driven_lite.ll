@@ -2034,7 +2034,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1084: ; preds = %1003, %1012
   br label %.backedge
 
 1036:                                             ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %1037 = load ptr, ptr %33, align 8, !tbaa !20
   %1038 = load ptr, ptr %2, align 8, !tbaa !14
   %1039 = ptrtoint ptr %1037 to i64
@@ -2070,11 +2070,11 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit..thread2185
   store i32 %1054, ptr %1052, align 4, !tbaa !33
   %1055 = getelementptr inbounds nuw i8, ptr %0, i64 %69
   store i32 %1047, ptr %1055, align 4, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %.backedge
 
 1056:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 1057:                                             ; preds = %76
@@ -2082,7 +2082,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit..thread2185
   %1059 = getelementptr inbounds nuw i8, ptr %64, i64 11
   %1060 = load i8, ptr %1059, align 1, !tbaa !70
   %1061 = zext i8 %1060 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %1062 = load ptr, ptr %33, align 8, !tbaa !20
   %1063 = load ptr, ptr %2, align 8, !tbaa !14
   %1064 = ptrtoint ptr %1062 to i64
@@ -2108,7 +2108,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1088._crit_e
   br label %1072
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread2198: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1088
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 1072:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1088._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1088.thread
@@ -2152,7 +2152,7 @@ _ZN6google8protobuf13RepeatedFieldIjE3AddERKj.exit1091: ; preds = %1078, %1084
   br i1 %1096, label %1097, label %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread: ; preds = %_ZN6google8protobuf13RepeatedFieldIjE3AddERKj.exit1091
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.backedge
 
 1097:                                             ; preds = %_ZN6google8protobuf13RepeatedFieldIjE3AddERKj.exit1091
@@ -2230,22 +2230,22 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit: ; preds 
   %1134 = zext nneg i32 %1132 to i64
   %1135 = getelementptr inbounds nuw i8, ptr %1090, i64 %1134
   store ptr %1135, ptr %2, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.backedge
 
 1136:                                             ; preds = %.critedge.i881.thread3286
   %1137 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1132, i32 noundef %1095)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.backedge
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit: ; preds = %1097, %.critedge.i881
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.backedge
 
 1138:                                             ; preds = %76
   %1139 = load i64, ptr %38, align 8, !tbaa !40
   %1140 = getelementptr inbounds i8, ptr %0, i64 %1139
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %1141 = load ptr, ptr %33, align 8, !tbaa !20
   %1142 = load ptr, ptr %2, align 8, !tbaa !14
   %1143 = ptrtoint ptr %1141 to i64
@@ -2330,15 +2330,15 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1098: ; preds = %1151, %1160
   store i32 %54, ptr %1153, align 4, !tbaa !33
   %1184 = getelementptr inbounds nuw i8, ptr %0, i64 %69
   store i32 %1183, ptr %1184, align 4, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %.backedge
 
 1185:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1095
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 1186:                                             ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %1187 = load ptr, ptr %33, align 8, !tbaa !20
   %1188 = load ptr, ptr %2, align 8, !tbaa !14
   %1189 = ptrtoint ptr %1187 to i64
@@ -2374,11 +2374,11 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit..thread2216
   store i32 %1204, ptr %1202, align 4, !tbaa !33
   %1205 = getelementptr inbounds nuw i8, ptr %0, i64 %69
   store i64 %1197, ptr %1205, align 8, !tbaa !50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %.backedge
 
 1206:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 1207:                                             ; preds = %76
@@ -2386,7 +2386,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit..thread2216
   %1209 = getelementptr inbounds nuw i8, ptr %64, i64 11
   %1210 = load i8, ptr %1209, align 1, !tbaa !70
   %1211 = zext i8 %1210 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %1212 = load ptr, ptr %33, align 8, !tbaa !20
   %1213 = load ptr, ptr %2, align 8, !tbaa !14
   %1214 = ptrtoint ptr %1212 to i64
@@ -2412,7 +2412,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1102._crit_e
   br label %1222
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread2230: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1102
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 1222:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1102._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1102.thread
@@ -2456,7 +2456,7 @@ _ZN6google8protobuf13RepeatedFieldImE3AddERKm.exit1105: ; preds = %1228, %1234
   br i1 %1246, label %1247, label %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread: ; preds = %_ZN6google8protobuf13RepeatedFieldImE3AddERKm.exit1105
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.backedge
 
 1247:                                             ; preds = %_ZN6google8protobuf13RepeatedFieldImE3AddERKm.exit1105
@@ -2534,22 +2534,22 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i: ; pred
   %1284 = zext nneg i32 %1282 to i64
   %1285 = getelementptr inbounds nuw i8, ptr %1240, i64 %1284
   store ptr %1285, ptr %2, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.backedge
 
 1286:                                             ; preds = %.critedge.i885.thread3291
   %1287 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1282, i32 noundef %1245)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.backedge
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit: ; preds = %1247, %.critedge.i885
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.backedge
 
 1288:                                             ; preds = %76
   %1289 = load i64, ptr %38, align 8, !tbaa !40
   %1290 = getelementptr inbounds i8, ptr %0, i64 %1289
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %1291 = load ptr, ptr %33, align 8, !tbaa !20
   %1292 = load ptr, ptr %2, align 8, !tbaa !14
   %1293 = ptrtoint ptr %1291 to i64
@@ -2634,15 +2634,15 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1114: ; preds = %1301, %1310
   store i32 %54, ptr %1303, align 4, !tbaa !33
   %1334 = getelementptr inbounds nuw i8, ptr %0, i64 %69
   store i64 %1333, ptr %1334, align 8, !tbaa !50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %.backedge
 
 1335:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1111
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 1336:                                             ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %1337 = load ptr, ptr %33, align 8, !tbaa !20
   %1338 = load ptr, ptr %2, align 8, !tbaa !14
   %1339 = ptrtoint ptr %1337 to i64
@@ -2668,7 +2668,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1117..thread
 
 .thread2254:                                      ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1117..thread2254_crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1117.thread
   %1347 = phi i32 [ %.pre3259, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1117..thread2254_crit_edge ], [ %1344, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1117.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %1348 = and i32 %66, 31
   %1349 = shl nuw i32 1, %1348
   %1350 = lshr i32 %66, 5
@@ -2682,7 +2682,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1117..thread
   br label %.backedge
 
 1356:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1117
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 1357:                                             ; preds = %76
@@ -2690,7 +2690,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1117..thread
   %1359 = getelementptr inbounds nuw i8, ptr %64, i64 11
   %1360 = load i8, ptr %1359, align 1, !tbaa !70
   %1361 = zext i8 %1360 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %1362 = load ptr, ptr %33, align 8, !tbaa !20
   %1363 = load ptr, ptr %2, align 8, !tbaa !14
   %1364 = ptrtoint ptr %1362 to i64
@@ -2715,12 +2715,12 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1119._crit_e
   br label %1372
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIiLNS2_9FieldTypeE15EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread2277: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1119
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 1372:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1119._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1119.thread
   %1373 = phi i32 [ %.pre3258, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1119._crit_edge ], [ %1369, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1119.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %1374 = load i32, ptr %1358, align 8, !tbaa !35
   %1375 = getelementptr inbounds nuw i8, ptr %1358, i64 4
   %1376 = load i32, ptr %1375, align 4, !tbaa !37
@@ -2842,7 +2842,7 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i890: ; p
 1438:                                             ; preds = %76
   %1439 = load i64, ptr %38, align 8, !tbaa !40
   %1440 = getelementptr inbounds i8, ptr %0, i64 %1439
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %1441 = load ptr, ptr %33, align 8, !tbaa !20
   %1442 = load ptr, ptr %2, align 8, !tbaa !14
   %1443 = ptrtoint ptr %1441 to i64
@@ -2870,7 +2870,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1128._crit_e
 1451:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1128._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1128.thread
   %1452 = phi ptr [ %.pre3257, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1128._crit_edge ], [ %62, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1128.thread ]
   %1453 = phi i32 [ %.pre3256, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1128._crit_edge ], [ %1448, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1128.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %1454 = getelementptr inbounds nuw i32, ptr %1440, i64 %67
   %1455 = load i32, ptr %1454, align 4, !tbaa !33
   %1456 = zext i32 %1455 to i64
@@ -2931,11 +2931,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1131: ; preds = %1451, %1461
   br label %.backedge
 
 1485:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1128
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 1486:                                             ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %1487 = load ptr, ptr %33, align 8, !tbaa !20
   %1488 = load ptr, ptr %2, align 8, !tbaa !14
   %1489 = ptrtoint ptr %1487 to i64
@@ -2961,7 +2961,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1134..thread
 
 .thread2307:                                      ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1134..thread2307_crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1134.thread
   %1497 = phi i64 [ %.pre3255, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1134..thread2307_crit_edge ], [ %1494, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1134.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %1498 = and i32 %66, 31
   %1499 = shl nuw i32 1, %1498
   %1500 = lshr i32 %66, 5
@@ -2975,7 +2975,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1134..thread
   br label %.backedge
 
 1506:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1134
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 1507:                                             ; preds = %76
@@ -2983,7 +2983,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1134..thread
   %1509 = getelementptr inbounds nuw i8, ptr %64, i64 11
   %1510 = load i8, ptr %1509, align 1, !tbaa !70
   %1511 = zext i8 %1510 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %1512 = load ptr, ptr %33, align 8, !tbaa !20
   %1513 = load ptr, ptr %2, align 8, !tbaa !14
   %1514 = ptrtoint ptr %1512 to i64
@@ -3008,12 +3008,12 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1136._crit_e
   br label %1522
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIlLNS2_9FieldTypeE16EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread2330: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1136
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 1522:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1136._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1136.thread
   %1523 = phi i64 [ %.pre3254, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1136._crit_edge ], [ %1519, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1136.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %1524 = load i32, ptr %1508, align 8, !tbaa !51
   %1525 = getelementptr inbounds nuw i8, ptr %1508, i64 4
   %1526 = load i32, ptr %1525, align 4, !tbaa !53
@@ -3135,7 +3135,7 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i898: ; p
 1588:                                             ; preds = %76
   %1589 = load i64, ptr %38, align 8, !tbaa !40
   %1590 = getelementptr inbounds i8, ptr %0, i64 %1589
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %1591 = load ptr, ptr %33, align 8, !tbaa !20
   %1592 = load ptr, ptr %2, align 8, !tbaa !14
   %1593 = ptrtoint ptr %1591 to i64
@@ -3163,7 +3163,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1145._crit_e
 1601:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1145._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1145.thread
   %1602 = phi ptr [ %.pre3253, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1145._crit_edge ], [ %62, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1145.thread ]
   %1603 = phi i64 [ %.pre3252, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1145._crit_edge ], [ %1598, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1145.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %1604 = getelementptr inbounds nuw i32, ptr %1590, i64 %67
   %1605 = load i32, ptr %1604, align 4, !tbaa !33
   %1606 = zext i32 %1605 to i64
@@ -3224,11 +3224,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1148: ; preds = %1601, %1611
   br label %.backedge
 
 1635:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1145
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 1636:                                             ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %1637 = load ptr, ptr %33, align 8, !tbaa !20
   %1638 = load ptr, ptr %2, align 8, !tbaa !14
   %1639 = ptrtoint ptr %1637 to i64
@@ -3254,7 +3254,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1151..thread
 
 .thread2361:                                      ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1151..thread2361_crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1151.thread
   %1647 = phi float [ %.pre3251, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1151..thread2361_crit_edge ], [ %1644, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1151.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %1648 = and i32 %66, 31
   %1649 = shl nuw i32 1, %1648
   %1650 = lshr i32 %66, 5
@@ -3268,7 +3268,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1151..thread
   br label %.backedge
 
 1656:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1151
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 1657:                                             ; preds = %76
@@ -3276,7 +3276,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1151..thread
   %1659 = getelementptr inbounds nuw i8, ptr %64, i64 11
   %1660 = load i8, ptr %1659, align 1, !tbaa !70
   %1661 = zext i8 %1660 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %1662 = load ptr, ptr %33, align 8, !tbaa !20
   %1663 = load ptr, ptr %2, align 8, !tbaa !14
   %1664 = ptrtoint ptr %1662 to i64
@@ -3301,12 +3301,12 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1153._crit_e
   br label %1672
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIfLNS2_9FieldTypeE2EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread2384: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1153
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 1672:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1153._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1153.thread
   %1673 = phi float [ %.pre3250, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1153._crit_edge ], [ %1669, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1153.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %1674 = load i32, ptr %1658, align 8, !tbaa !77
   %1675 = getelementptr inbounds nuw i8, ptr %1658, i64 4
   %1676 = load i32, ptr %1675, align 4, !tbaa !79
@@ -3428,7 +3428,7 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i906: ; p
 1738:                                             ; preds = %76
   %1739 = load i64, ptr %38, align 8, !tbaa !40
   %1740 = getelementptr inbounds i8, ptr %0, i64 %1739
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %1741 = load ptr, ptr %33, align 8, !tbaa !20
   %1742 = load ptr, ptr %2, align 8, !tbaa !14
   %1743 = ptrtoint ptr %1741 to i64
@@ -3456,7 +3456,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1161._crit_e
 1751:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1161._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1161.thread
   %1752 = phi ptr [ %.pre3249, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1161._crit_edge ], [ %62, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1161.thread ]
   %1753 = phi float [ %.pre3248, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1161._crit_edge ], [ %1748, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1161.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %1754 = getelementptr inbounds nuw i32, ptr %1740, i64 %67
   %1755 = load i32, ptr %1754, align 4, !tbaa !33
   %1756 = zext i32 %1755 to i64
@@ -3517,11 +3517,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1164: ; preds = %1751, %1761
   br label %.backedge
 
 1785:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1161
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 1786:                                             ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %1787 = load ptr, ptr %33, align 8, !tbaa !20
   %1788 = load ptr, ptr %2, align 8, !tbaa !14
   %1789 = ptrtoint ptr %1787 to i64
@@ -3547,7 +3547,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1167..thread
 
 .thread2415:                                      ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1167..thread2415_crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1167.thread
   %1797 = phi double [ %.pre3247, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1167..thread2415_crit_edge ], [ %1794, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1167.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %1798 = and i32 %66, 31
   %1799 = shl nuw i32 1, %1798
   %1800 = lshr i32 %66, 5
@@ -3561,7 +3561,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1167..thread
   br label %.backedge
 
 1806:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1167
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 1807:                                             ; preds = %76
@@ -3569,7 +3569,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1167..thread
   %1809 = getelementptr inbounds nuw i8, ptr %64, i64 11
   %1810 = load i8, ptr %1809, align 1, !tbaa !70
   %1811 = zext i8 %1810 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %1812 = load ptr, ptr %33, align 8, !tbaa !20
   %1813 = load ptr, ptr %2, align 8, !tbaa !14
   %1814 = ptrtoint ptr %1812 to i64
@@ -3594,12 +3594,12 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1169._crit_e
   br label %1822
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIdLNS2_9FieldTypeE1EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread2438: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1169
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 1822:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1169._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1169.thread
   %1823 = phi double [ %.pre3246, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1169._crit_edge ], [ %1819, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1169.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %1824 = load i32, ptr %1808, align 8, !tbaa !84
   %1825 = getelementptr inbounds nuw i8, ptr %1808, i64 4
   %1826 = load i32, ptr %1825, align 4, !tbaa !86
@@ -3721,7 +3721,7 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i914: ; p
 1888:                                             ; preds = %76
   %1889 = load i64, ptr %38, align 8, !tbaa !40
   %1890 = getelementptr inbounds i8, ptr %0, i64 %1889
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %1891 = load ptr, ptr %33, align 8, !tbaa !20
   %1892 = load ptr, ptr %2, align 8, !tbaa !14
   %1893 = ptrtoint ptr %1891 to i64
@@ -3749,7 +3749,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1177._crit_e
 1901:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1177._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1177.thread
   %1902 = phi ptr [ %.pre3245, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1177._crit_edge ], [ %62, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1177.thread ]
   %1903 = phi double [ %.pre3244, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1177._crit_edge ], [ %1898, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1177.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %1904 = getelementptr inbounds nuw i32, ptr %1890, i64 %67
   %1905 = load i32, ptr %1904, align 4, !tbaa !33
   %1906 = zext i32 %1905 to i64
@@ -3810,7 +3810,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1180: ; preds = %1901, %1911
   br label %.backedge
 
 1935:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1177
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 1936:                                             ; preds = %76
@@ -5720,7 +5720,7 @@ _ZN6google8protobuf13RepeatedFieldIjE6ResizeEiRKj.exit: ; preds = %._ZN6google8p
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 2919:                                             ; preds = %2890
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.not33.i2965.not = icmp samesign ult i32 %.018492659, 4
   br i1 %.not33.i2965.not, label %.critedge35.i, label %.lr.ph2968
 
@@ -5787,11 +5787,11 @@ _ZN6google8protobuf13RepeatedFieldIjE3AddERKj.exit1326: ; preds = %2938, %2943
   br i1 %exitcond3216.not, label %.critedge35.i, label %2922, !llvm.loop !136
 
 2948:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1323
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 .critedge35.i:                                    ; preds = %_ZN6google8protobuf13RepeatedFieldIjE3AddERKj.exit1326, %2919
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.backedge
 
 2949:                                             ; preds = %2597
@@ -5883,7 +5883,7 @@ _ZN6google8protobuf13RepeatedFieldImE6ResizeEiRKm.exit: ; preds = %._ZN6google8p
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 2994:                                             ; preds = %2965
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not33.i9282961.not = icmp samesign ult i32 %.018472669, 8
   br i1 %.not33.i9282961.not, label %.critedge35.i929, label %.lr.ph2964
 
@@ -5950,11 +5950,11 @@ _ZN6google8protobuf13RepeatedFieldImE3AddERKm.exit1340: ; preds = %3013, %3018
   br i1 %exitcond3215.not, label %.critedge35.i929, label %2997, !llvm.loop !137
 
 3023:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1337
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 .critedge35.i929:                                 ; preds = %_ZN6google8protobuf13RepeatedFieldImE3AddERKm.exit1340, %2994
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.backedge
 
 3024:                                             ; preds = %2597
@@ -6056,7 +6056,7 @@ _ZN6google8protobuf13RepeatedFieldIiE6ResizeEiRKi.exit: ; preds = %._ZN6google8p
 
 3071:                                             ; preds = %.lr.ph2960, %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit1354
   %.0.i9352959 = phi i32 [ 0, %.lr.ph2960 ], [ %3096, %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit1354 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %3072 = load ptr, ptr %33, align 8, !tbaa !20
   %3073 = load ptr, ptr %2, align 8, !tbaa !14
   %3074 = ptrtoint ptr %3072 to i64
@@ -6082,7 +6082,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1351._crit_e
 
 3082:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1351._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1351.thread
   %3083 = phi i32 [ %.pre3232, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1351._crit_edge ], [ %3079, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1351.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %3084 = load i32, ptr %3025, align 8, !tbaa !35
   %3085 = load i32, ptr %3045, align 4, !tbaa !37
   %3086 = icmp eq i32 %3084, %3085
@@ -6113,7 +6113,7 @@ _ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit1354: ; preds = %3087, %3092
   br i1 %exitcond3214.not, label %.backedge, label %3071, !llvm.loop !138
 
 3097:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1351
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 3098:                                             ; preds = %2597
@@ -6215,7 +6215,7 @@ _ZN6google8protobuf13RepeatedFieldIlE6ResizeEiRKl.exit: ; preds = %._ZN6google8p
 
 3145:                                             ; preds = %.lr.ph2957, %_ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit1368
   %.0.i9442956 = phi i32 [ 0, %.lr.ph2957 ], [ %3170, %_ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit1368 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %3146 = load ptr, ptr %33, align 8, !tbaa !20
   %3147 = load ptr, ptr %2, align 8, !tbaa !14
   %3148 = ptrtoint ptr %3146 to i64
@@ -6241,7 +6241,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1365._crit_e
 
 3156:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1365._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1365.thread
   %3157 = phi i64 [ %.pre3229, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1365._crit_edge ], [ %3153, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1365.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %3158 = load i32, ptr %3099, align 8, !tbaa !51
   %3159 = load i32, ptr %3119, align 4, !tbaa !53
   %3160 = icmp eq i32 %3158, %3159
@@ -6272,7 +6272,7 @@ _ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit1368: ; preds = %3161, %3166
   br i1 %exitcond3213.not, label %.backedge, label %3145, !llvm.loop !139
 
 3171:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1365
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 3172:                                             ; preds = %2597
@@ -6374,7 +6374,7 @@ _ZN6google8protobuf13RepeatedFieldIfE6ResizeEiRKf.exit: ; preds = %._ZN6google8p
 
 3219:                                             ; preds = %.lr.ph2954, %_ZN6google8protobuf13RepeatedFieldIfE3AddERKf.exit1380
   %.0.i9532953 = phi i32 [ 0, %.lr.ph2954 ], [ %3244, %_ZN6google8protobuf13RepeatedFieldIfE3AddERKf.exit1380 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %3220 = load ptr, ptr %33, align 8, !tbaa !20
   %3221 = load ptr, ptr %2, align 8, !tbaa !14
   %3222 = ptrtoint ptr %3220 to i64
@@ -6400,7 +6400,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1377._crit_e
 
 3230:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1377._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1377.thread
   %3231 = phi float [ %.pre3226, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1377._crit_edge ], [ %3227, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1377.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %3232 = load i32, ptr %3173, align 8, !tbaa !77
   %3233 = load i32, ptr %3193, align 4, !tbaa !79
   %3234 = icmp eq i32 %3232, %3233
@@ -6431,7 +6431,7 @@ _ZN6google8protobuf13RepeatedFieldIfE3AddERKf.exit1380: ; preds = %3235, %3240
   br i1 %exitcond3212.not, label %.backedge, label %3219, !llvm.loop !140
 
 3245:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1377
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 3246:                                             ; preds = %2597
@@ -6533,7 +6533,7 @@ _ZN6google8protobuf13RepeatedFieldIdE6ResizeEiRKd.exit: ; preds = %._ZN6google8p
 
 3293:                                             ; preds = %.lr.ph2951, %_ZN6google8protobuf13RepeatedFieldIdE3AddERKd.exit1394
   %.0.i9622950 = phi i32 [ 0, %.lr.ph2951 ], [ %3318, %_ZN6google8protobuf13RepeatedFieldIdE3AddERKd.exit1394 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %3294 = load ptr, ptr %33, align 8, !tbaa !20
   %3295 = load ptr, ptr %2, align 8, !tbaa !14
   %3296 = ptrtoint ptr %3294 to i64
@@ -6559,7 +6559,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1391._crit_e
 
 3304:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1391._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1391.thread
   %3305 = phi double [ %.pre3223, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1391._crit_edge ], [ %3301, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1391.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %3306 = load i32, ptr %3247, align 8, !tbaa !84
   %3307 = load i32, ptr %3267, align 4, !tbaa !86
   %3308 = icmp eq i32 %3306, %3307
@@ -6590,7 +6590,7 @@ _ZN6google8protobuf13RepeatedFieldIdE3AddERKd.exit1394: ; preds = %3309, %3314
   br i1 %exitcond.not, label %.backedge, label %3293, !llvm.loop !141
 
 3319:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1391
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794
 
 3320:                                             ; preds = %2597
@@ -6821,7 +6821,7 @@ _ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE14E
 
 3426:                                             ; preds = %3424
   %.val966 = load i64, ptr %35, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %3427 = getelementptr inbounds i8, ptr %0, i64 %.val966
   %3428 = load ptr, ptr %3427, align 8, !tbaa !41
   %3429 = ptrtoint ptr %3428 to i64
@@ -6842,7 +6842,7 @@ _ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE14E
 _ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11MessageLiteEl.exit.i: ; preds = %3435, %3431
   %.0.i.i.i1415 = phi ptr [ %3434, %3431 ], [ %3436, %3435 ]
   call void @_ZN6google8protobuf2io18StringOutputStreamC1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %.0.i.i.i1415)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6google8protobuf2io17CodedOutputStreamC1EPNS1_20ZeroCopyOutputStreamEb(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull %4, i1 noundef zeroext false)
   %3437 = invoke noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9SkipFieldEPNS0_2io16CodedInputStreamEjPNS3_17CodedOutputStreamE(ptr noundef nonnull %2, i32 noundef %.sroa.0.0.in.i, ptr noundef nonnull %5)
           to label %_ZN6google8protobuf8internal12_GLOBAL__N_123UnknownFieldHandlerLite4SkipEPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamEi.exit unwind label %3438
@@ -6851,14 +6851,14 @@ _ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11M
   %3439 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %3439
 
 _ZN6google8protobuf8internal12_GLOBAL__N_123UnknownFieldHandlerLite4SkipEPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamEi.exit: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11MessageLiteEl.exit.i
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %3437, label %.backedge, label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2794, !prof !21
 
 .backedge:                                        ; preds = %_ZN6google8protobuf13RepeatedFieldIdE3AddERKd.exit1394, %_ZN6google8protobuf13RepeatedFieldIfE3AddERKf.exit1380, %_ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit1368, %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit1354, %2010, %2011, %2019, %2023, %2000, %2004, %2039, %953, %954, %962, %966, %943, %947, %982, %798, %799, %807, %811, %788, %792, %828, %636, %637, %645, %649, %626, %630, %665, %465, %466, %474, %478, %455, %459, %495, %303, %304, %312, %316, %293, %297, %332, %148, %149, %157, %161, %138, %142, %178, %2585, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1206, %_ZN6google8protobuf8internal15ResetOneofFieldILNS1_14ProcessingTypeE0EEEvRKNS1_10ParseTableEiPNS0_5ArenaEPNS0_11MessageLiteEPjlPKv.exit, %_ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE1ELb0ELNS1_10StringTypeE0EEEbPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPNS0_5ArenaEPjjlPKvPKc.exit, %_ZN6google8protobuf8internal12_GLOBAL__N_123UnknownFieldHandlerLite4SkipEPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamEi.exit, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread1890, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit828.thread1934, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIlLNS2_9FieldTypeE3EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread1950, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIlLNS2_9FieldTypeE3EEEbPNS0_2io16CodedInputStreamEPT_.exit830.thread1994, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE17EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2010, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE17EEEbPNS0_2io16CodedInputStreamEPT_.exit833.thread2054, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIlLNS2_9FieldTypeE18EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2070, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIlLNS2_9FieldTypeE18EEEbPNS0_2io16CodedInputStreamEPT_.exit836.thread2114, %.thread, %.thread2146, %.thread2155, %.thread2178, %.thread2185, %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread, %.thread2209, %.thread2216, %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread, %.thread2241, %.thread2254, %.thread2293, %.thread2307, %.thread2347, %.thread2361, %.thread2401, %.thread2415, %.thread2455, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIbLNS2_9FieldTypeE8EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2471, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIbLNS2_9FieldTypeE8EEEbPNS0_2io16CodedInputStreamEPT_.exit847.thread2515, %.thread2574, %.thread2593, %.thread2612, %.thread2631, %.thread2643, %.thread2654, %.thread2764, %._crit_edge, %2231, %2240, %_ZN6google8protobuf8internal8AddFieldIiEEvPNS0_11MessageLiteElT_.exit.i, %2272, %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i1223, %2327, %_ZN6google8protobuf13RepeatedFieldIjE6ResizeEiRKj.exit, %.critedge35.i, %_ZN6google8protobuf13RepeatedFieldImE6ResizeEiRKm.exit, %.critedge35.i929, %_ZN6google8protobuf13RepeatedFieldIiE6ResizeEiRKi.exit, %_ZN6google8protobuf13RepeatedFieldIlE6ResizeEiRKl.exit, %_ZN6google8protobuf13RepeatedFieldIfE6ResizeEiRKf.exit, %_ZN6google8protobuf13RepeatedFieldIdE6ResizeEiRKd.exit, %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit, %1283, %1286, %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit, %1133, %1136, %.critedge.i889, %1436, %1433, %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit1122, %.critedge.i897, %1586, %1583, %_ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit1139, %.critedge.i905, %1736, %1733, %_ZN6google8protobuf13RepeatedFieldIfE3AddERKf.exit, %.critedge.i913, %1886, %1883, %_ZN6google8protobuf13RepeatedFieldIdE3AddERKd.exit, %_ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS0_2io16CodedInputStreamEPT_.exit, %_ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS0_2io16CodedInputStreamEPT_.exit1232, %_ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbPNS0_2io16CodedInputStreamEPT_.exit, %_ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbPNS0_2io16CodedInputStreamEPT_.exit1251, %_ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbPNS0_2io16CodedInputStreamEPT_.exit1262, %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit, %_ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit, %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit1012, %_ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit1033, %_ZN6google8protobuf13RepeatedFieldIjE3AddERKj.exit, %_ZN6google8protobuf13RepeatedFieldImE3AddERKm.exit, %_ZN6google8protobuf13RepeatedFieldIbE3AddERKb.exit, %.preheader, %.preheader2865, %.preheader2867, %.preheader2869, %1397, %1547, %1697, %1847, %57, %3424, %59
@@ -8845,7 +8845,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1088: ; preds = %1016, %1025
   br label %.backedge
 
 1049:                                             ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %1050 = load ptr, ptr %33, align 8, !tbaa !20
   %1051 = load ptr, ptr %2, align 8, !tbaa !14
   %1052 = ptrtoint ptr %1050 to i64
@@ -8881,11 +8881,11 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit..thread2193
   store i32 %1067, ptr %1065, align 4, !tbaa !33
   %1068 = getelementptr inbounds nuw i8, ptr %0, i64 %82
   store i32 %1060, ptr %1068, align 4, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %.backedge
 
 1069:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1070:                                             ; preds = %89
@@ -8893,7 +8893,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit..thread2193
   %1072 = getelementptr inbounds nuw i8, ptr %77, i64 11
   %1073 = load i8, ptr %1072, align 1, !tbaa !70
   %1074 = zext i8 %1073 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %1075 = load ptr, ptr %33, align 8, !tbaa !20
   %1076 = load ptr, ptr %2, align 8, !tbaa !14
   %1077 = ptrtoint ptr %1075 to i64
@@ -8919,7 +8919,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1092._crit_e
   br label %1085
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread2206: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1092
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1085:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1092._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1092.thread
@@ -8963,7 +8963,7 @@ _ZN6google8protobuf13RepeatedFieldIjE3AddERKj.exit1095: ; preds = %1091, %1097
   br i1 %1109, label %1110, label %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread: ; preds = %_ZN6google8protobuf13RepeatedFieldIjE3AddERKj.exit1095
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.backedge
 
 1110:                                             ; preds = %_ZN6google8protobuf13RepeatedFieldIjE3AddERKj.exit1095
@@ -9041,22 +9041,22 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit: ; preds 
   %1147 = zext nneg i32 %1145 to i64
   %1148 = getelementptr inbounds nuw i8, ptr %1103, i64 %1147
   store ptr %1148, ptr %2, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.backedge
 
 1149:                                             ; preds = %.critedge.i881.thread3294
   %1150 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1145, i32 noundef %1108)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.backedge
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit: ; preds = %1110, %.critedge.i881
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.backedge
 
 1151:                                             ; preds = %89
   %1152 = load i64, ptr %38, align 8, !tbaa !40
   %1153 = getelementptr inbounds i8, ptr %0, i64 %1152
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %1154 = load ptr, ptr %33, align 8, !tbaa !20
   %1155 = load ptr, ptr %2, align 8, !tbaa !14
   %1156 = ptrtoint ptr %1154 to i64
@@ -9141,15 +9141,15 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1102: ; preds = %1164, %1173
   store i32 %67, ptr %1166, align 4, !tbaa !33
   %1197 = getelementptr inbounds nuw i8, ptr %0, i64 %82
   store i32 %1196, ptr %1197, align 4, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %.backedge
 
 1198:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1099
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1199:                                             ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %1200 = load ptr, ptr %33, align 8, !tbaa !20
   %1201 = load ptr, ptr %2, align 8, !tbaa !14
   %1202 = ptrtoint ptr %1200 to i64
@@ -9185,11 +9185,11 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit..thread2224
   store i32 %1217, ptr %1215, align 4, !tbaa !33
   %1218 = getelementptr inbounds nuw i8, ptr %0, i64 %82
   store i64 %1210, ptr %1218, align 8, !tbaa !50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %.backedge
 
 1219:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1220:                                             ; preds = %89
@@ -9197,7 +9197,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit..thread2224
   %1222 = getelementptr inbounds nuw i8, ptr %77, i64 11
   %1223 = load i8, ptr %1222, align 1, !tbaa !70
   %1224 = zext i8 %1223 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %1225 = load ptr, ptr %33, align 8, !tbaa !20
   %1226 = load ptr, ptr %2, align 8, !tbaa !14
   %1227 = ptrtoint ptr %1225 to i64
@@ -9223,7 +9223,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1106._crit_e
   br label %1235
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread2238: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1106
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1235:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1106._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1106.thread
@@ -9267,7 +9267,7 @@ _ZN6google8protobuf13RepeatedFieldImE3AddERKm.exit1109: ; preds = %1241, %1247
   br i1 %1259, label %1260, label %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread: ; preds = %_ZN6google8protobuf13RepeatedFieldImE3AddERKm.exit1109
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.backedge
 
 1260:                                             ; preds = %_ZN6google8protobuf13RepeatedFieldImE3AddERKm.exit1109
@@ -9345,22 +9345,22 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i: ; pred
   %1297 = zext nneg i32 %1295 to i64
   %1298 = getelementptr inbounds nuw i8, ptr %1253, i64 %1297
   store ptr %1298, ptr %2, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.backedge
 
 1299:                                             ; preds = %.critedge.i885.thread3299
   %1300 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1295, i32 noundef %1258)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.backedge
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit: ; preds = %1260, %.critedge.i885
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.backedge
 
 1301:                                             ; preds = %89
   %1302 = load i64, ptr %38, align 8, !tbaa !40
   %1303 = getelementptr inbounds i8, ptr %0, i64 %1302
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %1304 = load ptr, ptr %33, align 8, !tbaa !20
   %1305 = load ptr, ptr %2, align 8, !tbaa !14
   %1306 = ptrtoint ptr %1304 to i64
@@ -9445,15 +9445,15 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1118: ; preds = %1314, %1323
   store i32 %67, ptr %1316, align 4, !tbaa !33
   %1347 = getelementptr inbounds nuw i8, ptr %0, i64 %82
   store i64 %1346, ptr %1347, align 8, !tbaa !50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %.backedge
 
 1348:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1115
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1349:                                             ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %1350 = load ptr, ptr %33, align 8, !tbaa !20
   %1351 = load ptr, ptr %2, align 8, !tbaa !14
   %1352 = ptrtoint ptr %1350 to i64
@@ -9479,7 +9479,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1121..thread
 
 .thread2262:                                      ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1121..thread2262_crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1121.thread
   %1360 = phi i32 [ %.pre3267, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1121..thread2262_crit_edge ], [ %1357, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1121.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %1361 = and i32 %79, 31
   %1362 = shl nuw i32 1, %1361
   %1363 = lshr i32 %79, 5
@@ -9493,7 +9493,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1121..thread
   br label %.backedge
 
 1369:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1121
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1370:                                             ; preds = %89
@@ -9501,7 +9501,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1121..thread
   %1372 = getelementptr inbounds nuw i8, ptr %77, i64 11
   %1373 = load i8, ptr %1372, align 1, !tbaa !70
   %1374 = zext i8 %1373 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %1375 = load ptr, ptr %33, align 8, !tbaa !20
   %1376 = load ptr, ptr %2, align 8, !tbaa !14
   %1377 = ptrtoint ptr %1375 to i64
@@ -9526,12 +9526,12 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1123._crit_e
   br label %1385
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIiLNS2_9FieldTypeE15EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread2285: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1123
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1385:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1123._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1123.thread
   %1386 = phi i32 [ %.pre3266, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1123._crit_edge ], [ %1382, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1123.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %1387 = load i32, ptr %1371, align 8, !tbaa !35
   %1388 = getelementptr inbounds nuw i8, ptr %1371, i64 4
   %1389 = load i32, ptr %1388, align 4, !tbaa !37
@@ -9653,7 +9653,7 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i890: ; p
 1451:                                             ; preds = %89
   %1452 = load i64, ptr %38, align 8, !tbaa !40
   %1453 = getelementptr inbounds i8, ptr %0, i64 %1452
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %1454 = load ptr, ptr %33, align 8, !tbaa !20
   %1455 = load ptr, ptr %2, align 8, !tbaa !14
   %1456 = ptrtoint ptr %1454 to i64
@@ -9681,7 +9681,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1132._crit_e
 1464:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1132._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1132.thread
   %1465 = phi ptr [ %.pre3265, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1132._crit_edge ], [ %75, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1132.thread ]
   %1466 = phi i32 [ %.pre3264, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1132._crit_edge ], [ %1461, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1132.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %1467 = getelementptr inbounds nuw i32, ptr %1453, i64 %80
   %1468 = load i32, ptr %1467, align 4, !tbaa !33
   %1469 = zext i32 %1468 to i64
@@ -9742,11 +9742,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1135: ; preds = %1464, %1474
   br label %.backedge
 
 1498:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1132
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1499:                                             ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %1500 = load ptr, ptr %33, align 8, !tbaa !20
   %1501 = load ptr, ptr %2, align 8, !tbaa !14
   %1502 = ptrtoint ptr %1500 to i64
@@ -9772,7 +9772,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1138..thread
 
 .thread2315:                                      ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1138..thread2315_crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1138.thread
   %1510 = phi i64 [ %.pre3263, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1138..thread2315_crit_edge ], [ %1507, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1138.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %1511 = and i32 %79, 31
   %1512 = shl nuw i32 1, %1511
   %1513 = lshr i32 %79, 5
@@ -9786,7 +9786,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1138..thread
   br label %.backedge
 
 1519:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1138
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1520:                                             ; preds = %89
@@ -9794,7 +9794,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1138..thread
   %1522 = getelementptr inbounds nuw i8, ptr %77, i64 11
   %1523 = load i8, ptr %1522, align 1, !tbaa !70
   %1524 = zext i8 %1523 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %1525 = load ptr, ptr %33, align 8, !tbaa !20
   %1526 = load ptr, ptr %2, align 8, !tbaa !14
   %1527 = ptrtoint ptr %1525 to i64
@@ -9819,12 +9819,12 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1140._crit_e
   br label %1535
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIlLNS2_9FieldTypeE16EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread2338: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1140
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1535:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1140._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1140.thread
   %1536 = phi i64 [ %.pre3262, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1140._crit_edge ], [ %1532, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1140.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %1537 = load i32, ptr %1521, align 8, !tbaa !51
   %1538 = getelementptr inbounds nuw i8, ptr %1521, i64 4
   %1539 = load i32, ptr %1538, align 4, !tbaa !53
@@ -9946,7 +9946,7 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i898: ; p
 1601:                                             ; preds = %89
   %1602 = load i64, ptr %38, align 8, !tbaa !40
   %1603 = getelementptr inbounds i8, ptr %0, i64 %1602
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %1604 = load ptr, ptr %33, align 8, !tbaa !20
   %1605 = load ptr, ptr %2, align 8, !tbaa !14
   %1606 = ptrtoint ptr %1604 to i64
@@ -9974,7 +9974,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1149._crit_e
 1614:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1149._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1149.thread
   %1615 = phi ptr [ %.pre3261, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1149._crit_edge ], [ %75, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1149.thread ]
   %1616 = phi i64 [ %.pre3260, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1149._crit_edge ], [ %1611, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1149.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %1617 = getelementptr inbounds nuw i32, ptr %1603, i64 %80
   %1618 = load i32, ptr %1617, align 4, !tbaa !33
   %1619 = zext i32 %1618 to i64
@@ -10035,11 +10035,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1152: ; preds = %1614, %1624
   br label %.backedge
 
 1648:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1149
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1649:                                             ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %1650 = load ptr, ptr %33, align 8, !tbaa !20
   %1651 = load ptr, ptr %2, align 8, !tbaa !14
   %1652 = ptrtoint ptr %1650 to i64
@@ -10065,7 +10065,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1155..thread
 
 .thread2369:                                      ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1155..thread2369_crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1155.thread
   %1660 = phi float [ %.pre3259, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1155..thread2369_crit_edge ], [ %1657, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1155.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %1661 = and i32 %79, 31
   %1662 = shl nuw i32 1, %1661
   %1663 = lshr i32 %79, 5
@@ -10079,7 +10079,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1155..thread
   br label %.backedge
 
 1669:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1155
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1670:                                             ; preds = %89
@@ -10087,7 +10087,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1155..thread
   %1672 = getelementptr inbounds nuw i8, ptr %77, i64 11
   %1673 = load i8, ptr %1672, align 1, !tbaa !70
   %1674 = zext i8 %1673 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %1675 = load ptr, ptr %33, align 8, !tbaa !20
   %1676 = load ptr, ptr %2, align 8, !tbaa !14
   %1677 = ptrtoint ptr %1675 to i64
@@ -10112,12 +10112,12 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1157._crit_e
   br label %1685
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIfLNS2_9FieldTypeE2EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread2392: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1157
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1685:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1157._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1157.thread
   %1686 = phi float [ %.pre3258, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1157._crit_edge ], [ %1682, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1157.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %1687 = load i32, ptr %1671, align 8, !tbaa !77
   %1688 = getelementptr inbounds nuw i8, ptr %1671, i64 4
   %1689 = load i32, ptr %1688, align 4, !tbaa !79
@@ -10239,7 +10239,7 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i906: ; p
 1751:                                             ; preds = %89
   %1752 = load i64, ptr %38, align 8, !tbaa !40
   %1753 = getelementptr inbounds i8, ptr %0, i64 %1752
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %1754 = load ptr, ptr %33, align 8, !tbaa !20
   %1755 = load ptr, ptr %2, align 8, !tbaa !14
   %1756 = ptrtoint ptr %1754 to i64
@@ -10267,7 +10267,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1165._crit_e
 1764:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1165._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1165.thread
   %1765 = phi ptr [ %.pre3257, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1165._crit_edge ], [ %75, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1165.thread ]
   %1766 = phi float [ %.pre3256, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1165._crit_edge ], [ %1761, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1165.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %1767 = getelementptr inbounds nuw i32, ptr %1753, i64 %80
   %1768 = load i32, ptr %1767, align 4, !tbaa !33
   %1769 = zext i32 %1768 to i64
@@ -10328,11 +10328,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1168: ; preds = %1764, %1774
   br label %.backedge
 
 1798:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1165
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1799:                                             ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %1800 = load ptr, ptr %33, align 8, !tbaa !20
   %1801 = load ptr, ptr %2, align 8, !tbaa !14
   %1802 = ptrtoint ptr %1800 to i64
@@ -10358,7 +10358,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1171..thread
 
 .thread2423:                                      ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1171..thread2423_crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1171.thread
   %1810 = phi double [ %.pre3255, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1171..thread2423_crit_edge ], [ %1807, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1171.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %1811 = and i32 %79, 31
   %1812 = shl nuw i32 1, %1811
   %1813 = lshr i32 %79, 5
@@ -10372,7 +10372,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1171..thread
   br label %.backedge
 
 1819:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1171
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1820:                                             ; preds = %89
@@ -10380,7 +10380,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1171..thread
   %1822 = getelementptr inbounds nuw i8, ptr %77, i64 11
   %1823 = load i8, ptr %1822, align 1, !tbaa !70
   %1824 = zext i8 %1823 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %1825 = load ptr, ptr %33, align 8, !tbaa !20
   %1826 = load ptr, ptr %2, align 8, !tbaa !14
   %1827 = ptrtoint ptr %1825 to i64
@@ -10405,12 +10405,12 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1173._crit_e
   br label %1835
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIdLNS2_9FieldTypeE1EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread2446: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1173
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1835:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1173._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1173.thread
   %1836 = phi double [ %.pre3254, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1173._crit_edge ], [ %1832, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1173.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %1837 = load i32, ptr %1821, align 8, !tbaa !84
   %1838 = getelementptr inbounds nuw i8, ptr %1821, i64 4
   %1839 = load i32, ptr %1838, align 4, !tbaa !86
@@ -10532,7 +10532,7 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i914: ; p
 1901:                                             ; preds = %89
   %1902 = load i64, ptr %38, align 8, !tbaa !40
   %1903 = getelementptr inbounds i8, ptr %0, i64 %1902
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %1904 = load ptr, ptr %33, align 8, !tbaa !20
   %1905 = load ptr, ptr %2, align 8, !tbaa !14
   %1906 = ptrtoint ptr %1904 to i64
@@ -10560,7 +10560,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1181._crit_e
 1914:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1181._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1181.thread
   %1915 = phi ptr [ %.pre3253, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1181._crit_edge ], [ %75, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1181.thread ]
   %1916 = phi double [ %.pre3252, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1181._crit_edge ], [ %1911, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1181.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %1917 = getelementptr inbounds nuw i32, ptr %1903, i64 %80
   %1918 = load i32, ptr %1917, align 4, !tbaa !33
   %1919 = zext i32 %1918 to i64
@@ -10621,7 +10621,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1184: ; preds = %1914, %1924
   br label %.backedge
 
 1948:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1181
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1949:                                             ; preds = %89
@@ -12531,7 +12531,7 @@ _ZN6google8protobuf13RepeatedFieldIjE6ResizeEiRKj.exit: ; preds = %._ZN6google8p
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 2932:                                             ; preds = %2903
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.not33.i2973.not = icmp samesign ult i32 %.018572667, 4
   br i1 %.not33.i2973.not, label %.critedge35.i, label %.lr.ph2976
 
@@ -12598,11 +12598,11 @@ _ZN6google8protobuf13RepeatedFieldIjE3AddERKj.exit1330: ; preds = %2951, %2956
   br i1 %exitcond3224.not, label %.critedge35.i, label %2935, !llvm.loop !136
 
 2961:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1327
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 .critedge35.i:                                    ; preds = %_ZN6google8protobuf13RepeatedFieldIjE3AddERKj.exit1330, %2932
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.backedge
 
 2962:                                             ; preds = %2610
@@ -12694,7 +12694,7 @@ _ZN6google8protobuf13RepeatedFieldImE6ResizeEiRKm.exit: ; preds = %._ZN6google8p
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 3007:                                             ; preds = %2978
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not33.i9282969.not = icmp samesign ult i32 %.018552677, 8
   br i1 %.not33.i9282969.not, label %.critedge35.i929, label %.lr.ph2972
 
@@ -12761,11 +12761,11 @@ _ZN6google8protobuf13RepeatedFieldImE3AddERKm.exit1344: ; preds = %3026, %3031
   br i1 %exitcond3223.not, label %.critedge35.i929, label %3010, !llvm.loop !137
 
 3036:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1341
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 .critedge35.i929:                                 ; preds = %_ZN6google8protobuf13RepeatedFieldImE3AddERKm.exit1344, %3007
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.backedge
 
 3037:                                             ; preds = %2610
@@ -12867,7 +12867,7 @@ _ZN6google8protobuf13RepeatedFieldIiE6ResizeEiRKi.exit: ; preds = %._ZN6google8p
 
 3084:                                             ; preds = %.lr.ph2968, %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit1358
   %.0.i9352967 = phi i32 [ 0, %.lr.ph2968 ], [ %3109, %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit1358 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %3085 = load ptr, ptr %33, align 8, !tbaa !20
   %3086 = load ptr, ptr %2, align 8, !tbaa !14
   %3087 = ptrtoint ptr %3085 to i64
@@ -12893,7 +12893,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1355._crit_e
 
 3095:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1355._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1355.thread
   %3096 = phi i32 [ %.pre3240, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1355._crit_edge ], [ %3092, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1355.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %3097 = load i32, ptr %3038, align 8, !tbaa !35
   %3098 = load i32, ptr %3058, align 4, !tbaa !37
   %3099 = icmp eq i32 %3097, %3098
@@ -12924,7 +12924,7 @@ _ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit1358: ; preds = %3100, %3105
   br i1 %exitcond3222.not, label %.backedge, label %3084, !llvm.loop !138
 
 3110:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1355
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 3111:                                             ; preds = %2610
@@ -13026,7 +13026,7 @@ _ZN6google8protobuf13RepeatedFieldIlE6ResizeEiRKl.exit: ; preds = %._ZN6google8p
 
 3158:                                             ; preds = %.lr.ph2965, %_ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit1372
   %.0.i9442964 = phi i32 [ 0, %.lr.ph2965 ], [ %3183, %_ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit1372 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %3159 = load ptr, ptr %33, align 8, !tbaa !20
   %3160 = load ptr, ptr %2, align 8, !tbaa !14
   %3161 = ptrtoint ptr %3159 to i64
@@ -13052,7 +13052,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1369._crit_e
 
 3169:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1369._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1369.thread
   %3170 = phi i64 [ %.pre3237, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1369._crit_edge ], [ %3166, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1369.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %3171 = load i32, ptr %3112, align 8, !tbaa !51
   %3172 = load i32, ptr %3132, align 4, !tbaa !53
   %3173 = icmp eq i32 %3171, %3172
@@ -13083,7 +13083,7 @@ _ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit1372: ; preds = %3174, %3179
   br i1 %exitcond3221.not, label %.backedge, label %3158, !llvm.loop !139
 
 3184:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1369
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 3185:                                             ; preds = %2610
@@ -13185,7 +13185,7 @@ _ZN6google8protobuf13RepeatedFieldIfE6ResizeEiRKf.exit: ; preds = %._ZN6google8p
 
 3232:                                             ; preds = %.lr.ph2962, %_ZN6google8protobuf13RepeatedFieldIfE3AddERKf.exit1384
   %.0.i9532961 = phi i32 [ 0, %.lr.ph2962 ], [ %3257, %_ZN6google8protobuf13RepeatedFieldIfE3AddERKf.exit1384 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %3233 = load ptr, ptr %33, align 8, !tbaa !20
   %3234 = load ptr, ptr %2, align 8, !tbaa !14
   %3235 = ptrtoint ptr %3233 to i64
@@ -13211,7 +13211,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1381._crit_e
 
 3243:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1381._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1381.thread
   %3244 = phi float [ %.pre3234, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1381._crit_edge ], [ %3240, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1381.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %3245 = load i32, ptr %3186, align 8, !tbaa !77
   %3246 = load i32, ptr %3206, align 4, !tbaa !79
   %3247 = icmp eq i32 %3245, %3246
@@ -13242,7 +13242,7 @@ _ZN6google8protobuf13RepeatedFieldIfE3AddERKf.exit1384: ; preds = %3248, %3253
   br i1 %exitcond3220.not, label %.backedge, label %3232, !llvm.loop !140
 
 3258:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1381
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 3259:                                             ; preds = %2610
@@ -13344,7 +13344,7 @@ _ZN6google8protobuf13RepeatedFieldIdE6ResizeEiRKd.exit: ; preds = %._ZN6google8p
 
 3306:                                             ; preds = %.lr.ph2959, %_ZN6google8protobuf13RepeatedFieldIdE3AddERKd.exit1398
   %.0.i9622958 = phi i32 [ 0, %.lr.ph2959 ], [ %3331, %_ZN6google8protobuf13RepeatedFieldIdE3AddERKd.exit1398 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %3307 = load ptr, ptr %33, align 8, !tbaa !20
   %3308 = load ptr, ptr %2, align 8, !tbaa !14
   %3309 = ptrtoint ptr %3307 to i64
@@ -13370,7 +13370,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1395._crit_e
 
 3317:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1395._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1395.thread
   %3318 = phi double [ %.pre3231, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1395._crit_edge ], [ %3314, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1395.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %3319 = load i32, ptr %3260, align 8, !tbaa !84
   %3320 = load i32, ptr %3280, align 4, !tbaa !86
   %3321 = icmp eq i32 %3319, %3320
@@ -13401,7 +13401,7 @@ _ZN6google8protobuf13RepeatedFieldIdE3AddERKd.exit1398: ; preds = %3322, %3327
   br i1 %exitcond.not, label %.backedge, label %3306, !llvm.loop !141
 
 3332:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1395
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 3333:                                             ; preds = %2610
@@ -13632,7 +13632,7 @@ _ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE14E
 
 3439:                                             ; preds = %3437
   %.val966 = load i64, ptr %35, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %3440 = getelementptr inbounds i8, ptr %0, i64 %.val966
   %3441 = load ptr, ptr %3440, align 8, !tbaa !41
   %3442 = ptrtoint ptr %3441 to i64
@@ -13653,7 +13653,7 @@ _ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE14E
 _ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11MessageLiteEl.exit.i: ; preds = %3448, %3444
   %.0.i.i.i1419 = phi ptr [ %3447, %3444 ], [ %3449, %3448 ]
   call void @_ZN6google8protobuf2io18StringOutputStreamC1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %.0.i.i.i1419)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6google8protobuf2io17CodedOutputStreamC1EPNS1_20ZeroCopyOutputStreamEb(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull %4, i1 noundef zeroext false)
   %3450 = invoke noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9SkipFieldEPNS0_2io16CodedInputStreamEjPNS3_17CodedOutputStreamE(ptr noundef nonnull %2, i32 noundef %.sroa.0.0.in.i, ptr noundef nonnull %5)
           to label %_ZN6google8protobuf8internal12_GLOBAL__N_123UnknownFieldHandlerLite4SkipEPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamEi.exit unwind label %3451
@@ -13662,14 +13662,14 @@ _ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11M
   %3452 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %3452
 
 _ZN6google8protobuf8internal12_GLOBAL__N_123UnknownFieldHandlerLite4SkipEPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamEi.exit: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11MessageLiteEl.exit.i
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %3450, label %.backedge, label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802, !prof !21
 
 .backedge:                                        ; preds = %_ZN6google8protobuf13RepeatedFieldIdE3AddERKd.exit1398, %_ZN6google8protobuf13RepeatedFieldIfE3AddERKf.exit1384, %_ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit1372, %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit1358, %2023, %2024, %2032, %2036, %2013, %2017, %2052, %966, %967, %975, %979, %956, %960, %995, %811, %812, %820, %824, %801, %805, %841, %649, %650, %658, %662, %639, %643, %678, %478, %479, %487, %491, %468, %472, %508, %316, %317, %325, %329, %306, %310, %345, %161, %162, %170, %174, %151, %155, %191, %2598, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1210, %_ZN6google8protobuf8internal15ResetOneofFieldILNS1_14ProcessingTypeE0EEEvRKNS1_10ParseTableEiPNS0_5ArenaEPNS0_11MessageLiteEPjlPKv.exit, %_ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE1ELb0ELNS1_10StringTypeE0EEEbPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPNS0_5ArenaEPjjlPKvPKc.exit, %_ZN6google8protobuf8internal12_GLOBAL__N_123UnknownFieldHandlerLite4SkipEPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamEi.exit, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread1898, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit828.thread1942, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIlLNS2_9FieldTypeE3EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread1958, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIlLNS2_9FieldTypeE3EEEbPNS0_2io16CodedInputStreamEPT_.exit830.thread2002, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE17EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2018, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE17EEEbPNS0_2io16CodedInputStreamEPT_.exit833.thread2062, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIlLNS2_9FieldTypeE18EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2078, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIlLNS2_9FieldTypeE18EEEbPNS0_2io16CodedInputStreamEPT_.exit836.thread2122, %.thread, %.thread2154, %.thread2163, %.thread2186, %.thread2193, %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread, %.thread2217, %.thread2224, %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread, %.thread2249, %.thread2262, %.thread2301, %.thread2315, %.thread2355, %.thread2369, %.thread2409, %.thread2423, %.thread2463, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIbLNS2_9FieldTypeE8EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2479, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIbLNS2_9FieldTypeE8EEEbPNS0_2io16CodedInputStreamEPT_.exit847.thread2523, %.thread2582, %.thread2601, %.thread2620, %.thread2639, %.thread2651, %.thread2662, %.thread2772, %._crit_edge, %2244, %2253, %_ZN6google8protobuf8internal8AddFieldIiEEvPNS0_11MessageLiteElT_.exit.i, %2285, %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i1227, %2340, %_ZN6google8protobuf13RepeatedFieldIjE6ResizeEiRKj.exit, %.critedge35.i, %_ZN6google8protobuf13RepeatedFieldImE6ResizeEiRKm.exit, %.critedge35.i929, %_ZN6google8protobuf13RepeatedFieldIiE6ResizeEiRKi.exit, %_ZN6google8protobuf13RepeatedFieldIlE6ResizeEiRKl.exit, %_ZN6google8protobuf13RepeatedFieldIfE6ResizeEiRKf.exit, %_ZN6google8protobuf13RepeatedFieldIdE6ResizeEiRKd.exit, %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit, %1296, %1299, %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit, %1146, %1149, %.critedge.i889, %1449, %1446, %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit1126, %.critedge.i897, %1599, %1596, %_ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit1143, %.critedge.i905, %1749, %1746, %_ZN6google8protobuf13RepeatedFieldIfE3AddERKf.exit, %.critedge.i913, %1899, %1896, %_ZN6google8protobuf13RepeatedFieldIdE3AddERKd.exit, %_ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS0_2io16CodedInputStreamEPT_.exit, %_ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS0_2io16CodedInputStreamEPT_.exit1236, %_ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbPNS0_2io16CodedInputStreamEPT_.exit, %_ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbPNS0_2io16CodedInputStreamEPT_.exit1255, %_ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbPNS0_2io16CodedInputStreamEPT_.exit1266, %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit, %_ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit, %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit1016, %_ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit1037, %_ZN6google8protobuf13RepeatedFieldIjE3AddERKj.exit, %_ZN6google8protobuf13RepeatedFieldImE3AddERKm.exit, %_ZN6google8protobuf13RepeatedFieldIbE3AddERKb.exit, %.preheader, %.preheader2873, %.preheader2875, %.preheader2877, %1410, %1560, %1710, %1860, %70, %3437, %72
@@ -15656,7 +15656,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1088: ; preds = %1016, %1025
   br label %.backedge
 
 1049:                                             ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %1050 = load ptr, ptr %33, align 8, !tbaa !20
   %1051 = load ptr, ptr %2, align 8, !tbaa !14
   %1052 = ptrtoint ptr %1050 to i64
@@ -15692,11 +15692,11 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit..thread2193
   store i32 %1067, ptr %1065, align 4, !tbaa !33
   %1068 = getelementptr inbounds nuw i8, ptr %0, i64 %82
   store i32 %1060, ptr %1068, align 4, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %.backedge
 
 1069:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1070:                                             ; preds = %89
@@ -15704,7 +15704,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit..thread2193
   %1072 = getelementptr inbounds nuw i8, ptr %77, i64 11
   %1073 = load i8, ptr %1072, align 1, !tbaa !70
   %1074 = zext i8 %1073 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %1075 = load ptr, ptr %33, align 8, !tbaa !20
   %1076 = load ptr, ptr %2, align 8, !tbaa !14
   %1077 = ptrtoint ptr %1075 to i64
@@ -15730,7 +15730,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1092._crit_e
   br label %1085
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread2206: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1092
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1085:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1092._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1092.thread
@@ -15774,7 +15774,7 @@ _ZN6google8protobuf13RepeatedFieldIjE3AddERKj.exit1095: ; preds = %1091, %1097
   br i1 %1109, label %1110, label %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread: ; preds = %_ZN6google8protobuf13RepeatedFieldIjE3AddERKj.exit1095
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.backedge
 
 1110:                                             ; preds = %_ZN6google8protobuf13RepeatedFieldIjE3AddERKj.exit1095
@@ -15852,22 +15852,22 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit: ; preds 
   %1147 = zext nneg i32 %1145 to i64
   %1148 = getelementptr inbounds nuw i8, ptr %1103, i64 %1147
   store ptr %1148, ptr %2, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.backedge
 
 1149:                                             ; preds = %.critedge.i881.thread3294
   %1150 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1145, i32 noundef %1108)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.backedge
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit: ; preds = %1110, %.critedge.i881
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.backedge
 
 1151:                                             ; preds = %89
   %1152 = load i64, ptr %38, align 8, !tbaa !40
   %1153 = getelementptr inbounds i8, ptr %0, i64 %1152
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %1154 = load ptr, ptr %33, align 8, !tbaa !20
   %1155 = load ptr, ptr %2, align 8, !tbaa !14
   %1156 = ptrtoint ptr %1154 to i64
@@ -15952,15 +15952,15 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1102: ; preds = %1164, %1173
   store i32 %67, ptr %1166, align 4, !tbaa !33
   %1197 = getelementptr inbounds nuw i8, ptr %0, i64 %82
   store i32 %1196, ptr %1197, align 4, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %.backedge
 
 1198:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1099
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1199:                                             ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %1200 = load ptr, ptr %33, align 8, !tbaa !20
   %1201 = load ptr, ptr %2, align 8, !tbaa !14
   %1202 = ptrtoint ptr %1200 to i64
@@ -15996,11 +15996,11 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit..thread2224
   store i32 %1217, ptr %1215, align 4, !tbaa !33
   %1218 = getelementptr inbounds nuw i8, ptr %0, i64 %82
   store i64 %1210, ptr %1218, align 8, !tbaa !50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %.backedge
 
 1219:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1220:                                             ; preds = %89
@@ -16008,7 +16008,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit..thread2224
   %1222 = getelementptr inbounds nuw i8, ptr %77, i64 11
   %1223 = load i8, ptr %1222, align 1, !tbaa !70
   %1224 = zext i8 %1223 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %1225 = load ptr, ptr %33, align 8, !tbaa !20
   %1226 = load ptr, ptr %2, align 8, !tbaa !14
   %1227 = ptrtoint ptr %1225 to i64
@@ -16034,7 +16034,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1106._crit_e
   br label %1235
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread2238: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1106
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1235:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1106._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1106.thread
@@ -16078,7 +16078,7 @@ _ZN6google8protobuf13RepeatedFieldImE3AddERKm.exit1109: ; preds = %1241, %1247
   br i1 %1259, label %1260, label %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread: ; preds = %_ZN6google8protobuf13RepeatedFieldImE3AddERKm.exit1109
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.backedge
 
 1260:                                             ; preds = %_ZN6google8protobuf13RepeatedFieldImE3AddERKm.exit1109
@@ -16156,22 +16156,22 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i: ; pred
   %1297 = zext nneg i32 %1295 to i64
   %1298 = getelementptr inbounds nuw i8, ptr %1253, i64 %1297
   store ptr %1298, ptr %2, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.backedge
 
 1299:                                             ; preds = %.critedge.i885.thread3299
   %1300 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1295, i32 noundef %1258)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.backedge
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit: ; preds = %1260, %.critedge.i885
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.backedge
 
 1301:                                             ; preds = %89
   %1302 = load i64, ptr %38, align 8, !tbaa !40
   %1303 = getelementptr inbounds i8, ptr %0, i64 %1302
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %1304 = load ptr, ptr %33, align 8, !tbaa !20
   %1305 = load ptr, ptr %2, align 8, !tbaa !14
   %1306 = ptrtoint ptr %1304 to i64
@@ -16256,15 +16256,15 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1118: ; preds = %1314, %1323
   store i32 %67, ptr %1316, align 4, !tbaa !33
   %1347 = getelementptr inbounds nuw i8, ptr %0, i64 %82
   store i64 %1346, ptr %1347, align 8, !tbaa !50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %.backedge
 
 1348:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1115
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1349:                                             ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %1350 = load ptr, ptr %33, align 8, !tbaa !20
   %1351 = load ptr, ptr %2, align 8, !tbaa !14
   %1352 = ptrtoint ptr %1350 to i64
@@ -16290,7 +16290,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1121..thread
 
 .thread2262:                                      ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1121..thread2262_crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1121.thread
   %1360 = phi i32 [ %.pre3267, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1121..thread2262_crit_edge ], [ %1357, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1121.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %1361 = and i32 %79, 31
   %1362 = shl nuw i32 1, %1361
   %1363 = lshr i32 %79, 5
@@ -16304,7 +16304,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1121..thread
   br label %.backedge
 
 1369:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1121
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1370:                                             ; preds = %89
@@ -16312,7 +16312,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1121..thread
   %1372 = getelementptr inbounds nuw i8, ptr %77, i64 11
   %1373 = load i8, ptr %1372, align 1, !tbaa !70
   %1374 = zext i8 %1373 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %1375 = load ptr, ptr %33, align 8, !tbaa !20
   %1376 = load ptr, ptr %2, align 8, !tbaa !14
   %1377 = ptrtoint ptr %1375 to i64
@@ -16337,12 +16337,12 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1123._crit_e
   br label %1385
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIiLNS2_9FieldTypeE15EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread2285: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1123
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1385:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1123._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1123.thread
   %1386 = phi i32 [ %.pre3266, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1123._crit_edge ], [ %1382, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1123.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %1387 = load i32, ptr %1371, align 8, !tbaa !35
   %1388 = getelementptr inbounds nuw i8, ptr %1371, i64 4
   %1389 = load i32, ptr %1388, align 4, !tbaa !37
@@ -16464,7 +16464,7 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i890: ; p
 1451:                                             ; preds = %89
   %1452 = load i64, ptr %38, align 8, !tbaa !40
   %1453 = getelementptr inbounds i8, ptr %0, i64 %1452
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %1454 = load ptr, ptr %33, align 8, !tbaa !20
   %1455 = load ptr, ptr %2, align 8, !tbaa !14
   %1456 = ptrtoint ptr %1454 to i64
@@ -16492,7 +16492,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1132._crit_e
 1464:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1132._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1132.thread
   %1465 = phi ptr [ %.pre3265, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1132._crit_edge ], [ %75, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1132.thread ]
   %1466 = phi i32 [ %.pre3264, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1132._crit_edge ], [ %1461, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1132.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %1467 = getelementptr inbounds nuw i32, ptr %1453, i64 %80
   %1468 = load i32, ptr %1467, align 4, !tbaa !33
   %1469 = zext i32 %1468 to i64
@@ -16553,11 +16553,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1135: ; preds = %1464, %1474
   br label %.backedge
 
 1498:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1132
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1499:                                             ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %1500 = load ptr, ptr %33, align 8, !tbaa !20
   %1501 = load ptr, ptr %2, align 8, !tbaa !14
   %1502 = ptrtoint ptr %1500 to i64
@@ -16583,7 +16583,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1138..thread
 
 .thread2315:                                      ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1138..thread2315_crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1138.thread
   %1510 = phi i64 [ %.pre3263, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1138..thread2315_crit_edge ], [ %1507, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1138.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %1511 = and i32 %79, 31
   %1512 = shl nuw i32 1, %1511
   %1513 = lshr i32 %79, 5
@@ -16597,7 +16597,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1138..thread
   br label %.backedge
 
 1519:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1138
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1520:                                             ; preds = %89
@@ -16605,7 +16605,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1138..thread
   %1522 = getelementptr inbounds nuw i8, ptr %77, i64 11
   %1523 = load i8, ptr %1522, align 1, !tbaa !70
   %1524 = zext i8 %1523 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %1525 = load ptr, ptr %33, align 8, !tbaa !20
   %1526 = load ptr, ptr %2, align 8, !tbaa !14
   %1527 = ptrtoint ptr %1525 to i64
@@ -16630,12 +16630,12 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1140._crit_e
   br label %1535
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIlLNS2_9FieldTypeE16EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread2338: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1140
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1535:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1140._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1140.thread
   %1536 = phi i64 [ %.pre3262, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1140._crit_edge ], [ %1532, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1140.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %1537 = load i32, ptr %1521, align 8, !tbaa !51
   %1538 = getelementptr inbounds nuw i8, ptr %1521, i64 4
   %1539 = load i32, ptr %1538, align 4, !tbaa !53
@@ -16757,7 +16757,7 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i898: ; p
 1601:                                             ; preds = %89
   %1602 = load i64, ptr %38, align 8, !tbaa !40
   %1603 = getelementptr inbounds i8, ptr %0, i64 %1602
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %1604 = load ptr, ptr %33, align 8, !tbaa !20
   %1605 = load ptr, ptr %2, align 8, !tbaa !14
   %1606 = ptrtoint ptr %1604 to i64
@@ -16785,7 +16785,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1149._crit_e
 1614:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1149._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1149.thread
   %1615 = phi ptr [ %.pre3261, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1149._crit_edge ], [ %75, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1149.thread ]
   %1616 = phi i64 [ %.pre3260, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1149._crit_edge ], [ %1611, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1149.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %1617 = getelementptr inbounds nuw i32, ptr %1603, i64 %80
   %1618 = load i32, ptr %1617, align 4, !tbaa !33
   %1619 = zext i32 %1618 to i64
@@ -16846,11 +16846,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1152: ; preds = %1614, %1624
   br label %.backedge
 
 1648:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1149
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1649:                                             ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %1650 = load ptr, ptr %33, align 8, !tbaa !20
   %1651 = load ptr, ptr %2, align 8, !tbaa !14
   %1652 = ptrtoint ptr %1650 to i64
@@ -16876,7 +16876,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1155..thread
 
 .thread2369:                                      ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1155..thread2369_crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1155.thread
   %1660 = phi float [ %.pre3259, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1155..thread2369_crit_edge ], [ %1657, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1155.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %1661 = and i32 %79, 31
   %1662 = shl nuw i32 1, %1661
   %1663 = lshr i32 %79, 5
@@ -16890,7 +16890,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1155..thread
   br label %.backedge
 
 1669:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1155
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1670:                                             ; preds = %89
@@ -16898,7 +16898,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1155..thread
   %1672 = getelementptr inbounds nuw i8, ptr %77, i64 11
   %1673 = load i8, ptr %1672, align 1, !tbaa !70
   %1674 = zext i8 %1673 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %1675 = load ptr, ptr %33, align 8, !tbaa !20
   %1676 = load ptr, ptr %2, align 8, !tbaa !14
   %1677 = ptrtoint ptr %1675 to i64
@@ -16923,12 +16923,12 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1157._crit_e
   br label %1685
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIfLNS2_9FieldTypeE2EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread2392: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1157
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1685:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1157._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1157.thread
   %1686 = phi float [ %.pre3258, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1157._crit_edge ], [ %1682, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1157.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %1687 = load i32, ptr %1671, align 8, !tbaa !77
   %1688 = getelementptr inbounds nuw i8, ptr %1671, i64 4
   %1689 = load i32, ptr %1688, align 4, !tbaa !79
@@ -17050,7 +17050,7 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i906: ; p
 1751:                                             ; preds = %89
   %1752 = load i64, ptr %38, align 8, !tbaa !40
   %1753 = getelementptr inbounds i8, ptr %0, i64 %1752
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %1754 = load ptr, ptr %33, align 8, !tbaa !20
   %1755 = load ptr, ptr %2, align 8, !tbaa !14
   %1756 = ptrtoint ptr %1754 to i64
@@ -17078,7 +17078,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1165._crit_e
 1764:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1165._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1165.thread
   %1765 = phi ptr [ %.pre3257, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1165._crit_edge ], [ %75, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1165.thread ]
   %1766 = phi float [ %.pre3256, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1165._crit_edge ], [ %1761, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1165.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %1767 = getelementptr inbounds nuw i32, ptr %1753, i64 %80
   %1768 = load i32, ptr %1767, align 4, !tbaa !33
   %1769 = zext i32 %1768 to i64
@@ -17139,11 +17139,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1168: ; preds = %1764, %1774
   br label %.backedge
 
 1798:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1165
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1799:                                             ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %1800 = load ptr, ptr %33, align 8, !tbaa !20
   %1801 = load ptr, ptr %2, align 8, !tbaa !14
   %1802 = ptrtoint ptr %1800 to i64
@@ -17169,7 +17169,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1171..thread
 
 .thread2423:                                      ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1171..thread2423_crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1171.thread
   %1810 = phi double [ %.pre3255, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1171..thread2423_crit_edge ], [ %1807, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1171.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %1811 = and i32 %79, 31
   %1812 = shl nuw i32 1, %1811
   %1813 = lshr i32 %79, 5
@@ -17183,7 +17183,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1171..thread
   br label %.backedge
 
 1819:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1171
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1820:                                             ; preds = %89
@@ -17191,7 +17191,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1171..thread
   %1822 = getelementptr inbounds nuw i8, ptr %77, i64 11
   %1823 = load i8, ptr %1822, align 1, !tbaa !70
   %1824 = zext i8 %1823 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %1825 = load ptr, ptr %33, align 8, !tbaa !20
   %1826 = load ptr, ptr %2, align 8, !tbaa !14
   %1827 = ptrtoint ptr %1825 to i64
@@ -17216,12 +17216,12 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1173._crit_e
   br label %1835
 
 _ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIdLNS2_9FieldTypeE1EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread2446: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1173
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1835:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1173._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1173.thread
   %1836 = phi double [ %.pre3254, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1173._crit_edge ], [ %1832, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1173.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %1837 = load i32, ptr %1821, align 8, !tbaa !84
   %1838 = getelementptr inbounds nuw i8, ptr %1821, i64 4
   %1839 = load i32, ptr %1838, align 4, !tbaa !86
@@ -17343,7 +17343,7 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i914: ; p
 1901:                                             ; preds = %89
   %1902 = load i64, ptr %38, align 8, !tbaa !40
   %1903 = getelementptr inbounds i8, ptr %0, i64 %1902
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %1904 = load ptr, ptr %33, align 8, !tbaa !20
   %1905 = load ptr, ptr %2, align 8, !tbaa !14
   %1906 = ptrtoint ptr %1904 to i64
@@ -17371,7 +17371,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1181._crit_e
 1914:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1181._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1181.thread
   %1915 = phi ptr [ %.pre3253, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1181._crit_edge ], [ %75, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1181.thread ]
   %1916 = phi double [ %.pre3252, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1181._crit_edge ], [ %1911, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1181.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %1917 = getelementptr inbounds nuw i32, ptr %1903, i64 %80
   %1918 = load i32, ptr %1917, align 4, !tbaa !33
   %1919 = zext i32 %1918 to i64
@@ -17432,7 +17432,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1184: ; preds = %1914, %1924
   br label %.backedge
 
 1948:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1181
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 1949:                                             ; preds = %89
@@ -19342,7 +19342,7 @@ _ZN6google8protobuf13RepeatedFieldIjE6ResizeEiRKj.exit: ; preds = %._ZN6google8p
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 2932:                                             ; preds = %2903
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.not33.i2973.not = icmp samesign ult i32 %.018572667, 4
   br i1 %.not33.i2973.not, label %.critedge35.i, label %.lr.ph2976
 
@@ -19409,11 +19409,11 @@ _ZN6google8protobuf13RepeatedFieldIjE3AddERKj.exit1330: ; preds = %2951, %2956
   br i1 %exitcond3224.not, label %.critedge35.i, label %2935, !llvm.loop !136
 
 2961:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1327
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 .critedge35.i:                                    ; preds = %_ZN6google8protobuf13RepeatedFieldIjE3AddERKj.exit1330, %2932
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.backedge
 
 2962:                                             ; preds = %2610
@@ -19505,7 +19505,7 @@ _ZN6google8protobuf13RepeatedFieldImE6ResizeEiRKm.exit: ; preds = %._ZN6google8p
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 3007:                                             ; preds = %2978
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not33.i9282969.not = icmp samesign ult i32 %.018552677, 8
   br i1 %.not33.i9282969.not, label %.critedge35.i929, label %.lr.ph2972
 
@@ -19572,11 +19572,11 @@ _ZN6google8protobuf13RepeatedFieldImE3AddERKm.exit1344: ; preds = %3026, %3031
   br i1 %exitcond3223.not, label %.critedge35.i929, label %3010, !llvm.loop !137
 
 3036:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1341
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 .critedge35.i929:                                 ; preds = %_ZN6google8protobuf13RepeatedFieldImE3AddERKm.exit1344, %3007
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.backedge
 
 3037:                                             ; preds = %2610
@@ -19678,7 +19678,7 @@ _ZN6google8protobuf13RepeatedFieldIiE6ResizeEiRKi.exit: ; preds = %._ZN6google8p
 
 3084:                                             ; preds = %.lr.ph2968, %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit1358
   %.0.i9352967 = phi i32 [ 0, %.lr.ph2968 ], [ %3109, %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit1358 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %3085 = load ptr, ptr %33, align 8, !tbaa !20
   %3086 = load ptr, ptr %2, align 8, !tbaa !14
   %3087 = ptrtoint ptr %3085 to i64
@@ -19704,7 +19704,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1355._crit_e
 
 3095:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1355._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1355.thread
   %3096 = phi i32 [ %.pre3240, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1355._crit_edge ], [ %3092, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1355.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %3097 = load i32, ptr %3038, align 8, !tbaa !35
   %3098 = load i32, ptr %3058, align 4, !tbaa !37
   %3099 = icmp eq i32 %3097, %3098
@@ -19735,7 +19735,7 @@ _ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit1358: ; preds = %3100, %3105
   br i1 %exitcond3222.not, label %.backedge, label %3084, !llvm.loop !138
 
 3110:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1355
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 3111:                                             ; preds = %2610
@@ -19837,7 +19837,7 @@ _ZN6google8protobuf13RepeatedFieldIlE6ResizeEiRKl.exit: ; preds = %._ZN6google8p
 
 3158:                                             ; preds = %.lr.ph2965, %_ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit1372
   %.0.i9442964 = phi i32 [ 0, %.lr.ph2965 ], [ %3183, %_ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit1372 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %3159 = load ptr, ptr %33, align 8, !tbaa !20
   %3160 = load ptr, ptr %2, align 8, !tbaa !14
   %3161 = ptrtoint ptr %3159 to i64
@@ -19863,7 +19863,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1369._crit_e
 
 3169:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1369._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1369.thread
   %3170 = phi i64 [ %.pre3237, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1369._crit_edge ], [ %3166, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1369.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %3171 = load i32, ptr %3112, align 8, !tbaa !51
   %3172 = load i32, ptr %3132, align 4, !tbaa !53
   %3173 = icmp eq i32 %3171, %3172
@@ -19894,7 +19894,7 @@ _ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit1372: ; preds = %3174, %3179
   br i1 %exitcond3221.not, label %.backedge, label %3158, !llvm.loop !139
 
 3184:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1369
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 3185:                                             ; preds = %2610
@@ -19996,7 +19996,7 @@ _ZN6google8protobuf13RepeatedFieldIfE6ResizeEiRKf.exit: ; preds = %._ZN6google8p
 
 3232:                                             ; preds = %.lr.ph2962, %_ZN6google8protobuf13RepeatedFieldIfE3AddERKf.exit1384
   %.0.i9532961 = phi i32 [ 0, %.lr.ph2962 ], [ %3257, %_ZN6google8protobuf13RepeatedFieldIfE3AddERKf.exit1384 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %3233 = load ptr, ptr %33, align 8, !tbaa !20
   %3234 = load ptr, ptr %2, align 8, !tbaa !14
   %3235 = ptrtoint ptr %3233 to i64
@@ -20022,7 +20022,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1381._crit_e
 
 3243:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1381._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1381.thread
   %3244 = phi float [ %.pre3234, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1381._crit_edge ], [ %3240, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1381.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %3245 = load i32, ptr %3186, align 8, !tbaa !77
   %3246 = load i32, ptr %3206, align 4, !tbaa !79
   %3247 = icmp eq i32 %3245, %3246
@@ -20053,7 +20053,7 @@ _ZN6google8protobuf13RepeatedFieldIfE3AddERKf.exit1384: ; preds = %3248, %3253
   br i1 %exitcond3220.not, label %.backedge, label %3232, !llvm.loop !140
 
 3258:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1381
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 3259:                                             ; preds = %2610
@@ -20155,7 +20155,7 @@ _ZN6google8protobuf13RepeatedFieldIdE6ResizeEiRKd.exit: ; preds = %._ZN6google8p
 
 3306:                                             ; preds = %.lr.ph2959, %_ZN6google8protobuf13RepeatedFieldIdE3AddERKd.exit1398
   %.0.i9622958 = phi i32 [ 0, %.lr.ph2959 ], [ %3331, %_ZN6google8protobuf13RepeatedFieldIdE3AddERKd.exit1398 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %3307 = load ptr, ptr %33, align 8, !tbaa !20
   %3308 = load ptr, ptr %2, align 8, !tbaa !14
   %3309 = ptrtoint ptr %3307 to i64
@@ -20181,7 +20181,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1395._crit_e
 
 3317:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1395._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1395.thread
   %3318 = phi double [ %.pre3231, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1395._crit_edge ], [ %3314, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1395.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %3319 = load i32, ptr %3260, align 8, !tbaa !84
   %3320 = load i32, ptr %3280, align 4, !tbaa !86
   %3321 = icmp eq i32 %3319, %3320
@@ -20212,7 +20212,7 @@ _ZN6google8protobuf13RepeatedFieldIdE3AddERKd.exit1398: ; preds = %3322, %3327
   br i1 %exitcond.not, label %.backedge, label %3306, !llvm.loop !141
 
 3332:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1395
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802
 
 3333:                                             ; preds = %2610
@@ -20443,7 +20443,7 @@ _ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE14E
 
 3439:                                             ; preds = %3437
   %.val966 = load i64, ptr %35, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %3440 = getelementptr inbounds i8, ptr %0, i64 %.val966
   %3441 = load ptr, ptr %3440, align 8, !tbaa !41
   %3442 = ptrtoint ptr %3441 to i64
@@ -20464,7 +20464,7 @@ _ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE14E
 _ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11MessageLiteEl.exit.i: ; preds = %3448, %3444
   %.0.i.i.i1419 = phi ptr [ %3447, %3444 ], [ %3449, %3448 ]
   call void @_ZN6google8protobuf2io18StringOutputStreamC1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %.0.i.i.i1419)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6google8protobuf2io17CodedOutputStreamC1EPNS1_20ZeroCopyOutputStreamEb(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull %4, i1 noundef zeroext false)
   %3450 = invoke noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9SkipFieldEPNS0_2io16CodedInputStreamEjPNS3_17CodedOutputStreamE(ptr noundef nonnull %2, i32 noundef %.sroa.0.0.in.i, ptr noundef nonnull %5)
           to label %_ZN6google8protobuf8internal12_GLOBAL__N_123UnknownFieldHandlerLite4SkipEPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamEi.exit unwind label %3451
@@ -20473,14 +20473,14 @@ _ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11M
   %3452 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %3452
 
 _ZN6google8protobuf8internal12_GLOBAL__N_123UnknownFieldHandlerLite4SkipEPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamEi.exit: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11MessageLiteEl.exit.i
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %3450, label %.backedge, label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2802, !prof !21
 
 .backedge:                                        ; preds = %_ZN6google8protobuf13RepeatedFieldIdE3AddERKd.exit1398, %_ZN6google8protobuf13RepeatedFieldIfE3AddERKf.exit1384, %_ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit1372, %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit1358, %2023, %2024, %2032, %2036, %2013, %2017, %2052, %966, %967, %975, %979, %956, %960, %995, %811, %812, %820, %824, %801, %805, %841, %649, %650, %658, %662, %639, %643, %678, %478, %479, %487, %491, %468, %472, %508, %316, %317, %325, %329, %306, %310, %345, %161, %162, %170, %174, %151, %155, %191, %2598, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1210, %_ZN6google8protobuf8internal15ResetOneofFieldILNS1_14ProcessingTypeE0EEEvRKNS1_10ParseTableEiPNS0_5ArenaEPNS0_11MessageLiteEPjlPKv.exit, %_ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE1ELb0ELNS1_10StringTypeE0EEEbPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPNS0_5ArenaEPjjlPKvPKc.exit, %_ZN6google8protobuf8internal12_GLOBAL__N_123UnknownFieldHandlerLite4SkipEPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamEi.exit, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread1898, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit828.thread1942, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIlLNS2_9FieldTypeE3EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread1958, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIlLNS2_9FieldTypeE3EEEbPNS0_2io16CodedInputStreamEPT_.exit830.thread2002, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE17EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2018, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE17EEEbPNS0_2io16CodedInputStreamEPT_.exit833.thread2062, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIlLNS2_9FieldTypeE18EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2078, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIlLNS2_9FieldTypeE18EEEbPNS0_2io16CodedInputStreamEPT_.exit836.thread2122, %.thread, %.thread2154, %.thread2163, %.thread2186, %.thread2193, %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread, %.thread2217, %.thread2224, %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit.thread, %.thread2249, %.thread2262, %.thread2301, %.thread2315, %.thread2355, %.thread2369, %.thread2409, %.thread2423, %.thread2463, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIbLNS2_9FieldTypeE8EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread2479, %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIbLNS2_9FieldTypeE8EEEbPNS0_2io16CodedInputStreamEPT_.exit847.thread2523, %.thread2582, %.thread2601, %.thread2620, %.thread2639, %.thread2651, %.thread2662, %.thread2772, %._crit_edge, %2244, %2253, %_ZN6google8protobuf8internal8AddFieldIiEEvPNS0_11MessageLiteElT_.exit.i, %2285, %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i1227, %2340, %_ZN6google8protobuf13RepeatedFieldIjE6ResizeEiRKj.exit, %.critedge35.i, %_ZN6google8protobuf13RepeatedFieldImE6ResizeEiRKm.exit, %.critedge35.i929, %_ZN6google8protobuf13RepeatedFieldIiE6ResizeEiRKi.exit, %_ZN6google8protobuf13RepeatedFieldIlE6ResizeEiRKl.exit, %_ZN6google8protobuf13RepeatedFieldIfE6ResizeEiRKf.exit, %_ZN6google8protobuf13RepeatedFieldIdE6ResizeEiRKd.exit, %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit, %1296, %1299, %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit, %1146, %1149, %.critedge.i889, %1449, %1446, %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit1126, %.critedge.i897, %1599, %1596, %_ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit1143, %.critedge.i905, %1749, %1746, %_ZN6google8protobuf13RepeatedFieldIfE3AddERKf.exit, %.critedge.i913, %1899, %1896, %_ZN6google8protobuf13RepeatedFieldIdE3AddERKd.exit, %_ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS0_2io16CodedInputStreamEPT_.exit, %_ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS0_2io16CodedInputStreamEPT_.exit1236, %_ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbPNS0_2io16CodedInputStreamEPT_.exit, %_ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbPNS0_2io16CodedInputStreamEPT_.exit1255, %_ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbPNS0_2io16CodedInputStreamEPT_.exit1266, %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit, %_ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit, %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit1016, %_ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit1037, %_ZN6google8protobuf13RepeatedFieldIjE3AddERKj.exit, %_ZN6google8protobuf13RepeatedFieldImE3AddERKm.exit, %_ZN6google8protobuf13RepeatedFieldIbE3AddERKb.exit, %.preheader, %.preheader2873, %.preheader2875, %.preheader2877, %1410, %1560, %1710, %1860, %70, %3437, %72
@@ -20491,13 +20491,7 @@ _ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EE
   ret i1 %.12842
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare i32 @__gxx_personality_v0(...)
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal12_GLOBAL__N_123UnknownFieldHandlerLite14ParseExtensionEPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamEi(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -20514,7 +20508,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal12_GLOBAL
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %15 = load ptr, ptr %14, align 8, !tbaa !146
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %17 = load i64, ptr %16, align 8, !tbaa !26
   %18 = getelementptr inbounds i8, ptr %0, i64 %17
@@ -20537,23 +20531,23 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal12_GLOBAL
 _ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11MessageLiteEl.exit: ; preds = %22, %26
   %.0.i.i = phi ptr [ %25, %22 ], [ %27, %26 ]
   call void @_ZN6google8protobuf2io18StringOutputStreamC1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %.0.i.i)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN6google8protobuf2io17CodedOutputStreamC1EPNS1_20ZeroCopyOutputStreamEb(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull %5, i1 noundef zeroext false)
   %28 = invoke noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet10ParseFieldEjPNS0_2io16CodedInputStreamEPKNS0_11MessageLiteEPNS3_17CodedOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %3, ptr noundef %2, ptr noundef %15, ptr noundef nonnull %6)
           to label %29 unwind label %30
 
 29:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11MessageLiteEl.exit
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %32
 
 30:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11MessageLiteEl.exit
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %31
 
 32:                                               ; preds = %4, %29
@@ -20565,7 +20559,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11M
 define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal12_GLOBAL__N_123UnknownFieldHandlerLite4SkipEPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamEi(ptr noundef %0, i64 %.48.val, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.google::protobuf::io::StringOutputStream", align 8
   %5 = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds i8, ptr %0, i64 %.48.val
   %7 = load ptr, ptr %6, align 8, !tbaa !41
   %8 = ptrtoint ptr %7 to i64
@@ -20586,30 +20580,30 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal12_GLOBAL
 _ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11MessageLiteEl.exit: ; preds = %10, %14
   %.0.i.i = phi ptr [ %13, %10 ], [ %15, %14 ]
   call void @_ZN6google8protobuf2io18StringOutputStreamC1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %.0.i.i)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6google8protobuf2io17CodedOutputStreamC1EPNS1_20ZeroCopyOutputStreamEb(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull %4, i1 noundef zeroext false)
   %16 = invoke noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9SkipFieldEPNS0_2io16CodedInputStreamEjPNS3_17CodedOutputStreamE(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %5)
           to label %17 unwind label %18
 
 17:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11MessageLiteEl.exit
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %16
 
 18:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11MessageLiteEl.exit
   %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %19
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal19ImplicitWeakMessage16default_instanceEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
+declare void @llvm.assume(i1 noundef) #4
 
 declare noundef i32 @_ZN6google8protobuf2io16CodedInputStream9PushLimitEi(ptr noundef nonnull align 8 dereferenceable(80), i32 noundef) local_unnamed_addr #0
 
@@ -20619,7 +20613,7 @@ declare noundef i32 @_ZNK6google8protobuf2io16CodedInputStream15BytesUntilLimitE
 define internal fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_123UnknownFieldHandlerLite6VarintEPNS0_11MessageLiteERKNS1_10ParseTableEii(ptr noundef %0, i64 %.48.val, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.google::protobuf::io::StringOutputStream", align 8
   %5 = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds i8, ptr %0, i64 %.48.val
   %7 = load ptr, ptr %6, align 8, !tbaa !41
   %8 = ptrtoint ptr %7 to i64
@@ -20640,7 +20634,7 @@ define internal fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_123Unknown
 _ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11MessageLiteEl.exit: ; preds = %10, %14
   %.0.i.i = phi ptr [ %13, %10 ], [ %15, %14 ]
   call void @_ZN6google8protobuf2io18StringOutputStreamC1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %.0.i.i)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6google8protobuf2io17CodedOutputStreamC1EPNS1_20ZeroCopyOutputStreamEb(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull %4, i1 noundef zeroext false)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %17 = load ptr, ptr %16, align 8, !tbaa !147
@@ -20759,16 +20753,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i9: ; preds = %
   %.021.i.i.i13 = phi ptr [ %51, %50 ], [ %59, %56 ], [ %70, %68 ]
   store ptr %.021.i.i.i13, ptr %16, align 8, !tbaa !147
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 72:                                               ; preds = %46, %19
   %73 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %73
 }
 
@@ -20786,7 +20780,7 @@ declare noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet10ParseFie
 declare void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #1
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !41
   %3 = ptrtoint ptr %2 to i64
   %4 = and i64 %3, 1
@@ -20847,15 +20841,15 @@ _ZN6google8protobuf5Arena14CreateInternalINS0_8internal16InternalMetadata9Contai
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv(ptr noundef %0) #9 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv(ptr noundef %0) #8 comdat personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !153
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -20880,7 +20874,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stri
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 declare noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9SkipFieldEPNS0_2io16CodedInputStreamEjPNS3_17CodedOutputStreamE(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -20913,7 +20907,7 @@ declare noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9ReadByt
 declare void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv(ptr noundef %0) #9 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv(ptr noundef %0) #8 comdat personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !153
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %2, %3
@@ -20955,11 +20949,17 @@ declare noundef i64 @_ZN6google8protobuf2io16CodedInputStream20ReadVarint32Fallb
 declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_generated_message_table_driven_lite.cc() #11 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_generated_message_table_driven_lite.cc() #10 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12
@@ -20968,14 +20968,14 @@ attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #5 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }
 attributes #14 = { builtin allocsize(0) }

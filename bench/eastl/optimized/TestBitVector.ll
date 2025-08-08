@@ -17731,7 +17731,7 @@ invoke.cont789:                                   ; preds = %_ZN5eastl6vectorIm1
 
 invoke.cont792:                                   ; preds = %invoke.cont789
   %489 = load i32, ptr @_ZN15MallocAllocator14mAllocCountAllE, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %element.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %element.i)
   %490 = load ptr, ptr %mpEnd.i.i1616, align 8
   %491 = load ptr, ptr %bv0678, align 8
   %sub.ptr.lhs.cast.i.i.i1874 = ptrtoint ptr %490 to i64
@@ -17876,7 +17876,7 @@ _ZN5eastl6vectorIm15MallocAllocatorE6resizeEmRKm.exit.i: ; preds = %if.then.i.i1
   br label %invoke.cont794
 
 invoke.cont794:                                   ; preds = %_ZN5eastl6vectorIm15MallocAllocatorE6resizeEmRKm.exit.i, %while.end.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %element.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %element.i)
   %507 = load i32, ptr @_ZN15MallocAllocator14mAllocCountAllE, align 4
   %cmp795 = icmp eq i32 %489, %507
   %call797 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp795, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 345, ptr noundef nonnull @.str.50)
@@ -18229,14 +18229,14 @@ while.end.i2131.thread:                           ; preds = %invoke.cont864
   %548 = load ptr, ptr %bv0678, align 8
   store ptr %548, ptr %mpEnd.i.i1616, align 8
   store i64 0, ptr %mFreeBitCount.i1623, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %element.i2118)
+  call void @llvm.lifetime.start.p0(ptr nonnull %element.i2118)
   store i64 -1, ptr %element.i2118, align 8
   invoke void @_ZN5eastl6vectorIm15MallocAllocatorE17DoInsertValuesEndEmRKm(ptr noundef nonnull align 8 dereferenceable(48) %bv0678, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %element.i2118)
           to label %invoke.cont873 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont873:                                   ; preds = %while.end.i2131.thread
   store i64 47, ptr %mFreeBitCount.i1623, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %element.i2118)
+  call void @llvm.lifetime.end.p0(ptr nonnull %element.i2118)
   %549 = load ptr, ptr %bv0678, align 8
   %550 = load i64, ptr %549, align 8
   %and.i.i.i2170 = and i64 %550, 1
@@ -18703,14 +18703,14 @@ while.end.i2404.thread:                           ; preds = %invoke.cont946
   %606 = load ptr, ptr %bv0678, align 8
   store ptr %606, ptr %mpEnd.i.i1616, align 8
   store i64 0, ptr %mFreeBitCount.i1623, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %element.i2391)
+  call void @llvm.lifetime.start.p0(ptr nonnull %element.i2391)
   store i64 -1, ptr %element.i2391, align 8
   invoke void @_ZN5eastl6vectorIm15MallocAllocatorE17DoInsertValuesEndEmRKm(ptr noundef nonnull align 8 dereferenceable(48) %bv0678, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %element.i2391)
           to label %_ZN5eastl6vectorIm15MallocAllocatorE6resizeEmRKm.exit.i2414 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN5eastl6vectorIm15MallocAllocatorE6resizeEmRKm.exit.i2414: ; preds = %while.end.i2404.thread
   store i64 47, ptr %mFreeBitCount.i1623, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %element.i2391)
+  call void @llvm.lifetime.end.p0(ptr nonnull %element.i2391)
   %607 = load ptr, ptr %bv0678, align 8
   %call963 = invoke { ptr, i64 } @_ZN5eastl9bitvectorI15MallocAllocatormNS_6vectorImS1_EEE6insertENS_24bitvector_const_iteratorImEEb(ptr noundef nonnull align 8 dereferenceable(48) %bv0678, ptr %607, i64 5, i1 noundef zeroext false)
           to label %invoke.cont968 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -18969,14 +18969,14 @@ while.end.i2806.thread:                           ; preds = %invoke.cont1139
   %658 = load ptr, ptr %bv0678, align 8
   store ptr %658, ptr %mpEnd.i.i1616, align 8
   store i64 0, ptr %mFreeBitCount.i1623, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %element.i2793)
+  call void @llvm.lifetime.start.p0(ptr nonnull %element.i2793)
   store i64 -1, ptr %element.i2793, align 8
   invoke void @_ZN5eastl6vectorIm15MallocAllocatorE17DoInsertValuesEndEmRKm(ptr noundef nonnull align 8 dereferenceable(48) %bv0678, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %element.i2793)
           to label %_ZN5eastl6vectorIm15MallocAllocatorE6resizeEmRKm.exit.i2816 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN5eastl6vectorIm15MallocAllocatorE6resizeEmRKm.exit.i2816: ; preds = %while.end.i2806.thread
   store i64 54, ptr %mFreeBitCount.i1623, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %element.i2793)
+  call void @llvm.lifetime.end.p0(ptr nonnull %element.i2793)
   %659 = load ptr, ptr %mpEnd.i.i1616, align 8
   %add.ptr10.sink.i.i.i.i.i.i2843 = getelementptr inbounds i8, ptr %659, i64 -8
   %660 = load i64, ptr %add.ptr10.sink.i.i.i.i.i.i2843, align 8
@@ -19186,7 +19186,7 @@ invoke.cont1188:                                  ; preds = %invoke.cont1186
           to label %invoke.cont1191 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont1191:                                  ; preds = %invoke.cont1188
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %element.i3035)
+  call void @llvm.lifetime.start.p0(ptr nonnull %element.i3035)
   %692 = load ptr, ptr %mpEnd.i.i1616, align 8
   %693 = load ptr, ptr %bv0678, align 8
   %sub.ptr.lhs.cast.i.i.i3037 = ptrtoint ptr %692 to i64
@@ -19322,7 +19322,7 @@ if.then.i.i3059:                                  ; preds = %if.then5.i3050
           to label %invoke.cont1193 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont1193:                                  ; preds = %if.then.i.i3059, %if.then5.i3050, %while.end.i3048
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %element.i3035)
+  call void @llvm.lifetime.end.p0(ptr nonnull %element.i3035)
   %709 = load ptr, ptr @_ZN15MallocAllocator16mpLastAllocationE, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %bv0678, i8 0, i64 24, i1 false)
   store i64 0, ptr %mFreeBitCount.i1623, align 8
@@ -20531,10 +20531,10 @@ declare i64 @llvm.umax.i64(i64, i64) #10
 declare i64 @strlen(ptr captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #13

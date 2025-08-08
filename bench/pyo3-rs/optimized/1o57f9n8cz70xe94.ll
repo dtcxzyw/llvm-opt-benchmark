@@ -1004,8 +1004,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h02830764bb55a387E
   %4 = alloca [32 x i8], align 8
   %5 = alloca [24 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %8
@@ -1066,8 +1066,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h02830764bb55a387E
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hfcc42ca3f84f8190E.exit: ; preds = %12
   call void @"_ZN4core3ptr97drop_in_place$LT$core..option..IntoIter$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$GT$$GT$17h20213bd8b8f49d91E"(ptr nonnull align 8 %0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1077,8 +1077,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h04c30925be320697E
   %4 = alloca [64 x i8], align 8
   %5 = alloca [24 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %7
 
 .loopexit.i:                                      ; preds = %9
@@ -1137,8 +1137,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h04c30925be320697E
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hdb87516e9ef8e458E.exit: ; preds = %11
   call void @"_ZN4core3ptr98drop_in_place$LT$core..option..IntoIter$LT$pyo3_macros_backend..pyclass..PyClassPyO3Option$GT$$GT$17hf702cfc6536f38b8E"(ptr nonnull align 8 %0)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1148,8 +1148,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h0543df6d62d428adE
   %4 = alloca [32 x i8], align 8
   %5 = alloca [24 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %7
 
 .loopexit.i:                                      ; preds = %9
@@ -1208,8 +1208,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h0543df6d62d428adE
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hd8b322fabf7a22b1E.exit: ; preds = %11
   call void @"_ZN4core3ptr75drop_in_place$LT$core..option..IntoIter$LT$proc_macro2..TokenStream$GT$$GT$17h898ac8e1c8fadb1aE"(ptr nonnull align 8 %0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1219,8 +1219,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h4970a51445670480E
   %4 = alloca [56 x i8], align 8
   %5 = alloca [24 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %7
 
 .loopexit.i:                                      ; preds = %9
@@ -1279,8 +1279,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h4970a51445670480E
 
 _ZN4core4iter6traits8iterator8Iterator4fold17had3e13ea76f6c2afE.exit: ; preds = %11
   call void @"_ZN4core3ptr96drop_in_place$LT$core..option..IntoIter$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$GT$$GT$17h894193b7935b0becE"(ptr nonnull align 8 %0)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1290,8 +1290,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h519043084d7f43f6E
   %4 = alloca [56 x i8], align 8
   %5 = alloca [24 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %7
 
 .loopexit.i:                                      ; preds = %9
@@ -1350,8 +1350,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h519043084d7f43f6E
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h46672015b5defb6dE.exit: ; preds = %11
   call void @"_ZN4core3ptr98drop_in_place$LT$core..option..IntoIter$LT$pyo3_macros_backend..module..PyModulePyO3Option$GT$$GT$17hf3752cbd6fc75ffaE"(ptr nonnull align 8 %0)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1361,8 +1361,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h68caa66ba1970afeE
   %4 = alloca [64 x i8], align 8
   %5 = alloca [24 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %7
 
 .loopexit.i:                                      ; preds = %9
@@ -1421,8 +1421,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h68caa66ba1970afeE
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hf92fedc72e2fae60E.exit: ; preds = %11
   call void @"_ZN4core3ptr98drop_in_place$LT$core..option..IntoIter$LT$pyo3_macros_backend..pymethod..MethodAndSlotDef$GT$$GT$17h7f8be5d40f9594baE"(ptr nonnull align 8 %0)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1432,8 +1432,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h6d3ea2c66f33403eE
   %4 = alloca [56 x i8], align 8
   %5 = alloca [24 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %7
 
 .loopexit.i:                                      ; preds = %9
@@ -1492,8 +1492,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h6d3ea2c66f33403eE
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h350c0259e90c94e0E.exit: ; preds = %11
   call void @"_ZN4core3ptr108drop_in_place$LT$core..option..IntoIter$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$GT$$GT$17h02270207b20b8293E"(ptr nonnull align 8 %0)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1503,8 +1503,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h6dd1e39f87aad5aaE
   %4 = alloca [112 x i8], align 8
   %5 = alloca [24 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %7
 
 .loopexit.i:                                      ; preds = %9
@@ -1563,8 +1563,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h6dd1e39f87aad5aaE
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hba9520fc9235290dE.exit: ; preds = %11
   call void @"_ZN4core3ptr104drop_in_place$LT$core..option..IntoIter$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$GT$$GT$17h223db2bcebe16646E"(ptr nonnull align 8 %0)
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1574,8 +1574,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h8f8b589f88c84c27E
   %4 = alloca [32 x i8], align 8
   %5 = alloca [24 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %8
@@ -1636,8 +1636,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h8f8b589f88c84c27E
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h08b0c685899dd204E.exit: ; preds = %12
   call void @"_ZN4core3ptr96drop_in_place$LT$core..option..IntoIter$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$GT$$GT$17h598f6720247f9554E"(ptr nonnull align 8 %0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1647,8 +1647,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hef76f95dc699a09fE
   %4 = alloca [64 x i8], align 8
   %5 = alloca [24 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %7
 
 .loopexit.i:                                      ; preds = %9
@@ -1707,8 +1707,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hef76f95dc699a09fE
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h3cbb0a7d2f0527b6E.exit: ; preds = %11
   call void @"_ZN4core3ptr100drop_in_place$LT$core..option..IntoIter$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$GT$$GT$17haa6deb490e342854E"(ptr nonnull align 8 %0)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1718,8 +1718,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hf9bae989a1f1087aE
   %4 = alloca [56 x i8], align 8
   %5 = alloca [24 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %7
 
 .loopexit.i:                                      ; preds = %9
@@ -1778,8 +1778,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hf9bae989a1f1087aE
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hcc99b5721cdf79d5E.exit: ; preds = %11
   call void @"_ZN4core3ptr102drop_in_place$LT$core..option..IntoIter$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$GT$$GT$17h286aaec8fb13cd97E"(ptr nonnull align 8 %0)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1789,8 +1789,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hfa73c3f73495d1fcE
   %4 = alloca [112 x i8], align 8
   %5 = alloca [24 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %7
 
 .loopexit.i:                                      ; preds = %9
@@ -1849,8 +1849,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hfa73c3f73495d1fcE
 
 _ZN4core4iter6traits8iterator8Iterator4fold17ha309a084d0aa465eE.exit: ; preds = %11
   call void @"_ZN4core3ptr110drop_in_place$LT$core..option..IntoIter$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$GT$$GT$17hff73a09c257cab13E"(ptr nonnull align 8 %0)
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2466,7 +2466,7 @@ define void @_ZN4core6option6Option4Some17hb2f644d51abd9781E(ptr writeonly sret(
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN50_$LT$T$u20$as$u20$syn..parse_quote..ParseQuote$GT$5parse17h415b516cb02226cfE"(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -2505,14 +2505,14 @@ define void @"_ZN50_$LT$T$u20$as$u20$syn..parse_quote..ParseQuote$GT$5parse17h41
   br label %"_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h0fdce7ca510f5800E.exit"
 
 "_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h0fdce7ca510f5800E.exit": ; preds = %8, %15, %18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN50_$LT$T$u20$as$u20$syn..parse_quote..ParseQuote$GT$5parse17hbc8c8c96fd0f87c6E"(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -2551,7 +2551,7 @@ define void @"_ZN50_$LT$T$u20$as$u20$syn..parse_quote..ParseQuote$GT$5parse17hbc
   br label %"_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h256ac300a82a9633E.exit"
 
 "_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h256ac300a82a9633E.exit": ; preds = %8, %15, %18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2778,7 +2778,7 @@ define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h5fa9a083b71b88e7E(p
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h1ed6bbcaede9dd95E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 4 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %3)
   invoke void @"_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h23fc09fa081d52f8E"(ptr align 4 %1, ptr nonnull align 8 %3)
           to label %_ZN5quote9to_tokens8ToTokens15to_token_stream17h3f715e5db6a37a93E.exit unwind label %4
@@ -2800,14 +2800,14 @@ define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h1ed6bbcaede9dd95E
 
 _ZN5quote9to_tokens8ToTokens15to_token_stream17h3f715e5db6a37a93E.exit: ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h242f383c034a0a1fE(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 4 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %3)
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %4, 1
@@ -2835,14 +2835,14 @@ define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h242f383c034a0a1fE
 
 _ZN5quote9to_tokens8ToTokens15to_token_stream17h5fa9a083b71b88e7E.exit: ; preds = %2, %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h6de0d16466e60b9fE(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i8, ptr %4, align 8
@@ -2870,14 +2870,14 @@ define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h6de0d16466e60b9fE
 
 _ZN5quote9to_tokens8ToTokens15to_token_stream17h0a4f7e3a4d175758E.exit: ; preds = %2, %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h8248a4a3193462a7E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %3)
   %4 = load ptr, ptr %1, align 8
   invoke void @"_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcfa7eae204827cfaE"(ptr align 8 %4, ptr nonnull align 8 %3)
@@ -2900,14 +2900,14 @@ define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h8248a4a3193462a7E
 
 _ZN5quote9to_tokens8ToTokens15to_token_stream17h45b65b872b0977eeE.exit: ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h88a5bd403c17a5bdE(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %3)
   %4 = load i64, ptr %1, align 8
   %.not.i.i.i = icmp eq i64 %4, -9223372036854775808
@@ -2934,7 +2934,7 @@ define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h88a5bd403c17a5bdE
 
 _ZN5quote9to_tokens8ToTokens15to_token_stream17h220ce41642b2484aE.exit: ; preds = %2, %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -3864,10 +3864,10 @@ declare void @"_ZN109_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K
 declare void @"_ZN109_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha53c8fa0571dc873E"(ptr align 8, ptr align 8) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7

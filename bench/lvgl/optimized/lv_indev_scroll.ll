@@ -272,7 +272,7 @@ init_scroll_limits.exit:                          ; preds = %115, %119
   %154 = sub i16 0, %131
   %155 = sdiv i32 65536, %153
   %156 = sdiv i32 65536, %152
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   %157 = sext i16 %154 to i32
   %sext = shl i32 %155, 16
@@ -280,7 +280,7 @@ init_scroll_limits.exit:                          ; preds = %115, %119
   %sext76 = shl i32 %156, 16
   %159 = ashr exact i32 %sext76, 16
   call void @lv_point_transform(ptr noundef nonnull %7, i32 noundef %157, i32 noundef %158, i32 noundef %159, ptr noundef nonnull %6, i1 noundef zeroext false) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %160
 
 160:                                              ; preds = %145, %151
@@ -332,8 +332,8 @@ init_scroll_limits.exit:                          ; preds = %115, %119
   br label %elastic_diff.exit
 
 188:                                              ; preds = %177
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call fastcc void @has_more_snap_points(ptr noundef nonnull %.0, i32 noundef 3, ptr noundef %4, ptr noundef %5)
   %189 = load i8, ptr %4, align 1, !tbaa !39, !range !40, !noundef !41
   %190 = trunc nuw i8 %189 to i1
@@ -354,8 +354,8 @@ init_scroll_limits.exit:                          ; preds = %115, %119
 
 199:                                              ; preds = %193, %188
   %.2.i = phi i32 [ %198, %193 ], [ %168, %188 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %elastic_diff.exit
 
 200:                                              ; preds = %160
@@ -401,8 +401,8 @@ init_scroll_limits.exit:                          ; preds = %115, %119
   br label %elastic_diff.exit
 
 224:                                              ; preds = %213
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call fastcc void @has_more_snap_points(ptr noundef nonnull %.0, i32 noundef 12, ptr noundef %2, ptr noundef %3)
   %225 = load i8, ptr %2, align 1, !tbaa !39, !range !40, !noundef !41
   %226 = trunc nuw i8 %225 to i1
@@ -423,8 +423,8 @@ init_scroll_limits.exit:                          ; preds = %115, %119
 
 235:                                              ; preds = %229, %224
   %.2.i84 = phi i32 [ %234, %229 ], [ %204, %224 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %elastic_diff.exit
 
 elastic_diff.exit:                                ; preds = %235, %218, %216, %212, %208, %200, %199, %182, %180, %176, %172, %165
@@ -509,9 +509,6 @@ elastic_diff.exit:                                ; preds = %235, %218, %216, %2
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.lv_point_t, align 8
@@ -551,7 +548,7 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   %.0121187 = phi ptr [ %12, %.lr.ph ], [ %141, %140 ]
   %.0134186 = phi i8 [ 0, %.lr.ph ], [ %..0134, %140 ]
   %.0136185 = phi i8 [ 0, %.lr.ph ], [ %.0136., %140 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
   br label %26
 
@@ -581,7 +578,7 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   br i1 %.not142, label %42, label %26, !llvm.loop !45
 
 42:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %43 = load i64, ptr %15, align 8
   store i64 %43, ptr %3, align 8
   %44 = icmp ne i16 %30, 0
@@ -658,15 +655,15 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   br label %94
 
 89:                                               ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call fastcc void @has_more_snap_points(ptr noundef %.0121187, i32 noundef 3, ptr noundef %4, ptr noundef %5)
   %90 = load i8, ptr %4, align 1, !tbaa !39, !range !40, !noundef !41
   %91 = trunc nuw i8 %90 to i1
   %92 = load i8, ptr %5, align 1, !tbaa !39, !range !40, !noundef !41
   %93 = trunc nuw i8 %92 to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %94
 
 94:                                               ; preds = %89, %84
@@ -684,15 +681,15 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   br label %107
 
 102:                                              ; preds = %94
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call fastcc void @has_more_snap_points(ptr noundef %.0121187, i32 noundef 12, ptr noundef %6, ptr noundef %7)
   %103 = load i8, ptr %6, align 1, !tbaa !39, !range !40, !noundef !41
   %104 = trunc nuw i8 %103 to i1
   %105 = load i8, ptr %7, align 1, !tbaa !39, !range !40, !noundef !41
   %106 = trunc nuw i8 %105 to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %107
 
 107:                                              ; preds = %102, %97
@@ -788,16 +785,16 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
 .thread:                                          ; preds = %62, %66, %134, %137, %128
   %.2116.ph = phi i16 [ %.4118, %128 ], [ %.0114188, %62 ], [ %.0114188, %66 ], [ %.4118, %137 ], [ %.4118, %134 ]
   %.2.ph = phi ptr [ %.4, %128 ], [ %.0189, %62 ], [ %.0189, %66 ], [ %.4, %137 ], [ %.4, %134 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 140:                                              ; preds = %137, %66
   %.2116 = phi i16 [ %.0114188, %66 ], [ %.4118, %137 ]
   %.2 = phi ptr [ %.0189, %66 ], [ %.4, %137 ]
   %141 = call ptr @lv_obj_get_parent(ptr noundef nonnull %.0121187) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq ptr %141, null
   br i1 %.not, label %.loopexit, label %25
 
@@ -824,28 +821,25 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   ret ptr %.1206
 }
 
-declare void @lv_obj_remove_state(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare void @lv_obj_remove_state(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_get_parent(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_get_parent(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @lv_point_transform(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @lv_point_transform(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @lv_obj_get_scroll_right(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_scroll_right(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_scroll_left(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_scroll_left(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_scroll_top(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_scroll_top(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_scroll_bottom(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_scroll_bottom(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_scroll_dir(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_scroll_dir(ptr noundef) local_unnamed_addr #2
-
-declare i32 @lv_obj_scroll_by_raw(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lv_obj_scroll_by_raw(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_indev_scroll_throw_handler(ptr noundef %0) local_unnamed_addr #0 {
@@ -943,8 +937,8 @@ define void @lv_indev_scroll_throw_handler(ptr noundef %0) local_unnamed_addr #0
   br label %elastic_diff.exit
 
 58:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call fastcc void @has_more_snap_points(ptr noundef nonnull %7, i32 noundef 12, ptr noundef %4, ptr noundef %5)
   %59 = load i8, ptr %4, align 1, !tbaa !39, !range !40, !noundef !41
   %60 = trunc nuw i8 %59 to i1
@@ -965,8 +959,8 @@ define void @lv_indev_scroll_throw_handler(ptr noundef %0) local_unnamed_addr #0
 
 69:                                               ; preds = %63, %58
   %.2.i = phi i32 [ %68, %63 ], [ %38, %58 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %elastic_diff.exit
 
 elastic_diff.exit:                                ; preds = %30, %42, %46, %50, %52, %69
@@ -1082,8 +1076,8 @@ lv_indev_scroll_throw_predict.exit:               ; preds = %79, %74
   br label %elastic_diff.exit127
 
 131:                                              ; preds = %120
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call fastcc void @has_more_snap_points(ptr noundef nonnull %7, i32 noundef 3, ptr noundef %2, ptr noundef %3)
   %132 = load i8, ptr %2, align 1, !tbaa !39, !range !40, !noundef !41
   %133 = trunc nuw i8 %132 to i1
@@ -1104,8 +1098,8 @@ lv_indev_scroll_throw_predict.exit:               ; preds = %79, %74
 
 142:                                              ; preds = %136, %131
   %.2.i123 = phi i32 [ %141, %136 ], [ %111, %131 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %elastic_diff.exit127
 
 elastic_diff.exit127:                             ; preds = %104, %115, %119, %123, %125, %142
@@ -1271,14 +1265,14 @@ lv_indev_scroll_throw_predict.exit136:            ; preds = %152, %147
   ret void
 }
 
-declare zeroext i1 @lv_obj_has_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_obj_has_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_scroll_snap_x(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_scroll_snap_x(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_scroll_snap_y(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_scroll_snap_y(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_indev_scroll_throw_predict(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
+define i32 @lv_indev_scroll_throw_predict(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -1433,7 +1427,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
   ret i32 %.0
 }
 
-declare void @lv_obj_scroll_by(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @lv_obj_scroll_by(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_x(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
@@ -1700,17 +1694,23 @@ define internal fastcc void @has_more_snap_points(ptr noundef nonnull %0, i32 no
   ret void
 }
 
-declare ptr @lv_obj_get_style_prop(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare ptr @lv_obj_get_style_prop(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare void @lv_area_set(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_area_set(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_child_count(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_child_count(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_obj_has_flag_any(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_obj_has_flag_any(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #4
@@ -1728,9 +1728,9 @@ declare i32 @llvm.smax.i32(i32, i32) #4
 declare i32 @llvm.smin.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

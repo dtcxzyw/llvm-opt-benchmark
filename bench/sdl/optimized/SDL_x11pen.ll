@@ -24,23 +24,20 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden ptr @X11_FindPenByDeviceID(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.FindPenByDeviceIDData, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
   %4 = call i32 @SDL_FindPenByCallback(ptr noundef nonnull @FindPenByDeviceID, ptr noundef nonnull %2) #9
   %5 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %5
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @SDL_FindPenByCallback(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_FindPenByCallback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @FindPenByDeviceID(ptr noundef %0, ptr noundef captures(none) %1) #3 {
+define internal noundef zeroext i1 @FindPenByDeviceID(ptr noundef %0, ptr noundef captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %1, align 8
@@ -56,15 +53,12 @@ define internal noundef zeroext i1 @FindPenByDeviceID(ptr noundef %0, ptr nounde
   ret i1 %.not
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define hidden ptr @X11_MaybeAddPenByDeviceID(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %6 = load ptr, ptr @X11_XIQueryDevice, align 8
   %7 = load ptr, ptr %5, align 8
@@ -80,7 +74,7 @@ define hidden ptr @X11_MaybeAddPenByDeviceID(ptr noundef readonly captures(none)
 
 12:                                               ; preds = %2, %9
   %.0 = phi ptr [ %10, %9 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -149,13 +143,13 @@ define internal fastcc ptr @X11_MaybeAddPen(ptr noundef readonly captures(none) 
 
 X11_XInput2DeviceIsPen.exit:                      ; preds = %35
   %39 = load i32, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %39, ptr %14, align 8
   %40 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr null, ptr %40, align 8
   %41 = call i32 @SDL_FindPenByCallback(ptr noundef nonnull @FindPenByDeviceID, ptr noundef nonnull %14) #9
   %42 = load ptr, ptr %40, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.not79 = icmp eq ptr %42, null
   br i1 %.not79, label %43, label %X11_XInput2DeviceIsPen.exit.thread
 
@@ -191,11 +185,11 @@ X11_XInput2DeviceIsPen.exit:                      ; preds = %35
 
 57:                                               ; preds = %._crit_edge
   %58 = load i32, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8
   %59 = load ptr, ptr @X11_XIGetProperty, align 8
   %60 = load ptr, ptr %.val82, align 8
@@ -247,21 +241,21 @@ X11_XInput2DeviceIsPen.exit:                      ; preds = %35
   br label %86
 
 .thread10.i:                                      ; preds = %76, %72, %70, %57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %89
 
 86:                                               ; preds = %83, %.thread4.i
   %87 = load ptr, ptr @X11_XFree, align 8
   %88 = call i32 %87(ptr noundef nonnull %.1257.i) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %X11_XInput2PenIsEraser.exit
 
 89:                                               ; preds = %.thread10.i, %._crit_edge
@@ -274,14 +268,14 @@ X11_XInput2PenIsEraser.exit:                      ; preds = %86, %89
   %92 = zext i1 %.3.i to i8
   %93 = load i32, ptr %1, align 8
   %.val83 = load ptr, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %94 = getelementptr inbounds nuw i8, ptr %.val83, i64 600
   %95 = load i64, ptr %94, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %96 = icmp eq i64 %95, 0
   br i1 %96, label %X11_XInput2PenGetIntProperty.exit.thread.i, label %97
 
@@ -337,21 +331,21 @@ X11_XInput2PenIsEraser.exit:                      ; preds = %86, %89
   br label %X11_XInput2PenGetIntProperty.exit.i
 
 X11_XInput2PenGetIntProperty.exit.thread.i:       ; preds = %97, %X11_XInput2PenIsEraser.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %X11_XInput2PenWacomDeviceID.exit
 
 X11_XInput2PenGetIntProperty.exit.i:              ; preds = %.preheader5.i.i, %.preheader.i.i, %119
   %121 = load ptr, ptr @X11_XFree, align 8
   %122 = call i32 %121(ptr noundef nonnull %104) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %123 = icmp ugt i64 %102, 2
   br i1 %123, label %124, label %X11_XInput2PenWacomDeviceID.exit
 
@@ -362,8 +356,8 @@ X11_XInput2PenGetIntProperty.exit.i:              ; preds = %.preheader5.i.i, %.
 
 X11_XInput2PenWacomDeviceID.exit:                 ; preds = %X11_XInput2PenGetIntProperty.exit.thread.i, %X11_XInput2PenGetIntProperty.exit.i, %124
   %.085 = phi i32 [ %126, %124 ], [ 0, %X11_XInput2PenGetIntProperty.exit.i ], [ 0, %X11_XInput2PenGetIntProperty.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %15) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %.066.lcssa, ptr %15, align 4
   %127 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store float -1.000000e+00, ptr %127, align 4
@@ -469,7 +463,7 @@ X11_XInput2PenWacomDeviceID.exit:                 ; preds = %X11_XInput2PenGetIn
 
 181:                                              ; preds = %174, %180
   %.1 = phi ptr [ null, %180 ], [ %44, %174 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %15) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %X11_XInput2DeviceIsPen.exit.thread
 
 X11_XInput2DeviceIsPen.exit.thread:               ; preds = %.critedge.i, %24, %43, %X11_XInput2DeviceIsPen.exit, %20, %2, %181
@@ -480,13 +474,13 @@ X11_XInput2DeviceIsPen.exit.thread:               ; preds = %.critedge.i, %24, %
 ; Function Attrs: nounwind uwtable
 define hidden void @X11_RemovePenByDeviceID(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.FindPenByDeviceIDData, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
   %4 = call i32 @SDL_FindPenByCallback(ptr noundef nonnull @FindPenByDeviceID, ptr noundef nonnull %2) #9
   %5 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
 
@@ -500,9 +494,9 @@ define hidden void @X11_RemovePenByDeviceID(i32 noundef %0) local_unnamed_addr #
   ret void
 }
 
-declare void @SDL_RemovePenDevice(i64 noundef, i32 noundef) local_unnamed_addr #2
+declare void @SDL_RemovePenDevice(i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @X11_InitPen(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -539,7 +533,7 @@ define hidden void @X11_InitPen(ptr noundef readonly captures(none) %0) local_un
   %27 = tail call i64 %25(ptr noundef %26, ptr noundef nonnull @.str.5, i32 noundef 0) #9
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 592
   store i64 %27, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
   %29 = load ptr, ptr @X11_XIQueryDevice, align 8
   %30 = load ptr, ptr %4, align 8
@@ -568,7 +562,7 @@ define hidden void @X11_InitPen(ptr noundef readonly captures(none) %0) local_un
   br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 40:                                               ; preds = %._crit_edge, %1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -578,7 +572,7 @@ define hidden void @X11_QuitPen(ptr noundef readnone captures(none) %0) local_un
   ret void
 }
 
-declare void @SDL_RemoveAllPenDevices(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_RemoveAllPenDevices(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @X11_FreePenHandle(i32 %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
@@ -587,7 +581,7 @@ define internal void @X11_FreePenHandle(i32 %0, ptr noundef %1, ptr readnone cap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @X11_PenAxesFromValuators(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #4 {
+define hidden void @X11_PenAxesFromValuators(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = shl nsw i32 %3, 3
   br label %58
@@ -727,33 +721,39 @@ X11_XInput2NormalizePenAxes.exit:                 ; preds = %57
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @SDL_GetPenCapabilityFromAxis(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetPenCapabilityFromAxis(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare i32 @SDL_AddPenDevice(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_AddPenDevice(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_strcasecmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_strcasecmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_strcasestr_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_strcasestr_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind allocsize(0,1) }

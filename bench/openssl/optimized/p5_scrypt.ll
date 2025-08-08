@@ -58,7 +58,7 @@ declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define ptr @PKCS5_pbe2_set_scrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #1 {
   %8 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %10
 
@@ -315,12 +315,9 @@ define ptr @PKCS5_pbe2_set_scrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 118:                                              ; preds = %117, %116
   %.045 = phi ptr [ null, %117 ], [ %106, %116 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.045
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @ERR_new() local_unnamed_addr #2
 
@@ -341,7 +338,7 @@ declare ptr @ASN1_TYPE_new() local_unnamed_addr #2
 declare i32 @EVP_CIPHER_get_iv_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @RAND_bytes(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -365,9 +362,6 @@ declare ptr @PBE2PARAM_it() local_unnamed_addr #2
 
 declare void @PBE2PARAM_free(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define i32 @PKCS5_v2_scrypt_keyivgen_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #1 {
   %10 = alloca [64 x i8], align 16
@@ -375,10 +369,10 @@ define i32 @PKCS5_v2_scrypt_keyivgen_ex(ptr noundef %0, ptr noundef %1, i32 noun
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %15 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %0) #5
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %18
@@ -419,7 +413,7 @@ define i32 @PKCS5_v2_scrypt_keyivgen_ex(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not, label %35, label %30
 
 30:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %31 = call i32 @ASN1_INTEGER_get_uint64(ptr noundef nonnull %14, ptr noundef nonnull %29) #5
   %32 = icmp ne i32 %31, 0
   %33 = load i64, ptr %14, align 8
@@ -428,14 +422,14 @@ define i32 @PKCS5_v2_scrypt_keyivgen_ex(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %or.cond, label %.thread, label %34
 
 .thread:                                          ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %35
 
 34:                                               ; preds = %30
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 275, ptr noundef nonnull @__func__.PKCS5_v2_scrypt_keyivgen_ex) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 123, ptr noundef null) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %71
 
 35:                                               ; preds = %.thread, %26
@@ -504,10 +498,10 @@ define i32 @PKCS5_v2_scrypt_keyivgen_ex(ptr noundef %0, ptr noundef %1, i32 noun
   %.03047 = phi ptr [ %19, %72 ], [ %19, %71 ], [ %19, %25 ], [ null, %21 ], [ null, %17 ]
   %.03146 = phi i32 [ %.031, %72 ], [ %.031, %71 ], [ 0, %25 ], [ 0, %21 ], [ 0, %17 ]
   call void @ASN1_item_free(ptr noundef %.03047, ptr noundef nonnull @SCRYPT_PARAMS_it.local_it) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.03146
 }
 
@@ -541,11 +535,17 @@ declare ptr @ASN1_INTEGER_new() local_unnamed_addr #2
 
 declare i32 @ASN1_INTEGER_set_int64(ptr noundef, i64 noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

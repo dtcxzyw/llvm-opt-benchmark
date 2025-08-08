@@ -2421,9 +2421,6 @@ fcs32.exit:                                       ; preds = %45, %55
   ret ptr %.063
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -2440,10 +2437,7 @@ declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef,
 declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_ppp_raw_hdlc() local_unnamed_addr #1 {
@@ -3076,7 +3070,7 @@ define hidden void @proto_register_mp() local_unnamed_addr #1 {
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 35, ptr noundef nonnull @.str.118)
@@ -3191,7 +3185,7 @@ define internal i32 @dissect_mp(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 81:                                               ; preds = %76, %70, %64, %32
   store i8 %10, ptr %9, align 8
   %82 = call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %82
 }
 
@@ -3417,8 +3411,8 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 define internal i32 @dissect_lcp_vendor_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %8 = load i32, ptr @proto_lcp_option_vendor, align 4
   %9 = load i32, ptr @ett_lcp_vendor_opt, align 4
@@ -3442,8 +3436,8 @@ define internal i32 @dissect_lcp_vendor_opt(ptr noundef %0, ptr noundef %1, ptr 
 
 22:                                               ; preds = %11, %18, %4
   %23 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %23
 }
 
@@ -3452,9 +3446,9 @@ define internal i32 @dissect_lcp_mru_opt(ptr noundef %0, ptr noundef %1, ptr nou
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @proto_lcp_option_mru, align 4
   %9 = load i32, ptr @ett_lcp_mru_opt, align 4
   %10 = call fastcc zeroext i1 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -3476,9 +3470,9 @@ define internal i32 @dissect_lcp_mru_opt(ptr noundef %0, ptr noundef %1, ptr nou
 
 20:                                               ; preds = %13, %11
   %.0 = phi i32 [ %19, %13 ], [ %12, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -3486,8 +3480,8 @@ define internal i32 @dissect_lcp_mru_opt(ptr noundef %0, ptr noundef %1, ptr nou
 define internal i32 @dissect_lcp_async_map_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_lcp_option_async_map, align 4
   %8 = load i32, ptr @ett_lcp_asyncmap_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -3544,8 +3538,8 @@ define internal i32 @dissect_lcp_async_map_opt(ptr noundef %0, ptr noundef %1, p
 
 26:                                               ; preds = %17, %25, %18, %4
   %27 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %27
 }
 
@@ -3554,9 +3548,9 @@ define internal i32 @dissect_lcp_authprot_opt(ptr noundef %0, ptr noundef %1, pt
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %9 = load i32, ptr @proto_lcp_option_authprot, align 4
   %10 = load i32, ptr @ett_lcp_authprot_opt, align 4
@@ -3608,9 +3602,9 @@ define internal i32 @dissect_lcp_authprot_opt(ptr noundef %0, ptr noundef %1, pt
 
 39:                                               ; preds = %37, %12
   %.0 = phi i32 [ %38, %37 ], [ %13, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -3619,9 +3613,9 @@ define internal i32 @dissect_lcp_qualprot_opt(ptr noundef %0, ptr noundef %1, pt
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %9 = load i32, ptr @proto_lcp_option_qualprot, align 4
   %10 = load i32, ptr @ett_lcp_qualprot_opt, align 4
@@ -3656,9 +3650,9 @@ define internal i32 @dissect_lcp_qualprot_opt(ptr noundef %0, ptr noundef %1, pt
 
 29:                                               ; preds = %27, %12
   %.0 = phi i32 [ %28, %27 ], [ %13, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -3667,9 +3661,9 @@ define internal i32 @dissect_lcp_magicnumber_opt(ptr noundef %0, ptr noundef %1,
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @proto_lcp_option_magicnumber, align 4
   %9 = load i32, ptr @ett_lcp_magicnumber_opt, align 4
   %10 = call fastcc zeroext i1 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -3691,9 +3685,9 @@ define internal i32 @dissect_lcp_magicnumber_opt(ptr noundef %0, ptr noundef %1,
 
 20:                                               ; preds = %13, %11
   %.0 = phi i32 [ %19, %13 ], [ %12, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -3702,9 +3696,9 @@ define internal i32 @dissect_lcp_linkqualmon_opt(ptr noundef %0, ptr noundef %1,
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @proto_lcp_option_linkqualmon, align 4
   %9 = load i32, ptr @ett_lcp_linkqualmon_opt, align 4
   %10 = call fastcc zeroext i1 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -3738,9 +3732,9 @@ define internal i32 @dissect_lcp_linkqualmon_opt(ptr noundef %0, ptr noundef %1,
 
 26:                                               ; preds = %24, %11
   %.0 = phi i32 [ %25, %24 ], [ %12, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -3750,12 +3744,12 @@ define internal i32 @dissect_lcp_field_compress(ptr noundef %0, ptr noundef %1, 
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_lcp_option_field_compress, align 4
   %8 = load i32, ptr @ett_lcp_pcomp_opt, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = call fastcc zeroext i1 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -3765,12 +3759,12 @@ define internal i32 @dissect_lcp_addr_field_compress(ptr noundef %0, ptr noundef
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_lcp_option_addr_field_compress, align 4
   %8 = load i32, ptr @ett_lcp_acccomp_opt, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = call fastcc zeroext i1 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -3778,8 +3772,8 @@ define internal i32 @dissect_lcp_addr_field_compress(ptr noundef %0, ptr noundef
 define internal i32 @dissect_lcp_fcs_alternatives_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_lcp_option_fcs_alternatives, align 4
   %8 = load i32, ptr @ett_lcp_fcs_alternatives_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -3798,8 +3792,8 @@ define internal i32 @dissect_lcp_fcs_alternatives_opt(ptr noundef %0, ptr nounde
 
 18:                                               ; preds = %4, %10
   %19 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %19
 }
 
@@ -3808,9 +3802,9 @@ define internal i32 @dissect_lcp_self_describing_pad_opt(ptr noundef %0, ptr nou
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @proto_lcp_option_self_desc_pad, align 4
   %9 = load i32, ptr @ett_lcp_self_desc_pad_opt, align 4
   %10 = call fastcc zeroext i1 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -3844,9 +3838,9 @@ define internal i32 @dissect_lcp_self_describing_pad_opt(ptr noundef %0, ptr nou
 
 26:                                               ; preds = %24, %11
   %.0 = phi i32 [ %25, %24 ], [ %12, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -3855,9 +3849,9 @@ define internal i32 @dissect_lcp_numbered_mode_opt(ptr noundef %0, ptr noundef %
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %9 = load i32, ptr @proto_lcp_option_numbered_mode, align 4
   %10 = load i32, ptr @ett_lcp_numbered_mode_opt, align 4
@@ -3903,9 +3897,9 @@ define internal i32 @dissect_lcp_numbered_mode_opt(ptr noundef %0, ptr noundef %
 
 33:                                               ; preds = %31, %12
   %.0 = phi i32 [ %32, %31 ], [ %13, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -3914,9 +3908,9 @@ define internal i32 @dissect_lcp_callback_opt(ptr noundef %0, ptr noundef %1, pt
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %9 = load i32, ptr @proto_lcp_option_callback, align 4
   %10 = load i32, ptr @ett_lcp_callback_opt, align 4
@@ -3950,9 +3944,9 @@ define internal i32 @dissect_lcp_callback_opt(ptr noundef %0, ptr noundef %1, pt
 
 28:                                               ; preds = %26, %12
   %.0 = phi i32 [ %27, %26 ], [ %13, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -3962,12 +3956,12 @@ define internal i32 @dissect_lcp_compound_frames_opt(ptr noundef %0, ptr noundef
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_lcp_option_compound_frames, align 4
   %8 = load i32, ptr @ett_lcp_compound_frames_opt, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = call fastcc zeroext i1 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -3977,12 +3971,12 @@ define internal i32 @dissect_lcp_nomdataencap_opt(ptr noundef %0, ptr noundef %1
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_lcp_option_nomdataencap, align 4
   %8 = load i32, ptr @ett_lcp_nomdataencap_opt, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = call fastcc zeroext i1 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -3991,9 +3985,9 @@ define internal i32 @dissect_lcp_multilink_mrru_opt(ptr noundef %0, ptr noundef 
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @proto_lcp_option_multilink_mrru, align 4
   %9 = load i32, ptr @ett_lcp_multilink_mrru_opt, align 4
   %10 = call fastcc zeroext i1 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -4015,9 +4009,9 @@ define internal i32 @dissect_lcp_multilink_mrru_opt(ptr noundef %0, ptr noundef 
 
 20:                                               ; preds = %13, %11
   %.0 = phi i32 [ %19, %13 ], [ %12, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -4027,12 +4021,12 @@ define internal i32 @dissect_lcp_multilink_ssnh_opt(ptr noundef %0, ptr noundef 
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_lcp_option_multilink_ssnh, align 4
   %8 = load i32, ptr @ett_lcp_multilink_ssnh_opt, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = call fastcc zeroext i1 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -4041,9 +4035,9 @@ define internal i32 @dissect_lcp_multilink_ep_disc_opt(ptr noundef %0, ptr nound
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %9 = load i32, ptr @proto_lcp_option_multilink_ep_disc, align 4
   %10 = load i32, ptr @ett_lcp_multilink_ep_disc_opt, align 4
@@ -4163,9 +4157,9 @@ define internal i32 @dissect_lcp_multilink_ep_disc_opt(ptr noundef %0, ptr nound
 
 74:                                               ; preds = %.loopexit, %22, %12
   %.051 = phi i32 [ %23, %22 ], [ %73, %.loopexit ], [ %13, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.051
 }
 
@@ -4174,9 +4168,9 @@ define internal i32 @dissect_lcp_dce_identifier_opt(ptr noundef %0, ptr noundef 
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @proto_lcp_option_dce_identifier, align 4
   %9 = load i32, ptr @ett_lcp_dce_identifier_opt, align 4
   %10 = call fastcc zeroext i1 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -4199,9 +4193,9 @@ define internal i32 @dissect_lcp_dce_identifier_opt(ptr noundef %0, ptr noundef 
 
 21:                                               ; preds = %13, %11
   %.0 = phi i32 [ %20, %13 ], [ %12, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -4209,8 +4203,8 @@ define internal i32 @dissect_lcp_dce_identifier_opt(ptr noundef %0, ptr noundef 
 define internal i32 @dissect_lcp_multilink_pp_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_lcp_option_multilink_pp, align 4
   %8 = load i32, ptr @ett_lcp_multilink_pp_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -4224,8 +4218,8 @@ define internal i32 @dissect_lcp_multilink_pp_opt(ptr noundef %0, ptr noundef %1
 
 14:                                               ; preds = %4, %10
   %15 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %15
 }
 
@@ -4234,9 +4228,9 @@ define internal i32 @dissect_lcp_bacp_link_discriminator_opt(ptr noundef %0, ptr
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @proto_lcp_option_link_discrim, align 4
   %9 = load i32, ptr @ett_lcp_bacp_link_discrim_opt, align 4
   %10 = call fastcc zeroext i1 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -4258,9 +4252,9 @@ define internal i32 @dissect_lcp_bacp_link_discriminator_opt(ptr noundef %0, ptr
 
 20:                                               ; preds = %13, %11
   %.0 = phi i32 [ %19, %13 ], [ %12, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -4269,9 +4263,9 @@ define internal i32 @dissect_lcp_auth_opt(ptr noundef %0, ptr noundef %1, ptr no
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @proto_lcp_option_auth, align 4
   %9 = load i32, ptr @ett_lcp_auth_opt, align 4
   %10 = call fastcc zeroext i1 @dissect_lcp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -4303,9 +4297,9 @@ define internal i32 @dissect_lcp_auth_opt(ptr noundef %0, ptr noundef %1, ptr no
 
 27:                                               ; preds = %25, %11
   %.0 = phi i32 [ %26, %25 ], [ %12, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -4313,8 +4307,8 @@ define internal i32 @dissect_lcp_auth_opt(ptr noundef %0, ptr noundef %1, ptr no
 define internal i32 @dissect_lcp_cobs_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_lcp_option_cobs, align 4
   %8 = load i32, ptr @ett_lcp_cobs_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -4329,8 +4323,8 @@ define internal i32 @dissect_lcp_cobs_opt(ptr noundef %0, ptr noundef %1, ptr no
 
 15:                                               ; preds = %4, %10
   %16 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %16
 }
 
@@ -4338,8 +4332,8 @@ define internal i32 @dissect_lcp_cobs_opt(ptr noundef %0, ptr noundef %1, ptr no
 define internal i32 @dissect_lcp_prefix_elision_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %8 = load i32, ptr @proto_lcp_option_prefix_elision, align 4
   %9 = load i32, ptr @ett_lcp_prefix_elision_opt, align 4
@@ -4372,8 +4366,8 @@ define internal i32 @dissect_lcp_prefix_elision_opt(ptr noundef %0, ptr noundef 
 
 .loopexit:                                        ; preds = %19, %13, %4
   %24 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %24
 }
 
@@ -4381,8 +4375,8 @@ define internal i32 @dissect_lcp_prefix_elision_opt(ptr noundef %0, ptr noundef 
 define internal i32 @dissect_lcp_multilink_hdr_fmt_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_lcp_option_multilink_hdr_fmt, align 4
   %8 = load i32, ptr @ett_multilink_hdr_fmt_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -4398,8 +4392,8 @@ define internal i32 @dissect_lcp_multilink_hdr_fmt_opt(ptr noundef %0, ptr nound
 
 16:                                               ; preds = %4, %10
   %17 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %17
 }
 
@@ -4407,8 +4401,8 @@ define internal i32 @dissect_lcp_multilink_hdr_fmt_opt(ptr noundef %0, ptr nound
 define internal i32 @dissect_lcp_internationalization_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %8 = load i32, ptr @proto_lcp_option_internationalization, align 4
   %9 = load i32, ptr @ett_lcp_internationalization_opt, align 4
@@ -4426,8 +4420,8 @@ define internal i32 @dissect_lcp_internationalization_opt(ptr noundef %0, ptr no
 
 18:                                               ; preds = %4, %11
   %19 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %19
 }
 
@@ -4437,12 +4431,12 @@ define internal i32 @dissect_lcp_sonet_sdh_opt(ptr noundef %0, ptr noundef %1, p
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @proto_lcp_option_sonet_sdh, align 4
   %8 = load i32, ptr @ett_lcp_sonet_sdh_opt, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = call fastcc zeroext i1 @dissect_lcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -4585,8 +4579,8 @@ define hidden void @proto_reg_handoff_vsncp() local_unnamed_addr #1 {
 define internal i32 @dissect_vsncp_pdnid_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_vsncp_option_pdnid, align 4
   %8 = load i32, ptr @ett_vsncp_pdnid_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_vsncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -4600,8 +4594,8 @@ define internal i32 @dissect_vsncp_pdnid_opt(ptr noundef %0, ptr noundef %1, ptr
 
 14:                                               ; preds = %4, %10
   %15 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %15
 }
 
@@ -4661,8 +4655,8 @@ define internal i32 @dissect_vsncp_apname_opt(ptr noundef %0, ptr noundef readon
 define internal i32 @dissect_vsncp_pdntype_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_vsncp_option_pdntype, align 4
   %8 = load i32, ptr @ett_vsncp_pdntype_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_vsncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -4676,8 +4670,8 @@ define internal i32 @dissect_vsncp_pdntype_opt(ptr noundef %0, ptr noundef %1, p
 
 14:                                               ; preds = %4, %10
   %15 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %15
 }
 
@@ -4687,7 +4681,7 @@ define internal i32 @dissect_vsncp_pdnaddress_opt(ptr noundef %0, ptr noundef %1
   %6 = alloca %struct._address, align 8
   %7 = alloca %struct._address, align 8
   %8 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = icmp slt i32 %8, 3
   %10 = load i32, ptr @proto_vsncp_option_pdnaddress, align 4
   br i1 %9, label %11, label %18
@@ -4737,7 +4731,7 @@ define internal i32 @dissect_vsncp_pdnaddress_opt(ptr noundef %0, ptr noundef %1
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %44 = load ptr, ptr %43, align 8
   %45 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %44, i64 noundef 16) #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %46 = getelementptr i8, ptr %45, i64 8
   %47 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %46, i32 noundef 3, i64 noundef 8)
   store i32 3, ptr %6, align 8
@@ -4754,14 +4748,14 @@ define internal i32 @dissect_vsncp_pdnaddress_opt(ptr noundef %0, ptr noundef %1
   %55 = load ptr, ptr %43, align 8
   %56 = call ptr @address_to_str(ptr noundef %55, ptr noundef nonnull %6)
   %57 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_ipv6_format(ptr noundef %21, i32 noundef %51, ptr noundef %0, i32 noundef 3, i32 noundef %52, ptr noundef %45, ptr noundef nonnull @.str.1372, ptr noundef %54, ptr noundef %56)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %82
 
 58:                                               ; preds = %18
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %60 = load ptr, ptr %59, align 8
   %61 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %60, i64 noundef 16) #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %62 = getelementptr i8, ptr %61, i64 8
   %63 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %62, i32 noundef 3, i64 noundef 8)
   store i32 3, ptr %7, align 8
@@ -4786,7 +4780,7 @@ define internal i32 @dissect_vsncp_pdnaddress_opt(ptr noundef %0, ptr noundef %1
   %79 = load ptr, ptr %59, align 8
   %80 = call ptr @tvb_address_to_str(ptr noundef %79, ptr noundef %0, i32 noundef 2, i32 noundef 11)
   %81 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format(ptr noundef %21, i32 noundef %74, ptr noundef %0, i32 noundef 11, i32 noundef %75, i32 noundef %76, ptr noundef nonnull @.str.1372, ptr noundef %78, ptr noundef %80)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %82
 
 82:                                               ; preds = %18, %58, %42, %33
@@ -4795,7 +4789,7 @@ define internal i32 @dissect_vsncp_pdnaddress_opt(ptr noundef %0, ptr noundef %1
 
 84:                                               ; preds = %82, %11
   %.0 = phi i32 [ %17, %11 ], [ %83, %82 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -4890,8 +4884,8 @@ define internal i32 @dissect_vsncp_errorcode_opt(ptr noundef %0, ptr noundef %1,
 define internal i32 @dissect_vsncp_attachtype_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_vsncp_option_attachtype, align 4
   %8 = load i32, ptr @ett_vsncp_attachtype_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_vsncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -4905,8 +4899,8 @@ define internal i32 @dissect_vsncp_attachtype_opt(ptr noundef %0, ptr noundef %1
 
 14:                                               ; preds = %4, %10
   %15 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %15
 }
 
@@ -4914,8 +4908,8 @@ define internal i32 @dissect_vsncp_attachtype_opt(ptr noundef %0, ptr noundef %1
 define internal i32 @dissect_vsncp_ipv4address_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_vsncp_option_ipv4address, align 4
   %8 = load i32, ptr @ett_vsncp_ipv4address_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_vsncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -4929,8 +4923,8 @@ define internal i32 @dissect_vsncp_ipv4address_opt(ptr noundef %0, ptr noundef %
 
 14:                                               ; preds = %4, %10
   %15 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %15
 }
 
@@ -4938,8 +4932,8 @@ define internal i32 @dissect_vsncp_ipv4address_opt(ptr noundef %0, ptr noundef %
 define internal i32 @dissect_vsncp_addressalloc_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_vsncp_option_addressalloc, align 4
   %8 = load i32, ptr @ett_vsncp_addressalloc_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_vsncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -4953,8 +4947,8 @@ define internal i32 @dissect_vsncp_addressalloc_opt(ptr noundef %0, ptr noundef 
 
 14:                                               ; preds = %4, %10
   %15 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %15
 }
 
@@ -4984,8 +4978,8 @@ define internal i32 @dissect_vsncp_apn_ambr_opt(ptr noundef %0, ptr readnone cap
 define internal i32 @dissect_vsncp_ipv6_hsgw_lla_iid_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_vsncp_option_ipv6_hsgw_lla_iid, align 4
   %8 = load i32, ptr @ett_vsncp_ipv6_hsgw_lla_iid_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_vsncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 10, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -4999,8 +4993,8 @@ define internal i32 @dissect_vsncp_ipv6_hsgw_lla_iid_opt(ptr noundef %0, ptr nou
 
 14:                                               ; preds = %4, %10
   %15 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %15
 }
 
@@ -5189,8 +5183,8 @@ define hidden void @proto_reg_handoff_ipcp() local_unnamed_addr #1 {
 define internal i32 @dissect_ipcp_addrs_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_ipcp_option_addrs, align 4
   %8 = load i32, ptr @ett_ipcp_ipaddrs_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 10, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -5206,8 +5200,8 @@ define internal i32 @dissect_ipcp_addrs_opt(ptr noundef %0, ptr noundef %1, ptr 
 
 16:                                               ; preds = %4, %10
   %17 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %17
 }
 
@@ -5314,8 +5308,8 @@ define internal i32 @dissect_ipcp_compress_opt(ptr noundef %0, ptr noundef %1, p
 define internal i32 @dissect_ipcp_addr_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_ipcp_option_addr, align 4
   %8 = load i32, ptr @ett_ipcp_ipaddr_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -5329,8 +5323,8 @@ define internal i32 @dissect_ipcp_addr_opt(ptr noundef %0, ptr noundef %1, ptr n
 
 14:                                               ; preds = %4, %10
   %15 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %15
 }
 
@@ -5338,8 +5332,8 @@ define internal i32 @dissect_ipcp_addr_opt(ptr noundef %0, ptr noundef %1, ptr n
 define internal i32 @dissect_ipcp_mobileipv4_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_ipcp_option_mobileipv4, align 4
   %8 = load i32, ptr @ett_ipcp_mobileipv4_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -5353,8 +5347,8 @@ define internal i32 @dissect_ipcp_mobileipv4_opt(ptr noundef %0, ptr noundef %1,
 
 14:                                               ; preds = %4, %10
   %15 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %15
 }
 
@@ -5362,8 +5356,8 @@ define internal i32 @dissect_ipcp_mobileipv4_opt(ptr noundef %0, ptr noundef %1,
 define internal i32 @dissect_ipcp_pri_dns_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_ipcp_option_pri_dns, align 4
   %8 = load i32, ptr @ett_ipcp_pridns_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -5377,8 +5371,8 @@ define internal i32 @dissect_ipcp_pri_dns_opt(ptr noundef %0, ptr noundef %1, pt
 
 14:                                               ; preds = %4, %10
   %15 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %15
 }
 
@@ -5386,8 +5380,8 @@ define internal i32 @dissect_ipcp_pri_dns_opt(ptr noundef %0, ptr noundef %1, pt
 define internal i32 @dissect_ipcp_pri_nbns_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_ipcp_option_pri_nbns, align 4
   %8 = load i32, ptr @ett_ipcp_prinbns_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -5401,8 +5395,8 @@ define internal i32 @dissect_ipcp_pri_nbns_opt(ptr noundef %0, ptr noundef %1, p
 
 14:                                               ; preds = %4, %10
   %15 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %15
 }
 
@@ -5410,8 +5404,8 @@ define internal i32 @dissect_ipcp_pri_nbns_opt(ptr noundef %0, ptr noundef %1, p
 define internal i32 @dissect_ipcp_sec_dns_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_ipcp_option_sec_dns, align 4
   %8 = load i32, ptr @ett_ipcp_secdns_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -5425,8 +5419,8 @@ define internal i32 @dissect_ipcp_sec_dns_opt(ptr noundef %0, ptr noundef %1, pt
 
 14:                                               ; preds = %4, %10
   %15 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %15
 }
 
@@ -5434,8 +5428,8 @@ define internal i32 @dissect_ipcp_sec_dns_opt(ptr noundef %0, ptr noundef %1, pt
 define internal i32 @dissect_ipcp_sec_nbns_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_ipcp_option_sec_nbns, align 4
   %8 = load i32, ptr @ett_ipcp_secnbns_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_ipcp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -5449,8 +5443,8 @@ define internal i32 @dissect_ipcp_sec_nbns_opt(ptr noundef %0, ptr noundef %1, p
 
 14:                                               ; preds = %4, %10
   %15 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %15
 }
 
@@ -5491,14 +5485,14 @@ define internal i32 @dissect_ipcp_rohc_profiles_opt(ptr noundef %0, ptr readnone
 define internal i32 @dissect_ipcp_iphc_rtp_compress(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_ipcp_iphc_option_rtp_compress, align 4
   %8 = load i32, ptr @ett_ipcp_iphc_rtp_compress_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_ipcp_iphc_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -5506,14 +5500,14 @@ define internal i32 @dissect_ipcp_iphc_rtp_compress(ptr noundef %0, ptr noundef 
 define internal i32 @dissect_ipcp_iphc_enhanced_rtp_compress(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_ipcp_iphc_option_enhanced_rtp_compress, align 4
   %8 = load i32, ptr @ett_ipcp_iphc_enhanced_rtp_compress_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_ipcp_iphc_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -5521,8 +5515,8 @@ define internal i32 @dissect_ipcp_iphc_enhanced_rtp_compress(ptr noundef %0, ptr
 define internal i32 @dissect_ipcp_iphc_neghdrcomp_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_ipcp_iphc_option_neghdrcomp, align 4
   %8 = load i32, ptr @ett_ipcp_iphc_neghdrcomp_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_ipcp_iphc_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -5536,8 +5530,8 @@ define internal i32 @dissect_ipcp_iphc_neghdrcomp_opt(ptr noundef %0, ptr nounde
 
 14:                                               ; preds = %4, %10
   %15 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %15
 }
 
@@ -5768,8 +5762,8 @@ define hidden void @proto_reg_handoff_bcp_ncp() local_unnamed_addr #1 {
 define internal i32 @dissect_bcp_ncp_bridge_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_bcp_ncp_option_bridge_id, align 4
   %8 = load i32, ptr @ett_bcp_ncp_bridge_id_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -5785,8 +5779,8 @@ define internal i32 @dissect_bcp_ncp_bridge_id(ptr noundef %0, ptr noundef %1, p
 
 16:                                               ; preds = %4, %10
   %17 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %17
 }
 
@@ -5794,8 +5788,8 @@ define internal i32 @dissect_bcp_ncp_bridge_id(ptr noundef %0, ptr noundef %1, p
 define internal i32 @dissect_bcp_ncp_line_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_bcp_ncp_option_line_id, align 4
   %8 = load i32, ptr @ett_bcp_ncp_line_id_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -5811,8 +5805,8 @@ define internal i32 @dissect_bcp_ncp_line_id(ptr noundef %0, ptr noundef %1, ptr
 
 16:                                               ; preds = %4, %10
   %17 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %17
 }
 
@@ -5820,8 +5814,8 @@ define internal i32 @dissect_bcp_ncp_line_id(ptr noundef %0, ptr noundef %1, ptr
 define internal i32 @dissect_bcp_ncp_mac_sup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_bcp_ncp_option_mac_sup, align 4
   %8 = load i32, ptr @ett_bcp_ncp_mac_sup_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -5835,8 +5829,8 @@ define internal i32 @dissect_bcp_ncp_mac_sup(ptr noundef %0, ptr noundef %1, ptr
 
 14:                                               ; preds = %4, %10
   %15 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %15
 }
 
@@ -5844,8 +5838,8 @@ define internal i32 @dissect_bcp_ncp_mac_sup(ptr noundef %0, ptr noundef %1, ptr
 define internal i32 @dissect_bcp_ncp_tinygram_comp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_bcp_ncp_option_tinygram_comp, align 4
   %8 = load i32, ptr @ett_bcp_ncp_tinygram_comp_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -5859,8 +5853,8 @@ define internal i32 @dissect_bcp_ncp_tinygram_comp(ptr noundef %0, ptr noundef %
 
 14:                                               ; preds = %4, %10
   %15 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %15
 }
 
@@ -5868,14 +5862,14 @@ define internal i32 @dissect_bcp_ncp_tinygram_comp(ptr noundef %0, ptr noundef %
 define internal i32 @dissect_bcp_ncp_lan_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_bcp_ncp_option_lan_id, align 4
   %8 = load i32, ptr @ett_bcp_ncp_lan_id_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -5883,8 +5877,8 @@ define internal i32 @dissect_bcp_ncp_lan_id(ptr noundef %0, ptr noundef %1, ptr 
 define internal i32 @dissect_bcp_ncp_mac_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_bcp_ncp_option_mac_addr, align 4
   %8 = load i32, ptr @ett_bcp_ncp_mac_addr_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 8, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -5902,8 +5896,8 @@ define internal i32 @dissect_bcp_ncp_mac_addr(ptr noundef %0, ptr noundef %1, pt
 
 18:                                               ; preds = %4, %10
   %19 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %19
 }
 
@@ -5945,8 +5939,8 @@ define internal i32 @dissect_bcp_ncp_stp(ptr noundef %0, ptr readnone captures(n
 define internal i32 @dissect_bcp_ncp_ieee_802_tagged_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_bcp_ncp_option_ieee_802_tagged_frame, align 4
   %8 = load i32, ptr @ett_bcp_ncp_ieee_802_tagged_frame_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -5960,8 +5954,8 @@ define internal i32 @dissect_bcp_ncp_ieee_802_tagged_frame(ptr noundef %0, ptr n
 
 14:                                               ; preds = %4, %10
   %15 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %15
 }
 
@@ -5969,14 +5963,14 @@ define internal i32 @dissect_bcp_ncp_ieee_802_tagged_frame(ptr noundef %0, ptr n
 define internal i32 @dissect_bcp_ncp_management_inline(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_bcp_ncp_option_management_inline, align 4
   %8 = load i32, ptr @ett_bcp_ncp_management_inline_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -5984,14 +5978,14 @@ define internal i32 @dissect_bcp_ncp_management_inline(ptr noundef %0, ptr nound
 define internal i32 @dissect_bcp_ncp_bcp_ncp_bcp_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_bcp_ncp_option_bcp_ind, align 4
   %8 = load i32, ptr @ett_bcp_ncp_bcp_ind_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_bcp_ncp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -6203,8 +6197,8 @@ define hidden void @proto_reg_handoff_ccp() local_unnamed_addr #1 {
 define internal i32 @dissect_ccp_oui_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %8 = load i32, ptr @proto_ccp_option_oui, align 4
   %9 = load i32, ptr @ett_ccp_oui_opt, align 4
@@ -6228,8 +6222,8 @@ define internal i32 @dissect_ccp_oui_opt(ptr noundef %0, ptr noundef %1, ptr nou
 
 22:                                               ; preds = %11, %18, %4
   %23 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %23
 }
 
@@ -6269,8 +6263,8 @@ define internal i32 @dissect_ccp_hpppc_opt(ptr noundef %0, ptr readnone captures
 define internal i32 @dissect_ccp_stac_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %8 = icmp eq i32 %7, 6
   %9 = load i32, ptr @proto_ccp_option_stac_ascend, align 4
@@ -6299,8 +6293,8 @@ define internal i32 @dissect_ccp_stac_opt(ptr noundef %0, ptr noundef %1, ptr no
 
 25:                                               ; preds = %16, %19, %4
   %26 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %26
 }
 
@@ -6308,8 +6302,8 @@ define internal i32 @dissect_ccp_stac_opt(ptr noundef %0, ptr noundef %1, ptr no
 define internal i32 @dissect_ccp_mppe_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_ccp_option_mppe, align 4
   %8 = load i32, ptr @ett_ccp_mppe_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_ccp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -6324,8 +6318,8 @@ define internal i32 @dissect_ccp_mppe_opt(ptr noundef %0, ptr noundef %1, ptr no
 
 15:                                               ; preds = %4, %10
   %16 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %16
 }
 
@@ -6333,8 +6327,8 @@ define internal i32 @dissect_ccp_mppe_opt(ptr noundef %0, ptr noundef %1, ptr no
 define internal i32 @dissect_ccp_gfza_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %8 = load i32, ptr @proto_ccp_option_gfza, align 4
   %9 = load i32, ptr @ett_ccp_gfza_opt, align 4
@@ -6356,8 +6350,8 @@ define internal i32 @dissect_ccp_gfza_opt(ptr noundef %0, ptr noundef %1, ptr no
 
 20:                                               ; preds = %11, %16, %4
   %21 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %21
 }
 
@@ -6373,8 +6367,8 @@ define internal i32 @dissect_ccp_v42bis_opt(ptr noundef %0, ptr readnone capture
 define internal i32 @dissect_ccp_bsdcomp_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_ccp_option_bsdcomp, align 4
   %8 = load i32, ptr @ett_ccp_bsdcomp_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_ccp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -6389,8 +6383,8 @@ define internal i32 @dissect_ccp_bsdcomp_opt(ptr noundef %0, ptr noundef %1, ptr
 
 15:                                               ; preds = %4, %10
   %16 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %16
 }
 
@@ -6398,8 +6392,8 @@ define internal i32 @dissect_ccp_bsdcomp_opt(ptr noundef %0, ptr noundef %1, ptr
 define internal i32 @dissect_ccp_lzsdcp_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_ccp_option_lzsdcp, align 4
   %8 = load i32, ptr @ett_ccp_lzsdcp_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_ccp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 6, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -6417,8 +6411,8 @@ define internal i32 @dissect_ccp_lzsdcp_opt(ptr noundef %0, ptr noundef %1, ptr 
 
 18:                                               ; preds = %4, %10
   %19 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %19
 }
 
@@ -6426,8 +6420,8 @@ define internal i32 @dissect_ccp_lzsdcp_opt(ptr noundef %0, ptr noundef %1, ptr 
 define internal i32 @dissect_ccp_mvrca_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_ccp_option_mvrca, align 4
   %8 = load i32, ptr @ett_ccp_mvrca_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_ccp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -6447,8 +6441,8 @@ define internal i32 @dissect_ccp_mvrca_opt(ptr noundef %0, ptr noundef %1, ptr n
 
 20:                                               ; preds = %4, %10
   %21 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %21
 }
 
@@ -6456,8 +6450,8 @@ define internal i32 @dissect_ccp_mvrca_opt(ptr noundef %0, ptr noundef %1, ptr n
 define internal i32 @dissect_ccp_dce_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_ccp_option_dce, align 4
   %8 = load i32, ptr @ett_ccp_dce_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_ccp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -6471,8 +6465,8 @@ define internal i32 @dissect_ccp_dce_opt(ptr noundef %0, ptr noundef %1, ptr nou
 
 14:                                               ; preds = %4, %10
   %15 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %15
 }
 
@@ -6480,8 +6474,8 @@ define internal i32 @dissect_ccp_dce_opt(ptr noundef %0, ptr noundef %1, ptr nou
 define internal i32 @dissect_ccp_deflate_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_ccp_option_deflate, align 4
   %8 = load i32, ptr @ett_ccp_deflate_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_ccp_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -6505,8 +6499,8 @@ define internal i32 @dissect_ccp_deflate_opt(ptr noundef %0, ptr noundef %1, ptr
 
 24:                                               ; preds = %4, %10
   %25 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %25
 }
 
@@ -6514,8 +6508,8 @@ define internal i32 @dissect_ccp_deflate_opt(ptr noundef %0, ptr noundef %1, ptr
 define internal i32 @dissect_ccp_v44lzjh_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %8 = load i32, ptr @proto_ccp_option_v44lzjh, align 4
   %9 = load i32, ptr @ett_ccp_v44lzjh_opt, align 4
@@ -6542,8 +6536,8 @@ define internal i32 @dissect_ccp_v44lzjh_opt(ptr noundef %0, ptr noundef %1, ptr
 
 23:                                               ; preds = %11, %20, %16, %4
   %24 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %24
 }
 
@@ -6942,8 +6936,8 @@ define hidden void @proto_reg_handoff_bap() local_unnamed_addr #1 {
 define internal i32 @dissect_bap_link_type_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_bap_option_link_type, align 4
   %8 = load i32, ptr @ett_bap_link_type_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_bap_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 5, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -6959,8 +6953,8 @@ define internal i32 @dissect_bap_link_type_opt(ptr noundef %0, ptr noundef %1, p
 
 16:                                               ; preds = %4, %10
   %17 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %17
 }
 
@@ -6968,8 +6962,8 @@ define internal i32 @dissect_bap_link_type_opt(ptr noundef %0, ptr noundef %1, p
 define internal i32 @dissect_bap_phone_delta_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %8 = load i32, ptr @proto_bap_option_phone_delta, align 4
   %9 = load i32, ptr @ett_bap_phone_delta_opt, align 4
@@ -7089,8 +7083,8 @@ define internal i32 @dissect_bap_phone_delta_opt(ptr noundef %0, ptr noundef %1,
 
 .loopexit:                                        ; preds = %68, %29, %33, %11, %4
   %72 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %72
 }
 
@@ -7098,14 +7092,14 @@ define internal i32 @dissect_bap_phone_delta_opt(ptr noundef %0, ptr noundef %1,
 define internal i32 @dissect_bap_no_phone_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_bap_option_no_phone, align 4
   %8 = load i32, ptr @ett_bap_no_phone_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_bap_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -7113,8 +7107,8 @@ define internal i32 @dissect_bap_no_phone_opt(ptr noundef %0, ptr noundef %1, pt
 define internal i32 @dissect_bap_reason_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %8 = load i32, ptr @proto_bap_option_reason, align 4
   %9 = load i32, ptr @ett_bap_reason_opt, align 4
@@ -7130,8 +7124,8 @@ define internal i32 @dissect_bap_reason_opt(ptr noundef %0, ptr noundef %1, ptr 
 
 16:                                               ; preds = %4, %11
   %17 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %17
 }
 
@@ -7139,8 +7133,8 @@ define internal i32 @dissect_bap_reason_opt(ptr noundef %0, ptr noundef %1, ptr 
 define internal i32 @dissect_bap_link_disc_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_bap_option_link_disc, align 4
   %8 = load i32, ptr @ett_bap_link_disc_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_bap_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -7154,8 +7148,8 @@ define internal i32 @dissect_bap_link_disc_opt(ptr noundef %0, ptr noundef %1, p
 
 14:                                               ; preds = %4, %10
   %15 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %15
 }
 
@@ -7163,8 +7157,8 @@ define internal i32 @dissect_bap_link_disc_opt(ptr noundef %0, ptr noundef %1, p
 define internal i32 @dissect_bap_call_status_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @proto_bap_option_call_status, align 4
   %8 = load i32, ptr @ett_bap_call_status_opt, align 4
   %9 = call fastcc zeroext i1 @dissect_bap_fixed_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -7180,8 +7174,8 @@ define internal i32 @dissect_bap_call_status_opt(ptr noundef %0, ptr noundef %1,
 
 16:                                               ; preds = %4, %10
   %17 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %17
 }
 
@@ -8275,7 +8269,7 @@ define internal fastcc void @dissect_ppp_hdlc_common(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
@@ -8877,7 +8871,7 @@ declare ptr @proto_tree_add_ipv4_format(ptr noundef, i32 noundef, ptr noundef, i
 declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #0
@@ -9219,6 +9213,12 @@ declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) loca
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
 
@@ -9227,13 +9227,12 @@ declare i32 @llvm.umin.i32(i32, i32) #5
 
 attributes #0 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { noreturn }
 attributes #7 = { allocsize(1) }
-attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

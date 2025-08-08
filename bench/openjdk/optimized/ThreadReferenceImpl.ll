@@ -546,7 +546,7 @@ define internal noundef zeroext i8 @getFrameCount(ptr noundef %0, ptr noundef %1
   br label %36
 
 11:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = call i32 @threadControl_suspendCount(ptr noundef %6, ptr noundef nonnull %3) #4
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %15, label %13
@@ -563,11 +563,11 @@ define internal noundef zeroext i8 @getFrameCount(ptr noundef %0, ptr noundef %1
 validateSuspendedThread.exit.thread:              ; preds = %13, %15
   %.sink.i = phi i16 [ %14, %13 ], [ 13, %15 ]
   call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %.sink.i) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %36
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr @gdata, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 528
   %21 = load i32, ptr %20, align 8
@@ -626,7 +626,7 @@ define internal noundef zeroext i8 @ownedMonitors(ptr noundef %0, ptr noundef %1
   br label %61
 
 12:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = call i32 @threadControl_suspendCount(ptr noundef %7, ptr noundef nonnull %3) #4
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %16, label %14
@@ -643,11 +643,11 @@ define internal noundef zeroext i8 @ownedMonitors(ptr noundef %0, ptr noundef %1
 validateSuspendedThread.exit.thread:              ; preds = %14, %16
   %.sink.i = phi i16 [ %15, %14 ], [ 13, %16 ]
   call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %.sink.i) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %61
 
 19:                                               ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @createLocalRefSpace(ptr noundef %6, i32 noundef 1) #4
   store i32 0, ptr %4, align 4
   store ptr null, ptr %5, align 8
@@ -757,7 +757,7 @@ define internal noundef zeroext i8 @currentContendedMonitor(ptr noundef %0, ptr 
   br label %52
 
 13:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = call i32 @threadControl_suspendCount(ptr noundef nonnull %6, ptr noundef nonnull %3) #4
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %17, label %15
@@ -774,11 +774,11 @@ define internal noundef zeroext i8 @currentContendedMonitor(ptr noundef %0, ptr 
 validateSuspendedThread.exit.thread:              ; preds = %15, %17
   %.sink.i = phi i16 [ %16, %15 ], [ 13, %17 ]
   call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %.sink.i) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %52
 
 20:                                               ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @createLocalRefSpace(ptr noundef %5, i32 noundef 1) #4
   %21 = load ptr, ptr @gdata, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 528
@@ -970,7 +970,7 @@ define internal noundef zeroext i8 @ownedMonitorsWithStackDepth(ptr noundef %0, 
   br label %69
 
 14:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = call i32 @threadControl_suspendCount(ptr noundef nonnull %7, ptr noundef nonnull %3) #4
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %18, label %16
@@ -987,11 +987,11 @@ define internal noundef zeroext i8 @ownedMonitorsWithStackDepth(ptr noundef %0, 
 validateSuspendedThread.exit.thread:              ; preds = %16, %18
   %.sink.i = phi i16 [ %17, %16 ], [ 13, %18 ]
   call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %.sink.i) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %69
 
 21:                                               ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %22 = call ptr @getEnv() #4
   call void @createLocalRefSpace(ptr noundef %22, i32 noundef 1) #4
   store i32 0, ptr %4, align 4
@@ -1524,10 +1524,10 @@ declare zeroext i8 @inStream_readBoolean(ptr noundef) local_unnamed_addr #1
 declare zeroext i16 @outStream_writeBoolean(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

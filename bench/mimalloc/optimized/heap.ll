@@ -245,12 +245,6 @@ define hidden ptr @mi_heap_get_backing() local_unnamed_addr #0 {
   ret ptr %5
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define hidden void @_mi_heap_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = zext i1 %3 to i8
@@ -402,7 +396,7 @@ declare zeroext i1 @_mi_arena_memid_is_suitable(ptr noundef byval(%struct.mi_mem
 declare i64 @_mi_random_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @_mi_heap_by_tag(ptr noundef readonly captures(ret: address, provenance) %0, i8 noundef zeroext %1) local_unnamed_addr #3 {
+define hidden ptr @_mi_heap_by_tag(ptr noundef readonly captures(ret: address, provenance) %0, i8 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 225
   %4 = load i8, ptr %3, align 1, !tbaa !47
   %5 = icmp eq i8 %4, %1
@@ -849,7 +843,7 @@ define hidden ptr @mi_heap_set_default(ptr noundef %0) local_unnamed_addr #0 {
 declare void @_mi_heap_set_default_direct(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @mi_heap_contains_block(ptr noundef readnone captures(address) %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden zeroext i1 @mi_heap_contains_block(ptr noundef readnone captures(address) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %0, @_mi_heap_empty
   %or.cond.not8 = or i1 %3, %4
@@ -891,7 +885,7 @@ mi_heap_of_block.exit:                            ; preds = %18, %6, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @mi_heap_check_owned(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @mi_heap_check_owned(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %mi_heap_visit_pages.exit, label %4
 
@@ -953,7 +947,7 @@ mi_heap_visit_pages.exit:                         ; preds = %.critedge.i, %.lr.p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @mi_check_owned(ptr noundef %0) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @mi_check_owned(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %3 = load ptr, ptr %2, align 8, !tbaa !45
   %4 = icmp eq ptr %3, null
@@ -1017,7 +1011,7 @@ mi_heap_check_owned.exit:                         ; preds = %.critedge.i.i, %.lr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_mi_heap_area_init(ptr noundef writeonly captures(none) initializes((0, 52)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define hidden void @_mi_heap_area_init(ptr noundef writeonly captures(none) initializes((0, 52)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr i8, ptr %1, i64 32
   %.val = load i64, ptr %3, align 8, !tbaa !65
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1069,7 +1063,7 @@ define hidden zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef %0, ptr noundef
   br i1 %12, label %99, label %13
 
 13:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = ptrtoint ptr %1 to i64
   %15 = add i64 %14, -1
   %16 = and i64 %15, -4194304
@@ -1117,7 +1111,7 @@ define hidden zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef %0, ptr noundef
   br i1 %.not113.not, label %.lr.ph141, label %.critedge, !llvm.loop !76
 
 41:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %42 = zext i16 %26 to i64
   %43 = add nuw nsw i64 %42, 63
   %44 = lshr i64 %43, 6
@@ -1231,12 +1225,12 @@ define hidden zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef %0, ptr noundef
 
 .critedge117:                                     ; preds = %.critedge115, %90, %.preheader121, %.preheader123
   %.not112128 = phi i1 [ true, %.preheader123 ], [ false, %.preheader121 ], [ false, %90 ], [ true, %.critedge115 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph141, %36, %.preheader, %.critedge117, %28
   %.1 = phi i1 [ %31, %28 ], [ %.not112128, %.critedge117 ], [ true, %.preheader ], [ %35, %36 ], [ %35, %.lr.ph141 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %99
 
 99:                                               ; preds = %9, %4, %.critedge
@@ -1249,7 +1243,7 @@ declare void @_mi_page_free_collect(ptr noundef, i1 noundef zeroext) local_unnam
 declare ptr @_mi_segment_page_start(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @mi_heap_visit_blocks(ptr noundef %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -1290,7 +1284,7 @@ define hidden noundef zeroext i1 @mi_heap_visit_blocks(ptr noundef %0, i1 nounde
   %.020.i4.i.us.us = phi ptr [ %23, %.backedge.i.us.us ], [ %20, %.preheader.i.i.split.us ]
   %22 = getelementptr inbounds nuw i8, ptr %.020.i4.i.us.us, i64 64
   %23 = load ptr, ptr %22, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %.020.i4.i.us.us, ptr %12, align 8, !tbaa !85
   %24 = getelementptr i8, ptr %.020.i4.i.us.us, i64 32
   %.val.i.i.i.us.us = load i64, ptr %24, align 8, !tbaa !65
@@ -1323,7 +1317,7 @@ define hidden noundef zeroext i1 @mi_heap_visit_blocks(ptr noundef %0, i1 nounde
 41:                                               ; preds = %.lr.ph.i.us.us
   %42 = load ptr, ptr %12, align 8, !tbaa !85
   %43 = call zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef nonnull %5, ptr noundef %42, ptr noundef %2, ptr noundef %3) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %43, label %.backedge.i.us.us, label %mi_heap_visit_areas.exit
 
 .backedge.i.us.us:                                ; preds = %41
@@ -1341,7 +1335,7 @@ define hidden noundef zeroext i1 @mi_heap_visit_blocks(ptr noundef %0, i1 nounde
   %.020.i4.i = phi ptr [ %47, %mi_heap_area_visitor.exit.i ], [ %45, %.preheader.i.i.split ]
   %46 = getelementptr inbounds nuw i8, ptr %.020.i4.i, i64 64
   %47 = load ptr, ptr %46, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %.020.i4.i, ptr %12, align 8, !tbaa !85
   %48 = getelementptr i8, ptr %.020.i4.i, i64 32
   %.val.i.i.i = load i64, ptr %48, align 8, !tbaa !65
@@ -1372,11 +1366,11 @@ define hidden noundef zeroext i1 @mi_heap_visit_blocks(ptr noundef %0, i1 nounde
   br i1 %64, label %mi_heap_area_visitor.exit.i, label %mi_heap_area_visitor.exit.thread.i
 
 mi_heap_area_visitor.exit.thread.i:               ; preds = %.lr.ph.i, %.lr.ph.i.us.us
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %mi_heap_visit_areas.exit
 
 mi_heap_area_visitor.exit.i:                      ; preds = %.lr.ph.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i.i = icmp eq ptr %47, null
   br i1 %.not.i.i, label %.critedge.i.i, label %.lr.ph.i, !llvm.loop !38
 
@@ -1413,13 +1407,13 @@ declare void @_mi_page_free(ptr noundef, ptr noundef, i1 noundef zeroext) local_
 declare void @_mi_page_abandon(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #7
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare void @_mi_segment_page_free(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
@@ -1430,24 +1424,29 @@ declare zeroext i1 @_mi_heap_delayed_free_partial(ptr noundef) local_unnamed_add
 declare i64 @_mi_page_queue_append(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #7
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #7
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { "no-builtin-malloc" }
 attributes #11 = { nounwind "no-builtin-malloc" }
-attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

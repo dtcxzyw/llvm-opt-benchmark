@@ -146,12 +146,6 @@ define dso_local noundef ptr @replspace(ptr noundef returned captures(ret: addre
   ret ptr %0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef ptr @replus(ptr noundef returned captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   br label %2
@@ -178,7 +172,7 @@ define dso_local noundef ptr @replus(ptr noundef returned captures(ret: address,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @free_switch_nodes_maps(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local void @free_switch_nodes_maps(ptr noundef %0) local_unnamed_addr #1 {
   %.not8 = icmp eq ptr %0, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph.preheader
 
@@ -204,12 +198,12 @@ define dso_local void @free_switch_nodes_maps(ptr noundef %0) local_unnamed_addr
   ret void
 }
 
-declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #3
+declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #2
 
-declare void @slurm_xfree(ptr noundef) local_unnamed_addr #3
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 23) i32 @build_nodes_bitmap(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #2 {
+define dso_local range(i32 0, 23) i32 @build_nodes_bitmap(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @g_node_info_ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -312,23 +306,23 @@ _find_node_inx.exit:                              ; preds = %33, %.preheader.i, 
   ret i32 %.0
 }
 
-declare ptr @bit_alloc(i64 noundef) local_unnamed_addr #3
+declare ptr @bit_alloc(i64 noundef) local_unnamed_addr #2
 
-declare i32 @error(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @hostlist_create(ptr noundef) local_unnamed_addr #3
+declare ptr @hostlist_create(ptr noundef) local_unnamed_addr #2
 
-declare ptr @hostlist_shift(ptr noundef) local_unnamed_addr #3
+declare ptr @hostlist_shift(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
-declare void @bit_set(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @bit_set(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @hostlist_destroy(ptr noundef) local_unnamed_addr #3
+declare void @hostlist_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @get_topo_conf() local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @get_topo_conf() local_unnamed_addr #1 {
   %1 = load ptr, ptr @g_topo_info_msg_ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %2, label %5
@@ -444,23 +438,23 @@ free_switch_nodes_maps.exit:                      ; preds = %free_switch_nodes_m
   ret i32 %.09
 }
 
-declare i32 @slurm_load_topo(ptr noundef) local_unnamed_addr #3
+declare i32 @slurm_load_topo(ptr noundef) local_unnamed_addr #2
 
-declare void @slurm_perror(ptr noundef) local_unnamed_addr #3
+declare void @slurm_perror(ptr noundef) local_unnamed_addr #2
 
-declare void @slurm_free_topo_info_msg(ptr noundef) local_unnamed_addr #3
+declare void @slurm_free_topo_info_msg(ptr noundef) local_unnamed_addr #2
 
-declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @g_print(ptr noundef, ...) local_unnamed_addr #3
+declare void @g_print(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_row_number(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local i32 @get_row_number(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = alloca i32, align 4
   %5 = tail call ptr @gtk_tree_view_get_model(ptr noundef %0) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
@@ -487,21 +481,21 @@ define dso_local i32 @get_row_number(ptr noundef %0, ptr noundef %1) local_unnam
 12:                                               ; preds = %8
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef nonnull %5, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %4, i32 noundef -1) #16
   %13 = load i32, ptr %4, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %13
 }
 
-declare ptr @gtk_tree_view_get_model(ptr noundef) local_unnamed_addr #3
+declare ptr @gtk_tree_view_get_model(ptr noundef) local_unnamed_addr #2
 
-declare void @g_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @g_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @gtk_tree_model_get_iter(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @gtk_tree_model_get_iter(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @gtk_tree_model_get(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @gtk_tree_model_get(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @find_col(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
+define dso_local i32 @find_col(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
   %.not9 = icmp eq ptr %0, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph.preheader
 
@@ -532,7 +526,7 @@ define dso_local i32 @find_col(ptr noundef readonly captures(address_is_null) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local ptr @find_col_name(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #5 {
+define dso_local ptr @find_col_name(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #4 {
   br label %3
 
 3:                                                ; preds = %9, %2
@@ -562,12 +556,12 @@ define dso_local ptr @find_col_name(ptr noundef readonly captures(address) %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_pointer(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local ptr @get_pointer(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca ptr, align 8
   %6 = tail call ptr @gtk_tree_view_get_model(ptr noundef %0) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %9
@@ -594,13 +588,13 @@ define dso_local ptr @get_pointer(ptr noundef %0, ptr noundef %1, i32 noundef %2
 13:                                               ; preds = %9
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef nonnull %6, ptr noundef nonnull %4, i32 noundef %2, ptr noundef nonnull %5, i32 noundef -1) #16
   %14 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %14
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @make_fields_menu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define dso_local void @make_fields_menu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %5
 
@@ -714,12 +708,12 @@ define dso_local void @make_fields_menu(ptr noundef %0, ptr noundef %1, ptr noun
   ret void
 }
 
-declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @_menu_button_pressed(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #6 {
+define internal range(i32 0, 2) i32 @_menu_button_pressed(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 3
@@ -735,7 +729,7 @@ define internal range(i32 0, 2) i32 @_menu_button_pressed(ptr readnone captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @_menu_button_released(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #7 {
+define internal range(i32 0, 2) i32 @_menu_button_released(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4
   %6 = icmp ne i32 %5, 3
@@ -752,15 +746,15 @@ define internal range(i32 0, 2) i32 @_menu_button_released(ptr readnone captures
   ret i32 %.0
 }
 
-declare ptr @gtk_check_menu_item_new_with_label(ptr noundef) local_unnamed_addr #3
+declare ptr @gtk_check_menu_item_new_with_label(ptr noundef) local_unnamed_addr #2
 
-declare void @gtk_check_menu_item_set_active(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_check_menu_item_set_active(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_check_menu_item_get_type() local_unnamed_addr #8
+declare i64 @gtk_check_menu_item_get_type() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal void @_popup_state_changed(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #2 {
+define internal void @_popup_state_changed(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -777,7 +771,7 @@ define internal void @_popup_state_changed(ptr readnone captures(none) %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_toggle_state_changed(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #2 {
+define internal void @_toggle_state_changed(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i8, ptr %3, align 8, !range !21, !noundef !22
   %not. = xor i8 %4, 1
@@ -787,13 +781,13 @@ define internal void @_toggle_state_changed(ptr readnone captures(none) %0, ptr 
   ret void
 }
 
-declare void @gtk_menu_shell_append(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @gtk_menu_shell_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_menu_shell_get_type() local_unnamed_addr #8
+declare i64 @gtk_menu_shell_get_type() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @set_page_opts(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define dso_local void @set_page_opts(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds [10 x %struct.page_opts_t], ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 176), i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
@@ -886,25 +880,25 @@ replus.exit.backedge:                             ; preds = %.lr.ph34, %32
   ret void
 }
 
-declare ptr @list_create(ptr noundef) local_unnamed_addr #3
+declare ptr @list_create(ptr noundef) local_unnamed_addr #2
 
-declare void @xfree_ptr(ptr noundef) #3
+declare void @xfree_ptr(ptr noundef) #2
 
-declare i32 @slurm_addto_char_list(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @slurm_addto_char_list(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @list_iterator_create(ptr noundef) local_unnamed_addr #3
+declare ptr @list_iterator_create(ptr noundef) local_unnamed_addr #2
 
-declare ptr @list_next(ptr noundef) local_unnamed_addr #3
+declare ptr @list_next(ptr noundef) local_unnamed_addr #2
 
-declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
-declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #3
+declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @make_options_menu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define dso_local void @make_options_menu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 838, ptr noundef nonnull @__func__.make_options_menu) #16
   %6 = tail call ptr @gtk_tree_view_get_model(ptr noundef %0) #16
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -974,21 +968,21 @@ define dso_local void @make_options_menu(ptr noundef %0, ptr noundef %1, ptr nou
   ret void
 }
 
-declare i32 @gtk_tree_selection_count_selected_rows(ptr noundef) local_unnamed_addr #3
+declare i32 @gtk_tree_selection_count_selected_rows(ptr noundef) local_unnamed_addr #2
 
-declare ptr @gtk_tree_view_get_selection(ptr noundef) local_unnamed_addr #3
+declare ptr @gtk_tree_view_get_selection(ptr noundef) local_unnamed_addr #2
 
-declare ptr @gtk_menu_item_new_with_label(ptr noundef) local_unnamed_addr #3
+declare ptr @gtk_menu_item_new_with_label(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @_selected_page(ptr readnone captures(none) %0, ptr noundef %1) #2 {
+define internal void @_selected_page(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.each_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -1104,13 +1098,13 @@ define internal void @_selected_page(ptr readnone captures(none) %0, ptr noundef
 
 .thread:                                          ; preds = %50, %49, %45, %41, %37, %33, %29, %23, %53
   call void @slurm_xfree(ptr noundef nonnull %3) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @create_scrolled_window() local_unnamed_addr #2 {
+define dso_local noundef ptr @create_scrolled_window() local_unnamed_addr #1 {
   %1 = tail call ptr @gtk_table_new(i32 noundef 1, i32 noundef 1, i32 noundef 0) #16
   %2 = tail call i64 @gtk_container_get_type() #17
   %3 = tail call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %2) #16
@@ -1125,24 +1119,24 @@ define dso_local noundef ptr @create_scrolled_window() local_unnamed_addr #2 {
   ret ptr %6
 }
 
-declare ptr @gtk_table_new(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @gtk_table_new(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @gtk_container_set_border_width(ptr noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_container_get_type() local_unnamed_addr #8
-
-declare ptr @gtk_scrolled_window_new(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @gtk_container_set_border_width(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_scrolled_window_get_type() local_unnamed_addr #8
+declare i64 @gtk_container_get_type() local_unnamed_addr #7
 
-declare void @gtk_scrolled_window_set_policy(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @gtk_scrolled_window_new(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @gtk_scrolled_window_add_with_viewport(ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare i64 @gtk_scrolled_window_get_type() local_unnamed_addr #7
+
+declare void @gtk_scrolled_window_set_policy(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+declare void @gtk_scrolled_window_add_with_viewport(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @create_entry() local_unnamed_addr #2 {
+define dso_local noundef ptr @create_entry() local_unnamed_addr #1 {
   %1 = tail call ptr @gtk_entry_new() #16
   %2 = tail call i64 @gtk_entry_get_type() #17
   %3 = tail call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %2) #16
@@ -1150,15 +1144,15 @@ define dso_local noundef ptr @create_entry() local_unnamed_addr #2 {
   ret ptr %1
 }
 
-declare ptr @gtk_entry_new() local_unnamed_addr #3
+declare ptr @gtk_entry_new() local_unnamed_addr #2
 
-declare void @gtk_entry_set_activates_default(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_entry_set_activates_default(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_entry_get_type() local_unnamed_addr #8
+declare i64 @gtk_entry_get_type() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @create_page(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @create_page(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call ptr @create_scrolled_window()
   %4 = tail call ptr @gtk_event_box_new() #16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1231,48 +1225,48 @@ define dso_local void @create_page(ptr noundef %0, ptr noundef %1) local_unnamed
   ret void
 }
 
-declare ptr @gtk_event_box_new() local_unnamed_addr #3
+declare ptr @gtk_event_box_new() local_unnamed_addr #2
 
-declare ptr @gtk_label_new(ptr noundef) local_unnamed_addr #3
+declare ptr @gtk_label_new(ptr noundef) local_unnamed_addr #2
 
-declare ptr @gtk_image_new_from_stock(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @gtk_image_new_from_stock(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @close_tab(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @close_tab(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @gtk_container_add(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @gtk_container_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @gtk_widget_set_size_request(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_widget_set_size_request(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @gtk_event_box_set_above_child(ptr noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_event_box_get_type() local_unnamed_addr #8
-
-declare i32 @tab_pressed(ptr noundef, ptr noundef, ptr noundef) #3
-
-declare void @gtk_table_set_homogeneous(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_event_box_set_above_child(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_table_get_type() local_unnamed_addr #8
+declare i64 @gtk_event_box_get_type() local_unnamed_addr #7
 
-declare void @gtk_table_set_col_spacings(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @tab_pressed(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @gtk_table_attach_defaults(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
-
-declare void @gtk_container_set_focus_child(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare void @gtk_widget_show_all(ptr noundef) local_unnamed_addr #3
-
-declare i32 @gtk_notebook_append_page(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @gtk_table_set_homogeneous(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_notebook_get_type() local_unnamed_addr #8
+declare i64 @gtk_table_get_type() local_unnamed_addr #7
+
+declare void @gtk_table_set_col_spacings(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare void @gtk_table_attach_defaults(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+declare void @gtk_container_set_focus_child(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @gtk_widget_show_all(ptr noundef) local_unnamed_addr #2
+
+declare i32 @gtk_notebook_append_page(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_widget_get_type() local_unnamed_addr #8
+declare i64 @gtk_notebook_get_type() local_unnamed_addr #7
+
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare i64 @gtk_widget_get_type() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @create_treeview(ptr noundef initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local ptr @create_treeview(ptr noundef initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 965, ptr noundef nonnull @__func__.create_treeview) #16
   %4 = tail call ptr @gtk_tree_view_new() #16
   %5 = tail call i64 @gtk_tree_view_get_type() #17
@@ -1307,20 +1301,20 @@ define dso_local ptr @create_treeview(ptr noundef initializes((80, 88)) %0, ptr 
   ret ptr %6
 }
 
-declare ptr @gtk_tree_view_new() local_unnamed_addr #3
+declare ptr @gtk_tree_view_new() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_tree_view_get_type() local_unnamed_addr #8
+declare i64 @gtk_tree_view_get_type() local_unnamed_addr #7
 
-declare void @gtk_tree_view_set_rules_hint(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_tree_view_set_rules_hint(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @row_clicked(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #2 {
+define dso_local range(i32 0, 2) i32 @row_clicked(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load double, ptr %6, align 8
@@ -1489,18 +1483,18 @@ define dso_local range(i32 0, 2) i32 @row_clicked(ptr noundef %0, ptr noundef %1
 
 85:                                               ; preds = %.sink.split, %80, %15
   %.039 = phi i32 [ 0, %15 ], [ %.0, %80 ], [ %.039.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.039
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @key_released(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #2 {
+define dso_local noundef i32 @key_released(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %7 = load i32, ptr %6, align 4
   switch i32 %7, label %16 [
@@ -1526,13 +1520,13 @@ define dso_local noundef i32 @key_released(ptr noundef %0, ptr noundef readonly 
   br label %16
 
 16:                                               ; preds = %8, %12, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @key_pressed(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #2 {
+define dso_local noundef i32 @key_pressed(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca %struct.each_t, align 8
   store i1 false, ptr @enter_key_in_effect, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -1541,7 +1535,7 @@ define dso_local noundef i32 @key_pressed(ptr noundef %0, ptr noundef readonly c
   br i1 %cond, label %7, label %13
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %0) #16
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %9, align 8
@@ -1556,7 +1550,7 @@ define dso_local noundef i32 @key_pressed(ptr noundef %0, ptr noundef readonly c
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @popup_pos, i64 12), align 4
   call void @gtk_tree_selection_selected_foreach(ptr noundef %8, ptr noundef nonnull @_foreach_full_info, ptr noundef nonnull %4) #16
   store i1 true, ptr @enter_key_in_effect, align 4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %13
 
 13:                                               ; preds = %3, %7
@@ -1564,7 +1558,7 @@ define dso_local noundef i32 @key_pressed(ptr noundef %0, ptr noundef readonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @row_activated(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) #2 {
+define dso_local noundef i32 @row_activated(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = load ptr, ptr %6, align 8
@@ -1585,12 +1579,12 @@ define dso_local noundef i32 @row_activated(ptr noundef %0, ptr noundef %1, ptr 
   ret i32 0
 }
 
-declare void @gtk_widget_show(ptr noundef) local_unnamed_addr #3
+declare void @gtk_widget_show(ptr noundef) local_unnamed_addr #2
 
-declare void @list_push(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @list_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @create_treeview_2cols_attach_to_table(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local ptr @create_treeview_2cols_attach_to_table(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @gtk_tree_view_new() #16
   %3 = tail call i64 @gtk_tree_view_get_type() #17
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %2, i64 noundef %3) #16
@@ -1638,35 +1632,35 @@ define dso_local ptr @create_treeview_2cols_attach_to_table(ptr noundef %0) loca
   ret ptr %4
 }
 
-declare ptr @gtk_tree_store_new(i32 noundef, ...) local_unnamed_addr #3
+declare ptr @gtk_tree_store_new(i32 noundef, ...) local_unnamed_addr #2
 
-declare ptr @gtk_tree_view_column_new() local_unnamed_addr #3
+declare ptr @gtk_tree_view_column_new() local_unnamed_addr #2
 
-declare ptr @gtk_cell_renderer_text_new() local_unnamed_addr #3
+declare ptr @gtk_cell_renderer_text_new() local_unnamed_addr #2
 
-declare void @gtk_tree_view_set_model(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @gtk_tree_view_set_model(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_tree_model_get_type() local_unnamed_addr #8
+declare i64 @gtk_tree_model_get_type() local_unnamed_addr #7
 
-declare void @gtk_tree_view_column_pack_start(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_tree_view_column_pack_start(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @gtk_tree_view_column_add_attribute(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_tree_view_column_add_attribute(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @gtk_tree_view_column_set_title(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @gtk_tree_view_column_set_title(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @gtk_tree_view_column_set_resizable(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_tree_view_column_set_resizable(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @gtk_tree_view_column_set_expand(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_tree_view_column_set_expand(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @gtk_tree_view_append_column(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @gtk_tree_view_append_column(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @gtk_tree_view_column_set_visible(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_tree_view_column_set_visible(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @g_object_unref(ptr noundef) local_unnamed_addr #3
+declare void @g_object_unref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @create_treestore(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define dso_local void @create_treestore(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = zext i32 %2 to i64
   %7 = alloca i64, i64 %6, align 16
   %8 = icmp sgt i32 %2, 0
@@ -1907,42 +1901,42 @@ _add_col_to_treeview.exit.thread:                 ; preds = %28, %70, %91, %98, 
   ret void
 }
 
-declare ptr @gtk_tree_store_newv(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @gtk_tree_store_newv(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @gtk_tree_sortable_set_sort_func(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @gtk_tree_sortable_set_sort_func(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_tree_sortable_get_type() local_unnamed_addr #8
+declare i64 @gtk_tree_sortable_get_type() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @_sort_iter_compare_func_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+define internal range(i32 -1, 2) i32 @_sort_iter_compare_func_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = ptrtoint ptr %3 to i64
   %8 = trunc i64 %7 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef %8, ptr noundef nonnull %5, i32 noundef -1) #16
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef %8, ptr noundef nonnull %6, i32 noundef -1) #16
   %9 = load i32, ptr %5, align 4
   %10 = load i32, ptr %6, align 4
   %.0 = call i32 @llvm.scmp.i32.i32(i32 %9, i32 %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @_sort_iter_compare_func_nodes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+define internal range(i32 -1, 2) i32 @_sort_iter_compare_func_nodes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = ptrtoint ptr %3 to i64
   %8 = trunc i64 %7 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef %8, ptr noundef nonnull %5, i32 noundef -1) #16
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef %8, ptr noundef nonnull %6, i32 noundef -1) #16
@@ -2166,20 +2160,20 @@ define internal range(i32 -1, 2) i32 @_sort_iter_compare_func_nodes(ptr noundef 
   call void @g_free(ptr noundef %95) #16
   %96 = load ptr, ptr %6, align 8
   call void @g_free(ptr noundef %96) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.060
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_sort_iter_compare_func_char(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+define internal i32 @_sort_iter_compare_func_char(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = ptrtoint ptr %3 to i64
   %8 = trunc i64 %7 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef %8, ptr noundef nonnull %5, i32 noundef -1) #16
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef %8, ptr noundef nonnull %6, i32 noundef -1) #16
@@ -2263,15 +2257,15 @@ define internal i32 @_sort_iter_compare_func_char(ptr noundef %0, ptr noundef %1
   call void @g_free(ptr noundef %47) #16
   %48 = load ptr, ptr %6, align 8
   call void @g_free(ptr noundef %48) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare void @gtk_tree_sortable_set_sort_column_id(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_tree_sortable_set_sort_column_id(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @right_button_pressed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #2 {
+define dso_local noundef i32 @right_button_pressed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = tail call ptr @gtk_menu_new() #16
   %7 = tail call i64 @gtk_menu_get_type() #17
   %8 = tail call ptr @g_type_check_instance_cast(ptr noundef %6, i64 noundef %7) #16
@@ -2327,24 +2321,24 @@ define dso_local noundef i32 @right_button_pressed(ptr noundef %0, ptr noundef %
   ret i32 1
 }
 
-declare ptr @gtk_menu_new() local_unnamed_addr #3
+declare ptr @gtk_menu_new() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_menu_get_type() local_unnamed_addr #8
+declare i64 @gtk_menu_get_type() local_unnamed_addr #7
 
-declare void @gtk_tree_view_set_cursor(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_tree_view_set_cursor(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @gtk_widget_grab_focus(ptr noundef) local_unnamed_addr #3
+declare void @gtk_widget_grab_focus(ptr noundef) local_unnamed_addr #2
 
-declare void @gtk_menu_popup(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_menu_popup(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @gdk_event_get_time(ptr noundef) local_unnamed_addr #3
+declare i32 @gdk_event_get_time(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @left_button_pressed(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @left_button_pressed(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca %struct._GtkTreeIter, align 8
   %6 = tail call i64 @time(ptr noundef null) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = tail call ptr @gtk_tree_view_get_model(ptr noundef %0) #16
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -2417,17 +2411,17 @@ define dso_local range(i32 0, 2) i32 @left_button_pressed(ptr noundef %0, ptr no
   %41 = xor i8 %40, 1
   %not. = zext nneg i8 %41 to i32
   store i64 %6, ptr @left_button_pressed.last_time, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %not.
 }
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #10
+declare i64 @time(ptr noundef) local_unnamed_addr #9
 
-declare void @gtk_tree_selection_selected_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @gtk_tree_selection_selected_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @_foreach_full_info(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) #2 {
+define internal void @_foreach_full_info(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = load ptr, ptr %6, align 8
@@ -2456,24 +2450,24 @@ define internal void @_foreach_full_info(ptr readnone captures(none) %0, ptr nou
   ret void
 }
 
-declare void @gtk_tree_view_get_cursor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @gtk_tree_view_get_cursor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @gtk_tree_selection_select_path(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @gtk_tree_selection_select_path(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @gtk_tree_path_free(ptr noundef) #3
+declare void @gtk_tree_path_free(ptr noundef) #2
 
-declare i32 @gtk_tree_view_get_path_at_pos(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @gtk_tree_view_get_path_at_pos(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @gtk_tree_selection_unselect_all(ptr noundef) local_unnamed_addr #3
+declare void @gtk_tree_selection_unselect_all(ptr noundef) local_unnamed_addr #2
 
-declare void @refresh_main(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @refresh_main(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @gtk_tree_selection_path_is_selected(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @gtk_tree_selection_path_is_selected(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @gtk_tree_selection_select_range(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @gtk_tree_selection_select_range(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @create_popup_info(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local noundef ptr @create_popup_info(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 152, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 1407, ptr noundef nonnull @__func__.create_popup_info) #16
   %5 = load ptr, ptr @popup_list, align 8
   tail call void @list_push(ptr noundef %5, ptr noundef %4) #16
@@ -2646,28 +2640,28 @@ define dso_local noundef ptr @create_popup_info(i32 noundef %0, i32 noundef %1, 
   ret ptr %4
 }
 
-declare ptr @xstrdup(ptr noundef) local_unnamed_addr #3
+declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 
-declare ptr @gtk_dialog_new_with_buttons(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_window_get_type() local_unnamed_addr #8
-
-declare ptr @gtk_dialog_add_button(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @gtk_dialog_new_with_buttons(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_dialog_get_type() local_unnamed_addr #8
+declare i64 @gtk_window_get_type() local_unnamed_addr #7
 
-declare void @gtk_window_set_type_hint(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @gtk_dialog_add_button(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @gtk_window_set_focus(ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare i64 @gtk_dialog_get_type() local_unnamed_addr #7
 
-declare void @gtk_window_set_default_size(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_window_set_type_hint(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @gtk_window_set_transient_for(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @gtk_window_set_focus(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @gtk_window_set_default_size(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+declare void @gtk_window_set_transient_for(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @redo_popup(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #2 {
+define dso_local void @redo_popup(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %19, label %4
 
@@ -2697,21 +2691,21 @@ define dso_local void @redo_popup(ptr readnone captures(none) %0, ptr noundef %1
   ret void
 }
 
-declare void @gtk_box_pack_start(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_box_pack_start(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_box_get_type() local_unnamed_addr #8
+declare i64 @gtk_box_get_type() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_bin_get_type() local_unnamed_addr #8
+declare i64 @gtk_bin_get_type() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_viewport_get_type() local_unnamed_addr #8
+declare i64 @gtk_viewport_get_type() local_unnamed_addr #7
 
-declare void @gtk_table_attach(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_table_attach(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @delete_popup(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #2 {
+define dso_local noundef i32 @delete_popup(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr @popup_list, align 8
   %5 = tail call ptr @list_iterator_create(ptr noundef %4) #16
   %6 = tail call ptr @list_next(ptr noundef %5) #16
@@ -2748,7 +2742,7 @@ define dso_local noundef i32 @delete_popup(ptr readnone captures(none) %0, ptr r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_handle_response(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #2 {
+define internal void @_handle_response(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #1 {
   switch i32 %1, label %21 [
     i32 -5, label %4
     i32 -4, label %8
@@ -2799,7 +2793,7 @@ delete_popups.exit:                               ; preds = %.lr.ph.i, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_frame_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #2 {
+define internal noundef i32 @_frame_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 0
@@ -2846,12 +2840,12 @@ define internal noundef i32 @_frame_callback(ptr readnone captures(none) %0, ptr
   ret i32 0
 }
 
-declare void @gtk_window_move(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_window_move(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @gtk_widget_hide(ptr noundef) local_unnamed_addr #3
+declare void @gtk_widget_hide(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @setup_popup_info(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local void @setup_popup_info(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = add nsw i32 %2, 2
   %5 = sext i32 %4 to i64
   %6 = mul nsw i64 %5, 96
@@ -2880,12 +2874,12 @@ define dso_local void @setup_popup_info(ptr noundef captures(none) initializes((
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @destroy_search_info(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local void @destroy_search_info(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
@@ -2909,17 +2903,17 @@ define dso_local void @destroy_search_info(ptr noundef %0) local_unnamed_addr #2
   br label %10
 
 10:                                               ; preds = %9, %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare void @g_free(ptr noundef) local_unnamed_addr #3
+declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @destroy_specific_info(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local void @destroy_specific_info(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %4
@@ -2929,7 +2923,7 @@ define dso_local void @destroy_specific_info(ptr noundef %0) local_unnamed_addr 
   tail call void @slurm_xfree(ptr noundef nonnull %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %7, ptr %2, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %destroy_search_info.exit, label %8
@@ -2953,7 +2947,7 @@ define dso_local void @destroy_specific_info(ptr noundef %0) local_unnamed_addr 
   br label %destroy_search_info.exit
 
 destroy_search_info.exit:                         ; preds = %4, %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not2 = icmp eq ptr %16, null
@@ -2969,16 +2963,16 @@ destroy_search_info.exit:                         ; preds = %4, %14
   br label %19
 
 19:                                               ; preds = %18, %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @gtk_widget_destroy(ptr noundef) local_unnamed_addr #3
+declare void @gtk_widget_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @destroy_popup_info(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local void @destroy_popup_info(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %34, label %3
@@ -3058,20 +3052,20 @@ define dso_local void @destroy_popup_info(ptr noundef %0) local_unnamed_addr #2 
   br label %34
 
 34:                                               ; preds = %30, %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare void @g_mutex_lock(ptr noundef) local_unnamed_addr #3
+declare void @g_mutex_lock(ptr noundef) local_unnamed_addr #2
 
-declare void @list_destroy(ptr noundef) local_unnamed_addr #3
+declare void @list_destroy(ptr noundef) local_unnamed_addr #2
 
-declare void @g_mutex_unlock(ptr noundef) local_unnamed_addr #3
+declare void @g_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @destroy_signal_params(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local void @destroy_signal_params(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %3
@@ -3081,16 +3075,16 @@ define dso_local void @destroy_signal_params(ptr noundef %0) local_unnamed_addr 
   br label %4
 
 4:                                                ; preds = %3, %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @list_remove(ptr noundef) local_unnamed_addr #3
+declare ptr @list_remove(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @delete_popups() local_unnamed_addr #2 {
+define dso_local noundef i32 @delete_popups() local_unnamed_addr #1 {
   %1 = load ptr, ptr @popup_list, align 8
   %2 = tail call ptr @list_iterator_create(ptr noundef %1) #16
   %3 = tail call ptr @list_next(ptr noundef %2) #16
@@ -3111,9 +3105,9 @@ define dso_local noundef i32 @delete_popups() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @popup_thr(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local noalias noundef ptr @popup_thr(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 1, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %4 = load i32, ptr %3, align 4
@@ -3148,33 +3142,33 @@ switch.lookup:                                    ; preds = %1
   br label %13
 
 13:                                               ; preds = %._crit_edge, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr null
 }
 
-declare void @specific_info_part(ptr noundef) local_unnamed_addr #3
+declare void @specific_info_part(ptr noundef) local_unnamed_addr #2
 
-declare void @specific_info_job(ptr noundef) local_unnamed_addr #3
+declare void @specific_info_job(ptr noundef) local_unnamed_addr #2
 
-declare void @specific_info_node(ptr noundef) local_unnamed_addr #3
+declare void @specific_info_node(ptr noundef) local_unnamed_addr #2
 
-declare void @specific_info_resv(ptr noundef) local_unnamed_addr #3
+declare void @specific_info_resv(ptr noundef) local_unnamed_addr #2
 
-declare void @specific_info_front_end(ptr noundef) local_unnamed_addr #3
+declare void @specific_info_front_end(ptr noundef) local_unnamed_addr #2
 
-declare void @specific_info_bb(ptr noundef) local_unnamed_addr #3
+declare void @specific_info_bb(ptr noundef) local_unnamed_addr #2
 
-declare void @gdk_threads_enter() local_unnamed_addr #3
+declare void @gdk_threads_enter() local_unnamed_addr #2
 
-declare void @gdk_threads_leave() local_unnamed_addr #3
+declare void @gdk_threads_leave() local_unnamed_addr #2
 
-declare i32 @sleep(i32 noundef) local_unnamed_addr #3
+declare i32 @sleep(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @set_for_update(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local void @set_for_update(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = tail call ptr @gtk_tree_path_new_first() #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.critedge, label %5
 
@@ -3199,26 +3193,26 @@ define dso_local void @set_for_update(ptr noundef %0, i32 noundef %1) local_unna
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare ptr @gtk_tree_path_new_first() local_unnamed_addr #3
+declare ptr @gtk_tree_path_new_first() local_unnamed_addr #2
 
-declare void @gtk_tree_store_set(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @gtk_tree_store_set(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_tree_store_get_type() local_unnamed_addr #8
+declare i64 @gtk_tree_store_get_type() local_unnamed_addr #7
 
-declare i32 @gtk_tree_model_iter_next(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @gtk_tree_model_iter_next(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @remove_old(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local void @remove_old(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = alloca i32, align 4
   %5 = tail call ptr @gtk_tree_path_new_first() #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = call i32 @gtk_tree_model_get_iter(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %5) #16
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.loopexit, label %.preheader
@@ -3246,17 +3240,17 @@ define dso_local void @remove_old(ptr noundef %0, i32 noundef %1) local_unnamed_
 
 .loopexit:                                        ; preds = %8, %12, %2
   call void @gtk_tree_path_free(ptr noundef %5) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @gtk_tree_store_remove(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @gtk_tree_store_remove(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @create_pulldown_combo(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define dso_local ptr @create_pulldown_combo(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca %struct._GtkTreeIter, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr (i32, ...) @gtk_list_store_new(i32 noundef 2, i64 noundef 24, i64 noundef 64) #16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -3291,32 +3285,32 @@ define dso_local ptr @create_pulldown_combo(ptr noundef readonly captures(none) 
   %19 = tail call i64 @gtk_combo_box_get_type() #17
   %20 = call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %19) #16
   call void @gtk_combo_box_set_active(ptr noundef %20, i32 noundef 0) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %14
 }
 
-declare ptr @gtk_list_store_new(i32 noundef, ...) local_unnamed_addr #3
+declare ptr @gtk_list_store_new(i32 noundef, ...) local_unnamed_addr #2
 
-declare void @gtk_list_store_append(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @gtk_list_store_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @gtk_list_store_set(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @gtk_list_store_set(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @gtk_combo_box_new_with_model(ptr noundef) local_unnamed_addr #3
+declare ptr @gtk_combo_box_new_with_model(ptr noundef) local_unnamed_addr #2
 
-declare void @gtk_cell_layout_pack_start(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_cell_layout_get_type() local_unnamed_addr #8
-
-declare void @gtk_cell_layout_add_attribute(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-declare void @gtk_combo_box_set_active(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_cell_layout_pack_start(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_combo_box_get_type() local_unnamed_addr #8
+declare i64 @gtk_cell_layout_get_type() local_unnamed_addr #7
+
+declare void @gtk_cell_layout_add_attribute(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare void @gtk_combo_box_set_active(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare i64 @gtk_combo_box_get_type() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @str_tolower(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define dso_local ptr @str_tolower(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
   %3 = shl i64 %2, 32
   %sext = add i64 %3, 4294967296
@@ -3351,14 +3345,14 @@ define dso_local ptr @str_tolower(ptr noundef readonly captures(none) %0) local_
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_tolower_loc() local_unnamed_addr #8
+declare ptr @__ctype_tolower_loc() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_reason() local_unnamed_addr #2 {
+define dso_local ptr @get_reason() local_unnamed_addr #1 {
   %1 = alloca ptr, align 8
   %2 = alloca [256 x i8], align 16
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8
   %4 = tail call ptr @gtk_table_new(i32 noundef 1, i32 noundef 2, i32 noundef 0) #16
   %5 = tail call ptr @gtk_label_new(ptr noundef nonnull @.str.38) #16
@@ -3367,8 +3361,8 @@ define dso_local ptr @get_reason() local_unnamed_addr #2 {
   %8 = tail call i64 @gtk_window_get_type() #17
   %9 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %8) #16
   %10 = tail call ptr (ptr, ptr, i32, ptr, ...) @gtk_dialog_new_with_buttons(ptr noundef nonnull @.str.39, ptr noundef %9, i32 noundef 3, ptr noundef nonnull @.str.40, i32 noundef -5, ptr noundef nonnull @.str.41, i32 noundef -6, ptr noundef null) #16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = tail call i64 @time(ptr noundef null) #16
   store i64 %11, ptr %3, align 8
   %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %8) #16
@@ -3438,29 +3432,29 @@ define dso_local ptr @get_reason() local_unnamed_addr #2 {
 44:                                               ; preds = %41, %42, %35
   call void @gtk_widget_destroy(ptr noundef %10) #16
   %45 = load ptr, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %45
 }
 
-declare i32 @gtk_dialog_run(ptr noundef) local_unnamed_addr #3
+declare i32 @gtk_dialog_run(ptr noundef) local_unnamed_addr #2
 
-declare ptr @gtk_entry_get_text(ptr noundef) local_unnamed_addr #3
+declare ptr @gtk_entry_get_text(ptr noundef) local_unnamed_addr #2
 
-declare void @_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @getlogin() local_unnamed_addr #3
+declare ptr @getlogin() local_unnamed_addr #2
 
-declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @getuid() local_unnamed_addr #10
+declare i32 @getuid() local_unnamed_addr #9
 
-declare void @slurm_make_time_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @slurm_make_time_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @display_admin_edit(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6, ptr noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #2 {
+define dso_local void @display_admin_edit(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6, ptr noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #1 {
   %10 = alloca ptr, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %12 = load i32, ptr %11, align 4
@@ -3504,7 +3498,7 @@ define dso_local void @display_admin_edit(ptr noundef %0, ptr noundef %1, ptr no
   br label %54
 
 34:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %35 = tail call ptr @gtk_entry_new() #16
   %36 = tail call i64 @gtk_entry_get_type() #17
@@ -3540,7 +3534,7 @@ define dso_local void @display_admin_edit(ptr noundef %0, ptr noundef %1, ptr no
 51:                                               ; preds = %47, %41
   %52 = call i64 @g_signal_connect_data(ptr noundef %35, ptr noundef nonnull @.str.48, ptr noundef %7, ptr noundef %1, ptr noundef null, i32 noundef 0) #16
   %53 = call i64 @g_signal_connect_data(ptr noundef %35, ptr noundef nonnull @.str.47, ptr noundef nonnull @entry_changed, ptr noundef null, ptr noundef null, i32 noundef 0) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %54
 
 54:                                               ; preds = %24, %51
@@ -3566,25 +3560,25 @@ define dso_local void @display_admin_edit(ptr noundef %0, ptr noundef %1, ptr no
   ret void
 }
 
-declare void @gtk_entry_set_max_length(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_entry_set_max_length(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @gtk_entry_set_text(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @gtk_entry_set_text(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @entry_changed(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #12 {
+define dso_local noundef i32 @entry_changed(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #11 {
   store i8 1, ptr @global_entry_changed, align 1
   ret i32 0
 }
 
-declare void @gtk_misc_set_alignment(ptr noundef, float noundef, float noundef) local_unnamed_addr #3
+declare void @gtk_misc_set_alignment(ptr noundef, float noundef, float noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_misc_get_type() local_unnamed_addr #8
+declare i64 @gtk_misc_get_type() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @display_edit_note(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local void @display_edit_note(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %3
@@ -3610,21 +3604,21 @@ define dso_local void @display_edit_note(ptr noundef %0) local_unnamed_addr #2 {
   br label %17
 
 17:                                               ; preds = %3, %13, %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare void @gtk_statusbar_pop(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_statusbar_pop(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_statusbar_get_type() local_unnamed_addr #8
+declare i64 @gtk_statusbar_get_type() local_unnamed_addr #7
 
-declare i32 @gtk_statusbar_push(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @gtk_statusbar_push(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @sview_thread_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @sview_thread_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_editing_thr(ptr noundef %0) #2 {
+define internal noalias noundef ptr @_editing_thr(ptr noundef %0) #1 {
   %2 = tail call i32 @sleep(i32 noundef 5) #16
   tail call void @gdk_threads_enter() #16
   %3 = ptrtoint ptr %0 to i64
@@ -3637,10 +3631,10 @@ define internal noalias noundef ptr @_editing_thr(ptr noundef %0) #2 {
   ret ptr null
 }
 
-declare void @g_printerr(ptr noundef, ...) local_unnamed_addr #3
+declare void @g_printerr(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_display_treestore_line(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define dso_local void @add_display_treestore_line(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %24, label %7
@@ -3650,7 +3644,7 @@ define dso_local void @add_display_treestore_line(i32 noundef %0, ptr noundef %1
   br i1 %.not17, label %22, label %8
 
 8:                                                ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %9 = tail call ptr @gtk_tree_path_new_first() #16
   %10 = tail call i64 @gtk_tree_model_get_type() #17
@@ -3675,11 +3669,11 @@ define dso_local void @add_display_treestore_line(i32 noundef %0, ptr noundef %1
   br i1 %.not19, label %.thread, label %13, !llvm.loop !50
 
 .thread:                                          ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %24
 
 21:                                               ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %23
 
 22:                                               ; preds = %7
@@ -3694,10 +3688,10 @@ define dso_local void @add_display_treestore_line(i32 noundef %0, ptr noundef %1
   ret void
 }
 
-declare void @gtk_tree_store_append(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @gtk_tree_store_append(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_display_treestore_line_with_font(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 {
+define dso_local void @add_display_treestore_line_with_font(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %25, label %8
@@ -3707,7 +3701,7 @@ define dso_local void @add_display_treestore_line_with_font(i32 noundef %0, ptr 
   br i1 %.not18, label %23, label %9
 
 9:                                                ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %10 = tail call ptr @gtk_tree_path_new_first() #16
   %11 = tail call i64 @gtk_tree_model_get_type() #17
@@ -3732,11 +3726,11 @@ define dso_local void @add_display_treestore_line_with_font(i32 noundef %0, ptr 
   br i1 %.not20, label %.thread, label %14, !llvm.loop !51
 
 .thread:                                          ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %25
 
 22:                                               ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %24
 
 23:                                               ; preds = %8
@@ -3752,7 +3746,7 @@ define dso_local void @add_display_treestore_line_with_font(i32 noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sview_widget_modify_bg(ptr noundef %0, i32 noundef %1, i64 %2, i16 %3) local_unnamed_addr #2 {
+define dso_local void @sview_widget_modify_bg(ptr noundef %0, i32 noundef %1, i64 %2, i16 %3) local_unnamed_addr #1 {
   %5 = alloca %struct._GdkColor, align 8
   store i64 %2, ptr %5, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3761,18 +3755,18 @@ define dso_local void @sview_widget_modify_bg(ptr noundef %0, i32 noundef %1, i6
   ret void
 }
 
-declare void @gtk_widget_modify_bg(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @gtk_widget_modify_bg(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sview_radio_action_set_current_value(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local void @sview_radio_action_set_current_value(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   tail call void @gtk_radio_action_set_current_value(ptr noundef %0, i32 noundef %1) #16
   ret void
 }
 
-declare void @gtk_radio_action_set_current_value(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_radio_action_set_current_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @page_to_str(i32 noundef %0) local_unnamed_addr #13 {
+define dso_local noundef ptr @page_to_str(i32 noundef %0) local_unnamed_addr #12 {
   %2 = icmp ult i32 %0, 6
   br i1 %2, label %switch.lookup, label %4
 
@@ -3788,7 +3782,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @tab_pos_to_str(i32 noundef %0) local_unnamed_addr #13 {
+define dso_local noundef nonnull ptr @tab_pos_to_str(i32 noundef %0) local_unnamed_addr #12 {
   %2 = icmp ult i32 %0, 4
   br i1 %2, label %switch.lookup, label %4
 
@@ -3804,9 +3798,9 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @visible_to_str(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define dso_local ptr @visible_to_str(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   br label %4
@@ -3850,12 +3844,12 @@ page_to_str.exit:                                 ; preds = %12, %switch.lookup
 
 15:                                               ; preds = %14
   %16 = load ptr, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %16
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @select_admin_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #2 {
+define dso_local void @select_admin_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #1 {
   %7 = alloca ptr, align 8
   store ptr %0, ptr %7, align 8
   %.not = icmp eq ptr %3, null
@@ -3908,22 +3902,22 @@ define dso_local void @select_admin_common(ptr noundef %0, ptr noundef %1, ptr n
   ret void
 }
 
-declare void @select_admin_nodes(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @select_admin_nodes(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @gtk_tree_selection_get_selected_rows(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @gtk_tree_selection_get_selected_rows(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @gtk_tree_row_reference_new(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @gtk_tree_row_reference_new(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @gtk_tree_row_reference_get_path(ptr noundef) local_unnamed_addr #3
+declare ptr @gtk_tree_row_reference_get_path(ptr noundef) local_unnamed_addr #2
 
-declare void @gtk_tree_row_reference_free(ptr noundef) local_unnamed_addr #3
+declare void @gtk_tree_row_reference_free(ptr noundef) local_unnamed_addr #2
 
-declare void @g_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @g_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @g_list_free(ptr noundef) local_unnamed_addr #3
+declare void @g_list_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @set_column_width_fixed(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local void @set_column_width_fixed(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call ptr @gtk_tree_view_get_columns(ptr noundef %0) #16
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %15, label %.preheader
@@ -3956,42 +3950,42 @@ define dso_local void @set_column_width_fixed(ptr noundef %0, i32 noundef %1, i3
   ret void
 }
 
-declare ptr @gtk_tree_view_get_columns(ptr noundef) local_unnamed_addr #3
+declare ptr @gtk_tree_view_get_columns(ptr noundef) local_unnamed_addr #2
 
-declare i32 @gtk_tree_view_column_get_sort_column_id(ptr noundef) local_unnamed_addr #3
+declare i32 @gtk_tree_view_column_get_sort_column_id(ptr noundef) local_unnamed_addr #2
 
-declare void @gtk_tree_view_column_set_sizing(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_tree_view_column_set_sizing(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @gtk_tree_view_column_set_fixed_width(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_tree_view_column_set_fixed_width(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @get_log_level() local_unnamed_addr #3
+declare i32 @get_log_level() local_unnamed_addr #2
 
-declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @popup_all_part(ptr noundef, ptr noundef, i32 noundef) #3
+declare void @popup_all_part(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare void @popup_all_job(ptr noundef, ptr noundef, i32 noundef) #3
+declare void @popup_all_job(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare void @popup_all_node(ptr noundef, ptr noundef, i32 noundef) #3
+declare void @popup_all_node(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare void @popup_all_resv(ptr noundef, ptr noundef, i32 noundef) #3
+declare void @popup_all_resv(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare void @popup_all_bb(ptr noundef, ptr noundef, i32 noundef) #3
+declare void @popup_all_bb(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare void @popup_all_front_end(ptr noundef, ptr noundef, i32 noundef) #3
+declare void @popup_all_front_end(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare void @admin_job(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @admin_job(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @select_admin_partitions(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @select_admin_partitions(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @select_admin_front_end(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @select_admin_front_end(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @select_admin_resv(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @select_admin_resv(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @select_admin_bb(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @select_admin_bb(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @_foreach_popup_all(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #2 {
+define internal void @_foreach_popup_all(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %3, align 8
@@ -4001,27 +3995,27 @@ define internal void @_foreach_popup_all(ptr noundef %0, ptr readnone captures(n
   ret void
 }
 
-declare ptr @gtk_cell_renderer_combo_new() local_unnamed_addr #3
+declare ptr @gtk_cell_renderer_combo_new() local_unnamed_addr #2
 
-declare void @g_object_set(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @g_object_set(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @gdk_pixbuf_new(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @gdk_pixbuf_new(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @gtk_cell_renderer_pixbuf_new() local_unnamed_addr #3
+declare ptr @gtk_cell_renderer_pixbuf_new() local_unnamed_addr #2
 
-declare void @g_object_set_data(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @g_object_set_data(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @gtk_tree_view_column_set_cell_data_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @gtk_tree_view_column_set_cell_data_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @_cell_data_func(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #2 {
+define internal void @_cell_data_func(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void (ptr, ptr, ...) @g_object_get(ptr noundef %1, ptr noundef nonnull @.str.69, ptr noundef nonnull %6, ptr noundef null) #16
   %9 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %9, null
@@ -4050,14 +4044,14 @@ define internal void @_cell_data_func(ptr readnone captures(none) %0, ptr nounde
   br label %23
 
 23:                                               ; preds = %10, %5, %16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_editing_started(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #2 {
+define internal void @_editing_started(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #1 {
   tail call void @gdk_threads_leave() #16
   %5 = load ptr, ptr @sview_mutex, align 8
   tail call void @g_mutex_lock(ptr noundef %5) #16
@@ -4065,35 +4059,41 @@ define internal void @_editing_started(ptr readnone captures(none) %0, ptr readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_editing_canceled(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 {
+define internal void @_editing_canceled(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #1 {
   %3 = load ptr, ptr @sview_mutex, align 8
   tail call void @g_mutex_unlock(ptr noundef %3) #16
   ret void
 }
 
-declare void @gtk_tree_view_column_set_reorderable(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_tree_view_column_set_reorderable(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @gtk_tree_view_column_set_sort_column_id(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @gtk_tree_view_column_set_sort_column_id(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @g_object_get(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @g_object_get(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @g_object_get_data(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #14
-
-declare void @gdk_pixbuf_fill(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @g_object_get_data(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #14
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #13
 
-declare i32 @g_ascii_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @gdk_pixbuf_fill(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #13
 
-declare void @gtk_window_resize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @g_ascii_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @gtk_statusbar_remove(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @gtk_window_resize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+declare void @gtk_statusbar_remove(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #15
@@ -4102,20 +4102,20 @@ declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #15
 declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #15
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nounwind }
 attributes #17 = { nounwind willreturn memory(none) }

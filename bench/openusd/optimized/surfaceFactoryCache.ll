@@ -348,8 +348,8 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr19SurfaceFactoryCache3addERKmRKSt10shared
   br i1 %.not10.i.i.i, label %.thread13, label %.lr.ph.i.i.i
 
 .thread13:                                        ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %.critedge.i
 
 .lr.ph.i.i.i:                                     ; preds = %4
@@ -384,8 +384,8 @@ _ZNSt3mapImSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEESt4lessImESaISt4p
   br label %_ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEaSERKS5_.exit
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEESt10_Select1stIS9_ESt4lessImESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapImSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEESt4lessImESaISt4pairIKmS6_EEE4findERSA_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %22
 
 22:                                               ; preds = %22, %.lr.ph.i.i.i.i
@@ -420,8 +420,8 @@ _ZNSt3mapImSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEESt4lessImESaISt4p
 _ZNSt3mapImSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEESt4lessImESaISt4pairIKmS6_EEEixERSA_.exit: ; preds = %27, %.critedge.i
   %.sroa.05.0.i = phi ptr [ %31, %.critedge.i ], [ %.19.i.i.i.i, %27 ]
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = load ptr, ptr %3, align 8
   store ptr %33, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 48
@@ -1012,10 +1012,10 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12

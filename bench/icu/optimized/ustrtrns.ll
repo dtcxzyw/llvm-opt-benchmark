@@ -300,13 +300,7 @@ define noundef ptr @u_strFromUTF32WithSub_77(ptr noundef %0, i32 noundef %1, ptr
   ret ptr %.093
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @u_terminateUChars_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @u_terminateUChars_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @u_strFromUTF32_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(address) %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -579,7 +573,7 @@ define noundef ptr @u_strToUTF32WithSub_77(ptr noundef %0, i32 noundef %1, ptr n
   ret ptr %.080
 }
 
-declare i32 @u_terminateUChar32s_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @u_terminateUChar32s_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @u_strToUTF32_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(address) %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -636,7 +630,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %30, label %31, label %178
 
 31:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %32 = load i8, ptr %3, align 1, !tbaa !21
   %33 = icmp ne i8 %32, 0
   %34 = and i1 %33, %20
@@ -901,17 +895,17 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
 
 .thread401:                                       ; preds = %95, %168
   store i32 10, ptr %7, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %437
 
 ._crit_edge508:                                   ; preds = %.thread396, %._crit_edge495
   %.7288.lcssa = phi i32 [ %.1282, %._crit_edge495 ], [ %.8289, %.thread396 ]
   %.5267.lcssa = phi i32 [ %.1263, %._crit_edge495 ], [ %.6268, %.thread396 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %425
 
 178:                                              ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !7
   %179 = ptrtoint ptr %29 to i64
   %180 = icmp sgt i32 %5, 65535
@@ -1260,7 +1254,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
 .thread454:                                       ; preds = %.thread443, %._crit_edge
   %.28.lcssa = phi i32 [ %.23304, %._crit_edge ], [ %.29, %.thread443 ]
   %.15277.lcssa = phi i32 [ %.12274, %._crit_edge ], [ %.16278, %.thread443 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %425
 
 .lr.ph488:                                        ; preds = %._crit_edge, %.thread443
@@ -1366,7 +1360,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
 
 .thread448:                                       ; preds = %252, %346, %417
   store i32 10, ptr %7, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %437
 
 425:                                              ; preds = %.thread454, %._crit_edge508
@@ -1402,7 +1396,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
   ret ptr %.0
 }
 
-declare i32 @utf8_nextCharSafeBody_77(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #2
+declare i32 @utf8_nextCharSafeBody_77(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @u_strFromUTF8_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -2766,7 +2760,7 @@ _ZL11_appendUTF8Phi.exit343:                      ; preds = %316, %315, %310, %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc noundef nonnull ptr @_ZL11_appendUTF8Phi(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 1)) %0, i32 noundef range(i32 0, 2170880) %1) unnamed_addr #3 {
+define internal fastcc noundef nonnull ptr @_ZL11_appendUTF8Phi(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 1)) %0, i32 noundef range(i32 0, 2170880) %1) unnamed_addr #2 {
   %3 = icmp samesign ult i32 %1, 128
   br i1 %3, label %4, label %7
 
@@ -2844,7 +2838,7 @@ define internal fastcc noundef nonnull ptr @_ZL11_appendUTF8Phi(ptr noundef writ
   ret ptr %.0
 }
 
-declare i32 @u_terminateChars_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @u_terminateChars_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @u_strToUTF8_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -2944,7 +2938,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   br label %269
 
 45:                                               ; preds = %.critedge
-  %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1177.lcssa) #8
+  %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1177.lcssa) #7
   %47 = trunc i64 %46 to i32
   br label %48
 
@@ -2952,7 +2946,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   %.0188 = phi ptr [ %.1189.lcssa, %45 ], [ %0, %26 ]
   %.0178 = phi i32 [ %47, %45 ], [ %4, %26 ]
   %.0176 = phi ptr [ %.1177.lcssa, %45 ], [ %3, %26 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !7
   %49 = ptrtoint ptr %28 to i64
   %50 = icmp sgt i32 %.0178, 0
@@ -3405,7 +3399,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
 
 268:                                              ; preds = %.thread254, %266, %251, %202
   %.6 = phi ptr [ null, %202 ], [ null, %251 ], [ %0, %266 ], [ null, %.thread254 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %269
 
 269:                                              ; preds = %.thread, %268, %8, %23
@@ -3414,7 +3408,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @u_strToJavaModifiedUTF8_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -3753,7 +3747,13 @@ define noundef ptr @u_strToJavaModifiedUTF8_77(ptr noundef %0, i32 noundef %1, p
   ret ptr %.0
 }
 
-declare i32 @u_strlen_77(ptr noundef) local_unnamed_addr #2
+declare i32 @u_strlen_77(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @wcslen(ptr captures(none)) local_unnamed_addr #5
@@ -3762,14 +3762,13 @@ declare i64 @wcslen(ptr captures(none)) local_unnamed_addr #5
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
+attributes #7 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

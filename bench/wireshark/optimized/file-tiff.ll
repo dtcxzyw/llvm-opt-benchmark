@@ -362,7 +362,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 22:                                               ; preds = %4
   %23 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   switch i16 %23, label %463 [
     i16 18761, label %25
     i16 19789, label %24
@@ -416,9 +416,9 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %52 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %44, ptr noundef %0, i32 noundef %.031.i, i32 noundef 12, i32 noundef %49, ptr noundef null, ptr noundef nonnull @.str.233, ptr noundef %51)
   %53 = load i32, ptr @hf_tiff_entry_tag, align 4
   %54 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %53, ptr noundef %0, i32 noundef %.031.i, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %.024)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 0, ptr %17, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4
   %55 = load i32, ptr @hf_tiff_entry_type, align 4
   %56 = add i32 %.031.i, 2
@@ -551,7 +551,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %dissect_tiff_entry.exit.i
 
 114:                                              ; preds = %107
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %115 = icmp eq i32 %109, 0
   br i1 %115, label %116, label %118
 
@@ -579,7 +579,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %127
 
 127:                                              ; preds = %124, %116
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %dissect_tiff_entry.exit.i
 
 128:                                              ; preds = %.lr.ph.i
@@ -595,7 +595,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %dissect_tiff_entry.exit.i
 
 135:                                              ; preds = %128
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %136 = icmp eq i32 %130, 0
   br i1 %136, label %137, label %139
 
@@ -623,7 +623,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %148
 
 148:                                              ; preds = %145, %137
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %dissect_tiff_entry.exit.i
 
 149:                                              ; preds = %.lr.ph.i
@@ -639,7 +639,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %dissect_tiff_entry.exit.i
 
 156:                                              ; preds = %149
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %157 = icmp eq i32 %151, 0
   br i1 %157, label %158, label %160
 
@@ -667,7 +667,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %169
 
 169:                                              ; preds = %166, %158
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %dissect_tiff_entry.exit.i
 
 170:                                              ; preds = %.lr.ph.i
@@ -683,7 +683,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %dissect_tiff_entry.exit.i
 
 177:                                              ; preds = %170
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %178 = icmp eq i32 %172, 0
   br i1 %178, label %179, label %181
 
@@ -711,7 +711,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %190
 
 190:                                              ; preds = %187, %179
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %dissect_tiff_entry.exit.i
 
 191:                                              ; preds = %.lr.ph.i
@@ -795,7 +795,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %dissect_tiff_entry.exit.i
 
 242:                                              ; preds = %235
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %243 = icmp eq i32 %237, 0
   br i1 %243, label %244, label %246
 
@@ -823,7 +823,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %255
 
 255:                                              ; preds = %252, %244
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %dissect_tiff_entry.exit.i
 
 256:                                              ; preds = %.lr.ph.i
@@ -885,7 +885,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %dissect_tiff_entry.exit.i
 
 291:                                              ; preds = %284
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %292 = icmp eq i32 %286, 0
   br i1 %292, label %293, label %295
 
@@ -913,7 +913,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %304
 
 304:                                              ; preds = %301, %293
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %dissect_tiff_entry.exit.i
 
 305:                                              ; preds = %.lr.ph.i
@@ -929,7 +929,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %dissect_tiff_entry.exit.i
 
 312:                                              ; preds = %305
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %313 = icmp eq i32 %307, 0
   br i1 %313, label %314, label %316
 
@@ -957,7 +957,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %325
 
 325:                                              ; preds = %322, %314
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %dissect_tiff_entry.exit.i
 
 326:                                              ; preds = %.lr.ph.i
@@ -973,7 +973,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %dissect_tiff_entry.exit.i
 
 333:                                              ; preds = %326
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %334 = icmp eq i32 %328, 0
   br i1 %334, label %335, label %337
 
@@ -1001,7 +1001,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %346
 
 346:                                              ; preds = %343, %335
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %dissect_tiff_entry.exit.i
 
 347:                                              ; preds = %.lr.ph.i
@@ -1017,7 +1017,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %dissect_tiff_entry.exit.i
 
 354:                                              ; preds = %347
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %355 = icmp eq i32 %349, 0
   br i1 %355, label %356, label %358
 
@@ -1045,7 +1045,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %367
 
 367:                                              ; preds = %364, %356
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dissect_tiff_entry.exit.i
 
 368:                                              ; preds = %.lr.ph.i
@@ -1101,7 +1101,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %dissect_tiff_entry.exit.i
 
 400:                                              ; preds = %393
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %401 = icmp eq i32 %395, 0
   br i1 %401, label %402, label %404
 
@@ -1129,7 +1129,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %413
 
 413:                                              ; preds = %410, %402
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dissect_tiff_entry.exit.i
 
 414:                                              ; preds = %.lr.ph.i
@@ -1145,7 +1145,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %dissect_tiff_entry.exit.i
 
 421:                                              ; preds = %414
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %422 = icmp eq i32 %416, 0
   br i1 %422, label %423, label %425
 
@@ -1173,7 +1173,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %434
 
 434:                                              ; preds = %431, %423
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dissect_tiff_entry.exit.i
 
 435:                                              ; preds = %.lr.ph.i
@@ -1185,7 +1185,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 tiff_data_len.exit.thread.i.i.i:                  ; preds = %435
   %439 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %52, ptr noundef nonnull @ei_tiff_unknown_tag)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %445
 
 switch.lookup:                                    ; preds = %435
@@ -1195,7 +1195,7 @@ switch.lookup:                                    ; preds = %435
   %switch.load = load i32, ptr %switch.gep, align 4
   %442 = mul i32 %switch.load, %440
   %443 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %52, ptr noundef nonnull @ei_tiff_unknown_tag)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %444 = icmp slt i32 %442, 1
   br i1 %444, label %445, label %447
 
@@ -1224,12 +1224,12 @@ switch.lookup:                                    ; preds = %435
   br label %dissect_tiff_tag_unknown.exit.i.i
 
 dissect_tiff_tag_unknown.exit.i.i:                ; preds = %453, %445
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_tiff_entry.exit.i
 
 dissect_tiff_entry.exit.i:                        ; preds = %dissect_tiff_tag_unknown.exit.i.i, %434, %419, %413, %398, %388, %383, %378, %373, %368, %367, %352, %346, %331, %325, %310, %304, %289, %279, %270, %268, %263, %256, %255, %240, %230, %223, %216, %211, %206, %201, %196, %191, %190, %175, %169, %154, %148, %133, %127, %112, %102, %97, %92, %87, %82, %77, %72, %67, %62
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %457 = add i32 %.031.i, 12
   %458 = add nuw nsw i32 %.02930.i, 1
   %exitcond.not.i = icmp eq i32 %458, %40
@@ -1250,7 +1250,7 @@ dissect_tiff_ifd.exit:                            ; preds = %dissect_tiff_entry.
 
 463:                                              ; preds = %25, %22, %._crit_edge
   %.1 = phi i32 [ %462, %._crit_edge ], [ 0, %22 ], [ 0, %25 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %464
 
 464:                                              ; preds = %4, %463
@@ -1264,17 +1264,11 @@ declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) 
 ; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_tiff() local_unnamed_addr #0 {
@@ -1398,7 +1392,7 @@ switch.lookup:                                    ; preds = %14
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_tiff_array_uint, i64 0, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = mul i32 %switch.load, %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %20 = icmp slt i32 %19, 1
   br i1 %20, label %21, label %23
 
@@ -1433,7 +1427,7 @@ switch.lookup:                                    ; preds = %14
   br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !9
 
 .loopexit:                                        ; preds = %29, %21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %35
 
 35:                                               ; preds = %.loopexit, %16, %10
@@ -1461,12 +1455,12 @@ define internal fastcc void @dissect_tiff_single_urational(ptr noundef %0, ptr n
   br label %44
 
 19:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %20 = load i32, ptr @hf_tiff_entry_offset, align 4
   %21 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef %6, ptr noundef nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4
   %22 = load i32, ptr %11, align 4
   %23 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef %6, ptr noundef nonnull %12)
@@ -1505,9 +1499,9 @@ define internal fastcc void @dissect_tiff_single_urational(ptr noundef %0, ptr n
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %38, %35, %28, %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %44
 
 44:                                               ; preds = %proto_item_set_generated.exit, %17, %14
@@ -1523,10 +1517,15 @@ declare ptr @proto_tree_add_double(ptr noundef, i32 noundef, ptr noundef, i32 no
 ; Function Attrs: null_pointer_is_valid
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

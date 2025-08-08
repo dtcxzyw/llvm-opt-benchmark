@@ -41,7 +41,7 @@ define noundef zeroext i1 @_lv_svg_tokenizer(ptr noundef %0, i32 noundef %1, ptr
   br label %.preheader74
 
 .lr.ph87:                                         ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store i32 2, ptr %10, align 8, !tbaa !3
@@ -51,7 +51,7 @@ define noundef zeroext i1 @_lv_svg_tokenizer(ptr noundef %0, i32 noundef %1, ptr
   store ptr null, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @lv_array_init(ptr noundef nonnull %13, i32 noundef 4, i32 noundef 32) #6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %14, align 4
@@ -378,24 +378,21 @@ _svg_parser_comment.exit:                         ; preds = %._svg_parser_commen
 _svg_parser_comment.exit.thread:                  ; preds = %_svg_parser_comment.exit, %114, %_lv_svg_token_process.exit, %41
   %.2 = phi i1 [ false, %41 ], [ false, %_lv_svg_token_process.exit ], [ false, %114 ], [ true, %_svg_parser_comment.exit ]
   call void @lv_array_deinit(ptr noundef nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #3
+declare ptr @__ctype_b_loc() local_unnamed_addr #2
 
-declare void @lv_array_deinit(ptr noundef) local_unnamed_addr #4
+declare void @lv_array_deinit(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @_svg_parser_tag(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull %3) unnamed_addr #0 {
@@ -812,29 +809,32 @@ default.unreachable182:                           ; preds = %16
   ret i1 %.0
 }
 
+declare void @lv_array_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+
+declare void @lv_array_clear(ptr noundef) local_unnamed_addr #3
+
+declare i32 @lv_array_size(ptr noundef) local_unnamed_addr #3
+
+declare i32 @lv_array_capacity(ptr noundef) local_unnamed_addr #3
+
+declare zeroext i1 @lv_array_resize(ptr noundef, i32 noundef) local_unnamed_addr #3
+
+declare ptr @lv_array_at(ptr noundef, i32 noundef) local_unnamed_addr #3
+
+declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #3
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
-declare void @lv_array_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
-
-declare void @lv_array_clear(ptr noundef) local_unnamed_addr #4
-
-declare i32 @lv_array_size(ptr noundef) local_unnamed_addr #4
-
-declare i32 @lv_array_capacity(ptr noundef) local_unnamed_addr #4
-
-declare zeroext i1 @lv_array_resize(ptr noundef, i32 noundef) local_unnamed_addr #4
-
-declare ptr @lv_array_at(ptr noundef, i32 noundef) local_unnamed_addr #4
-
-declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(none) }
 attributes #8 = { nounwind willreturn memory(read) }

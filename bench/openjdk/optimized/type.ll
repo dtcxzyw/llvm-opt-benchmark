@@ -1593,7 +1593,7 @@ define hidden noundef ptr @_ZN10TypeOopPtr18make_from_constantEP8ciObjectb(ptr n
   br label %291
 
 16:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %8, ptr %3, align 8
   %17 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 zeroext poison, i1 zeroext poison, i1 zeroext poison, i32 noundef 1)
   %18 = load ptr, ptr %3, align 8
@@ -1655,7 +1655,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i62, i32 noundef 21, i32 noundef 4, ptr noundef nonnull %18, ptr noundef %17, i1 noundef zeroext %.0.shrunk.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr getelementptr inbounds nuw inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i62, align 8
   %51 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i62)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %291
 
 52:                                               ; preds = %6
@@ -5636,7 +5636,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit248:             ; preds = %1667, %1669
   %1682 = tail call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassN4Type17InterfaceHandlingE(i32 noundef 4, ptr noundef %1681, i32 noundef 1)
   store ptr %1682, ptr @_ZN11TypeInstPtr6MIRRORE, align 8
   %1683 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1683, ptr %5, align 8
   %1684 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %5, i1 zeroext poison, i1 zeroext poison, i1 zeroext poison, i32 noundef 1)
   %1685 = load ptr, ptr %5, align 8
@@ -5704,10 +5704,10 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i319, i32 noundef 21, i32 noundef 5, ptr noundef nonnull %1685, ptr noundef %1684, i1 noundef zeroext %.0.shrunk.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr getelementptr inbounds nuw inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i319, align 8
   %1719 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i319)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %1719, ptr @_ZN11TypeInstPtr4MARKE, align 8
   %1720 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1720, ptr %4, align 8
   %1721 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %4, i1 zeroext poison, i1 zeroext poison, i1 zeroext poison, i32 noundef 1)
   %1722 = load ptr, ptr %4, align 8
@@ -5775,7 +5775,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i328, i32 noundef 21, i32 noundef 5, ptr noundef nonnull %1722, ptr noundef %1721, i1 noundef zeroext %.0.shrunk.i326, ptr noundef null, i32 noundef 8, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr getelementptr inbounds nuw inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i328, align 8
   %1756 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i328)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %1756, ptr @_ZN11TypeInstPtr5KLASSE, align 8
   %1757 = tail call noundef ptr @_ZN10TypeOopPtr4makeEN7TypePtr3PTREiiPKS0_i(i32 noundef 5, i32 noundef -2000000001, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr %1757, ptr @_ZN10TypeOopPtr6BOTTOME, align 8
@@ -6211,7 +6211,7 @@ _ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i.exit271: ; preds
   store ptr %2019, ptr getelementptr inbounds nuw (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 48), align 16
   store ptr %2012, ptr getelementptr inbounds nuw (i8, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 56), align 8
   %2020 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2020, ptr %3, align 8
   %2021 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 zeroext poison, i1 zeroext poison, i1 zeroext poison, i32 noundef 1)
   %2022 = load ptr, ptr %3, align 8
@@ -6265,10 +6265,10 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassi.exit: ; preds = %2038, %2040
   store ptr %2021, ptr %2050, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i.i272, align 8
   %2051 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i272)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %2051, ptr @_ZN16TypeInstKlassPtr6OBJECTE, align 8
   %2052 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %2052, ptr %2, align 8
   %2053 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %2, i1 zeroext poison, i1 zeroext poison, i1 zeroext poison, i32 noundef 1)
   %2054 = load ptr, ptr %2, align 8
@@ -6322,7 +6322,7 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassi.exit275: ; preds = %2070, %2
   store ptr %2053, ptr %2082, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i.i274, align 8
   %2083 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i274)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr %2083, ptr @_ZN16TypeInstKlassPtr14OBJECT_OR_NULLE, align 8
   %2084 = load ptr, ptr %12, align 8
   %2085 = getelementptr inbounds nuw i8, ptr %2084, i64 1808
@@ -25898,7 +25898,7 @@ define hidden noundef nonnull ptr @_ZN12TypeKlassPtr4makeEP7ciKlassN4Type17Inter
   br i1 %7, label %8, label %41
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %9 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 zeroext poison, i1 zeroext poison, i1 zeroext poison, i32 noundef %1)
   %10 = load ptr, ptr %3, align 8
@@ -25953,7 +25953,7 @@ _ZN16TypeInstKlassPtr4makeEP7ciKlassN4Type17InterfaceHandlingE.exit: ; preds = %
   store ptr %9, ptr %39, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i.i, align 8
   %40 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %43
 
 41:                                               ; preds = %2
@@ -26064,7 +26064,7 @@ define hidden noundef nonnull ptr @_ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREP7ciK
   br i1 %15, label %16, label %49
 
 16:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %11, ptr %5, align 8
   %17 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %5, i1 zeroext poison, i1 zeroext poison, i1 zeroext poison, i32 noundef %3)
   %18 = load ptr, ptr %5, align 8
@@ -26119,7 +26119,7 @@ _ZN16TypeInstKlassPtr4makeEP7ciKlassN4Type17InterfaceHandlingE.exit: ; preds = %
   store ptr %17, ptr %47, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 336) (i8, ptr @_ZTV16TypeInstKlassPtr, i64 16), ptr %.0.i.i.i.i.i, align 8
   %48 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN12TypeKlassPtr4makeEP7ciKlassN4Type17InterfaceHandlingE.exit
 
 49:                                               ; preds = %10
@@ -32097,10 +32097,10 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -77,7 +77,7 @@ define hidden void @lj_opt_dce(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond29.not.i, label %dce_marksnap.exit, label %12, !llvm.loop !38
 
 dce_marksnap.exit:                                ; preds = %._crit_edge.i, %6
-  call void @llvm.lifetime.start.p0(i64 808, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 402
   br label %34
 
@@ -186,7 +186,7 @@ dce_marksnap.exit:                                ; preds = %._crit_edge.i, %6
   br i1 %90, label %43, label %dce_propagate.exit, !llvm.loop !44
 
 dce_propagate.exit:                               ; preds = %89, %37
-  call void @llvm.lifetime.end.p0(i64 808, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 2852
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %91, i8 0, i64 128, i1 false)
   br label %92
@@ -199,15 +199,14 @@ dce_propagate.exit:                               ; preds = %89, %37
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

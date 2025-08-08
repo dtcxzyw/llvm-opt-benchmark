@@ -944,7 +944,7 @@ _ZN8Verifier28is_eligible_for_verificationEP13InstanceKlassb.exit: ; preds = %72
   br i1 %.not67, label %154, label %149
 
 149:                                              ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %4, i64 noundef 0) #20
   %150 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %151 = load ptr, ptr %150, align 8
@@ -953,7 +953,7 @@ _ZN8Verifier28is_eligible_for_verificationEP13InstanceKlassb.exit: ; preds = %72
   call void @_ZNK12ErrorContext7detailsEP12outputStreamPK6Method(ptr noundef nonnull align 8 dereferenceable(56) %108, ptr noundef nonnull %4, ptr noundef %152)
   %153 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %4, i1 noundef zeroext false) #20
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %4) #20
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %154
 
 154:                                              ; preds = %149, %.critedge
@@ -1392,8 +1392,8 @@ define hidden noundef ptr @_ZN8Verifier16inference_verifyEP13InstanceKlassPcmP10
   %5 = alloca [4097 x i8], align 16
   %6 = alloca [1024 x i8], align 16
   %7 = alloca %class.HandleMark, align 8
-  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = load volatile ptr, ptr @_ZL21_verify_byte_codes_fn, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %11, label %9
@@ -1450,8 +1450,8 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %13, %11
 
 _ZL20verify_byte_codes_fnv.exit:                  ; preds = %9, %27, %28
   %.0.i = phi ptr [ %10, %9 ], [ %.1.i, %27 ], [ %.1.i, %28 ]
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %29 = icmp eq ptr %.0.i, null
   br i1 %29, label %30, label %33
 
@@ -8180,7 +8180,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN14Exceptio
   br i1 %99, label %100, label %122
 
 100:                                              ; preds = %94
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %96, ptr %7, align 8
   store ptr %5, ptr %51, align 8
   %101 = load ptr, ptr %52, align 8
@@ -8215,7 +8215,7 @@ _ZN12ConstantPool8klass_atEiP10JavaThread.exit:   ; preds = %100, %106
   store ptr %96, ptr %119, align 8
   %120 = call noundef ptr @_ZN12ConstantPool13klass_at_implERK18constantPoolHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %89, ptr noundef nonnull %5) #20
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %121 = load ptr, ptr %49, align 8
   %.not76 = icmp eq ptr %121, null
   br i1 %.not76, label %122, label %.loopexit
@@ -8838,7 +8838,7 @@ _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %_ZN18constantPoolHa
   br i1 %or.cond68, label %99, label %.loopexit
 
 99:                                               ; preds = %95
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %100 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %101 = load i32, ptr %100, align 8
   %102 = getelementptr inbounds nuw i8, ptr %89, i64 18
@@ -8878,7 +8878,7 @@ _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %_ZN18constantPoolHa
   br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit
 
 _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit: ; preds = %105, %110
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %116 = load ptr, ptr %51, align 8
   %117 = icmp ne ptr %116, null
   %118 = load ptr, ptr %52, align 8
@@ -8888,7 +8888,7 @@ _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit: ; preds = %
 
 120:                                              ; preds = %87
   %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 136), align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %122 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %123 = load i32, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %89, i64 18
@@ -8928,7 +8928,7 @@ _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit: ; preds = %
   br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit48
 
 _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit48: ; preds = %127, %132
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %138 = load ptr, ptr %51, align 8
   %139 = icmp ne ptr %138, null
   %140 = load ptr, ptr %52, align 8
@@ -9097,7 +9097,7 @@ define hidden void @_ZN13ClassVerifier10verify_ldcEitP13StackMapFrameRK18constan
   %11 = alloca [2 x i64], align 16
   %12 = alloca %class.SignatureStream, align 8
   %13 = alloca %class.ErrorContext, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %14 = load ptr, ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 60
   %16 = load i32, ptr %15, align 4
@@ -9134,7 +9134,7 @@ define hidden void @_ZN13ClassVerifier10verify_ldcEitP13StackMapFrameRK18constan
   br label %_ZN13ClassVerifier15verify_cp_indexEiRK18constantPoolHandletP10JavaThread.exit
 
 _ZN13ClassVerifier15verify_cp_indexEiRK18constantPoolHandletP10JavaThread.exit: ; preds = %7, %19
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not113 = icmp eq ptr %30, null
@@ -9192,7 +9192,7 @@ _ZN13ClassVerifier15verify_cp_indexEiRK18constantPoolHandletP10JavaThread.exit: 
 
 55:                                               ; preds = %54
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 48), align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %58 = load i32, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 18
@@ -9241,7 +9241,7 @@ _ZN13ClassVerifier15verify_cp_indexEiRK18constantPoolHandletP10JavaThread.exit: 
   br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit
 
 _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit: ; preds = %62, %73
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %135
 
 .thread102:                                       ; preds = %54, %43, %43
@@ -9260,7 +9260,7 @@ _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit: ; preds = %
 
 79:                                               ; preds = %.thread102, %.thread102, %54
   %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 32), align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %82 = load i32, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 18
@@ -9309,7 +9309,7 @@ _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit: ; preds = %
   br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit89
 
 _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit89: ; preds = %86, %97
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %135
 
 103:                                              ; preds = %.thread102
@@ -9423,7 +9423,7 @@ define hidden void @_ZN13ClassVerifier12verify_iloadEiP13StackMapFrameP10JavaThr
   br i1 %or.cond, label %11, label %34
 
 11:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 18
@@ -9472,7 +9472,7 @@ define hidden void @_ZN13ClassVerifier12verify_iloadEiP13StackMapFrameP10JavaThr
   br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit
 
 _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit: ; preds = %17, %28
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %34
 
 34:                                               ; preds = %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit, %4
@@ -9493,7 +9493,7 @@ define hidden void @_ZN13ClassVerifier12verify_lloadEiP13StackMapFrameP10JavaThr
   br i1 %or.cond, label %10, label %39
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 18
@@ -9550,7 +9550,7 @@ define hidden void @_ZN13ClassVerifier12verify_lloadEiP13StackMapFrameP10JavaThr
   br label %_ZN13StackMapFrame12push_stack_2E16VerificationTypeS0_P10JavaThread.exit
 
 _ZN13StackMapFrame12push_stack_2E16VerificationTypeS0_P10JavaThread.exit: ; preds = %17, %28
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %39
 
 39:                                               ; preds = %_ZN13StackMapFrame12push_stack_2E16VerificationTypeS0_P10JavaThread.exit, %4
@@ -9571,7 +9571,7 @@ define hidden void @_ZN13ClassVerifier12verify_floadEiP13StackMapFrameP10JavaThr
   br i1 %or.cond, label %11, label %34
 
 11:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 18
@@ -9620,7 +9620,7 @@ define hidden void @_ZN13ClassVerifier12verify_floadEiP13StackMapFrameP10JavaThr
   br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit
 
 _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit: ; preds = %17, %28
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %34
 
 34:                                               ; preds = %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit, %4
@@ -9641,7 +9641,7 @@ define hidden void @_ZN13ClassVerifier12verify_dloadEiP13StackMapFrameP10JavaThr
   br i1 %or.cond, label %10, label %39
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 18
@@ -9698,7 +9698,7 @@ define hidden void @_ZN13ClassVerifier12verify_dloadEiP13StackMapFrameP10JavaThr
   br label %_ZN13StackMapFrame12push_stack_2E16VerificationTypeS0_P10JavaThread.exit
 
 _ZN13StackMapFrame12push_stack_2E16VerificationTypeS0_P10JavaThread.exit: ; preds = %17, %28
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %39
 
 39:                                               ; preds = %_ZN13StackMapFrame12push_stack_2E16VerificationTypeS0_P10JavaThread.exit, %4
@@ -9719,7 +9719,7 @@ define hidden void @_ZN13ClassVerifier12verify_aloadEiP13StackMapFrameP10JavaThr
   br i1 %or.cond, label %11, label %34
 
 11:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 18
@@ -9768,7 +9768,7 @@ define hidden void @_ZN13ClassVerifier12verify_aloadEiP13StackMapFrameP10JavaThr
   br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit
 
 _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit: ; preds = %17, %28
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %34
 
 34:                                               ; preds = %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit, %4
@@ -11097,7 +11097,7 @@ _ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16Verifica
   %indvars.iv205 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next206, %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit ]
   %115 = getelementptr inbounds nuw %class.VerificationType, ptr %11, i64 %indvars.iv205
   %.sroa.026.0.copyload = load ptr, ptr %115, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %116 = load i32, ptr %104, align 8
   %117 = load i16, ptr %105, align 2
   %118 = zext i16 %117 to i32
@@ -11133,7 +11133,7 @@ _ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16Verifica
   br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit
 
 _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit: ; preds = %119, %123
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %128 = load ptr, ptr %31, align 8
   %129 = icmp ne ptr %128, null
   %130 = load ptr, ptr %34, align 8
@@ -11390,7 +11390,7 @@ _ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit: ; preds = %207
   %indvars.iv197 = phi i64 [ 0, %.preheader180 ], [ %indvars.iv.next198, %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit126 ]
   %242 = getelementptr inbounds nuw %class.VerificationType, ptr %11, i64 %indvars.iv197
   %.sroa.0.0.copyload = load ptr, ptr %242, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %243 = load i32, ptr %231, align 8
   %244 = load i16, ptr %232, align 2
   %245 = zext i16 %244 to i32
@@ -11426,7 +11426,7 @@ _ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit: ; preds = %207
   br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit126
 
 _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit126: ; preds = %246, %250
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %255 = load ptr, ptr %31, align 8
   %256 = icmp ne ptr %255, null
   %257 = load ptr, ptr %34, align 8
@@ -12232,7 +12232,7 @@ _ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit: ; preds = %349
 define hidden void @_ZN13ClassVerifier20verify_cp_class_typeEitRK18constantPoolHandleP10JavaThread(ptr noundef nonnull align 8 captures(none) dereferenceable(8192) %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %class.ErrorContext, align 8
   %7 = alloca %class.ErrorContext, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 60
   %10 = load i32, ptr %9, align 4
@@ -12269,7 +12269,7 @@ define hidden void @_ZN13ClassVerifier20verify_cp_class_typeEitRK18constantPoolH
   br label %_ZN13ClassVerifier15verify_cp_indexEiRK18constantPoolHandletP10JavaThread.exit
 
 _ZN13ClassVerifier15verify_cp_indexEiRK18constantPoolHandletP10JavaThread.exit: ; preds = %5, %13
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = icmp ne ptr %24, null
@@ -12692,7 +12692,7 @@ define hidden void @_ZN13ClassVerifier14verify_cp_typeEitRK18constantPoolHandlej
   unreachable
 
 15:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 60
   %17 = load i32, ptr %16, align 4
   %18 = zext i16 %2 to i32
@@ -12728,7 +12728,7 @@ define hidden void @_ZN13ClassVerifier14verify_cp_typeEitRK18constantPoolHandlej
   br label %_ZN13ClassVerifier15verify_cp_indexEiRK18constantPoolHandletP10JavaThread.exit
 
 _ZN13ClassVerifier15verify_cp_indexEiRK18constantPoolHandletP10JavaThread.exit: ; preds = %15, %20
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = icmp ne ptr %31, null
@@ -16179,10 +16179,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

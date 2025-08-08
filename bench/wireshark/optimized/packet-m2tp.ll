@@ -227,7 +227,7 @@ dissect_m2tp_common_header.exit.i:                ; preds = %25, %4
   %.0.i.i = select i1 %47, i32 0, i32 %48
   %49 = add nuw nsw i32 %.0.i.i, %45
   %50 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.024.i, i32 noundef %49)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %51 = call zeroext i16 @tvb_get_ntohs(ptr noundef %50, i32 noundef 0)
   %52 = call zeroext i16 @tvb_get_ntohs(ptr noundef %50, i32 noundef 2)
@@ -304,7 +304,7 @@ dissect_m2tp_common_header.exit.i:                ; preds = %25, %4
 
 89:                                               ; preds = %69
   %90 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i58.i.i = icmp eq ptr %.0.i23.i, null
   br i1 %.not.i58.i.i, label %dissect_m2tp_info_parameter.exit.i.i, label %91
 
@@ -320,7 +320,7 @@ dissect_m2tp_common_header.exit.i:                ; preds = %25, %4
   br label %dissect_m2tp_info_parameter.exit.i.i
 
 dissect_m2tp_info_parameter.exit.i.i:             ; preds = %91, %89
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_m2tp_interface_identifier_parameter.exit.i.i
 
 99:                                               ; preds = %69
@@ -437,7 +437,7 @@ dissect_m2tp_interface_identifier_parameter.exit.i.i: ; preds = %150, %141, %127
   br label %dissect_m2tp_parameter.exit.i
 
 dissect_m2tp_parameter.exit.i:                    ; preds = %162, %dissect_m2tp_interface_identifier_parameter.exit.i.i, %149, %133, %126, %119, %109, %99, %83, %76, %70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %165 = add i32 %49, %.024.i
   %166 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %165)
   %167 = icmp sgt i32 %166, 0
@@ -466,9 +466,6 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 ; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -480,9 +477,6 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -529,10 +523,15 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid
 declare i32 @proto_item_get_len(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

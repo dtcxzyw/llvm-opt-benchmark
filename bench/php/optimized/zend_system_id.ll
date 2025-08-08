@@ -66,8 +66,8 @@ define hidden void @zend_finalize_system_id() local_unnamed_addr #0 {
   %1 = alloca [16 x i8], align 16
   %2 = alloca i8, align 1
   %3 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = load ptr, ptr @zend_ast_process, align 8, !tbaa !7
   %.not = icmp ne ptr %4, null
   %spec.store.select = zext i1 %.not to i8
@@ -116,12 +116,12 @@ define hidden void @zend_finalize_system_id() local_unnamed_addr #0 {
 
 23:                                               ; preds = %21, %18
   call void @PHP_MD5Update(ptr noundef nonnull @context, ptr noundef nonnull %2, i64 noundef 1) #5
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 0, ptr %3, align 2, !tbaa !9
   br label %40
 
 24:                                               ; preds = %44
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @PHP_MD5Final(ptr noundef nonnull %1, ptr noundef nonnull @context) #5
   br label %25
 
@@ -148,8 +148,8 @@ define hidden void @zend_finalize_system_id() local_unnamed_addr #0 {
 
 php_hash_bin2hex.exit:                            ; preds = %25
   store i1 true, ptr @finalized, align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 
 40:                                               ; preds = %23, %44
@@ -171,19 +171,19 @@ php_hash_bin2hex.exit:                            ; preds = %25
   br i1 %47, label %40, label %24
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare ptr @compile_file(ptr noundef, i32 noundef) #1
 
 declare void @execute_ex(ptr noundef) #1
 
 declare ptr @zend_get_user_opcode_handler(i8 noundef zeroext) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 declare void @PHP_MD5Final(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

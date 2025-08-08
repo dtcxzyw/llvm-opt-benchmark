@@ -37,10 +37,10 @@ define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none
   %13 = load ptr, ptr %10, align 8, !tbaa !33
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %16, i64 12, i1 false), !tbaa.struct !35
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %17, i64 12, i1 false), !tbaa.struct !35
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 1784
@@ -55,8 +55,8 @@ define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none
   br label %.lr.ph209
 
 ._crit_edge210:                                   ; preds = %._crit_edge, %1
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 .lr.ph209:                                        ; preds = %.lr.ph209.preheader, %._crit_edge
@@ -279,14 +279,8 @@ define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none
   br i1 %exitcond.not, label %._crit_edge, label %91, !llvm.loop !131
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @b2WarmStartOverflowContacts(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -303,7 +297,7 @@ define hidden void @b2WarmStartOverflowContacts(ptr noundef readonly captures(no
   %.val = load ptr, ptr %10, align 8, !tbaa !132
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 192
   %12 = load ptr, ptr %11, align 8, !tbaa !133
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   store i64 0, ptr %.sroa.0, align 8
   %13 = icmp sgt i32 %7, 0
   br i1 %13, label %.lr.ph123.preheader, label %._crit_edge124
@@ -313,7 +307,7 @@ define hidden void @b2WarmStartOverflowContacts(ptr noundef readonly captures(no
   br label %.lr.ph123
 
 ._crit_edge124:                                   ; preds = %.cont, %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   ret void
 
 .lr.ph123:                                        ; preds = %.lr.ph123.preheader, %.cont
@@ -482,9 +476,9 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %15 = load float, ptr %14, align 4, !tbaa !141
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 1552
   %17 = load float, ptr %16, align 8, !tbaa !142
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.7345)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7345)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   store i64 0, ptr %.sroa.0, align 8
   store i64 0, ptr %.sroa.7345, align 8
   store i64 1065353216, ptr %.sroa.9, align 8
@@ -497,9 +491,9 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   br label %20
 
 ._crit_edge379:                                   ; preds = %.cont, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.7345)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7345)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   ret void
 
 20:                                               ; preds = %.lr.ph378, %.cont
@@ -863,7 +857,7 @@ define hidden void @b2ApplyOverflowRestitution(ptr noundef readonly captures(non
   %12 = load ptr, ptr %11, align 8, !tbaa !133
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 1544
   %14 = load float, ptr %13, align 8, !tbaa !146
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   store i64 0, ptr %.sroa.0, align 8
   %15 = icmp sgt i32 %7, 0
   br i1 %15, label %.lr.ph165, label %._crit_edge166
@@ -874,7 +868,7 @@ define hidden void @b2ApplyOverflowRestitution(ptr noundef readonly captures(non
   br label %17
 
 ._crit_edge166:                                   ; preds = %.cont, %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   ret void
 
 17:                                               ; preds = %.lr.ph165, %.cont
@@ -1062,7 +1056,7 @@ define hidden void @b2ApplyOverflowRestitution(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @b2StoreOverflowImpulses(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define hidden void @b2StoreOverflowImpulses(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 664
@@ -1131,7 +1125,7 @@ define hidden void @b2StoreOverflowImpulses(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @b2GetContactConstraintSIMDByteCount() local_unnamed_addr #4 {
+define hidden noundef i32 @b2GetContactConstraintSIMDByteCount() local_unnamed_addr #3 {
   ret i32 624
 }
 
@@ -1626,7 +1620,7 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define hidden void @b2WarmStartContactsTask(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #5 {
+define hidden void @b2WarmStartContactsTask(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %6 = load ptr, ptr %5, align 8, !tbaa !34
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -1966,7 +1960,7 @@ b2ScatterBodies.exit85:                           ; preds = %209, %211
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define hidden void @b2SolveContactsTask(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #5 {
+define hidden void @b2SolveContactsTask(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %7 = load ptr, ptr %6, align 8, !tbaa !34
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -2591,7 +2585,7 @@ b2ScatterBodies.exit300:                          ; preds = %468, %470
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define hidden void @b2ApplyRestitutionTask(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #5 {
+define hidden void @b2ApplyRestitutionTask(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %6 = load ptr, ptr %5, align 8, !tbaa !34
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -2990,7 +2984,7 @@ b2ScatterBodies.exit135:                          ; preds = %261, %263
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @b2StoreImpulsesTask(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
+define hidden void @b2StoreImpulsesTask(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !153
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 144
@@ -3080,21 +3074,27 @@ define hidden void @b2StoreImpulsesTask(i32 noundef %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #6
+declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.min.ps(<4 x float>, <4 x float>) #6
+declare <4 x float> @llvm.x86.sse.min.ps(<4 x float>, <4 x float>) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #7
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2}

@@ -712,9 +712,9 @@ declare void @_ZN8proxygen2hq15parseCancelPushERN5folly2io6CursorERKNS0_11FrameH
 define void @_ZThn32_N8proxygen2hq14HQControlCodec15parseCancelPushERN5folly2io6CursorERKNS0_11FrameHeaderE(ptr noalias sret(%"class.folly::Optional") align 8 %agg.result, ptr readnone captures(none) %this, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 dereferenceable(16) %header) unnamed_addr #6 align 2 {
 entry:
   %outPushId.i = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %outPushId.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %outPushId.i)
   call void @_ZN8proxygen2hq15parseCancelPushERN5folly2io6CursorERKNS0_11FrameHeaderERm(ptr sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 dereferenceable(16) %header, ptr noundef nonnull align 8 dereferenceable(8) %outPushId.i) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %outPushId.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %outPushId.i)
   ret void
 }
 
@@ -1333,8 +1333,8 @@ entry:
   %outStreamId.i = alloca i64, align 8
   %agg.tmp.i = alloca %"class.std::unique_ptr", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %outStreamId.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %outStreamId.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   call void @_ZN8proxygen2hq11parseGoawayERN5folly2io6CursorERKNS0_11FrameHeaderERm(ptr sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 dereferenceable(16) %header, ptr noundef nonnull align 8 dereferenceable(8) %outStreamId.i) #28
   %hasValue.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %0 = load i8, ptr %hasValue.i.i.i, align 8, !alias.scope !20
@@ -1373,8 +1373,8 @@ lpad.i:                                           ; preds = %if.then.i
   resume { ptr, i32 } %5
 
 _ZN8proxygen2hq14HQControlCodec11parseGoawayERN5folly2io6CursorERKNS0_11FrameHeaderE.exit: ; preds = %entry, %land.lhs.true.i, %invoke.cont.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %outStreamId.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %outStreamId.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   ret void
 }
 
@@ -1393,9 +1393,9 @@ declare void @_ZN8proxygen2hq14parseMaxPushIdERN5folly2io6CursorERKNS0_11FrameHe
 define void @_ZThn32_N8proxygen2hq14HQControlCodec14parseMaxPushIdERN5folly2io6CursorERKNS0_11FrameHeaderE(ptr noalias sret(%"class.folly::Optional") align 8 %agg.result, ptr readnone captures(none) %this, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 dereferenceable(16) %header) unnamed_addr #6 align 2 {
 entry:
   %outPushId.i = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %outPushId.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %outPushId.i)
   call void @_ZN8proxygen2hq14parseMaxPushIdERN5folly2io6CursorERKNS0_11FrameHeaderERm(ptr sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 dereferenceable(16) %header, ptr noundef nonnull align 8 dereferenceable(8) %outPushId.i) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %outPushId.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %outPushId.i)
   ret void
 }
 
@@ -1442,8 +1442,8 @@ entry:
   %prioritizedElement.i = alloca i64, align 8
   %priorityUpdate.i = alloca %"struct.proxygen::HTTPPriority", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %prioritizedElement.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %priorityUpdate.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %prioritizedElement.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %priorityUpdate.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen12HTTPPriorityE, i64 16), ptr %priorityUpdate.i, align 8, !noalias !23
   %urgency.i.i = getelementptr inbounds nuw i8, ptr %priorityUpdate.i, i64 8
   store i64 11, ptr %urgency.i.i, align 8, !noalias !23
@@ -1464,8 +1464,8 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN8proxygen2hq14HQControlCodec19parsePriorityUpdateERN5folly2io6CursorERKNS0_11FrameHeaderE.exit
 
 _ZN8proxygen2hq14HQControlCodec19parsePriorityUpdateERN5folly2io6CursorERKNS0_11FrameHeaderE.exit: ; preds = %entry, %if.then.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %prioritizedElement.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %priorityUpdate.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %prioritizedElement.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %priorityUpdate.i)
   ret void
 }
 
@@ -1503,8 +1503,8 @@ entry:
   %prioritizedElement.i = alloca i64, align 8
   %priorityUpdate.i = alloca %"struct.proxygen::HTTPPriority", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %prioritizedElement.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %priorityUpdate.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %prioritizedElement.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %priorityUpdate.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen12HTTPPriorityE, i64 16), ptr %priorityUpdate.i, align 8, !noalias !26
   %urgency.i.i = getelementptr inbounds nuw i8, ptr %priorityUpdate.i, i64 8
   store i64 11, ptr %urgency.i.i, align 8, !noalias !26
@@ -1525,8 +1525,8 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN8proxygen2hq14HQControlCodec23parsePushPriorityUpdateERN5folly2io6CursorERKNS0_11FrameHeaderE.exit
 
 _ZN8proxygen2hq14HQControlCodec23parsePushPriorityUpdateERN5folly2io6CursorERKNS0_11FrameHeaderE.exit: ; preds = %entry, %if.then.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %prioritizedElement.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %priorityUpdate.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %prioritizedElement.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %priorityUpdate.i)
   ret void
 }
 
@@ -1873,13 +1873,13 @@ for.inc:                                          ; preds = %if.else.i, %if.then
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %invoke.cont12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %call.i.i.i.i.i12 = invoke noundef i32 @_ZN5folly15ThreadLocalPRNGclEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %call.i.i.i.i.i.noexc unwind label %lpad11.loopexit.split-lp
 
 call.i.i.i.i.i.noexc:                             ; preds = %for.end
   %13 = lshr i32 %call.i.i.i.i.i12, 28
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %conv = zext nneg i32 %13 to i64
   invoke void @_ZN8proxygen2hq11getGreaseIdEm(ptr nonnull sret(%"class.folly::Optional.13") align 8 %ref.tmp33, i64 noundef %conv)
           to label %invoke.cont36 unwind label %lpad11.loopexit.split-lp
@@ -2048,7 +2048,7 @@ lpad:                                             ; preds = %invoke.cont7, %invo
 define noundef i64 @_ZThn32_N8proxygen2hq14HQControlCodec16generatePriorityERN5folly10IOBufQueueEmRKSt5tupleIJmbhEE(ptr readnone captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, i64 %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4.i = alloca %"class.google::LogMessageFatal", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp4.i)
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp4.i, ptr noundef nonnull @.str, i32 noundef 258)
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp4.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -2094,7 +2094,7 @@ entry:
   %bf.cast19.not = icmp eq i64 %1, 0
   %cond = select i1 %bf.cast19.not, ptr @.str.18, ptr @.str.17
   store ptr %cond, ptr %ref.tmp16, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %updateString) #28
   store ptr %updateString, ptr %ref.tmp.i, align 8, !noalias !29
   invoke void @_ZN5folly11toAppendFitIJA3_chPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENSt9enable_ifIXsr12IsSomeStringINSt14remove_pointerI19__type_pack_elementIXmisPDpT_ELi1EEJSF_EEE4typeEEE5valueEvE4typeEDpRKSE_(ptr noundef nonnull align 1 dereferenceable(3) @.str.16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
@@ -2111,7 +2111,7 @@ lpad.i:                                           ; preds = %entry
   br label %common.resume
 
 _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA3_chPKcEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISB_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSE_EEEE5valueESB_E4typeEDpRKSD_.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %updateString) #28
   %call3.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %updateString) #28
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %call3.i
@@ -2214,7 +2214,7 @@ entry:
   %bf.cast19.not = icmp eq i64 %1, 0
   %cond = select i1 %bf.cast19.not, ptr @.str.18, ptr @.str.17
   store ptr %cond, ptr %ref.tmp16, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %updateString) #28
   store ptr %updateString, ptr %ref.tmp.i, align 8, !noalias !32
   invoke void @_ZN5folly11toAppendFitIJA3_chPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENSt9enable_ifIXsr12IsSomeStringINSt14remove_pointerI19__type_pack_elementIXmisPDpT_ELi1EEJSF_EEE4typeEEE5valueEvE4typeEDpRKSE_(ptr noundef nonnull align 1 dereferenceable(3) @.str.16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
@@ -2231,7 +2231,7 @@ lpad.i:                                           ; preds = %entry
   br label %common.resume
 
 _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA3_chPKcEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISB_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSE_EEEE5valueESB_E4typeEDpRKSD_.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %updateString) #28
   %call3.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %updateString) #28
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %call3.i
@@ -2344,7 +2344,7 @@ lpad:                                             ; preds = %invoke.cont7, %invo
 define noundef i64 @_ZThn32_N8proxygen2hq14HQControlCodec16addPriorityNodesERNS_9HTTPCodec13PriorityQueueERN5folly10IOBufQueueEh(ptr readnone captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, i8 zeroext %2) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4.i = alloca %"class.google::LogMessageFatal", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp4.i)
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp4.i, ptr noundef nonnull @.str, i32 noundef 306)
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp4.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -2407,7 +2407,7 @@ lpad:                                             ; preds = %invoke.cont5, %invo
 define noundef i64 @_ZThn32_NK8proxygen2hq14HQControlCodec23mapPriorityToDependencyEh(ptr readnone captures(none) %this, i8 zeroext %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.google::LogMessageFatal", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2.i, ptr noundef nonnull @.str, i32 noundef 312)
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -2904,7 +2904,7 @@ _ZN8proxygen2hq14HQControlCodecD0Ev.exit:         ; preds = %entry, %if.end.i.i.
 define linkonce_odr void @_ZThn32_NK8proxygen2hq14HQControlCodec18getCompressionInfoEv(ptr noalias sret(%"struct.proxygen::CompressionInfo") align 4 %agg.result, ptr noundef %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.google::LogMessageFatal", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2.i, ptr noundef nonnull @.str.25, i32 noundef 133)
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -3081,7 +3081,7 @@ entry:
 define linkonce_odr noundef i64 @_ZThn32_N8proxygen2hq14HQControlCodec9onIngressERKN5folly5IOBufE(ptr noundef %this, ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.google::LogMessageFatal", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp.i, ptr noundef nonnull @.str.25, i32 noundef 76)
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -3605,7 +3605,7 @@ entry:
 define linkonce_odr noundef ptr @_ZThn32_N8proxygen2hq14HQControlCodec17getEgressSettingsEv(ptr noundef %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.google::LogMessageFatal", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %streamDir_.i.i = getelementptr inbounds i8, ptr %this, i64 -16
   %0 = load i8, ptr %streamDir_.i.i, align 8
   %cmp.i.i = icmp eq i8 %0, 1
@@ -3633,7 +3633,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %con
 _ZN8proxygen2hq14HQControlCodec17getEgressSettingsEv.exit: ; preds = %entry
   %settings_.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %2 = load ptr, ptr %settings_.i, align 16
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   ret ptr %2
 }
 
@@ -3641,7 +3641,7 @@ _ZN8proxygen2hq14HQControlCodec17getEgressSettingsEv.exit: ; preds = %entry
 define linkonce_odr noundef ptr @_ZThn32_NK8proxygen2hq14HQControlCodec18getIngressSettingsEv(ptr noundef %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.google::LogMessageFatal", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %streamDir_.i.i = getelementptr inbounds i8, ptr %this, i64 -16
   %0 = load i8, ptr %streamDir_.i.i, align 8
   %cmp.i.i = icmp eq i8 %0, 0
@@ -3669,7 +3669,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %con
 _ZNK8proxygen2hq14HQControlCodec18getIngressSettingsEv.exit: ; preds = %entry
   %settings_.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %2 = load ptr, ptr %settings_.i, align 16
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   ret ptr %2
 }
 
@@ -3685,7 +3685,7 @@ entry:
 define linkonce_odr void @_ZThn32_N8proxygen2hq14HQControlCodec19setHeaderCodecStatsEPNS_11HeaderCodec5StatsE(ptr noundef %this, ptr noundef %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.google::LogMessageFatal", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2.i, ptr noundef nonnull @.str.25, i32 noundef 129)
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -3723,7 +3723,7 @@ entry:
 define linkonce_odr noundef i32 @_ZThn32_NK8proxygen2hq14HQControlCodec20getDefaultWindowSizeEv(ptr noundef %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.google::LogMessageFatal", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2.i, ptr noundef nonnull @.str.25, i32 noundef 124)
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -5026,7 +5026,7 @@ entry:
   %buffer.i.i.i.i = alloca [20 x i8], align 16
   %sizes.i.i = alloca [4 x i64], align 16
   %0 = load ptr, ptr %vs5, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %sizes.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sizes.i.i)
   store i64 3, ptr %sizes.i.i, align 16
   %arrayinit.element.i.i = getelementptr inbounds nuw i8, ptr %sizes.i.i, i64 8
   %1 = load i8, ptr %vs1, align 1
@@ -5079,13 +5079,13 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN5
   br i1 %cmp.not.i.i, label %_ZN5folly6detail15reserveInTargetIA3_chJPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKT_RKT0_DpRKT1_.exit, label %for.body.i.i
 
 _ZN5folly6detail15reserveInTargetIA3_chJPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKT_RKT0_DpRKT1_.exit: ; preds = %for.body.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %sizes.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sizes.i.i)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %add.i.i)
   %5 = load ptr, ptr %vs5, align 8
   %call.i.i.i5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(3) %vs)
   %6 = load i8, ptr %vs1, align 1
   %conv.i.i.i6 = zext i8 %6 to i64
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i.i.i.i)
   br label %for.body.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.i.i.i, %_ZN5folly6detail15reserveInTargetIA3_chJPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKT_RKT0_DpRKT1_.exit
@@ -5143,7 +5143,7 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %while.end.i.i.i.i.i
 
 _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %call1.i.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %buffer.i.i.i.i, i64 noundef %retval.i.i.023.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %buffer.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i.i.i.i)
   %11 = load ptr, ptr %vs3, align 8
   %tobool.not.i.i.i7 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i7, label %_ZN5folly8toAppendIJA3_chPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENSt9enable_ifIXaagesZT_Li3Esr12IsSomeStringINSt14remove_pointerI19__type_pack_elementIXmisPDpT_ELi1EEJSF_EEE4typeEEE5valueEvE4typeEDpRKSE_.exit, label %if.then.i.i.i
@@ -5231,10 +5231,10 @@ declare i64 @llvm.umax.i64(i64, i64) #24
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #24

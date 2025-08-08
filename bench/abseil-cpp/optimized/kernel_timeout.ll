@@ -21,17 +21,11 @@ define dso_local noundef i64 @_ZN4absl24synchronization_internal13KernelTimeout1
   ret i64 %1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind
-declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl24synchronization_internal13KernelTimeoutC2ENS_4TimeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, i64 %1, i32 %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4absl24synchronization_internal13KernelTimeoutC2ENS_4TimeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, i64 %1, i32 %2) unnamed_addr #2 align 2 {
   %4 = icmp eq i64 %1, 9223372036854775807
   %5 = icmp eq i32 %2, -1
   %spec.select.i.i = select i1 %4, i1 %5, i1 false
@@ -52,7 +46,7 @@ define dso_local void @_ZN4absl24synchronization_internal13KernelTimeoutC2ENS_4T
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare noundef i64 @_ZN4absl11ToUnixNanosENS_4TimeE(i64, i32) local_unnamed_addr #4
+declare noundef i64 @_ZN4absl11ToUnixNanosENS_4TimeE(i64, i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4absl24synchronization_internal13KernelTimeoutC2ENS_8DurationE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, i64 %1, i32 %2) unnamed_addr #0 align 2 {
@@ -74,12 +68,12 @@ define dso_local void @_ZN4absl24synchronization_internal13KernelTimeoutC2ENS_8D
   br label %_ZN4absl18ToInt64NanosecondsENS_8DurationE.exit
 
 14:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %1, ptr %4, align 8
   %.sroa.212.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %2, ptr %.sroa.212.0..sroa_idx.i.i, align 8
   %15 = call noundef i64 @_ZN4absl12IDivDurationENS_8DurationES0_PS0_(i64 %1, i32 %2, i64 0, i32 4, ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4absl18ToInt64NanosecondsENS_8DurationE.exit
 
 _ZN4absl18ToInt64NanosecondsENS_8DurationE.exit:  ; preds = %9, %14
@@ -103,7 +97,7 @@ _ZN4absl18ToInt64NanosecondsENS_8DurationE.exit:  ; preds = %9, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK4absl24synchronization_internal13KernelTimeout12MakeAbsNanosEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef i64 @_ZNK4absl24synchronization_internal13KernelTimeout12MakeAbsNanosEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 align 2 {
   %2 = load i64, ptr %0, align 8, !tbaa !4
   %.not = icmp eq i64 %2, -1
   br i1 %.not, label %14, label %3
@@ -134,10 +128,10 @@ define dso_local noundef i64 @_ZNK4absl24synchronization_internal13KernelTimeout
   ret i64 %.0
 }
 
-declare noundef i64 @_ZN4absl19GetCurrentTimeNanosEv() local_unnamed_addr #6
+declare noundef i64 @_ZN4absl19GetCurrentTimeNanosEv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i64 0, -9223372036854775808) i64 @_ZNK4absl24synchronization_internal13KernelTimeout20InNanosecondsFromNowEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i64 0, -9223372036854775808) i64 @_ZNK4absl24synchronization_internal13KernelTimeout20InNanosecondsFromNowEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 align 2 {
   %2 = load i64, ptr %0, align 8, !tbaa !4
   %.not = icmp eq i64 %2, -1
   br i1 %.not, label %13, label %3
@@ -166,7 +160,7 @@ define dso_local noundef range(i64 0, -9223372036854775808) i64 @_ZNK4absl24sync
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout15MakeAbsTimespecEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 align 2 {
+define dso_local { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout15MakeAbsTimespecEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 align 2 {
   %2 = load i64, ptr %0, align 8, !tbaa !4
   %.not.i = icmp eq i64 %2, -1
   br i1 %.not.i, label %_ZNK4absl24synchronization_internal13KernelTimeout12MakeAbsNanosEv.exit, label %3
@@ -208,10 +202,10 @@ _ZNK4absl24synchronization_internal13KernelTimeout12MakeAbsNanosEv.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare { i64, i64 } @_ZN4absl10ToTimespecENS_8DurationE(i64, i32) local_unnamed_addr #4
+declare { i64, i64 } @_ZN4absl10ToTimespecENS_8DurationE(i64, i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout20MakeRelativeTimespecEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 align 2 {
+define dso_local { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout20MakeRelativeTimespecEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 align 2 {
   %2 = load i64, ptr %0, align 8, !tbaa !4
   %.not.i = icmp eq i64 %2, -1
   br i1 %.not.i, label %_ZNK4absl24synchronization_internal13KernelTimeout20InNanosecondsFromNowEv.exit, label %3
@@ -245,7 +239,7 @@ _ZNK4absl24synchronization_internal13KernelTimeout20InNanosecondsFromNowEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout25MakeClockAbsoluteTimespecEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define dso_local { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout25MakeClockAbsoluteTimespecEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = alloca %"class.absl::Duration", align 8
   %4 = alloca %struct.timespec, align 8
   %5 = load i64, ptr %0, align 8, !tbaa !4
@@ -272,7 +266,7 @@ define dso_local { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeou
 
 16:                                               ; preds = %14, %12
   %.pn = phi i64 [ %13, %12 ], [ %15, %14 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = call i32 @clock_gettime(i32 noundef %1, ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %_ZN4abslleENS_8DurationES0_.exit, label %18, !prof !9
@@ -298,7 +292,7 @@ _ZN4abslleENS_8DurationES0_.exit:                 ; preds = %16
   %.lobit.i.i.i = ashr i64 %21, 61
   %.pn17.i.i.i = add nsw i64 %.lobit.i.i.i, %20
   %.pn15.i.i.i = select i1 %22, i32 %24, i32 %23
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.fca.0.extract35, ptr %3, align 8
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.fca.1.extract36, ptr %.sroa.210.0..sroa_idx.i, align 8
@@ -306,7 +300,7 @@ _ZN4abslleENS_8DurationES0_.exit:                 ; preds = %16
   %.sroa.011.0.copyload.i = load i64, ptr %25, align 4
   %.sroa.212.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.212.0.copyload.i = load i32, ptr %.sroa.212.0..sroa_idx.i, align 4, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i.i = icmp eq i64 %.sroa.011.0.copyload.i, 0
   %26 = icmp slt i64 %.sroa.011.0.copyload.i, 1
   %27 = icmp eq i32 %.sroa.212.0.copyload.i, 0
@@ -323,7 +317,7 @@ _ZN4abslleENS_8DurationES0_.exit:                 ; preds = %16
 
 33:                                               ; preds = %31, %29
   %.pn58 = phi { i64, i64 } [ %30, %29 ], [ %32, %31 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
 34:                                               ; preds = %33, %6
@@ -332,15 +326,15 @@ _ZN4abslleENS_8DurationES0_.exit:                 ; preds = %16
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #6
+declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare { i64, i32 } @_ZN4absl20DurationFromTimespecE8timespec(i64, i64) local_unnamed_addr #4
+declare { i64, i32 } @_ZN4absl20DurationFromTimespecE8timespec(i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i64 -1, 9223372036855) i64 @_ZNK4absl24synchronization_internal13KernelTimeout21InMillisecondsFromNowEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i64 -1, 9223372036855) i64 @_ZNK4absl24synchronization_internal13KernelTimeout21InMillisecondsFromNowEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 align 2 {
   %2 = load i64, ptr %0, align 8, !tbaa !4
   %.not = icmp eq i64 %2, -1
   br i1 %.not, label %16, label %3
@@ -377,7 +371,7 @@ _ZNK4absl24synchronization_internal13KernelTimeout20InNanosecondsFromNowEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 -9223372036854775000, -9223372036854775808) i64 @_ZNK4absl24synchronization_internal13KernelTimeout17ToChronoTimePointEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 -9223372036854775000, -9223372036854775808) i64 @_ZNK4absl24synchronization_internal13KernelTimeout17ToChronoTimePointEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !4
   %.not = icmp eq i64 %2, -1
   br i1 %.not, label %16, label %3
@@ -416,7 +410,7 @@ _ZNK4absl24synchronization_internal13KernelTimeout12MakeAbsNanosEv.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 0, -9223372036854775808) i64 @_ZNK4absl24synchronization_internal13KernelTimeout16ToChronoDurationEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, -9223372036854775808) i64 @_ZNK4absl24synchronization_internal13KernelTimeout16ToChronoDurationEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !4
   %.not = icmp eq i64 %2, -1
   br i1 %.not, label %_ZNK4absl24synchronization_internal13KernelTimeout20InNanosecondsFromNowEv.exit, label %3
@@ -444,11 +438,17 @@ _ZNK4absl24synchronization_internal13KernelTimeout20InNanosecondsFromNowEv.exit:
   ret i64 %.sroa.0.0
 }
 
-declare noundef i64 @_ZN4absl12IDivDurationENS_8DurationES0_PS0_(i64, i32, i64, i32, ptr noundef) local_unnamed_addr #6
+declare noundef i64 @_ZN4absl12IDivDurationENS_8DurationES0_PS0_(i64, i32, i64, i32, ptr noundef) local_unnamed_addr #5
 
-declare noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationpLES0_(ptr noundef nonnull align 4 dereferenceable(12), i64, i32) local_unnamed_addr #6
+declare noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationpLES0_(ptr noundef nonnull align 4 dereferenceable(12), i64, i32) local_unnamed_addr #5
 
 declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #7
@@ -457,12 +457,12 @@ declare i64 @llvm.smax.i64(i64, i64) #7
 declare i64 @llvm.umax.i64(i64, i64) #7
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(none) }

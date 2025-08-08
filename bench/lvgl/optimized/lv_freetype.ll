@@ -61,11 +61,8 @@ define range(i32 0, 2) i32 @lv_freetype_init(i32 noundef %0) local_unnamed_addr 
 
 declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define ptr @lv_freetype_get_context() local_unnamed_addr #3 {
+define ptr @lv_freetype_get_context() local_unnamed_addr #2 {
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 856), align 8, !tbaa !3
   ret ptr %1
 }
@@ -121,7 +118,7 @@ define internal noundef zeroext i1 @cache_node_cache_create_cb(ptr noundef captu
   %3 = alloca %struct.FT_Matrix_, align 8
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 856), align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %5, align 8, !tbaa !39
   %7 = load ptr, ptr %0, align 8, !tbaa !38
   %8 = call i32 @FT_New_Face(ptr noundef %6, ptr noundef %7, i64 noundef 0, ptr noundef nonnull %4) #8
@@ -146,7 +143,7 @@ define internal noundef zeroext i1 @cache_node_cache_create_cb(ptr noundef captu
   br label %.preheader.i
 
 lv_freetype_italic_transform.exit:                ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 65536, ptr %3, align 8, !tbaa !42
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 13930, ptr %16, align 8, !tbaa !44
@@ -155,7 +152,7 @@ lv_freetype_italic_transform.exit:                ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 65536, ptr %18, align 8, !tbaa !46
   call void @FT_Set_Transform(ptr noundef nonnull %15, ptr noundef nonnull %3, ptr noundef null) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %19
 
 19:                                               ; preds = %lv_freetype_italic_transform.exit, %9
@@ -165,7 +162,7 @@ lv_freetype_italic_transform.exit:                ; preds = %14
   br label %22
 
 22:                                               ; preds = %2, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.not
 }
 
@@ -202,9 +199,6 @@ define internal void @cache_node_cache_free_cb(ptr noundef captures(none) %0, pt
 declare ptr @lv_cache_create(ptr noundef, i64 noundef, i64 noundef, ptr noundef byval(%struct._lv_cache_ops_t) align 8) local_unnamed_addr #1
 
 declare void @lv_cache_set_name(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define void @lv_freetype_uninit() local_unnamed_addr #0 {
@@ -271,7 +265,7 @@ define ptr @lv_freetype_font_create(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 856), align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = tail call i64 @lv_strlen(ptr noundef nonnull %0) #8
   %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %.preheader.i, label %12
@@ -583,14 +577,14 @@ freetype_on_font_set_cbs.exit:                    ; preds = %99, %101, %102
 
 lv_freetype_drop_face_id.exit:                    ; preds = %49, %44, %lv_freetype_drop_face_id.exit83, %113, %114
   %.0 = phi ptr [ null, %lv_freetype_drop_face_id.exit83 ], [ %115, %114 ], [ null, %113 ], [ null, %44 ], [ null, %49 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
 declare i64 @lv_strlen(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @lv_cache_acquire(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -712,7 +706,7 @@ define void @lv_freetype_italic_transform(ptr noundef %0) local_unnamed_addr #0 
   br label %.preheader
 
 3:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 65536, ptr %2, align 8, !tbaa !42
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 13930, ptr %4, align 8, !tbaa !44
@@ -721,14 +715,14 @@ define void @lv_freetype_italic_transform(ptr noundef %0) local_unnamed_addr #0 
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 65536, ptr %6, align 8, !tbaa !46
   call void @FT_Set_Transform(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef null) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 declare void @FT_Set_Transform(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @lv_freetype_italic_transform_on_pos(i64 %0) local_unnamed_addr #5 {
+define i32 @lv_freetype_italic_transform_on_pos(i64 %0) local_unnamed_addr #4 {
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
@@ -759,7 +753,7 @@ declare i32 @FT_Done_FreeType(ptr noundef) local_unnamed_addr #1
 declare ptr @lv_ll_get_head(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @lv_ll_get_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -775,16 +769,22 @@ declare i32 @FT_Done_Face(ptr noundef) local_unnamed_addr #1
 
 declare i32 @lv_strcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }

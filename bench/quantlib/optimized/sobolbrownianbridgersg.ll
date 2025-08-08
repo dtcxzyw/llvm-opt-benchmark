@@ -82,15 +82,9 @@ eh.resume:                                        ; preds = %if.then.i.i.i.i, %l
   resume { ptr, i32 } %1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZN8QuantLib22SobolBrownianGeneratorC1EmmNS_26SobolBrownianGeneratorBase8OrderingEmNS_8SobolRsg17DirectionIntegersE(ptr noundef nonnull align 8 dereferenceable(448), i64 noundef, i64 noundef, i32 noundef, i64 noundef, i32 noundef) unnamed_addr #2
+declare void @_ZN8QuantLib22SobolBrownianGeneratorC1EmmNS_26SobolBrownianGeneratorBase8OrderingEmNS_8SobolRsg17DirectionIntegersE(ptr noundef nonnull align 8 dereferenceable(448), i64 noundef, i64 noundef, i32 noundef, i64 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8QuantLib22SobolBrownianBridgeRsg12nextSequenceEv(ptr noundef nonnull returned align 8 dereferenceable(480) %this) local_unnamed_addr #0 align 2 {
@@ -108,7 +102,7 @@ entry:
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef double %0(ptr noundef nonnull align 8 dereferenceable(288) %gen)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %output) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %output)
   %vtable1 = load ptr, ptr %gen, align 8, !tbaa !17
   %vfn2 = getelementptr inbounds nuw i8, ptr %vtable1, i64 32
   %1 = load ptr, ptr %vfn2, align 8
@@ -181,7 +175,7 @@ if.then.i.i.i:                                    ; preds = %for.cond.cleanup
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %for.cond.cleanup, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %output) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %output)
   ret void
 
 lpad6:                                            ; preds = %for.body, %for.cond
@@ -244,12 +238,12 @@ if.then.i.i.i12:                                  ; preds = %ehcleanup
   br label %ehcleanup35
 
 ehcleanup35:                                      ; preds = %if.then.i.i.i12, %ehcleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %output) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %output)
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8QuantLib22SobolBrownianBridgeRsg12lastSequenceEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(480) %this) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8QuantLib22SobolBrownianBridgeRsg12lastSequenceEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(480) %this) local_unnamed_addr #2 align 2 {
 entry:
   ret ptr %this
 }
@@ -264,9 +258,9 @@ entry:
   ret i64 %mul
 }
 
-declare noundef i64 @_ZNK8QuantLib26SobolBrownianGeneratorBase15numberOfFactorsEv(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
+declare noundef i64 @_ZNK8QuantLib26SobolBrownianGeneratorBase15numberOfFactorsEv(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #1
 
-declare noundef i64 @_ZNK8QuantLib26SobolBrownianGeneratorBase13numberOfStepsEv(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
+declare noundef i64 @_ZNK8QuantLib26SobolBrownianGeneratorBase13numberOfStepsEv(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8QuantLib32Burley2020SobolBrownianBridgeRsgC2EmmNS_26SobolBrownianGeneratorBase8OrderingEmNS_8SobolRsg17DirectionIntegersEm(ptr noundef nonnull align 8 dereferenceable(504) %this, i64 noundef %factors, i64 noundef %steps, i32 noundef %ordering, i64 noundef %seed, i32 noundef %directionIntegers, i64 noundef %scrambleSeed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -337,7 +331,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i.i, %l
   resume { ptr, i32 } %1
 }
 
-declare void @_ZN8QuantLib32Burley2020SobolBrownianGeneratorC1EmmNS_26SobolBrownianGeneratorBase8OrderingEmNS_8SobolRsg17DirectionIntegersEm(ptr noundef nonnull align 8 dereferenceable(472), i64 noundef, i64 noundef, i32 noundef, i64 noundef, i32 noundef, i64 noundef) unnamed_addr #2
+declare void @_ZN8QuantLib32Burley2020SobolBrownianGeneratorC1EmmNS_26SobolBrownianGeneratorBase8OrderingEmNS_8SobolRsg17DirectionIntegersEm(ptr noundef nonnull align 8 dereferenceable(472), i64 noundef, i64 noundef, i32 noundef, i64 noundef, i32 noundef, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8QuantLib32Burley2020SobolBrownianBridgeRsg12nextSequenceEv(ptr noundef nonnull returned align 8 dereferenceable(504) %this) local_unnamed_addr #0 align 2 {
@@ -348,7 +342,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8QuantLib32Burley2020SobolBrownianBridgeRsg12lastSequenceEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(504) %this) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8QuantLib32Burley2020SobolBrownianBridgeRsg12lastSequenceEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(504) %this) local_unnamed_addr #2 align 2 {
 entry:
   ret ptr %this
 }
@@ -364,33 +358,38 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { noreturn }
 attributes #10 = { builtin allocsize(0) }
 attributes #11 = { builtin nounwind }
-attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -569,16 +569,10 @@ copy_picture_range.exit218:                       ; preds = %242
   ret i32 %.0178
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-declare void @av_refstruct_replace(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @av_refstruct_replace(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 1) i32 @h264_slice_header_init(ptr noundef %0) unnamed_addr #0 {
@@ -853,16 +847,16 @@ switch.early.test:                                ; preds = %100
   ret i32 %.0
 }
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @ff_h264_replace_picture(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ff_h264_replace_picture(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ff_h2645_sei_ctx_replace(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ff_h2645_sei_ctx_replace(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ff_h264_execute_ref_pic_marking(ptr noundef) local_unnamed_addr #3
+declare i32 @ff_h264_execute_ref_pic_marking(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ff_h264_update_thread_context_for_user(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+define noundef i32 @ff_h264_update_thread_context_for_user(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1819,7 +1813,7 @@ h264_slice_header_parse.exit:                     ; preds = %.thread304.i, %536,
   br i1 %.not124, label %581, label %570
 
 570:                                              ; preds = %568
-  call void @llvm.lifetime.start.p0(i64 35568, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %571 = tail call i32 @ff_h264_execute_decode_slices(ptr noundef nonnull %0)
   %572 = icmp slt i32 %571, 0
   br i1 %572, label %573, label %578
@@ -1838,7 +1832,7 @@ h264_slice_header_parse.exit:                     ; preds = %.thread304.i, %536,
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(35568) %579, ptr noundef nonnull align 16 dereferenceable(35568) %13, i64 35568, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(35568) %13, ptr noundef nonnull align 16 dereferenceable(35568) %7, i64 35568, i1 false)
   %580 = load ptr, ptr %8, align 8, !tbaa !149
-  call void @llvm.lifetime.end.p0(i64 35568, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %581
 
 581:                                              ; preds = %578, %568
@@ -2865,7 +2859,7 @@ h264_init_ps.exit.i:                              ; preds = %937, %910
   br label %.backedge.i
 
 1117:                                             ; preds = %1115
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %1118 = load ptr, ptr %692, align 8, !tbaa !76
   %1119 = getelementptr inbounds nuw i8, ptr %1118, i64 2004
   %1120 = load i32, ptr %1119, align 4, !tbaa !81
@@ -2934,7 +2928,7 @@ h264_init_ps.exit.i:                              ; preds = %937, %910
   br i1 %1160, label %.thread392.i, label %1161
 
 .thread392.i:                                     ; preds = %1153
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %h264_slice_header_parse.exit.thread
 
 1161:                                             ; preds = %1153
@@ -3113,7 +3107,7 @@ color_frame.exit.i:                               ; preds = %.loopexit.i.i, %.pr
   %1263 = load ptr, ptr %1064, align 8, !tbaa !117
   %1264 = getelementptr inbounds nuw i8, ptr %1263, i64 148
   store i32 %1262, ptr %1264, align 4, !tbaa !259
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %1261, %..backedge_crit_edge.i
@@ -3645,16 +3639,16 @@ release_unused_pictures.exit.i:                   ; preds = %1310
   br i1 %1533, label %1534, label %h264_export_frame_props.exit.thread388.i
 
 1534:                                             ; preds = %1530
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %1535 = load ptr, ptr %433, align 8, !tbaa !96
   %1536 = call i32 @ff_frame_new_side_data(ptr noundef %1535, ptr noundef nonnull %1404, i32 noundef 16, i64 noundef 16, ptr noundef nonnull %5) #11
   %1537 = icmp sgt i32 %1536, -1
   br i1 %1537, label %1538, label %h264_export_frame_props.exit.thread390.i
 
 h264_export_frame_props.exit.thread390.i:         ; preds = %1534
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %h264_slice_header_parse.exit.thread
 
 1538:                                             ; preds = %1534
@@ -3707,8 +3701,8 @@ h264_export_frame_props.exit.thread390.i:         ; preds = %1534
 
 h264_export_frame_props.exit.i:                   ; preds = %1546, %1540, %1538
   store i32 0, ptr %1531, align 8, !tbaa !303
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %h264_export_frame_props.exit.thread388.i
 
 h264_export_frame_props.exit.thread388.i:         ; preds = %h264_export_frame_props.exit.i, %1530
@@ -4388,7 +4382,7 @@ h264_field_start.exit:                            ; preds = %.thread.i.i, %1742,
 1918:                                             ; preds = %1998, %1909
   %1919 = phi i1 [ true, %1909 ], [ false, %1998 ]
   %indvars.iv279.i = phi i64 [ 0, %1909 ], [ 1, %1998 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %1920 = load i32, ptr %1892, align 16, !tbaa !332
   %1921 = and i32 %1920, 31
   %1922 = zext nneg i32 %1921 to i64
@@ -4551,7 +4545,7 @@ h264_field_start.exit:                            ; preds = %.thread.i.i, %1742,
   br i1 %exitcond278.not.i, label %1998, label %1984, !llvm.loop !345
 
 1998:                                             ; preds = %1984
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %1919, label %1918, label %1999, !llvm.loop !346
 
 1999:                                             ; preds = %1998
@@ -4700,7 +4694,7 @@ h264_slice_init.exit:                             ; preds = %2078, %2020
   br label %h264_slice_header_parse.exit.thread
 
 .critedge:                                        ; preds = %573
-  call void @llvm.lifetime.end.p0(i64 35568, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %h264_slice_header_parse.exit.thread
 
 h264_slice_header_parse.exit.thread:              ; preds = %1110, %589, %1805, %1787, %1770, %1511, %1451, %1093, %.thread392.i, %934, %947, %921, %h264_export_frame_props.exit.thread390.i, %1051, %1055, %.loopexit.i, %1299, %685, %678, %473, %460, %430, %181, %204, %216, %546, %534, %501, %486, %443, %172, %132, %115, %581, %638, %643, %649, %655, %660, %594, %595, %599, %590, %.critedge, %h264_slice_init.exit, %1763, %1758, %563, %550
@@ -4899,15 +4893,15 @@ define range(i32 -2147483648, 1) i32 @ff_h264_execute_decode_slices(ptr noundef 
   ret i32 %.0
 }
 
-declare i32 @ff_h264_field_end(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @ff_h264_field_end(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ff_thread_report_progress(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @ff_thread_report_progress(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #5
+declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1094995529, 5) i32 @ff_h264_get_slice_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define range(i32 -1094995529, 5) i32 @ff_h264_get_slice_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i32, ptr %2, align 4, !tbaa !169
   %switch.tableidx = add i32 %3, -1
@@ -7336,30 +7330,30 @@ fill_filter_caches.exit:                          ; preds = %477, %474, %463, %9
   ret void
 }
 
-declare i32 @ff_set_sar(ptr noundef, i64) local_unnamed_addr #3
+declare i32 @ff_set_sar(ptr noundef, i64) local_unnamed_addr #2
 
-declare i32 @av_pix_fmt_get_chroma_sub_sample(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @av_pix_fmt_get_chroma_sub_sample(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @av_reduce(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @av_reduce(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @ff_h264_free_tables(ptr noundef) local_unnamed_addr #3
+declare void @ff_h264_free_tables(ptr noundef) local_unnamed_addr #2
 
-declare i32 @ff_h264_alloc_tables(ptr noundef) local_unnamed_addr #3
+declare i32 @ff_h264_alloc_tables(ptr noundef) local_unnamed_addr #2
 
-declare void @ff_h264dsp_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @ff_h264dsp_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ff_h264chroma_init(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @ff_h264chroma_init(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ff_h264qpel_init(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @ff_h264qpel_init(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ff_h264_pred_init(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @ff_h264_pred_init(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ff_videodsp_init(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @ff_videodsp_init(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ff_h264_slice_context_init(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ff_h264_slice_context_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 256) i32 @get_ue_golomb_31(ptr noundef captures(none) %0) unnamed_addr #7 {
+define internal fastcc range(i32 0, 256) i32 @get_ue_golomb_31(ptr noundef captures(none) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !166
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7387,7 +7381,7 @@ define internal fastcc range(i32 0, 256) i32 @get_ue_golomb_31(ptr noundef captu
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @get_se_golomb(ptr noundef captures(none) %0) unnamed_addr #7 {
+define internal fastcc i32 @get_se_golomb(ptr noundef captures(none) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !166
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7459,15 +7453,15 @@ define internal fastcc i32 @get_se_golomb(ptr noundef captures(none) %0) unnamed
   ret i32 %.0
 }
 
-declare i32 @ff_h264_parse_ref_count(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ff_h264_parse_ref_count(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ff_h264_decode_ref_pic_list_reordering(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ff_h264_decode_ref_pic_list_reordering(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ff_h264_pred_weight_table(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ff_h264_pred_weight_table(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ff_h264_decode_ref_pic_marking(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ff_h264_decode_ref_pic_marking(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @avpriv_request_sample(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @avpriv_request_sample(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 1) i32 @h264_frame_start(ptr noundef %0) unnamed_addr #0 {
@@ -8039,21 +8033,21 @@ alloc_picture.exit.thread:                        ; preds = %212, %.thread.i, %.
   ret i32 %.0
 }
 
-declare void @ff_thread_await_progress(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @ff_thread_await_progress(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ff_thread_release_ext_buffer(ptr noundef) local_unnamed_addr #3
+declare void @ff_thread_release_ext_buffer(ptr noundef) local_unnamed_addr #2
 
-declare i32 @ff_thread_ref_frame(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ff_thread_ref_frame(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-declare i32 @ff_h264_init_poc(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @ff_h264_init_poc(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @get_pixel_format(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca [3 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 734784
   %5 = load ptr, ptr %4, align 8, !tbaa !76
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2004
@@ -8316,66 +8310,66 @@ define internal fastcc i32 @get_pixel_format(ptr noundef readonly captures(none)
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.critedge, %110
   %.058 = phi i32 [ -1094995529, %110 ], [ %122, %.critedge ], [ %117, %.lr.ph.split ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.058
 }
 
-declare i32 @ff_h264_get_profile(ptr noundef) local_unnamed_addr #3
+declare i32 @ff_h264_get_profile(ptr noundef) local_unnamed_addr #2
 
-declare ptr @av_color_transfer_name(i32 noundef) local_unnamed_addr #3
+declare ptr @av_color_transfer_name(i32 noundef) local_unnamed_addr #2
 
-declare void @ff_h264_flush_change(ptr noundef) local_unnamed_addr #3
+declare void @ff_h264_flush_change(ptr noundef) local_unnamed_addr #2
 
-declare ptr @av_get_pix_fmt_name(i32 noundef) local_unnamed_addr #3
+declare ptr @av_get_pix_fmt_name(i32 noundef) local_unnamed_addr #2
 
-declare i32 @ff_get_format(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ff_get_format(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ff_thread_can_start_frame(ptr noundef) local_unnamed_addr #3
+declare i32 @ff_thread_can_start_frame(ptr noundef) local_unnamed_addr #2
 
-declare void @ff_h264_unref_picture(ptr noundef) local_unnamed_addr #3
+declare void @ff_h264_unref_picture(ptr noundef) local_unnamed_addr #2
 
-declare void @ff_h264_set_erpic(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ff_h264_set_erpic(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ff_h264_ref_picture(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ff_h264_ref_picture(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ff_er_frame_start(ptr noundef) local_unnamed_addr #3
+declare void @ff_er_frame_start(ptr noundef) local_unnamed_addr #2
 
-declare i32 @ff_frame_new_side_data_from_buf(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ff_frame_new_side_data_from_buf(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ff_thread_get_ext_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @ff_thread_get_ext_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @ff_thread_get_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @ff_thread_get_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @ff_hwaccel_frame_priv_alloc(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ff_hwaccel_frame_priv_alloc(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @av_refstruct_pool_get(ptr noundef) local_unnamed_addr #3
+declare ptr @av_refstruct_pool_get(ptr noundef) local_unnamed_addr #2
 
-declare ptr @av_refstruct_ref_c(ptr noundef) local_unnamed_addr #3
+declare ptr @av_refstruct_ref_c(ptr noundef) local_unnamed_addr #2
 
-declare ptr @av_refstruct_pool_alloc(i64 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @av_refstruct_pool_alloc(i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @av_refstruct_unref(ptr noundef) local_unnamed_addr #3
+declare void @av_refstruct_unref(ptr noundef) local_unnamed_addr #2
 
-declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #3
+declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #2
 
-declare void @av_memcpy_backptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @av_memcpy_backptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @ff_h264_sei_process_picture_timing(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ff_h264_sei_process_picture_timing(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ff_h2645_sei_to_frame(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @ff_h2645_sei_to_frame(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @ff_frame_new_side_data(ptr noundef, ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ff_frame_new_side_data(ptr noundef, ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @av_timecode_get_smpte(i64, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @av_timecode_get_smpte(i64, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @av_timecode_make_smpte_tc_string2(ptr noundef, i64, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @av_timecode_make_smpte_tc_string2(ptr noundef, i64, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @ff_h264_build_ref_list(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ff_h264_build_ref_list(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @implicit_weight_table(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((96, 104), (112, 128)) %1, i32 noundef range(i32 -1, 2) %2) unnamed_addr #9 {
+define internal fastcc void @implicit_weight_table(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((96, 104), (112, 128)) %1, i32 noundef range(i32 -1, 2) %2) unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %5 = icmp slt i32 %2, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -8604,19 +8598,19 @@ define internal fastcc void @implicit_weight_table(ptr noundef readonly captures
   ret void
 }
 
-declare void @ff_h264_direct_dist_scale_factor(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ff_h264_direct_dist_scale_factor(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ff_h264_direct_ref_list_init(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ff_h264_direct_ref_list_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare signext i8 @av_get_picture_type_char(i32 noundef) local_unnamed_addr #3
+declare signext i8 @av_get_picture_type_char(i32 noundef) local_unnamed_addr #2
 
-declare i32 @ff_init_cabac_decoder(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @ff_init_cabac_decoder(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ff_h264_init_cabac_states(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ff_h264_init_cabac_states(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ff_h264_decode_mb_cabac(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ff_h264_decode_mb_cabac(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ff_h264_hl_decode_mb(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ff_h264_hl_decode_mb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_finish_row(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -8692,21 +8686,27 @@ define internal fastcc void @decode_finish_row(ptr noundef %0, ptr noundef %1) u
   ret void
 }
 
-declare i32 @ff_h264_decode_mb_cavlc(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ff_h264_decode_mb_cavlc(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @av_fast_malloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @av_fast_malloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @av_fast_mallocz(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @av_fast_mallocz(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @av_freep(ptr noundef) local_unnamed_addr #3
+declare void @av_freep(ptr noundef) local_unnamed_addr #2
 
-declare void @ff_er_add_slice(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @ff_er_add_slice(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ff_h264_draw_horiz_band(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @ff_h264_draw_horiz_band(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ff_h264_filter_mb(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @ff_h264_filter_mb(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ff_h264_filter_mb_fast(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @ff_h264_filter_mb_fast(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10
@@ -8724,15 +8724,15 @@ declare i32 @llvm.smax.i32(i32, i32) #10
 declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }
 attributes #12 = { noreturn nounwind }

@@ -110,7 +110,7 @@ declare i32 @test_printf_stderr(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @test_info_c90(ptr noundef %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #8
   %4 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.6) #8
@@ -125,26 +125,20 @@ define void @test_info_c90(ptr noundef %0, ...) local_unnamed_addr #0 {
 test_fail_message_va.exit:                        ; preds = %1, %5
   %8 = call i32 @test_flush_stderr() #8
   call void @llvm.va_end.p0(ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.va_end.p0(ptr) #2
 
 ; Function Attrs: nounwind uwtable
 define void @test_info(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #8
   %.not20.i.i = icmp eq ptr %0, null
@@ -167,14 +161,14 @@ test_fail_message_prefix.exit.i:                  ; preds = %6, %3
 test_fail_message_va.exit:                        ; preds = %test_fail_message_prefix.exit.i, %9
   %12 = call i32 @test_flush_stderr() #8
   call void @llvm.va_end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @test_error_c90(ptr noundef %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
   %4 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.6) #8
@@ -190,14 +184,14 @@ test_fail_message_va.exit:                        ; preds = %1, %5
   %8 = call i32 @test_flush_stderr() #8
   call void @llvm.va_end.p0(ptr nonnull %2)
   %9 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @test_error(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
   %.not20.i.i = icmp eq ptr %0, null
@@ -221,7 +215,7 @@ test_fail_message_va.exit:                        ; preds = %test_fail_message_p
   %12 = call i32 @test_flush_stderr() #8
   call void @llvm.va_end.p0(ptr nonnull %4)
   %13 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -235,10 +229,10 @@ define void @test_perror(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #4
+declare ptr @strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #5
+declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @test_note(ptr noundef %0, ...) local_unnamed_addr #0 {
@@ -248,12 +242,12 @@ define void @test_note(ptr noundef %0, ...) local_unnamed_addr #0 {
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.va_start.p0(ptr nonnull %2)
   %5 = call i32 @test_vprintf_stderr(ptr noundef nonnull %0, ptr noundef nonnull %2) #8
   call void @llvm.va_end.p0(ptr nonnull %2)
   %6 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %7
 
 7:                                                ; preds = %4, %1
@@ -270,7 +264,7 @@ declare i32 @test_flush_stderr() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noundef i32 @test_skip(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #8
   %.not20.i.i = icmp eq ptr %0, null
@@ -293,14 +287,14 @@ test_fail_message_prefix.exit.i:                  ; preds = %6, %3
 test_fail_message_va.exit:                        ; preds = %test_fail_message_prefix.exit.i, %9
   %12 = call i32 @test_flush_stderr() #8
   call void @llvm.va_end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 123
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @test_skip_c90(ptr noundef %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #8
   %4 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.6) #8
@@ -316,7 +310,7 @@ test_fail_message_va.exit:                        ; preds = %1, %5
   %8 = call i32 @test_flush_stderr() #8
   call void @llvm.va_end.p0(ptr nonnull %2)
   %9 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 123
 }
 
@@ -350,7 +344,7 @@ define range(i32 0, 2) i32 @test_int_eq(ptr noundef %0, i32 noundef %1, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal void @test_fail_message(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ...) unnamed_addr #0 {
   %9 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.va_start.p0(ptr nonnull %9)
   %10 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
   %.not18.i.i = icmp eq ptr %3, null
@@ -399,7 +393,7 @@ test_fail_message_prefix.exit.i:                  ; preds = %22, %21
 test_fail_message_va.exit:                        ; preds = %test_fail_message_prefix.exit.i, %25
   %28 = call i32 @test_flush_stderr() #8
   call void @llvm.va_end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -1377,12 +1371,12 @@ define range(i32 0, 2) i32 @test_str_eq(ptr noundef %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @test_fail_string_message(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @test_str_ne(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -1466,7 +1460,7 @@ define range(i32 0, 2) i32 @test_strn_eq(ptr noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare i64 @OPENSSL_strnlen(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2210,16 +2204,22 @@ print_time.exit17:                                ; preds = %print_time.exit, %1
 
 declare ptr @ASN1_STRING_get0_data(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(none) }

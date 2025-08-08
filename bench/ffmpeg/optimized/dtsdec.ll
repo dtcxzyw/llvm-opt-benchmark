@@ -16,9 +16,9 @@ define internal range(i32 0, 52) i32 @dts_probe(ptr noundef readonly captures(no
   %2 = alloca [64 x i32], align 16
   %3 = alloca [82 x i8], align 16
   %4 = alloca %struct.DCACoreFrameHeader, align 2
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %2, i8 0, i64 256, i1 false)
-  call void @llvm.lifetime.start.p0(i64 82, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(82) %3, i8 0, i64 82, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !4
@@ -38,7 +38,7 @@ define internal range(i32 0, 52) i32 @dts_probe(ptr noundef readonly captures(no
   %.068114 = phi i32 [ 1, %.lr.ph ], [ %.169, %109 ]
   %.070113 = phi i64 [ 0, %.lr.ph ], [ %.171, %109 ]
   %.073112 = phi i32 [ 0, %.lr.ph ], [ %.174, %109 ]
-  call void @llvm.lifetime.start.p0(i64 26, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = load ptr, ptr %8, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv
   %14 = shl i32 %.065116, 16
@@ -199,7 +199,7 @@ define internal range(i32 0, 52) i32 @dts_probe(ptr noundef readonly captures(no
 109:                                              ; preds = %86, %83, %79, %98, %94, %90, %32, %64, %60, %57, %35, %33, %101, %77
   %.174 = phi i32 [ %78, %77 ], [ %.073112, %101 ], [ %.073112, %33 ], [ %.073112, %35 ], [ %.073112, %57 ], [ %.073112, %60 ], [ %.073112, %64 ], [ %.073112, %32 ], [ %.073112, %90 ], [ %.073112, %94 ], [ %.073112, %98 ], [ %.073112, %79 ], [ %.073112, %83 ], [ %.073112, %86 ]
   %.1 = phi i32 [ %.2, %77 ], [ %.066115, %101 ], [ %.066115, %33 ], [ %.066115, %35 ], [ %.066115, %57 ], [ %.066115, %60 ], [ %.066115, %64 ], [ %.066115, %32 ], [ %.066115, %90 ], [ %.066115, %94 ], [ %.066115, %98 ], [ %.066115, %79 ], [ %.066115, %83 ], [ %.066115, %86 ]
-  call void @llvm.lifetime.end.p0(i64 26, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %110 = load i32, ptr %5, align 8, !tbaa !4
   %111 = add nsw i32 %110, -2
@@ -263,8 +263,8 @@ define internal range(i32 0, 52) i32 @dts_probe(ptr noundef readonly captures(no
 
 140:                                              ; preds = %136, %._crit_edge, %139
   %.0 = phi i32 [ 0, %139 ], [ 51, %._crit_edge ], [ 51, %136 ]
-  call void @llvm.lifetime.end.p0(i64 82, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -272,14 +272,11 @@ declare i32 @ff_raw_audio_read_header(ptr noundef) #1
 
 declare i32 @ff_raw_read_partial_packet(ptr noundef, ptr noundef) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @av_crc(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @av_crc(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 declare ptr @av_crc_get_table(i32 noundef) local_unnamed_addr #1
 
@@ -288,7 +285,10 @@ declare i32 @avpriv_dca_convert_bitstream(ptr noundef, i32 noundef, ptr noundef,
 declare i32 @avpriv_dca_parse_core_frame_header(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
@@ -304,9 +304,9 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }

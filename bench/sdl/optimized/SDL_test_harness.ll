@@ -80,7 +80,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @SDLTest_GenerateRunSeed(ptr noundef writeonly captures(address_is_null, ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i64 @SDL_GetPerformanceCounter() #8
   store i64 %4, ptr %3, align 8
   %.not = icmp eq ptr %0, null
@@ -122,28 +122,22 @@ define dso_local noundef ptr @SDLTest_GenerateRunSeed(ptr noundef writeonly capt
 
 15:                                               ; preds = %13, %8, %5
   %.0 = phi ptr [ null, %8 ], [ %0, %13 ], [ null, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @SDL_GetPerformanceCounter() local_unnamed_addr #1
 
-declare i64 @SDL_GetPerformanceCounter() local_unnamed_addr #2
+declare void @SDLTest_LogError(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @SDLTest_LogError(ptr noundef, ...) local_unnamed_addr #2
-
-declare i32 @SDL_rand_r(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @SDL_rand_r(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 3) i32 @SDLTest_ExecuteTestSuiteRunner(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca [17 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %6, 1
@@ -165,7 +159,7 @@ define dso_local range(i32 -1, 3) i32 @SDLTest_ExecuteTestSuiteRunner(ptr nounde
   br i1 %14, label %15, label %22
 
 15:                                               ; preds = %12, %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = tail call i64 @SDL_GetPerformanceCounter() #8
   store i64 %16, ptr %3, align 8
   br label %.preheader.i
@@ -186,7 +180,7 @@ define dso_local range(i32 -1, 3) i32 @SDLTest_ExecuteTestSuiteRunner(ptr nounde
 SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 0, ptr %21, align 16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %22
 
 22:                                               ; preds = %SDLTest_GenerateRunSeed.exit, %12
@@ -717,7 +711,7 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
 231:                                              ; preds = %225, %.thread410
   %.sink = phi i64 [ %230, %.thread410 ], [ %227, %225 ]
   call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.23, i32 noundef %226, i64 noundef %.sink) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %232 = load ptr, ptr %148, align 8
   %.not.i = icmp eq ptr %232, null
@@ -740,7 +734,7 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
 
 SDLTest_RunTest.exit.thread416:                   ; preds = %236
   call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef nonnull %234, ptr noundef nonnull @.str.52) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %280
 
 238:                                              ; preds = %236
@@ -848,11 +842,11 @@ SDLTest_SetTestTimeout.exit.i:                    ; preds = %241, %238
   br label %SDLTest_RunTest.exit
 
 SDLTest_RunTest.exit.thread:                      ; preds = %247, %235
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %283
 
 SDLTest_RunTest.exit:                             ; preds = %269, %272, %274, %276
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   switch i32 %.029.i, label %283 [
     i32 0, label %277
     i32 3, label %280
@@ -1066,26 +1060,26 @@ SDLTest_RunTest.exit:                             ; preds = %269, %272, %274, %2
 
 348:                                              ; preds = %.thread420, %.loopexit, %113, %._crit_edge482, %44, %._crit_edge.thread
   %.0 = phi i32 [ -1, %._crit_edge.thread ], [ 2, %._crit_edge482 ], [ %.0316, %.loopexit ], [ %115, %113 ], [ -1, %44 ], [ %165, %.thread420 ]
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare void @SDLTest_Log(ptr noundef, ...) local_unnamed_addr #2
+declare void @SDLTest_Log(ptr noundef, ...) local_unnamed_addr #1
 
-declare noalias ptr @SDL_malloc(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_malloc(i64 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_free(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_OutOfMemory() local_unnamed_addr #2
+declare zeroext i1 @SDL_OutOfMemory() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @SDLTest_GenerateExecKey(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483647, -2147483648) %3) unnamed_addr #0 {
   %5 = alloca %struct.SDLTest_Md5Context, align 4
   %6 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i8, ptr %0, align 1
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %10
@@ -1160,14 +1154,14 @@ define internal fastcc i64 @SDLTest_GenerateExecKey(ptr noundef nonnull %0, ptr 
 
 40:                                               ; preds = %35, %34, %22, %19, %14, %9
   %.0 = phi i64 [ 0, %9 ], [ 0, %14 ], [ 0, %19 ], [ 0, %22 ], [ %39, %35 ], [ 0, %34 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0
 }
 
-declare void @SDLTest_FuzzerInit(i64 noundef) local_unnamed_addr #2
+declare void @SDLTest_FuzzerInit(i64 noundef) local_unnamed_addr #1
 
-declare i32 @SDLTest_RandomIntegerInRange(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SDLTest_RandomIntegerInRange(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @SDLTest_CreateTestSuiteRunner(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1217,7 +1211,7 @@ define dso_local noundef ptr @SDLTest_CreateTestSuiteRunner(ptr noundef readonly
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @SDL_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @SDLTest_TestSuiteCommonArg(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
@@ -1322,61 +1316,67 @@ define dso_local void @SDLTest_DestroyTestSuiteRunner(ptr noundef %0) local_unna
   ret void
 }
 
-declare i64 @SDL_GetPerformanceFrequency() local_unnamed_addr #2
+declare i64 @SDL_GetPerformanceFrequency() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare i32 @SDL_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @SDL_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i64 @SDL_strlen(ptr noundef) local_unnamed_addr #2
+declare i64 @SDL_strlen(ptr noundef) local_unnamed_addr #1
 
-declare void @SDLTest_Md5Init(ptr noundef) local_unnamed_addr #2
+declare void @SDLTest_Md5Init(ptr noundef) local_unnamed_addr #1
 
-declare void @SDLTest_Md5Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @SDLTest_Md5Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @SDLTest_Md5Final(ptr noundef) local_unnamed_addr #2
+declare void @SDLTest_Md5Final(ptr noundef) local_unnamed_addr #1
 
-declare void @SDLTest_ResetAssertSummary() local_unnamed_addr #2
+declare void @SDLTest_ResetAssertSummary() local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal noundef i32 @SDLTest_BailOut(ptr readnone captures(none) %0, i32 %1, i32 %2) #5 {
+define internal noundef i32 @SDLTest_BailOut(ptr readnone captures(none) %0, i32 %1, i32 %2) #4 {
   tail call void (ptr, ...) @SDLTest_LogError(ptr noundef nonnull @.str.61) #8
   tail call void @exit(i32 noundef -1) #10
   unreachable
 }
 
-declare i32 @SDLTest_AssertSummaryToTestResult() local_unnamed_addr #2
+declare i32 @SDLTest_AssertSummaryToTestResult() local_unnamed_addr #1
 
-declare zeroext i1 @SDL_RemoveTimer(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_RemoveTimer(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDLTest_GetFuzzerInvocationCount() local_unnamed_addr #2
+declare i32 @SDLTest_GetFuzzerInvocationCount() local_unnamed_addr #1
 
-declare void @SDLTest_LogAssertSummary() local_unnamed_addr #2
+declare void @SDLTest_LogAssertSummary() local_unnamed_addr #1
 
-declare i32 @SDL_AddTimer(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_AddTimer(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetError() local_unnamed_addr #2
+declare ptr @SDL_GetError() local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #6
+declare void @exit(i32 noundef) local_unnamed_addr #5
 
-declare i32 @SDL_atoi(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_atoi(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_sscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @SDL_sscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare noalias ptr @SDL_strdup(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_strdup(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind allocsize(0,1) }

@@ -573,7 +573,7 @@ define internal noundef nonnull ptr @kdf_scrypt_settable_ctx_params(ptr readnone
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @kdf_scrypt_set_ctx_params(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq ptr %1, null
   br i1 %4, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit
 
@@ -753,7 +753,7 @@ scrypt_set_membuf.exit62:                         ; preds = %39, %36, %33, %scry
 
 ossl_param_is_empty.exit.thread:                  ; preds = %39, %33, %22, %16, %2, %80, %83, %87, %71, %62, %53, %42, %ossl_param_is_empty.exit, %89
   %.0 = phi i32 [ 1, %89 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %42 ], [ 0, %53 ], [ 0, %62 ], [ 0, %71 ], [ 0, %87 ], [ 0, %83 ], [ 0, %80 ], [ 1, %2 ], [ 0, %16 ], [ 0, %22 ], [ 0, %33 ], [ 0, %39 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -779,15 +779,9 @@ define internal i32 @kdf_scrypt_get_ctx_params(ptr readnone captures(none) %0, p
 
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @ossl_prov_is_running() local_unnamed_addr #2
 
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @EVP_MD_up_ref(ptr noundef) local_unnamed_addr #2
 
@@ -841,7 +835,7 @@ declare i32 @ossl_pkcs5_pbkdf2_hmac_ex(ptr noundef, i32 noundef, ptr noundef, i3
 define internal fastcc void @scryptBlockMix(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef range(i64 1, 0) %2) unnamed_addr #0 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca [16 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = shl i64 %2, 1
   %.idx = shl i64 %2, 7
   %7 = getelementptr i8, ptr %1, i64 %.idx
@@ -887,7 +881,7 @@ define internal fastcc void @scryptBlockMix(ptr noundef nonnull writeonly captur
   br i1 %exitcond.not, label %31, label %24, !llvm.loop !42
 
 31:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 16 dereferenceable(64) %5, i64 64, i1 false)
   %.promoted.i = load i32, ptr %4, align 16, !tbaa !28
   %.promoted7.i = load i32, ptr %9, align 16, !tbaa !28
@@ -1058,7 +1052,7 @@ define internal fastcc void @scryptBlockMix(ptr noundef nonnull writeonly captur
 
 salsa208_word_specification.exit:                 ; preds = %147
   call void @OPENSSL_cleanse(ptr noundef nonnull %4, i64 noundef 64) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %153 = lshr i64 %.01433, 1
   %154 = trunc i64 %.01433 to i1
   %155 = select i1 %154, i64 %2, i64 0
@@ -1072,12 +1066,12 @@ salsa208_word_specification.exit:                 ; preds = %147
 
 ._crit_edge:                                      ; preds = %salsa208_word_specification.exit, %3
   call void @OPENSSL_cleanse(ptr noundef nonnull %5, i64 noundef 64) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1114,6 +1108,12 @@ declare ptr @OSSL_PARAM_locate(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @OSSL_PARAM_set_size_t(ptr noundef, i64 noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #5
 
@@ -1126,8 +1126,8 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nounwind }

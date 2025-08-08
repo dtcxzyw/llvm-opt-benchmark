@@ -200,14 +200,14 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %17, 
 
 27:                                               ; preds = %3
   tail call fastcc void @_ZL16create_directoryPKci(ptr noundef %1, i32 noundef %2)
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %1) #21
   call fastcc void @_ZL16create_directoryPKci(ptr noundef nonnull %4, i32 noundef %2)
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %29 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %1) #21
   call fastcc void @_ZL16create_directoryPKci(ptr noundef nonnull %5, i32 noundef %2)
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %5) #21
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = call i32 @codegen_data_header(ptr noundef %1, i32 noundef %2)
   %31 = call i32 @codegen_data_source(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
   %32 = call i32 @codegen_example(ptr noundef %1, i32 noundef %2)
@@ -218,22 +218,19 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %17, 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @codegen_create_directories(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = alloca [2048 x i8], align 16
   %4 = alloca [2048 x i8], align 16
   tail call fastcc void @_ZL16create_directoryPKci(ptr noundef %0, i32 noundef %1)
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %0) #21
   call fastcc void @_ZL16create_directoryPKci(ptr noundef nonnull %3, i32 noundef %1)
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %0) #21
   call fastcc void @_ZL16create_directoryPKci(ptr noundef nonnull %4, i32 noundef %1)
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4) #21
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
@@ -241,7 +238,7 @@ define noundef i32 @codegen_create_directories(ptr noundef %0, i32 noundef %1) l
 define noundef i32 @codegen_data_header(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = alloca [2048 x i8], align 16
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %0) #21
   %6 = call noalias ptr @fopen(ptr noundef nonnull %3, ptr noundef nonnull @.str.7)
   %7 = icmp eq ptr %6, null
@@ -257,7 +254,7 @@ define noundef i32 @codegen_data_header(ptr noundef %0, i32 noundef %1) local_un
   unreachable
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = call i64 @time(ptr noundef nonnull %4) #21
   %16 = call i64 @fwrite(ptr nonnull @.str.9, i64 3, i64 1, ptr nonnull %6)
   %17 = call ptr @ctime(ptr noundef nonnull %4) #21
@@ -281,8 +278,8 @@ define noundef i32 @codegen_data_header(ptr noundef %0, i32 noundef %1) local_un
   br label %32
 
 32:                                               ; preds = %30, %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
@@ -334,7 +331,7 @@ define noundef i32 @codegen_data_source(ptr noundef readonly captures(none) %0, 
   %47 = alloca %"class.Eigen::CwiseNullaryOp", align 8
   %48 = alloca %"class.Eigen::Matrix", align 8
   %49 = alloca %"class.Eigen::CwiseNullaryOp", align 8
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load ptr, ptr %50, align 8, !tbaa !36
   %52 = load i32, ptr %51, align 8, !tbaa !38
@@ -357,7 +354,7 @@ define noundef i32 @codegen_data_source(ptr noundef readonly captures(none) %0, 
   unreachable
 
 66:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %67 = call i64 @time(ptr noundef nonnull %5) #21
   %68 = call i64 @fwrite(ptr nonnull @.str.9, i64 3, i64 1, ptr nonnull %58)
   %69 = call ptr @ctime(ptr noundef nonnull %5) #21
@@ -377,7 +374,7 @@ define noundef i32 @codegen_data_source(ptr noundef readonly captures(none) %0, 
   %83 = load i32, ptr %82, align 4, !tbaa !53
   %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.26, i32 noundef %83) #21
   %85 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %52, i32 noundef %56) #21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %86 = sext i32 %52 to i64
   %87 = sext i32 %56 to i64
   store i64 %86, ptr %7, align 8, !tbaa !54, !alias.scope !56
@@ -425,11 +422,11 @@ define noundef i32 @codegen_data_source(ptr noundef readonly captures(none) %0, 
 _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit: ; preds = %109, %66
   %110 = load ptr, ptr %6, align 8, !tbaa !70
   call void @free(ptr noundef %110) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %111 = call i64 @fwrite(ptr nonnull @.str.28, i64 19, i64 1, ptr nonnull %58)
   %112 = add nsw i32 %56, -1
   %113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %112) #21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %114 = sext i32 %54 to i64
   %115 = sext i32 %112 to i64
   store i64 %114, ptr %9, align 8, !tbaa !54, !alias.scope !74
@@ -477,7 +474,7 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit: ; p
 _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit312: ; preds = %137, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit
   %138 = load ptr, ptr %8, align 8, !tbaa !70
   call void @free(ptr noundef %138) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %139 = call i64 @fwrite(ptr nonnull @.str.28, i64 19, i64 1, ptr nonnull %58)
   %140 = call i64 @fwrite(ptr nonnull @.str.29, i64 4, i64 1, ptr nonnull %58)
   %141 = call i64 @fwrite(ptr nonnull @.str.30, i64 70, i64 1, ptr nonnull %58)
@@ -694,7 +691,7 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit340: 
   %274 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.48, i32 noundef %54) #21
   %275 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.49, i32 noundef %56) #21
   %276 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %52, i32 noundef %56) #21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 %86, ptr %15, align 8, !tbaa !54, !alias.scope !107
   %277 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %87, ptr %277, align 8, !tbaa !54, !alias.scope !107
@@ -738,10 +735,10 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit340: 
 _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit347: ; preds = %296, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit340
   %297 = load ptr, ptr %14, align 8, !tbaa !70
   call void @free(ptr noundef %297) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %298 = call i64 @fwrite(ptr nonnull @.str.28, i64 19, i64 1, ptr nonnull %58)
   %299 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %112) #21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 %114, ptr %17, align 8, !tbaa !54, !alias.scope !117
   %300 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %115, ptr %300, align 8, !tbaa !54, !alias.scope !117
@@ -785,10 +782,10 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit347: 
 _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit354: ; preds = %319, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit347
   %320 = load ptr, ptr %16, align 8, !tbaa !70
   call void @free(ptr noundef %320) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %321 = call i64 @fwrite(ptr nonnull @.str.50, i64 19, i64 1, ptr nonnull %58)
   %322 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %52, i32 noundef %56) #21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 %86, ptr %19, align 8, !tbaa !54, !alias.scope !127
   %323 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %87, ptr %323, align 8, !tbaa !54, !alias.scope !127
@@ -832,10 +829,10 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit354: 
 _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit361: ; preds = %342, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit354
   %343 = load ptr, ptr %18, align 8, !tbaa !70
   call void @free(ptr noundef %343) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %344 = call i64 @fwrite(ptr nonnull @.str.51, i64 19, i64 1, ptr nonnull %58)
   %345 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %112) #21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 %114, ptr %21, align 8, !tbaa !54, !alias.scope !137
   %346 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 %115, ptr %346, align 8, !tbaa !54, !alias.scope !137
@@ -879,10 +876,10 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit361: 
 _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit368: ; preds = %365, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit361
   %366 = load ptr, ptr %20, align 8, !tbaa !70
   call void @free(ptr noundef %366) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %367 = call i64 @fwrite(ptr nonnull @.str.52, i64 19, i64 1, ptr nonnull %58)
   %368 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %52, i32 noundef %56) #21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 %86, ptr %23, align 8, !tbaa !54, !alias.scope !147
   %369 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 %87, ptr %369, align 8, !tbaa !54, !alias.scope !147
@@ -926,10 +923,10 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit368: 
 _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit375: ; preds = %388, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit368
   %389 = load ptr, ptr %22, align 8, !tbaa !70
   call void @free(ptr noundef %389) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %390 = call i64 @fwrite(ptr nonnull @.str.53, i64 19, i64 1, ptr nonnull %58)
   %391 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %112) #21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i64 %114, ptr %25, align 8, !tbaa !54, !alias.scope !157
   %392 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 %115, ptr %392, align 8, !tbaa !54, !alias.scope !157
@@ -973,10 +970,10 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit375: 
 _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit382: ; preds = %411, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit375
   %412 = load ptr, ptr %24, align 8, !tbaa !70
   call void @free(ptr noundef %412) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %413 = call i64 @fwrite(ptr nonnull @.str.54, i64 19, i64 1, ptr nonnull %58)
   %414 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %52, i32 noundef %56) #21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i64 %86, ptr %27, align 8, !tbaa !54, !alias.scope !167
   %415 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 %87, ptr %415, align 8, !tbaa !54, !alias.scope !167
@@ -1020,10 +1017,10 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit382: 
 _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit389: ; preds = %434, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit382
   %435 = load ptr, ptr %26, align 8, !tbaa !70
   call void @free(ptr noundef %435) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %436 = call i64 @fwrite(ptr nonnull @.str.55, i64 19, i64 1, ptr nonnull %58)
   %437 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %52, i32 noundef %56) #21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i64 %86, ptr %29, align 8, !tbaa !54, !alias.scope !177
   %438 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %87, ptr %438, align 8, !tbaa !54, !alias.scope !177
@@ -1067,10 +1064,10 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit389: 
 _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit396: ; preds = %457, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit389
   %458 = load ptr, ptr %28, align 8, !tbaa !70
   call void @free(ptr noundef %458) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %459 = call i64 @fwrite(ptr nonnull @.str.56, i64 22, i64 1, ptr nonnull %58)
   %460 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %112) #21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i64 %114, ptr %31, align 8, !tbaa !54, !alias.scope !187
   %461 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %115, ptr %461, align 8, !tbaa !54, !alias.scope !187
@@ -1114,10 +1111,10 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit396: 
 _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit403: ; preds = %480, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit396
   %481 = load ptr, ptr %30, align 8, !tbaa !70
   call void @free(ptr noundef %481) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %482 = call i64 @fwrite(ptr nonnull @.str.57, i64 19, i64 1, ptr nonnull %58)
   %483 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %112) #21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i64 %114, ptr %33, align 8, !tbaa !54, !alias.scope !197
   %484 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i64 %115, ptr %484, align 8, !tbaa !54, !alias.scope !197
@@ -1161,10 +1158,10 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit403: 
 _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit410: ; preds = %503, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit403
   %504 = load ptr, ptr %32, align 8, !tbaa !70
   call void @free(ptr noundef %504) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %505 = call i64 @fwrite(ptr nonnull @.str.58, i64 22, i64 1, ptr nonnull %58)
   %506 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %52, i32 noundef %56) #21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i64 %86, ptr %35, align 8, !tbaa !54, !alias.scope !207
   %507 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 %87, ptr %507, align 8, !tbaa !54, !alias.scope !207
@@ -1208,10 +1205,10 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit410: 
 _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit417: ; preds = %526, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit410
   %527 = load ptr, ptr %34, align 8, !tbaa !70
   call void @free(ptr noundef %527) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %528 = call i64 @fwrite(ptr nonnull @.str.59, i64 19, i64 1, ptr nonnull %58)
   %529 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %112) #21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %37) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store i64 %114, ptr %37, align 8, !tbaa !54, !alias.scope !217
   %530 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 %115, ptr %530, align 8, !tbaa !54, !alias.scope !217
@@ -1255,7 +1252,7 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit417: 
 _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit424: ; preds = %549, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit417
   %550 = load ptr, ptr %36, align 8, !tbaa !70
   call void @free(ptr noundef %550) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %551 = call i64 @fwrite(ptr nonnull @.str.60, i64 19, i64 1, ptr nonnull %58)
   %552 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.61, i32 noundef %52) #21
   %553 = load ptr, ptr %50, align 8, !tbaa !36
@@ -1714,7 +1711,7 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit494: 
   call void @free(ptr noundef %774) #21
   %775 = call i64 @fwrite(ptr nonnull @.str.69, i64 23, i64 1, ptr nonnull %58)
   %776 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %52, i32 noundef %56) #21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %45) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i64 %86, ptr %45, align 8, !tbaa !54, !alias.scope !247
   %777 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i64 %87, ptr %777, align 8, !tbaa !54, !alias.scope !247
@@ -1758,10 +1755,10 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit494: 
 _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit501: ; preds = %796, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit494
   %797 = load ptr, ptr %44, align 8, !tbaa !70
   call void @free(ptr noundef %797) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   %798 = call i64 @fwrite(ptr nonnull @.str.70, i64 22, i64 1, ptr nonnull %58)
   %799 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %112) #21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %47) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store i64 %114, ptr %47, align 8, !tbaa !54, !alias.scope !257
   %800 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 %115, ptr %800, align 8, !tbaa !54, !alias.scope !257
@@ -1805,10 +1802,10 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit501: 
 _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit508: ; preds = %819, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit501
   %820 = load ptr, ptr %46, align 8, !tbaa !70
   call void @free(ptr noundef %820) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %47) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %821 = call i64 @fwrite(ptr nonnull @.str.71, i64 22, i64 1, ptr nonnull %58)
   %822 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.61, i32 noundef %54) #21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %49) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store i64 %114, ptr %49, align 8, !tbaa !54, !alias.scope !267
   %823 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i64 1, ptr %823, align 8, !tbaa !54, !alias.scope !267
@@ -1852,7 +1849,7 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit508: 
 _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit515: ; preds = %842, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit508
   %843 = load ptr, ptr %48, align 8, !tbaa !70
   call void @free(ptr noundef %843) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %844 = call i64 @fwrite(ptr nonnull @.str.72, i64 20, i64 1, ptr nonnull %58)
   %845 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.73, double noundef 0.000000e+00) #21
   %846 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.74, double noundef 0.000000e+00) #21
@@ -1874,8 +1871,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit515: 
   br label %859
 
 859:                                              ; preds = %857, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit515
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
 
@@ -1883,7 +1880,7 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit515: 
 define noundef i32 @codegen_example(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = alloca [2048 x i8], align 16
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.81, ptr noundef %0) #21
   %6 = call noalias ptr @fopen(ptr noundef nonnull %3, ptr noundef nonnull @.str.7)
   %7 = icmp eq ptr %6, null
@@ -1899,7 +1896,7 @@ define noundef i32 @codegen_example(ptr noundef %0, i32 noundef %1) local_unname
   unreachable
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = call i64 @time(ptr noundef nonnull %4) #21
   %16 = call i64 @fwrite(ptr nonnull @.str.9, i64 3, i64 1, ptr nonnull %6)
   %17 = call ptr @ctime(ptr noundef nonnull %4) #21
@@ -1940,13 +1937,10 @@ define noundef i32 @codegen_example(ptr noundef %0, i32 noundef %1) local_unname
   br label %49
 
 49:                                               ; preds = %47, %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL16create_directoryPKci(ptr noundef %0, i32 noundef %1) unnamed_addr #4 {
@@ -2308,6 +2302,12 @@ define internal void @_GLOBAL__sub_I_codegen.cpp() #17 section ".text.startup" {
   %4 = tail call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZN5Eigen12placeholdersL3allE)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2

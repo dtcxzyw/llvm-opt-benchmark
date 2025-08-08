@@ -294,7 +294,7 @@ needBlockCommandLoop.exit:                        ; preds = %dequeueCommand.exit
 
 66:                                               ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %68 = getelementptr inbounds nuw i8, ptr %.1.i, i64 20
   %69 = load i32, ptr %68, align 4
   %70 = load i8, ptr %67, align 8
@@ -523,7 +523,7 @@ suspendWithInvokeEnabled.exit.i.i:                ; preds = %82, %80, %._crit_ed
   br label %writeMonitorEvent.exit.i.i.i
 
 202:                                              ; preds = %93, %93
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %203 = getelementptr inbounds nuw i8, ptr %91, i64 40
   %204 = load ptr, ptr %203, align 8
@@ -555,7 +555,7 @@ writeClassEvent.exit.i.i.i:                       ; preds = %208, %202
   %222 = call zeroext i16 @outStream_writeInt(ptr noundef nonnull %6, i32 noundef %221) #9
   %223 = load ptr, ptr %5, align 8
   call void @jvmtiDeallocate(ptr noundef %223) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %writeMonitorEvent.exit.i.i.i
 
 224:                                              ; preds = %93, %93, %93, %93
@@ -853,7 +853,7 @@ handleEventCommandSingle.exit.i.i:                ; preds = %handleFrameEventCom
 handleReportEventCompositeCommand.exit.i:         ; preds = %handleEventCommandSingle.exit.i.i, %suspendWithInvokeEnabled.exit.i.i
   call void @outStream_sendCommand(ptr noundef nonnull %6) #9
   call void @outStream_destroy(ptr noundef nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %handleCommand.exit
 
 350:                                              ; preds = %64
@@ -865,7 +865,7 @@ handleReportEventCompositeCommand.exit.i:         ; preds = %handleEventCommandS
 
 353:                                              ; preds = %64
   %354 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %355 = load i8, ptr %354, align 8
   switch i8 %355, label %handleReportVMInitCommand.exit.i [
     i8 2, label %356
@@ -895,7 +895,7 @@ handleReportVMInitCommand.exit.i:                 ; preds = %358, %356, %353
   %370 = call zeroext i16 @outStream_writeObjectRef(ptr noundef %1, ptr noundef nonnull %4, ptr noundef %369) #9
   call void @outStream_sendCommand(ptr noundef nonnull %4) #9
   call void @outStream_destroy(ptr noundef nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %handleCommand.exit
 
 371:                                              ; preds = %64
@@ -1841,10 +1841,10 @@ declare void @tossGlobalRef(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @invoker_completeInvokeRequest(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

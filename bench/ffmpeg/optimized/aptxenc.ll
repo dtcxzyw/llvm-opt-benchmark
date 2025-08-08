@@ -107,7 +107,7 @@ define internal range(i32 -2147483648, 1) i32 @aptx_encode_frame(ptr noundef %0,
 32:                                               ; preds = %.lr.ph, %aptx_encode_samples.exit
   %indvars.iv60 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next61, %aptx_encode_samples.exit ]
   %.03749 = phi i32 [ 0, %.lr.ph ], [ %355, %aptx_encode_samples.exit ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %.preheader
 
 .preheader:                                       ; preds = %32, %43
@@ -144,9 +144,9 @@ define internal range(i32 -2147483648, 1) i32 @aptx_encode_frame(ptr noundef %0,
   %indvars.iv.i = phi i64 [ 0, %44 ], [ 1, %aptx_encode_channel.exit.i ]
   %48 = getelementptr inbounds nuw [2 x %struct.Channel], ptr %25, i64 0, i64 %indvars.iv.i
   %49 = load i32, ptr %9, align 4, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %52
 
 .preheader.i.i.i:                                 ; preds = %aptx_qmf_polyphase_analysis.exit.i.i.i
@@ -159,8 +159,8 @@ define internal range(i32 -2147483648, 1) i32 @aptx_encode_frame(ptr noundef %0,
   %indvars.iv43.i.i.i = phi i64 [ 0, %46 ], [ 1, %aptx_qmf_polyphase_analysis.exit.i.i.i ]
   %.idx.i.i.i = shl nuw nsw i64 %indvars.iv43.i.i.i, 3
   %54 = getelementptr inbounds nuw i8, ptr %indvars.iv.i.sroa.phi, i64 %.idx.i.i.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i)
   br label %55
 
 55:                                               ; preds = %aptx_qmf_convolution.exit24.i.i.i, %52
@@ -231,8 +231,8 @@ aptx_qmf_polyphase_analysis.exit.i.i.i:           ; preds = %aptx_qmf_convolutio
   %96 = tail call i32 @llvm.smax.i32(i32 %95, i32 -8388608)
   %.0.i.i.i.i.i = tail call i32 @llvm.smin.i32(i32 %96, i32 8388607)
   store i32 %.0.i.i.i.i.i, ptr %92, align 4, !tbaa !45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i)
   br i1 %53, label %52, label %.preheader.i.i.i, !llvm.loop !56
 
 97:                                               ; preds = %aptx_qmf_polyphase_analysis.exit20.i.i.i, %.preheader.i.i.i
@@ -241,8 +241,8 @@ aptx_qmf_polyphase_analysis.exit.i.i.i:           ; preds = %aptx_qmf_convolutio
   %99 = getelementptr inbounds nuw [2 x [2 x %struct.FilterSignal]], ptr %51, i64 0, i64 %indvars.iv53.i.i.i
   %100 = shl nuw nsw i64 %indvars.iv53.i.i.i, 1
   %101 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %100
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.022.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.423.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.022.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.423.i.i)
   br label %102
 
 102:                                              ; preds = %aptx_qmf_convolution.exit.i.i.i, %97
@@ -313,12 +313,12 @@ aptx_qmf_polyphase_analysis.exit20.i.i.i:         ; preds = %aptx_qmf_convolutio
   %143 = tail call i32 @llvm.smax.i32(i32 %142, i32 -8388608)
   %.0.i.i19.i.i.i = tail call i32 @llvm.smin.i32(i32 %143, i32 8388607)
   store i32 %.0.i.i19.i.i.i, ptr %139, align 4, !tbaa !45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.022.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.423.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.022.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.423.i.i)
   br i1 %98, label %97, label %aptx_qmf_tree_analysis.exit.i.i, !llvm.loop !57
 
 aptx_qmf_tree_analysis.exit.i.i:                  ; preds = %aptx_qmf_polyphase_analysis.exit20.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   tail call void @ff_aptx_generate_dither(ptr noundef nonnull %48) #5
   %144 = getelementptr inbounds nuw i8, ptr %48, i64 1228
   %145 = getelementptr inbounds nuw i8, ptr %48, i64 816
@@ -465,7 +465,7 @@ aptx_quantize_difference.exit.i.i:                ; preds = %174, %.aptx_bin_sea
   br i1 %exitcond.not.i.i, label %aptx_encode_channel.exit.i, label %150, !llvm.loop !69
 
 aptx_encode_channel.exit.i:                       ; preds = %aptx_quantize_difference.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %47, label %46, label %246, !llvm.loop !70
 
 246:                                              ; preds = %aptx_encode_channel.exit.i
@@ -657,7 +657,7 @@ aptx_pack_codeword.exit.i:                        ; preds = %326
   br i1 %280, label %aptx_insert_sync.exit.i, label %aptx_encode_samples.exit, !llvm.loop !77
 
 aptx_encode_samples.exit:                         ; preds = %353
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %354 = load i32, ptr %14, align 4, !tbaa !36
   %355 = add nsw i32 %354, %.03749
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 4
@@ -686,27 +686,27 @@ define internal noundef i32 @aptx_close(ptr noundef readonly captures(none) %0) 
   ret i32 0
 }
 
+declare void @ff_af_queue_init(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @ff_aptx_init(ptr noundef) local_unnamed_addr #2
+
+declare i32 @ff_af_queue_add(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @ff_get_encode_buffer(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+
+declare void @ff_af_queue_remove(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @ff_aptx_invert_quantize_and_prediction(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare void @ff_aptx_generate_dither(ptr noundef) local_unnamed_addr #2
+
+declare void @ff_af_queue_close(ptr noundef) local_unnamed_addr #2
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare void @ff_af_queue_init(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare i32 @ff_aptx_init(ptr noundef) local_unnamed_addr #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-declare i32 @ff_af_queue_add(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare i32 @ff_get_encode_buffer(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
-
-declare void @ff_af_queue_remove(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare void @ff_aptx_invert_quantize_and_prediction(ptr noundef, i32 noundef) local_unnamed_addr #3
-
-declare void @ff_aptx_generate_dither(ptr noundef) local_unnamed_addr #3
-
-declare void @ff_af_queue_close(ptr noundef) local_unnamed_addr #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #4
@@ -728,8 +728,8 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #4
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

@@ -1135,7 +1135,7 @@ entry:
   store ptr %this, ptr %this, align 8
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, i64 16, i1 false)
@@ -1176,7 +1176,7 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds nuw i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
   %8 = load i64, ptr %mSize5.i.i, align 8
@@ -1189,7 +1189,7 @@ invoke.cont:                                      ; preds = %if.else11.i.i.i, %i
 define weak_odr dso_local void @_ZN5eastl4listIbNS_9allocatorEE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 if.then:
   %temp.i.i = alloca %"struct.eastl::ListNodeBase", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i, i64 16, i1 false)
@@ -1231,7 +1231,7 @@ if.else11.i.i:                                    ; preds = %if.end.i.i
   br label %if.end
 
 if.end:                                           ; preds = %if.else11.i.i, %if.then8.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i)
   %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %mSize5.i = getelementptr inbounds nuw i8, ptr %x, i64 16
   %6 = load i64, ptr %mSize.i, align 8
@@ -1250,7 +1250,7 @@ entry:
   store ptr %this, ptr %this, align 8
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, i64 16, i1 false)
@@ -1291,7 +1291,7 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds nuw i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
   %8 = load i64, ptr %mSize5.i.i, align 8
@@ -1607,7 +1607,7 @@ _ZN5eastl4listIbNS_9allocatorEE5clearEv.exit:     ; preds = %_ZN5eastl9allocator
   store ptr %this, ptr %mpPrev.i.i, align 8
   %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 0, ptr %mSize.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, i64 16, i1 false)
@@ -1648,7 +1648,7 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   br label %_ZN5eastl4listIbNS_9allocatorEE4swapERS2_.exit
 
 _ZN5eastl4listIbNS_9allocatorEE4swapERS2_.exit:   ; preds = %if.then8.i.i.i, %if.else11.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds nuw i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize.i, align 8
   %9 = load i64, ptr %mSize5.i.i, align 8
@@ -1664,7 +1664,7 @@ if.end:                                           ; preds = %_ZN5eastl4listIbNS_
 define weak_odr dso_local void @_ZN5eastl4listIbNS_9allocatorEE6DoSwapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp.i = alloca %"struct.eastl::ListNodeBase", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %x, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i, i64 16, i1 false)
@@ -1706,7 +1706,7 @@ if.else11.i:                                      ; preds = %if.end.i
   br label %_ZN5eastl12ListNodeBase4swapERS0_S1_.exit
 
 _ZN5eastl12ListNodeBase4swapERS0_S1_.exit:        ; preds = %if.then8.i, %if.else11.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i)
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 16
   %mSize5 = getelementptr inbounds nuw i8, ptr %x, i64 16
   %6 = load i64, ptr %mSize, align 8
@@ -3768,7 +3768,7 @@ entry:
   store ptr %this, ptr %this, align 8
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, i64 16, i1 false)
@@ -3809,7 +3809,7 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds nuw i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
   %8 = load i64, ptr %mSize5.i.i, align 8
@@ -3822,7 +3822,7 @@ invoke.cont:                                      ; preds = %if.else11.i.i.i, %i
 define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 if.then:
   %temp.i.i = alloca %"struct.eastl::ListNodeBase", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i, i64 16, i1 false)
@@ -3864,7 +3864,7 @@ if.else11.i.i:                                    ; preds = %if.end.i.i
   br label %if.end
 
 if.end:                                           ; preds = %if.else11.i.i, %if.then8.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i)
   %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %mSize5.i = getelementptr inbounds nuw i8, ptr %x, i64 16
   %6 = load i64, ptr %mSize.i, align 8
@@ -3883,7 +3883,7 @@ entry:
   store ptr %this, ptr %this, align 8
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, i64 16, i1 false)
@@ -3924,7 +3924,7 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds nuw i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
   %8 = load i64, ptr %mSize5.i.i, align 8
@@ -4226,7 +4226,7 @@ _ZN5eastl4listIiNS_9allocatorEE5clearEv.exit:     ; preds = %_ZN5eastl9allocator
   store ptr %this, ptr %mpPrev.i.i, align 8
   %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 0, ptr %mSize.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, i64 16, i1 false)
@@ -4267,7 +4267,7 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   br label %_ZN5eastl4listIiNS_9allocatorEE4swapERS2_.exit
 
 _ZN5eastl4listIiNS_9allocatorEE4swapERS2_.exit:   ; preds = %if.then8.i.i.i, %if.else11.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds nuw i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize.i, align 8
   %9 = load i64, ptr %mSize5.i.i, align 8
@@ -4283,7 +4283,7 @@ if.end:                                           ; preds = %_ZN5eastl4listIiNS_
 define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE6DoSwapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp.i = alloca %"struct.eastl::ListNodeBase", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %x, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i, i64 16, i1 false)
@@ -4325,7 +4325,7 @@ if.else11.i:                                      ; preds = %if.end.i
   br label %_ZN5eastl12ListNodeBase4swapERS0_S1_.exit
 
 _ZN5eastl12ListNodeBase4swapERS0_S1_.exit:        ; preds = %if.then8.i, %if.else11.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i)
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 16
   %mSize5 = getelementptr inbounds nuw i8, ptr %x, i64 16
   %6 = load i64, ptr %mSize, align 8
@@ -6343,7 +6343,7 @@ entry:
   store ptr %this, ptr %this, align 8
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, i64 16, i1 false)
@@ -6384,7 +6384,7 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds nuw i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
   %8 = load i64, ptr %mSize5.i.i, align 8
@@ -6397,7 +6397,7 @@ invoke.cont:                                      ; preds = %if.else11.i.i.i, %i
 define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE4swapERS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 if.then:
   %temp.i.i = alloca %"struct.eastl::ListNodeBase", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i, i64 16, i1 false)
@@ -6439,7 +6439,7 @@ if.else11.i.i:                                    ; preds = %if.end.i.i
   br label %if.end
 
 if.end:                                           ; preds = %if.else11.i.i, %if.then8.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i)
   %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %mSize5.i = getelementptr inbounds nuw i8, ptr %x, i64 16
   %6 = load i64, ptr %mSize.i, align 8
@@ -6458,7 +6458,7 @@ entry:
   store ptr %this, ptr %this, align 8
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, i64 16, i1 false)
@@ -6499,7 +6499,7 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds nuw i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
   %8 = load i64, ptr %mSize5.i.i, align 8
@@ -6798,7 +6798,7 @@ _ZN5eastl4listI7Align64NS_9allocatorEE5clearEv.exit: ; preds = %_ZN5eastl9alloca
   store ptr %this, ptr %mpPrev.i.i, align 8
   %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 0, ptr %mSize.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, i64 16, i1 false)
@@ -6839,7 +6839,7 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   br label %_ZN5eastl4listI7Align64NS_9allocatorEE4swapERS3_.exit
 
 _ZN5eastl4listI7Align64NS_9allocatorEE4swapERS3_.exit: ; preds = %if.then8.i.i.i, %if.else11.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds nuw i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize.i, align 8
   %9 = load i64, ptr %mSize5.i.i, align 8
@@ -6855,7 +6855,7 @@ if.end:                                           ; preds = %_ZN5eastl4listI7Ali
 define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE6DoSwapERS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp.i = alloca %"struct.eastl::ListNodeBase", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %x, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i, i64 16, i1 false)
@@ -6897,7 +6897,7 @@ if.else11.i:                                      ; preds = %if.end.i
   br label %_ZN5eastl12ListNodeBase4swapERS0_S1_.exit
 
 _ZN5eastl12ListNodeBase4swapERS0_S1_.exit:        ; preds = %if.then8.i, %if.else11.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i)
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 16
   %mSize5 = getelementptr inbounds nuw i8, ptr %x, i64 16
   %6 = load i64, ptr %mSize, align 8
@@ -9030,7 +9030,7 @@ entry:
   store ptr %this, ptr %this, align 8
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, i64 16, i1 false)
@@ -9071,7 +9071,7 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds nuw i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
   %8 = load i64, ptr %mSize5.i.i, align 8
@@ -9084,7 +9084,7 @@ invoke.cont:                                      ; preds = %if.else11.i.i.i, %i
 define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE4swapERS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 if.then:
   %temp.i.i = alloca %"struct.eastl::ListNodeBase", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i, i64 16, i1 false)
@@ -9126,7 +9126,7 @@ if.else11.i.i:                                    ; preds = %if.end.i.i
   br label %_ZN5eastl4listI10TestObjectNS_9allocatorEE6DoSwapERS3_.exit
 
 _ZN5eastl4listI10TestObjectNS_9allocatorEE6DoSwapERS3_.exit: ; preds = %if.then8.i.i, %if.else11.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i)
   %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %mSize5.i = getelementptr inbounds nuw i8, ptr %x, i64 16
   %6 = load i64, ptr %mSize.i, align 8
@@ -9145,7 +9145,7 @@ entry:
   store ptr %this, ptr %this, align 8
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, i64 16, i1 false)
@@ -9186,7 +9186,7 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds nuw i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
   %8 = load i64, ptr %mSize5.i.i, align 8
@@ -9669,7 +9669,7 @@ _ZN5eastl4listI10TestObjectNS_9allocatorEE5clearEv.exit: ; preds = %_ZN5eastl9al
   store ptr %this, ptr %mpPrev.i.i, align 8
   %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 0, ptr %mSize.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, i64 16, i1 false)
@@ -9710,7 +9710,7 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   br label %_ZN5eastl4listI10TestObjectNS_9allocatorEE4swapERS3_.exit
 
 _ZN5eastl4listI10TestObjectNS_9allocatorEE4swapERS3_.exit: ; preds = %if.then8.i.i.i, %if.else11.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i.i)
   %mSize5.i.i = getelementptr inbounds nuw i8, ptr %x, i64 16
   %12 = load i64, ptr %mSize.i, align 8
   %13 = load i64, ptr %mSize5.i.i, align 8
@@ -9726,7 +9726,7 @@ if.end:                                           ; preds = %_ZN5eastl4listI10Te
 define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE6DoSwapERS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp.i = alloca %"struct.eastl::ListNodeBase", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %x, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i, i64 16, i1 false)
@@ -9768,7 +9768,7 @@ if.else11.i:                                      ; preds = %if.end.i
   br label %_ZN5eastl12ListNodeBase4swapERS0_S1_.exit
 
 _ZN5eastl12ListNodeBase4swapERS0_S1_.exit:        ; preds = %if.then8.i, %if.else11.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i)
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 16
   %mSize5 = getelementptr inbounds nuw i8, ptr %x, i64 16
   %6 = load i64, ptr %mSize, align 8
@@ -13533,7 +13533,7 @@ invoke.cont330:                                   ; preds = %invoke.cont326
           to label %invoke.cont333 unwind label %lpad322
 
 invoke.cont333:                                   ; preds = %invoke.cont330
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %b318, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %b318, ptr noundef nonnull align 8 dereferenceable(24) %a310, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %a310, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, i64 16, i1 false)
@@ -13575,7 +13575,7 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   br label %invoke.cont335
 
 invoke.cont335:                                   ; preds = %if.else11.i.i.i, %if.then8.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i.i)
   %167 = load i64, ptr %mSize.i541, align 8
   %168 = load i64, ptr %mSize.i532, align 8
   store i64 %168, ptr %mSize.i541, align 8
@@ -20385,10 +20385,10 @@ _ZN5eastl4listIZ8TestListvE1A_1NS_9allocatorEED2Ev.exit3080: ; preds = %_ZN5east
           to label %invoke.cont2154 unwind label %lpad2152
 
 invoke.cont2154:                                  ; preds = %_ZN5eastl4listIZ8TestListvE1A_1NS_9allocatorEED2Ev.exit3080
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %compare.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %compare.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !642)
   %1248 = load ptr, ptr %a2144, align 8, !noalias !642
   store ptr %1248, ptr %agg.tmp.i, align 8, !alias.scope !642
@@ -20399,10 +20399,10 @@ invoke.cont2154:                                  ; preds = %_ZN5eastl4listIZ8Te
           to label %invoke.cont2156 unwind label %lpad2155
 
 invoke.cont2156:                                  ; preds = %invoke.cont2154
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %compare.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %compare.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i)
   %1250 = load i64, ptr %mSize.i.i3081, align 8
   %mSize.i4.i3083 = getelementptr inbounds nuw i8, ptr %ref2136, i64 16
   %1251 = load i64, ptr %mSize.i4.i3083, align 8
@@ -20545,16 +20545,16 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i3133: ; preds = %lpad.i3131, %_ZN5
   br i1 %cmp.not.i.i.i3135, label %ehcleanup2190, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i3133, !llvm.loop !649
 
 invoke.cont2184:                                  ; preds = %call.i.i.i.i.i.i.noexc.i3137
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i3146)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i3147)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i3148)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i3146)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp2.i3147)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i3148)
   %this.val.i3149 = load ptr, ptr %a2171, align 8
   store ptr %this.val.i3149, ptr %agg.tmp.i3146, align 8, !alias.scope !650
   store ptr %a2171, ptr %agg.tmp2.i3147, align 8, !alias.scope !653
   call fastcc void @"_ZN5eastl4listIZ8TestListvE1A_2NS_9allocatorEE6DoSortIZ8TestListvE3$_8EENS_12ListIteratorIS1_PS1_RS1_EES9_S9_mRT_"(ptr noalias align 8 %tmp.i3148, ptr noundef %agg.tmp.i3146, ptr noundef %agg.tmp2.i3147, i64 noundef %inc.i.i.i3141)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i3146)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i3147)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i3148)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i3146)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp2.i3147)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i3148)
   %ref2163.val129 = load i64, ptr %1258, align 8
   %a.val.i = load i64, ptr %1265, align 8
   %cmp.i3150 = icmp eq i64 %a.val.i, %ref2163.val129
@@ -22996,10 +22996,10 @@ return:                                           ; preds = %for.inc82, %land.rh
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10

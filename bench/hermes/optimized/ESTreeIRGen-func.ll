@@ -1717,10 +1717,10 @@ entry:
 
 _ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN6hermes20ScopedHashTableScopeINS3_10IdentifierEPNS3_5ValueEEENS3_5irgen15EnterBlockScopeEEE8_M_resetEv.exit.i.i.i: ; preds = %entry
   %nameTable_ = getelementptr inbounds nuw i8, ptr %this, i64 88
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
   call void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN6hermes20ScopedHashTableScopeINS4_10IdentifierEPNS4_5ValueEEENS4_5irgen15EnterBlockScopeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S9_SB_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(65) %newScope)
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %head_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %newScope, i64 8
   store ptr null, ptr %head_.i.i.i.i.i, align 8
   %base_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %newScope, i64 24
@@ -1747,10 +1747,10 @@ _ZNSt7variantIJSt9monostateN6hermes20ScopedHashTableScopeINS1_10IdentifierEPNS1_
 _ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN6hermes20ScopedHashTableScopeINS3_10IdentifierEPNS3_5ValueEEENS3_5irgen15EnterBlockScopeEEE8_M_resetEv.exit.i.i.i24: ; preds = %entry
   %functionContext_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %5 = load ptr, ptr %functionContext_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i20)
   call void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN6hermes20ScopedHashTableScopeINS4_10IdentifierEPNS4_5ValueEEENS4_5irgen15EnterBlockScopeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S9_SB_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i20, ptr noundef nonnull align 8 dereferenceable(65) %newScope)
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i20)
   store ptr %5, ptr %newScope, align 8
   %oldIRScopeDesc_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %newScope, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1910,7 +1910,7 @@ if.then70:                                        ; preds = %cond.end65
   br label %if.end72
 
 if.end72:                                         ; preds = %if.then70, %cond.end65
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %36 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
   %cmp.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %36, -1
   br i1 %cmp.i.not.i.i.i.i.i.i.i.i, label %_ZNSt7variantIJSt9monostateN6hermes20ScopedHashTableScopeINS1_10IdentifierEPNS1_5ValueEEENS1_5irgen15EnterBlockScopeEEED2Ev.exit, label %if.end.i.i.i.i.i.i.i.i
@@ -1920,7 +1920,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.end72
   br label %_ZNSt7variantIJSt9monostateN6hermes20ScopedHashTableScopeINS1_10IdentifierEPNS1_5ValueEEENS1_5irgen15EnterBlockScopeEEED2Ev.exit
 
 _ZNSt7variantIJSt9monostateN6hermes20ScopedHashTableScopeINS1_10IdentifierEPNS1_5ValueEEENS1_5irgen15EnterBlockScopeEEED2Ev.exit: ; preds = %if.end72, %if.end.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   ret ptr %spec.select
 }
 
@@ -2331,7 +2331,7 @@ if.then7:                                         ; preds = %entry
 if.then10:                                        ; preds = %if.then7
   %functionContext_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %4 = load ptr, ptr %functionContext_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %memptr.offset.i = getelementptr inbounds nuw i8, ptr %4, i64 264
   store ptr %4, ptr %ref.tmp.i, align 8
   %call.i = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt8optionalIN6hermes5irgen15EnterBlockScopeEE7emplaceIJPNS1_15FunctionContextEEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS8_(ptr noundef nonnull align 8 dereferenceable(72) %memptr.offset.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
@@ -2340,7 +2340,7 @@ if.then10:                                        ; preds = %if.then7
   store ptr %blockScope_.i.i, ptr %functionScope.i.i, align 8
   %blockScope.i.i = getelementptr inbounds nuw i8, ptr %4, i64 136
   store ptr %blockScope_.i.i, ptr %blockScope.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   call void @_ZN6hermes5irgen11ESTreeIRGen25newDeclarativeEnvironmentEv(ptr noundef nonnull align 8 dereferenceable(200) %this) #13
   br label %if.then16
 
@@ -2455,7 +2455,7 @@ _ZN6hermes5irgen11ESTreeIRGen16createNewBindingEPNS_9ScopeDescENS_18JavaScriptDe
   br i1 %cmp28.not, label %if.end60, label %for.body
 
 if.else31:                                        ; preds = %if.end20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i40)
   %memptr.offset.i41 = getelementptr inbounds nuw i8, ptr %8, i64 336
   store ptr %8, ptr %ref.tmp.i40, align 8
   %call.i42 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt8optionalIN6hermes5irgen15EnterBlockScopeEE7emplaceIJPNS1_15FunctionContextEEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS8_(ptr noundef nonnull align 8 dereferenceable(72) %memptr.offset.i41, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i40)
@@ -2464,7 +2464,7 @@ if.else31:                                        ; preds = %if.end20
   store ptr %blockScope_.i.i43, ptr %functionScope.i.i44, align 8
   %blockScope.i.i45 = getelementptr inbounds nuw i8, ptr %8, i64 136
   store ptr %blockScope_.i.i43, ptr %blockScope.i.i45, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i40)
   call void @_ZN6hermes5irgen11ESTreeIRGen25newDeclarativeEnvironmentEv(ptr noundef nonnull align 8 dereferenceable(200) %this) #13
   %varScoped35 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %22 = load ptr, ptr %varScoped35, align 8
@@ -2613,7 +2613,7 @@ if.then62:                                        ; preds = %if.else31, %if.end6
 
 if.then66:                                        ; preds = %if.then62
   %42 = load ptr, ptr %functionContext_.i36, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i71)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i71)
   %memptr.offset.i72 = getelementptr inbounds nuw i8, ptr %42, i64 408
   store ptr %42, ptr %ref.tmp.i71, align 8
   %call.i73 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt8optionalIN6hermes5irgen15EnterBlockScopeEE7emplaceIJPNS1_15FunctionContextEEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS8_(ptr noundef nonnull align 8 dereferenceable(72) %memptr.offset.i72, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i71)
@@ -2622,7 +2622,7 @@ if.then66:                                        ; preds = %if.then62
   store ptr %blockScope_.i.i74, ptr %functionScope.i.i75, align 8
   %blockScope.i.i76 = getelementptr inbounds nuw i8, ptr %42, i64 136
   store ptr %blockScope_.i.i74, ptr %blockScope.i.i76, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i71)
   call void @_ZN6hermes5irgen11ESTreeIRGen25newDeclarativeEnvironmentEv(ptr noundef nonnull align 8 dereferenceable(200) %this) #13
   br label %if.end87
 
@@ -4920,10 +4920,10 @@ declare void @llvm.assume(i1 noundef) #10
 declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

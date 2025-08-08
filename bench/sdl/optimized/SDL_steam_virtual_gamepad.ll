@@ -49,24 +49,21 @@ define hidden void @SDL_InitSteamVirtualGamepadInfo() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @SDL_AssertJoysticksLocked() local_unnamed_addr #1
 
-declare void @SDL_AssertJoysticksLocked() local_unnamed_addr #2
+declare i32 @SDL_GetSandbox_REAL() local_unnamed_addr #1
 
-declare i32 @SDL_GetSandbox_REAL() local_unnamed_addr #2
+declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #2
-
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_UpdateSteamVirtualGamepadInfo() local_unnamed_addr #0 {
   %1 = alloca %struct.stat, align 8
   %2 = alloca i64, align 8
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @SDL_AssertJoysticksLocked() #6
   %4 = load ptr, ptr @SDL_steam_virtual_gamepad_info_file, align 8
   %.not = icmp eq ptr %4, null
@@ -84,13 +81,13 @@ define hidden noundef zeroext i1 @SDL_UpdateSteamVirtualGamepadInfo() local_unna
 10:                                               ; preds = %5
   store i64 %6, ptr @SDL_steam_virtual_gamepad_info_check_time, align 8
   %11 = load ptr, ptr @SDL_steam_virtual_gamepad_info_file, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %12 = call i32 @stat(ptr noundef readonly %11, ptr noundef nonnull %1) #6
   %13 = icmp eq i32 %12, 0
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %15 = load i64, ptr %14, align 8
   %.0.i = select i1 %13, i64 %15, i64 0
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %16 = icmp eq i64 %.0.i, 0
   %17 = load i64, ptr @SDL_steam_virtual_gamepad_info_file_mtime, align 8
   %18 = icmp eq i64 %.0.i, %17
@@ -414,13 +411,10 @@ AddVirtualGamepadInfo.exit75:                     ; preds = %SDL_FreeSteamVirtua
 
 135:                                              ; preds = %19, %10, %5, %0, %AddVirtualGamepadInfo.exit75
   %.046 = phi i1 [ true, %AddVirtualGamepadInfo.exit75 ], [ false, %0 ], [ false, %5 ], [ false, %10 ], [ false, %19 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.046
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SteamVirtualGamepadEnabled() local_unnamed_addr #0 {
@@ -430,26 +424,26 @@ define hidden zeroext i1 @SDL_SteamVirtualGamepadEnabled() local_unnamed_addr #0
   ret i1 %2
 }
 
-declare i64 @SDL_GetTicks_REAL() local_unnamed_addr #2
+declare i64 @SDL_GetTicks_REAL() local_unnamed_addr #1
 
-declare ptr @SDL_LoadFile_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_LoadFile_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare i32 @SDL_sscanf_REAL(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @SDL_sscanf_REAL(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i64 @SDL_strtoul_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @SDL_strtoul_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetGamepadTypeFromString_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetGamepadTypeFromString_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i64 @SDL_strtoull_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @SDL_strtoull_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetSteamVirtualGamepadInfo(i32 noundef %0) local_unnamed_addr #0 {
@@ -527,19 +521,25 @@ SDL_FreeSteamVirtualGamepadInfo.exit:             ; preds = %12, %2
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(1)
-declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind allocsize(1) }
 

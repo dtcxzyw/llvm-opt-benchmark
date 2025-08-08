@@ -62,7 +62,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   %10 = alloca %struct.XrmValue, align 8
   %11 = alloca %union._XEvent, align 8
   %12 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store ptr %0, ptr %8, align 8, !tbaa !4
@@ -97,8 +97,8 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
 
 30:                                               ; preds = %20
   %31 = call ptr @XrmGetStringDatabase(ptr noundef nonnull %29) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %32 = call i32 @XrmGetResource(ptr noundef %31, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1, ptr noundef nonnull %9, ptr noundef nonnull %10) #13
   %33 = icmp ne i32 %32, 0
   %34 = load ptr, ptr %9, align 8
@@ -113,8 +113,8 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
 
 .thread345:                                       ; preds = %36, %30
   call void @XrmDestroyDatabase(ptr noundef %31) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread
 
 39:                                               ; preds = %36
@@ -123,8 +123,8 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   %42 = call i64 @strtol(ptr noundef nonnull captures(none) %41, ptr noundef null, i32 noundef 10) #13
   %43 = trunc i64 %42 to i32
   call void @XrmDestroyDatabase(ptr noundef %31) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %.thread, label %._crit_edge
 
@@ -407,7 +407,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
 236:                                              ; preds = %.lr.ph, %.backedge
   %.0285352391 = phi i32 [ %.0285352.ph395, %.lr.ph ], [ %.1286, %.backedge ]
   %.0283353390 = phi i32 [ %.0283353.ph394, %.lr.ph ], [ %.1284, %.backedge ]
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %237 = load ptr, ptr %21, align 8, !tbaa !27
   %238 = call i32 @XEventsQueued(ptr noundef %237, i32 noundef 2) #13
   %.not308 = icmp eq i32 %238, 0
@@ -474,7 +474,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   br label %.backedge
 
 .backedge:                                        ; preds = %257, %x11_is_maximized.exit, %339, %463
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %269 = load i32, ptr %219, align 4, !tbaa !80
   %.not307 = icmp eq i32 %269, 0
   br i1 %.not307, label %236, label %.critedge, !llvm.loop !82
@@ -545,11 +545,11 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   br label %306
 
 306:                                              ; preds = %297, %300
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %307 = load ptr, ptr %21, align 8, !tbaa !27
   %308 = call i64 @XInternAtom(ptr noundef %307, ptr noundef nonnull @.str.24, i32 noundef 1) #13
   store ptr null, ptr %5, align 8, !tbaa !84
@@ -598,11 +598,11 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
 
 x11_is_maximized.exit:                            ; preds = %306, %._crit_edge.i
   %.015.i = phi i32 [ %.116.lcssa.i, %._crit_edge.i ], [ 0, %306 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 %.015.i, ptr %171, align 4, !tbaa !77
   br label %.backedge
 
@@ -619,7 +619,7 @@ x11_is_maximized.exit:                            ; preds = %306, %._crit_edge.i
 .outer.outer.backedge:                            ; preds = %332, %271
   %.0287351.ph.ph.be = phi i32 [ %275, %271 ], [ %334, %332 ]
   %.0289350.ph.ph.be = phi i32 [ %272, %271 ], [ %333, %332 ]
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %335 = load i32, ptr %219, align 4, !tbaa !80
   %.not307389392 = icmp eq i32 %335, 0
   br i1 %.not307389392, label %.lr.ph.lr.ph, label %.critedge, !llvm.loop !82
@@ -635,7 +635,7 @@ x11_is_maximized.exit:                            ; preds = %306, %._crit_edge.i
   br label %.backedge
 
 341:                                              ; preds = %250
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %342 = call i32 @XLookupString(ptr noundef nonnull %11, ptr noundef null, i32 noundef 0, ptr noundef nonnull %12, ptr noundef null) #13
   %343 = load i64, ptr %12, align 8, !tbaa !85
   switch i64 %343, label %463 [
@@ -675,8 +675,8 @@ x11_is_maximized.exit:                            ; preds = %306, %._crit_edge.i
   ]
 
 .thread355:                                       ; preds = %341, %341, %341
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.critedge
 
 344:                                              ; preds = %341
@@ -978,12 +978,12 @@ switch.lookup404:                                 ; preds = %456
   br label %463
 
 463:                                              ; preds = %377, %381, %366, %370, %462, %switch.lookup404, %455, %442, %437, %432, %switch.lookup, %421, %416, %415, %410, %409, %408, %405, %402, %387, %386, %385, %358, %354, %349, %345, %344, %341
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.backedge
 
 .loopexit:                                        ; preds = %254, %250, %336, %329, %270
   %.1282 = phi i32 [ 0, %270 ], [ %.0281354.ph393, %329 ], [ %spec.select343, %336 ], [ %.0281354.ph393, %250 ], [ %.0281354.ph393, %254 ]
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %464 = load i32, ptr %219, align 4, !tbaa !80
   %.not307389 = icmp eq i32 %464, 0
   br i1 %.not307389, label %.lr.ph, label %.critedge, !llvm.loop !82
@@ -1007,64 +1007,58 @@ switch.lookup404:                                 ; preds = %456
 
 477:                                              ; preds = %.critedge, %17
   %.0 = phi i32 [ 0, %.critedge ], [ -1, %17 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-declare ptr @XOpenDisplay(ptr noundef) local_unnamed_addr #3
+declare ptr @XOpenDisplay(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
-declare void @XrmInitialize() local_unnamed_addr #3
+declare void @XrmInitialize() local_unnamed_addr #2
 
-declare ptr @XResourceManagerString(ptr noundef) local_unnamed_addr #3
+declare ptr @XResourceManagerString(ptr noundef) local_unnamed_addr #2
 
-declare ptr @XrmGetStringDatabase(ptr noundef) local_unnamed_addr #3
+declare ptr @XrmGetStringDatabase(ptr noundef) local_unnamed_addr #2
 
-declare i32 @XrmGetResource(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @XrmGetResource(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
-declare void @XrmDestroyDatabase(ptr noundef) local_unnamed_addr #3
+declare void @XrmDestroyDatabase(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @XCreateSimpleWindow(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @XCreateSimpleWindow(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @XStoreName(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @XStoreName(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @XSetIconName(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @XSetIconName(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @XAllocClassHint() local_unnamed_addr #2
 
-declare ptr @XAllocClassHint() local_unnamed_addr #3
+declare i32 @XSetClassHint(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @XSetClassHint(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @XFree(ptr noundef) local_unnamed_addr #2
 
-declare i32 @XFree(ptr noundef) local_unnamed_addr #3
+declare i32 @XSelectInput(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @XSelectInput(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @XMapWindow(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @XMapWindow(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @lstopo_show_interactive_help() local_unnamed_addr #2
 
-declare void @lstopo_show_interactive_help() local_unnamed_addr #3
+declare void @declare_colors(ptr noundef) local_unnamed_addr #2
 
-declare void @declare_colors(ptr noundef) local_unnamed_addr #3
+declare void @lstopo_prepare_custom_styles(ptr noundef) local_unnamed_addr #2
 
-declare void @lstopo_prepare_custom_styles(ptr noundef) local_unnamed_addr #3
+declare i32 @XEventsQueued(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @XEventsQueued(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @XMoveWindow(ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @XMoveWindow(ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
-
-declare i32 @XNextEvent(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @XNextEvent(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @move_x11(ptr noundef nonnull %0) unnamed_addr #0 {
@@ -1388,30 +1382,30 @@ condstore.split111:                               ; preds = %174
   ret void
 }
 
-declare i32 @XRefreshKeyboardMapping(ptr noundef) local_unnamed_addr #3
+declare i32 @XRefreshKeyboardMapping(ptr noundef) local_unnamed_addr #2
 
-declare i32 @XLookupString(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @XLookupString(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #6
+declare void @abort() local_unnamed_addr #5
 
-declare void @lstopo_show_interactive_cli_options(ptr noundef) local_unnamed_addr #3
+declare void @lstopo_show_interactive_cli_options(ptr noundef) local_unnamed_addr #2
 
-declare i32 @XDestroyWindow(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @XDestroyWindow(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @XFreeCursor(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @XFreeCursor(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @XCloseDisplay(ptr noundef) local_unnamed_addr #3
+declare i32 @XCloseDisplay(ptr noundef) local_unnamed_addr #2
 
-declare void @destroy_colors(ptr noundef) local_unnamed_addr #3
+declare void @destroy_colors(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @output_png(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lstopo_cairo_output, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8, !tbaa !96
   %6 = tail call noalias ptr @open_output(ptr noundef %1, i32 noundef %5) #13
@@ -1505,26 +1499,26 @@ define hidden range(i32 -1, 1) i32 @output_png(ptr noundef %0, ptr noundef %1) l
 
 55:                                               ; preds = %54, %7
   %.0 = phi i32 [ 0, %54 ], [ -1, %7 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare noalias ptr @open_output(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare noalias ptr @open_output(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #7
+declare ptr @strerror(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #8
+declare ptr @__errno_location() local_unnamed_addr #7
 
-declare ptr @cairo_image_surface_create(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @cairo_image_surface_create(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @cairo_surface_destroy(ptr noundef) local_unnamed_addr #3
+declare void @cairo_surface_destroy(ptr noundef) local_unnamed_addr #2
 
-declare i32 @cairo_surface_write_to_png_stream(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @cairo_surface_write_to_png_stream(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef range(i32 0, 12) i32 @topo_cairo_write(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #9 {
+define internal noundef range(i32 0, 12) i32 @topo_cairo_write(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #8 {
   %4 = zext i32 %2 to i64
   %5 = tail call i64 @fwrite(ptr noundef %1, i64 noundef %4, i64 noundef 1, ptr noundef %0)
   %6 = icmp eq i64 %5, 0
@@ -1533,12 +1527,12 @@ define internal noundef range(i32 0, 12) i32 @topo_cairo_write(ptr noundef captu
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @output_pdf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lstopo_cairo_output, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8, !tbaa !96
   %6 = tail call noalias ptr @open_output(ptr noundef %1, i32 noundef %5) #13
@@ -1635,18 +1629,18 @@ define hidden range(i32 -1, 1) i32 @output_pdf(ptr noundef %0, ptr noundef %1) l
 
 57:                                               ; preds = %56, %7
   %.0 = phi i32 [ 0, %56 ], [ -1, %7 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare ptr @cairo_pdf_surface_create_for_stream(ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #3
+declare ptr @cairo_pdf_surface_create_for_stream(ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #2
 
-declare void @cairo_surface_flush(ptr noundef) local_unnamed_addr #3
+declare void @cairo_surface_flush(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @output_ps(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lstopo_cairo_output, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8, !tbaa !96
   %6 = tail call noalias ptr @open_output(ptr noundef %1, i32 noundef %5) #13
@@ -1743,16 +1737,16 @@ define hidden range(i32 -1, 1) i32 @output_ps(ptr noundef %0, ptr noundef %1) lo
 
 57:                                               ; preds = %56, %7
   %.0 = phi i32 [ 0, %56 ], [ -1, %7 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare ptr @cairo_ps_surface_create_for_stream(ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #3
+declare ptr @cairo_ps_surface_create_for_stream(ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @output_cairosvg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lstopo_cairo_output, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8, !tbaa !96
   %6 = tail call noalias ptr @open_output(ptr noundef %1, i32 noundef %5) #13
@@ -1849,11 +1843,11 @@ define hidden range(i32 -1, 1) i32 @output_cairosvg(ptr noundef %0, ptr noundef 
 
 57:                                               ; preds = %56, %7
   %.0 = phi i32 [ 0, %56 ], [ -1, %7 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare ptr @cairo_svg_surface_create_for_stream(ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #3
+declare ptr @cairo_svg_surface_create_for_stream(ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @topo_cairo_box(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7, i32 %8) #0 {
@@ -1909,7 +1903,7 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %16, %19
   br i1 %.not, label %.critedge, label %42
 
 42:                                               ; preds = %lstopo_obj_cpukind_style.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %43 = shl nuw i32 1, %.0.i
   %44 = uitofp i32 %43 to double
   store double %44, ptr %10, align 8, !tbaa !117
@@ -1920,7 +1914,7 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %16, %19
   %48 = mul i32 %46, %47
   %49 = uitofp i32 %48 to double
   call void @cairo_set_line_width(ptr noundef %23, double noundef %49) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @cairo_stroke(ptr noundef %23) #13
   call void @cairo_set_dash(ptr noundef %23, ptr noundef null, i32 noundef 0, double noundef 0.000000e+00) #13
   %50 = load i32, ptr %45, align 8, !tbaa !56
@@ -2023,65 +2017,71 @@ define internal void @topo_cairo_textsize(ptr noundef readonly captures(none) %0
   %8 = load ptr, ptr %7, align 8, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !55
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @cairo_text_extents(ptr noundef %10, ptr noundef %1, ptr noundef nonnull %6) #13
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load double, ptr %11, align 8, !tbaa !119
   %13 = fptoui double %12 to i32
   store i32 %13, ptr %4, align 4, !tbaa !97
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare void @cairo_rectangle(ptr noundef, double noundef, double noundef, double noundef, double noundef) local_unnamed_addr #3
+declare void @cairo_rectangle(ptr noundef, double noundef, double noundef, double noundef, double noundef) local_unnamed_addr #2
 
-declare void @cairo_set_source_rgb(ptr noundef, double noundef, double noundef, double noundef) local_unnamed_addr #3
+declare void @cairo_set_source_rgb(ptr noundef, double noundef, double noundef, double noundef) local_unnamed_addr #2
 
-declare void @cairo_fill(ptr noundef) local_unnamed_addr #3
+declare void @cairo_fill(ptr noundef) local_unnamed_addr #2
 
-declare void @cairo_set_dash(ptr noundef, ptr noundef, i32 noundef, double noundef) local_unnamed_addr #3
+declare void @cairo_set_dash(ptr noundef, ptr noundef, i32 noundef, double noundef) local_unnamed_addr #2
 
-declare void @cairo_set_line_width(ptr noundef, double noundef) local_unnamed_addr #3
+declare void @cairo_set_line_width(ptr noundef, double noundef) local_unnamed_addr #2
 
-declare void @cairo_stroke(ptr noundef) local_unnamed_addr #3
+declare void @cairo_stroke(ptr noundef) local_unnamed_addr #2
 
-declare void @cairo_move_to(ptr noundef, double noundef, double noundef) local_unnamed_addr #3
+declare void @cairo_move_to(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
 
-declare void @cairo_line_to(ptr noundef, double noundef, double noundef) local_unnamed_addr #3
+declare void @cairo_line_to(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
 
-declare void @cairo_select_font_face(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @cairo_select_font_face(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @cairo_show_text(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @cairo_show_text(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @cairo_text_extents(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @cairo_text_extents(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
 
-declare i64 @XCreateFontCursor(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @XCreateFontCursor(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @XDefineCursor(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @XDefineCursor(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @cairo_xlib_surface_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @cairo_xlib_surface_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @cairo_create(ptr noundef) local_unnamed_addr #3
+declare ptr @cairo_create(ptr noundef) local_unnamed_addr #2
 
-declare void @cairo_set_font_size(ptr noundef, double noundef) local_unnamed_addr #3
+declare void @cairo_set_font_size(ptr noundef, double noundef) local_unnamed_addr #2
 
-declare void @output_draw(ptr noundef) local_unnamed_addr #3
+declare void @output_draw(ptr noundef) local_unnamed_addr #2
 
-declare void @cairo_show_page(ptr noundef) local_unnamed_addr #3
+declare void @cairo_show_page(ptr noundef) local_unnamed_addr #2
 
-declare void @cairo_destroy(ptr noundef) local_unnamed_addr #3
+declare void @cairo_destroy(ptr noundef) local_unnamed_addr #2
 
-declare i32 @XResizeWindow(ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @XResizeWindow(ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @XInternAtom(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @XInternAtom(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @XGetWindowProperty(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @XGetWindowProperty(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
@@ -2093,16 +2093,16 @@ declare i32 @llvm.smax.i32(i32, i32) #12
 declare i32 @llvm.smin.i32(i32, i32) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nofree nounwind }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }

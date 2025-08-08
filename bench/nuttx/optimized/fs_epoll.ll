@@ -117,7 +117,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @epoll_ctl(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %5) #9
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %10
@@ -143,13 +143,13 @@ epoll_head_from_fd.exit.thread:                   ; preds = %10, %14, %8
   %.sink = phi i32 [ %9, %8 ], [ 9, %14 ], [ 9, %10 ]
   %17 = call ptr @__errno() #9
   store i32 %.sink, ptr %17, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %250
 
 epoll_head_from_fd.exit:                          ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = icmp eq ptr %19, null
   br i1 %20, label %250, label %21
 
@@ -700,7 +700,7 @@ declare ptr @__errno() local_unnamed_addr #1
 define i32 @epoll_pwait(i32 noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.sigset_s, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %6) #9
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %12
@@ -726,13 +726,13 @@ epoll_head_from_fd.exit.thread:                   ; preds = %12, %16, %10
   %.sink = phi i32 [ %11, %10 ], [ 9, %16 ], [ 9, %12 ]
   %19 = call ptr @__errno() #9
   store i32 %.sink, ptr %19, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 epoll_head_from_fd.exit:                          ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %21 = load ptr, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.loopexit, label %.split
 
@@ -998,7 +998,7 @@ define internal fastcc i32 @epoll_teardown(ptr noundef nonnull %0, ptr noundef w
 ; Function Attrs: nounwind uwtable
 define i32 @epoll_wait(i32 noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %5) #9
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %10
@@ -1024,13 +1024,13 @@ epoll_head_from_fd.exit.thread:                   ; preds = %10, %14, %8
   %.sink = phi i32 [ %9, %8 ], [ 9, %14 ], [ 9, %10 ]
   %17 = call ptr @__errno() #9
   store i32 %.sink, ptr %17, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 epoll_head_from_fd.exit:                          ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %19 = load ptr, ptr %18, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.loopexit, label %.split
 
@@ -1301,10 +1301,10 @@ declare i32 @llvm.smax.i32(i32, i32) #5
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

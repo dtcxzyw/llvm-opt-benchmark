@@ -2015,7 +2015,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner31selectFeatureAdaptiveC
   %52 = lshr i16 %43, 3
   %53 = and i16 %52, 7
   %54 = zext nneg i16 %53 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %55 = shl nsw i32 %42, 1
   %56 = load ptr, ptr %32, align 8
   %57 = sext i32 %55 to i64
@@ -2106,7 +2106,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner31selectFeatureAdaptiveC
 92:                                               ; preds = %89
   %93 = call noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level19isSingleCreasePatchEiPfPi(ptr noundef nonnull align 8 dereferenceable(480) %10, i32 noundef %42, ptr noundef null, ptr noundef null)
   %94 = load i16, ptr %2, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %93, label %95, label %97
 
 95:                                               ; preds = %92
@@ -2125,18 +2125,18 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner31selectFeatureAdaptiveC
   br i1 %or.cond49.i, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit.thread50, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit.thread: ; preds = %.lr.ph.i, %51, %.preheader54.preheader.i, %66, %74, %89
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit.thread50: ; preds = %62, %.loopexit.i, %99
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre = load i16, ptr %2, align 4
   br label %102
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit: ; preds = %99
   %.val.i = load i16, ptr %2, align 4
   %101 = call fastcc noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpFaceHaveFeaturesENS0_3Vtr8internal5Level4VTagEPS6_iRKNS1_8internal11FeatureMaskE(i16 %60, ptr noundef %7, i32 noundef range(i32 0, 8) %54, i16 %.val.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %101, label %.thread, label %102
 
 102:                                              ; preds = %97, %95, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit.thread50, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit
@@ -2152,7 +2152,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8intern
   br i1 %105, label %130, label %106
 
 106:                                              ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %107 = load ptr, ptr %32, align 8
   %108 = getelementptr i32, ptr %107, i64 %57
   %109 = getelementptr i8, ptr %108, i64 4
@@ -2208,7 +2208,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8intern
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_139doesFaceHaveDistinctFaceVaryingFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit: ; preds = %._crit_edge.i, %122, %125, %128
   %.0.i38 = phi i1 [ %129, %128 ], [ false, %._crit_edge.i ], [ true, %122 ], [ true, %125 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %130
 
 130:                                              ; preds = %.lr.ph, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_139doesFaceHaveDistinctFaceVaryingFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit
@@ -2739,10 +2739,10 @@ declare i64 @llvm.umin.i64(i64, i64) #13
 declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #13

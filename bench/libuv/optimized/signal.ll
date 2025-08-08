@@ -133,13 +133,7 @@ uv__signal_loop_once_init.exit:                   ; preds = %21, %._crit_edge.th
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @uv__io_stop(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @uv__signal_loop_cleanup(ptr noundef captures(address) %0) local_unnamed_addr #0 {
@@ -198,7 +192,7 @@ define internal fastcc void @uv__signal_stop(ptr noundef captures(address) %0) u
   %4 = alloca %struct.sigaction, align 8
   %5 = alloca %struct.uv_signal_s, align 8
   %6 = alloca %struct.__sigset_t, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
@@ -840,13 +834,13 @@ split.thread.i.i:                                 ; preds = %138, %166, %split.t
 
 uv__signal_tree_s_RB_REMOVE.exit.thread:          ; preds = %92, %.critedge.i.i
   %291 = load i32, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %311
 
 uv__signal_tree_s_RB_REMOVE.exit:                 ; preds = %.loopexit.i, %.critedge.thread3.i.i
   %.0127.i.i = phi ptr [ %.0127.i.i98, %.critedge.thread3.i.i ], [ %uv__signal_tree.promoted.i.i, %.loopexit.i ]
   %292 = load i32, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %293 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i32 %292, ptr %293, align 8
   %.not8.i.i = icmp eq ptr %.0127.i.i, null
@@ -908,8 +902,8 @@ uv__signal_tree_s_RB_NFIND.exit.thread8.i:        ; preds = %uv__signal_compare.
 
 311:                                              ; preds = %uv__signal_tree_s_RB_REMOVE.exit.thread, %uv__signal_tree_s_RB_REMOVE.exit, %uv__signal_tree_s_RB_NFIND.exit.i, %uv__signal_tree_s_RB_NFIND.exit.thread8.i
   %312 = phi i32 [ %291, %uv__signal_tree_s_RB_REMOVE.exit.thread ], [ %292, %uv__signal_tree_s_RB_REMOVE.exit ], [ %292, %uv__signal_tree_s_RB_NFIND.exit.i ], [ %292, %uv__signal_tree_s_RB_NFIND.exit.thread8.i ]
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 0, i64 152, i1 false)
   %313 = call i32 @sigaction(i32 noundef %312, ptr noundef nonnull %4, ptr noundef null) #10
   %.not.i19 = icmp eq i32 %313, 0
@@ -920,11 +914,11 @@ uv__signal_tree_s_RB_NFIND.exit.thread8.i:        ; preds = %uv__signal_compare.
   unreachable
 
 uv__signal_unregister_handler.exit:               ; preds = %311
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %330
 
 315:                                              ; preds = %uv__signal_tree_s_RB_NFIND.exit.thread8.i
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %317 = load i32, ptr %316, align 8
   %318 = and i32 %317, 33554432
@@ -937,7 +931,7 @@ uv__signal_unregister_handler.exit:               ; preds = %311
   br i1 %or.cond, label %330, label %324
 
 324:                                              ; preds = %315
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %3, i8 0, i64 152, i1 false)
   %325 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %326 = call i32 @sigfillset(ptr noundef nonnull %325) #10
@@ -953,11 +947,11 @@ uv__signal_register_handler.exit:                 ; preds = %324
   %328 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i32 -1879048192, ptr %328, align 8
   %329 = call i32 @sigaction(i32 noundef %292, ptr noundef nonnull %3, ptr noundef null) #10
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %330
 
 330:                                              ; preds = %315, %uv__signal_register_handler.exit, %uv__signal_unregister_handler.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 42, ptr %2, align 1
   br label %331
 
@@ -975,12 +969,12 @@ uv__signal_register_handler.exit:                 ; preds = %324
   br i1 %338, label %331, label %339
 
 339:                                              ; preds = %335
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @abort() #11
   unreachable
 
 340:                                              ; preds = %331
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %341 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %6, ptr noundef null) #10
   %.not1.i = icmp eq i32 %341, 0
   br i1 %.not1.i, label %uv__signal_unlock_and_unblock.exit, label %342
@@ -1014,7 +1008,7 @@ uv__signal_unlock_and_unblock.exit:               ; preds = %340
   br label %356
 
 356:                                              ; preds = %uv__signal_unlock_and_unblock.exit, %347, %350, %1
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1088,7 +1082,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__signal_start
   %8 = alloca %struct.sigaction, align 8
   %9 = alloca %struct.uv_signal_s, align 8
   %10 = alloca %struct.__sigset_t, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = icmp eq i32 %2, 0
   br i1 %11, label %uv__signal_unlock_and_unblock.exit, label %12
 
@@ -1113,7 +1107,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__signal_start
 
 20:                                               ; preds = %19, %18
   call fastcc void @uv__signal_block_and_lock(ptr noundef %10)
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 104
   store i32 %2, ptr %21, align 8
   %.0127.i.i = load ptr, ptr @uv__signal_tree.0, align 8
@@ -1175,8 +1169,8 @@ uv__signal_tree_s_RB_NFIND.exit.thread8.i:        ; preds = %uv__signal_compare.
   br i1 %38, label %45, label %.split
 
 .split:                                           ; preds = %20, %uv__signal_tree_s_RB_NFIND.exit.i, %uv__signal_tree_s_RB_NFIND.exit.thread8.i
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %8, i8 0, i64 152, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %40 = call i32 @sigfillset(ptr noundef nonnull %39) #10
@@ -1198,11 +1192,11 @@ uv__signal_tree_s_RB_NFIND.exit.thread8.i:        ; preds = %uv__signal_compare.
   br i1 %.not4.i, label %.thread60, label %56
 
 .thread60:                                        ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %74
 
 45:                                               ; preds = %uv__signal_tree_s_RB_NFIND.exit.thread8.i
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not30 = icmp eq i32 %3, 0
   br i1 %.not30, label %46, label %.thread52
 
@@ -1222,7 +1216,7 @@ uv__signal_tree_s_RB_NFIND.exit.thread8.i:        ; preds = %uv__signal_compare.
   br label %79
 
 .split26:                                         ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %7, i8 0, i64 152, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %51 = call i32 @sigfillset(ptr noundef nonnull %50) #10
@@ -1242,20 +1236,20 @@ uv__signal_tree_s_RB_NFIND.exit.thread8.i:        ; preds = %uv__signal_compare.
   br i1 %.not4.i39, label %.thread54.thread, label %.thread54
 
 .thread54.thread:                                 ; preds = %53
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread58
 
 56:                                               ; preds = %42
   %57 = tail call ptr @__errno_location() #12
   %58 = load i32, ptr %57, align 4
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not32 = icmp eq i32 %58, 0
   br i1 %.not32, label %74, label %61
 
 .thread54:                                        ; preds = %53
   %59 = tail call ptr @__errno_location() #12
   %60 = load i32, ptr %59, align 4
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not3256 = icmp eq i32 %60, 0
   br i1 %.not3256, label %.thread58, label %61
 
@@ -1266,7 +1260,7 @@ uv__signal_tree_s_RB_NFIND.exit.thread8.i:        ; preds = %uv__signal_compare.
 61:                                               ; preds = %.thread54, %56
   %.pn = phi i32 [ %60, %.thread54 ], [ %58, %56 ]
   %phi.call57 = sub nsw i32 0, %.pn
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 42, ptr %6, align 1
   br label %62
 
@@ -1284,12 +1278,12 @@ uv__signal_tree_s_RB_NFIND.exit.thread8.i:        ; preds = %uv__signal_compare.
   br i1 %69, label %62, label %70
 
 70:                                               ; preds = %66
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @abort() #11
   unreachable
 
 71:                                               ; preds = %62
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %72 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %10, ptr noundef null) #10
   %.not1.i = icmp eq i32 %72, 0
   br i1 %.not1.i, label %uv__signal_unlock_and_unblock.exit, label %73
@@ -1673,7 +1667,7 @@ uv__signal_tree_s_RB_INSERT_COLOR.exit.i:         ; preds = %.backedge.i.i, %.lr
   br label %uv__signal_tree_s_RB_INSERT.exit
 
 uv__signal_tree_s_RB_INSERT.exit:                 ; preds = %uv__signal_compare.exit.i, %uv__signal_tree_s_RB_INSERT_COLOR.exit.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 42, ptr %5, align 1
   br label %237
 
@@ -1691,12 +1685,12 @@ uv__signal_tree_s_RB_INSERT.exit:                 ; preds = %uv__signal_compare.
   br i1 %244, label %237, label %245
 
 245:                                              ; preds = %241
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @abort() #11
   unreachable
 
 246:                                              ; preds = %237
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %247 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %10, ptr noundef null) #10
   %.not1.i48 = icmp eq i32 %247, 0
   br i1 %.not1.i48, label %uv__signal_unlock_and_unblock.exit49, label %248
@@ -1732,7 +1726,7 @@ uv__signal_unlock_and_unblock.exit49:             ; preds = %246
 
 uv__signal_unlock_and_unblock.exit:               ; preds = %71, %uv__signal_unlock_and_unblock.exit49, %253, %256, %4, %16
   %.0 = phi i32 [ 0, %16 ], [ -22, %4 ], [ 0, %256 ], [ 0, %253 ], [ 0, %uv__signal_unlock_and_unblock.exit49 ], [ %phi.call57, %71 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
 
@@ -1749,7 +1743,7 @@ define dso_local noundef i32 @uv_signal_stop(ptr noundef captures(address) %0) l
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_atfork(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @pthread_atfork(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @uv__signal_global_reinit() #0 {
@@ -1783,7 +1777,7 @@ uv__signal_cleanup.exit:                          ; preds = %5, %7
   unreachable
 
 11:                                               ; preds = %uv__signal_cleanup.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i8 42, ptr %1, align 1
   br label %12
 
@@ -1801,32 +1795,32 @@ uv__signal_cleanup.exit:                          ; preds = %5, %7
   br i1 %19, label %12, label %20
 
 20:                                               ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   tail call void @abort() #11
   unreachable
 
 21:                                               ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #4
+declare void @abort() local_unnamed_addr #3
 
 declare i32 @uv__make_pipe(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #5
 
 declare void @uv__io_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @uv__signal_event(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 %2) #0 {
   %4 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 552
   br label %6
 
@@ -1919,23 +1913,23 @@ define internal void @uv__signal_event(ptr noundef readonly captures(none) %0, p
   br i1 %45, label %6, label %46
 
 46:                                               ; preds = %44, %16
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 declare void @uv__io_start(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @uv__signal_block_and_lock(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca %struct.__sigset_t, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @sigfillset(ptr noundef nonnull %3) #10
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -1955,7 +1949,7 @@ define internal fastcc void @uv__signal_block_and_lock(ptr noundef nonnull %0) u
   unreachable
 
 10:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %11
 
 11:                                               ; preds = %15, %10
@@ -1972,40 +1966,40 @@ define internal fastcc void @uv__signal_block_and_lock(ptr noundef nonnull %0) u
   br i1 %18, label %11, label %19
 
 19:                                               ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @abort() #11
   unreachable
 
 20:                                               ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @sigfillset(ptr noundef) local_unnamed_addr #3
+declare i32 @sigfillset(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #3
+declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_sigmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @pthread_sigmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @uv__signal_handler(i32 noundef %0) #9 {
+define internal void @uv__signal_handler(i32 noundef %0) #8 {
   %2 = alloca i8, align 1
   %3 = alloca %struct.uv_signal_s, align 8
   %4 = alloca i8, align 1
   %5 = alloca %struct.uv__signal_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @__errno_location() #12
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %9
 
 9:                                                ; preds = %13, %1
@@ -2021,12 +2015,12 @@ define internal void @uv__signal_handler(i32 noundef %0) #9 {
   br i1 %15, label %9, label %uv__signal_lock.exit
 
 uv__signal_lock.exit:                             ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %81
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store i32 %0, ptr %17, align 8
   %.0127.i.i = load ptr, ptr @uv__signal_tree.0, align 8
@@ -2088,11 +2082,11 @@ uv__signal_tree_s_RB_NFIND.exit.thread8.i:        ; preds = %uv__signal_compare.
   br i1 %34, label %.lr.ph, label %uv__signal_first_handle.exit.thread
 
 uv__signal_first_handle.exit.thread:              ; preds = %16, %uv__signal_tree_s_RB_NFIND.exit.i, %uv__signal_tree_s_RB_NFIND.exit.thread8.i
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
 .lr.ph:                                           ; preds = %uv__signal_tree_s_RB_NFIND.exit.thread8.i
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %.0.i11.i, i64 104
   %37 = load i32, ptr %36, align 8
@@ -2176,7 +2170,7 @@ uv__signal_tree_s_RB_NEXT.exit:                   ; preds = %.preheader.i, %67, 
   br i1 %73, label %.lr.ph45, label %.critedge
 
 .critedge:                                        ; preds = %uv__signal_tree_s_RB_NEXT.exit, %64, %.lr.ph, %uv__signal_first_handle.exit.thread
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 42, ptr %2, align 1
   br label %74
 
@@ -2193,31 +2187,37 @@ uv__signal_tree_s_RB_NEXT.exit:                   ; preds = %.preheader.i, %67, 
   br i1 %80, label %74, label %uv__signal_unlock.exit
 
 uv__signal_unlock.exit:                           ; preds = %74, %78
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %81
 
 81:                                               ; preds = %uv__signal_lock.exit, %uv__signal_unlock.exit
   store i32 %7, ptr %6, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind }
 attributes #11 = { noreturn nounwind }
 attributes #12 = { nounwind willreturn memory(none) }

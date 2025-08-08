@@ -61,12 +61,6 @@ define range(i32 0, 3) i32 @lv_draw_sw_mask_apply(ptr noundef readonly captures(
   ret i32 %.2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_sw_mask_free_param(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -105,7 +99,7 @@ define void @lv_draw_sw_mask_free_param(ptr noundef readonly captures(none) %0) 
   ret void
 }
 
-declare void @lv_free(ptr noundef) local_unnamed_addr #3
+declare void @lv_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_sw_mask_cleanup() local_unnamed_addr #1 {
@@ -291,7 +285,7 @@ define void @lv_draw_sw_mask_line_points_init(ptr noundef %0, i32 noundef %1, i3
   ret void
 }
 
-declare void @lv_point_set(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @lv_point_set(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @lv_draw_mask_line(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #1 {
@@ -1058,7 +1052,7 @@ define void @lv_draw_sw_mask_line_angle_init(ptr noundef %0, i32 noundef %1, i32
   ret void
 }
 
-declare i32 @lv_trigo_sin(i16 noundef signext) local_unnamed_addr #3
+declare i32 @lv_trigo_sin(i16 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_sw_mask_angle_init(ptr noundef initializes((24, 32), (160, 162)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
@@ -1630,8 +1624,8 @@ define void @lv_draw_sw_mask_radius_init(ptr noundef captures(none) initializes(
 106:                                              ; preds = %100
   %107 = sext i32 %101 to i64
   %108 = getelementptr inbounds i32, ptr %105, i64 %107
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %spec.store.select, ptr %5, align 16, !tbaa !63
   store i32 0, ptr %6, align 16, !tbaa !63
   %109 = sub nsw i32 1, %90
@@ -1979,17 +1973,17 @@ circ_next.exit.i:                                 ; preds = %124, %120
 
 ._crit_edge256.i:                                 ; preds = %308, %._crit_edge.i
   tail call void @lv_free(ptr noundef nonnull %105) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %circ_calc_aa4.exit
 
 circ_calc_aa4.exit:                               ; preds = %._crit_edge256.i, %96, %37, %30
   ret void
 }
 
-declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #3
+declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #2
 
-declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #3
+declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @lv_draw_mask_radius(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #1 {
@@ -2000,7 +1994,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_radius(ptr noundef %0, i32 nou
   %10 = and i8 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = load i32, ptr %7, align 4, !tbaa !50
   store i32 %13, ptr %6, align 4, !tbaa !50
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -2346,14 +2340,14 @@ mask_mix.exit230:                                 ; preds = %185, %190, %192
 
 205:                                              ; preds = %5, %._crit_edge247, %._crit_edge, %52, %55, %63, %56, %35, %41
   %.0 = phi i32 [ 0, %35 ], [ 0, %41 ], [ 2, %56 ], [ 2, %63 ], [ 2, %55 ], [ %spec.select224, %52 ], [ 2, %._crit_edge ], [ 2, %._crit_edge247 ], [ %., %5 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #3
+declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_draw_sw_mask_fade_init(ptr noundef writeonly captures(none) initializes((0, 12), (16, 42)) %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2, i32 noundef %3, i8 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #4 {
+define void @lv_draw_sw_mask_fade_init(ptr noundef writeonly captures(none) initializes((0, 12), (16, 42)) %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2, i32 noundef %3, i8 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %1, align 4, !tbaa !50
   store i32 %8, ptr %7, align 4, !tbaa !50
@@ -2384,7 +2378,7 @@ define void @lv_draw_sw_mask_fade_init(ptr noundef writeonly captures(none) init
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal range(i32 1, 3) i32 @lv_draw_mask_fade(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #5 {
+define internal range(i32 1, 3) i32 @lv_draw_mask_fade(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #4 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %8 = load i32, ptr %7, align 4, !tbaa !79
@@ -2558,7 +2552,7 @@ mask_mix.exit78:                                  ; preds = %.lr.ph89.split, %ma
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_draw_sw_mask_map_init(ptr noundef writeonly captures(none) initializes((0, 12), (16, 40)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #4 {
+define void @lv_draw_sw_mask_map_init(ptr noundef writeonly captures(none) initializes((0, 12), (16, 40)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %1, align 4, !tbaa !50
   store i32 %5, ptr %4, align 4, !tbaa !50
@@ -2674,9 +2668,15 @@ mask_mix.exit:                                    ; preds = %.lr.ph, %45, %47
   ret i32 %.041
 }
 
-declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #3
+declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #2
 
-declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #3
+declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
@@ -2695,10 +2695,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nounwind }

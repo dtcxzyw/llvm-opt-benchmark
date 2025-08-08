@@ -36,12 +36,12 @@ define internal range(i32 0, 2) i32 @dsa_pub_decode(ptr noundef %0, ptr noundef 
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call i32 @X509_PUBKEY_get0_param(ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef %1) #5
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %39, label %10
@@ -110,19 +110,19 @@ define internal range(i32 0, 2) i32 @dsa_pub_decode(ptr noundef %0, ptr noundef 
 
 39:                                               ; preds = %2, %38, %33
   %.014 = phi i32 [ 0, %38 ], [ 1, %33 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.014
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dsa_pub_encode(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !15
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !29
@@ -220,7 +220,7 @@ define internal range(i32 0, 2) i32 @dsa_pub_encode(ptr noundef %0, ptr noundef 
 
 44:                                               ; preds = %39, %42
   %.0 = phi i32 [ 0, %42 ], [ 1, %39 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -300,7 +300,7 @@ define internal range(i32 0, 2) i32 @dsa_priv_decode(ptr noundef %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dsa_priv_encode(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !15
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !29
@@ -392,7 +392,7 @@ define internal range(i32 0, 2) i32 @dsa_priv_encode(ptr noundef %0, ptr noundef
 
 42:                                               ; preds = %34, %41
   %.0 = phi i32 [ 0, %41 ], [ 1, %34 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -580,7 +580,7 @@ define internal i32 @dsa_sig_print(ptr noundef %0, ptr readnone captures(none) %
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = icmp eq ptr %2, null
   br i1 %9, label %10, label %13
 
@@ -601,8 +601,8 @@ define internal i32 @dsa_sig_print(ptr noundef %0, ptr readnone captures(none) %
   br i1 %.not, label %28, label %19
 
 19:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @DSA_SIG_get0(ptr noundef nonnull %18, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
   %20 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef 1) #5
   %.not20 = icmp eq i32 %20, 1
@@ -624,8 +624,8 @@ define internal i32 @dsa_sig_print(ptr noundef %0, ptr readnone captures(none) %
 27:                                               ; preds = %24, %21, %19
   %.0 = phi i32 [ 0, %19 ], [ 0, %21 ], [ %spec.select, %24 ]
   call void @DSA_SIG_free(ptr noundef nonnull %18) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %33
 
 28:                                               ; preds = %13
@@ -639,7 +639,7 @@ define internal i32 @dsa_sig_print(ptr noundef %0, ptr readnone captures(none) %
 
 33:                                               ; preds = %28, %10, %31, %27
   %.017 = phi i32 [ %.0, %27 ], [ %32, %31 ], [ %., %10 ], [ 0, %28 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.017
 }
 
@@ -854,53 +854,47 @@ define internal i32 @dsa_pkey_copy(ptr noundef %0, ptr noundef readonly captures
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare i32 @X509_PUBKEY_get0_param(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @X509_PUBKEY_get0_param(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @X509_ALGOR_get0(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @X509_ALGOR_get0(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @d2i_DSAparams(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @d2i_DSAparams(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @ERR_new() local_unnamed_addr #3
 
-declare void @ERR_new() local_unnamed_addr #4
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare ptr @DSA_new() local_unnamed_addr #3
 
-declare ptr @DSA_new() local_unnamed_addr #4
+declare ptr @d2i_ASN1_INTEGER(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @d2i_ASN1_INTEGER(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @ASN1_INTEGER_to_BN(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @ASN1_INTEGER_to_BN(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #3
 
-declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #4
+declare i32 @EVP_PKEY_assign(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @EVP_PKEY_assign(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @DSA_free(ptr noundef) local_unnamed_addr #3
 
-declare void @DSA_free(ptr noundef) local_unnamed_addr #4
+declare ptr @ASN1_STRING_new() local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare i32 @i2d_DSAparams(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @ASN1_STRING_new() local_unnamed_addr #4
+declare ptr @BN_to_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @i2d_DSAparams(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @i2d_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @BN_to_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #3
 
-declare i32 @i2d_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @X509_PUBKEY_set0_param(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #4
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @X509_PUBKEY_set0_param(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #3
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
-
-declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #4
-
-declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @do_dsa_print(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 {
@@ -972,83 +966,89 @@ define internal fastcc range(i32 0, 2) i32 @do_dsa_print(ptr noundef %0, ptr nou
   ret i32 %.028
 }
 
-declare i32 @DSA_bits(ptr noundef) local_unnamed_addr #4
+declare i32 @DSA_bits(ptr noundef) local_unnamed_addr #3
 
-declare i32 @BIO_indent(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @BIO_indent(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @ASN1_bn_print(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @ASN1_bn_print(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @ossl_ffc_params_print(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @ossl_ffc_params_print(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @ossl_dsa_key_from_pkcs8(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @ossl_dsa_key_from_pkcs8(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @ASN1_STRING_clear_free(ptr noundef) local_unnamed_addr #4
+declare void @ASN1_STRING_clear_free(ptr noundef) local_unnamed_addr #3
 
-declare i32 @PKCS8_pkey_set0(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @PKCS8_pkey_set0(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @DSA_size(ptr noundef) local_unnamed_addr #4
+declare i32 @DSA_size(ptr noundef) local_unnamed_addr #3
 
-declare i32 @DSA_security_bits(ptr noundef) local_unnamed_addr #4
+declare i32 @DSA_security_bits(ptr noundef) local_unnamed_addr #3
 
-declare i32 @ossl_ffc_params_copy(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @ossl_ffc_params_copy(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @ossl_ffc_params_cmp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @ossl_ffc_params_cmp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @d2i_DSA_SIG(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @d2i_DSA_SIG(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @DSA_SIG_get0(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @DSA_SIG_get0(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @DSA_SIG_free(ptr noundef) local_unnamed_addr #4
+declare void @DSA_SIG_free(ptr noundef) local_unnamed_addr #3
 
-declare i32 @X509_signature_dump(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @X509_signature_dump(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @d2i_DSAPrivateKey(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @d2i_DSAPrivateKey(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @i2d_DSAPrivateKey(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @i2d_DSAPrivateKey(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @DSA_get0_p(ptr noundef) local_unnamed_addr #4
+declare ptr @DSA_get0_p(ptr noundef) local_unnamed_addr #3
 
-declare ptr @DSA_get0_g(ptr noundef) local_unnamed_addr #4
+declare ptr @DSA_get0_g(ptr noundef) local_unnamed_addr #3
 
-declare ptr @DSA_get0_q(ptr noundef) local_unnamed_addr #4
+declare ptr @DSA_get0_q(ptr noundef) local_unnamed_addr #3
 
-declare ptr @DSA_get0_pub_key(ptr noundef) local_unnamed_addr #4
+declare ptr @DSA_get0_pub_key(ptr noundef) local_unnamed_addr #3
 
-declare ptr @DSA_get0_priv_key(ptr noundef) local_unnamed_addr #4
+declare ptr @DSA_get0_priv_key(ptr noundef) local_unnamed_addr #3
 
-declare ptr @OSSL_PARAM_BLD_new() local_unnamed_addr #4
+declare ptr @OSSL_PARAM_BLD_new() local_unnamed_addr #3
 
-declare i32 @OSSL_PARAM_BLD_push_BN(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @OSSL_PARAM_BLD_push_BN(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @OSSL_PARAM_BLD_to_param(ptr noundef) local_unnamed_addr #4
+declare ptr @OSSL_PARAM_BLD_to_param(ptr noundef) local_unnamed_addr #3
 
-declare void @OSSL_PARAM_free(ptr noundef) local_unnamed_addr #4
+declare void @OSSL_PARAM_free(ptr noundef) local_unnamed_addr #3
 
-declare void @OSSL_PARAM_BLD_free(ptr noundef) local_unnamed_addr #4
+declare void @OSSL_PARAM_BLD_free(ptr noundef) local_unnamed_addr #3
 
-declare ptr @EVP_PKEY_CTX_get0_pkey(ptr noundef) local_unnamed_addr #4
+declare ptr @EVP_PKEY_CTX_get0_pkey(ptr noundef) local_unnamed_addr #3
 
-declare ptr @ossl_dsa_new(ptr noundef) local_unnamed_addr #4
+declare ptr @ossl_dsa_new(ptr noundef) local_unnamed_addr #3
 
-declare i32 @ossl_dsa_ffc_params_fromdata(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @ossl_dsa_ffc_params_fromdata(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @ossl_dsa_key_fromdata(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @ossl_dsa_key_fromdata(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @ossl_dsa_dup(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @ossl_dsa_dup(ptr noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

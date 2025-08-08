@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind ssp uwtable
 define dso_local range(i32 0, 2) i32 @crypto_core_ed25519_is_valid_point(ptr noundef nonnull %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ge25519_p3, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call i32 @_sodium_ge25519_is_canonical(ptr noundef nonnull %0) #6
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %15, label %5
@@ -38,34 +38,28 @@ define dso_local range(i32 0, 2) i32 @crypto_core_ed25519_is_valid_point(ptr nou
 
 15:                                               ; preds = %12, %1, %5, %7, %10
   %.0 = phi i32 [ 0, %10 ], [ 0, %7 ], [ 0, %5 ], [ 0, %1 ], [ %spec.select, %12 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @_sodium_ge25519_is_canonical(ptr noundef) local_unnamed_addr #1
 
-declare i32 @_sodium_ge25519_is_canonical(ptr noundef) local_unnamed_addr #2
+declare i32 @_sodium_ge25519_frombytes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @_sodium_ge25519_frombytes(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_sodium_ge25519_is_on_curve(ptr noundef) local_unnamed_addr #1
 
-declare i32 @_sodium_ge25519_is_on_curve(ptr noundef) local_unnamed_addr #2
+declare i32 @_sodium_ge25519_has_small_order(ptr noundef) local_unnamed_addr #1
 
-declare i32 @_sodium_ge25519_has_small_order(ptr noundef) local_unnamed_addr #2
-
-declare i32 @_sodium_ge25519_is_on_main_subgroup(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @_sodium_ge25519_is_on_main_subgroup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local range(i32 -1, 1) i32 @crypto_core_ed25519_add(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ge25519_p3, align 8
   %5 = alloca %struct.ge25519_p3, align 8
   %6 = alloca %struct.ge25519_p3, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @_sodium_ge25519_frombytes(ptr noundef nonnull %4, ptr noundef nonnull %1) #6
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %17
@@ -92,24 +86,24 @@ define dso_local range(i32 -1, 1) i32 @crypto_core_ed25519_add(ptr noundef nonnu
 
 17:                                               ; preds = %3, %8, %11, %13, %16
   %.0 = phi i32 [ 0, %16 ], [ -1, %13 ], [ -1, %11 ], [ -1, %8 ], [ -1, %3 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare void @_sodium_ge25519_p3_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_sodium_ge25519_p3_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @_sodium_ge25519_p3_tobytes(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_sodium_ge25519_p3_tobytes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local range(i32 -1, 1) i32 @crypto_core_ed25519_sub(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ge25519_p3, align 8
   %5 = alloca %struct.ge25519_p3, align 8
   %6 = alloca %struct.ge25519_p3, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @_sodium_ge25519_frombytes(ptr noundef nonnull %4, ptr noundef nonnull %1) #6
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %17
@@ -136,13 +130,13 @@ define dso_local range(i32 -1, 1) i32 @crypto_core_ed25519_sub(ptr noundef nonnu
 
 17:                                               ; preds = %3, %8, %11, %13, %16
   %.0 = phi i32 [ 0, %16 ], [ -1, %13 ], [ -1, %11 ], [ -1, %8 ], [ -1, %3 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare void @_sodium_ge25519_p3_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_sodium_ge25519_p3_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local noundef i32 @crypto_core_ed25519_from_uniform(ptr noundef nonnull %0, ptr noundef nonnull %1) local_unnamed_addr #0 {
@@ -150,14 +144,14 @@ define dso_local noundef i32 @crypto_core_ed25519_from_uniform(ptr noundef nonnu
   ret i32 0
 }
 
-declare void @_sodium_ge25519_from_uniform(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_sodium_ge25519_from_uniform(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local range(i32 -1, 1) i32 @crypto_core_ed25519_from_string(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [64 x i8], align 16
   %7 = alloca [96 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @_sodium_core_h2c_string_to_hash(ptr noundef nonnull %7, i64 noundef 48, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #6
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %.preheader.preheader.i, label %_string_to_points.exit
@@ -184,8 +178,8 @@ _string_to_points.exit.loopexit:                  ; preds = %10
 
 _string_to_points.exit:                           ; preds = %_string_to_points.exit.loopexit, %5
   %.019.i = phi i32 [ -1, %5 ], [ 0, %_string_to_points.exit.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.019.i
 }
 
@@ -197,9 +191,9 @@ define dso_local range(i32 -1, 1) i32 @crypto_core_ed25519_from_string_ro(ptr no
   %9 = alloca [64 x i8], align 16
   %10 = alloca [96 x i8], align 16
   %11 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %12 = call i32 @_sodium_core_h2c_string_to_hash(ptr noundef nonnull %10, i64 noundef 96, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #6
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %.preheader.preheader.i, label %_string_to_points.exit
@@ -235,17 +229,17 @@ define dso_local range(i32 -1, 1) i32 @crypto_core_ed25519_from_string_ro(ptr no
   br i1 %exitcond24.not.i, label %26, label %.preheader.i, !llvm.loop !6
 
 _string_to_points.exit:                           ; preds = %5
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %38
 
 26:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %28 = call i32 @_sodium_ge25519_frombytes(ptr noundef nonnull %6, ptr noundef nonnull %11) #6
   %.not.i5 = icmp eq i32 %28, 0
   br i1 %.not.i5, label %29, label %crypto_core_ed25519_add.exit
@@ -272,28 +266,28 @@ _string_to_points.exit:                           ; preds = %5
 
 crypto_core_ed25519_add.exit:                     ; preds = %26, %29, %32, %34, %37
   %.0.i = phi i32 [ 0, %37 ], [ -1, %34 ], [ -1, %32 ], [ -1, %29 ], [ -1, %26 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 
 38:                                               ; preds = %_string_to_points.exit, %crypto_core_ed25519_add.exit
   %.0 = phi i32 [ %.0.i, %crypto_core_ed25519_add.exit ], [ -1, %_string_to_points.exit ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local void @crypto_core_ed25519_random(ptr noundef nonnull %0) local_unnamed_addr #0 {
   %2 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @randombytes_buf(ptr noundef nonnull %2, i64 noundef 32) #6
   call void @_sodium_ge25519_from_uniform(ptr noundef nonnull %0, ptr noundef nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare void @randombytes_buf(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @randombytes_buf(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local void @crypto_core_ed25519_scalar_random(ptr noundef nonnull %0) local_unnamed_addr #0 {
@@ -321,9 +315,9 @@ define dso_local void @crypto_core_ed25519_scalar_random(ptr noundef nonnull %0)
   ret void
 }
 
-declare i32 @_sodium_sc25519_is_canonical(ptr noundef) local_unnamed_addr #2
+declare i32 @_sodium_sc25519_is_canonical(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sodium_is_zero(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @sodium_is_zero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local i32 @crypto_core_ed25519_scalar_invert(ptr noundef nonnull %0, ptr noundef nonnull %1) local_unnamed_addr #0 {
@@ -333,14 +327,14 @@ define dso_local i32 @crypto_core_ed25519_scalar_invert(ptr noundef nonnull %0, 
   ret i32 %4
 }
 
-declare void @_sodium_sc25519_invert(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_sodium_sc25519_invert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local void @crypto_core_ed25519_scalar_negate(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 noundef 0, i64 noundef 32, i1 noundef false) #6
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 16 dereferenceable(32) @L, i64 noundef 32, i1 noundef false) #6
@@ -350,21 +344,21 @@ define dso_local void @crypto_core_ed25519_scalar_negate(ptr noundef nonnull %0,
   call void @sodium_sub(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 64) #6
   call void @_sodium_sc25519_reduce(ptr noundef nonnull %3) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %3, i64 noundef 32, i1 noundef false) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @sodium_sub(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @sodium_sub(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @_sodium_sc25519_reduce(ptr noundef) local_unnamed_addr #2
+declare void @_sodium_sc25519_reduce(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local void @crypto_core_ed25519_scalar_complement(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 noundef 0, i64 noundef 32, i1 noundef false) #6
   store i8 1, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -375,8 +369,8 @@ define dso_local void @crypto_core_ed25519_scalar_complement(ptr noundef nonnull
   call void @sodium_sub(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 64) #6
   call void @_sodium_sc25519_reduce(ptr noundef nonnull %3) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %3, i64 noundef 32, i1 noundef false) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -385,8 +379,8 @@ define dso_local void @crypto_core_ed25519_scalar_add(ptr noundef nonnull %0, pt
   %4 = alloca [64 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(32) %1, i64 noundef 32, i1 noundef false) #6
@@ -394,28 +388,28 @@ define dso_local void @crypto_core_ed25519_scalar_add(ptr noundef nonnull %0, pt
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 1 dereferenceable(32) %2, i64 noundef 32, i1 noundef false) #6
   call void @sodium_add(ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 32) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull readonly align 16 dereferenceable(64) %5, i64 noundef 64, i1 noundef false) #6
   call void @_sodium_sc25519_reduce(ptr noundef nonnull %4) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 noundef 32, i1 noundef false) #6
   call void @sodium_memzero(ptr noundef nonnull %4, i64 noundef 64) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare void @sodium_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @sodium_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local void @crypto_core_ed25519_scalar_reduce(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 1 dereferenceable(64) %1, i64 noundef 64, i1 noundef false) #6
   call void @_sodium_sc25519_reduce(ptr noundef nonnull %3) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %3, i64 noundef 32, i1 noundef false) #6
   call void @sodium_memzero(ptr noundef nonnull %3, i64 noundef 64) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -426,8 +420,8 @@ define dso_local void @crypto_core_ed25519_scalar_sub(ptr noundef nonnull %0, pt
   %6 = alloca [64 x i8], align 16
   %7 = alloca [64 x i8], align 16
   %8 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, i8 noundef 0, i64 noundef 32, i1 noundef false) #6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) @L, i64 noundef 32, i1 noundef false) #6
@@ -436,25 +430,25 @@ define dso_local void @crypto_core_ed25519_scalar_sub(ptr noundef nonnull %0, pt
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, ptr noundef nonnull readonly align 1 dereferenceable(32) %2, i64 noundef 32, i1 noundef false) #6
   call void @sodium_sub(ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef 64) #6
   call void @_sodium_sc25519_reduce(ptr noundef nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 16 dereferenceable(32) %7, i64 noundef 32, i1 noundef false) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull readonly align 1 dereferenceable(32) %1, i64 noundef 32, i1 noundef false) #6
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   call void @sodium_add(ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 32) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull readonly align 16 dereferenceable(64) %5, i64 noundef 64, i1 noundef false) #6
   call void @_sodium_sc25519_reduce(ptr noundef nonnull %4) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 noundef 32, i1 noundef false) #6
   call void @sodium_memzero(ptr noundef nonnull %4, i64 noundef 64) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -464,9 +458,9 @@ define dso_local void @crypto_core_ed25519_scalar_mul(ptr noundef nonnull %0, pt
   ret void
 }
 
-declare void @_sodium_sc25519_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_sodium_sc25519_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local i32 @crypto_core_ed25519_scalar_is_canonical(ptr noundef nonnull %0) local_unnamed_addr #0 {
@@ -475,33 +469,39 @@ define dso_local i32 @crypto_core_ed25519_scalar_is_canonical(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable
-define dso_local noundef i64 @crypto_core_ed25519_bytes() local_unnamed_addr #3 {
+define dso_local noundef i64 @crypto_core_ed25519_bytes() local_unnamed_addr #2 {
   ret i64 32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable
-define dso_local noundef i64 @crypto_core_ed25519_nonreducedscalarbytes() local_unnamed_addr #3 {
+define dso_local noundef i64 @crypto_core_ed25519_nonreducedscalarbytes() local_unnamed_addr #2 {
   ret i64 64
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable
-define dso_local noundef i64 @crypto_core_ed25519_uniformbytes() local_unnamed_addr #3 {
+define dso_local noundef i64 @crypto_core_ed25519_uniformbytes() local_unnamed_addr #2 {
   ret i64 32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable
-define dso_local noundef i64 @crypto_core_ed25519_hashbytes() local_unnamed_addr #3 {
+define dso_local noundef i64 @crypto_core_ed25519_hashbytes() local_unnamed_addr #2 {
   ret i64 64
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable
-define dso_local noundef i64 @crypto_core_ed25519_scalarbytes() local_unnamed_addr #3 {
+define dso_local noundef i64 @crypto_core_ed25519_scalarbytes() local_unnamed_addr #2 {
   ret i64 32
 }
 
-declare i32 @_sodium_core_h2c_string_to_hash(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_sodium_core_h2c_string_to_hash(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @_sodium_ge25519_from_hash(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_sodium_ge25519_from_hash(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
@@ -510,9 +510,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 attributes #0 = { nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }

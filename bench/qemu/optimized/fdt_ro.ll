@@ -183,19 +183,13 @@ define dso_local noundef ptr @fdt_get_string(ptr noundef %0, i32 noundef %1, ptr
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
+
+declare i32 @fdt_ro_probe_(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
-
-declare i32 @fdt_ro_probe_(ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @fdt_string(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -237,23 +231,23 @@ define dso_local range(i32 -2147483648, 1) i32 @fdt_find_max_phandle(ptr noundef
   ret i32 %.218
 }
 
-declare i32 @fdt_next_node(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @fdt_next_node(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @fdt_get_phandle(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !4
   %6 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly @.str, i32 noundef 7, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %fdt_getprop.exit.thread, label %7
 
 fdt_getprop.exit.thread:                          ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
 7:                                                ; preds = %2
@@ -297,20 +291,20 @@ fdt_getprop.exit.thread:                          ; preds = %2
 fdt_getprop.exit:                                 ; preds = %30, %33
   %.sink = phi i64 [ 12, %33 ], [ 16, %30 ]
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %35 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %35, 4
   br i1 %.not, label %67, label %36
 
 36:                                               ; preds = %fdt_getprop.exit.thread, %fdt_getprop.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !annotation !4
   %37 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly @.str.1, i32 noundef 13, ptr noundef nonnull %5, ptr noundef nonnull %3)
   %.not.i.i15 = icmp eq ptr %37, null
   br i1 %.not.i.i15, label %fdt_getprop.exit20.thread, label %38
 
 fdt_getprop.exit20.thread:                        ; preds = %36
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %68
 
 38:                                               ; preds = %36
@@ -354,7 +348,7 @@ fdt_getprop.exit20.thread:                        ; preds = %36
 fdt_getprop.exit20:                               ; preds = %61, %64
   %.sink26 = phi i64 [ 12, %64 ], [ 16, %61 ]
   %65 = getelementptr inbounds nuw i8, ptr %37, i64 %.sink26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %66 = load i32, ptr %5, align 4
   %.not25 = icmp eq i32 %66, 4
   br i1 %.not25, label %67, label %68
@@ -367,7 +361,7 @@ fdt_getprop.exit20:                               ; preds = %61, %64
 
 68:                                               ; preds = %fdt_getprop.exit20.thread, %fdt_getprop.exit20, %67
   %.012 = phi i32 [ %rev.i.i, %67 ], [ 0, %fdt_getprop.exit20 ], [ 0, %fdt_getprop.exit20.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.012
 }
 
@@ -496,7 +490,7 @@ fdt_mem_rsv.exit.thread:                          ; preds = %29, %7, %4, %51
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @fdt_num_mem_rsv(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local i32 @fdt_num_mem_rsv(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
 .split.preheader:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i8, ptr %1, align 1
@@ -577,7 +571,7 @@ fdt_mem_rsv.exit.thread.split:                    ; preds = %52, %56, %.split
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @fdt_subnode_offset_namelen(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i32 @fdt_ro_probe_(ptr noundef %0) #9
   %7 = icmp sgt i32 %6, -1
   br i1 %7, label %8, label %fdt_nodename_eq_.exit.thread17
@@ -697,7 +691,7 @@ fdt_nodename_eq_.exit.thread:                     ; preds = %22, %42, %62, %69, 
 
 fdt_nodename_eq_.exit.thread17:                   ; preds = %70, %fdt_nodename_eq_.exit, %8, %._crit_edge.loopexit, %4
   %.1 = phi i32 [ %6, %4 ], [ %1, %8 ], [ %81, %._crit_edge.loopexit ], [ %.01323, %fdt_nodename_eq_.exit ], [ %.01323, %70 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
 
@@ -736,7 +730,7 @@ define dso_local i32 @fdt_path_offset_namelen(ptr noundef %0, ptr noundef %1, i3
   %17 = ptrtoint ptr %1 to i64
   %18 = sub i64 %16, %17
   %19 = trunc i64 %18 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !4
   %20 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %13, ptr noundef nonnull readonly %1, i32 noundef %19, ptr noundef null, ptr noundef nonnull %4)
   %.not.i = icmp eq ptr %20, null
@@ -781,13 +775,13 @@ define dso_local i32 @fdt_path_offset_namelen(ptr noundef %0, ptr noundef %1, i3
   br label %48
 
 fdt_get_alias_namelen.exit:                       ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 48:                                               ; preds = %44, %47
   %.sink = phi i64 [ 12, %47 ], [ 16, %44 ]
   %49 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #10
   %51 = trunc i64 %50 to i32
   %52 = call i32 @fdt_path_offset_namelen(ptr noundef nonnull %0, ptr noundef nonnull %49, i32 noundef %51)
@@ -842,7 +836,7 @@ define dso_local ptr @fdt_get_alias_namelen(ptr noundef %0, ptr noundef readonly
   br i1 %6, label %39, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !4
   %8 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %5, ptr noundef readonly %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %4)
   %.not.i = icmp eq ptr %8, null
@@ -893,7 +887,7 @@ define dso_local ptr @fdt_get_alias_namelen(ptr noundef %0, ptr noundef readonly
 
 fdt_getprop_namelen.exit:                         ; preds = %7, %35, %37
   %.0.i = phi ptr [ %38, %37 ], [ %36, %35 ], [ null, %7 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %39
 
 39:                                               ; preds = %3, %fdt_getprop_namelen.exit
@@ -996,10 +990,10 @@ define dso_local ptr @fdt_get_name(ptr noundef %0, i32 noundef %1, ptr noundef w
   ret ptr %.021
 }
 
-declare i32 @fdt_check_node_offset_(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @fdt_check_node_offset_(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @fdt_first_property_offset(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1009,7 +1003,7 @@ define dso_local i32 @fdt_first_property_offset(ptr noundef %0, i32 noundef %1) 
   br i1 %5, label %15, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !annotation !4
   br label %7
 
@@ -1034,7 +1028,7 @@ define dso_local i32 @fdt_first_property_offset(ptr noundef %0, i32 noundef %1) 
 
 nextprop_.exit:                                   ; preds = %7, %12, %9
   %.05.i = phi i32 [ %..i, %9 ], [ %.0.i, %7 ], [ -1, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %15
 
 15:                                               ; preds = %2, %nextprop_.exit
@@ -1050,7 +1044,7 @@ define dso_local i32 @fdt_next_property_offset(ptr noundef %0, i32 noundef %1) l
   br i1 %5, label %15, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !annotation !4
   br label %7
 
@@ -1075,7 +1069,7 @@ define dso_local i32 @fdt_next_property_offset(ptr noundef %0, i32 noundef %1) l
 
 nextprop_.exit:                                   ; preds = %7, %12, %9
   %.05.i = phi i32 [ %..i, %9 ], [ %.0.i, %7 ], [ -1, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %15
 
 15:                                               ; preds = %2, %nextprop_.exit
@@ -1083,7 +1077,7 @@ nextprop_.exit:                                   ; preds = %7, %12, %9
   ret i32 %.0
 }
 
-declare i32 @fdt_check_prop_offset_(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @fdt_check_prop_offset_(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @fdt_get_property_by_offset(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
@@ -1213,7 +1207,7 @@ define internal fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 nounde
   br i1 %11, label %.thread55, label %12
 
 12:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !annotation !4
   br label %13
 
@@ -1238,11 +1232,11 @@ define internal fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 nounde
 
 fdt_first_property_offset.exit.thread77:          ; preds = %18, %15
   %.05.i.i.ph = phi i32 [ %spec.select, %15 ], [ -1, %18 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread55
 
 fdt_first_property_offset.exit:                   ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %21 = icmp sgt i32 %.0.i.i, -1
   br i1 %21, label %.lr.ph, label %.thread55
 
@@ -1295,7 +1289,7 @@ fdt_get_property_by_offset_.exit.thread40:        ; preds = %31, %fdt_get_proper
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %.val = load i32, ptr %50, align 4
   %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %.val)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !annotation !4
   %51 = call ptr @fdt_get_string(ptr noundef nonnull %0, i32 noundef %rev.i.i, ptr noundef nonnull %8)
   %.not.i32 = icmp ne ptr %51, null
@@ -1305,13 +1299,13 @@ fdt_get_property_by_offset_.exit.thread40:        ; preds = %31, %fdt_get_proper
   br i1 %or.cond.i, label %fdt_string_eq_.exit, label %fdt_string_eq_.exit.thread
 
 fdt_string_eq_.exit.thread:                       ; preds = %fdt_get_property_by_offset_.exit.thread40
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %56
 
 fdt_string_eq_.exit:                              ; preds = %fdt_get_property_by_offset_.exit.thread40
   %bcmp.i = call i32 @bcmp(ptr nonnull %51, ptr readonly %2, i64 %26)
   %.not = icmp eq i32 %bcmp.i, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not, label %54, label %56
 
 54:                                               ; preds = %fdt_string_eq_.exit
@@ -1328,7 +1322,7 @@ fdt_string_eq_.exit:                              ; preds = %fdt_get_property_by
   br i1 %58, label %.thread55, label %59
 
 59:                                               ; preds = %56
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !annotation !4
   br label %60
 
@@ -1353,11 +1347,11 @@ fdt_string_eq_.exit:                              ; preds = %fdt_get_property_by
 
 fdt_next_property_offset.exit.thread82:           ; preds = %65, %62
   %.05.i.i35.ph = phi i32 [ %spec.select95, %62 ], [ -1, %65 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread55
 
 fdt_next_property_offset.exit:                    ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %68 = icmp sgt i32 %.0.i.i33, -1
   br i1 %68, label %27, label %.thread55, !llvm.loop !11
 
@@ -1421,7 +1415,7 @@ fdt_get_property_namelen.exit:                    ; preds = %24, %25, %26
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @fdt_getprop_namelen(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !annotation !4
   %7 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull %6)
   %.not = icmp eq ptr %7, null
@@ -1472,7 +1466,7 @@ define dso_local ptr @fdt_getprop_namelen(ptr noundef %0, i32 noundef %1, ptr no
 
 38:                                               ; preds = %5, %36, %34
   %.0 = phi ptr [ %37, %36 ], [ %35, %34 ], [ null, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
@@ -1528,7 +1522,7 @@ fdt_get_property_by_offset_.exit.thread34:        ; preds = %9, %fdt_get_propert
   br i1 %.not26, label %39, label %32
 
 32:                                               ; preds = %fdt_get_property_by_offset_.exit.thread34
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !4
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.val30 = load i32, ptr %33, align 4
@@ -1546,12 +1540,12 @@ fdt_get_property_by_offset_.exit.thread34:        ; preds = %9, %fdt_get_propert
   br label %.thread
 
 .thread:                                          ; preds = %35, %36
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %fdt_get_property_by_offset_.exit.thread
 
 38:                                               ; preds = %32
   store ptr %34, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %39
 
 39:                                               ; preds = %38, %fdt_get_property_by_offset_.exit.thread34
@@ -1604,7 +1598,7 @@ define dso_local ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr noundef re
   %5 = alloca i32, align 4
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
   %7 = trunc i64 %6 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !4
   %8 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly %2, i32 noundef %7, ptr noundef %3, ptr noundef nonnull %5)
   %.not.i = icmp eq ptr %8, null
@@ -1655,7 +1649,7 @@ define dso_local ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr noundef re
 
 fdt_getprop_namelen.exit:                         ; preds = %4, %35, %37
   %.0.i = phi ptr [ %38, %37 ], [ %36, %35 ], [ null, %4 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0.i
 }
 
@@ -1669,7 +1663,7 @@ define dso_local ptr @fdt_get_alias(ptr noundef %0, ptr noundef readonly capture
 
 7:                                                ; preds = %2
   %8 = trunc i64 %4 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !annotation !4
   %9 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %5, ptr noundef nonnull readonly %1, i32 noundef %8, ptr noundef null, ptr noundef nonnull %3)
   %.not.i.i = icmp eq ptr %9, null
@@ -1720,7 +1714,7 @@ define dso_local ptr @fdt_get_alias(ptr noundef %0, ptr noundef readonly capture
 
 fdt_getprop_namelen.exit.i:                       ; preds = %38, %36, %7
   %.0.i.i = phi ptr [ %39, %38 ], [ %37, %36 ], [ null, %7 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %fdt_get_alias_namelen.exit
 
 fdt_get_alias_namelen.exit:                       ; preds = %2, %fdt_getprop_namelen.exit.i
@@ -1731,7 +1725,7 @@ fdt_get_alias_namelen.exit:                       ; preds = %2, %fdt_getprop_nam
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483648, 1) i32 @fdt_get_path(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i32 @fdt_ro_probe_(ptr noundef %0) #9
   %7 = icmp sgt i32 %6, -1
   br i1 %7, label %8, label %.loopexit
@@ -1905,17 +1899,17 @@ define dso_local range(i32 -2147483648, 1) i32 @fdt_get_path(ptr noundef %0, i32
 
 .loopexit:                                        ; preds = %32, %52, %72, %10, %101, %._crit_edge69, %90, %8, %4, %94
   %.145 = phi i32 [ 0, %94 ], [ %6, %4 ], [ -3, %8 ], [ -3, %90 ], [ -4, %._crit_edge69 ], [ %..039, %101 ], [ -4, %10 ], [ %50, %32 ], [ %53, %52 ], [ -11, %72 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.145
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @fdt_supernode_atdepth_offset(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i32 @fdt_ro_probe_(ptr noundef %0) #9
   %7 = icmp sgt i32 %6, -1
   br i1 %7, label %8, label %._crit_edge.thread
@@ -1967,14 +1961,14 @@ define dso_local i32 @fdt_supernode_atdepth_offset(ptr noundef %0, i32 noundef %
 
 ._crit_edge.thread:                               ; preds = %10, %21, %._crit_edge, %17, %8, %4
   %.125 = phi i32 [ %6, %4 ], [ -1, %8 ], [ %.spec.select, %17 ], [ -4, %._crit_edge ], [ %..023, %21 ], [ -4, %10 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.125
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @fdt_node_depth(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i32 @fdt_ro_probe_(ptr noundef %0) #9
   %5 = icmp sgt i32 %4, -1
   br i1 %5, label %6, label %fdt_supernode_atdepth_offset.exit.thread
@@ -2019,11 +2013,11 @@ define dso_local i32 @fdt_node_depth(ptr noundef %0, i32 noundef %1) local_unnam
 
 fdt_supernode_atdepth_offset.exit.thread:         ; preds = %2, %._crit_edge.i, %13, %6, %.lr.ph.i._crit_edge
   %.125.i.ph = phi i32 [ -4, %6 ], [ %..023.i, %13 ], [ -4, %._crit_edge.i ], [ %4, %2 ], [ -1, %.lr.ph.i._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %15
 
 fdt_supernode_atdepth_offset.exit:                ; preds = %.lr.ph.i._crit_edge
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq i32 %spec.select.i.lcssa, 0
   br i1 %.not, label %18, label %15
 
@@ -2042,7 +2036,7 @@ fdt_supernode_atdepth_offset.exit:                ; preds = %.lr.ph.i._crit_edge
 define dso_local i32 @fdt_parent_offset(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i32 @fdt_ro_probe_(ptr noundef %0) #9
   %6 = icmp sgt i32 %5, -1
   br i1 %6, label %7, label %.thread
@@ -2057,7 +2051,7 @@ define dso_local i32 @fdt_parent_offset(ptr noundef %0, i32 noundef %1) local_un
   br i1 %9, label %fdt_supernode_atdepth_offset.exit.i.thread, label %.lr.ph
 
 fdt_supernode_atdepth_offset.exit.i.thread:       ; preds = %.lr.ph.i.i.preheader
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %fdt_node_depth.exit
 
 .lr.ph.ithread-pre-split.i:                       ; preds = %.lr.ph
@@ -2089,11 +2083,11 @@ fdt_supernode_atdepth_offset.exit.i.thread:       ; preds = %.lr.ph.i.i.preheade
 
 .thread:                                          ; preds = %2, %7, %.lr.ph.i.i._crit_edge, %._crit_edge.i.i, %14
   %.125.i.ph.i = phi i32 [ -4, %7 ], [ %..023.i.i, %14 ], [ -4, %._crit_edge.i.i ], [ %5, %2 ], [ -1, %.lr.ph.i.i._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %fdt_node_depth.exit.thread
 
 fdt_supernode_atdepth_offset.exit.i:              ; preds = %.lr.ph.i.i._crit_edge
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i = icmp eq i32 %spec.select.i.i, 0
   br i1 %.not.i, label %fdt_node_depth.exit, label %16
 
@@ -2105,7 +2099,7 @@ fdt_supernode_atdepth_offset.exit.i:              ; preds = %.lr.ph.i.i._crit_ed
 fdt_node_depth.exit:                              ; preds = %fdt_supernode_atdepth_offset.exit.i.thread, %fdt_supernode_atdepth_offset.exit.i
   %.lcssa152934 = phi i32 [ 0, %fdt_supernode_atdepth_offset.exit.i.thread ], [ %.pr.i, %fdt_supernode_atdepth_offset.exit.i ]
   %18 = add nsw i32 %.lcssa152934, -1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = call i32 @fdt_ro_probe_(ptr noundef %0) #9
   %20 = icmp sgt i32 %19, -1
   br i1 %20, label %21, label %fdt_supernode_atdepth_offset.exit
@@ -2148,7 +2142,7 @@ fdt_node_depth.exit:                              ; preds = %fdt_supernode_atdep
 
 fdt_supernode_atdepth_offset.exit:                ; preds = %fdt_node_depth.exit, %21, %27, %._crit_edge.i, %31
   %.125.i = phi i32 [ %19, %fdt_node_depth.exit ], [ -1, %21 ], [ %.spec.select.i, %27 ], [ -4, %._crit_edge.i ], [ %..023.i, %31 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %fdt_node_depth.exit.thread
 
 fdt_node_depth.exit.thread:                       ; preds = %16, %.thread, %fdt_supernode_atdepth_offset.exit
@@ -2160,7 +2154,7 @@ fdt_node_depth.exit.thread:                       ; preds = %16, %.thread, %fdt_
 define dso_local i32 @fdt_node_offset_by_prop_value(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call i32 @fdt_ro_probe_(ptr noundef %0) #9
   %9 = icmp sgt i32 %8, -1
   br i1 %9, label %10, label %.loopexit
@@ -2183,7 +2177,7 @@ define dso_local i32 @fdt_node_offset_by_prop_value(ptr noundef %0, i32 noundef 
   %.01724 = phi i32 [ %11, %.lr.ph ], [ %52, %51 ]
   %19 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #10
   %20 = trunc i64 %19 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !annotation !4
   %21 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %.01724, ptr noundef nonnull readonly %2, i32 noundef %20, ptr noundef nonnull %7, ptr noundef nonnull %6)
   %.not.i.i = icmp eq ptr %21, null
@@ -2224,12 +2218,12 @@ define dso_local i32 @fdt_node_offset_by_prop_value(ptr noundef %0, i32 noundef 
   br label %45
 
 fdt_getprop.exit:                                 ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %51
 
 45:                                               ; preds = %41, %44
   %.sink = phi i64 [ 12, %44 ], [ 16, %41 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %46 = load i32, ptr %7, align 4
   %47 = icmp eq i32 %46, %4
   br i1 %47, label %48, label %51
@@ -2247,7 +2241,7 @@ fdt_getprop.exit:                                 ; preds = %18
 
 .loopexit:                                        ; preds = %48, %51, %10, %5
   %.1 = phi i32 [ %8, %5 ], [ %11, %10 ], [ %.01724, %48 ], [ %52, %51 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1
 }
 
@@ -2284,7 +2278,7 @@ define dso_local i32 @fdt_node_offset_by_phandle(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @fdt_stringlist_contains(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @fdt_stringlist_contains(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
   %5 = trunc i64 %4 to i32
   %6 = shl i64 %4, 32
@@ -2326,11 +2320,11 @@ define dso_local range(i32 0, 2) i32 @fdt_stringlist_contains(ptr noundef %0, i3
 define dso_local i32 @fdt_stringlist_count(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !4
   %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #10
   %7 = trunc i64 %6 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !4
   %8 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly %2, i32 noundef %7, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %.not.i.i = icmp eq ptr %8, null
@@ -2375,14 +2369,14 @@ define dso_local i32 @fdt_stringlist_count(ptr noundef %0, i32 noundef %1, ptr n
   br label %38
 
 36:                                               ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %37 = load i32, ptr %5, align 4
   br label %.loopexit
 
 38:                                               ; preds = %32, %35
   %.sink = phi i64 [ 12, %35 ], [ 16, %32 ]
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %40 = load i32, ptr %5, align 4
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i8, ptr %39, i64 %41
@@ -2410,22 +2404,22 @@ define dso_local i32 @fdt_stringlist_count(ptr noundef %0, i32 noundef %1, ptr n
 
 .loopexit:                                        ; preds = %.lr.ph, %52, %38, %36
   %.016 = phi i32 [ %37, %36 ], [ 0, %38 ], [ -15, %.lr.ph ], [ %53, %52 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.016
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
+declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @fdt_stringlist_search(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !annotation !4
   %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #10
   %8 = trunc i64 %7 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !4
   %9 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly %2, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %5)
   %.not.i.i = icmp eq ptr %9, null
@@ -2470,14 +2464,14 @@ define dso_local i32 @fdt_stringlist_search(ptr noundef %0, i32 noundef %1, ptr 
   br label %39
 
 37:                                               ; preds = %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %38 = load i32, ptr %6, align 4
   br label %.loopexit
 
 39:                                               ; preds = %33, %36
   %.sink = phi i64 [ 12, %36 ], [ 16, %33 ]
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #10
   %42 = trunc i64 %41 to i32
   %43 = load i32, ptr %6, align 4
@@ -2517,7 +2511,7 @@ define dso_local i32 @fdt_stringlist_search(ptr noundef %0, i32 noundef %1, ptr 
 
 .loopexit:                                        ; preds = %.lr.ph, %58, %60, %39, %37
   %.020 = phi i32 [ %38, %37 ], [ -1, %39 ], [ -15, %.lr.ph ], [ %.01926, %58 ], [ -1, %60 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.020
 }
 
@@ -2525,11 +2519,11 @@ define dso_local i32 @fdt_stringlist_search(ptr noundef %0, i32 noundef %1, ptr 
 define dso_local noundef ptr @fdt_stringlist_get(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !annotation !4
   %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #10
   %9 = trunc i64 %8 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !annotation !4
   %10 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly %2, i32 noundef %9, ptr noundef nonnull %7, ptr noundef nonnull %6)
   %.not.i.i = icmp eq ptr %10, null
@@ -2574,7 +2568,7 @@ define dso_local noundef ptr @fdt_stringlist_get(ptr noundef %0, i32 noundef %1,
   br label %41
 
 38:                                               ; preds = %5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not30 = icmp eq ptr %4, null
   br i1 %.not30, label %64, label %39
 
@@ -2585,7 +2579,7 @@ define dso_local noundef ptr @fdt_stringlist_get(ptr noundef %0, i32 noundef %1,
 41:                                               ; preds = %34, %37
   %.sink = phi i64 [ 12, %37 ], [ 16, %34 ]
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %43 = load i32, ptr %7, align 4
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %42, i64 %44
@@ -2639,7 +2633,7 @@ define dso_local noundef ptr @fdt_stringlist_get(ptr noundef %0, i32 noundef %1,
 
 64:                                               ; preds = %.sink.split, %._crit_edge, %62, %59, %38
   %.024 = phi ptr [ null, %38 ], [ null, %59 ], [ %.043, %62 ], [ null, %._crit_edge ], [ %.024.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.024
 }
 
@@ -2647,9 +2641,9 @@ define dso_local noundef ptr @fdt_stringlist_get(ptr noundef %0, i32 noundef %1,
 define dso_local i32 @fdt_node_check_compatible(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !4
   %6 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly @.str.3, i32 noundef 10, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %.not.i.i = icmp eq ptr %6, null
@@ -2694,13 +2688,13 @@ define dso_local i32 @fdt_node_check_compatible(ptr noundef %0, i32 noundef %1, 
   br label %36
 
 34:                                               ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %35 = load i32, ptr %5, align 4
   br label %fdt_stringlist_contains.exit
 
 36:                                               ; preds = %30, %33
   %.sink = phi i64 [ 12, %33 ], [ 16, %30 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %37 = load i32, ptr %5, align 4
   %38 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #10
   %39 = trunc i64 %38 to i32
@@ -2740,7 +2734,7 @@ define dso_local i32 @fdt_node_check_compatible(ptr noundef %0, i32 noundef %1, 
 
 fdt_stringlist_contains.exit:                     ; preds = %47, %44, %.lr.ph.i, %36, %34
   %.0 = phi i32 [ %35, %34 ], [ 1, %36 ], [ 0, %.lr.ph.i ], [ 1, %44 ], [ 1, %47 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -2775,7 +2769,13 @@ define dso_local i32 @fdt_node_offset_by_compatible(ptr noundef %0, i32 noundef 
   ret i32 %.1
 }
 
-declare i32 @fdt_next_tag(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @fdt_next_tag(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
@@ -2796,12 +2796,12 @@ declare i32 @llvm.umax.i32(i32, i32) #8
 declare i32 @llvm.smin.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }

@@ -340,15 +340,9 @@ lv_obj_get_scroll_y.exit:                         ; preds = %35, %41
   ret i32 %53
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @lv_obj_get_child_count(ptr noundef) local_unnamed_addr #1
 
 declare zeroext i1 @lv_obj_has_flag_any(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @lv_obj_get_self_height(ptr noundef) local_unnamed_addr #1
 
@@ -863,7 +857,7 @@ define void @lv_obj_scroll_by(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1
 
 8:                                                ; preds = %7
   %9 = tail call ptr @lv_obj_get_display(ptr noundef %0) #5
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @lv_anim_init(ptr noundef nonnull %5) #5
   call void @lv_anim_set_var(ptr noundef nonnull %5, ptr noundef %0) #5
   call void @lv_anim_set_deleted_cb(ptr noundef nonnull %5, ptr noundef nonnull @scroll_end_cb) #5
@@ -937,7 +931,7 @@ lv_obj_get_scroll_y.exit:                         ; preds = %27, %34
   br label %.critedge
 
 .critedge:                                        ; preds = %41, %lv_obj_get_scroll_y.exit, %lv_obj_get_scroll_x.exit, %26
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %lv_obj_scroll_by_raw.exit
 
 43:                                               ; preds = %7
@@ -1134,11 +1128,11 @@ lv_obj_get_scroll_y.exit:                         ; preds = %3, %8
 define void @lv_obj_scroll_to_view(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lv_point_t, align 8
   tail call void @lv_obj_update_layout(ptr noundef %0) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call fastcc void @scroll_area_into_view(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %3, i1 noundef zeroext %1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1452,7 +1446,7 @@ lv_obj_get_scroll_snap_x.exit.thread:             ; preds = %lv_obj_get_scroll_s
 define void @lv_obj_scroll_to_view_recursive(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lv_point_t, align 8
   tail call void @lv_obj_update_layout(ptr noundef %0) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %4 = tail call ptr @lv_obj_get_parent(ptr noundef %0) #5
   %.not9 = icmp eq ptr %4, null
@@ -1471,7 +1465,7 @@ define void @lv_obj_scroll_to_view_recursive(ptr noundef %0, i1 noundef zeroext 
   br i1 %.not, label %._crit_edge, label %6, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %6, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1526,7 +1520,7 @@ define void @lv_obj_stop_scroll_anim(ptr noundef %0) local_unnamed_addr #0 {
 define void @lv_obj_update_snap(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lv_point_t, align 4
   tail call void @lv_obj_update_layout(ptr noundef %0) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @lv_indev_scroll_get_snap_dist(ptr noundef %0, ptr noundef nonnull %3) #5
   %4 = load i32, ptr %3, align 4, !tbaa !36
   switch i32 %4, label %6 [
@@ -1554,7 +1548,7 @@ define void @lv_obj_update_snap(ptr noundef %0, i1 noundef zeroext %1) local_unn
 11:                                               ; preds = %6, %10
   %12 = phi i32 [ %9, %6 ], [ 0, %10 ]
   call void @lv_obj_scroll_by(ptr noundef %0, i32 noundef %7, i32 noundef %12, i1 noundef zeroext %1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2236,8 +2230,8 @@ declare i32 @lv_display_get_dpi(ptr noundef) local_unnamed_addr #1
 define void @lv_obj_scrollbar_invalidate(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.lv_area_t, align 4
   %3 = alloca %struct.lv_area_t, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @lv_obj_get_scrollbar_area(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %4 = call i32 @lv_area_get_size(ptr noundef nonnull %2) #5
   %5 = icmp eq i32 %4, 0
@@ -2267,8 +2261,8 @@ define void @lv_obj_scrollbar_invalidate(ptr noundef %0) local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %12, %14, %6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2362,6 +2356,12 @@ declare ptr @lv_obj_get_style_prop(ptr noundef, i32 noundef, i8 noundef zeroext)
 declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #1
 
 declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4

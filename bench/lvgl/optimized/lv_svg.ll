@@ -81,7 +81,7 @@ define ptr @lv_svg_load_data(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   br label %.preheader8
 
 5:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_lv_svg_parser_init(ptr noundef nonnull %3) #3
   %6 = call zeroext i1 @_lv_svg_tokenizer(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull @svg_token_process_cb, ptr noundef nonnull %3) #3
   br i1 %6, label %7, label %12
@@ -99,16 +99,13 @@ define ptr @lv_svg_load_data(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
 12:                                               ; preds = %5, %7, %9
   %.0 = phi ptr [ %11, %9 ], [ null, %7 ], [ null, %5 ]
   call void @_lv_svg_parser_deinit(ptr noundef nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @_lv_svg_parser_init(ptr noundef) local_unnamed_addr #1
 
-declare void @_lv_svg_parser_init(ptr noundef) local_unnamed_addr #2
-
-declare zeroext i1 @_lv_svg_tokenizer(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @_lv_svg_tokenizer(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @svg_token_process_cb(ptr noundef %0, ptr noundef %1) #0 {
@@ -116,12 +113,9 @@ define internal zeroext i1 @svg_token_process_cb(ptr noundef %0, ptr noundef %1)
   ret i1 %3
 }
 
-declare zeroext i1 @_lv_svg_parser_is_finish(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @_lv_svg_parser_is_finish(ptr noundef) local_unnamed_addr #1
 
-declare void @_lv_svg_parser_deinit(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @_lv_svg_parser_deinit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_svg_node_create(ptr noundef %0) local_unnamed_addr #0 {
@@ -129,7 +123,7 @@ define ptr @lv_svg_node_create(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-declare ptr @lv_tree_node_create(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_tree_node_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_svg_node_delete(ptr noundef %0) local_unnamed_addr #0 {
@@ -137,23 +131,29 @@ define void @lv_svg_node_delete(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @lv_tree_node_delete(ptr noundef) local_unnamed_addr #2
+declare void @lv_tree_node_delete(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_array_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_array_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_free(ptr noundef) local_unnamed_addr #2
+declare void @lv_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_array_size(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_array_size(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_array_at(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lv_array_at(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_array_deinit(ptr noundef) local_unnamed_addr #2
+declare void @lv_array_deinit(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @_lv_svg_parser_token(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @_lv_svg_parser_token(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

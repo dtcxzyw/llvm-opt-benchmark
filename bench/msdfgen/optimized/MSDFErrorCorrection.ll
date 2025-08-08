@@ -3822,10 +3822,10 @@ entry:
   %15 = load double, ptr %invRange, align 8
   %minImproveRatio = getelementptr inbounds nuw i8, ptr %this, i64 64
   %16 = load double, ptr %minImproveRatio, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp5.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i)
   %distanceFinder.i = getelementptr inbounds nuw i8, ptr %shapeDistanceChecker, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %shapeDistanceChecker, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   store ptr %shape, ptr %distanceFinder.i, align 8
   %contourCombiner.i.i = getelementptr inbounds nuw i8, ptr %shapeDistanceChecker, i64 56
   call void @_ZN7msdfgen21SimpleContourCombinerINS_22PseudoDistanceSelectorEEC1ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(64) %contourCombiner.i.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
@@ -3833,7 +3833,7 @@ entry:
   %call.i.i = call noundef i32 @_ZNK7msdfgen5Shape9edgeCountEv(ptr noundef nonnull align 8 dereferenceable(25) %shape)
   %conv.i.i = sext i32 %call.i.i to i64
   call void @_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EEC2EmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %shapeEdgeCache.i.i, i64 noundef %conv.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   %sdf2.i = getelementptr inbounds nuw i8, ptr %shapeDistanceChecker, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sdf2.i, ptr noundef nonnull align 8 dereferenceable(16) %sdf, i64 16, i1 false)
   %invRange3.i = getelementptr inbounds nuw i8, ptr %shapeDistanceChecker, i64 160
@@ -3871,7 +3871,7 @@ _ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EEC2ERKNS_14Bitm
   %20 = extractvalue { double, double } %call.i, 1
   store double %19, ptr %texelSize.i, align 8
   store double %20, ptr %y.i2.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp5.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i)
   %height = getelementptr inbounds nuw i8, ptr %sdf, i64 12
   %21 = load i32, ptr %height, align 4
   %cmp532 = icmp sgt i32 %21, 0
@@ -4133,8 +4133,8 @@ if.then.i.i386:                                   ; preds = %land.lhs.true11.i.i
   %add.i.i392 = fadd double %mul.i.i387, %conv16.i.i389
   %cmp22.i.i393 = fcmp ult double %add.i.i392, %conv.i.i388
   %or.cond22.i.i394 = or i1 %cmp18.i.i391, %cmp22.i.i393
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %oldMSD.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %oldMSD.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   br i1 %or.cond22.i.i394, label %call10.i.noexc.thread519, label %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit.i384
 
 _ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit.i384: ; preds = %if.then.i.i386
@@ -4166,8 +4166,8 @@ if.end.i:                                         ; preds = %_ZNK7msdfgen22BaseA
           to label %call10.i.noexc unwind label %lpad
 
 call10.i.noexc.thread519:                         ; preds = %if.then.i.i386, %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit.i384
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %oldMSD.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %oldMSD.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %lor.end
 
 call10.i.noexc:                                   ; preds = %if.end.i
@@ -4223,8 +4223,8 @@ call10.i.noexc:                                   ; preds = %if.end.i
   %71 = call float @llvm.fabs.f32(float %sub74.i)
   %conv75.i = fpext float %71 to double
   %cmp.i505 = fcmp olt double %mul73.i, %conv75.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %oldMSD.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %oldMSD.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br i1 %cmp.i505, label %lor.end, label %call10.i.noexc.lor.lhs.false.i_crit_edge
 
 call10.i.noexc.lor.lhs.false.i_crit_edge:         ; preds = %call10.i.noexc
@@ -5075,10 +5075,10 @@ entry:
   %15 = load double, ptr %invRange, align 8
   %minImproveRatio = getelementptr inbounds nuw i8, ptr %this, i64 64
   %16 = load double, ptr %minImproveRatio, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp5.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i)
   %distanceFinder.i = getelementptr inbounds nuw i8, ptr %shapeDistanceChecker, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %shapeDistanceChecker, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   store ptr %shape, ptr %distanceFinder.i, align 8
   %contourCombiner.i.i = getelementptr inbounds nuw i8, ptr %shapeDistanceChecker, i64 56
   call void @_ZN7msdfgen21SimpleContourCombinerINS_22PseudoDistanceSelectorEEC1ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(64) %contourCombiner.i.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
@@ -5086,7 +5086,7 @@ entry:
   %call.i.i = call noundef i32 @_ZNK7msdfgen5Shape9edgeCountEv(ptr noundef nonnull align 8 dereferenceable(25) %shape)
   %conv.i.i = sext i32 %call.i.i to i64
   call void @_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EEC2EmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %shapeEdgeCache.i.i, i64 noundef %conv.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   %sdf2.i = getelementptr inbounds nuw i8, ptr %shapeDistanceChecker, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sdf2.i, ptr noundef nonnull align 8 dereferenceable(16) %sdf, i64 16, i1 false)
   %invRange3.i = getelementptr inbounds nuw i8, ptr %shapeDistanceChecker, i64 160
@@ -5124,7 +5124,7 @@ _ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EEC2ERKNS_14Bitm
   %20 = extractvalue { double, double } %call.i, 1
   store double %19, ptr %texelSize.i, align 8
   store double %20, ptr %y.i2.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp5.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i)
   %height = getelementptr inbounds nuw i8, ptr %sdf, i64 12
   %21 = load i32, ptr %height, align 4
   %cmp532 = icmp sgt i32 %21, 0
@@ -5386,8 +5386,8 @@ if.then.i.i386:                                   ; preds = %land.lhs.true11.i.i
   %add.i.i392 = fadd double %mul.i.i387, %conv16.i.i389
   %cmp22.i.i393 = fcmp ult double %add.i.i392, %conv.i.i388
   %or.cond22.i.i394 = or i1 %cmp18.i.i391, %cmp22.i.i393
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %oldMSD.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %oldMSD.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   br i1 %or.cond22.i.i394, label %call10.i.noexc.thread519, label %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit.i384
 
 _ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit.i384: ; preds = %if.then.i.i386
@@ -5419,8 +5419,8 @@ if.end.i:                                         ; preds = %_ZNK7msdfgen22BaseA
           to label %call10.i.noexc unwind label %lpad
 
 call10.i.noexc.thread519:                         ; preds = %if.then.i.i386, %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit.i384
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %oldMSD.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %oldMSD.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %lor.end
 
 call10.i.noexc:                                   ; preds = %if.end.i
@@ -5476,8 +5476,8 @@ call10.i.noexc:                                   ; preds = %if.end.i
   %71 = call float @llvm.fabs.f32(float %sub74.i)
   %conv75.i = fpext float %71 to double
   %cmp.i505 = fcmp olt double %mul73.i, %conv75.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %oldMSD.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %oldMSD.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br i1 %cmp.i505, label %lor.end, label %call10.i.noexc.lor.lhs.false.i_crit_edge
 
 call10.i.noexc.lor.lhs.false.i_crit_edge:         ; preds = %call10.i.noexc
@@ -6585,8 +6585,8 @@ if.then.i.i376:                                   ; preds = %land.lhs.true11.i.i
   %add.i.i382 = fadd double %mul.i.i377, %conv16.i.i379
   %cmp22.i.i383 = fcmp ult double %add.i.i382, %conv.i.i378
   %or.cond22.i.i384 = or i1 %cmp18.i.i381, %cmp22.i.i383
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %oldMSD.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %oldMSD.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   br i1 %or.cond22.i.i384, label %call10.i.noexc.thread507, label %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit.i374
 
 _ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit.i374: ; preds = %if.then.i.i376
@@ -6618,8 +6618,8 @@ if.end.i:                                         ; preds = %_ZNK7msdfgen22BaseA
           to label %call10.i.noexc unwind label %lpad
 
 call10.i.noexc.thread507:                         ; preds = %if.then.i.i376, %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit.i374
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %oldMSD.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %oldMSD.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %lor.end
 
 call10.i.noexc:                                   ; preds = %if.end.i
@@ -6675,8 +6675,8 @@ call10.i.noexc:                                   ; preds = %if.end.i
   %66 = call float @llvm.fabs.f32(float %sub74.i)
   %conv75.i = fpext float %66 to double
   %cmp.i493 = fcmp olt double %mul73.i, %conv75.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %oldMSD.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %oldMSD.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br i1 %cmp.i493, label %lor.end, label %call10.i.noexc.lor.lhs.false.i_crit_edge
 
 call10.i.noexc.lor.lhs.false.i_crit_edge:         ; preds = %call10.i.noexc
@@ -7361,7 +7361,7 @@ entry:
   %ref.tmp5 = alloca %"struct.msdfgen::Vector2", align 8
   %distanceFinder = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store ptr %shape, ptr %distanceFinder, align 8
   %contourCombiner.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @_ZN7msdfgen26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEC1ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(64) %contourCombiner.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
@@ -7394,7 +7394,7 @@ ehcleanup.i:                                      ; preds = %lpad3.i, %lpad.i
   br label %common.resume
 
 _ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEEEC2ERKNS_5ShapeE.exit: ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %sdf2 = getelementptr inbounds nuw i8, ptr %this, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sdf2, ptr noundef nonnull align 8 dereferenceable(16) %sdf, i64 16, i1 false)
   %invRange3 = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -7911,8 +7911,8 @@ if.then.i.i376:                                   ; preds = %land.lhs.true11.i.i
   %add.i.i382 = fadd double %mul.i.i377, %conv16.i.i379
   %cmp22.i.i383 = fcmp ult double %add.i.i382, %conv.i.i378
   %or.cond22.i.i384 = or i1 %cmp18.i.i381, %cmp22.i.i383
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %oldMSD.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %oldMSD.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   br i1 %or.cond22.i.i384, label %call10.i.noexc.thread507, label %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit.i374
 
 _ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit.i374: ; preds = %if.then.i.i376
@@ -7944,8 +7944,8 @@ if.end.i:                                         ; preds = %_ZNK7msdfgen22BaseA
           to label %call10.i.noexc unwind label %lpad
 
 call10.i.noexc.thread507:                         ; preds = %if.then.i.i376, %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit.i374
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %oldMSD.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %oldMSD.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %lor.end
 
 call10.i.noexc:                                   ; preds = %if.end.i
@@ -8001,8 +8001,8 @@ call10.i.noexc:                                   ; preds = %if.end.i
   %66 = call float @llvm.fabs.f32(float %sub74.i)
   %conv75.i = fpext float %66 to double
   %cmp.i493 = fcmp olt double %mul73.i, %conv75.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %oldMSD.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %oldMSD.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br i1 %cmp.i493, label %lor.end, label %call10.i.noexc.lor.lhs.false.i_crit_edge
 
 call10.i.noexc.lor.lhs.false.i_crit_edge:         ; preds = %call10.i.noexc
@@ -8687,7 +8687,7 @@ entry:
   %ref.tmp5 = alloca %"struct.msdfgen::Vector2", align 8
   %distanceFinder = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store ptr %shape, ptr %distanceFinder, align 8
   %contourCombiner.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @_ZN7msdfgen26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEC1ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(64) %contourCombiner.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
@@ -8720,7 +8720,7 @@ ehcleanup.i:                                      ; preds = %lpad3.i, %lpad.i
   br label %common.resume
 
 _ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEEEC2ERKNS_5ShapeE.exit: ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %sdf2 = getelementptr inbounds nuw i8, ptr %this, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sdf2, ptr noundef nonnull align 8 dereferenceable(16) %sdf, i64 16, i1 false)
   %invRange3 = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -12494,10 +12494,10 @@ declare i32 @llvm.ctpop.i32(i32) #16
 declare double @llvm.sqrt.f64(double) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18

@@ -8213,7 +8213,7 @@ define hidden noundef zeroext i1 @_ZN7nmethod30oops_do_try_claim_weak_requestEv(
   br i1 %8, label %9, label %24
 
 9:                                                ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_94ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %_ZN7nmethod18oops_do_log_changeEPKc.exit, label %11
@@ -8243,7 +8243,7 @@ define hidden noundef zeroext i1 @_ZN7nmethod30oops_do_try_claim_weak_requestEv(
   br label %_ZN7nmethod18oops_do_log_changeEPKc.exit
 
 _ZN7nmethod18oops_do_log_changeEPKc.exit:         ; preds = %9, %11
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %24
 
 24:                                               ; preds = %1, %6, %_ZN7nmethod18oops_do_log_changeEPKc.exit
@@ -8267,7 +8267,7 @@ define hidden noundef ptr @_ZN7nmethod36oops_do_try_add_to_list_as_weak_doneEv(p
   br i1 %11, label %12, label %27
 
 12:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %13 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_94ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %_ZN7nmethod18oops_do_log_changeEPKc.exit, label %14
@@ -8297,7 +8297,7 @@ define hidden noundef ptr @_ZN7nmethod36oops_do_try_add_to_list_as_weak_doneEv(p
   br label %_ZN7nmethod18oops_do_log_changeEPKc.exit
 
 _ZN7nmethod18oops_do_log_changeEPKc.exit:         ; preds = %12, %14
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %27
 
 27:                                               ; preds = %1, %_ZN7nmethod18oops_do_log_changeEPKc.exit
@@ -8327,7 +8327,7 @@ define hidden noundef ptr @_ZN7nmethod29oops_do_try_claim_strong_doneEv(ptr noun
   br i1 %8, label %9, label %24
 
 9:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_94ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %_ZN7nmethod18oops_do_log_changeEPKc.exit, label %11
@@ -8357,7 +8357,7 @@ define hidden noundef ptr @_ZN7nmethod29oops_do_try_claim_strong_doneEv(ptr noun
   br label %_ZN7nmethod18oops_do_log_changeEPKc.exit
 
 _ZN7nmethod18oops_do_log_changeEPKc.exit:         ; preds = %9, %11
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %24
 
 24:                                               ; preds = %_ZN7nmethod18oops_do_log_changeEPKc.exit, %1
@@ -8376,7 +8376,7 @@ define hidden noundef ptr @_ZN7nmethod30oops_do_try_add_strong_requestEPNS_17oop
   br i1 %9, label %10, label %25
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_94ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %_ZN7nmethod18oops_do_log_changeEPKc.exit, label %12
@@ -8406,7 +8406,7 @@ define hidden noundef ptr @_ZN7nmethod30oops_do_try_add_strong_requestEPNS_17oop
   br label %_ZN7nmethod18oops_do_log_changeEPKc.exit
 
 _ZN7nmethod18oops_do_log_changeEPKc.exit:         ; preds = %10, %12
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %25
 
 25:                                               ; preds = %_ZN7nmethod18oops_do_log_changeEPKc.exit, %2
@@ -8425,7 +8425,7 @@ define hidden noundef zeroext i1 @_ZN7nmethod42oops_do_try_claim_weak_done_as_st
   br i1 %9, label %10, label %25
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_94ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %_ZN7nmethod18oops_do_log_changeEPKc.exit, label %12
@@ -8455,7 +8455,7 @@ define hidden noundef zeroext i1 @_ZN7nmethod42oops_do_try_claim_weak_done_as_st
   br label %_ZN7nmethod18oops_do_log_changeEPKc.exit
 
 _ZN7nmethod18oops_do_log_changeEPKc.exit:         ; preds = %10, %12
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %25
 
 25:                                               ; preds = %2, %_ZN7nmethod18oops_do_log_changeEPKc.exit
@@ -8484,7 +8484,7 @@ define hidden void @_ZN7nmethod20oops_do_process_weakEPNS_15OopsDoProcessorE(ptr
   br i1 %6, label %22, label %7
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_94ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZN7nmethod18oops_do_log_changeEPKc.exit, label %9
@@ -8514,7 +8514,7 @@ define hidden void @_ZN7nmethod20oops_do_process_weakEPNS_15OopsDoProcessorE(ptr
   br label %_ZN7nmethod18oops_do_log_changeEPKc.exit
 
 _ZN7nmethod18oops_do_log_changeEPKc.exit:         ; preds = %7, %9
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %63
 
 22:                                               ; preds = %2
@@ -8526,7 +8526,7 @@ _ZN7nmethod18oops_do_log_changeEPKc.exit:         ; preds = %7, %9
   br i1 %26, label %63, label %27
 
 27:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_94ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i5 = icmp eq ptr %28, null
   br i1 %.not.i5, label %_ZN7nmethod18oops_do_log_changeEPKc.exit7, label %29
@@ -8556,8 +8556,8 @@ _ZN7nmethod18oops_do_log_changeEPKc.exit:         ; preds = %7, %9
   br label %_ZN7nmethod18oops_do_log_changeEPKc.exit7
 
 _ZN7nmethod18oops_do_log_changeEPKc.exit7:        ; preds = %27, %29
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %42 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_94ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i8 = icmp eq ptr %42, null
   br i1 %.not.i8, label %_ZN7nmethod18oops_do_log_changeEPKc.exit10, label %43
@@ -8587,7 +8587,7 @@ _ZN7nmethod18oops_do_log_changeEPKc.exit7:        ; preds = %27, %29
   br label %_ZN7nmethod18oops_do_log_changeEPKc.exit10
 
 _ZN7nmethod18oops_do_log_changeEPKc.exit10:       ; preds = %_ZN7nmethod18oops_do_log_changeEPKc.exit7, %43
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %56 = ptrtoint ptr %25 to i64
   %57 = or i64 %56, 3
   %58 = inttoptr i64 %57 to ptr
@@ -14225,10 +14225,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @llvm.umax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -636,9 +636,6 @@ define hidden void @proto_register_solaredge() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -688,9 +685,6 @@ declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
 
@@ -698,7 +692,7 @@ declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_file_scope() local_unnamed_addr #1
@@ -717,9 +711,9 @@ define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr 
   %12 = alloca [16 x i8], align 16
   %13 = alloca [16 x i8], align 16
   %14 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %15 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef 0, i32 noundef -2147483648)
   %.not = icmp eq i32 %15, 2035692562
   br i1 %.not, label %16, label %439
@@ -795,8 +789,8 @@ define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr 
   %64 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 20, i32 noundef %28)
   %65 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %66 = load ptr, ptr %65, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %67 = add nsw i32 %28, -16
   %68 = sext i32 %67 to i64
   %69 = tail call noalias ptr @wmem_alloc(ptr noundef %63, i64 noundef %68) #7
@@ -868,8 +862,8 @@ define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr 
   br i1 %exitcond49.not.i, label %solaredge_decrypt.exit, label %.lr.ph43.i, !llvm.loop !11
 
 solaredge_decrypt.exit:                           ; preds = %.lr.ph43.i, %58
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %100 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %62, i32 noundef %28, i32 noundef %28)
   %101 = call i32 @tvb_get_uint32(ptr noundef %100, i32 noundef 0, i32 noundef -2147483648)
   %102 = icmp eq i32 %101, 2035692562
@@ -1349,16 +1343,16 @@ dissect_solaredge_devicedata.exit:                ; preds = %378, %382, %420, %3
   %425 = load i32, ptr @hf_solaredge_crc_type, align 4
   %426 = load i32, ptr @hf_solaredge_crc_status_type, align 4
   %427 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 20, i32 noundef %28)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %rev.i = call i16 @llvm.bswap.i16(i16 %35)
   store i16 %rev.i, ptr %6, align 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %428 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %38) #9, !srcloc !13
   store i32 %428, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %429 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %41) #9, !srcloc !14
   store i32 %429, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %rev35.i = call i16 @llvm.bswap.i16(i16 %44)
   store i16 %rev35.i, ptr %9, align 2
   %430 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext 23130, ptr noundef nonnull %6, i64 noundef 2)
@@ -1367,10 +1361,10 @@ dissect_solaredge_devicedata.exit:                ; preds = %378, %382, %420, %3
   %433 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %432, ptr noundef nonnull %9, i64 noundef 2)
   %434 = zext i16 %23 to i64
   %435 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %433, ptr noundef %427, i64 noundef %434)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %436 = zext i16 %435 to i32
   %437 = call ptr @proto_tree_add_checksum(ptr noundef %22, ptr noundef %0, i32 noundef %424, i32 noundef %425, i32 noundef %426, ptr noundef nonnull @ei_solaredge_invalid_crc, ptr noundef %1, i32 noundef %436, i32 noundef -2147483648, i32 noundef 1)
   %438 = add nuw nsw i32 %.0113, 2
@@ -1378,9 +1372,9 @@ dissect_solaredge_devicedata.exit:                ; preds = %378, %382, %420, %3
 
 439:                                              ; preds = %5, %dissect_solaredge_devicedata.exit
   %.0 = phi i32 [ %438, %dissect_solaredge_devicedata.exit ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
 
@@ -1465,6 +1459,12 @@ declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @crc16_plain_update(i16 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #4
 
@@ -1476,8 +1476,8 @@ declare void @llvm.assume(i1 noundef) #6
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

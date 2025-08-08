@@ -38,7 +38,7 @@ define range(i32 -2147483646, -2147483647) i32 @uprv_makeDenseRanges(ptr noundef
   br i1 %24, label %116, label %25
 
 25:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %26 = tail call i32 @llvm.smin.i32(i32 %4, i32 16)
   %27 = add nsw i32 %26, -1
   store i32 %27, ptr %6, align 8, !tbaa !7
@@ -272,7 +272,7 @@ _ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit: ; preds = %.lr.ph88.split, %
 
 .loopexit:                                        ; preds = %81, %.preheader, %._crit_edge
   %.2 = phi i32 [ %.05884, %._crit_edge ], [ 0, %.preheader ], [ 0, %81 ]
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %116
 
 116:                                              ; preds = %21, %.loopexit, %23, %5
@@ -281,10 +281,10 @@ _ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit: ; preds = %.lr.ph88.split, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #2
@@ -292,7 +292,6 @@ declare i32 @llvm.smin.i32(i32, i32) #2
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -3067,7 +3067,7 @@ define hidden void @_ZN10ciTypeFlow11StateVector9do_invokeEP16ciBytecodeStreamb(
   br i1 %13, label %14, label %41
 
 14:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -3105,7 +3105,7 @@ define hidden void @_ZN10ciTypeFlow11StateVector9do_invokeEP16ciBytecodeStreamb(
   br label %_ZN10ciTypeFlow11StateVector4trapEP16ciBytecodeStreamP7ciKlassi.exit
 
 _ZN10ciTypeFlow11StateVector4trapEP16ciBytecodeStreamP7ciKlassi.exit: ; preds = %14, %30
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %97
 
 41:                                               ; preds = %10
@@ -3259,7 +3259,7 @@ define hidden void @_ZN10ciTypeFlow11StateVector6do_ldcEP16ciBytecodeStream(ptr 
   br i1 %switch.selectcmp.i, label %7, label %34
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -3297,7 +3297,7 @@ define hidden void @_ZN10ciTypeFlow11StateVector6do_ldcEP16ciBytecodeStream(ptr 
   br label %_ZN10ciTypeFlow11StateVector4trapEP16ciBytecodeStreamP7ciKlassi.exit
 
 _ZN10ciTypeFlow11StateVector4trapEP16ciBytecodeStreamP7ciKlassi.exit: ; preds = %7, %23
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN10ciTypeFlow14record_failureEPKc.exit
 
 34:                                               ; preds = %2
@@ -3599,7 +3599,7 @@ declare noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext) l
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ciTypeFlow11StateVector11do_putfieldEP16ciBytecodeStream(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call noundef ptr @_ZN16ciBytecodeStream9get_fieldERb(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 1 dereferenceable(1) %3) #14
   %5 = load i8, ptr %3, align 1
   %6 = trunc i8 %5 to i1
@@ -3642,7 +3642,7 @@ _ZN7ciField4typeEv.exit.i:                        ; preds = %15, %11
   br label %_ZN10ciTypeFlow11StateVector12do_putstaticEP16ciBytecodeStream.exit
 
 _ZN10ciTypeFlow11StateVector12do_putstaticEP16ciBytecodeStream.exit: ; preds = %7, %_ZN7ciField4typeEv.exit.i, %27
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load i32, ptr %29, align 8
   %.not = icmp eq i32 %30, -1
@@ -8728,7 +8728,7 @@ _ZNK10ciTypeFlow5Block19backedge_copy_countEv.exit.thread: ; preds = %43, %28, %
   br i1 %.not31, label %.critedge, label %89
 
 .critedge32:                                      ; preds = %89, %87
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %12, ptr %4, align 8
   store i32 -1, ptr %9, align 8
   store ptr null, ptr %10, align 8
@@ -8791,7 +8791,7 @@ _ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread6.i: ; preds = %_ZNK10ciTypeFlow4
 
 _ZN10ciTypeFlow5Block12looping_succEPNS_4LoopE.exit: ; preds = %.lr.ph.i, %99, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.i, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread6.i, %.critedge32
   %.0.i = phi ptr [ null, %.critedge32 ], [ %95, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.i ], [ null, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread6.i ], [ %95, %99 ], [ %95, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %112 = tail call noundef ptr @_ZN10ciTypeFlow15clone_loop_headEPNS_4LoopEPNS_11StateVectorEPNS_6JsrSetE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %.sroa.2.044, ptr noundef %1, ptr noundef %2)
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 112
   store ptr %.sroa.2.044, ptr %113, align 8
@@ -12415,10 +12415,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

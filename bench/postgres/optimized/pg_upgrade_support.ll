@@ -65,20 +65,14 @@ define dso_local noundef i64 @binary_upgrade_set_next_pg_tablespace_oid(ptr noun
   ret i64 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #3
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_pg_type_oid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -440,8 +434,8 @@ define dso_local noundef i64 @binary_upgrade_create_empty_extension(ptr noundef 
   %63 = load i64, ptr %62, align 8
   %64 = inttoptr i64 %63 to ptr
   %65 = tail call ptr @pg_detoast_datum(ptr noundef %64) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @deconstruct_array_builtin(ptr noundef %65, i32 noundef 25, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %3) #6
   %66 = load i32, ptr %3, align 4
   %67 = icmp sgt i32 %66, 0
@@ -465,8 +459,8 @@ define dso_local noundef i64 @binary_upgrade_create_empty_extension(ptr noundef 
 
 ._crit_edge:                                      ; preds = %.lr.ph, %61
   %.1.lcssa = phi ptr [ null, %61 ], [ %74, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %78
 
 78:                                               ; preds = %._crit_edge, %57
@@ -481,25 +475,25 @@ define dso_local noundef i64 @binary_upgrade_create_empty_extension(ptr noundef 
   ret i64 0
 }
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #3
+declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
 
-declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #3
+declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
 
-declare void @deconstruct_array_builtin(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @deconstruct_array_builtin(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #3
+declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
 
-declare i32 @get_extension_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @get_extension_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @InsertExtensionTuple(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @InsertExtensionTuple(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @GetUserId() local_unnamed_addr #3
+declare i32 @GetUserId() local_unnamed_addr #2
 
-declare i32 @get_namespace_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @get_namespace_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_record_init_privs(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -556,7 +550,7 @@ define dso_local noundef i64 @binary_upgrade_set_missing_value(ptr noundef reado
   ret i64 0
 }
 
-declare void @SetAttrMissing(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SetAttrMissing(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @binary_upgrade_logical_slot_has_caught_up(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -585,13 +579,13 @@ define dso_local range(i64 0, 2) i64 @binary_upgrade_logical_slot_has_caught_up(
   ret i64 %15
 }
 
-declare void @ReplicationSlotAcquire(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
+declare void @ReplicationSlotAcquire(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i64 @GetFlushRecPtr(ptr noundef) local_unnamed_addr #3
+declare i64 @GetFlushRecPtr(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 noundef) local_unnamed_addr #3
+declare zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 noundef) local_unnamed_addr #2
 
-declare void @ReplicationSlotRelease() local_unnamed_addr #3
+declare void @ReplicationSlotRelease() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_add_sub_rel_state(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -665,22 +659,22 @@ define dso_local noundef i64 @binary_upgrade_add_sub_rel_state(ptr noundef reado
   ret i64 0
 }
 
-declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @get_subscription_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @get_subscription_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @relation_open(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @relation_open(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @AddSubscriptionRelState(i32 noundef, i32 noundef, i8 noundef signext, i64 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @AddSubscriptionRelState(i32 noundef, i32 noundef, i8 noundef signext, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @relation_close(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @relation_close(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_replorigin_advance(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %9, label %5
@@ -732,27 +726,33 @@ define dso_local noundef i64 @binary_upgrade_replorigin_advance(ptr noundef read
   call void @replorigin_advance(i16 noundef zeroext %32, i64 noundef %29, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false) #6
   call void @UnlockRelationOid(i32 noundef 6000, i32 noundef 3) #6
   call void @table_close(ptr noundef %30, i32 noundef 3) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 0
 }
 
-declare void @ReplicationOriginNameForLogicalRep(i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @ReplicationOriginNameForLogicalRep(i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @LockRelationOid(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @LockRelationOid(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i16 @replorigin_by_name(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare zeroext i16 @replorigin_by_name(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @replorigin_advance(i16 noundef zeroext, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
+declare void @replorigin_advance(i16 noundef zeroext, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @UnlockRelationOid(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @UnlockRelationOid(i32 noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #5 = { cold nounwind }
 attributes #6 = { nounwind }

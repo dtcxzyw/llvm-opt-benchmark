@@ -1851,20 +1851,20 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %33, %37, %41
   br i1 %.not, label %58, label %54
 
 54:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK13InstanceKlass5fieldEi(ptr dead_on_unwind nonnull writable sret(%class.FieldInfo) align 4 %4, ptr noundef nonnull align 8 dereferenceable(464) %45, i32 noundef %46) #15
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %56 = load i32, ptr %55, align 4
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %57 = call noundef ptr @_ZN13InstanceKlass10jni_id_forEi(ptr noundef nonnull align 8 dereferenceable(464) %45, i32 noundef %56) #15
   br label %65
 
 58:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK13InstanceKlass5fieldEi(ptr dead_on_unwind nonnull writable sret(%class.FieldInfo) align 4 %3, ptr noundef nonnull align 8 dereferenceable(464) %45, i32 noundef %46) #15
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = load i32, ptr %59, align 4
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %61 = sext i32 %60 to i64
   %62 = shl nsw i64 %61, 2
   %63 = or disjoint i64 %62, 2
@@ -6052,9 +6052,9 @@ define internal fastcc noundef ptr @_ZL13get_method_idP7JNIEnv_P7_jclassPKcS4_bP
   %15 = phi ptr [ %13, %11 ], [ %1, %5 ]
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #17
   %17 = trunc i64 %16 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %15, i32 noundef %17, ptr noundef nonnull align 4 dereferenceable(4) %7) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %19
 
@@ -6071,9 +6071,9 @@ define internal fastcc noundef ptr @_ZL13get_method_idP7JNIEnv_P7_jclassPKcS4_bP
 _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %14, %19, %23
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
   %25 = trunc i64 %24 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %26 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %2, i32 noundef %25, ptr noundef nonnull align 4 dereferenceable(4) %6) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i39 = icmp eq ptr %26, null
   br i1 %.not.i39, label %_ZN12ResourceMarkD2Ev.exit.thread33, label %27
 
@@ -19278,9 +19278,9 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %38, %42, %46
   %49 = call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i, i32 noundef %48) #15
   %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
   %51 = trunc i64 %50 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %52 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %2, i32 noundef %51, ptr noundef nonnull align 4 dereferenceable(4) %6) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i29 = icmp eq ptr %52, null
   br i1 %.not.i29, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %53
 
@@ -19297,9 +19297,9 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %38, %42, %46
 _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit, %53, %57
   %58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #17
   %59 = trunc i64 %58 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %60 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %3, i32 noundef %59, ptr noundef nonnull align 4 dereferenceable(4) %5) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i30 = icmp eq ptr %60, null
   br i1 %.not.i30, label %.thread, label %61
 
@@ -22726,9 +22726,9 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !574
   %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
   %35 = trunc i64 %34 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %36 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %2, i32 noundef %35, ptr noundef nonnull align 4 dereferenceable(4) %6) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i25 = icmp eq ptr %36, null
   br i1 %.not.i25, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %37
 
@@ -22745,9 +22745,9 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
 _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %_ZN25WeakPreserveExceptionMarkC2EP6Thread.exit, %37, %41
   %42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #17
   %43 = trunc i64 %42 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %44 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %3, i32 noundef %43, ptr noundef nonnull align 4 dereferenceable(4) %5) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i26 = icmp eq ptr %44, null
   br i1 %.not.i26, label %.thread50, label %45
 
@@ -28863,7 +28863,7 @@ define internal fastcc noundef ptr @_ZL15get_bad_addressv() unnamed_addr #0 {
 7:                                                ; preds = %4
   %8 = tail call noundef zeroext i1 @_ZN2os14protect_memoryEPcmNS_8ProtTypeEb(ptr noundef nonnull %6, i64 noundef %5, i32 noundef 1, i1 noundef zeroext false) #15
   %9 = load ptr, ptr @_ZZL15get_bad_addressvE11bad_address, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %10 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %11 = icmp sgt i32 %10, 1
   %12 = icmp ne ptr %9, null
@@ -28879,7 +28879,7 @@ define internal fastcc noundef ptr @_ZL15get_bad_addressv() unnamed_addr #0 {
 
 _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %7, %13
   %.pre = phi ptr [ %9, %7 ], [ %.pre.pre, %13 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %14
 
 14:                                               ; preds = %4, %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit, %0
@@ -34080,9 +34080,9 @@ _ZNK5Klass12class_loaderEv.exit53:                ; preds = %72, %78
   %90 = load ptr, ptr %89, align 8
   %91 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #17
   %92 = trunc i64 %91 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %93 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %88, i32 noundef %92, ptr noundef nonnull align 4 dereferenceable(4) %6) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i54 = icmp eq ptr %93, null
   br i1 %.not.i54, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %94
 
@@ -34099,9 +34099,9 @@ _ZNK5Klass12class_loaderEv.exit53:                ; preds = %72, %78
 _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %86, %94, %98
   %99 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %90) #17
   %100 = trunc i64 %99 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %101 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %90, i32 noundef %100, ptr noundef nonnull align 4 dereferenceable(4) %5) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i55 = icmp eq ptr %101, null
   br i1 %.not.i55, label %.thread, label %102
 
@@ -37626,9 +37626,9 @@ define noundef i32 @JNI_CreateJavaVM(ptr noundef %0, ptr noundef %1, ptr noundef
   %4 = alloca i8, align 1
   %5 = alloca %class.HandleMark, align 8
   %6 = alloca %class.HandleMark, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot_jni\22\0A.asciz \22CreateJavaVM__entry\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %0, i32 -2053, ptr %1, i32 -2053, ptr %2) #15, !srcloc !946
   tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !947
   %7 = tail call noundef i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull @vm_created) #15, !srcloc !948
@@ -37826,9 +37826,9 @@ _ZL22JNI_CreateJavaVM_innerPP7JavaVM_PPvS2_.exit: ; preds = %3, %8, %88
   %.0.i = phi i32 [ -1, %8 ], [ %12, %88 ], [ -5, %3 ]
   call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot_jni\22\0A.asciz \22CreateJavaVM__return\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 1025, i32 %.042.i) #15, !srcloc !949
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !950
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
@@ -37873,8 +37873,8 @@ define noundef i32 @JNI_GetCreatedJavaVMs(ptr noundef %0, i32 noundef %1, ptr no
 define hidden noundef i32 @jni_DestroyJavaVM(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.JavaVMAttachArgs, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot_jni\22\0A.asciz \22DestroyJavaVM__entry\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %0) #15, !srcloc !955
   tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !956
   %4 = load volatile i32, ptr @vm_created, align 4
@@ -37948,8 +37948,8 @@ _ZL23jni_DestroyJavaVM_innerP7JavaVM_.exit:       ; preds = %1, %6, %13, %_ZN21T
   %.0.i = phi i32 [ -1, %13 ], [ 0, %_ZN21ThreadStateTransition22transition_from_nativeEP10JavaThread15JavaThreadStateb.exit.i ], [ %12, %6 ], [ -1, %1 ]
   call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot_jni\22\0A.asciz \22DestroyJavaVM__return\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 1025, i32 %.05.i) #15, !srcloc !957
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !958
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i
 }
 
@@ -46052,10 +46052,10 @@ declare i32 @llvm.ctpop.i32(i32) #12
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

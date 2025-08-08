@@ -41,7 +41,7 @@ declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ssl_cookie_setup(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 %1(ptr noundef %2, ptr noundef nonnull %4, i64 noundef 32) #7
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %12
@@ -63,21 +63,15 @@ define hidden i32 @mbedtls_ssl_cookie_setup(ptr noundef %0, ptr noundef readonly
 
 12:                                               ; preds = %9, %6, %3, %11
   %.0 = phi i32 [ 0, %11 ], [ %5, %3 ], [ %8, %6 ], [ %10, %9 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @mbedtls_md_setup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @mbedtls_md_info_from_type(i32 noundef) local_unnamed_addr #1
 
 declare i32 @mbedtls_md_hmac_starts(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -28928, 1) i32 @mbedtls_ssl_cookie_write(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
@@ -106,7 +100,7 @@ define hidden range(i32 -28928, 1) i32 @mbedtls_ssl_cookie_write(ptr noundef %0,
   %21 = load ptr, ptr %1, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store ptr %22, ptr %1, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %23 = icmp ule ptr %22, %2
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %12, %24
@@ -144,7 +138,7 @@ define hidden range(i32 -28928, 1) i32 @mbedtls_ssl_cookie_write(ptr noundef %0,
 
 ssl_cookie_hmac.exit:                             ; preds = %16, %27, %29, %31, %33, %35
   %.0.i = phi i32 [ 0, %35 ], [ -27136, %16 ], [ -27648, %33 ], [ -27648, %31 ], [ -27648, %29 ], [ -27648, %27 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %39
 
 39:                                               ; preds = %9, %5, %ssl_cookie_hmac.exit
@@ -153,16 +147,16 @@ ssl_cookie_hmac.exit:                             ; preds = %16, %27, %29, %31, 
 }
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #4
+declare i64 @time(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #5
+declare i32 @llvm.bswap.i32(i32) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -28928, 1) i32 @mbedtls_ssl_cookie_check(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [32 x i8], align 16
   %7 = alloca [28 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %0, null
   %9 = icmp eq ptr %3, null
   %or.cond = or i1 %8, %9
@@ -173,7 +167,7 @@ define hidden range(i32 -28928, 1) i32 @mbedtls_ssl_cookie_check(ptr noundef %0,
   br i1 %.not, label %11, label %32
 
 11:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = tail call i32 @mbedtls_md_hmac_reset(ptr noundef nonnull %0) #7
   %.not11.i = icmp eq i32 %12, 0
   br i1 %.not11.i, label %13, label %ssl_cookie_hmac.exit.thread
@@ -194,12 +188,12 @@ define hidden range(i32 -28928, 1) i32 @mbedtls_ssl_cookie_check(ptr noundef %0,
   br i1 %.not14.i, label %19, label %ssl_cookie_hmac.exit.thread
 
 ssl_cookie_hmac.exit.thread:                      ; preds = %17, %15, %13, %11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %31
 
 19:                                               ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %7, ptr noundef nonnull align 16 dereferenceable(28) %6, i64 28, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %21 = call i32 @mbedtls_ct_memcmp(ptr noundef nonnull %20, ptr noundef nonnull %7, i64 noundef 28) #7
   %.not23 = icmp eq i32 %21, 0
@@ -228,14 +222,14 @@ ssl_cookie_hmac.exit.thread:                      ; preds = %17, %15, %13, %11
 
 32:                                               ; preds = %10, %5, %31
   %.0 = phi i32 [ %.1, %31 ], [ -28928, %5 ], [ -1, %10 ]
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 declare i32 @mbedtls_ct_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @mbedtls_md_hmac_reset(ptr noundef) local_unnamed_addr #1
 
@@ -243,13 +237,19 @@ declare i32 @mbedtls_md_hmac_update(ptr noundef, ptr noundef, i64 noundef) local
 
 declare i32 @mbedtls_md_hmac_finish(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

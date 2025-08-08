@@ -665,7 +665,7 @@ define hidden void @_ZN10BFSClosure12closure_implE13UnifiedOopRefP7oopDesc(ptr n
   br i1 %48, label %49, label %60
 
 49:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %51 = load ptr, ptr %50, align 8
   call void @_ZN4EdgeC1EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %51, i64 %1) #12
@@ -678,7 +678,7 @@ define hidden void @_ZN10BFSClosure12closure_implE13UnifiedOopRefP7oopDesc(ptr n
   %58 = add i64 %57, 2
   %59 = select i1 %55, i64 1, i64 %58
   call void @_ZN9EdgeStore9put_chainEPK4Edgem(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull %4, i64 noundef %59) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %60
 
 60:                                               ; preds = %49, %33
@@ -2748,9 +2748,9 @@ _ZN13Devirtualizer6do_oopI10BFSClosure9narrowOopEEvPT_PT0_.exit.i: ; preds = %30
   br i1 %37, label %19, label %_ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop10BFSClosureEEvP7oopDescPT0_.exit, !llvm.loop !24
 
 _ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop10BFSClosureEEvP7oopDescPT0_.exit: ; preds = %._crit_edge.i, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop10BFSClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2816,9 +2816,9 @@ _ZN13Devirtualizer6do_oopI10BFSClosureP7oopDescEEvPT_PT0_.exit.i: ; preds = %30,
   br i1 %36, label %19, label %_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc10BFSClosureEEvS2_PT0_.exit, !llvm.loop !26
 
 _ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc10BFSClosureEEvS2_PT0_.exit: ; preds = %._crit_edge.i, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc10BFSClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4942,10 +4942,10 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI10BFSClosureE5Table1
 declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

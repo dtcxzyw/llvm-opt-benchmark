@@ -3559,7 +3559,7 @@ if.then:                                          ; preds = %if.end13.i.i.i22, %
   %10 = icmp eq ptr %Value, null
   %add.ptr = getelementptr inbounds nuw i8, ptr %Value, i64 16
   %spec.select = select i1 %10, ptr null, ptr %add.ptr
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %I.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %I.addr.i)
   store ptr %spec.select, ptr %I.addr.i, align 8
   %allocated.i = getelementptr inbounds nuw i8, ptr %this, i64 1880
   %11 = load ptr, ptr %allocated.i, align 8
@@ -3623,7 +3623,7 @@ _ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit: ; preds = %if.end13
   %retval.0.i.i.i = phi ptr [ %call.i.i.i.i, %if.end.i.i.i31 ], [ %add.ptr21.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end13.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 8
   %retval.sroa.0.0.copyload.i = load i32, ptr %second.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %I.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %I.addr.i)
   %call4 = call noundef i32 @_ZN6hermes17RegisterAllocator20getInstructionNumberEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr noundef %At)
   %cmp.i.not = icmp eq i32 %retval.sroa.0.0.copyload.i, -1
   br i1 %cmp.i.not, label %if.end15, label %if.then6
@@ -9442,7 +9442,7 @@ _ZNK4llvh9BitVector10find_firstEv.exit.i:         ; preds = %for.inc.i.i.i, %if.
 
 _ZN6hermes12RegisterFile16allocateRegisterEv.exit: ; preds = %if.then.i227, %_ZNK4llvh9BitVector10find_firstEv.exit.i
   %retval.sroa.0.0.i = phi i32 [ %141, %if.then.i227 ], [ %retval.0.i.i.i232, %_ZNK4llvh9BitVector10find_firstEv.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %I.addr.i239)
+  call void @llvm.lifetime.start.p0(ptr nonnull %I.addr.i239)
   store ptr %spec.select1, ptr %I.addr.i239, align 8
   %151 = load ptr, ptr %allocated.i, align 8
   %152 = load i32, ptr %NumBuckets.i.i.i.i.i.i.i, align 8
@@ -9504,7 +9504,7 @@ _ZN6hermes17RegisterAllocator14updateRegisterEPNS_5ValueENS_8RegisterE.exit: ; p
   %retval.0.i.i.i270 = phi ptr [ %call.i.i.i.i277, %if.end.i.i.i275 ], [ %add.ptr21.i.i.i.i.i251, %if.end.i.i.i.i.i243 ], [ %add.ptr.i.i.i.i.i268, %if.end13.i.i.i.i.i259 ]
   %second.i.i271 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i270, i64 8
   store i32 %retval.sroa.0.0.i, ptr %second.i.i271, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %I.addr.i239)
+  call void @llvm.lifetime.end.p0(ptr nonnull %I.addr.i239)
   %.pre785 = load i32, ptr %Size.i.i.i.i.i.i104, align 8
   br label %if.end135
 
@@ -9669,7 +9669,7 @@ while.body140:                                    ; preds = %while.body140.lr.ph
   %181 = icmp eq ptr %180, null
   %add.ptr152 = getelementptr inbounds nuw i8, ptr %180, i64 16
   %cast.result154 = select i1 %181, ptr null, ptr %add.ptr152
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %I.addr.i312)
+  call void @llvm.lifetime.start.p0(ptr nonnull %I.addr.i312)
   store ptr %cast.result154, ptr %I.addr.i312, align 8
   %182 = load ptr, ptr %allocated.i313, align 8
   %183 = load i32, ptr %NumBuckets.i.i.i.i.i.i.i314, align 8
@@ -9731,7 +9731,7 @@ _ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit353: ; preds = %if.en
   %retval.0.i.i.i343 = phi ptr [ %call.i.i.i.i351, %if.end.i.i.i349 ], [ %add.ptr21.i.i.i.i.i324, %if.end.i.i.i.i.i316 ], [ %add.ptr.i.i.i.i.i341, %if.end13.i.i.i.i.i332 ]
   %second.i.i344 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i343, i64 8
   %retval.sroa.0.0.copyload.i345 = load i32, ptr %second.i.i344, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %I.addr.i312)
+  call void @llvm.lifetime.end.p0(ptr nonnull %I.addr.i312)
   %rem.i.i354 = and i32 %retval.sroa.0.0.copyload.i345, 63
   %sh_prom.i.i355 = zext nneg i32 %rem.i.i354 to i64
   %shl.i.i356 = shl nuw i64 1, %sh_prom.i.i355
@@ -9829,7 +9829,7 @@ for.body168:                                      ; preds = %for.body168.lr.ph, 
   %205 = icmp eq ptr %202, null
   %add.ptr176 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %cast.result178 = select i1 %205, ptr null, ptr %add.ptr176
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %I.addr.i382)
+  call void @llvm.lifetime.start.p0(ptr nonnull %I.addr.i382)
   store ptr %cast.result178, ptr %I.addr.i382, align 8
   %206 = load ptr, ptr %allocated.i383, align 8
   %207 = load i32, ptr %NumBuckets.i.i.i.i.i.i.i384, align 8
@@ -9853,8 +9853,8 @@ if.end.i.i.i.i.i386:                              ; preds = %for.body168
 _ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit423.thread: ; preds = %if.end.i.i.i.i.i386
   %second.i.i414795 = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i.i.i394, i64 8
   %retval.sroa.0.0.copyload.i415796 = load i32, ptr %second.i.i414795, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %I.addr.i382)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %I.addr.i424)
+  call void @llvm.lifetime.end.p0(ptr nonnull %I.addr.i382)
+  call void @llvm.lifetime.start.p0(ptr nonnull %I.addr.i424)
   store ptr %spec.select3, ptr %I.addr.i424, align 8
   br label %if.end.i.i.i.i.i428
 
@@ -9903,8 +9903,8 @@ _ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit423: ; preds = %if.en
   %retval.0.i.i.i413 = phi ptr [ %call.i.i.i.i421, %if.end.i.i.i419 ], [ %add.ptr.i.i.i.i.i411, %if.end13.i.i.i.i.i402 ]
   %second.i.i414 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i413, i64 8
   %retval.sroa.0.0.copyload.i415 = load i32, ptr %second.i.i414, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %I.addr.i382)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %I.addr.i424)
+  call void @llvm.lifetime.end.p0(ptr nonnull %I.addr.i382)
+  call void @llvm.lifetime.start.p0(ptr nonnull %I.addr.i424)
   store ptr %spec.select3, ptr %I.addr.i424, align 8
   %cmp.i.i.i.i.i427 = icmp eq i32 %213, 0
   br i1 %cmp.i.i.i.i.i427, label %if.end.i.i.i460, label %if.end.i.i.i.i.i428
@@ -9969,7 +9969,7 @@ _ZN6hermes17RegisterAllocator14updateRegisterEPNS_5ValueENS_8RegisterE.exit464: 
   %retval.0.i.i.i455 = phi ptr [ %call.i.i.i.i462, %if.end.i.i.i460 ], [ %add.ptr21.i.i.i.i.i436, %if.end.i.i.i.i.i428 ], [ %add.ptr.i.i.i.i.i453, %if.end13.i.i.i.i.i444 ]
   %second.i.i456 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i455, i64 8
   store i32 %retval.sroa.0.0.copyload.i415799, ptr %second.i.i456, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %I.addr.i424)
+  call void @llvm.lifetime.end.p0(ptr nonnull %I.addr.i424)
   %incdec.ptr3.i = getelementptr inbounds nuw i8, ptr %__begin1162.sroa.0.0763, i64 16
   %cmp.not3.i3.i = icmp eq ptr %incdec.ptr3.i, %add.ptr.i.i.pn.i
   br i1 %cmp.not3.i3.i, label %_ZN4llvh16DenseMapIteratorIPN6hermes11InstructionES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EELb0EEppEv.exit, label %land.rhs.i4.i
@@ -11652,7 +11652,7 @@ if.end:                                           ; preds = %if.then6
   %12 = icmp eq ptr %7, null
   %add.ptr = getelementptr inbounds nuw i8, ptr %7, i64 16
   %spec.select = select i1 %12, ptr null, ptr %add.ptr
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %I.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %I.addr.i)
   store ptr %spec.select, ptr %I.addr.i, align 8
   %allocated.i = getelementptr inbounds nuw i8, ptr %11, i64 1880
   %13 = load ptr, ptr %allocated.i, align 8
@@ -11716,7 +11716,7 @@ _ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit: ; preds = %if.end13
   %retval.0.i.i.i = phi ptr [ %call.i.i.i.i, %if.end.i.i.i6 ], [ %add.ptr21.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end13.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 8
   %retval.sroa.0.0.copyload.i = load i32, ptr %second.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %I.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %I.addr.i)
   br label %return
 
 return:                                           ; preds = %entry, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9ScopeDescEPNS2_17ScopeCreationInstENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findEPKS3_.exit, %_ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit, %if.then10
@@ -11973,7 +11973,7 @@ if.then4.i.i:                                     ; preds = %if.then
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
   %phi.call.i = phi ptr [ %call3.i.i, %if.then.i.i ], [ %8, %if.then4.i.i ]
   %12 = load ptr, ptr %allocator, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %I.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %I.addr.i)
   store ptr %V, ptr %I.addr.i, align 8
   %allocated.i4 = getelementptr inbounds nuw i8, ptr %12, i64 1880
   %13 = load ptr, ptr %allocated.i4, align 8
@@ -12032,7 +12032,7 @@ _ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit: ; preds = %if.end13
   %retval.0.i.i.i = phi ptr [ %call.i.i.i.i, %if.end.i.i.i5 ], [ %add.ptr21.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end13.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 8
   %retval.sroa.0.0.copyload.i = load i32, ptr %second.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %I.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %I.addr.i)
   %cmp.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i, -1
   %OutBufEnd.i5.i.i = getelementptr inbounds nuw i8, ptr %phi.call.i, i64 16
   %19 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
@@ -12247,7 +12247,7 @@ if.then4.i.i16:                                   ; preds = %if.else
 _ZN4llvh11raw_ostreamlsEPKc.exit21:               ; preds = %if.then.i.i19, %if.then4.i.i16
   %phi.call.i18 = phi ptr [ %call3.i.i20, %if.then.i.i19 ], [ %12, %if.then4.i.i16 ]
   %16 = load ptr, ptr %allocator, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %I.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %I.addr.i)
   store ptr %spec.select, ptr %I.addr.i, align 8
   %allocated.i22 = getelementptr inbounds nuw i8, ptr %16, i64 1880
   %17 = load ptr, ptr %allocated.i22, align 8
@@ -12306,7 +12306,7 @@ _ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit: ; preds = %if.end13
   %retval.0.i.i.i = phi ptr [ %call.i.i.i.i, %if.end.i.i.i23 ], [ %add.ptr21.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end13.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 8
   %retval.sroa.0.0.copyload.i = load i32, ptr %second.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %I.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %I.addr.i)
   %cmp.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i, -1
   %OutBufEnd.i5.i.i = getelementptr inbounds nuw i8, ptr %phi.call.i18, i64 16
   %23 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
@@ -15020,10 +15020,10 @@ declare void @llvm.assume(i1 noundef) #16
 declare i32 @llvm.umin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14

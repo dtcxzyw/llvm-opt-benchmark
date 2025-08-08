@@ -92,7 +92,7 @@ define void @png_save_uint_16(ptr noundef writeonly captures(none) initializes((
 ; Function Attrs: nounwind uwtable
 define void @png_write_sig(ptr noalias noundef initializes((1196, 1200)) %0) local_unnamed_addr #1 {
   %2 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 727905341920923785, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1196
   store i32 18, ptr %3, align 4, !tbaa !6
@@ -114,20 +114,14 @@ define void @png_write_sig(ptr noalias noundef initializes((1196, 1200)) %0) loc
   br label %15
 
 15:                                               ; preds = %11, %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare void @png_write_data(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @png_write_data(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @png_write_chunk_start(ptr noalias noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
@@ -140,7 +134,7 @@ define void @png_write_chunk_start(ptr noalias noundef %0, ptr noundef readonly 
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %11 = load i8, ptr %10, align 1, !tbaa !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12, !noalias !25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !25
   %12 = icmp eq ptr %0, null
   br i1 %12, label %png_write_chunk_header.exit, label %13
 
@@ -188,7 +182,7 @@ define void @png_write_chunk_start(ptr noalias noundef %0, ptr noundef readonly 
   br label %png_write_chunk_header.exit
 
 png_write_chunk_header.exit:                      ; preds = %3, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12, !noalias !25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !25
   ret void
 }
 
@@ -210,12 +204,12 @@ define void @png_write_chunk_data(ptr noalias noundef %0, ptr noundef %1, i64 no
   ret void
 }
 
-declare void @png_calculate_crc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @png_calculate_crc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @png_write_chunk_end(ptr noalias noundef %0) local_unnamed_addr #1 {
   %2 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = icmp eq ptr %0, null
   br i1 %3, label %18, label %4
 
@@ -242,7 +236,7 @@ define void @png_write_chunk_end(ptr noalias noundef %0) local_unnamed_addr #1 {
   br label %18
 
 18:                                               ; preds = %1, %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -286,7 +280,7 @@ define internal fastcc void @png_write_complete_chunk(ptr noalias noundef %0, i3
 
 png_write_chunk_header.exit:                      ; preds = %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12, !noalias !30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !30
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1196
   store i32 34, ptr %11, align 4, !tbaa !6, !alias.scope !30
   %12 = lshr i64 %3, 24
@@ -324,7 +318,7 @@ png_write_chunk_header.exit:                      ; preds = %8
   call void @png_reset_crc(ptr noundef nonnull %0) #12
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %22, i64 noundef 4) #12
   store i32 66, ptr %11, align 4, !tbaa !6, !alias.scope !30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12, !noalias !30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !30
   %34 = icmp ne ptr %2, null
   %35 = icmp ne i64 %3, 0
   %or.cond3.i = and i1 %34, %35
@@ -337,7 +331,7 @@ png_write_chunk_header.exit:                      ; preds = %8
 
 png_write_chunk_end.exit:                         ; preds = %png_write_chunk_header.exit, %36
   call void @llvm.experimental.noalias.scope.decl(metadata !33)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12, !noalias !33
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !33
   store i32 130, ptr %11, align 4, !tbaa !6, !alias.scope !33
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 596
   %38 = load i32, ptr %37, align 4, !tbaa !29, !alias.scope !33
@@ -356,7 +350,7 @@ png_write_chunk_end.exit:                         ; preds = %png_write_chunk_hea
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store i8 %47, ptr %48, align 1, !tbaa !3, !noalias !33
   call void @png_write_data(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 4) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12, !noalias !33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !33
   br label %49
 
 49:                                               ; preds = %4, %png_write_chunk_end.exit
@@ -384,12 +378,12 @@ define void @png_free_buffer_list(ptr noalias noundef %0, ptr noundef captures(n
   ret void
 }
 
-declare void @png_free(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @png_free(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @png_write_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 {
   %9 = alloca [13 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   switch i32 %4, label %21 [
     i32 0, label %10
     i32 2, label %12
@@ -625,21 +619,21 @@ switch.lookup:                                    ; preds = %14, %19, %19, %17, 
 109:                                              ; preds = %.sink.split, %68
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i32 1, ptr %110, align 4, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: noreturn
-declare void @png_error(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @png_error(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @png_warning(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @png_warning(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @png_write_PLTE(ptr noalias noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca [4 x i8], align 1
   %5 = alloca [8 x i8], align 1
   %6 = alloca [3 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 623
   %8 = load i8, ptr %7, align 1, !tbaa !44
   %9 = icmp eq i8 %8, 3
@@ -692,7 +686,7 @@ png_write_chunk_header.exit:                      ; preds = %10, %26
   store i16 %30, ptr %31, align 8, !tbaa !56
   %32 = mul i32 %2, 3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12, !noalias !57
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !57
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1196
   store i32 34, ptr %33, align 4, !tbaa !6, !alias.scope !57
   %34 = lshr i32 %32, 24
@@ -723,7 +717,7 @@ png_write_chunk_header.exit:                      ; preds = %10, %26
   call void @png_reset_crc(ptr noundef nonnull %0) #12
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %44, i64 noundef 4) #12
   store i32 66, ptr %33, align 4, !tbaa !6, !alias.scope !57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12, !noalias !57
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !57
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %png_write_chunk_end.exit, label %png_write_chunk_data.exit.lr.ph
 
@@ -752,7 +746,7 @@ png_write_chunk_data.exit:                        ; preds = %png_write_chunk_dat
 
 png_write_chunk_end.exit:                         ; preds = %png_write_chunk_data.exit, %png_write_chunk_header.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12, !noalias !65
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !65
   store i32 130, ptr %33, align 4, !tbaa !6, !alias.scope !65
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 596
   %59 = load i32, ptr %58, align 4, !tbaa !29, !alias.scope !65
@@ -771,7 +765,7 @@ png_write_chunk_end.exit:                         ; preds = %png_write_chunk_dat
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %68, ptr %69, align 1, !tbaa !3, !noalias !65
   call void @png_write_data(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 4) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12, !noalias !65
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !65
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %71 = load i32, ptr %70, align 4, !tbaa !24
   %72 = or i32 %71, 2
@@ -779,7 +773,7 @@ png_write_chunk_end.exit:                         ; preds = %png_write_chunk_dat
   br label %73
 
 73:                                               ; preds = %png_write_chunk_end.exit, %29, %.thread31
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1080,7 +1074,7 @@ optimize_cmf.exit98:                              ; preds = %145, %135, %128, %1
   ret void
 }
 
-declare noalias ptr @png_malloc(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @png_malloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @png_deflate_claim(ptr noalias noundef %0, i32 noundef range(i32 1229209940, 2052348021) %1, i64 noundef %2) unnamed_addr #1 {
@@ -1091,7 +1085,7 @@ define internal fastcc noundef i32 @png_deflate_claim(ptr noalias noundef %0, i3
   br i1 %.not, label %32, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = lshr i32 %1, 24
   %9 = trunc nuw nsw i32 %8 to i8
   store i8 %9, ptr %4, align 16, !tbaa !3
@@ -1301,7 +1295,7 @@ define internal fastcc noundef i32 @png_deflate_claim(ptr noalias noundef %0, i3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i64 @png_image_size(ptr noalias noundef readonly captures(none) %0) unnamed_addr #6 {
+define internal fastcc i64 @png_image_size(ptr noalias noundef readonly captures(none) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %3 = load i32, ptr %2, align 8, !tbaa !49
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 528
@@ -1440,9 +1434,9 @@ define internal fastcc i64 @png_image_size(ptr noalias noundef readonly captures
   ret i64 %.0
 }
 
-declare i32 @deflate(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @deflate(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @png_zstream_error(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @png_zstream_error(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @png_write_IEND(ptr noalias noundef %0) local_unnamed_addr #1 {
@@ -1454,7 +1448,7 @@ define void @png_write_IEND(ptr noalias noundef %0) local_unnamed_addr #1 {
 
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12, !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !106
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1196
   store i32 34, ptr %6, align 4, !tbaa !6, !alias.scope !106
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1471,9 +1465,9 @@ define void @png_write_IEND(ptr noalias noundef %0) local_unnamed_addr #1 {
   store i32 1229278788, ptr %11, align 8, !tbaa !28, !alias.scope !106
   call void @png_reset_crc(ptr noundef nonnull %0) #12
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef 4) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12, !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !106
   call void @llvm.experimental.noalias.scope.decl(metadata !107)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12, !noalias !110
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !110
   store i32 130, ptr %6, align 4, !tbaa !6, !alias.scope !110
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 596
   %13 = load i32, ptr %12, align 4, !tbaa !29, !alias.scope !110
@@ -1492,7 +1486,7 @@ define void @png_write_IEND(ptr noalias noundef %0) local_unnamed_addr #1 {
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 %22, ptr %23, align 1, !tbaa !3, !noalias !110
   call void @png_write_data(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef 4) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12, !noalias !110
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !110
   br label %png_write_complete_chunk.exit
 
 png_write_complete_chunk.exit:                    ; preds = %1, %5
@@ -1506,7 +1500,7 @@ png_write_complete_chunk.exit:                    ; preds = %1, %5
 ; Function Attrs: nounwind uwtable
 define void @png_write_gAMA_fixed(ptr noalias noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = lshr i32 %1, 24
   %5 = trunc nuw i32 %4 to i8
   store i8 %5, ptr %3, align 1, !tbaa !3
@@ -1522,14 +1516,14 @@ define void @png_write_gAMA_fixed(ptr noalias noundef %0, i32 noundef %1) local_
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 %12, ptr %13, align 1, !tbaa !3
   call fastcc void @png_write_complete_chunk(ptr noundef %0, i32 noundef 1732332865, ptr noundef nonnull %3, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @png_write_sRGB(ptr noalias noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca [1 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp sgt i32 %1, 3
   br i1 %4, label %5, label %6
 
@@ -1541,7 +1535,7 @@ define void @png_write_sRGB(ptr noalias noundef %0, i32 noundef %1) local_unname
   %7 = trunc i32 %1 to i8
   store i8 %7, ptr %3, align 1, !tbaa !3
   call fastcc void @png_write_complete_chunk(ptr noundef %0, i32 noundef 1934772034, ptr noundef nonnull %3, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1551,8 +1545,8 @@ define void @png_write_iCCP(ptr noalias noundef %0, ptr noundef %1, ptr noundef 
   %6 = alloca [8 x i8], align 1
   %7 = alloca [81 x i8], align 16
   %8 = alloca %struct.compression_state, align 8
-  call void @llvm.lifetime.start.p0(i64 81, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 1048, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp eq ptr %2, null
   br i1 %9, label %10, label %11
 
@@ -1640,7 +1634,7 @@ define void @png_write_iCCP(ptr noalias noundef %0, ptr noundef %1, ptr noundef 
 55:                                               ; preds = %43
   %56 = load i32, ptr %50, align 8, !tbaa !114
   call void @llvm.experimental.noalias.scope.decl(metadata !115)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12, !noalias !115
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !115
   %57 = icmp eq ptr %0, null
   br i1 %57, label %.split.us.i, label %png_write_chunk_header.exit
 
@@ -1676,7 +1670,7 @@ png_write_chunk_header.exit:                      ; preds = %55
   call void @png_reset_crc(ptr noundef nonnull %0) #12
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %70, i64 noundef 4) #12
   store i32 66, ptr %59, align 4, !tbaa !6, !alias.scope !115
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12, !noalias !115
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !115
   %.not44 = icmp eq i32 %47, 0
   br i1 %.not44, label %.split.preheader.i, label %75
 
@@ -1694,7 +1688,7 @@ png_write_chunk_header.exit:                      ; preds = %55
   br label %.split.i
 
 .split.us.i:                                      ; preds = %55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12, !noalias !115
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !115
   call void @llvm.experimental.noalias.scope.decl(metadata !121)
   %.0.us24.i = load ptr, ptr inttoptr (i64 432 to ptr), align 16, !tbaa !36, !alias.scope !121
   %81 = icmp ult i32 %56, 1025
@@ -1755,7 +1749,7 @@ png_write_chunk_data.exit.i:                      ; preds = %89, %.split.i
 
 png_write_compressed_data_out.exit:               ; preds = %.split23.us.i
   call void @llvm.experimental.noalias.scope.decl(metadata !124)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12, !noalias !124
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !124
   br i1 %57, label %png_write_chunk_end.exit, label %98
 
 98:                                               ; preds = %png_write_compressed_data_out.exit
@@ -1781,13 +1775,13 @@ png_write_compressed_data_out.exit:               ; preds = %.split23.us.i
   br label %png_write_chunk_end.exit
 
 png_write_chunk_end.exit:                         ; preds = %png_write_compressed_data_out.exit, %98
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12, !noalias !124
-  call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 81, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !124
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
-declare i32 @png_check_keyword(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @png_check_keyword(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @png_text_compress(ptr noalias noundef %0, i32 noundef range(i32 1766015824, 2052348021) %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #1 {
@@ -1960,8 +1954,8 @@ define void @png_write_sPLT(ptr noalias noundef %0, ptr noundef %1) local_unname
   %4 = alloca [8 x i8], align 1
   %5 = alloca [80 x i8], align 16
   %6 = alloca [10 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i8, ptr %7, align 8, !tbaa !128
   %9 = icmp eq i8 %8, 8
@@ -1979,7 +1973,7 @@ define void @png_write_sPLT(ptr noalias noundef %0, ptr noundef %1) local_unname
 
 17:                                               ; preds = %2
   call void @llvm.experimental.noalias.scope.decl(metadata !133)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12, !noalias !133
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !133
   %.not38 = icmp eq ptr %0, null
   br i1 %.not38, label %png_write_chunk_data.exit34, label %png_write_chunk_header.exit
 
@@ -2018,7 +2012,7 @@ png_write_chunk_header.exit:                      ; preds = %17
   call void @png_reset_crc(ptr noundef nonnull %0) #12
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %33, i64 noundef 4) #12
   store i32 66, ptr %22, align 4, !tbaa !6, !alias.scope !133
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12, !noalias !133
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !133
   %38 = add i32 %14, 1
   %.not = icmp eq i32 %38, 0
   br i1 %.not, label %png_write_chunk_data.exit34.thread, label %39
@@ -2030,7 +2024,7 @@ png_write_chunk_header.exit:                      ; preds = %17
   br label %png_write_chunk_data.exit34.thread
 
 png_write_chunk_data.exit34:                      ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12, !noalias !133
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !133
   %41 = load i32, ptr %11, align 8, !tbaa !131
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %.lr.ph.split.us, label %._crit_edge
@@ -2223,7 +2217,7 @@ png_write_chunk_data.exit36:                      ; preds = %134, %118
   br i1 %163, label %.lr.ph.split, label %._crit_edge.thread, !llvm.loop !144
 
 ._crit_edge.thread:                               ; preds = %png_write_chunk_data.exit36, %png_write_chunk_data.exit34.thread
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12, !noalias !145
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !145
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 1196
   store i32 130, ptr %164, align 4, !tbaa !6, !alias.scope !148
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 596
@@ -2247,20 +2241,20 @@ png_write_chunk_data.exit36:                      ; preds = %134, %118
 
 ._crit_edge:                                      ; preds = %png_write_chunk_data.exit36.us, %png_write_chunk_data.exit34
   call void @llvm.experimental.noalias.scope.decl(metadata !148)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12, !noalias !148
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !148
   br label %png_write_chunk_end.exit
 
 png_write_chunk_end.exit:                         ; preds = %._crit_edge, %._crit_edge.thread
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12, !noalias !148
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !148
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @png_write_sBIT(ptr noalias noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = and i32 %2, 2
   %.not = icmp eq i32 %5, 0
   %.1.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 3
@@ -2369,14 +2363,14 @@ define void @png_write_sBIT(ptr noalias noundef %0, ptr noundef readonly capture
   br label %56
 
 56:                                               ; preds = %.critedge, %55, %52, %40
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @png_write_cHRM_fixed(ptr noalias noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 4, !tbaa !155
   call void @png_save_int_32(ptr noundef nonnull %3, i32 noundef %5) #12
@@ -2408,16 +2402,16 @@ define void @png_write_cHRM_fixed(ptr noalias noundef %0, ptr noundef readonly c
   %25 = load i32, ptr %24, align 4, !tbaa !162
   call void @png_save_int_32(ptr noundef nonnull %23, i32 noundef %25) #12
   call fastcc void @png_write_complete_chunk(ptr noundef %0, i32 noundef 1665684045, ptr noundef nonnull %3, i64 noundef 32)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @png_save_int_32(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @png_save_int_32(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @png_write_tRNS(ptr noalias noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca [6 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   switch i32 %4, label %60 [
     i32 3, label %7
     i32 0, label %17
@@ -2520,16 +2514,16 @@ define void @png_write_tRNS(ptr noalias noundef %0, ptr noundef %1, ptr noundef 
   br label %61
 
 61:                                               ; preds = %15, %59, %60, %26, %58, %25, %14
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare void @png_app_warning(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @png_app_warning(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @png_write_bKGD(ptr noalias noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca [6 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq i32 %2, 3
   br i1 %5, label %6, label %20
 
@@ -2643,7 +2637,7 @@ define void @png_write_bKGD(ptr noalias noundef %0, ptr noundef readonly capture
   br label %65
 
 65:                                               ; preds = %18, %60, %50, %59, %49, %17
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2652,15 +2646,15 @@ define void @png_write_cICP(ptr noalias noundef %0, i8 noundef zeroext %1, i8 no
   %6 = alloca [4 x i8], align 1
   %7 = alloca [8 x i8], align 1
   %8 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12, !noalias !168
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !168
   %9 = icmp eq ptr %0, null
   br i1 %9, label %png_write_chunk_data.exit.thread, label %10
 
 png_write_chunk_data.exit.thread:                 ; preds = %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12, !noalias !168
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12, !noalias !171
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !168
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !171
   br label %png_write_chunk_end.exit
 
 10:                                               ; preds = %5
@@ -2687,7 +2681,7 @@ png_write_chunk_data.exit.thread:                 ; preds = %5
   call void @png_reset_crc(ptr noundef nonnull %0) #12
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %15, i64 noundef 4) #12
   store i32 66, ptr %11, align 4, !tbaa !6, !alias.scope !168
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12, !noalias !168
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !168
   store i8 %1, ptr %8, align 1, !tbaa !3
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %2, ptr %20, align 1, !tbaa !3
@@ -2698,7 +2692,7 @@ png_write_chunk_data.exit.thread:                 ; preds = %5
   call void @png_write_data(ptr noundef nonnull %0, ptr noundef nonnull %8, i64 noundef 4) #12
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %8, i64 noundef 4) #12
   call void @llvm.experimental.noalias.scope.decl(metadata !174)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12, !noalias !174
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !174
   store i32 130, ptr %11, align 4, !tbaa !6, !alias.scope !174
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 596
   %24 = load i32, ptr %23, align 4, !tbaa !29, !alias.scope !174
@@ -2720,15 +2714,15 @@ png_write_chunk_data.exit.thread:                 ; preds = %5
   br label %png_write_chunk_end.exit
 
 png_write_chunk_end.exit:                         ; preds = %png_write_chunk_data.exit.thread, %10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12, !noalias !174
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !174
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @png_write_cLLI_fixed(ptr noalias noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = lshr i32 %1, 24
   %6 = trunc nuw i32 %5 to i8
   store i8 %6, ptr %4, align 1, !tbaa !3
@@ -2759,14 +2753,14 @@ define void @png_write_cLLI_fixed(ptr noalias noundef %0, i32 noundef %1, i32 no
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 7
   store i8 %24, ptr %25, align 1, !tbaa !3
   call fastcc void @png_write_complete_chunk(ptr noundef %0, i32 noundef 1665944649, ptr noundef nonnull %4, i64 noundef 8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @png_write_mDCV_fixed(ptr noalias noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i16 noundef zeroext %6, i16 noundef zeroext %7, i16 noundef zeroext %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #1 {
   %12 = alloca [24 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = lshr i16 %1, 8
   %14 = trunc nuw i16 %13 to i8
   store i8 %14, ptr %12, align 16, !tbaa !3
@@ -2853,7 +2847,7 @@ define void @png_write_mDCV_fixed(ptr noalias noundef %0, i16 noundef zeroext %1
   %73 = getelementptr inbounds nuw i8, ptr %12, i64 23
   store i8 %72, ptr %73, align 1, !tbaa !3
   call fastcc void @png_write_complete_chunk(ptr noundef %0, i32 noundef 1833190230, ptr noundef nonnull %12, i64 noundef 24)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 }
 
@@ -2862,14 +2856,14 @@ define void @png_write_eXIf(ptr noalias noundef %0, ptr noundef readonly capture
   %4 = alloca [4 x i8], align 1
   %5 = alloca [8 x i8], align 1
   %6 = alloca [1 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12, !noalias !176
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !176
   %7 = icmp eq ptr %0, null
   br i1 %7, label %png_write_chunk_header.exit, label %png_write_chunk_header.exit.thread
 
 png_write_chunk_header.exit:                      ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12, !noalias !176
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !176
   %8 = icmp sgt i32 %2, 0
   br i1 %8, label %png_write_chunk_data.exit.us.preheader, label %._crit_edge
 
@@ -2904,7 +2898,7 @@ png_write_chunk_header.exit.thread:               ; preds = %3
   call void @png_reset_crc(ptr noundef nonnull %0) #12
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %20, i64 noundef 4) #12
   store i32 66, ptr %9, align 4, !tbaa !6, !alias.scope !176
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12, !noalias !176
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !176
   %25 = icmp sgt i32 %2, 0
   br i1 %25, label %png_write_chunk_data.exit.preheader, label %._crit_edge.thread
 
@@ -2932,7 +2926,7 @@ png_write_chunk_data.exit:                        ; preds = %png_write_chunk_dat
   br i1 %exitcond.not, label %._crit_edge.thread, label %png_write_chunk_data.exit, !llvm.loop !179
 
 ._crit_edge.thread:                               ; preds = %png_write_chunk_data.exit, %png_write_chunk_header.exit.thread
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12, !noalias !180
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !180
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1196
   store i32 130, ptr %32, align 4, !tbaa !6, !alias.scope !183
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 596
@@ -2956,12 +2950,12 @@ png_write_chunk_data.exit:                        ; preds = %png_write_chunk_dat
 
 ._crit_edge:                                      ; preds = %png_write_chunk_data.exit.us.preheader, %png_write_chunk_header.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !183)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12, !noalias !183
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !183
   br label %png_write_chunk_end.exit
 
 png_write_chunk_end.exit:                         ; preds = %._crit_edge, %._crit_edge.thread
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12, !noalias !183
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !183
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -2970,7 +2964,7 @@ define void @png_write_hIST(ptr noalias noundef %0, ptr noundef readonly capture
   %4 = alloca [4 x i8], align 1
   %5 = alloca [8 x i8], align 1
   %6 = alloca [3 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %8 = load i16, ptr %7, align 8, !tbaa !56
   %9 = zext i16 %8 to i32
@@ -2984,7 +2978,7 @@ define void @png_write_hIST(ptr noalias noundef %0, ptr noundef readonly capture
 png_write_chunk_header.exit:                      ; preds = %3
   %12 = shl nsw i32 %2, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12, !noalias !185
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !185
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1196
   store i32 34, ptr %13, align 4, !tbaa !6, !alias.scope !185
   %14 = lshr i32 %12, 24
@@ -3015,7 +3009,7 @@ png_write_chunk_header.exit:                      ; preds = %3
   call void @png_reset_crc(ptr noundef nonnull %0) #12
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %24, i64 noundef 4) #12
   store i32 66, ptr %13, align 4, !tbaa !6, !alias.scope !185
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12, !noalias !185
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !185
   %29 = icmp sgt i32 %2, 0
   br i1 %29, label %png_write_chunk_data.exit.lr.ph, label %png_write_chunk_end.exit
 
@@ -3041,7 +3035,7 @@ png_write_chunk_data.exit:                        ; preds = %png_write_chunk_dat
 
 png_write_chunk_end.exit:                         ; preds = %png_write_chunk_data.exit, %png_write_chunk_header.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !190)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12, !noalias !190
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !190
   store i32 130, ptr %13, align 4, !tbaa !6, !alias.scope !190
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 596
   %37 = load i32, ptr %36, align 4, !tbaa !29, !alias.scope !190
@@ -3060,11 +3054,11 @@ png_write_chunk_end.exit:                         ; preds = %png_write_chunk_dat
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %46, ptr %47, align 1, !tbaa !3, !noalias !190
   call void @png_write_data(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 4) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12, !noalias !190
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !190
   br label %48
 
 48:                                               ; preds = %png_write_chunk_end.exit, %11
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -3073,7 +3067,7 @@ define void @png_write_tEXt(ptr noalias noundef %0, ptr noundef %1, ptr noundef 
   %5 = alloca [4 x i8], align 1
   %6 = alloca [8 x i8], align 1
   %7 = alloca [80 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @png_check_keyword(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %7) #12
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
@@ -3105,7 +3099,7 @@ define void @png_write_tEXt(ptr noalias noundef %0, ptr noundef %1, ptr noundef 
 .thread:                                          ; preds = %11, %13, %16
   %.024 = phi i64 [ %17, %16 ], [ 0, %13 ], [ 0, %11 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !193)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12, !noalias !193
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !193
   %.not30 = icmp eq ptr %0, null
   br i1 %.not30, label %png_write_chunk_data.exit22, label %png_write_chunk_header.exit
 
@@ -3143,7 +3137,7 @@ png_write_chunk_header.exit:                      ; preds = %.thread
   call void @png_reset_crc(ptr noundef nonnull %0) #12
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %36, i64 noundef 4) #12
   store i32 66, ptr %25, align 4, !tbaa !6, !alias.scope !193
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12, !noalias !193
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !193
   %.not26 = icmp eq i32 %23, 0
   br i1 %.not26, label %png_write_chunk_data.exit, label %41
 
@@ -3165,13 +3159,13 @@ png_write_chunk_data.exit22.thread:               ; preds = %png_write_chunk_dat
   br label %png_write_chunk_data.exit22.thread29
 
 png_write_chunk_data.exit22:                      ; preds = %.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12, !noalias !193
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !193
   call void @llvm.experimental.noalias.scope.decl(metadata !196)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12, !noalias !196
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !196
   br label %png_write_chunk_end.exit
 
 png_write_chunk_data.exit22.thread29:             ; preds = %png_write_chunk_data.exit, %png_write_chunk_data.exit22.thread
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12, !noalias !199
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !199
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1196
   store i32 130, ptr %45, align 4, !tbaa !6, !alias.scope !196
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 596
@@ -3194,13 +3188,13 @@ png_write_chunk_data.exit22.thread29:             ; preds = %png_write_chunk_dat
   br label %png_write_chunk_end.exit
 
 png_write_chunk_end.exit:                         ; preds = %png_write_chunk_data.exit22, %png_write_chunk_data.exit22.thread29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12, !noalias !196
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !196
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define void @png_write_zTXt(ptr noalias noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
@@ -3208,8 +3202,8 @@ define void @png_write_zTXt(ptr noalias noundef %0, ptr noundef %1, ptr noundef 
   %6 = alloca [8 x i8], align 1
   %7 = alloca [81 x i8], align 16
   %8 = alloca %struct.compression_state, align 8
-  call void @llvm.lifetime.start.p0(i64 81, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 1048, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   switch i32 %3, label %10 [
     i32 -1, label %9
     i32 0, label %11
@@ -3265,7 +3259,7 @@ define void @png_write_zTXt(ptr noalias noundef %0, ptr noundef %1, ptr noundef 
 28:                                               ; preds = %.split24
   %29 = load i32, ptr %23, align 8, !tbaa !114
   call void @llvm.experimental.noalias.scope.decl(metadata !200)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12, !noalias !200
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !200
   %30 = icmp eq ptr %0, null
   br i1 %30, label %.split.us.i, label %png_write_chunk_header.exit
 
@@ -3301,7 +3295,7 @@ png_write_chunk_header.exit:                      ; preds = %28
   call void @png_reset_crc(ptr noundef nonnull %0) #12
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %43, i64 noundef 4) #12
   store i32 66, ptr %32, align 4, !tbaa !6, !alias.scope !200
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12, !noalias !200
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !200
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %.split.preheader.i, label %48
 
@@ -3319,7 +3313,7 @@ png_write_chunk_header.exit:                      ; preds = %28
   br label %.split.i
 
 .split.us.i:                                      ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12, !noalias !200
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !200
   call void @llvm.experimental.noalias.scope.decl(metadata !206)
   %.0.us24.i = load ptr, ptr inttoptr (i64 432 to ptr), align 16, !tbaa !36, !alias.scope !206
   %54 = icmp ult i32 %29, 1025
@@ -3380,7 +3374,7 @@ png_write_chunk_data.exit.i:                      ; preds = %62, %.split.i
 
 png_write_compressed_data_out.exit:               ; preds = %.split23.us.i
   call void @llvm.experimental.noalias.scope.decl(metadata !208)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12, !noalias !208
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !208
   br i1 %30, label %png_write_chunk_end.exit, label %71
 
 71:                                               ; preds = %png_write_compressed_data_out.exit
@@ -3406,12 +3400,12 @@ png_write_compressed_data_out.exit:               ; preds = %.split23.us.i
   br label %png_write_chunk_end.exit
 
 png_write_chunk_end.exit:                         ; preds = %png_write_compressed_data_out.exit, %71
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12, !noalias !208
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !208
   br label %85
 
 85:                                               ; preds = %png_write_chunk_end.exit, %9
-  call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 81, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -3421,8 +3415,8 @@ define void @png_write_iTXt(ptr noalias noundef %0, i32 noundef %1, ptr noundef 
   %8 = alloca [8 x i8], align 1
   %9 = alloca [82 x i8], align 16
   %10 = alloca %struct.compression_state, align 8
-  call void @llvm.lifetime.start.p0(i64 82, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 1048, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = call i32 @png_check_keyword(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %9) #12
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %14
@@ -3510,14 +3504,14 @@ switch.lookup:                                    ; preds = %14
   store i32 %55, ptr %43, align 8, !tbaa !114
   %56 = add i32 %.1, %55
   call void @llvm.experimental.noalias.scope.decl(metadata !211)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12, !noalias !211
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !211
   %57 = icmp eq ptr %0, null
   br i1 %57, label %png_write_compressed_data_out.exit.thread, label %png_write_chunk_header.exit
 
 .thread69:                                        ; preds = %44
   %58 = load i32, ptr %43, align 8, !tbaa !114
   %59 = add i32 %58, %.1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12, !noalias !214
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !214
   %60 = icmp eq ptr %0, null
   br i1 %60, label %.split.us.i, label %png_write_chunk_header.exit
 
@@ -3553,7 +3547,7 @@ png_write_chunk_header.exit:                      ; preds = %.thread69, %54
   call void @png_reset_crc(ptr noundef nonnull %0) #12
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %73, i64 noundef 4) #12
   store i32 66, ptr %62, align 4, !tbaa !6, !alias.scope !211
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12, !noalias !211
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !211
   %.not71 = icmp eq i32 %23, 0
   br i1 %.not71, label %png_write_chunk_data.exit, label %78
 
@@ -3585,8 +3579,8 @@ png_write_chunk_data.exit59:                      ; preds = %png_write_chunk_dat
   br i1 %switch.idx.cast, label %.split.preheader.i, label %103
 
 png_write_compressed_data_out.exit.thread:        ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12, !noalias !211
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12, !noalias !216
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !211
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !216
   br label %png_write_chunk_end.exit
 
 .split.preheader.i:                               ; preds = %png_write_chunk_data.exit59
@@ -3598,7 +3592,7 @@ png_write_compressed_data_out.exit.thread:        ; preds = %54
   br label %.split.i
 
 .split.us.i:                                      ; preds = %.thread69
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12, !noalias !211
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !211
   %.0.us24.i = load ptr, ptr inttoptr (i64 432 to ptr), align 16, !tbaa !36, !alias.scope !219
   %86 = icmp ult i32 %58, 1025
   %87 = icmp eq ptr %.0.us24.i, null
@@ -3672,11 +3666,11 @@ png_write_compressed_data_out.exit.thread68:      ; preds = %103
 
 png_write_compressed_data_out.exit:               ; preds = %.split23.us.i
   call void @llvm.experimental.noalias.scope.decl(metadata !222)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12, !noalias !222
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !222
   br label %png_write_chunk_end.exit
 
 png_write_compressed_data_out.exit.thread70:      ; preds = %.split23.us.i.thread, %103, %png_write_compressed_data_out.exit.thread68
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12, !noalias !199
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !199
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 1196
   store i32 130, ptr %106, align 4, !tbaa !6, !alias.scope !222
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 596
@@ -3699,16 +3693,16 @@ png_write_compressed_data_out.exit.thread70:      ; preds = %.split23.us.i.threa
   br label %png_write_chunk_end.exit
 
 png_write_chunk_end.exit:                         ; preds = %png_write_compressed_data_out.exit, %png_write_compressed_data_out.exit.thread, %png_write_compressed_data_out.exit.thread70
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12, !noalias !222
-  call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 82, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !222
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @png_write_oFFs(ptr noalias noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca [9 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp sgt i32 %3, 1
   br i1 %6, label %7, label %8
 
@@ -3724,7 +3718,7 @@ define void @png_write_oFFs(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %10, ptr %11, align 1, !tbaa !3
   call fastcc void @png_write_complete_chunk(ptr noundef %0, i32 noundef 1866876531, ptr noundef nonnull %5, i64 noundef 9)
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -3734,8 +3728,8 @@ define void @png_write_pCAL(ptr noalias noundef %0, ptr noundef %1, i32 noundef 
   %10 = alloca [8 x i8], align 1
   %11 = alloca [10 x i8], align 1
   %12 = alloca [80 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %11) #12
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = icmp sgt i32 %4, 3
   br i1 %13, label %14, label %15
 
@@ -3792,12 +3786,12 @@ define void @png_write_pCAL(ptr noalias noundef %0, ptr noundef %1, i32 noundef 
 ._crit_edge:                                      ; preds = %34, %19
   %.047.lcssa = phi i64 [ %27, %19 ], [ %42, %34 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !227)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #12, !noalias !227
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !227
   %.not67 = icmp eq ptr %0, null
   br i1 %.not67, label %png_write_chunk_header.exit.thread, label %png_write_chunk_header.exit
 
 png_write_chunk_header.exit.thread:               ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12, !noalias !227
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !227
   br label %png_write_chunk_data.exit
 
 png_write_chunk_header.exit:                      ; preds = %._crit_edge
@@ -3831,7 +3825,7 @@ png_write_chunk_header.exit:                      ; preds = %._crit_edge
   call void @png_reset_crc(ptr noundef nonnull %0) #12
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %54, i64 noundef 4) #12
   store i32 66, ptr %43, align 4, !tbaa !6, !alias.scope !227
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12, !noalias !227
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !227
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %png_write_chunk_data.exit, label %59
 
@@ -3893,13 +3887,13 @@ png_write_chunk_data.exit58:                      ; preds = %.lr.ph65.split, %73
 
 ._crit_edge66.thread:                             ; preds = %png_write_chunk_data.exit
   call void @png_free(ptr noundef %0, ptr noundef %30) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12, !noalias !231
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !231
   br label %png_write_chunk_end.exit
 
 ._crit_edge66:                                    ; preds = %png_write_chunk_data.exit58, %png_write_chunk_data.exit55
   call void @png_free(ptr noundef nonnull %0, ptr noundef %30) #12
   call void @llvm.experimental.noalias.scope.decl(metadata !234)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12, !noalias !234
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !234
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 1196
   store i32 130, ptr %74, align 4, !tbaa !6, !alias.scope !234
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 596
@@ -3922,16 +3916,16 @@ png_write_chunk_data.exit58:                      ; preds = %.lr.ph65.split, %73
   br label %png_write_chunk_end.exit
 
 png_write_chunk_end.exit:                         ; preds = %._crit_edge66.thread, %._crit_edge66
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12, !noalias !234
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !234
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @png_write_sCAL_s(ptr noalias noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #14
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
   %8 = add i64 %6, 2
@@ -3956,14 +3950,14 @@ define void @png_write_sCAL_s(ptr noalias noundef %0, i32 noundef %1, ptr nounde
   br label %18
 
 18:                                               ; preds = %12, %11
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @png_write_pHYs(ptr noalias noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca [9 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp sgt i32 %3, 1
   br i1 %6, label %7, label %8
 
@@ -4005,14 +3999,14 @@ define void @png_write_pHYs(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %30, ptr %31, align 1, !tbaa !3
   call fastcc void @png_write_complete_chunk(ptr noundef %0, i32 noundef 1883789683, ptr noundef nonnull %5, i64 noundef 9)
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @png_write_tIME(ptr noalias noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca [7 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %5 = load i8, ptr %4, align 2, !tbaa !236
   %6 = add i8 %5, -13
@@ -4066,7 +4060,7 @@ define void @png_write_tIME(ptr noalias noundef %0, ptr noundef readonly capture
   br label %33
 
 33:                                               ; preds = %20, %19
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -4214,7 +4208,7 @@ define void @png_write_start_row(ptr noalias noundef initializes((630, 632)) %0)
   ret void
 }
 
-declare noalias ptr @png_calloc(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @png_calloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @png_write_finish_row(ptr noalias noundef %0) local_unnamed_addr #1 {
@@ -4344,10 +4338,10 @@ define void @png_write_finish_row(ptr noalias noundef %0) local_unnamed_addr #1 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @png_do_write_interlace(ptr noundef captures(none) %0, ptr noundef captures(address) %1, i32 noundef %2) local_unnamed_addr #9 {
+define void @png_do_write_interlace(ptr noundef captures(none) %0, ptr noundef captures(address) %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = icmp slt i32 %2, 6
   br i1 %4, label %5, label %148
 
@@ -5290,19 +5284,25 @@ png_write_filtered_row.exit:                      ; preds = %260, %267
   ret void
 }
 
-declare void @png_reset_crc(ptr noundef) local_unnamed_addr #4
+declare void @png_reset_crc(ptr noundef) local_unnamed_addr #3
 
-declare i64 @png_safecat(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i64 @png_safecat(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @deflateEnd(ptr noundef) local_unnamed_addr #4
+declare i32 @deflateEnd(ptr noundef) local_unnamed_addr #3
 
-declare i32 @deflateReset(ptr noundef) local_unnamed_addr #4
+declare i32 @deflateReset(ptr noundef) local_unnamed_addr #3
 
-declare i32 @deflateInit2_(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @deflateInit2_(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare noalias ptr @png_malloc_base(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @png_malloc_base(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @png_write_flush(ptr noundef) local_unnamed_addr #4
+declare void @png_write_flush(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #10
@@ -5321,14 +5321,14 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #12 = { nounwind }

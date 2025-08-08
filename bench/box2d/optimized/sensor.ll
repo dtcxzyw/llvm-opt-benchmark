@@ -670,16 +670,10 @@ b2SensorBeginTouchEventArray_Push.exit220:        ; preds = %218, %228
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare void @b2SetBitCountAndClear(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
-define internal void @b2SensorTask(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #4 {
+define internal void @b2SensorTask(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #3 {
   %5 = alloca %struct.b2ShapeRefArray, align 8
   %6 = alloca %struct.b2SensorQueryContext, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 1320
@@ -715,7 +709,7 @@ define internal void @b2SensorTask(i32 noundef %0, i32 noundef %1, i32 noundef %
   %.val64 = load ptr, ptr %14, align 8, !tbaa !81
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds %struct.b2Shape, ptr %.val64, i64 %26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !108
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !108
@@ -727,7 +721,7 @@ define internal void @b2SensorTask(i32 noundef %0, i32 noundef %1, i32 noundef %
   %32 = call { <2 x float>, <2 x float> } @b2GetBodyTransform(ptr noundef %3, i32 noundef %31) #9
   %33 = extractvalue { <2 x float>, <2 x float> } %32, 0
   %34 = extractvalue { <2 x float>, <2 x float> } %32, 1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8, !tbaa !113
   store ptr %10, ptr %15, align 8, !tbaa !118
   store ptr %23, ptr %16, align 8, !tbaa !119
@@ -800,8 +794,8 @@ define internal void @b2SensorTask(i32 noundef %0, i32 noundef %1, i32 noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %52, %.loopexit.sink.split, %.preheader
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next73 = add nsw i64 %indvars.iv72, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next73 to i32
   %exitcond75.not = icmp eq i32 %1, %lftr.wideiv
@@ -811,7 +805,7 @@ define internal void @b2SensorTask(i32 noundef %0, i32 noundef %1, i32 noundef %
 declare void @b2InPlaceUnion(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @b2DestroySensor(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -953,7 +947,7 @@ declare { <2 x float>, <2 x float> } @b2GetBodyTransform(ptr noundef, i32 nounde
 declare i64 @b2DynamicTree_Query(ptr noundef, <2 x float>, <2 x float>, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @b2SensorQueryCallback(i32 %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #4 {
+define internal noundef zeroext i1 @b2SensorQueryCallback(i32 %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = alloca %struct.b2DistanceInput, align 4
   %5 = alloca %struct.b2ShapeProxy, align 4
   %6 = alloca %struct.b2SimplexCache, align 8
@@ -987,13 +981,13 @@ define internal noundef zeroext i1 @b2SensorQueryCallback(i32 %0, i32 noundef %1
   %26 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransform(ptr noundef nonnull %13, i32 noundef %25) #9
   %27 = extractvalue { <2 x float>, <2 x float> } %26, 0
   %28 = extractvalue { <2 x float>, <2 x float> } %26, 1
-  call void @llvm.lifetime.start.p0(i64 180, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @b2MakeShapeDistanceProxy(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeProxy) align 4 %4, ptr noundef nonnull %9) #9
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @b2MakeShapeDistanceProxy(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeProxy) align 4 %5, ptr noundef nonnull %16) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %29, ptr noundef nonnull align 4 dereferenceable(72) %5, i64 72, i1 false), !tbaa.struct !129
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !132
@@ -1003,9 +997,9 @@ define internal noundef zeroext i1 @b2SensorQueryCallback(i32 %0, i32 noundef %1
   store <2 x float> %28, ptr %.sroa.4.0..sroa_idx, align 4
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 176
   store i8 1, ptr %33, align 4, !tbaa !133
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @b2ShapeDistance(ptr dead_on_unwind nonnull writable sret(%struct.b2DistanceOutput) align 4 %7, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef null, i32 noundef 0) #9
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %35 = load float, ptr %34, align 4, !tbaa !136
@@ -1060,9 +1054,9 @@ b2ShapeRefArray_Add.exit:                         ; preds = %.b2ShapeRefArray_Re
   br label %63
 
 63:                                               ; preds = %23, %b2ShapeRefArray_Add.exit
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 180, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %64
 
 64:                                               ; preds = %63, %12, %19, %3
@@ -1070,10 +1064,10 @@ b2ShapeRefArray_Add.exit:                         ; preds = %.b2ShapeRefArray_Re
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @b2CompareShapeRefs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
+define internal range(i32 -1, 2) i32 @b2CompareShapeRefs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load i32, ptr %0, align 4, !tbaa !91
   %4 = load i32, ptr %1, align 4, !tbaa !91
   %5 = icmp slt i32 %3, %4
@@ -1110,21 +1104,27 @@ declare void @b2MakeShapeDistanceProxy(ptr dead_on_unwind writable sret(%struct.
 declare void @b2ShapeDistance(ptr dead_on_unwind writable sret(%struct.b2DistanceOutput) align 4, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #8
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #7
 
 declare void @b2SensorEndTouchEventArray_Reserve(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare void @b2SensorBeginTouchEventArray_Reserve(ptr noundef, i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

@@ -80,7 +80,7 @@ define hidden void @_ZN5boost7archive6detail19basic_iarchive_impl13load_preamble
   br i1 %14, label %15, label %26
 
 15:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2, !tbaa !17
   %16 = load ptr, ptr %1, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -95,7 +95,7 @@ define hidden void @_ZN5boost7archive6detail19basic_iarchive_impl13load_preamble
   %24 = load ptr, ptr %1, align 8, !tbaa !15
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 4 dereferenceable(4) %23)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %42
 
 26:                                               ; preds = %9
@@ -109,7 +109,7 @@ define hidden void @_ZN5boost7archive6detail19basic_iarchive_impl13load_preamble
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %35 = zext i1 %33 to i8
   store i8 %35, ptr %34, align 4, !tbaa !43
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %36 = load ptr, ptr %2, align 8, !tbaa !14
   %37 = load ptr, ptr %36, align 8, !tbaa !15
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
@@ -118,7 +118,7 @@ define hidden void @_ZN5boost7archive6detail19basic_iarchive_impl13load_preamble
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %41 = load i32, ptr %5, align 4, !tbaa !44
   store i32 %41, ptr %40, align 8, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %42
 
 42:                                               ; preds = %26, %15
@@ -129,16 +129,10 @@ define hidden void @_ZN5boost7archive6detail19basic_iarchive_impl13load_preamble
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN5boost7archive6detail19basic_iarchive_impl5trackERNS1_14basic_iarchiveERPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.boost::archive::object_id_type", align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !45
   %5 = load ptr, ptr %1, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -165,12 +159,12 @@ define hidden noundef zeroext i1 @_ZN5boost7archive6detail19basic_iarchive_impl5
   br label %23
 
 23:                                               ; preds = %3, %19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost7archive6detail14basic_iarchive19next_object_pointerEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN5boost7archive6detail14basic_iarchive19next_object_pointerEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !52
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
@@ -183,7 +177,7 @@ define void @_ZN5boost7archive6detail14basic_iarchiveC2Ej(ptr noundef nonnull al
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost7archive6detail14basic_iarchiveE, i64 16), ptr %0, align 8, !tbaa !15
-  %4 = invoke noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #25
+  %4 = invoke noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #24
           to label %5 unwind label %15
 
 5:                                                ; preds = %2
@@ -217,25 +211,25 @@ define void @_ZN5boost7archive6detail14basic_iarchiveC2Ej(ptr noundef nonnull al
 17:                                               ; preds = %5
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 144) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 144) #25
   br label %19
 
 19:                                               ; preds = %17, %15
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
-  tail call void @_ZN5boost7archive6detail17helper_collectionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #24
+  tail call void @_ZN5boost7archive6detail17helper_collectionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #26
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost7archive6detail17helper_collectionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost7archive6detail17helper_collectionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !59
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !61
@@ -302,7 +296,7 @@ _ZSt8_DestroyIPSt4pairIPKvN5boost10shared_ptrIvEEES6_EvT_S8_RSaIT0_E.exit.i: ; p
   %30 = ptrtoint ptr %29 to i64
   %31 = ptrtoint ptr %26 to i64
   %32 = sub i64 %30, %31
-  tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %32) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %32) #25
   br label %_ZNSt6vectorISt4pairIPKvN5boost10shared_ptrIvEEESaIS6_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIPKvN5boost10shared_ptrIvEEESaIS6_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt4pairIPKvN5boost10shared_ptrIvEEES6_EvT_S8_RSaIT0_E.exit.i, %27
@@ -310,7 +304,7 @@ _ZNSt6vectorISt4pairIPKvN5boost10shared_ptrIvEEESaIS6_EED2Ev.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost7archive6detail14basic_iarchiveD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost7archive6detail14basic_iarchiveD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost7archive6detail14basic_iarchiveE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !52
@@ -329,7 +323,7 @@ define void @_ZN5boost7archive6detail14basic_iarchiveD2Ev(ptr noundef nonnull al
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
   %13 = sub i64 %11, %12
-  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %13) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %13) #25
   br label %_ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EED2Ev.exit.i.i.i
 
 _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EED2Ev.exit.i.i.i: ; preds = %8, %5
@@ -358,11 +352,11 @@ _ZNSt3setIN5boost7archive6detail19basic_iarchive_impl12cobject_typeESt4lessIS4_E
   %25 = ptrtoint ptr %24 to i64
   %26 = ptrtoint ptr %21 to i64
   %27 = sub i64 %25, %26
-  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %27) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %27) #25
   br label %_ZN5boost7archive6detail19basic_iarchive_implD2Ev.exit.i.i
 
 _ZN5boost7archive6detail19basic_iarchive_implD2Ev.exit.i.i: ; preds = %22, %_ZNSt3setIN5boost7archive6detail19basic_iarchive_impl12cobject_typeESt4lessIS4_ESaIS4_EED2Ev.exit.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 144) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 144) #25
   br label %_ZN5boost10scoped_ptrINS_7archive6detail19basic_iarchive_implEED2Ev.exit
 
 _ZN5boost10scoped_ptrINS_7archive6detail19basic_iarchive_implEED2Ev.exit: ; preds = %1, %_ZN5boost7archive6detail19basic_iarchive_implD2Ev.exit.i.i
@@ -433,7 +427,7 @@ _ZSt8_DestroyIPSt4pairIPKvN5boost10shared_ptrIvEEES6_EvT_S8_RSaIT0_E.exit.i.i: ;
   %57 = ptrtoint ptr %56 to i64
   %58 = ptrtoint ptr %53 to i64
   %59 = sub i64 %57, %58
-  tail call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef %59) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef %59) #25
   br label %_ZN5boost7archive6detail17helper_collectionD2Ev.exit
 
 _ZN5boost7archive6detail17helper_collectionD2Ev.exit: ; preds = %_ZSt8_DestroyIPSt4pairIPKvN5boost10shared_ptrIvEEES6_EvT_S8_RSaIT0_E.exit.i.i, %54
@@ -441,16 +435,16 @@ _ZN5boost7archive6detail17helper_collectionD2Ev.exit: ; preds = %_ZSt8_DestroyIP
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN5boost7archive6detail14basic_iarchiveD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
+define void @_ZN5boost7archive6detail14basic_iarchiveD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
   tail call void @llvm.trap() #27
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #7
+declare void @llvm.trap() #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost7archive6detail14basic_iarchive19set_library_versionENS_13serialization20library_version_typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN5boost7archive6detail14basic_iarchive19set_library_versionENS_13serialization20library_version_typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !52
   %5 = load i16, ptr %1, align 2, !tbaa !70
@@ -459,7 +453,7 @@ define void @_ZN5boost7archive6detail14basic_iarchive19set_library_versionENS_13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost7archive6detail14basic_iarchive20reset_object_addressEPKvS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 align 2 {
+define void @_ZN5boost7archive6detail14basic_iarchive20reset_object_addressEPKvS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !52
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 44
@@ -547,7 +541,7 @@ define void @_ZN5boost7archive6detail14basic_iarchive11load_objectEPvRKNS1_17bas
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost7archive6detail19basic_iarchive_impl11load_objectERNS1_14basic_iarchiveEPvRKNS1_17basic_iserializerE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost7archive6detail19basic_iarchive_impl11load_objectERNS1_14basic_iarchiveEPvRKNS1_17basic_iserializerE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.boost::archive::object_id_type", align 4
   %6 = alloca %"class.boost::archive::class_id_optional_type", align 2
   %7 = alloca %"class.boost::archive::version_type", align 4
@@ -585,7 +579,7 @@ define linkonce_odr hidden void @_ZN5boost7archive6detail19basic_iarchive_impl11
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %30 = load i64, ptr %29, align 8, !tbaa !75, !noalias !76
   %31 = trunc i64 %30 to i16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #24, !noalias !76
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !76
   store ptr %3, ptr %8, align 8, !tbaa !79, !noalias !76
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i16 %31, ptr %32, align 8, !tbaa !17, !noalias !76
@@ -598,7 +592,7 @@ define linkonce_odr hidden void @_ZN5boost7archive6detail19basic_iarchive_impl11
   br i1 %34, label %35, label %46
 
 35:                                               ; preds = %.noexc
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #24, !noalias !76
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !76
   store ptr %3, ptr %9, align 8, !tbaa !14, !noalias !76
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %36, i8 0, i64 14, i1 false), !noalias !76
@@ -623,7 +617,7 @@ define linkonce_odr hidden void @_ZN5boost7archive6detail19basic_iarchive_impl11
           to label %_ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9push_backEOS4_.exit.i unwind label %119
 
 _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9push_backEOS4_.exit.i: ; preds = %44, %41
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #24, !noalias !76
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !76
   br label %46
 
 46:                                               ; preds = %_ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9push_backEOS4_.exit.i, %.noexc
@@ -637,7 +631,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
   %53 = load ptr, ptr %52, align 8, !tbaa !82, !noalias !76
   %54 = getelementptr inbounds nuw %"class.boost::archive::detail::basic_iarchive_impl::cobject_id", ptr %51, i64 %50, i32 1
   store ptr %53, ptr %54, align 8, !tbaa !85, !noalias !76
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #24, !noalias !76
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !76
   %55 = getelementptr inbounds nuw %"class.boost::archive::detail::basic_iarchive_impl::cobject_id", ptr %51, i64 %50
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 21
   %57 = load i8, ptr %56, align 1, !tbaa !3, !range !12, !noundef !13
@@ -656,7 +650,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
   br i1 %64, label %65, label %76
 
 65:                                               ; preds = %.noexc31
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 0, ptr %6, align 2, !tbaa !17
   %66 = load ptr, ptr %1, align 8, !tbaa !15
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
@@ -680,7 +674,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
           to label %.noexc34 unwind label %121
 
 .noexc34:                                         ; preds = %.noexc33
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %92
 
 76:                                               ; preds = %.noexc31
@@ -697,7 +691,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
   %84 = getelementptr inbounds nuw i8, ptr %55, i64 20
   %85 = zext i1 %83 to i8
   store i8 %85, ptr %84, align 1, !tbaa !43
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %86 = load ptr, ptr %55, align 8, !tbaa !14
   %87 = load ptr, ptr %86, align 8, !tbaa !15
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 40
@@ -709,7 +703,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
   %90 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %91 = load i32, ptr %7, align 4, !tbaa !44
   store i32 %91, ptr %90, align 4, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %92
 
 92:                                               ; preds = %.noexc36, %.noexc34
@@ -734,7 +728,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
   br i1 %97, label %107, label %145
 
 107:                                              ; preds = %93
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !45
   %108 = load ptr, ptr %1, align 8, !tbaa !15
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
@@ -752,7 +746,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
   %117 = trunc i64 %116 to i32
   %118 = load i32, ptr %5, align 4, !tbaa !48
   %.not = icmp ult i32 %118, %117
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not, label %153, label %125
 
 119:                                              ; preds = %44, %27
@@ -771,7 +765,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
   br label %155
 
 125:                                              ; preds = %.noexc37
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !49
   %126 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 0, ptr %126, align 8, !tbaa !73
@@ -801,7 +795,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
 
 _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl7aobjectESaIS4_EE9push_backEOS4_.exit: ; preds = %._ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl7aobjectESaIS4_EE9push_backEOS4_.exit_crit_edge, %130
   %135 = phi ptr [ %.pre, %._ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl7aobjectESaIS4_EE9push_backEOS4_.exit_crit_edge ], [ %133, %130 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %136 = load ptr, ptr %98, align 8, !tbaa !47
   %137 = ptrtoint ptr %135 to i64
   %138 = ptrtoint ptr %136 to i64
@@ -815,7 +809,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl7aobjectESaIS4_EE9push_b
 143:                                              ; preds = %134
   %144 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %155
 
 145:                                              ; preds = %_ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl7aobjectESaIS4_EE9push_backEOS4_.exit, %93
@@ -860,7 +854,7 @@ define noundef ptr @_ZN5boost7archive6detail14basic_iarchive12load_pointerERPvPK
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZN5boost7archive6detail19basic_iarchive_impl12load_pointerERNS1_14basic_iarchiveERPvPKNS1_25basic_pointer_iserializerEPFS9_RKNS_13serialization18extended_type_infoEE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZN5boost7archive6detail19basic_iarchive_impl12load_pointerERNS1_14basic_iarchiveERPvPKNS1_25basic_pointer_iserializerEPFS9_RKNS_13serialization18extended_type_infoEE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.boost::archive::object_id_type", align 4
   %7 = alloca %"class.boost::archive::class_id_optional_type", align 2
   %8 = alloca %"class.boost::archive::version_type", align 4
@@ -875,7 +869,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost7archive6detail19basic_iarchive
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 1, ptr %18, align 4, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i16 0, ptr %11, align 2, !tbaa !17
   %19 = load ptr, ptr %1, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -933,8 +927,8 @@ _ZN5boost7archive6detail19basic_iarchive_impl4loadINS0_13class_id_typeEEEvRNS1_1
   br i1 %43, label %45, label %65
 
 45:                                               ; preds = %44, %32
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %12, ptr %13, align 8, !tbaa !87
   %46 = load ptr, ptr %1, align 8, !tbaa !15
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
@@ -966,8 +960,8 @@ _ZN5boost7archive6detail19basic_iarchive_impl4loadINS0_15class_name_typeEEEvRNS1
   br i1 %57, label %.thread, label %61
 
 .thread:                                          ; preds = %_ZN5boost7archive6detail19basic_iarchive_impl4loadINS0_15class_name_typeEEEvRNS1_14basic_iarchiveERT_.exit, %56
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %14) #24
-  call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %14, i32 noundef 2, ptr noundef null, ptr noundef null) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %14, i32 noundef 2, ptr noundef null, ptr noundef null) #26
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %14) #28
           to label %58 unwind label %59
 
@@ -977,8 +971,8 @@ _ZN5boost7archive6detail19basic_iarchive_impl4loadINS0_15class_name_typeEEEvRNS1
 59:                                               ; preds = %.thread
   %60 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %14) #24
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %14) #24
+  call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %14) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %64
 
 61:                                               ; preds = %56
@@ -986,14 +980,14 @@ _ZN5boost7archive6detail19basic_iarchive_impl4loadINS0_15class_name_typeEEEvRNS1
           to label %63 unwind label %54
 
 63:                                               ; preds = %61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #24
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %65
 
 64:                                               ; preds = %54, %59, %52
   %.pn67.pn = phi { ptr, i32 } [ %53, %52 ], [ %60, %59 ], [ %55, %54 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #24
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %243
 
 65:                                               ; preds = %63, %44
@@ -1007,7 +1001,7 @@ _ZN5boost7archive6detail19basic_iarchive_impl4loadINS0_15class_name_typeEEEvRNS1
 70:                                               ; preds = %65
   %71 = load i64, ptr %29, align 8, !tbaa !75, !noalias !90
   %72 = trunc i64 %71 to i16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #24, !noalias !90
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !90
   store ptr %69, ptr %9, align 8, !tbaa !79, !noalias !90
   %73 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i16 %72, ptr %73, align 8, !tbaa !17, !noalias !90
@@ -1020,7 +1014,7 @@ _ZN5boost7archive6detail19basic_iarchive_impl4loadINS0_15class_name_typeEEEvRNS1
   br i1 %75, label %76, label %87
 
 76:                                               ; preds = %.noexc
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #24, !noalias !90
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !90
   store ptr %69, ptr %10, align 8, !tbaa !14, !noalias !90
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %77, i8 0, i64 14, i1 false), !noalias !90
@@ -1045,7 +1039,7 @@ _ZN5boost7archive6detail19basic_iarchive_impl4loadINS0_15class_name_typeEEEvRNS1
           to label %_ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9push_backEOS4_.exit.i unwind label %99
 
 _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9push_backEOS4_.exit.i: ; preds = %85, %82
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #24, !noalias !90
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !90
   br label %87
 
 87:                                               ; preds = %_ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9push_backEOS4_.exit.i, %.noexc
@@ -1059,7 +1053,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
   %94 = load ptr, ptr %93, align 8, !tbaa !82, !noalias !90
   %95 = getelementptr inbounds nuw %"class.boost::archive::detail::basic_iarchive_impl::cobject_id", ptr %92, i64 %91, i32 1
   store ptr %94, ptr %95, align 8, !tbaa !85, !noalias !90
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #24, !noalias !90
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !90
   %96 = load i16, ptr %11, align 2, !tbaa !17
   %97 = sext i16 %96 to i64
   %98 = getelementptr inbounds nuw %"class.boost::archive::detail::basic_iarchive_impl::cobject_id", ptr %92, i64 %97, i32 1
@@ -1081,8 +1075,8 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
   br i1 %106, label %107, label %111
 
 107:                                              ; preds = %101
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %15) #24
-  call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %15, i32 noundef 2, ptr noundef null, ptr noundef null) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %15, i32 noundef 2, ptr noundef null, ptr noundef null) #26
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %15) #28
           to label %108 unwind label %109
 
@@ -1092,8 +1086,8 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
 109:                                              ; preds = %107
   %110 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %15) #24
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %15) #24
+  call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %15) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %243
 
 111:                                              ; preds = %101
@@ -1114,7 +1108,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
   br i1 %120, label %121, label %132
 
 121:                                              ; preds = %.noexc72
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 0, ptr %7, align 2, !tbaa !17
   %122 = load ptr, ptr %1, align 8, !tbaa !15
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 24
@@ -1138,7 +1132,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
           to label %.noexc75 unwind label %170
 
 .noexc75:                                         ; preds = %.noexc74
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %148
 
 132:                                              ; preds = %.noexc72
@@ -1155,7 +1149,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
   %140 = getelementptr inbounds nuw i8, ptr %103, i64 20
   %141 = zext i1 %139 to i8
   store i8 %141, ptr %140, align 1, !tbaa !43
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %142 = load ptr, ptr %103, align 8, !tbaa !14
   %143 = load ptr, ptr %142, align 8, !tbaa !15
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 40
@@ -1167,7 +1161,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
   %146 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %147 = load i32, ptr %8, align 4, !tbaa !44
   store i32 %147, ptr %146, align 4, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %148
 
 148:                                              ; preds = %.noexc77, %.noexc75
@@ -1181,7 +1175,7 @@ _ZN5boost7archive6detail19basic_iarchive_impl13load_preambleERNS1_14basic_iarchi
   br i1 %151, label %152, label %174
 
 152:                                              ; preds = %_ZN5boost7archive6detail19basic_iarchive_impl13load_preambleERNS1_14basic_iarchiveERNS2_10cobject_idE.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !45
   %153 = load ptr, ptr %1, align 8, !tbaa !15
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
@@ -1204,7 +1198,7 @@ _ZN5boost7archive6detail19basic_iarchive_impl13load_preambleERNS1_14basic_iarchi
   br i1 %.not112, label %166, label %.thread111
 
 .thread111:                                       ; preds = %.noexc78
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %174
 
 166:                                              ; preds = %.noexc78
@@ -1212,7 +1206,7 @@ _ZN5boost7archive6detail19basic_iarchive_impl13load_preambleERNS1_14basic_iarchi
   %168 = getelementptr inbounds nuw %"struct.boost::archive::detail::basic_iarchive_impl::aobject", ptr %159, i64 %167
   %169 = load ptr, ptr %168, align 8, !tbaa !49
   store ptr %169, ptr %2, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %242
 
 170:                                              ; preds = %.noexc76, %132, %.noexc74, %.noexc73, %121, %115
@@ -1278,7 +1272,7 @@ _ZN5boost7archive6detail19basic_iarchive_impl13load_preambleERNS1_14basic_iarchi
   %209 = sub i64 %207, %208
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %211 = load i32, ptr %210, align 4, !tbaa !45
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %212 = load ptr, ptr %2, align 8, !tbaa !51
   %213 = load i16, ptr %11, align 2, !tbaa !17
   store ptr %212, ptr %16, align 8, !tbaa !49
@@ -1305,7 +1299,7 @@ _ZN5boost7archive6detail19basic_iarchive_impl13load_preambleERNS1_14basic_iarchi
           to label %_ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl7aobjectESaIS4_EE9push_backEOS4_.exit unwind label %234
 
 _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl7aobjectESaIS4_EE9push_backEOS4_.exit: ; preds = %218, %222
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %223 = load ptr, ptr %2, align 8, !tbaa !51
   %224 = load i32, ptr %194, align 8, !tbaa !48
   %225 = load ptr, ptr %105, align 8, !tbaa !15
@@ -1333,7 +1327,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl7aobjectESaIS4_EE9push_b
 234:                                              ; preds = %222
   %235 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %238
 
 236:                                              ; preds = %_ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl7aobjectESaIS4_EE9push_backEOS4_.exit
@@ -1364,13 +1358,13 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl7aobjectESaIS4_EE9push_b
 
 242:                                              ; preds = %166, %240, %24
   %.0 = phi ptr [ %3, %24 ], [ %105, %166 ], [ %105, %240 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store i8 1, ptr %18, align 4, !tbaa !86
   ret ptr %.0
 
 243:                                              ; preds = %241, %109, %170, %172, %99, %64, %25
   %.pn67.pn.pn = phi { ptr, i32 } [ %.pn67.pn, %64 ], [ %100, %99 ], [ %26, %25 ], [ %110, %109 ], [ %171, %170 ], [ %173, %172 ], [ %.pn.pn.pn.pn.pn, %241 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store i8 1, ptr %18, align 4, !tbaa !86
   resume { ptr, i32 } %.pn67.pn.pn
 }
@@ -1385,7 +1379,7 @@ define void @_ZN5boost7archive6detail14basic_iarchive25register_basic_serializer
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %9 = load i64, ptr %8, align 8, !tbaa !75, !noalias !94
   %10 = trunc i64 %9 to i16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #24, !noalias !94
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !94
   store ptr %1, ptr %3, align 8, !tbaa !79, !noalias !94
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i16 %10, ptr %11, align 8, !tbaa !17, !noalias !94
@@ -1395,7 +1389,7 @@ define void @_ZN5boost7archive6detail14basic_iarchive25register_basic_serializer
   br i1 %13, label %14, label %_ZN5boost7archive6detail19basic_iarchive_impl13register_typeERKNS1_17basic_iserializerE.exit
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #24, !noalias !94
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !94
   store ptr %1, ptr %4, align 8, !tbaa !14, !noalias !94
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %15, i8 0, i64 14, i1 false), !noalias !94
@@ -1420,7 +1414,7 @@ define void @_ZN5boost7archive6detail14basic_iarchive25register_basic_serializer
   br label %_ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9push_backEOS4_.exit.i
 
 _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9push_backEOS4_.exit.i: ; preds = %23, %20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #24, !noalias !94
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !94
   br label %_ZN5boost7archive6detail19basic_iarchive_impl13register_typeERKNS1_17basic_iserializerE.exit
 
 _ZN5boost7archive6detail19basic_iarchive_impl13register_typeERKNS1_17basic_iserializerE.exit: ; preds = %2, %_ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9push_backEOS4_.exit.i
@@ -1434,7 +1428,7 @@ _ZN5boost7archive6detail19basic_iarchive_impl13register_typeERKNS1_17basic_iseri
   %31 = load ptr, ptr %30, align 8, !tbaa !82, !noalias !94
   %32 = getelementptr inbounds nuw %"class.boost::archive::detail::basic_iarchive_impl::cobject_id", ptr %29, i64 %28, i32 1
   store ptr %31, ptr %32, align 8, !tbaa !85, !noalias !94
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #24, !noalias !94
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !94
   ret void
 }
 
@@ -1487,7 +1481,7 @@ _ZN5boost7archive6detail19basic_iarchive_impl23delete_created_pointersEv.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK5boost7archive6detail14basic_iarchive19get_library_versionEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::serialization::library_version_type") align 2 captures(none) initializes((0, 2)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #10 align 2 {
+define void @_ZNK5boost7archive6detail14basic_iarchive19get_library_versionEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::serialization::library_version_type") align 2 captures(none) initializes((0, 2)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !52
   %5 = load i16, ptr %4, align 2, !tbaa !70
@@ -1496,7 +1490,7 @@ define void @_ZNK5boost7archive6detail14basic_iarchive19get_library_versionEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK5boost7archive6detail14basic_iarchive9get_flagsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #11 align 2 {
+define noundef i32 @_ZNK5boost7archive6detail14basic_iarchive9get_flagsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !52
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1506,11 +1500,11 @@ define noundef i32 @_ZNK5boost7archive6detail14basic_iarchive9get_flagsEv(ptr no
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
-declare void @_ZN5boost7archive21BOOST_ARCHIVE_VERSIONEv(ptr dead_on_unwind writable sret(%"class.boost::serialization::library_version_type") align 2) local_unnamed_addr #12
+declare void @_ZN5boost7archive21BOOST_ARCHIVE_VERSIONEv(ptr dead_on_unwind writable sret(%"class.boost::serialization::library_version_type") align 2) local_unnamed_addr #11
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #13 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #26
   tail call void @_ZSt9terminatev() #27
   unreachable
 }
@@ -1518,7 +1512,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #14
+declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost7archive6detail19basic_iarchive_impl12cobject_typeES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1532,7 +1526,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost7archive6detail19basic_ia
   tail call void @_ZNSt8_Rb_treeIN5boost7archive6detail19basic_iarchive_impl12cobject_typeES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !100
-  tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 48) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 48) #25
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
 
@@ -1567,7 +1561,7 @@ _ZNKSt6vectorIN5boost7archive6detail19basic_iarchive_impl7aobjectESaIS4_EE12_M_c
   %.not.i = icmp ne i64 %16, 0
   tail call void @llvm.assume(i1 %.not.i)
   %19 = shl nuw nsw i64 %16, 4
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #25
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #24
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %21, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 9, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 10
@@ -1619,7 +1613,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost7archive6detail19basic_iarchive
   %38 = load ptr, ptr %36, align 8, !tbaa !69
   %39 = ptrtoint ptr %38 to i64
   %40 = sub i64 %39, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %40) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %40) #25
   br label %_ZNSt12_Vector_baseIN5boost7archive6detail19basic_iarchive_impl7aobjectESaIS4_EE13_M_deallocateEPS4_m.exit
 
 _ZNSt12_Vector_baseIN5boost7archive6detail19basic_iarchive_impl7aobjectESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost7archive6detail19basic_iarchive_impl7aobjectES5_SaIS4_EET0_T_S8_S7_RT1_.exit34, %37
@@ -1631,34 +1625,34 @@ _ZNSt12_Vector_baseIN5boost7archive6detail19basic_iarchive_impl7aobjectESaIS4_EE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
 
-declare noundef ptr @_ZN5boost13serialization18extended_type_info4findEPKc(ptr noundef) local_unnamed_addr #12
+declare noundef ptr @_ZN5boost13serialization18extended_type_info4findEPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: inlinehint mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %0) local_unnamed_addr #17 comdat {
-  %2 = tail call ptr @__cxa_allocate_exception(i64 144) #24
-  tail call void @_ZN5boost7archive17archive_exceptionC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(140) %2, ptr noundef nonnull align 8 dereferenceable(140) %0) #24
+define linkonce_odr hidden void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %0) local_unnamed_addr #16 comdat {
+  %2 = tail call ptr @__cxa_allocate_exception(i64 144) #26
+  tail call void @_ZN5boost7archive17archive_exceptionC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(140) %2, ptr noundef nonnull align 8 dereferenceable(140) %0) #26
   tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTIN5boost7archive17archive_exceptionE, ptr nonnull @_ZN5boost7archive17archive_exceptionD1Ev) #28
   unreachable
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140), i32 noundef, ptr noundef, ptr noundef) unnamed_addr #18
+declare void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140), i32 noundef, ptr noundef, ptr noundef) unnamed_addr #17
 
 ; Function Attrs: nounwind
-declare void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140)) unnamed_addr #18
+declare void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140)) unnamed_addr #17
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZN5boost7archive17archive_exceptionC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef nonnull align 8 dereferenceable(140)) unnamed_addr #18
+declare void @_ZN5boost7archive17archive_exceptionC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef nonnull align 8 dereferenceable(140)) unnamed_addr #17
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #19
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZNSt8_Rb_treeIN5boost7archive6detail19basic_iarchive_impl12cobject_typeES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE16_M_insert_uniqueIRKS4_EESt4pairISt17_Rb_tree_iteratorIS4_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(10) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1729,7 +1723,7 @@ select.unfold:                                    ; preds = %18, %._crit_edge.th
 
 _ZNSt8_Rb_treeIN5boost7archive6detail19basic_iarchive_impl12cobject_typeES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit: ; preds = %select.unfold, %28
   %37 = phi i1 [ true, %select.unfold ], [ %36, %28 ]
-  %38 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %38 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %40 = load ptr, ptr %1, align 8, !tbaa !79
   store ptr %40, ptr %39, align 8, !tbaa !79
@@ -1737,7 +1731,7 @@ _ZNSt8_Rb_treeIN5boost7archive6detail19basic_iarchive_impl12cobject_typeES4_St9_
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load i16, ptr %42, align 8, !tbaa !17
   store i16 %43, ptr %41, align 2, !tbaa !17
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %37, ptr noundef nonnull %38, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %4) #24
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %37, ptr noundef nonnull %38, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %4) #26
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load i64, ptr %44, align 8, !tbaa !75
   %46 = add i64 %45, 1
@@ -1752,13 +1746,13 @@ _ZNSt8_Rb_treeIN5boost7archive6detail19basic_iarchive_impl12cobject_typeES4_St9_
   ret { ptr, i8 } %.fca.1.insert
 }
 
-declare noundef zeroext i1 @_ZNK5boost13serialization18extended_type_infoltERKS1_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #12
+declare noundef zeroext i1 @_ZNK5boost13serialization18extended_type_infoltERKS1_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #20
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind
-declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #18
+declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(22) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1787,7 +1781,7 @@ _ZNKSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE12
   %.not.i = icmp ne i64 %16, 0
   tail call void @llvm.assume(i1 %.not.i)
   %19 = mul nuw nsw i64 %16, 24
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #25
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #24
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   %22 = load ptr, ptr %2, align 8, !tbaa !14
   store ptr %22, ptr %21, align 8, !tbaa !14
@@ -1878,7 +1872,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost7archive6detail19basic_iarchive
   %68 = load ptr, ptr %66, align 8, !tbaa !68
   %69 = ptrtoint ptr %68 to i64
   %70 = sub i64 %69, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %70) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %70) #25
   br label %_ZNSt12_Vector_baseIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE13_M_deallocateEPS4_m.exit
 
 _ZNSt12_Vector_baseIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost7archive6detail19basic_iarchive_impl10cobject_idES5_SaIS4_EET0_T_S8_S7_RT1_.exit34, %67
@@ -1888,6 +1882,12 @@ _ZNSt12_Vector_baseIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS
   store ptr %71, ptr %66, align 8, !tbaa !68
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
@@ -1902,32 +1902,32 @@ declare i64 @llvm.umin.i64(i64, i64) #22
 declare void @llvm.assume(i1 noundef) #23
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { cold nofree noreturn }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { inlinehint mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { cold noreturn }
-attributes #20 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { cold nofree noreturn }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { inlinehint mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { cold noreturn }
+attributes #19 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #24 = { nounwind }
-attributes #25 = { builtin allocsize(0) }
-attributes #26 = { builtin nounwind }
+attributes #24 = { builtin allocsize(0) }
+attributes #25 = { builtin nounwind }
+attributes #26 = { nounwind }
 attributes #27 = { noreturn nounwind }
 attributes #28 = { noreturn }
 attributes #29 = { nounwind willreturn memory(read) }

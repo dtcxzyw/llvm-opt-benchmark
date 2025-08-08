@@ -188,13 +188,7 @@ euc_tw2big5.exit:                                 ; preds = %64, %1, %24, %45, %
   ret i64 %68
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare void @check_encoding_conversion_args(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @check_encoding_conversion_args(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i64 -2147483648, 2147483648) i64 @big5_to_euc_tw(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
@@ -218,7 +212,7 @@ define range(i64 -2147483648, 2147483648) i64 @big5_to_euc_tw(ptr noundef readon
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
   tail call void @check_encoding_conversion_args(i32 noundef %16, i32 noundef %19, i32 noundef %12, i32 noundef 36, i32 noundef 4) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %20 = icmp sgt i32 %12, 0
   br i1 %20, label %.lr.ph.i, label %big52euc_tw.exit
 
@@ -346,7 +340,7 @@ big52euc_tw.exit:                                 ; preds = %.backedge.i, %1, %2
   store i8 0, ptr %.04859.i, align 1
   %77 = ptrtoint ptr %.055.i to i64
   %78 = sub i64 %77, %5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %sext = shl i64 %78, 32
   %79 = ashr exact i64 %sext, 32
   ret i64 %79
@@ -663,7 +657,7 @@ define range(i64 -2147483648, 2147483648) i64 @big5_to_mic(ptr noundef readonly 
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
   tail call void @check_encoding_conversion_args(i32 noundef %16, i32 noundef %19, i32 noundef %12, i32 noundef 36, i32 noundef 7) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %20 = icmp sgt i32 %12, 0
   br i1 %20, label %.lr.ph.i, label %big52mic.exit
 
@@ -765,7 +759,7 @@ big52mic.exit:                                    ; preds = %.backedge.i, %1, %2
   store i8 0, ptr %.03850.i, align 1
   %62 = ptrtoint ptr %.046.i to i64
   %63 = sub i64 %62, %5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %sext = shl i64 %63, 32
   %64 = ashr exact i64 %sext, 32
   ret i64 %64
@@ -906,23 +900,29 @@ mic2big5.exit:                                    ; preds = %.backedge.i, %1, %2
   ret i64 %65
 }
 
-declare i32 @pg_encoding_verifymbchar(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @pg_encoding_verifymbchar(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @report_invalid_encoding(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @report_invalid_encoding(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare zeroext i16 @CNStoBIG5(i16 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #3
+declare zeroext i16 @CNStoBIG5(i16 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @report_untranslatable_char(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @report_untranslatable_char(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare zeroext i16 @BIG5toCNS(i16 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare zeroext i16 @BIG5toCNS(i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { noreturn nounwind }
 

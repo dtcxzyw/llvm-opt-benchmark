@@ -72,12 +72,9 @@ define void @lv_gridnav_remove(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #1
 
-declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #2
-
-declare ptr @lv_obj_add_event_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_add_event_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @gridnav_event_cb(ptr noundef %0) #0 {
@@ -120,7 +117,7 @@ define internal void @gridnav_event_cb(ptr noundef %0) #0 {
   br i1 %15, label %lv_gridnav_remove.exit, label %.thread
 
 .thread:                                          ; preds = %9, %13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %16 = tail call i32 @lv_event_get_key(ptr noundef %0) #4
   store i32 %16, ptr %2, align 4, !tbaa !13
   switch i32 %16, label %.thread194 [
@@ -389,7 +386,7 @@ define internal void @gridnav_event_cb(ptr noundef %0) #0 {
   br label %.critedge
 
 .critedge:                                        ; preds = %48, %29, %80, %62, %110, %94, %139, %124, %.thread194, %144, %149, %.thread200, %147
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %lv_gridnav_remove.exit
 
 155:                                              ; preds = %1
@@ -547,22 +544,19 @@ lv_gridnav_remove.exit:                           ; preds = %202, %199, %194, %.
   ret void
 }
 
-declare void @lv_obj_remove_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_remove_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @lv_obj_get_event_count(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_event_count(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_get_event_dsc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_get_event_dsc(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lv_event_dsc_get_cb(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_dsc_get_cb(ptr noundef) local_unnamed_addr #2
+declare void @lv_free(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_free(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_dsc_get_user_data(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_dsc_get_user_data(ptr noundef) local_unnamed_addr #2
-
-declare zeroext i1 @lv_obj_remove_event(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_obj_remove_event(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_gridnav_set_focused(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
@@ -622,19 +616,19 @@ obj_is_focusable.exit:                            ; preds = %14
   ret void
 }
 
-declare void @lv_obj_remove_state(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare void @lv_obj_remove_state(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
-declare void @lv_obj_add_state(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare void @lv_obj_add_state(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
-declare void @lv_obj_scroll_to_view(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @lv_obj_scroll_to_view(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_user_data(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_user_data(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_child_count(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_child_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @find_first_focusable(ptr noundef %0) unnamed_addr #0 {
@@ -662,15 +656,15 @@ obj_is_focusable.exit._crit_edge:                 ; preds = %obj_is_focusable.ex
   ret ptr %.2
 }
 
-declare i32 @lv_event_get_key(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_event_get_key(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_obj_has_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_obj_has_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_scroll_right(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_scroll_right(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_width(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_width(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_scroll_by_bounded(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @lv_obj_scroll_by_bounded(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @find_chid(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 8) %2) unnamed_addr #0 {
@@ -884,11 +878,11 @@ obj_is_focusable.exit.thread:                     ; preds = %22, %27, %37, %43, 
   ret ptr %.073.lcssa
 }
 
-declare void @lv_group_focus_next(ptr noundef) local_unnamed_addr #2
+declare void @lv_group_focus_next(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_get_group(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_get_group(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_scroll_left(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_scroll_left(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @find_last_focusable(ptr noundef %0) unnamed_addr #0 {
@@ -917,37 +911,43 @@ obj_is_focusable.exit.thread:                     ; preds = %.lr.ph, %obj_is_foc
   ret ptr %.2
 }
 
-declare void @lv_group_focus_prev(ptr noundef) local_unnamed_addr #2
+declare void @lv_group_focus_prev(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_scroll_bottom(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_scroll_bottom(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_height(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_height(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_scroll_top(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_scroll_top(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_group_get_focused(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_group_get_focused(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_indev_active() local_unnamed_addr #2
+declare ptr @lv_indev_active() local_unnamed_addr #1
 
-declare ptr @lv_event_get_target(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_target(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_get_parent(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_get_parent(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_obj_has_state(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @lv_obj_has_state(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @lv_indev_get_type(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_indev_get_type(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_get_child(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lv_obj_get_child(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_x(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_x(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_y(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_y(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #3
@@ -956,8 +956,8 @@ declare i32 @llvm.smax.i32(i32, i32) #3
 declare i32 @llvm.abs.i32(i32, i1 immarg) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 

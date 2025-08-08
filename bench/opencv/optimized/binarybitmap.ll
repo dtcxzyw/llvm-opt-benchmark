@@ -159,7 +159,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 define hidden void @_ZN5zxing12BinaryBitmap11getBlackRowEiNS_3RefINS_8BitArrayEEERNS_12ErrorHandlerE(ptr dead_on_unwind noalias writable writeonly sret(%"class.zxing::Ref.1") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull align 8 dereferenceable(48) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.zxing::Ref.1", align 8
   %7 = alloca %"class.zxing::Ref.1", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = load ptr, ptr %3, align 8, !tbaa !17
@@ -290,7 +290,7 @@ _ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit12:      ; preds = %33
   br label %_ZN5zxing3RefINS_8BitArrayEED2Ev.exit14
 
 _ZN5zxing3RefINS_8BitArrayEED2Ev.exit14:          ; preds = %_ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit12.thread, %_ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit12, %56, %61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 _ZN5zxing3RefINS_8BitArrayEED2Ev.exit8.sink.split: ; preds = %42, %51
@@ -304,20 +304,14 @@ _ZN5zxing3RefINS_8BitArrayEED2Ev.exit8.sink.split: ; preds = %42, %51
 
 _ZN5zxing3RefINS_8BitArrayEED2Ev.exit8:           ; preds = %_ZN5zxing3RefINS_8BitArrayEED2Ev.exit8.sink.split, %46, %43, %37, %34
   %.pn = phi { ptr, i32 } [ %35, %34 ], [ %35, %37 ], [ %44, %43 ], [ %44, %46 ], [ %.pn.ph, %_ZN5zxing3RefINS_8BitArrayEED2Ev.exit8.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5zxing12BinaryBitmap14getBlackMatrixERNS_12ErrorHandlerE(ptr dead_on_unwind noalias writable writeonly sret(%"class.zxing::Ref.3") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.zxing::Ref.3", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = load ptr, ptr %6, align 8, !tbaa !8
@@ -359,7 +353,7 @@ define hidden void @_ZN5zxing12BinaryBitmap14getBlackMatrixERNS_12ErrorHandlerE(
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %15, %18, %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %16
 
 27:                                               ; preds = %14
@@ -400,14 +394,14 @@ _ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit:       ; preds = %14
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit5
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit5:          ; preds = %_ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit.thread, %_ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit, %31, %36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5zxing12BinaryBitmap17getInvertedMatrixERNS_12ErrorHandlerE(ptr dead_on_unwind noalias writable writeonly sret(%"class.zxing::Ref.3") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.zxing::Ref.3", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = load ptr, ptr %6, align 8, !tbaa !8
@@ -449,7 +443,7 @@ define hidden void @_ZN5zxing12BinaryBitmap17getInvertedMatrixERNS_12ErrorHandle
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %15, %18, %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %16
 
 27:                                               ; preds = %14
@@ -490,7 +484,7 @@ _ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit:       ; preds = %14
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit5
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit5:          ; preds = %_ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit.thread, %_ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit, %31, %36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -502,7 +496,7 @@ define hidden noundef i32 @_ZNK5zxing12BinaryBitmap8getWidthEv(ptr noundef nonnu
   ret i32 %4
 }
 
-declare noundef i32 @_ZNK5zxing9Binarizer8getWidthEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #5
+declare noundef i32 @_ZNK5zxing9Binarizer8getWidthEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZNK5zxing12BinaryBitmap9getHeightEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #3 align 2 {
@@ -512,7 +506,7 @@ define hidden noundef i32 @_ZNK5zxing12BinaryBitmap9getHeightEv(ptr noundef nonn
   ret i32 %4
 }
 
-declare noundef i32 @_ZNK5zxing9Binarizer9getHeightEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #5
+declare noundef i32 @_ZNK5zxing9Binarizer9getHeightEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK5zxing12BinaryBitmap18getLuminanceSourceEv(ptr dead_on_unwind noalias writable sret(%"class.zxing::Ref.2") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
@@ -522,12 +516,12 @@ define hidden void @_ZNK5zxing12BinaryBitmap18getLuminanceSourceEv(ptr dead_on_u
   ret void
 }
 
-declare void @_ZNK5zxing9Binarizer18getLuminanceSourceEv(ptr dead_on_unwind writable sret(%"class.zxing::Ref.2") align 8, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #5
+declare void @_ZNK5zxing9Binarizer18getLuminanceSourceEv(ptr dead_on_unwind writable sret(%"class.zxing::Ref.2") align 8, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK5zxing12BinaryBitmap15isCropSupportedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.zxing::Ref.2", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !10, !noalias !23
   call void @_ZNK5zxing9Binarizer18getLuminanceSourceEv(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref.2") align 8 %2, ptr noundef nonnull align 8 dereferenceable(72) %4)
@@ -560,7 +554,7 @@ define hidden noundef zeroext i1 @_ZNK5zxing12BinaryBitmap15isCropSupportedEv(pt
   br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit
 
 _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %10, %12, %17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %9
 
 21:                                               ; preds = %1
@@ -587,7 +581,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %10, %12, %17
   br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit3
 
 _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit3:   ; preds = %21, %24, %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %22
 }
 
@@ -599,7 +593,7 @@ define hidden void @_ZN5zxing12BinaryBitmap4cropEiiiiRNS_12ErrorHandlerE(ptr dea
   %11 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #11
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZNK5zxing9Binarizer18getLuminanceSourceEv(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref.2") align 8 %10, ptr noundef nonnull align 8 dereferenceable(72) %13)
           to label %_ZNK5zxing12BinaryBitmap18getLuminanceSourceEv.exit unwind label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit25.thread
 
@@ -703,7 +697,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %_ZN5zxing3RefINS_9B
   br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit19
 
 _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit19:  ; preds = %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit, %51, %56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit25.thread: ; preds = %7
@@ -763,16 +757,16 @@ _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit23:  ; preds = %71, %66, %63, %61
 
 _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit25:  ; preds = %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit23, %76, %81, %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit25.thread
   %.pn.pn.pn29 = phi { ptr, i32 } [ %60, %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit25.thread ], [ %.pn.pn, %81 ], [ %.pn.pn, %76 ], [ %.pn.pn, %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit23 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZdlPv(ptr noundef nonnull %11) #10
   resume { ptr, i32 } %.pn.pn.pn29
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK5zxing12BinaryBitmap17isRotateSupportedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK5zxing12BinaryBitmap17isRotateSupportedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #6 align 2 {
   ret i1 false
 }
 
@@ -823,7 +817,13 @@ _ZN5zxing3RefINS_9BinarizerEED2Ev.exit:           ; preds = %.thread, %10, %18
   ret void
 }
 
-declare noundef i32 @_ZN5zxing9Binarizer22rotateCounterClockwiseEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #5
+declare noundef i32 @_ZN5zxing9Binarizer22rotateCounterClockwiseEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
@@ -832,10 +832,10 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nounwind }
 attributes #10 = { builtin nounwind }

@@ -22,8 +22,8 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden i32 @WebPParseHeaders(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !3
   %4 = load ptr, ptr %0, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -53,13 +53,10 @@ define hidden i32 @WebPParseHeaders(ptr noundef captures(address_is_null) %0) lo
 
 15:                                               ; preds = %13, %14, %9
   %.0..0..0..0.3 = load volatile i32, ptr %2, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0..0..0..0.3
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 8) i32 @ParseHeadersInternal(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4, ptr noundef nonnull writeonly captures(none) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) unnamed_addr #0 {
@@ -70,8 +67,8 @@ define internal fastcc range(i32 0, 8) i32 @ParseHeadersInternal(ptr noundef %0,
   %13 = alloca %struct.WebPHeaderStructure, align 8
   store ptr %0, ptr %9, align 8, !tbaa !13
   store i64 %1, ptr %10, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %17, label %14
 
@@ -82,7 +79,7 @@ define internal fastcc range(i32 0, 8) i32 @ParseHeadersInternal(ptr noundef %0,
 
 17:                                               ; preds = %8, %14
   %18 = phi i32 [ %16, %14 ], [ 0, %8 ]
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %19 = icmp eq ptr %0, null
   %20 = icmp ult i64 %1, 12
   %or.cond = or i1 %19, %20
@@ -364,17 +361,14 @@ thread-pre-split:                                 ; preds = %97, %99
 
 ParseRIFF.exit.thread:                            ; preds = %45, %47, %49, %ParseRIFF.exit, %ParseVP8X.exit, %35, %27, %25, %124, %137, %138, %114, %109, %104, %94, %17
   %.059 = phi i32 [ 7, %17 ], [ 3, %94 ], [ 3, %104 ], [ 3, %109 ], [ 3, %114 ], [ 0, %138 ], [ 0, %137 ], [ %.1.ph, %124 ], [ 7, %35 ], [ 3, %27 ], [ 3, %25 ], [ 3, %ParseVP8X.exit ], [ 3, %45 ], [ 7, %47 ], [ 3, %49 ], [ 7, %ParseRIFF.exit ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.059
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @WebPResetDecParams(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define hidden void @WebPResetDecParams(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -387,14 +381,14 @@ define hidden void @WebPResetDecParams(ptr noundef writeonly captures(address_is
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @WebPDecodeRGBInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.WebPDecParams, align 8
   %7 = alloca %struct.WebPDecBuffer, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %2, null
   br i1 %8, label %DecodeIntoRGBABuffer.exit, label %9
 
@@ -423,8 +417,8 @@ define ptr @WebPDecodeRGBInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
 
 DecodeIntoRGBABuffer.exit:                        ; preds = %5, %9, %11
   %.0.i = phi ptr [ null, %9 ], [ null, %5 ], [ %..i, %11 ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
 }
 
@@ -432,8 +426,8 @@ DecodeIntoRGBABuffer.exit:                        ; preds = %5, %9, %11
 define ptr @WebPDecodeRGBAInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.WebPDecParams, align 8
   %7 = alloca %struct.WebPDecBuffer, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %2, null
   br i1 %8, label %DecodeIntoRGBABuffer.exit, label %9
 
@@ -462,8 +456,8 @@ define ptr @WebPDecodeRGBAInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 
 DecodeIntoRGBABuffer.exit:                        ; preds = %5, %9, %11
   %.0.i = phi ptr [ null, %9 ], [ null, %5 ], [ %..i, %11 ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
 }
 
@@ -471,8 +465,8 @@ DecodeIntoRGBABuffer.exit:                        ; preds = %5, %9, %11
 define ptr @WebPDecodeARGBInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.WebPDecParams, align 8
   %7 = alloca %struct.WebPDecBuffer, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %2, null
   br i1 %8, label %DecodeIntoRGBABuffer.exit, label %9
 
@@ -501,8 +495,8 @@ define ptr @WebPDecodeARGBInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 
 DecodeIntoRGBABuffer.exit:                        ; preds = %5, %9, %11
   %.0.i = phi ptr [ null, %9 ], [ null, %5 ], [ %..i, %11 ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
 }
 
@@ -510,8 +504,8 @@ DecodeIntoRGBABuffer.exit:                        ; preds = %5, %9, %11
 define ptr @WebPDecodeBGRInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.WebPDecParams, align 8
   %7 = alloca %struct.WebPDecBuffer, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %2, null
   br i1 %8, label %DecodeIntoRGBABuffer.exit, label %9
 
@@ -540,8 +534,8 @@ define ptr @WebPDecodeBGRInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
 
 DecodeIntoRGBABuffer.exit:                        ; preds = %5, %9, %11
   %.0.i = phi ptr [ null, %9 ], [ null, %5 ], [ %..i, %11 ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
 }
 
@@ -549,8 +543,8 @@ DecodeIntoRGBABuffer.exit:                        ; preds = %5, %9, %11
 define ptr @WebPDecodeBGRAInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.WebPDecParams, align 8
   %7 = alloca %struct.WebPDecBuffer, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %2, null
   br i1 %8, label %DecodeIntoRGBABuffer.exit, label %9
 
@@ -579,8 +573,8 @@ define ptr @WebPDecodeBGRAInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 
 DecodeIntoRGBABuffer.exit:                        ; preds = %5, %9, %11
   %.0.i = phi ptr [ null, %9 ], [ null, %5 ], [ %..i, %11 ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
 }
 
@@ -588,8 +582,8 @@ DecodeIntoRGBABuffer.exit:                        ; preds = %5, %9, %11
 define ptr @WebPDecodeYUVInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6, i32 noundef %7, ptr noundef %8, i64 noundef %9, i32 noundef %10) local_unnamed_addr #0 {
   %12 = alloca %struct.WebPDecParams, align 8
   %13 = alloca %struct.WebPDecBuffer, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %12) #10
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = icmp eq ptr %2, null
   br i1 %14, label %30, label %15
 
@@ -630,8 +624,8 @@ define ptr @WebPDecodeYUVInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
 
 30:                                               ; preds = %17, %11, %15
   %.0 = phi ptr [ null, %15 ], [ null, %11 ], [ %., %17 ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %13) #10
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret ptr %.0
 }
 
@@ -641,15 +635,15 @@ define internal fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr nound
   %5 = alloca i32, align 4
   %6 = alloca %struct.VP8Io, align 8
   %7 = alloca %struct.WebPHeaderStructure, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %1, ptr %8, align 8, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 1, ptr %9, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !3
   %10 = call fastcc i32 @ParseHeadersInternal(ptr noundef %0, i64 noundef %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %5, ptr noundef null, ptr noundef nonnull %7)
   store volatile i32 %10, ptr %4, align 4, !tbaa !3
@@ -676,8 +670,8 @@ define internal fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr nound
 
 WebPParseHeaders.exit:                            ; preds = %12, %16, %17
   %.0..0..0..0..0..0.3.i = load volatile i32, ptr %4, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq i32 %.0..0..0..0..0..0.3.i, 0
   br i1 %.not, label %18, label %.critedge
 
@@ -818,8 +812,8 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
 
 .critedge:                                        ; preds = %60, %31, %78, %86, %83, %80, %18, %WebPParseHeaders.exit
   %.0 = phi i32 [ %.0..0..0..0..0..0.3.i, %WebPParseHeaders.exit ], [ 2, %18 ], [ %.240, %78 ], [ %88, %86 ], [ 0, %83 ], [ 0, %80 ], [ 1, %31 ], [ 1, %60 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -828,8 +822,8 @@ define ptr @WebPDecodeRGB(ptr noundef %0, i64 noundef %1, ptr noundef writeonly 
   %5 = alloca %struct.WebPBitstreamFeatures, align 4
   %6 = alloca %struct.WebPDecParams, align 8
   %7 = alloca %struct.WebPDecBuffer, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @WebPInitDecBufferInternal(ptr noundef nonnull %7, i32 noundef 528) #10
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %Decode.exit, label %9
@@ -841,7 +835,7 @@ define ptr @WebPDecodeRGB(ptr noundef %0, i64 noundef %1, ptr noundef writeonly 
   store i32 0, ptr %7, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = icmp eq ptr %0, null
   br i1 %13, label %WebPGetInfo.exit.thread.i, label %GetFeatures.exit.i.i
 
@@ -856,7 +850,7 @@ GetFeatures.exit.i.i:                             ; preds = %9
   br i1 %.not.i.i, label %19, label %WebPGetInfo.exit.thread.i
 
 WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.i, %9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %Decode.exit
 
 19:                                               ; preds = %GetFeatures.exit.i.i
@@ -864,7 +858,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   store i32 %20, ptr %11, align 4, !tbaa !3
   %21 = load i32, ptr %14, align 4, !tbaa !69
   store i32 %21, ptr %12, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not16.i = icmp eq ptr %2, null
   br i1 %.not16.i, label %23, label %22
 
@@ -892,8 +886,8 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
 
 Decode.exit:                                      ; preds = %4, %WebPGetInfo.exit.thread.i, %25, %27
   %.0.i = phi ptr [ %29, %27 ], [ null, %4 ], [ null, %25 ], [ null, %WebPGetInfo.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
 }
 
@@ -902,8 +896,8 @@ define ptr @WebPDecodeRGBA(ptr noundef %0, i64 noundef %1, ptr noundef writeonly
   %5 = alloca %struct.WebPBitstreamFeatures, align 4
   %6 = alloca %struct.WebPDecParams, align 8
   %7 = alloca %struct.WebPDecBuffer, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @WebPInitDecBufferInternal(ptr noundef nonnull %7, i32 noundef 528) #10
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %Decode.exit, label %9
@@ -915,7 +909,7 @@ define ptr @WebPDecodeRGBA(ptr noundef %0, i64 noundef %1, ptr noundef writeonly
   store i32 1, ptr %7, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = icmp eq ptr %0, null
   br i1 %13, label %WebPGetInfo.exit.thread.i, label %GetFeatures.exit.i.i
 
@@ -930,7 +924,7 @@ GetFeatures.exit.i.i:                             ; preds = %9
   br i1 %.not.i.i, label %19, label %WebPGetInfo.exit.thread.i
 
 WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.i, %9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %Decode.exit
 
 19:                                               ; preds = %GetFeatures.exit.i.i
@@ -938,7 +932,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   store i32 %20, ptr %11, align 4, !tbaa !3
   %21 = load i32, ptr %14, align 4, !tbaa !69
   store i32 %21, ptr %12, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not16.i = icmp eq ptr %2, null
   br i1 %.not16.i, label %23, label %22
 
@@ -966,8 +960,8 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
 
 Decode.exit:                                      ; preds = %4, %WebPGetInfo.exit.thread.i, %25, %27
   %.0.i = phi ptr [ %29, %27 ], [ null, %4 ], [ null, %25 ], [ null, %WebPGetInfo.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
 }
 
@@ -976,8 +970,8 @@ define ptr @WebPDecodeARGB(ptr noundef %0, i64 noundef %1, ptr noundef writeonly
   %5 = alloca %struct.WebPBitstreamFeatures, align 4
   %6 = alloca %struct.WebPDecParams, align 8
   %7 = alloca %struct.WebPDecBuffer, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @WebPInitDecBufferInternal(ptr noundef nonnull %7, i32 noundef 528) #10
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %Decode.exit, label %9
@@ -989,7 +983,7 @@ define ptr @WebPDecodeARGB(ptr noundef %0, i64 noundef %1, ptr noundef writeonly
   store i32 4, ptr %7, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = icmp eq ptr %0, null
   br i1 %13, label %WebPGetInfo.exit.thread.i, label %GetFeatures.exit.i.i
 
@@ -1004,7 +998,7 @@ GetFeatures.exit.i.i:                             ; preds = %9
   br i1 %.not.i.i, label %19, label %WebPGetInfo.exit.thread.i
 
 WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.i, %9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %Decode.exit
 
 19:                                               ; preds = %GetFeatures.exit.i.i
@@ -1012,7 +1006,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   store i32 %20, ptr %11, align 4, !tbaa !3
   %21 = load i32, ptr %14, align 4, !tbaa !69
   store i32 %21, ptr %12, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not16.i = icmp eq ptr %2, null
   br i1 %.not16.i, label %23, label %22
 
@@ -1040,8 +1034,8 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
 
 Decode.exit:                                      ; preds = %4, %WebPGetInfo.exit.thread.i, %25, %27
   %.0.i = phi ptr [ %29, %27 ], [ null, %4 ], [ null, %25 ], [ null, %WebPGetInfo.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
 }
 
@@ -1050,8 +1044,8 @@ define ptr @WebPDecodeBGR(ptr noundef %0, i64 noundef %1, ptr noundef writeonly 
   %5 = alloca %struct.WebPBitstreamFeatures, align 4
   %6 = alloca %struct.WebPDecParams, align 8
   %7 = alloca %struct.WebPDecBuffer, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @WebPInitDecBufferInternal(ptr noundef nonnull %7, i32 noundef 528) #10
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %Decode.exit, label %9
@@ -1063,7 +1057,7 @@ define ptr @WebPDecodeBGR(ptr noundef %0, i64 noundef %1, ptr noundef writeonly 
   store i32 2, ptr %7, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = icmp eq ptr %0, null
   br i1 %13, label %WebPGetInfo.exit.thread.i, label %GetFeatures.exit.i.i
 
@@ -1078,7 +1072,7 @@ GetFeatures.exit.i.i:                             ; preds = %9
   br i1 %.not.i.i, label %19, label %WebPGetInfo.exit.thread.i
 
 WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.i, %9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %Decode.exit
 
 19:                                               ; preds = %GetFeatures.exit.i.i
@@ -1086,7 +1080,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   store i32 %20, ptr %11, align 4, !tbaa !3
   %21 = load i32, ptr %14, align 4, !tbaa !69
   store i32 %21, ptr %12, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not16.i = icmp eq ptr %2, null
   br i1 %.not16.i, label %23, label %22
 
@@ -1114,8 +1108,8 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
 
 Decode.exit:                                      ; preds = %4, %WebPGetInfo.exit.thread.i, %25, %27
   %.0.i = phi ptr [ %29, %27 ], [ null, %4 ], [ null, %25 ], [ null, %WebPGetInfo.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
 }
 
@@ -1124,8 +1118,8 @@ define ptr @WebPDecodeBGRA(ptr noundef %0, i64 noundef %1, ptr noundef writeonly
   %5 = alloca %struct.WebPBitstreamFeatures, align 4
   %6 = alloca %struct.WebPDecParams, align 8
   %7 = alloca %struct.WebPDecBuffer, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @WebPInitDecBufferInternal(ptr noundef nonnull %7, i32 noundef 528) #10
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %Decode.exit, label %9
@@ -1137,7 +1131,7 @@ define ptr @WebPDecodeBGRA(ptr noundef %0, i64 noundef %1, ptr noundef writeonly
   store i32 3, ptr %7, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = icmp eq ptr %0, null
   br i1 %13, label %WebPGetInfo.exit.thread.i, label %GetFeatures.exit.i.i
 
@@ -1152,7 +1146,7 @@ GetFeatures.exit.i.i:                             ; preds = %9
   br i1 %.not.i.i, label %19, label %WebPGetInfo.exit.thread.i
 
 WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.i, %9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %Decode.exit
 
 19:                                               ; preds = %GetFeatures.exit.i.i
@@ -1160,7 +1154,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   store i32 %20, ptr %11, align 4, !tbaa !3
   %21 = load i32, ptr %14, align 4, !tbaa !69
   store i32 %21, ptr %12, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not16.i = icmp eq ptr %2, null
   br i1 %.not16.i, label %23, label %22
 
@@ -1188,8 +1182,8 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
 
 Decode.exit:                                      ; preds = %4, %WebPGetInfo.exit.thread.i, %25, %27
   %.0.i = phi ptr [ %29, %27 ], [ null, %4 ], [ null, %25 ], [ null, %WebPGetInfo.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
 }
 
@@ -1209,9 +1203,9 @@ define ptr @WebPDecodeYUV(ptr noundef %0, i64 noundef %1, ptr noundef writeonly 
   br i1 %or.cond5, label %49, label %17
 
 17:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %12) #10
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %10) #10
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %18 = call i32 @WebPInitDecBufferInternal(ptr noundef nonnull %11, i32 noundef 528) #10
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %Decode.exit.thread, label %19
@@ -1223,7 +1217,7 @@ define ptr @WebPDecodeYUV(ptr noundef %0, i64 noundef %1, ptr noundef writeonly 
   store i32 11, ptr %11, align 8, !tbaa !28
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %23 = icmp eq ptr %0, null
   br i1 %23, label %WebPGetInfo.exit.thread.i, label %GetFeatures.exit.i.i
 
@@ -1238,7 +1232,7 @@ GetFeatures.exit.i.i:                             ; preds = %19
   br i1 %.not.i.i, label %29, label %WebPGetInfo.exit.thread.i
 
 WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.i, %19
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %Decode.exit.thread
 
 29:                                               ; preds = %GetFeatures.exit.i.i
@@ -1246,7 +1240,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   store i32 %30, ptr %21, align 4, !tbaa !3
   %31 = load i32, ptr %24, align 4, !tbaa !69
   store i32 %31, ptr %22, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not16.i = icmp eq ptr %2, null
   br i1 %.not16.i, label %33, label %32
 
@@ -1268,16 +1262,16 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   br i1 %.not18.i, label %Decode.exit, label %Decode.exit.thread
 
 Decode.exit.thread:                               ; preds = %17, %35, %WebPGetInfo.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %48
 
 Decode.exit:                                      ; preds = %35
   call void @WebPCopyDecBuffer(ptr noundef nonnull %11, ptr noundef nonnull %12) #10
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not = icmp eq ptr %38, null
   br i1 %.not, label %48, label %39
 
@@ -1298,7 +1292,7 @@ Decode.exit:                                      ; preds = %35
 
 48:                                               ; preds = %Decode.exit.thread, %39, %Decode.exit
   %.0.i29 = phi ptr [ null, %Decode.exit.thread ], [ %38, %39 ], [ null, %Decode.exit ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %49
 
 49:                                               ; preds = %8, %48
@@ -1309,7 +1303,7 @@ Decode.exit:                                      ; preds = %35
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @WebPGetInfo(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.WebPBitstreamFeatures, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %0, null
   br i1 %6, label %GetFeatures.exit.thread, label %GetFeatures.exit
 
@@ -1343,7 +1337,7 @@ GetFeatures.exit:                                 ; preds = %4
 
 GetFeatures.exit.thread:                          ; preds = %4, %15, %16, %GetFeatures.exit
   %.0 = phi i32 [ 0, %GetFeatures.exit ], [ 1, %16 ], [ 1, %15 ], [ 0, %4 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -1438,11 +1432,11 @@ define range(i32 0, 2) i32 @WebPValidateDecoderConfig(ptr noundef readonly captu
   br i1 %42, label %43, label %73
 
 43:                                               ; preds = %39, %36
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %45 = load i32, ptr %44, align 4, !tbaa !83
   store i32 %45, ptr %2, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %47 = load i32, ptr %46, align 4, !tbaa !84
   store i32 %47, ptr %3, align 4, !tbaa !3
@@ -1494,13 +1488,13 @@ WebPCheckCropDimensions.exit:                     ; preds = %48
   br i1 %.not44, label %WebPCheckCropDimensions.exit.thread, label %.critedge
 
 .critedge:                                        ; preds = %69, %68
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %73
 
 WebPCheckCropDimensions.exit.thread:              ; preds = %48, %69, %WebPCheckCropDimensions.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %79
 
 73:                                               ; preds = %.critedge, %39
@@ -1521,10 +1515,10 @@ WebPCheckCropDimensions.exit.thread:              ; preds = %48, %69, %WebPCheck
   ret i32 %.032
 }
 
-declare i32 @IsValidColorspace(i32 noundef) local_unnamed_addr #4
+declare i32 @IsValidColorspace(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i32 0, 2) i32 @WebPCheckCropDimensions(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @WebPCheckCropDimensions(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = or i32 %3, %2
   %or.cond.i = icmp slt i32 %7, 0
   %8 = icmp slt i32 %4, 1
@@ -1555,7 +1549,7 @@ define hidden range(i32 0, 2) i32 @WebPCheckCropDimensions(i32 noundef %0, i32 n
   ret i32 %19
 }
 
-declare i32 @WebPRescalerGetScaledDimensions(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @WebPRescalerGetScaledDimensions(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 8) i32 @WebPGetFeaturesInternal(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -1585,7 +1579,7 @@ GetFeatures.exit:                                 ; preds = %7, %4
 define i32 @WebPDecode(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.WebPDecParams, align 8
   %5 = alloca %struct.WebPDecBuffer, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = icmp eq ptr %2, null
   %7 = icmp eq ptr %0, null
   %or.cond = or i1 %7, %6
@@ -1619,7 +1613,7 @@ GetFeatures.exit:                                 ; preds = %3
   br i1 %.not28, label %33, label %20
 
 20:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = call i32 @WebPInitDecBufferInternal(ptr noundef nonnull %5, i32 noundef 528) #10
   %.not29.not = icmp eq i32 %21, 0
   br i1 %.not29.not, label %.critedge, label %22
@@ -1645,7 +1639,7 @@ GetFeatures.exit:                                 ; preds = %3
 32:                                               ; preds = %30, %22
   %.1 = phi i32 [ %31, %30 ], [ %28, %22 ]
   call void @WebPFreeDecBuffer(ptr noundef nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %GetFeatures.exit.thread
 
 33:                                               ; preds = %14
@@ -1653,20 +1647,20 @@ GetFeatures.exit:                                 ; preds = %3
   br label %GetFeatures.exit.thread
 
 .critedge:                                        ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %GetFeatures.exit.thread
 
 GetFeatures.exit.thread:                          ; preds = %32, %33, %.critedge, %GetFeatures.exit, %3, %13
   %.022 = phi i32 [ 2, %3 ], [ 3, %GetFeatures.exit ], [ 2, %.critedge ], [ %34, %33 ], [ %.1, %32 ], [ %12, %13 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.022
 }
 
-declare i32 @WebPAvoidSlowMemory(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @WebPAvoidSlowMemory(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @WebPCopyDecBufferPixels(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @WebPCopyDecBufferPixels(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @WebPFreeDecBuffer(ptr noundef) local_unnamed_addr #4
+declare void @WebPFreeDecBuffer(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @WebPIoInitFromOptions(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) initializes((116, 120)) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1761,11 +1755,11 @@ WebPCheckCropDimensions.exit:                     ; preds = %15
   br i1 %49, label %52, label %67
 
 52:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load i32, ptr %53, align 4, !tbaa !83
   store i32 %54, ptr %4, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %56 = load i32, ptr %55, align 4, !tbaa !84
   store i32 %56, ptr %5, align 4, !tbaa !3
@@ -1780,8 +1774,8 @@ WebPCheckCropDimensions.exit:                     ; preds = %15
   %61 = load i32, ptr %5, align 4, !tbaa !3
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store i32 %61, ptr %62, align 8, !tbaa !100
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pr.pre = load i32, ptr %51, align 8, !tbaa !98
   %63 = icmp eq i32 %.pr.pre, 0
   br label %67
@@ -1835,8 +1829,8 @@ WebPCheckCropDimensions.exit:                     ; preds = %15
   br label %WebPCheckCropDimensions.exit.thread
 
 .critedge74:                                      ; preds = %52
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %WebPCheckCropDimensions.exit.thread
 
 WebPCheckCropDimensions.exit.thread:              ; preds = %15, %.thread78, %67, %89, %.critedge74, %WebPCheckCropDimensions.exit
@@ -1845,7 +1839,7 @@ WebPCheckCropDimensions.exit.thread:              ; preds = %15, %.thread78, %67
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 8) i32 @ParseOptionalChunks(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, i64 noundef %2, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %4) unnamed_addr #6 {
+define internal fastcc range(i32 0, 8) i32 @ParseOptionalChunks(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, i64 noundef %2, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %4) unnamed_addr #5 {
   %6 = load ptr, ptr %0, align 8, !tbaa !13
   %7 = load i64, ptr %1, align 8, !tbaa !14
   store ptr null, ptr %3, align 8, !tbaa !13
@@ -2033,46 +2027,52 @@ define internal fastcc range(i32 0, 8) i32 @ParseVP8Header(ptr noundef nonnull c
   ret i32 %.0
 }
 
-declare i32 @VP8GetInfo(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @VP8GetInfo(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @VP8LGetInfo(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @VP8LGetInfo(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-declare i32 @VP8LCheckSignature(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @VP8LCheckSignature(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @WebPInitDecBufferInternal(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @WebPInitDecBufferInternal(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @WebPInitCustomIo(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @WebPInitCustomIo(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @VP8New() local_unnamed_addr #4
+declare ptr @VP8New() local_unnamed_addr #3
 
-declare i32 @VP8GetHeaders(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @VP8GetHeaders(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @WebPAllocateDecBuffer(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @WebPAllocateDecBuffer(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @VP8GetThreadMethod(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @VP8GetThreadMethod(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @VP8InitDithering(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @VP8InitDithering(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @VP8Decode(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @VP8Decode(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @VP8Delete(ptr noundef) local_unnamed_addr #4
+declare void @VP8Delete(ptr noundef) local_unnamed_addr #3
 
-declare ptr @VP8LNew() local_unnamed_addr #4
+declare ptr @VP8LNew() local_unnamed_addr #3
 
-declare i32 @VP8LDecodeHeader(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @VP8LDecodeHeader(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @VP8LDecodeImage(ptr noundef) local_unnamed_addr #4
+declare i32 @VP8LDecodeImage(ptr noundef) local_unnamed_addr #3
 
-declare void @VP8LDelete(ptr noundef) local_unnamed_addr #4
+declare void @VP8LDelete(ptr noundef) local_unnamed_addr #3
 
-declare i32 @WebPFlipBuffer(ptr noundef) local_unnamed_addr #4
+declare i32 @WebPFlipBuffer(ptr noundef) local_unnamed_addr #3
 
-declare i32 @VP8InitIoInternal(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @VP8InitIoInternal(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @WebPCopyDecBuffer(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @WebPCopyDecBuffer(ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
@@ -2081,13 +2081,13 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare { i32, i1 } @llvm.umul.with.overflow.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
